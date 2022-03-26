@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2022 at 09:59 PM
+-- Generation Time: Mar 26, 2022 at 10:16 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -155,6 +155,24 @@ CREATE TABLE `student_averages` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_final_ratings`
+--
+
+CREATE TABLE `student_final_ratings` (
+  `id` int(11) NOT NULL,
+  `lrn` varchar(50) NOT NULL,
+  `subject_id` int(50) NOT NULL,
+  `final_rating` int(11) NOT NULL,
+  `term` int(11) NOT NULL,
+  `phase` int(11) NOT NULL,
+  `remarks` varchar(50) NOT NULL,
+  `date_time_created` datetime NOT NULL,
+  `date_time_updated` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_grades`
 --
 
@@ -254,6 +272,14 @@ ALTER TABLE `student_averages`
   ADD KEY `subject_id` (`subject_id`);
 
 --
+-- Indexes for table `student_final_ratings`
+--
+ALTER TABLE `student_final_ratings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `lrn` (`lrn`,`subject_id`),
+  ADD KEY `subject_id` (`subject_id`);
+
+--
 -- Indexes for table `student_grades`
 --
 ALTER TABLE `student_grades`
@@ -309,6 +335,12 @@ ALTER TABLE `student_averages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `student_final_ratings`
+--
+ALTER TABLE `student_final_ratings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `student_grades`
 --
 ALTER TABLE `student_grades`
@@ -348,6 +380,13 @@ ALTER TABLE `scholastic_records`
 ALTER TABLE `student_averages`
   ADD CONSTRAINT `student_averages_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `student_grades` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `student_averages_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `student_final_ratings`
+--
+ALTER TABLE `student_final_ratings`
+  ADD CONSTRAINT `student_final_ratings_ibfk_1` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `student_final_ratings_ibfk_2` FOREIGN KEY (`lrn`) REFERENCES `learners_personal_infos` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_grades`
