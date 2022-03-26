@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2022 at 09:57 PM
+-- Generation Time: Mar 26, 2022 at 09:59 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -164,7 +164,6 @@ CREATE TABLE `student_grades` (
   `subject_id` int(11) NOT NULL,
   `grade` int(50) NOT NULL,
   `final_rating` int(50) NOT NULL,
-  `general_average` int(11) NOT NULL,
   `term` varchar(50) NOT NULL,
   `phase` int(11) NOT NULL,
   `remarks` varchar(50) NOT NULL,
