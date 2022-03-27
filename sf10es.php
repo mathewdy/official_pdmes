@@ -175,69 +175,69 @@ date_default_timezone_set('Asia/Manila');
     <h3>Quarter 1</h3>
 
     <label for="">Mother Tongue</label>
-    <input type="text" name="term1_mother_tongue">
+    <input type="text" name="term1_phase1_mother_tongue">
 
     <br>
 
     <label for="">Filipino</label>
-    <input type="text" name="term1_filipino">
+    <input type="text" name="term1_phase1_filipino">
 
     <br>
 
     <label for="">English</label>
-    <input type="text" name="term1_english">
+    <input type="text" name="term1_phase1_english">
 
 
     <br>
     <label for="">Mathematics</label>
-    <input type="text" name="term1_mathematics">
+    <input type="text" name="term1_phase1_mathematics">
 
     <br>
     <label for="">Science</label>
-    <input type="text" name="term1_science">
+    <input type="text" name="term1_phase1_science">
 
     <br>
     <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_araling_panlipunan">
+    <input type="text" name="term1_phase1_araling_panlipunan">
 
     <br>
     <label for="">EPP / TLE</label>
-    <input type="text" name="term1_epp_tle">
+    <input type="text" name="term1_phase1_epp_tle">
 
     <br>
 
     <label for="">MAPEH</label>
-    <input type="text" name="term1_mapeh" readonly>
+    <input type="text" name="term1_phase1_mapeh" readonly>
 
     <br>
 
     <label for="">Music</label>
-    <input type="text" name="term1_music">
+    <input type="text" name="term1_phase1_music">
 
     <br>
     <label for="">Arts</label>
-    <input type="text" name="term1_arts">
+    <input type="text" name="term1_phase1_arts">
 
     <br>
     <label for="">Physical Education</label>
-    <input type="text" name="term1_pe" id="">
+    <input type="text" name="term1_phase1_pe" id="">
 
     <br>
     <label for="">Health</label>
-    <input type="text" name="term1_health">
+    <input type="text" name="term1_phase1_health">
 
     <br>
     <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_esp">
+    <input type="text" name="term1_phase1_esp">
 
     <br>
     <label for="">*Arabic Language</label>
-    <input type="text" name="term1_arabic_language">
+    <input type="text" name="term1_phase1_arabic_language">
 
 
     <br>
     <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_islamic_values">
+    <input type="text" name="term1_phase1_islamic_values">
 
     <br>
 
@@ -250,69 +250,69 @@ date_default_timezone_set('Asia/Manila');
     <h3>Quarter 2</h3>
 
     <label for="">Mother Tongue</label>
-    <input type="text" name="term2_mother_tongue">
+    <input type="text" name="term2_phase1_mother_tongue">
 
     <br>
 
     <label for="">Filipino</label>
-    <input type="text" name="term2_filipino">
+    <input type="text" name="term2_phase1_filipino">
 
     <br>
 
     <label for="">English</label>
-    <input type="text" name="term2_english">
+    <input type="text" name="term2_phase1_english">
 
 
     <br>
     <label for="">Mathematics</label>
-    <input type="text" name="term2_mathematics">
+    <input type="text" name="term2_phase1_mathematics">
 
     <br>
     <label for="">Science</label>
-    <input type="text" name="term2_science">
+    <input type="text" name="term2_phase1_science">
 
     <br>
     <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_araling_panlipunan">
+    <input type="text" name="term2_phase1_araling_panlipunan">
 
     <br>
     <label for="">EPP / TLE</label>
-    <input type="text" name="term2_epp_tle">
+    <input type="text" name="term2_phase1_epp_tle">
 
     <br>
 
     <label for="">MAPEH</label>
-    <input type="text" name="term2_mapeh" readonly>
+    <input type="text" name="term2_phase1_mapeh" readonly>
 
     <br>
 
     <label for="">Music</label>
-    <input type="text" name="term2_music">
+    <input type="text" name="term2_phase1_music">
 
     <br>
     <label for="">Arts</label>
-    <input type="text" name="term2_arts">
+    <input type="text" name="term2_phase1_arts">
 
     <br>
     <label for="">Physical Education</label>
-    <input type="text" name="term2_pe" id="">
+    <input type="text" name="term2_phase1_pe" id="">
 
     <br>
     <label for="">Health</label>
-    <input type="text" name="term2_health">
+    <input type="text" name="term2_phase1_health">
 
     <br>
     <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_esp">
+    <input type="text" name="term2_phase1_esp">
 
     <br>
     <label for="">*Arabic Language</label>
-    <input type="text" name="term2_arabic_language">
+    <input type="text" name="term2_phase1_arabic_language">
 
 
     <br>
     <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_islamic_values">
+    <input type="text" name="term2_phase1_islamic_values">
 
     <br>
 
@@ -320,74 +320,74 @@ date_default_timezone_set('Asia/Manila');
     <input type="text" readonly>
 
 
-    <!-----term3----->
+    <!-----term3_phase1----->
     
     <h3>Quarter 3</h3>
 
     <label for="">Mother Tongue</label>
-    <input type="text" name="term3_mother_tongue">
+    <input type="text" name="term3_phase1_mother_tongue">
 
     <br>
 
     <label for="">Filipino</label>
-    <input type="text" name="term3_filipino">
+    <input type="text" name="term3_phase1_filipino">
 
     <br>
 
     <label for="">English</label>
-    <input type="text" name="term3_english">
+    <input type="text" name="term3_phase1_english">
 
 
     <br>
     <label for="">Mathematics</label>
-    <input type="text" name="term3_mathematics">
+    <input type="text" name="term3_phase1_mathematics">
 
     <br>
     <label for="">Science</label>
-    <input type="text" name="term3_science">
+    <input type="text" name="term3_phase1_science">
 
     <br>
     <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_araling_panlipunan">
+    <input type="text" name="term3_phase1_araling_panlipunan">
 
     <br>
     <label for="">EPP / TLE</label>
-    <input type="text" name="term3_epp_tle">
+    <input type="text" name="term3_phase1_epp_tle">
 
     <br>
 
     <label for="">MAPEH</label>
-    <input type="text" name="term3_mapeh" readonly>
+    <input type="text" name="term3_phase1_mapeh" readonly>
 
     <br>
 
     <label for="">Music</label>
-    <input type="text" name="term3_music">
+    <input type="text" name="term3_phase1_music">
 
     <br>
     <label for="">Arts</label>
-    <input type="text" name="term3_arts">
+    <input type="text" name="term3_phase1_arts">
 
     <br>
     <label for="">Physical Education</label>
-    <input type="text" name="term3_pe" id="">
+    <input type="text" name="term3_phase1_pe" id="">
 
     <br>
     <label for="">Health</label>
-    <input type="text" name="term3_health">
+    <input type="text" name="term3_phase1_health">
 
     <br>
     <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_esp">
+    <input type="text" name="term3_phase1_esp">
 
     <br>
     <label for="">*Arabic Language</label>
-    <input type="text" name="term3_arabic_language">
+    <input type="text" name="term3_phase1_arabic_language">
 
 
     <br>
     <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_islamic_values">
+    <input type="text" name="term3_phase1_islamic_values">
 
     <br>
 
@@ -399,69 +399,69 @@ date_default_timezone_set('Asia/Manila');
     <h3>Quarter 4</h3>
 
     <label for="">Mother Tongue</label>
-    <input type="text" name="term4_mother_tongue">
+    <input type="text" name="term4_phase1_mother_tongue">
 
     <br>
 
     <label for="">Filipino</label>
-    <input type="text" name="term4_filipino">
+    <input type="text" name="term4_phase1_filipino">
 
     <br>
 
     <label for="">English</label>
-    <input type="text" name="term4_english">
+    <input type="text" name="term4_phase1_english">
 
 
     <br>
     <label for="">Mathematics</label>
-    <input type="text" name="term4_mathematics">
+    <input type="text" name="term4_phase1_mathematics">
 
     <br>
     <label for="">Science</label>
-    <input type="text" name="term4_science">
+    <input type="text" name="term4_phase1_science">
 
     <br>
     <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_araling_panlipunan">
+    <input type="text" name="term4_phase1_araling_panlipunan">
 
     <br>
     <label for="">EPP / TLE</label>
-    <input type="text" name="term4_epp_tle">
+    <input type="text" name="term4_phase1_epp_tle">
 
     <br>
 
     <label for="">MAPEH</label>
-    <input type="text" name="term4_mapeh" readonly>
+    <input type="text" name="term4_phase1_mapeh" readonly>
 
     <br>
 
     <label for="">Music</label>
-    <input type="text" name="term4_music">
+    <input type="text" name="term4_phase1_music">
 
     <br>
     <label for="">Arts</label>
-    <input type="text" name="term4_arts">
+    <input type="text" name="term4_phase1_arts">
 
     <br>
     <label for="">Physical Education</label>
-    <input type="text" name="term4_pe" id="">
+    <input type="text" name="term4_phase1_pe" id="">
 
     <br>
     <label for="">Health</label>
-    <input type="text" name="term4_health">
+    <input type="text" name="term4_phase1_health">
 
     <br>
     <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_esp">
+    <input type="text" name="term4_phase1_esp">
 
     <br>
     <label for="">*Arabic Language</label>
-    <input type="text" name="term4_arabic_language">
+    <input type="text" name="term4_phase1_arabic_language">
 
 
     <br>
     <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_islamic_values">
+    <input type="text" name="term4_phase1_islamic_values">
 
     <br>
     <label for="">General Average</label>
@@ -469,13 +469,709 @@ date_default_timezone_set('Asia/Manila');
 
 
 
+
+    <!-- Phase 2 Here -->
+    <h1>Phase 2</h1>
+    <label for="">School: </label>
+    <input type="text" name="phase2_name_of_school">
+
+    <br>
+
+    <label for="">School ID:</label>
+    <input type="text" name="phase2_school_id">
+    
+
+    <br>
+    <label for="">District: </label>
+    <input type="text" name="phase2_district">
+
+    <br>
+    <label for="">Division: </label>
+    <input type="text" name="phase2_division">
+
+    <br>
+    <label for="">Region:</label>
+    <input type="text" name="phase2_region">
+
+    <br>
+
+    <label for="">Classified as Grade: </label>
+    <input type="text" name="phase2_classified_as_grade">
+
+    <br>
+
+    <label for="">Section: </label>
+    <input type="text" name="phase2_section">
+
+    <br>
+
+    <label for="">School Year: </label>
+    <input type="text" name="phase2_school_year">
+
+    <br>
+
+    <label for="">Name of Teacher:</label>
+    <input type="text" name="phase2_name_of_teacher">
+
+    <br>
+
+    <label for="">Signature:</label>
+    <input type="text" name="phase2_signature" >
+
+    
+
+    <!---learning areas (subjects na ito)---->
+
+    <h2>Learning Areas</h2>
+    <h3>Quarter 1</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term1_phase2_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term1_phase2_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term1_phase2_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term1_phase2_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term1_phase2_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term1_phase2_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term1_phase2_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term1_phase2_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term1_phase2_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term1_phase2_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term1_phase2_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term1_phase2_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term1_phase2_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term1_phase2_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term1_phase2_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!----term 2--->
+
+    <h3>Quarter 2</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term2_phase2_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term2_phase2_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term2_phase2_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term2_phase2_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term2_phase2_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term2_phase2_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term2_phase2_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term2_phase2_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term2_phase2_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term2_phase2_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term2_phase2_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term2_phase2_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term2_phase2_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term2_phase2_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term2_phase2_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!-----term3_phase1----->
+    
+    <h3>Quarter 3</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term3_phase2_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term3_phase2_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term3_phase2_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term3_phase2_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term3_phase2_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term3_phase2_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term3_phase2_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term3_phase2_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term3_phase2_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term3_phase2_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term3_phase2_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term3_phase2_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term3_phase2_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term3_phase2_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term3_phase2_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+
+    <h3>Quarter 4</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term4_phase2_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term4_phase2_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term4_phase2_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term4_phase2_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term4_phase2_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term4_phase2_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term4_phase2_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term4_phase2_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term4_phase2_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term4_phase2_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term4_phase2_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term4_phase2_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term4_phase2_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term4_phase2_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term4_phase2_islamic_values">
+
+    <br>
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!-- Phase 3 -->
+    <h1>Phase 3</h1>
+    <label for="">School: </label>
+    <input type="text" name="phase3_name_of_school">
+
+    <br>
+
+    <label for="">School ID:</label>
+    <input type="text" name="phase3_school_id">
+    
+
+    <br>
+    <label for="">District: </label>
+    <input type="text" name="phase3_district">
+
+    <br>
+    <label for="">Division: </label>
+    <input type="text" name="phase3_division">
+
+    <br>
+    <label for="">Region:</label>
+    <input type="text" name="phase3_region">
+
+    <br>
+
+    <label for="">Classified as Grade: </label>
+    <input type="text" name="phase3_classified_as_grade">
+
+    <br>
+
+    <label for="">Section: </label>
+    <input type="text" name="phase3_section">
+
+    <br>
+
+    <label for="">School Year: </label>
+    <input type="text" name="phase3_school_year">
+
+    <br>
+
+    <label for="">Name of Teacher:</label>
+    <input type="text" name="phase3_name_of_teacher">
+
+    <br>
+
+    <label for="">Signature:</label>
+    <input type="text" name="phase3_signature" >
+
+    
+
+    <!---learning areas (subjects na ito)---->
+
+    <h2>Learning Areas</h2>
+    <h3>Quarter 1</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term1_phase3_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term1_phase3_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term1_phase3_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term1_phase3_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term1_phase3_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term1_phase3_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term1_phase3_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term1_phase3_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term1_phase3_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term1_phase3_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term1_phase3_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term1_phase3_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term1_phase3_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term1_phase3_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term1_phase3_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!----term 2--->
+
+    <h3>Quarter 2</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term2_phase3_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term2_phase3_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term2_phase3_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term2_phase3_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term2_phase3_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term2_phase3_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term2_phase3_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term2_phase3_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term2_phase3_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term2_phase3_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term2_phase3_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term2_phase3_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term2_phase3_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term2_phase3_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term2_phase3_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!-----term3_phase1----->
+    
+    <h3>Quarter 3</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term3_phase3_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term3_phase3_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term3_phase3_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term3_phase3_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term3_phase3_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term3_phase3_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term3_phase3_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term3_phase3_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term3_phase3_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term3_phase3_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term3_phase3_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term3_phase3_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term3_phase3_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term3_phase3_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term3_phase3_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+
+    <h3>Quarter 4</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term4_phase3_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term4_phase3_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term4_phase3_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term4_phase3_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term4_phase3_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term4_phase3_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term4_phase3_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term4_phase3_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term4_phase3_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term4_phase3_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term4_phase3_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term4_phase3_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term4_phase3_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term4_phase3_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term4_phase3_islamic_values">
+
+    <br>
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
     <br>
     <input type="submit" name="next" value="Next">
 
-</for
 
 
-    
 </body>
 </html>
 
@@ -558,131 +1254,324 @@ if(isset($_POST['next'])){
     $phase1_signature = $_POST['phase1_signature'];
     $phase1_remarks = 'none';
 
-    //term1 grades
-    $term1 = 1;
-    $term1_mother_tongue = $_POST['term1_mother_tongue'];
-    $term1_filipino = $_POST['term1_filipino'];
-    $term1_english = $_POST['term1_english'];
-    $term1_mathematics = $_POST['term1_mathematics'];
-    $term1_science = $_POST['term1_science'];
-    $term1_araling_panlipunan = $_POST['term1_araling_panlipunan'];
-    $term1_epp_tle = $_POST['term1_epp_tle'];
-    $term1_music = $_POST['term1_music'];
-    $term1_arts = $_POST['term1_arts'];
-    $term1_pe = $_POST['term1_pe'];
-    $term1_health = $_POST['term1_health'];
-    $term1_esp = $_POST['term1_esp'];
-    $term1_arabic_language = $_POST['term1_arabic_language'];
-    $term1_islamic_values = $_POST['term1_islamic_values'];
-    $term1_remarks = 'none'; 
+    //term1_phase1 grades
+    $term1_phase1 = 1;
+    $term1_phase1_mother_tongue = $_POST['term1_phase1_mother_tongue'];
+    $term1_phase1_filipino = $_POST['term1_phase1_filipino'];
+    $term1_phase1_english = $_POST['term1_phase1_english'];
+    $term1_phase1_mathematics = $_POST['term1_phase1_mathematics'];
+    $term1_phase1_science = $_POST['term1_phase1_science'];
+    $term1_phase1_araling_panlipunan = $_POST['term1_phase1_araling_panlipunan'];
+    $term1_phase1_epp_tle = $_POST['term1_phase1_epp_tle'];
+    $term1_phase1_music = $_POST['term1_phase1_music'];
+    $term1_phase1_arts = $_POST['term1_phase1_arts'];
+    $term1_phase1_pe = $_POST['term1_phase1_pe'];
+    $term1_phase1_health = $_POST['term1_phase1_health'];
+    $term1_phase1_esp = $_POST['term1_phase1_esp'];
+    $term1_phase1_arabic_language = $_POST['term1_phase1_arabic_language'];
+    $term1_phase1_islamic_values = $_POST['term1_phase1_islamic_values'];
+    $term1_phase1_remarks = 'none'; 
 
-    //term2 grades
-    //term2 
-    $term2 = 2;
-    $term2_mother_tongue = $_POST['term2_mother_tongue'];
-    $term2_filipino = $_POST['term2_filipino'];
-    $term2_english = $_POST['term2_english'];
-    $term2_mathematics = $_POST['term2_mathematics'];
-    $term2_science = $_POST['term2_science'];
-    $term2_araling_panlipunan = $_POST['term2_araling_panlipunan'];
-    $term2_epp_tle = $_POST['term2_epp_tle'];
+    //term2_phase1 grades
+    //term2_phase1 
+    $term2_phase1 = 2;
+    $term2_phase1_mother_tongue = $_POST['term2_phase1_mother_tongue'];
+    $term2_phase1_filipino = $_POST['term2_phase1_filipino'];
+    $term2_phase1_english = $_POST['term2_phase1_english'];
+    $term2_phase1_mathematics = $_POST['term2_phase1_mathematics'];
+    $term2_phase1_science = $_POST['term2_phase1_science'];
+    $term2_phase1_araling_panlipunan = $_POST['term2_phase1_araling_panlipunan'];
+    $term2_phase1_epp_tle = $_POST['term2_phase1_epp_tle'];
 
-    $term2_music = $_POST['term2_music'];
-    $term2_arts = $_POST['term2_arts'];
-    $term2_pe = $_POST['term2_pe'];
-    $term2_health = $_POST['term2_health'];
-    $term2_esp = $_POST['term2_esp'];
-    $term2_arabic_language = $_POST['term2_arabic_language'];
-    $term2_islamic_values = $_POST['term2_islamic_values'];
-    $term2_remarks = 'none'; 
+    $term2_phase1_music = $_POST['term2_phase1_music'];
+    $term2_phase1_arts = $_POST['term2_phase1_arts'];
+    $term2_phase1_pe = $_POST['term2_phase1_pe'];
+    $term2_phase1_health = $_POST['term2_phase1_health'];
+    $term2_phase1_esp = $_POST['term2_phase1_esp'];
+    $term2_phase1_arabic_language = $_POST['term2_phase1_arabic_language'];
+    $term2_phase1_islamic_values = $_POST['term2_phase1_islamic_values'];
+    $term2_phase1_remarks = 'none'; 
 
-    //term3
-    //term3 grades
+    //term3_phase1
+    //term3_phase1 grades
 
-    $term3 = 3;
-    $term3_mother_tongue = $_POST['term3_mother_tongue'];
-    $term3_filipino = $_POST['term3_filipino'];
-    $term3_english = $_POST['term3_english'];
-    $term3_mathematics = $_POST['term3_mathematics'];
-    $term3_science = $_POST['term3_science'];
-    $term3_araling_panlipunan = $_POST['term3_araling_panlipunan'];
-    $term3_epp_tle = $_POST['term3_epp_tle'];
-    $term3_music = $_POST['term3_music'];
-    $term3_arts = $_POST['term3_arts'];
-    $term3_pe = $_POST['term3_pe'];
-    $term3_health = $_POST['term3_health'];
-    $term3_esp = $_POST['term3_esp'];
-    $term3_arabic_language = $_POST['term3_arabic_language'];
-    $term3_islamic_values = $_POST['term3_islamic_values'];
-    $term3_remarks = 'none'; 
+    $term3_phase1 = 3;
+    $term3_phase1_mother_tongue = $_POST['term3_phase1_mother_tongue'];
+    $term3_phase1_filipino = $_POST['term3_phase1_filipino'];
+    $term3_phase1_english = $_POST['term3_phase1_english'];
+    $term3_phase1_mathematics = $_POST['term3_phase1_mathematics'];
+    $term3_phase1_science = $_POST['term3_phase1_science'];
+    $term3_phase1_araling_panlipunan = $_POST['term3_phase1_araling_panlipunan'];
+    $term3_phase1_epp_tle = $_POST['term3_phase1_epp_tle'];
+    $term3_phase1_music = $_POST['term3_phase1_music'];
+    $term3_phase1_arts = $_POST['term3_phase1_arts'];
+    $term3_phase1_pe = $_POST['term3_phase1_pe'];
+    $term3_phase1_health = $_POST['term3_phase1_health'];
+    $term3_phase1_esp = $_POST['term3_phase1_esp'];
+    $term3_phase1_arabic_language = $_POST['term3_phase1_arabic_language'];
+    $term3_phase1_islamic_values = $_POST['term3_phase1_islamic_values'];
+    $term3_phase1_remarks = 'none'; 
 
-    //term4
-    //term4 grades
+    //term4_phase1
+    //term4_phase1 grades
 
-    $term4 = 4;
-    $term4_mother_tongue = $_POST['term4_mother_tongue'];
-    $term4_filipino = $_POST['term4_filipino'];
-    $term4_english = $_POST['term4_english'];
-    $term4_mathematics = $_POST['term4_mathematics'];
-    $term4_science = $_POST['term4_science'];
-    $term4_araling_panlipunan = $_POST['term4_araling_panlipunan'];
-    $term4_epp_tle = $_POST['term4_epp_tle'];
-    $term4_music = $_POST['term4_music'];
-    $term4_arts = $_POST['term4_arts'];
-    $term4_pe = $_POST['term2_pe'];
-    $term4_health = $_POST['term4_health'];
-    $term4_esp = $_POST['term4_esp'];
-    $term4_arabic_language = $_POST['term4_arabic_language'];
-    $term4_islamic_values = $_POST['term4_islamic_values'];
-    $term4_remarks = 'none'; 
+    $term4_phase1 = 4;
+    $term4_phase1_mother_tongue = $_POST['term4_phase1_mother_tongue'];
+    $term4_phase1_filipino = $_POST['term4_phase1_filipino'];
+    $term4_phase1_english = $_POST['term4_phase1_english'];
+    $term4_phase1_mathematics = $_POST['term4_phase1_mathematics'];
+    $term4_phase1_science = $_POST['term4_phase1_science'];
+    $term4_phase1_araling_panlipunan = $_POST['term4_phase1_araling_panlipunan'];
+    $term4_phase1_epp_tle = $_POST['term4_phase1_epp_tle'];
+    $term4_phase1_music = $_POST['term4_phase1_music'];
+    $term4_phase1_arts = $_POST['term4_phase1_arts'];
+    $term4_phase1_pe = $_POST['term2_phase1_pe'];
+    $term4_phase1_health = $_POST['term4_phase1_health'];
+    $term4_phase1_esp = $_POST['term4_phase1_esp'];
+    $term4_phase1_arabic_language = $_POST['term4_phase1_arabic_language'];
+    $term4_phase1_islamic_values = $_POST['term4_phase1_islamic_values'];
+    $term4_phase1_remarks = 'none'; 
+
+
+
+    // Phase 2
+
+    $phase2 = 2;
+    $phase2_name_of_school = $_POST['phase2_name_of_school'];
+    $phase2_school_id = $_POST['phase2_school_id'];
+    $phase2_district = $_POST['phase2_district'];
+    $phase2_division = $_POST['phase2_division'];
+    $phase2_region = $_POST['phase2_region'];
+    $phase2_classified_as_grade = $_POST['phase2_classified_as_grade'];
+    $phase2_section = $_POST['phase2_section'];
+    $phase2_school_year = $_POST['phase2_school_year'];
+    $phase2_name_of_teacher = $_POST['phase2_name_of_teacher'];
+    $phase2_signature = $_POST['phase2_signature'];
+    $phase2_remarks = 'none';
+
+    //term1_phase2 grades
+    $term1_phase2 = 1;
+    $term1_phase2_mother_tongue = $_POST['term1_phase2_mother_tongue'];
+    $term1_phase2_filipino = $_POST['term1_phase2_filipino'];
+    $term1_phase2_english = $_POST['term1_phase2_english'];
+    $term1_phase2_mathematics = $_POST['term1_phase2_mathematics'];
+    $term1_phase2_science = $_POST['term1_phase2_science'];
+    $term1_phase2_araling_panlipunan = $_POST['term1_phase2_araling_panlipunan'];
+    $term1_phase2_epp_tle = $_POST['term1_phase2_epp_tle'];
+    $term1_phase2_music = $_POST['term1_phase2_music'];
+    $term1_phase2_arts = $_POST['term1_phase2_arts'];
+    $term1_phase2_pe = $_POST['term1_phase2_pe'];
+    $term1_phase2_health = $_POST['term1_phase2_health'];
+    $term1_phase2_esp = $_POST['term1_phase2_esp'];
+    $term1_phase2_arabic_language = $_POST['term1_phase2_arabic_language'];
+    $term1_phase2_islamic_values = $_POST['term1_phase2_islamic_values'];
+    $term1_phase2_remarks = 'none'; 
+
+    //term2_phase2 grades
+    //term2_phase2 
+    $term2_phase2 = 2;
+    $term2_phase2_mother_tongue = $_POST['term2_phase2_mother_tongue'];
+    $term2_phase2_filipino = $_POST['term2_phase2_filipino'];
+    $term2_phase2_english = $_POST['term2_phase2_english'];
+    $term2_phase2_mathematics = $_POST['term2_phase2_mathematics'];
+    $term2_phase2_science = $_POST['term2_phase2_science'];
+    $term2_phase2_araling_panlipunan = $_POST['term2_phase2_araling_panlipunan'];
+    $term2_phase2_epp_tle = $_POST['term2_phase2_epp_tle'];
+
+    $term2_phase2_music = $_POST['term2_phase2_music'];
+    $term2_phase2_arts = $_POST['term2_phase2_arts'];
+    $term2_phase2_pe = $_POST['term2_phase2_pe'];
+    $term2_phase2_health = $_POST['term2_phase2_health'];
+    $term2_phase2_esp = $_POST['term2_phase2_esp'];
+    $term2_phase2_arabic_language = $_POST['term2_phase2_arabic_language'];
+    $term2_phase2_islamic_values = $_POST['term2_phase2_islamic_values'];
+    $term2_phase2_remarks = 'none'; 
+
+    //term3_phase2
+    //term3_phase2 grades
+
+    $term3_phase2 = 3;
+    $term3_phase2_mother_tongue = $_POST['term3_phase2_mother_tongue'];
+    $term3_phase2_filipino = $_POST['term3_phase2_filipino'];
+    $term3_phase2_english = $_POST['term3_phase2_english'];
+    $term3_phase2_mathematics = $_POST['term3_phase2_mathematics'];
+    $term3_phase2_science = $_POST['term3_phase2_science'];
+    $term3_phase2_araling_panlipunan = $_POST['term3_phase2_araling_panlipunan'];
+    $term3_phase2_epp_tle = $_POST['term3_phase2_epp_tle'];
+    $term3_phase2_music = $_POST['term3_phase2_music'];
+    $term3_phase2_arts = $_POST['term3_phase2_arts'];
+    $term3_phase2_pe = $_POST['term3_phase2_pe'];
+    $term3_phase2_health = $_POST['term3_phase2_health'];
+    $term3_phase2_esp = $_POST['term3_phase2_esp'];
+    $term3_phase2_arabic_language = $_POST['term3_phase2_arabic_language'];
+    $term3_phase2_islamic_values = $_POST['term3_phase2_islamic_values'];
+    $term3_phase2_remarks = 'none'; 
+
+    //term4_phase2
+    //term4_phase2 grades
+
+    $term4_phase2 = 4;
+    $term4_phase2_mother_tongue = $_POST['term4_phase2_mother_tongue'];
+    $term4_phase2_filipino = $_POST['term4_phase2_filipino'];
+    $term4_phase2_english = $_POST['term4_phase2_english'];
+    $term4_phase2_mathematics = $_POST['term4_phase2_mathematics'];
+    $term4_phase2_science = $_POST['term4_phase2_science'];
+    $term4_phase2_araling_panlipunan = $_POST['term4_phase2_araling_panlipunan'];
+    $term4_phase2_epp_tle = $_POST['term4_phase2_epp_tle'];
+    $term4_phase2_music = $_POST['term4_phase2_music'];
+    $term4_phase2_arts = $_POST['term4_phase2_arts'];
+    $term4_phase2_pe = $_POST['term2_phase2_pe'];
+    $term4_phase2_health = $_POST['term4_phase2_health'];
+    $term4_phase2_esp = $_POST['term4_phase2_esp'];
+    $term4_phase2_arabic_language = $_POST['term4_phase2_arabic_language'];
+    $term4_phase2_islamic_values = $_POST['term4_phase2_islamic_values'];
+    $term4_phase2_remarks = 'none'; 
+
+
+
+    // Phase 3
+    $phase3 = 2;
+    $phase3_name_of_school = $_POST['phase3_name_of_school'];
+    $phase3_school_id = $_POST['phase3_school_id'];
+    $phase3_district = $_POST['phase3_district'];
+    $phase3_division = $_POST['phase3_division'];
+    $phase3_region = $_POST['phase3_region'];
+    $phase3_classified_as_grade = $_POST['phase3_classified_as_grade'];
+    $phase3_section = $_POST['phase3_section'];
+    $phase3_school_year = $_POST['phase3_school_year'];
+    $phase3_name_of_teacher = $_POST['phase3_name_of_teacher'];
+    $phase3_signature = $_POST['phase3_signature'];
+    $phase3_remarks = 'none';
+
+    //term1_phase3 grades
+    $term1_phase3 = 1;
+    $term1_phase3_mother_tongue = $_POST['term1_phase3_mother_tongue'];
+    $term1_phase3_filipino = $_POST['term1_phase3_filipino'];
+    $term1_phase3_english = $_POST['term1_phase3_english'];
+    $term1_phase3_mathematics = $_POST['term1_phase3_mathematics'];
+    $term1_phase3_science = $_POST['term1_phase3_science'];
+    $term1_phase3_araling_panlipunan = $_POST['term1_phase3_araling_panlipunan'];
+    $term1_phase3_epp_tle = $_POST['term1_phase3_epp_tle'];
+    $term1_phase3_music = $_POST['term1_phase3_music'];
+    $term1_phase3_arts = $_POST['term1_phase3_arts'];
+    $term1_phase3_pe = $_POST['term1_phase3_pe'];
+    $term1_phase3_health = $_POST['term1_phase3_health'];
+    $term1_phase3_esp = $_POST['term1_phase3_esp'];
+    $term1_phase3_arabic_language = $_POST['term1_phase3_arabic_language'];
+    $term1_phase3_islamic_values = $_POST['term1_phase3_islamic_values'];
+    $term1_phase3_remarks = 'none'; 
+
+    //term2_phase3 grades
+    //term2_phase3 
+    $term2_phase3 = 2;
+    $term2_phase3_mother_tongue = $_POST['term2_phase3_mother_tongue'];
+    $term2_phase3_filipino = $_POST['term2_phase3_filipino'];
+    $term2_phase3_english = $_POST['term2_phase3_english'];
+    $term2_phase3_mathematics = $_POST['term2_phase3_mathematics'];
+    $term2_phase3_science = $_POST['term2_phase3_science'];
+    $term2_phase3_araling_panlipunan = $_POST['term2_phase3_araling_panlipunan'];
+    $term2_phase3_epp_tle = $_POST['term2_phase3_epp_tle'];
+
+    $term2_phase3_music = $_POST['term2_phase3_music'];
+    $term2_phase3_arts = $_POST['term2_phase3_arts'];
+    $term2_phase3_pe = $_POST['term2_phase3_pe'];
+    $term2_phase3_health = $_POST['term2_phase3_health'];
+    $term2_phase3_esp = $_POST['term2_phase3_esp'];
+    $term2_phase3_arabic_language = $_POST['term2_phase3_arabic_language'];
+    $term2_phase3_islamic_values = $_POST['term2_phase3_islamic_values'];
+    $term2_phase3_remarks = 'none'; 
+
+    //term3_phase3
+    //term3_phase3 grades
+
+    $term3_phase3 = 3;
+    $term3_phase3_mother_tongue = $_POST['term3_phase3_mother_tongue'];
+    $term3_phase3_filipino = $_POST['term3_phase3_filipino'];
+    $term3_phase3_english = $_POST['term3_phase3_english'];
+    $term3_phase3_mathematics = $_POST['term3_phase3_mathematics'];
+    $term3_phase3_science = $_POST['term3_phase3_science'];
+    $term3_phase3_araling_panlipunan = $_POST['term3_phase3_araling_panlipunan'];
+    $term3_phase3_epp_tle = $_POST['term3_phase3_epp_tle'];
+    $term3_phase3_music = $_POST['term3_phase3_music'];
+    $term3_phase3_arts = $_POST['term3_phase3_arts'];
+    $term3_phase3_pe = $_POST['term3_phase3_pe'];
+    $term3_phase3_health = $_POST['term3_phase3_health'];
+    $term3_phase3_esp = $_POST['term3_phase3_esp'];
+    $term3_phase3_arabic_language = $_POST['term3_phase3_arabic_language'];
+    $term3_phase3_islamic_values = $_POST['term3_phase3_islamic_values'];
+    $term3_phase3_remarks = 'none'; 
+
+    //term4_phase3
+    //term4_phase3 grades
+
+    $term4_phase3 = 4;
+    $term4_phase3_mother_tongue = $_POST['term4_phase3_mother_tongue'];
+    $term4_phase3_filipino = $_POST['term4_phase3_filipino'];
+    $term4_phase3_english = $_POST['term4_phase3_english'];
+    $term4_phase3_mathematics = $_POST['term4_phase3_mathematics'];
+    $term4_phase3_science = $_POST['term4_phase3_science'];
+    $term4_phase3_araling_panlipunan = $_POST['term4_phase3_araling_panlipunan'];
+    $term4_phase3_epp_tle = $_POST['term4_phase3_epp_tle'];
+    $term4_phase3_music = $_POST['term4_phase3_music'];
+    $term4_phase3_arts = $_POST['term4_phase3_arts'];
+    $term4_phase3_pe = $_POST['term2_phase3_pe'];
+    $term4_phase3_health = $_POST['term4_phase3_health'];
+    $term4_phase3_esp = $_POST['term4_phase3_esp'];
+    $term4_phase3_arabic_language = $_POST['term4_phase3_arabic_language'];
+    $term4_phase3_islamic_values = $_POST['term4_phase3_islamic_values'];
+    $term4_phase3_remarks = 'none';
+
+
+
+
 
     //final_term********
     //computation
-    //gagawa ako ng computation dito ni term1 to term 4 sa subject na to
+    //gagawa ako ng computation dito ni term1_phase1 to term 4 sa subject na to
     // then papasok sya sa general average ni subject
 
     //MAPEH NAMAN Ditoooooooo average ni Mapeh to hihihi
 
-    $term1_average_of_mapeh = round(($term1_music + $term1_arts + $term1_pe + $term1_health) / 4) ;
-    $term2_average_of_mapeh = round(($term2_music + $term2_arts + $term2_pe + $term2_health) / 4) ;
-    $term3_average_of_mapeh = round(($term3_music + $term3_arts + $term3_pe + $term3_health) / 4) ;
-    $term4_average_of_mapeh = round(($term4_music + $term4_arts + $term4_pe + $term4_health) / 4) ;
+    $term1_phase1_average_of_mapeh = round(($term1_phase1_music + $term1_phase1_arts + $term1_phase1_pe + $term1_phase1_health) / 4) ;
+    $term2_phase1_average_of_mapeh = round(($term2_phase1_music + $term2_phase1_arts + $term2_phase1_pe + $term2_phase1_health) / 4) ;
+    $term3_phase1_average_of_mapeh = round(($term3_phase1_music + $term3_phase1_arts + $term3_phase1_pe + $term3_phase1_health) / 4) ;
+    $term4_phase1_average_of_mapeh = round(($term4_phase1_music + $term4_phase1_arts + $term4_phase1_pe + $term4_phase1_health) / 4) ;
 
     
 
     $term5 = 'Final Rating';
   
 
-    $phase1_final_rating_mother_tongue = round(($term1_mother_tongue + $term2_mother_tongue + 
-    $term3_mother_tongue + $term4_mother_tongue) / 4);
+    $phase1_final_rating_mother_tongue = round(($term1_phase1_mother_tongue + $term2_phase1_mother_tongue + 
+    $term3_phase1_mother_tongue + $term4_phase1_mother_tongue) / 4);
 
-    $phase1_final_rating_filipino = round(($term1_filipino + $term2_filipino + $term3_filipino + $term4_filipino) / 4);
+    $phase1_final_rating_filipino = round(($term1_phase1_filipino + $term2_phase1_filipino + $term3_phase1_filipino + $term4_phase1_filipino) / 4);
 
-    $phase1_final_rating_english = round(($term1_english + $term2_english + $term3_english + $term4_english) / 4);
+    $phase1_final_rating_english = round(($term1_phase1_english + $term2_phase1_english + $term3_phase1_english + $term4_phase1_english) / 4);
 
-    $phase1_final_rating_math = round(($term1_mathematics + $term2_mathematics + $term3_mathematics + $term4_mathematics ) / 4);
+    $phase1_final_rating_math = round(($term1_phase1_mathematics + $term2_phase1_mathematics + $term3_phase1_mathematics + $term4_phase1_mathematics ) / 4);
 
-    $phase1_final_rating_science = round(($term1_science + $term2_science + $term3_science + $term4_science) / 4);
+    $phase1_final_rating_science = round(($term1_phase1_science + $term2_phase1_science + $term3_phase1_science + $term4_phase1_science) / 4);
 
-    $phase1_final_rating_AP = round(($term1_araling_panlipunan + $term2_araling_panlipunan + $term3_araling_panlipunan + $term4_araling_panlipunan) / 4);
+    $phase1_final_rating_AP = round(($term1_phase1_araling_panlipunan + $term2_phase1_araling_panlipunan + $term3_phase1_araling_panlipunan + $term4_phase1_araling_panlipunan) / 4);
 
-    $phase1_final_rating_epp_tle = round(($term1_epp_tle + $term2_epp_tle + $term3_epp_tle + $term4_epp_tle) / 4);
+    $phase1_final_rating_epp_tle = round(($term1_phase1_epp_tle + $term2_phase1_epp_tle + $term3_phase1_epp_tle + $term4_phase1_epp_tle) / 4);
 
-    $phase1_final_rating_mapeh = round(($term1_average_of_mapeh + $term2_average_of_mapeh + $term3_average_of_mapeh + $term4_average_of_mapeh) / 4 );
+    $phase1_final_rating_mapeh = round(($term1_phase1_average_of_mapeh + $term2_phase1_average_of_mapeh + $term3_phase1_average_of_mapeh + $term4_phase1_average_of_mapeh) / 4 );
 
-    $phase1_final_rating_music = round(($term1_music + $term2_music + $term3_music + $term4_music) / 4);
+    $phase1_final_rating_music = round(($term1_phase1_music + $term2_phase1_music + $term3_phase1_music + $term4_phase1_music) / 4);
 
-    $phase1_final_rating_arts = round(($term1_arts + $term2_arts + $term3_arts + $term4_arts ) / 4);
+    $phase1_final_rating_arts = round(($term1_phase1_arts + $term2_phase1_arts + $term3_phase1_arts + $term4_phase1_arts ) / 4);
 
-    $phase1_final_rating_PE = round(($term1_pe + $term2_pe + $term3_pe + $term4_pe) / 4);
+    $phase1_final_rating_PE = round(($term1_phase1_pe + $term2_phase1_pe + $term3_phase1_pe + $term4_phase1_pe) / 4);
 
-    $phase1_final_rating_health = round(($term1_health + $term2_health + $term3_health + $term4_health)/ 4);
+    $phase1_final_rating_health = round(($term1_phase1_health + $term2_phase1_health + $term3_phase1_health + $term4_phase1_health)/ 4);
 
-    $phase1_final_rating_esp = round(($term1_esp + $term2_esp + $term3_esp + $term4_esp) / 4);
+    $phase1_final_rating_esp = round(($term1_phase1_esp + $term2_phase1_esp + $term3_phase1_esp + $term4_phase1_esp) / 4);
     
-    $phase1_final_rating_arabic_language = round(($term1_arabic_language + $term2_arabic_language + $term3_arabic_language + $term4_arabic_language) / 4);
+    $phase1_final_rating_arabic_language = round(($term1_phase1_arabic_language + $term2_phase1_arabic_language + $term3_phase1_arabic_language + $term4_phase1_arabic_language) / 4);
 
-    $phase1_final_rating_islamic_values = round(($term1_islamic_values + $term2_islamic_values + $term3_islamic_values + $term4_islamic_values) / 4);
+    $phase1_final_rating_islamic_values = round(($term1_phase1_islamic_values + $term2_phase1_islamic_values + $term3_phase1_islamic_values + $term4_phase1_islamic_values) / 4);
     //gagawa naman ako ng if statement kapag more than 75 == passed else failed
 
     //remarks ito sa right side ng final rating
@@ -785,19 +1674,19 @@ if(isset($_POST['next'])){
 
 
     //left side ito
-    $phase1_term1_genral_average = round(($term1_mother_tongue + $term1_mathematics + $term1_araling_panlipunan + $term1_average_of_mapeh + $term1_esp ) / 5);
+    $phase1_term1_phase1_genral_average = round(($term1_phase1_mother_tongue + $term1_phase1_mathematics + $term1_phase1_araling_panlipunan + $term1_phase1_average_of_mapeh + $term1_phase1_esp ) / 5);
 
-    $phase1_term2_general_average = round(($term2_mother_tongue + $term2_filipino + $term2_mathematics + $term2_araling_panlipunan + $term2_average_of_mapeh + $term2_esp) / 6);
+    $phase1_term2_phase1_general_average = round(($term2_phase1_mother_tongue + $term2_phase1_filipino + $term2_phase1_mathematics + $term2_phase1_araling_panlipunan + $term2_phase1_average_of_mapeh + $term2_phase1_esp) / 6);
 
-    $phase1_term3_general_average = round(($term3_mother_tongue + $term3_filipino + $term3_english + $term3_mathematics + $term3_araling_panlipunan + $term3_average_of_mapeh + $term3_esp) / 7);
+    $phase1_term3_phase1_general_average = round(($term3_phase1_mother_tongue + $term3_phase1_filipino + $term3_phase1_english + $term3_phase1_mathematics + $term3_phase1_araling_panlipunan + $term3_phase1_average_of_mapeh + $term3_phase1_esp) / 7);
 
-    $phase1_term4_general_average = round(($term4_mother_tongue + $term4_filipino + $term4_english + $term4_mathematics + $term4_araling_panlipunan + $term4_average_of_mapeh + $term4_esp) / 7);
+    $phase1_term4_phase1_general_average = round(($term4_phase1_mother_tongue + $term4_phase1_filipino + $term4_phase1_english + $term4_phase1_mathematics + $term4_phase1_araling_panlipunan + $term4_phase1_average_of_mapeh + $term4_phase1_esp) / 7);
 
     $phase1_term5_general_average = round(($phase1_final_rating_mother_tongue + $phase1_final_rating_filipino + $phase1_final_rating_english + $phase1_final_rating_math + $phase1_final_rating_science + $phase1_final_rating_AP + $phase1_final_rating_epp_tle + $phase1_final_rating_mapeh + $phase1_final_rating_esp) / 9);
 
     //final_remarks sa student average
 
-    if($phase1_term1_genral_average >= 75){
+    if($phase1_term1_phase1_genral_average >= 75){
 
     }
 
@@ -846,7 +1735,7 @@ if(isset($_POST['next'])){
 
         //Phase 1 Insert Student Averages TERM 1
 
-        // $phase1_student_averages = "INSERT INTO student_averages (lrn,general_average,final_remarks,term,phase,date_time_created,date_time_updated) VALUES ('$lrn', '$phase1_term1_genral_average')";
+        // $phase1_student_averages = "INSERT INTO student_averages (lrn,general_average,final_remarks,term,phase,date_time_created,date_time_updated) VALUES ('$lrn', '$phase1_term1_phase1_genral_average')";
 
 
 
@@ -1048,196 +1937,196 @@ if(isset($_POST['next'])){
             //phase1 ng student grades
 
             
-            $insert_student_grades_term1_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-            VALUES ('$lrn','$mother_tongue', '$term1_mother_tongue','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-            $run_student_grades_term1_mother_tongue = mysqli_query($conn,$insert_student_grades_term1_mother_tongue);
+            $insert_student_grades_term1_phase1_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+            VALUES ('$lrn','$mother_tongue', '$term1_phase1_mother_tongue','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+            $run_student_grades_term1_phase1_mother_tongue = mysqli_query($conn,$insert_student_grades_term1_phase1_mother_tongue);
 
-            if($run_student_grades_term1_mother_tongue){
-                echo "added term1 MT  " . '<br>';
+            if($run_student_grades_term1_phase1_mother_tongue){
+                echo "added term1_phase1 MT  " . '<br>';
 
                 
 
-                $insert_student_grades_term1_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                VALUES ('$lrn','$filipino', '$term1_filipino','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                $run_student_grades_term1_filipino = mysqli_query($conn,$insert_student_grades_term1_filipino);
+                $insert_student_grades_term1_phase1_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                VALUES ('$lrn','$filipino', '$term1_phase1_filipino','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                $run_student_grades_term1_phase1_filipino = mysqli_query($conn,$insert_student_grades_term1_phase1_filipino);
 
-                if($run_student_grades_term1_filipino){
-                    echo "added term1 Filipino" . '<br>';
+                if($run_student_grades_term1_phase1_filipino){
+                    echo "added term1_phase1 Filipino" . '<br>';
 
-                    $insert_student_grades_term1_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                    VALUES ('$lrn','$english', '$term1_english','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                    $run_student_grades_term1_english = mysqli_query($conn,$insert_student_grades_term1_english);
+                    $insert_student_grades_term1_phase1_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                    VALUES ('$lrn','$english', '$term1_phase1_english','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                    $run_student_grades_term1_phase1_english = mysqli_query($conn,$insert_student_grades_term1_phase1_english);
 
-                    if($run_student_grades_term1_english){
+                    if($run_student_grades_term1_phase1_english){
 
-                        echo "added term1 english" . '<br>';
+                        echo "added term1_phase1 english" . '<br>';
 
-                        $insert_student_grades_term1_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                        VALUES ('$lrn','$math', '$term1_mathematics','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                        $run_student_grades_term1_math = mysqli_query($conn,$insert_student_grades_term1_math);
+                        $insert_student_grades_term1_phase1_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                        VALUES ('$lrn','$math', '$term1_phase1_mathematics','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                        $run_student_grades_term1_phase1_math = mysqli_query($conn,$insert_student_grades_term1_phase1_math);
 
-                        if($run_student_grades_term1_math){
-                            echo "added term1 english" . '<br>';
+                        if($run_student_grades_term1_phase1_math){
+                            echo "added term1_phase1 english" . '<br>';
 
-                            $insert_student_grades_term1_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                            VALUES ('$lrn','$science', '$term1_science','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                            $run_student_grades_term1_science = mysqli_query($conn,$insert_student_grades_term1_science);
+                            $insert_student_grades_term1_phase1_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                            VALUES ('$lrn','$science', '$term1_phase1_science','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                            $run_student_grades_term1_phase1_science = mysqli_query($conn,$insert_student_grades_term1_phase1_science);
 
-                            if($run_student_grades_term1_science){
-                                echo "added term1 science". '<br>';
+                            if($run_student_grades_term1_phase1_science){
+                                echo "added term1_phase1 science". '<br>';
 
-                                $insert_student_grades_term1_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                VALUES ('$lrn','$AP', '$term1_araling_panlipunan','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                $run_student_grades_term1_ap = mysqli_query($conn,$insert_student_grades_term1_ap);
+                                $insert_student_grades_term1_phase1_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                VALUES ('$lrn','$AP', '$term1_phase1_araling_panlipunan','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                $run_student_grades_term1_phase1_ap = mysqli_query($conn,$insert_student_grades_term1_phase1_ap);
 
-                                if($run_student_grades_term1_ap){
-                                    echo "added term1 ap";
+                                if($run_student_grades_term1_phase1_ap){
+                                    echo "added term1_phase1 ap";
 
-                                    $insert_student_grades_term1_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                    VALUES ('$lrn','$epp_tle', '$term1_epp_tle','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                    $run_student_grades_term1_epp_tle = mysqli_query($conn,$insert_student_grades_term1_epp_tle);
+                                    $insert_student_grades_term1_phase1_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                    VALUES ('$lrn','$epp_tle', '$term1_phase1_epp_tle','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                    $run_student_grades_term1_phase1_epp_tle = mysqli_query($conn,$insert_student_grades_term1_phase1_epp_tle);
 
-                                    if($run_student_grades_term1_epp_tle){
+                                    if($run_student_grades_term1_phase1_epp_tle){
                                         echo  "added term epp tle";
 
-                                        $insert_student_grades_term1_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                        VALUES ('$lrn','$mapeh', '$term1_average_of_mapeh','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                        $run_student_grades_term1_mapeh = mysqli_query($conn,$insert_student_grades_term1_mapeh);
+                                        $insert_student_grades_term1_phase1_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                        VALUES ('$lrn','$mapeh', '$term1_phase1_average_of_mapeh','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                        $run_student_grades_term1_phase1_mapeh = mysqli_query($conn,$insert_student_grades_term1_phase1_mapeh);
 
-                                        if($run_student_grades_term1_mapeh){
+                                        if($run_student_grades_term1_phase1_mapeh){
                                             echo  "added term mapeh";
 
 
-                                            $insert_student_grades_term1_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                            VALUES ('$lrn','$music', '$term1_music','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                            $run_student_grades_term1_music = mysqli_query($conn,$insert_student_grades_term1_music);
+                                            $insert_student_grades_term1_phase1_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                            VALUES ('$lrn','$music', '$term1_phase1_music','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                            $run_student_grades_term1_phase1_music = mysqli_query($conn,$insert_student_grades_term1_phase1_music);
 
-                                            if($run_student_grades_term1_music){
+                                            if($run_student_grades_term1_phase1_music){
                                                 echo  "added term music" . '<br>';
 
-                                                $insert_student_grades_term1_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                                VALUES ('$lrn','$arts', '$term1_arts','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                                $run_student_grades_term1_arts = mysqli_query($conn,$insert_student_grades_term1_arts);
+                                                $insert_student_grades_term1_phase1_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                                VALUES ('$lrn','$arts', '$term1_phase1_arts','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                                $run_student_grades_term1_phase1_arts = mysqli_query($conn,$insert_student_grades_term1_phase1_arts);
 
 
-                                                if($run_student_grades_term1_arts){
+                                                if($run_student_grades_term1_phase1_arts){
                                                     echo  "added term arts" . '<br>';
 
 
-                                                    $insert_student_grades_term1_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                                    VALUES ('$lrn','$PE', '$term1_pe','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                                    $run_student_grades_term1_pe = mysqli_query($conn,$insert_student_grades_term1_pe);
+                                                    $insert_student_grades_term1_phase1_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                                    VALUES ('$lrn','$PE', '$term1_phase1_pe','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                                    $run_student_grades_term1_phase1_pe = mysqli_query($conn,$insert_student_grades_term1_phase1_pe);
 
-                                                    if($run_student_grades_term1_pe){
+                                                    if($run_student_grades_term1_phase1_pe){
                                                         echo  "added term PE" . '<br>';
 
-                                                        $insert_student_grades_term1_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                                        VALUES ('$lrn','$health', '$term1_health','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                                        $run_student_grades_term1_health = mysqli_query($conn,$insert_student_grades_term1_health);
+                                                        $insert_student_grades_term1_phase1_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                                        VALUES ('$lrn','$health', '$term1_phase1_health','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                                        $run_student_grades_term1_phase1_health = mysqli_query($conn,$insert_student_grades_term1_phase1_health);
 
-                                                        if($run_student_grades_term1_health){
+                                                        if($run_student_grades_term1_phase1_health){
 
                                                             echo  "added term health" . '<br>';
 
-                                                            $insert_student_grades_term1_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                                            VALUES ('$lrn','$esp', '$term1_esp','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                                            $run_student_grades_term1_esp = mysqli_query($conn,$insert_student_grades_term1_esp);
+                                                            $insert_student_grades_term1_phase1_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                                            VALUES ('$lrn','$esp', '$term1_phase1_esp','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                                            $run_student_grades_term1_phase1_esp = mysqli_query($conn,$insert_student_grades_term1_phase1_esp);
 
-                                                            if($run_student_grades_term1_esp){
+                                                            if($run_student_grades_term1_phase1_esp){
                                                                 echo  "added term esp" . '<br>';
 
-                                                                $insert_student_grades_term1_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                                                VALUES ('$lrn','$arabic_language', '$term1_arabic_language','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                                                $run_student_grades_term1_arabic = mysqli_query($conn,$insert_student_grades_term1_arabic);
+                                                                $insert_student_grades_term1_phase1_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                                                VALUES ('$lrn','$arabic_language', '$term1_phase1_arabic_language','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                                                $run_student_grades_term1_phase1_arabic = mysqli_query($conn,$insert_student_grades_term1_phase1_arabic);
 
-                                                                if($run_student_grades_term1_arabic){
+                                                                if($run_student_grades_term1_phase1_arabic){
                                                                     echo  "added term arabic" . '<br>';
 
                                                                     
-                                                                    $insert_student_grades_term1_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
-                                                                    VALUES ('$lrn','$islamic_values', '$term1_islamic_values','$term1', '$phase1', '$term1_remarks','$dateCreated', '$dateUpdated')" ;
-                                                                    $run_student_grades_term1_islamic = mysqli_query($conn,$insert_student_grades_term1_islamic);
+                                                                    $insert_student_grades_term1_phase1_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
+                                                                    VALUES ('$lrn','$islamic_values', '$term1_phase1_islamic_values','$term1_phase1', '$phase1', '$term1_phase1_remarks','$dateCreated', '$dateUpdated')" ;
+                                                                    $run_student_grades_term1_phase1_islamic = mysqli_query($conn,$insert_student_grades_term1_phase1_islamic);
 
-                                                                    if($run_student_grades_term1_islamic){
+                                                                    if($run_student_grades_term1_phase1_islamic){
                                                                     echo  "added term islamic" . '<br>';
                                                                         
                                                                     }else{
-                                                                        echo "error term1 islamic" . '<br>';
+                                                                        echo "error term1_phase1 islamic" . '<br>';
                                                                     }
                                                                 }
 
 
                                                                     
                                                             }else{
-                                                                echo "error term1 esp " . '<br>' . $conn->error;
+                                                                echo "error term1_phase1 esp " . '<br>' . $conn->error;
                                                                     
                                                             }
 
                                                             
                                                         }else{
-                                                            echo "error term1 health " . '<br>' . $conn->error;
+                                                            echo "error term1_phase1 health " . '<br>' . $conn->error;
 
                                                         }
                                                         
                                                     }else{
-                                                        echo "error term1 PE " . '<br>' . $conn->error;
+                                                        echo "error term1_phase1 PE " . '<br>' . $conn->error;
 
                                                     }
     
 
 
                                                 }else{
-                                                    echo "error term1 arts " . '<br>' . $conn->error;
+                                                    echo "error term1_phase1 arts " . '<br>' . $conn->error;
                                                     
                                                 }
 
                                                 
                                             }else{
-                                                echo "error term1 music " . '<br>' . $conn->error;
+                                                echo "error term1_phase1 music " . '<br>' . $conn->error;
                                                 
                                             }
 
 
                                         }else{
-                                            echo "error term1 mapeh " . '<br>' . $conn->error;
+                                            echo "error term1_phase1 mapeh " . '<br>' . $conn->error;
                                             
                                         }
 
 
 
                                     }else{
-                                        echo "error term1 epp " . '<br>' . $conn->error;
+                                        echo "error term1_phase1 epp " . '<br>' . $conn->error;
                                         
                                     }
 
 
                                 }else{
-                                    echo "error term1 ap " . '<br>' . $conn->error;
+                                    echo "error term1_phase1 ap " . '<br>' . $conn->error;
                                 }
 
                                 
                             }else{
-                                echo "error term1 science" . '<br>' . $conn->error;
+                                echo "error term1_phase1 science" . '<br>' . $conn->error;
                             }
 
 
                         }else{
-                            echo "error term1 english" . '<br>';
+                            echo "error term1_phase1 english" . '<br>';
                         }
 
 
 
                     }else{
-                        echo "error term1 english " . '<br>';
+                        echo "error term1_phase1 english " . '<br>';
                     };
 
 
                 }else{
-                    echo "error term1 filipino" . $conn->error;
+                    echo "error term1_phase1 filipino" . $conn->error;
                 }
                 
             }else{
-                echo "error term1 MT" . $conn->error;
+                echo "error term1_phase1 MT" . $conn->error;
             }
         }else{
             echo "error eligibility" . $conn->error;
