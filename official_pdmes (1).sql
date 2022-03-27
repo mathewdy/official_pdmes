@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 05:59 PM
+-- Generation Time: Mar 27, 2022 at 06:33 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -111,6 +111,7 @@ CREATE TABLE `remedial_classes` (
   `final_rating` varchar(50) NOT NULL,
   `remedial_class_mark` varchar(50) NOT NULL,
   `recomputed_final_grade` varchar(50) NOT NULL,
+  `phase` int(11) NOT NULL,
   `remarks` varchar(50) NOT NULL,
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
