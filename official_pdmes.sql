@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 06:33 PM
+-- Generation Time: Mar 27, 2022 at 06:50 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -136,6 +136,7 @@ CREATE TABLE `scholastic_records` (
   `school_year` varchar(50) NOT NULL,
   `name_of_teacher` varchar(50) NOT NULL,
   `signature` varchar(50) NOT NULL,
+  `phase` int(11) NOT NULL,
   `remarks` varchar(50) NOT NULL,
   `date_time_created` date NOT NULL,
   `date_time_updated` datetime NOT NULL
