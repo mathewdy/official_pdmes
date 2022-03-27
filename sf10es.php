@@ -1533,10 +1533,15 @@ if(isset($_POST['next'])){
     //MAPEH NAMAN Ditoooooooo average ni Mapeh to hihihi
 
     $term1_phase1_average_of_mapeh = round(($term1_phase1_music + $term1_phase1_arts + $term1_phase1_pe + $term1_phase1_health) / 4) ;
+
     $term2_phase1_average_of_mapeh = round(($term2_phase1_music + $term2_phase1_arts + $term2_phase1_pe + $term2_phase1_health) / 4) ;
+
     $term3_phase1_average_of_mapeh = round(($term3_phase1_music + $term3_phase1_arts + $term3_phase1_pe + $term3_phase1_health) / 4) ;
+
     $term4_phase1_average_of_mapeh = round(($term4_phase1_music + $term4_phase1_arts + $term4_phase1_pe + $term4_phase1_health) / 4) ;
 
+
+    
     
 
     $term5 = 'Final Rating';
@@ -1674,21 +1679,22 @@ if(isset($_POST['next'])){
 
 
     //left side ito
-    $phase1_term1_phase1_genral_average = round(($term1_phase1_mother_tongue + $term1_phase1_mathematics + $term1_phase1_araling_panlipunan + $term1_phase1_average_of_mapeh + $term1_phase1_esp ) / 5);
+    //once na matapos ko to, mag query ako ng insert
+    $phase1_term1_general_average = round(($term1_phase1_mother_tongue + $term1_phase1_mathematics + $term1_phase1_araling_panlipunan + $term1_phase1_average_of_mapeh + $term1_phase1_esp ) / 5);
 
-    $phase1_term2_phase1_general_average = round(($term2_phase1_mother_tongue + $term2_phase1_filipino + $term2_phase1_mathematics + $term2_phase1_araling_panlipunan + $term2_phase1_average_of_mapeh + $term2_phase1_esp) / 6);
+    $phase1_term2_general_average = round(($term2_phase1_mother_tongue + $term2_phase1_filipino + $term2_phase1_mathematics + $term2_phase1_araling_panlipunan + $term2_phase1_average_of_mapeh + $term2_phase1_esp) / 6);
 
-    $phase1_term3_phase1_general_average = round(($term3_phase1_mother_tongue + $term3_phase1_filipino + $term3_phase1_english + $term3_phase1_mathematics + $term3_phase1_araling_panlipunan + $term3_phase1_average_of_mapeh + $term3_phase1_esp) / 7);
+    $phase1_term3_general_average = round(($term3_phase1_mother_tongue + $term3_phase1_filipino + $term3_phase1_english + $term3_phase1_mathematics + $term3_phase1_araling_panlipunan + $term3_phase1_average_of_mapeh + $term3_phase1_esp) / 7);
 
-    $phase1_term4_phase1_general_average = round(($term4_phase1_mother_tongue + $term4_phase1_filipino + $term4_phase1_english + $term4_phase1_mathematics + $term4_phase1_araling_panlipunan + $term4_phase1_average_of_mapeh + $term4_phase1_esp) / 7);
+    $phase1_term4_general_average = round(($term4_phase1_mother_tongue + $term4_phase1_filipino + $term4_phase1_english + $term4_phase1_mathematics + $term4_phase1_araling_panlipunan + $term4_phase1_average_of_mapeh + $term4_phase1_esp) / 7);
 
     $phase1_term5_general_average = round(($phase1_final_rating_mother_tongue + $phase1_final_rating_filipino + $phase1_final_rating_english + $phase1_final_rating_math + $phase1_final_rating_science + $phase1_final_rating_AP + $phase1_final_rating_epp_tle + $phase1_final_rating_mapeh + $phase1_final_rating_esp) / 9);
 
-    //final_remarks sa student average
+    
 
-    if($phase1_term1_phase1_genral_average >= 75){
 
-    }
+
+    
 
 
 
@@ -1708,7 +1714,7 @@ if(isset($_POST['next'])){
         echo "already added" . '<br>';
     }else{
 
-    //insertion
+    //insertion ng personal info
 
     $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,first_name,middle_name,suffix,birth_date,sex,remarks,date_time_created,date_time_updated)
     VALUES ('$lrn' , '$last_name' , '$first_name' ,'$middle_name', '$suffix' , '$birth_date' , '$sex','$remarks', '$dateCreated', '$dateUpdated')
@@ -1733,9 +1739,7 @@ if(isset($_POST['next'])){
             echo "added phase 1 scholastic records";
         }
 
-        //Phase 1 Insert Student Averages TERM 1
-
-        // $phase1_student_averages = "INSERT INTO student_averages (lrn,general_average,final_remarks,term,phase,date_time_created,date_time_updated) VALUES ('$lrn', '$phase1_term1_phase1_genral_average')";
+      
 
 
 
@@ -1743,7 +1747,128 @@ if(isset($_POST['next'])){
 
 
         if($run_eligibility){
-            echo "inserted eligibility" . '<br>';
+        echo "inserted eligibility" . '<br>';
+
+
+              //insert term2 phase 1 grades MT
+        $insert_student_grades_term2_phase1_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$mother_tongue','$term1_phase2_mother_tongue', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_mother_tongue = mysqli_query($conn,$insert_student_grades_term2_phase1_mother_tongue);
+        if($run_student_grades_term2_phase1_mother_tongue){
+            echo "added insert_student_grades_term2_phase1_mother_tongue ";
+        }else{
+            echo "error insert_student_grades_term2_phase1_mother_tongue". $conn->error;
+        }
+
+        //insert term2 phase 1 Filipino
+        $insert_student_grades_term2_phase1_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$filipino','$term2_phase1_filipino', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_filipino = mysqli_query($conn,$insert_student_grades_term2_phase1_filipino);
+        if($run_student_grades_term2_phase1_filipino){
+            echo "added insert_student_grades_term2_phase1_filipino ";
+        }else{
+            echo "error insert_student_grades_term2_phase1_filipino". $conn->error;
+        }
+
+        //insert term2 phase 1 English
+        $insert_student_grades_term2_phase1_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$english','$term2_phase1_english', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_english = mysqli_query($conn,$insert_student_grades_term2_phase1_english);
+        if($run_student_grades_term2_phase1_english){
+            echo "added insert_student_grades_term2_phase1_english ";
+        }else{
+            echo "error insert_student_grades_term2_phase1_english". $conn->error;
+        }
+
+        //insert term2 phase 1 math
+        $insert_student_grades_term2_phase1_mathematics = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$math','$term2_phase1_mathematics', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_mathematics = mysqli_query($conn,$insert_student_grades_term2_phase1_mathematics);
+        if($run_student_grades_term2_phase1_mathematics){
+            echo "added insert_student_grades_term1_phase1_mathematics ";
+        }else{
+            echo "error insert_student_grades_term1_phase1_mathematics". $conn->error;
+        }
+
+        //insert term2 phase 1 science
+        $insert_student_grades_term2_phase1_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$science','$term2_phase1_science', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_science = mysqli_query($conn,$insert_student_grades_term2_phase1_science);
+        if($run_student_grades_term2_phase1_science){
+            echo "added insert_student_grades_term2_phase1_science ";
+        }else{
+            echo "error insert_student_grades_term2_phase1_science". $conn->error;
+        }
+
+
+        //insert term2 phase 1 AP
+        $insert_student_grades_term2_phase1_AP = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$AP','$term2_phase1_araling_panlipunan', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_AP = mysqli_query($conn,$insert_student_grades_term2_phase1_AP);
+        if($run_student_grades_term2_phase1_AP){
+            echo "added insert_student_grades_term2_phase1_AP ";
+        }else{
+            echo "error insert_student_grades_term2_phase1_AP". $conn->error;
+        }
+
+
+        //insert term2 phase 1 epp tle
+        $insert_student_grades_term2_phase1_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$epp_tle','$term2_phase1_epp_tle', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_epp_tle = mysqli_query($conn,$insert_student_grades_term2_phase1_epp_tle);
+        if($run_student_grades_term2_phase1_epp_tle){
+            echo "added insert_student_grades_term2_phase1_epp_tle ";
+        }else{
+            echo "error insert_student_grades_term2_phase1_epp_tle". $conn->error;
+        }
+
+        //insert term2 phase 1 mapeh
+        $insert_term2_phase1_average_of_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$mapeh','$term2_phase1_average_of_mapeh', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_mapeh = mysqli_query($conn,$run_student_grades_term2_phase1_mapeh);
+        if($run_student_grades_term2_phase1_epp_tle){
+            echo "added insert_term2_phase1_average_of_mapeh ";
+        }else{
+            echo "error insert_term2_phase1_average_of_mapeh". $conn->error;
+        }
+
+        
+        //insert term2 phase 1 mapeh
+        $insert_term2_phase1_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$music','$term2_phase1_music', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_music = mysqli_query($conn,$insert_term2_phase1_music);
+        if($run_student_grades_term2_phase1_music){
+            echo "added insert_term2_phase1_music ";
+        }else{
+            echo "error insert_term2_phase1_music". $conn->error;
+        }
+
+        //insert term2 phase 1 arts
+        $insert_term2_phase1_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$arts','$term2_phase1_arts', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_arts = mysqli_query($conn,$insert_term2_phase1_arts);
+        if($run_student_grades_term2_phase1_arts){
+            echo "added insert_term2_phase1_arts ";
+        }else{
+            echo "error insert_term2_phase1_arts". $conn->error;
+        }
+
+        //insert term2 phase 1 PE
+        $insert_term2_phase1_PE = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$PE','$term2_phase1_pe', '$term2_phase1', '$term2_phase1_remarks','$dateCreated', '$dateUpdated')";
+
+        $run_student_grades_term2_phase1_pe = mysqli_query($conn,$insert_term2_phase1_PE);
+        if($run_student_grades_term2_phase1_pe){
+            echo "added insert_term2_phase1_PE ";
+        }else{
+            echo "error insert_term2_phase1_PE". $conn->error;
+        }
+        
+        ERROR TJ
+
+
+
+
+
             //insert ko sa FINAL RATINGS table PER SUBJECT mother tongue
 
             $insert_student_final_ratings_mt = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
@@ -1926,6 +2051,55 @@ if(isset($_POST['next'])){
             }
 
 
+            //insert student averages eto yung kinompute ko sa taas
+            $insert_phase1_term1_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn', '$phase1_term1_general_average', '$term1_phase1','$phase1_remarks','$dateCreated', '$dateUpdated')";
+            $run_phase1_term1_student_averages = mysqli_query($conn,$insert_phase1_term1_general_average);
+
+            if($run_phase1_term1_student_averages){
+                echo "added student averages term1";
+            }else{
+                echo "error student_averages" . $conn->error;
+            }
+            
+            $insert_phase1_term2_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn','$phase1_term2_general_average', '$term1_phase1','$term1_phase1_remarks', '$dateCreated','$dateUpdated')";
+            $run_phase1_term2_general_average = mysqli_query($conn,$insert_phase1_term2_general_average);
+
+            if($run_phase1_term2_general_average){
+                echo "added student averages term2";
+            }else{
+                echo "error student averages term2";
+            }
+            
+            $insert_phase1_term3_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn','$phase1_term3_general_average', '$term1_phase1','$term1_phase1_remarks', '$dateCreated','$dateUpdated')";
+
+            $run_phase1_term3_general_average = mysqli_query($conn,$insert_phase1_term3_general_average);
+
+            if($run_phase1_term3_general_average){
+                echo "added student averages term3";
+            }else{
+                echo "added student averages term3";
+            }
+
+            $insert_phase1_term4_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn','$phase1_term4_general_average', '$term1_phase1','$term1_phase1_remarks', '$dateCreated','$dateUpdated')";
+
+            $run_phase1_term4_general_average = mysqli_query($conn,$insert_phase1_term4_general_average);
+
+            if($run_phase1_term4_general_average){
+                echo "added student averages term4";
+            }else{
+                echo "added student averages term4";
+            }
+
+            $insert_phase1_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn','$phase1_term5_general_average', '$term1_phase1','$term1_phase1_remarks', '$dateCreated','$dateUpdated')";
+
+            $run_phase1_term5_general_average = mysqli_query($conn,$insert_phase1_term5_general_average);
+
+            if($run_phase1_term5_general_average){
+                echo "added student averages term4";
+            }else{
+                echo "added student averages term4";
+            }
+
 
 
 
@@ -1934,7 +2108,7 @@ if(isset($_POST['next'])){
 
             //then retrieve kapag kinuha yung passed and failed na words
 
-            //phase1 ng student grades
+            //phase1 ng student grades term1
 
             
             $insert_student_grades_term1_phase1_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
@@ -2138,16 +2312,8 @@ if(isset($_POST['next'])){
     }else{
         echo "error learners" . $conn->error;
     }
-
-
-    
-
 }
-
-
 }
-
-
 
 ob_end_flush();
 ?>
