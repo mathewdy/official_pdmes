@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2022 at 10:37 PM
+-- Generation Time: Mar 27, 2022 at 03:32 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `official_pdmes`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a`
+--
+
+CREATE TABLE `a` (
+  `aaaaaa` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `name2` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `a`
+--
+
+INSERT INTO `a` (`aaaaaa`, `name`, `name2`) VALUES
+(6, 'mathew', 'pogi');
 
 -- --------------------------------------------------------
 
@@ -50,6 +69,7 @@ CREATE TABLE `eligibility_for_elementary_school_enrollment` (
   `rating` varchar(50) NOT NULL,
   `date_of_assessment` varchar(50) NOT NULL,
   `others` varchar(50) NOT NULL,
+  `specify` varchar(50) NOT NULL,
   `name_and_address_testing_center` varchar(255) NOT NULL,
   `remarks` varchar(50) NOT NULL,
   `date_time_created` datetime NOT NULL,
@@ -60,8 +80,8 @@ CREATE TABLE `eligibility_for_elementary_school_enrollment` (
 -- Dumping data for table `eligibility_for_elementary_school_enrollment`
 --
 
-INSERT INTO `eligibility_for_elementary_school_enrollment` (`id`, `lrn`, `credential_presented`, `name_of_school`, `school_id`, `address_of_school`, `pept_passer`, `rating`, `date_of_assessment`, `others`, `name_and_address_testing_center`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
-(6, '987654321012', 'Kinder progress report, Kindergarten Certificate of Completion', 'QC', '123QC', 'QCQCQCQC', '1', '0999', 'Mar-15-2022', '', 'QCQCQCQCQ', 'sample remarkeligi', '2022-03-27 01:44:00', '2022-03-27 01:44:00');
+INSERT INTO `eligibility_for_elementary_school_enrollment` (`id`, `lrn`, `credential_presented`, `name_of_school`, `school_id`, `address_of_school`, `pept_passer`, `rating`, `date_of_assessment`, `others`, `specify`, `name_and_address_testing_center`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(18, '109857060083', 'Kinder progress report, Kindergarten Certificate of Completion', 'PDMES', '12345', 'NOVALICHES, QUEZON CITY', '1', '80', 'Mar-21-2022', '1', 'sample other ', 'SAMPLE NAME AND ADDRESS', '', '2022-03-27 04:18:00', '2022-03-27 04:18:00');
 
 -- --------------------------------------------------------
 
@@ -88,7 +108,7 @@ CREATE TABLE `learners_personal_infos` (
 --
 
 INSERT INTO `learners_personal_infos` (`id`, `lrn`, `last_name`, `first_name`, `middle_name`, `suffix`, `birth_date`, `sex`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
-(13, '987654321012', 'Dalisay', 'Mathew', 'Framcisco', '', 'Mar-16-2022', 'Female', 'none', '2022-03-27 01:44:00', '2022-03-27 01:44:00');
+(25, '109857060083', 'Dalisay', 'Mathew', 'Francisco', '', 'Mar-22-2022', 'Male', 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00');
 
 -- --------------------------------------------------------
 
@@ -134,6 +154,13 @@ CREATE TABLE `scholastic_records` (
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `scholastic_records`
+--
+
+INSERT INTO `scholastic_records` (`id`, `lrn`, `school`, `school_id`, `district`, `division`, `region`, `classified_as_grade`, `section`, `school_year`, `name_of_teacher`, `signature`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(1, '109857060083', 'Tondo High', '0987', '5', 'Manila', 'NCR', '2', 'A', '2022', 'Tondo High', '', 'none', '2022-03-27', '2022-03-27 04:18:00');
+
 -- --------------------------------------------------------
 
 --
@@ -143,10 +170,9 @@ CREATE TABLE `scholastic_records` (
 CREATE TABLE `student_averages` (
   `id` int(11) NOT NULL,
   `lrn` varchar(50) NOT NULL,
-  `subject_id` int(11) NOT NULL,
   `general_average` int(50) NOT NULL,
-  `remarks` varchar(50) NOT NULL,
-  `term` int(11) NOT NULL,
+  `final_remarks` varchar(50) NOT NULL,
+  `term` varchar(50) NOT NULL,
   `phase` int(11) NOT NULL,
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
@@ -163,12 +189,33 @@ CREATE TABLE `student_final_ratings` (
   `lrn` varchar(50) NOT NULL,
   `subject_id` int(50) NOT NULL,
   `final_rating` int(11) NOT NULL,
-  `term` int(11) NOT NULL,
+  `term` varchar(50) NOT NULL,
   `phase` int(11) NOT NULL,
   `remarks` varchar(50) NOT NULL,
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student_final_ratings`
+--
+
+INSERT INTO `student_final_ratings` (`id`, `lrn`, `subject_id`, `final_rating`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(115, '109857060083', 1, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(116, '109857060083', 2, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(117, '109857060083', 3, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(118, '109857060083', 4, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(119, '109857060083', 5, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(120, '109857060083', 6, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(121, '109857060083', 7, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(122, '109857060083', 8, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(123, '109857060083', 9, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(124, '109857060083', 10, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(125, '109857060083', 11, 76, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(126, '109857060083', 12, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(127, '109857060083', 13, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(128, '109857060083', 14, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(129, '109857060083', 15, 77, 'Final Rating', 1, 'PASSED', '2022-03-27 04:18:00', '2022-03-27 04:18:00');
 
 -- --------------------------------------------------------
 
@@ -187,6 +234,27 @@ CREATE TABLE `student_grades` (
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student_grades`
+--
+
+INSERT INTO `student_grades` (`id`, `lrn`, `subject_id`, `grade`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(101, '109857060083', 1, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(102, '109857060083', 2, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(103, '109857060083', 3, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(104, '109857060083', 4, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(105, '109857060083', 5, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(106, '109857060083', 6, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(107, '109857060083', 7, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(108, '109857060083', 8, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(109, '109857060083', 9, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(110, '109857060083', 10, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(111, '109857060083', 11, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(112, '109857060083', 12, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(113, '109857060083', 13, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(114, '109857060083', 14, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00'),
+(115, '109857060083', 15, 75, '1', 1, 'none', '2022-03-27 04:18:00', '2022-03-27 04:18:00');
 
 -- --------------------------------------------------------
 
@@ -229,6 +297,12 @@ INSERT INTO `subjects` (`id`, `subject_id`, `name`, `remarks`, `date_time_create
 --
 
 --
+-- Indexes for table `a`
+--
+ALTER TABLE `a`
+  ADD PRIMARY KEY (`aaaaaa`);
+
+--
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
@@ -267,8 +341,7 @@ ALTER TABLE `scholastic_records`
 --
 ALTER TABLE `student_averages`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `lrn` (`lrn`,`subject_id`),
-  ADD KEY `subject_id` (`subject_id`);
+  ADD KEY `lrn` (`lrn`);
 
 --
 -- Indexes for table `student_final_ratings`
@@ -298,6 +371,12 @@ ALTER TABLE `subjects`
 --
 
 --
+-- AUTO_INCREMENT for table `a`
+--
+ALTER TABLE `a`
+  MODIFY `aaaaaa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
@@ -307,13 +386,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `eligibility_for_elementary_school_enrollment`
 --
 ALTER TABLE `eligibility_for_elementary_school_enrollment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `learners_personal_infos`
 --
 ALTER TABLE `learners_personal_infos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `remedial_classes`
@@ -325,7 +404,7 @@ ALTER TABLE `remedial_classes`
 -- AUTO_INCREMENT for table `scholastic_records`
 --
 ALTER TABLE `scholastic_records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `student_averages`
@@ -337,13 +416,13 @@ ALTER TABLE `student_averages`
 -- AUTO_INCREMENT for table `student_final_ratings`
 --
 ALTER TABLE `student_final_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT for table `student_grades`
 --
 ALTER TABLE `student_grades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -377,8 +456,7 @@ ALTER TABLE `scholastic_records`
 -- Constraints for table `student_averages`
 --
 ALTER TABLE `student_averages`
-  ADD CONSTRAINT `student_averages_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `student_grades` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `student_averages_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`subject_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_averages_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `student_grades` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_final_ratings`
