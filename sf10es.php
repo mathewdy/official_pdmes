@@ -1167,8 +1167,1754 @@ date_default_timezone_set('Asia/Manila');
     <label for="">General Average</label>
     <input type="text" readonly>
 
+<!--  //////////////////////////// PHASE 4  /////////////////////////////////////////////////////////////         -->
+
+
+<h1>Phase 4</h1>
+    <label for="">School: </label>
+    <input type="text" name="phase4_name_of_school">
+
+    <br>
+
+    <label for="">School ID:</label>
+    <input type="text" name="phase4_school_id">
+    
+
+    <br>
+    <label for="">District: </label>
+    <input type="text" name="phase4_district">
+
+    <br>
+    <label for="">Division: </label>
+    <input type="text" name="phase4_division">
+
+    <br>
+    <label for="">Region:</label>
+    <input type="text" name="phase4_region">
+
+    <br>
+
+    <label for="">Classified as Grade: </label>
+    <input type="text" name="phase4_classified_as_grade">
+
+    <br>
+
+    <label for="">Section: </label>
+    <input type="text" name="phase4_section">
+
+    <br>
+
+    <label for="">School Year: </label>
+    <input type="text" name="phase4_school_year">
+
+    <br>
+
+    <label for="">Name of Teacher:</label>
+    <input type="text" name="phase4_name_of_teacher">
+
+    <br>
+
+    <label for="">Signature:</label>
+    <input type="text" name="phase4_signature" >
+
+    
+
+    <!---learning areas (subjects na ito)---->
+
+    <h2>Learning Areas</h2>
+
+    
+    <h3>Quarter 1</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term1_phase4_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term1_phase4_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term1_phase4_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term1_phase4_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term1_phase4_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term1_phase4_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term1_phase4_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term1_phase4_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term1_phase4_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term1_phase4_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term1_phase4_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term1_phase4_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term1_phase4_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term1_phase4_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term1_phase4_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!----term 2--->
+
+    <h3>Quarter 2</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term2_phase4_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term2_phase4_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term2_phase4_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term2_phase4_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term2_phase4_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term2_phase4_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term2_phase4_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term2_phase4_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term2_phase4_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term2_phase4_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term2_phase4_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term2_phase4_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term2_phase4_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term2_phase4_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term2_phase4_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    
+    <h3>Quarter 3</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term3_phase4_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term3_phase4_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term3_phase4_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term3_phase4_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term3_phase4_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term3_phase4_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term3_phase4_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term3_phase4_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term3_phase4_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term3_phase4_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term3_phase4_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term3_phase4_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term3_phase4_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term3_phase4_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term3_phase4_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+
+    <h3>Quarter 4</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term4_phase4_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term4_phase4_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term4_phase4_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term4_phase4_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term4_phase4_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term4_phase4_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term4_phase4_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term4_phase4_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term4_phase4_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term4_phase4_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term4_phase4_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term4_phase4_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term4_phase4_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term4_phase4_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term4_phase4_islamic_values">
+
+    <br>
+    <label for="">General Average</label>
+    <input type="text" readonly>
+<!--  //////////////////////////PHASE 5 //////////////////////////////////////////////////-->
+<h1>Phase 5</h1>
+    <label for="">School: </label>
+    <input type="text" name="phase5_name_of_school">
+
+    <br>
+
+    <label for="">School ID:</label>
+    <input type="text" name="phase5_school_id">
+    
+
+    <br>
+    <label for="">District: </label>
+    <input type="text" name="phase5_district">
+
+    <br>
+    <label for="">Division: </label>
+    <input type="text" name="phase5_division">
+
+    <br>
+    <label for="">Region:</label>
+    <input type="text" name="phase5_region">
+
+    <br>
+
+    <label for="">Classified as Grade: </label>
+    <input type="text" name="phase5_classified_as_grade">
+
+    <br>
+
+    <label for="">Section: </label>
+    <input type="text" name="phase5_section">
+
+    <br>
+
+    <label for="">School Year: </label>
+    <input type="text" name="phase5_school_year">
+
+    <br>
+
+    <label for="">Name of Teacher:</label>
+    <input type="text" name="phase5_name_of_teacher">
+
+    <br>
+
+    <label for="">Signature:</label>
+    <input type="text" name="phase5_signature" >
+
+    
+
+    <!---learning areas (subjects na ito)---->
+
+    <h2>Learning Areas</h2>
+
+    
+    <h3>Quarter 1</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term1_phase5_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term1_phase5_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term1_phase5_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term1_phase5_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term1_phase5_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term1_phase5_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term1_phase5_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term1_phase5_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term1_phase5_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term1_phase5_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term1_phase5_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term1_phase5_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term1_phase5_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term1_phase5_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term1_phase5_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!----term 2--->
+
+    <h3>Quarter 2</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term2_phase5_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term2_phase5_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term2_phase5_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term2_phase5_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term2_phase5_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term2_phase5_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term2_phase5_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term2_phase5_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term2_phase5_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term2_phase5_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term2_phase5_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term2_phase5_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term2_phase5_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term2_phase5_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term2_phase5_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    
+    <h3>Quarter 3</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term3_phase5_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term3_phase5_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term3_phase5_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term3_phase5_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term3_phase5_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term3_phase5_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term3_phase5_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term3_phase5_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term3_phase5_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term3_phase5_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term3_phase5_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term3_phase5_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term3_phase5_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term3_phase5_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term3_phase5_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+
+    <h3>Quarter 4</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term4_phase5_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term4_phase5_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term4_phase5_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term4_phase5_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term4_phase5_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term4_phase5_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term4_phase5_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term4_phase5_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term4_phase5_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term4_phase5_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term4_phase5_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term4_phase5_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term4_phase5_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term4_phase5_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term4_phase5_islamic_values">
+
+    <br>
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!-- /////////////////////////////////////////// PHASE 6 ////////////////////////////////////////-->
+    <h1>Phase 6</h1>
+    <label for="">School: </label>
+    <input type="text" name="phase6_name_of_school">
+
+    <br>
+
+    <label for="">School ID:</label>
+    <input type="text" name="phase6_school_id">
+    
+
+    <br>
+    <label for="">District: </label>
+    <input type="text" name="phase6_district">
+
+    <br>
+    <label for="">Division: </label>
+    <input type="text" name="phase6_division">
+
+    <br>
+    <label for="">Region:</label>
+    <input type="text" name="phase6_region">
+
+    <br>
+
+    <label for="">Classified as Grade: </label>
+    <input type="text" name="phase6_classified_as_grade">
+
+    <br>
+
+    <label for="">Section: </label>
+    <input type="text" name="phase6_section">
+
+    <br>
+
+    <label for="">School Year: </label>
+    <input type="text" name="phase6_school_year">
+
+    <br>
+
+    <label for="">Name of Teacher:</label>
+    <input type="text" name="phase6_name_of_teacher">
+
+    <br>
+
+    <label for="">Signature:</label>
+    <input type="text" name="phase6_signature" >
+
+    
+
+    <!---learning areas (subjects na ito)---->
+
+    <h2>Learning Areas</h2>
+
+    
+    <h3>Quarter 1</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term1_phase6_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term1_phase6_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term1_phase6_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term1_phase6_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term1_phase6_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term1_phase6_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term1_phase6_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term1_phase6_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term1_phase6_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term1_phase6_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term1_phase6_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term1_phase6_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term1_phase6_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term1_phase6_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term1_phase6_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!----term 2--->
+
+    <h3>Quarter 2</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term2_phase6_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term2_phase6_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term2_phase6_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term2_phase6_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term2_phase6_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term2_phase6_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term2_phase6_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term2_phase6_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term2_phase6_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term2_phase6_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term2_phase6_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term2_phase6_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term2_phase6_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term2_phase6_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term2_phase6_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    
+    <h3>Quarter 3</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term3_phase6_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term3_phase6_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term3_phase6_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term3_phase6_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term3_phase6_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term3_phase6_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term3_phase6_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term3_phase6_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term3_phase6_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term3_phase6_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term3_phase6_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term3_phase6_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term3_phase6_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term3_phase6_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term3_phase6_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+
+    <h3>Quarter 4</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term4_phase6_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term4_phase6_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term4_phase6_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term4_phase6_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term4_phase6_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term4_phase6_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term4_phase6_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term4_phase6_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term4_phase6_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term4_phase6_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term4_phase6_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term4_phase6_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term4_phase6_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term4_phase6_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term4_phase6_islamic_values">
+
+    <!--\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\PHASE 7//////////////////////////////////////  -->
+
+    <h1>Phase 7</h1>
+    <label for="">School: </label>
+    <input type="text" name="phase7_name_of_school">
+
+    <br>
+
+    <label for="">School ID:</label>
+    <input type="text" name="phase7_school_id">
+    
+
+    <br>
+    <label for="">District: </label>
+    <input type="text" name="phase7_district">
+
+    <br>
+    <label for="">Division: </label>
+    <input type="text" name="phase7_division">
+
+    <br>
+    <label for="">Region:</label>
+    <input type="text" name="phase7_region">
+
+    <br>
+
+    <label for="">Classified as Grade: </label>
+    <input type="text" name="phase7_classified_as_grade">
+
+    <br>
+
+    <label for="">Section: </label>
+    <input type="text" name="phase7_section">
+
+    <br>
+
+    <label for="">School Year: </label>
+    <input type="text" name="phase7_school_year">
+
+    <br>
+
+    <label for="">Name of Teacher:</label>
+    <input type="text" name="phase7_name_of_teacher">
+
+    <br>
+
+    <label for="">Signature:</label>
+    <input type="text" name="phase7_signature" >
+
+    
+
+    <!---learning areas (subjects na ito)---->
+
+    <h2>Learning Areas</h2>
+
+    
+    <h3>Quarter 1</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term1_phase7_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term1_phase7_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term1_phase7_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term1_phase7_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term1_phase7_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term1_phase7_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term1_phase7_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term1_phase7_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term1_phase7_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term1_phase7_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term1_phase7_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term1_phase7_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term1_phase7_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term1_phase7_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term1_phase7_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!----term 2--->
+
+    <h3>Quarter 2</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term2_phase7_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term2_phase7_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term2_phase7_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term2_phase7_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term2_phase7_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term2_phase7_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term2_phase7_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term2_phase7_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term2_phase7_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term2_phase7_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term2_phase7_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term2_phase7_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term2_phase7_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term2_phase7_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term2_phase7_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    
+    <h3>Quarter 3</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term3_phase7_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term3_phase7_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term3_phase7_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term3_phase7_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term3_phase7_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term3_phase7_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term3_phase7_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term3_phase7_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term3_phase7_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term3_phase7_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term3_phase7_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term3_phase7_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term3_phase7_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term3_phase7_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term3_phase7_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+
+    <h3>Quarter 4</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term4_phase7_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term4_phase7_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term4_phase7_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term4_phase7_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term4_phase7_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term4_phase7_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term4_phase7_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term4_phase7_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term4_phase7_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term4_phase7_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term4_phase7_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term4_phase7_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term4_phase7_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term4_phase7_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term4_phase7_islamic_values">
+
+    <br>
+    <label for="">General Average</label>
+    <input type="text" readonly>
+    <br>
+    <label for="">General Average</label>
+    <input type="text" readonly>
     <br>
     <input type="submit" name="next" value="Next">
+
+<!-- ////////////////////////////////////////////////// PHASE   8 ///////////////////////////////// -->
+<h1>Phase  8  </h1>
+    <label for="">School: </label>
+    <input type="text" name="phase8_name_of_school">
+
+    <br>
+
+    <label for="">School ID:</label>
+    <input type="text" name="phase8_school_id">
+    
+
+    <br>
+    <label for="">District: </label>
+    <input type="text" name="phase8_district">
+
+    <br>
+    <label for="">Division: </label>
+    <input type="text" name="phase8_division">
+
+    <br>
+    <label for="">Region:</label>
+    <input type="text" name="phase8_region">
+
+    <br>
+
+    <label for="">Classified as Grade: </label>
+    <input type="text" name="phase8_classified_as_grade">
+
+    <br>
+
+    <label for="">Section: </label>
+    <input type="text" name="phase8_section">
+
+    <br>
+
+    <label for="">School Year: </label>
+    <input type="text" name="phase8_school_year">
+
+    <br>
+
+    <label for="">Name of Teacher:</label>
+    <input type="text" name="phase8_name_of_teacher">
+
+    <br>
+
+    <label for="">Signature:</label>
+    <input type="text" name="phase8_signature" >
+
+    
+
+    <!---learning areas (subjects na ito)---->
+
+    <h2>Learning Areas</h2>
+
+    
+    <h3>Quarter 1</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term1_phase8_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term1_phase8_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term1_phase8_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term1_phase8_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term1_phase8_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term1_phase8_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term1_phase8_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term1_phase8_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term1_phase8_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term1_phase8_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term1_phase8_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term1_phase8_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term1_phase8_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term1_phase8_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term1_phase8_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    <!----term 2--->
+
+    <h3>Quarter 2</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term2_phase8_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term2_phase8_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term2_phase8_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term2_phase8_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term2_phase8_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term2_phase8_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term2_phase8_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term2_phase8_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term2_phase8_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term2_phase8_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term2_phase8_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term2_phase8_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term2_phase8_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term2_phase8_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term2_phase8_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+    
+    <h3>Quarter 3</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term3_phase8_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term3_phase8_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term3_phase8_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term3_phase8_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term3_phase8_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term3_phase8_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term3_phase8_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term3_phase8_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term3_phase8_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term3_phase8_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term3_phase8_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term3_phase8_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term3_phase8_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term3_phase8_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term3_phase8_islamic_values">
+
+    <br>
+
+    <label for="">General Average</label>
+    <input type="text" readonly>
+
+
+
+    <h3>Quarter 4</h3>
+
+    <label for="">Mother Tongue</label>
+    <input type="text" name="term4_phase8_mother_tongue">
+
+    <br>
+
+    <label for="">Filipino</label>
+    <input type="text" name="term4_phase8_filipino">
+
+    <br>
+
+    <label for="">English</label>
+    <input type="text" name="term4_phase8_english">
+
+
+    <br>
+    <label for="">Mathematics</label>
+    <input type="text" name="term4_phase8_mathematics">
+
+    <br>
+    <label for="">Science</label>
+    <input type="text" name="term4_phase8_science">
+
+    <br>
+    <label for="">Araling Panlipunan</label>
+    <input type="text" name="term4_phase8_araling_panlipunan">
+
+    <br>
+    <label for="">EPP / TLE</label>
+    <input type="text" name="term4_phase8_epp_tle">
+
+    <br>
+
+    <label for="">MAPEH</label>
+    <input type="text" name="term4_phase8_mapeh" readonly>
+
+    <br>
+
+    <label for="">Music</label>
+    <input type="text" name="term4_phase8_music">
+
+    <br>
+    <label for="">Arts</label>
+    <input type="text" name="term4_phase8_arts">
+
+    <br>
+    <label for="">Physical Education</label>
+    <input type="text" name="term4_phase8_pe" id="">
+
+    <br>
+    <label for="">Health</label>
+    <input type="text" name="term4_phase8_health">
+
+    <br>
+    <label for="">Eduk. sa Pagpapakatao</label>
+    <input type="text" name="term4_phase8_esp">
+
+    <br>
+    <label for="">*Arabic Language</label>
+    <input type="text" name="term4_phase8_arabic_language">
+
+
+    <br>
+    <label for="">*Islamic Values Education</label>
+    <input type="text" name="term4_phase8_islamic_values">
+
+    <br>
+    <label for="">General Average</label>
+    <input type="text" readonly>
 
 
 
@@ -1430,7 +3176,7 @@ if(isset($_POST['next'])){
 
 
     // Phase 3
-    $phase3 = 2;
+    $phase3 = 3;
     $phase3_name_of_school = $_POST['phase3_name_of_school'];
     $phase3_school_id = $_POST['phase3_school_id'];
     $phase3_district = $_POST['phase3_district'];
@@ -1521,6 +3267,475 @@ if(isset($_POST['next'])){
     $term4_phase3_islamic_values = $_POST['term4_phase3_islamic_values'];
     $term4_phase3_remarks = 'none';
 
+    //phase 4
+
+    $phase4 = 4;
+    $phase4_name_of_school = $_POST['phase4_name_of_school'];
+    $phase4_school_id = $_POST['phase4_school_id'];
+    $phase4_district = $_POST['phase4_district'];
+    $phase4_division = $_POST['phase4_division'];
+    $phase4_region = $_POST['phase4_region'];
+    $phase4_classified_as_grade = $_POST['phase4_classified_as_grade'];
+    $phase4_section = $_POST['phase4_section'];
+    $phase4_school_year = $_POST['phase4_school_year'];
+    $phase4_name_of_teacher = $_POST['phase4_name_of_teacher'];
+    $phase4_signature = $_POST['phase4_signature'];
+    $phase4_remarks = 'none';
+
+    //term1_phase4 grades
+    $term1_phase4 = 1;
+    $term1_phase4_mother_tongue = $_POST['term1_phase4_mother_tongue'];
+    $term1_phase4_filipino = $_POST['term1_phase4_filipino'];
+    $term1_phase4_english = $_POST['term1_phase4_english'];
+    $term1_phase4_mathematics = $_POST['term1_phase4_mathematics'];
+    $term1_phase4_science = $_POST['term1_phase4_science'];
+    $term1_phase4_araling_panlipunan = $_POST['term1_phase4_araling_panlipunan'];
+    $term1_phase4_epp_tle = $_POST['term1_phase4_epp_tle'];
+    $term1_phase4_music = $_POST['term1_phase4_music'];
+    $term1_phase4_arts = $_POST['term1_phase4_arts'];
+    $term1_phase4_pe = $_POST['term1_phase4_pe'];
+    $term1_phase4_health = $_POST['term1_phase4_health'];
+    $term1_phase4_esp = $_POST['term1_phase4_esp'];
+    $term1_phase4_arabic_language = $_POST['term1_phase4_arabic_language'];
+    $term1_phase4_islamic_values = $_POST['term1_phase4_islamic_values'];
+    $term1_phase4_remarks = 'none'; 
+
+    //term2_phase4 grades
+    //term2_phase4 
+    $term2_phase4 = 2;
+    $term2_phase4_mother_tongue = $_POST['term2_phase4_mother_tongue'];
+    $term2_phase4_filipino = $_POST['term2_phase4_filipino'];
+    $term2_phase4_english = $_POST['term2_phase4_english'];
+    $term2_phase4_mathematics = $_POST['term2_phase4_mathematics'];
+    $term2_phase4_science = $_POST['term2_phase4_science'];
+    $term2_phase4_araling_panlipunan = $_POST['term2_phase4_araling_panlipunan'];
+    $term2_phase4_epp_tle = $_POST['term2_phase4_epp_tle'];
+
+    $term2_phase4_music = $_POST['term2_phase4_music'];
+    $term2_phase4_arts = $_POST['term2_phase4_arts'];
+    $term2_phase4_pe = $_POST['term2_phase4_pe'];
+    $term2_phase4_health = $_POST['term2_phase4_health'];
+    $term2_phase4_esp = $_POST['term2_phase4_esp'];
+    $term2_phase4_arabic_language = $_POST['term2_phase4_arabic_language'];
+    $term2_phase4_islamic_values = $_POST['term2_phase4_islamic_values'];
+    $term2_phase4_remarks = 'none'; 
+
+    //term3_phase4
+    //term3_phase4 grades
+
+    $term3_phase4 = 3;
+    $term3_phase4_mother_tongue = $_POST['term3_phase4_mother_tongue'];
+    $term3_phase4_filipino = $_POST['term3_phase4_filipino'];
+    $term3_phase4_english = $_POST['term3_phase4_english'];
+    $term3_phase4_mathematics = $_POST['term3_phase4_mathematics'];
+    $term3_phase4_science = $_POST['term3_phase4_science'];
+    $term3_phase4_araling_panlipunan = $_POST['term3_phase4_araling_panlipunan'];
+    $term3_phase4_epp_tle = $_POST['term3_phase4_epp_tle'];
+    $term3_phase4_music = $_POST['term3_phase4_music'];
+    $term3_phase4_arts = $_POST['term3_phase4_arts'];
+    $term3_phase4_pe = $_POST['term3_phase4_pe'];
+    $term3_phase4_health = $_POST['term3_phase4_health'];
+    $term3_phase4_esp = $_POST['term3_phase4_esp'];
+    $term3_phase4_arabic_language = $_POST['term3_phase4_arabic_language'];
+    $term3_phase4_islamic_values = $_POST['term3_phase4_islamic_values'];
+    $term3_phase4_remarks = 'none'; 
+
+    //term4_phase4
+    //term4_phase4 grades
+
+    $term4_phase4 = 4;
+    $term4_phase4_mother_tongue = $_POST['term4_phase4_mother_tongue'];
+    $term4_phase4_filipino = $_POST['term4_phase4_filipino'];
+    $term4_phase4_english = $_POST['term4_phase4_english'];
+    $term4_phase4_mathematics = $_POST['term4_phase4_mathematics'];
+    $term4_phase4_science = $_POST['term4_phase4_science'];
+    $term4_phase4_araling_panlipunan = $_POST['term4_phase4_araling_panlipunan'];
+    $term4_phase4_epp_tle = $_POST['term4_phase4_epp_tle'];
+    $term4_phase4_music = $_POST['term4_phase4_music'];
+    $term4_phase4_arts = $_POST['term4_phase4_arts'];
+    $term4_phase4_pe = $_POST['term2_phase4_pe'];
+    $term4_phase4_health = $_POST['term4_phase4_health'];
+    $term4_phase4_esp = $_POST['term4_phase4_esp'];
+    $term4_phase4_arabic_language = $_POST['term4_phase4_arabic_language'];
+    $term4_phase4_islamic_values = $_POST['term4_phase4_islamic_values'];
+    $term4_phase4_remarks = 'none';
+
+
+    // phase 5 
+
+    $phase5 = 5;
+    $phase5_name_of_school = $_POST['phase5_name_of_school'];
+    $phase5_school_id = $_POST['phase5_school_id'];
+    $phase5_district = $_POST['phase5_district'];
+    $phase5_division = $_POST['phase5_division'];
+    $phase5_region = $_POST['phase5_region'];
+    $phase5_classified_as_grade = $_POST['phase5_classified_as_grade'];
+    $phase5_section = $_POST['phase5_section'];
+    $phase5_school_year = $_POST['phase5_school_year'];
+    $phase5_name_of_teacher = $_POST['phase5_name_of_teacher'];
+    $phase5_signature = $_POST['phase5_signature'];
+    $phase5_remarks = 'none';
+
+    //term1_phase5 grades
+    $term1_phase5 = 1;
+    $term1_phase5_mother_tongue = $_POST['term1_phase5_mother_tongue'];
+    $term1_phase5_filipino = $_POST['term1_phase5_filipino'];
+    $term1_phase5_english = $_POST['term1_phase5_english'];
+    $term1_phase5_mathematics = $_POST['term1_phase5_mathematics'];
+    $term1_phase5_science = $_POST['term1_phase5_science'];
+    $term1_phase5_araling_panlipunan = $_POST['term1_phase5_araling_panlipunan'];
+    $term1_phase5_epp_tle = $_POST['term1_phase5_epp_tle'];
+    $term1_phase5_music = $_POST['term1_phase5_music'];
+    $term1_phase5_arts = $_POST['term1_phase5_arts'];
+    $term1_phase5_pe = $_POST['term1_phase5_pe'];
+    $term1_phase5_health = $_POST['term1_phase5_health'];
+    $term1_phase5_esp = $_POST['term1_phase5_esp'];
+    $term1_phase5_arabic_language = $_POST['term1_phase5_arabic_language'];
+    $term1_phase5_islamic_values = $_POST['term1_phase5_islamic_values'];
+    $term1_phase5_remarks = 'none'; 
+
+    //term2_phase5 grades
+    //term2_phase5 
+    $term2_phase5 = 2;
+    $term2_phase5_mother_tongue = $_POST['term2_phase5_mother_tongue'];
+    $term2_phase5_filipino = $_POST['term2_phase5_filipino'];
+    $term2_phase5_english = $_POST['term2_phase5_english'];
+    $term2_phase5_mathematics = $_POST['term2_phase5_mathematics'];
+    $term2_phase5_science = $_POST['term2_phase5_science'];
+    $term2_phase5_araling_panlipunan = $_POST['term2_phase5_araling_panlipunan'];
+    $term2_phase5_epp_tle = $_POST['term2_phase5_epp_tle'];
+
+    $term2_phase5_music = $_POST['term2_phase5_music'];
+    $term2_phase5_arts = $_POST['term2_phase5_arts'];
+    $term2_phase5_pe = $_POST['term2_phase5_pe'];
+    $term2_phase5_health = $_POST['term2_phase5_health'];
+    $term2_phase5_esp = $_POST['term2_phase5_esp'];
+    $term2_phase5_arabic_language = $_POST['term2_phase5_arabic_language'];
+    $term2_phase5_islamic_values = $_POST['term2_phase5_islamic_values'];
+    $term2_phase5_remarks = 'none'; 
+
+    //term3_phase5
+    //term3_phase5 grades
+
+    $term3_phase5 = 3;
+    $term3_phase5_mother_tongue = $_POST['term3_phase5_mother_tongue'];
+    $term3_phase5_filipino = $_POST['term3_phase5_filipino'];
+    $term3_phase5_english = $_POST['term3_phase5_english'];
+    $term3_phase5_mathematics = $_POST['term3_phase5_mathematics'];
+    $term3_phase5_science = $_POST['term3_phase5_science'];
+    $term3_phase5_araling_panlipunan = $_POST['term3_phase5_araling_panlipunan'];
+    $term3_phase5_epp_tle = $_POST['term3_phase5_epp_tle'];
+    $term3_phase5_music = $_POST['term3_phase5_music'];
+    $term3_phase5_arts = $_POST['term3_phase5_arts'];
+    $term3_phase5_pe = $_POST['term3_phase5_pe'];
+    $term3_phase5_health = $_POST['term3_phase5_health'];
+    $term3_phase5_esp = $_POST['term3_phase5_esp'];
+    $term3_phase5_arabic_language = $_POST['term3_phase5_arabic_language'];
+    $term3_phase5_islamic_values = $_POST['term3_phase5_islamic_values'];
+    $term3_phase5_remarks = 'none'; 
+
+    //term4_phase5
+    //term4_phase5 grades
+
+    $term4_phase5 = 4;
+    $term4_phase5_mother_tongue = $_POST['term4_phase5_mother_tongue'];
+    $term4_phase5_filipino = $_POST['term4_phase5_filipino'];
+    $term4_phase5_english = $_POST['term4_phase5_english'];
+    $term4_phase5_mathematics = $_POST['term4_phase5_mathematics'];
+    $term4_phase5_science = $_POST['term4_phase5_science'];
+    $term4_phase5_araling_panlipunan = $_POST['term4_phase5_araling_panlipunan'];
+    $term4_phase5_epp_tle = $_POST['term4_phase5_epp_tle'];
+    $term4_phase5_music = $_POST['term4_phase5_music'];
+    $term4_phase5_arts = $_POST['term4_phase5_arts'];
+    $term4_phase5_pe = $_POST['term2_phase5_pe'];
+    $term4_phase5_health = $_POST['term4_phase5_health'];
+    $term4_phase5_esp = $_POST['term4_phase5_esp'];
+    $term4_phase5_arabic_language = $_POST['term4_phase5_arabic_language'];
+    $term4_phase5_islamic_values = $_POST['term4_phase5_islamic_values'];
+    $term4_phase5_remarks = 'none';
+
+    //PHASE 6 
+
+
+    $phase6 = 6;
+    $phase6_name_of_school = $_POST['phase6_name_of_school'];
+    $phase6_school_id = $_POST['phase6_school_id'];
+    $phase6_district = $_POST['phase6_district'];
+    $phase6_division = $_POST['phase6_division'];
+    $phase6_region = $_POST['phase6_region'];
+    $phase6_classified_as_grade = $_POST['phase6_classified_as_grade'];
+    $phase6_section = $_POST['phase6_section'];
+    $phase6_school_year = $_POST['phase6_school_year'];
+    $phase6_name_of_teacher = $_POST['phase6_name_of_teacher'];
+    $phase6_signature = $_POST['phase6_signature'];
+    $phase6_remarks = 'none';
+
+    //term1_phase6 grades
+    $term1_phase6 = 1;
+    $term1_phase6_mother_tongue = $_POST['term1_phase6_mother_tongue'];
+    $term1_phase6_filipino = $_POST['term1_phase6_filipino'];
+    $term1_phase6_english = $_POST['term1_phase6_english'];
+    $term1_phase6_mathematics = $_POST['term1_phase6_mathematics'];
+    $term1_phase6_science = $_POST['term1_phase6_science'];
+    $term1_phase6_araling_panlipunan = $_POST['term1_phase6_araling_panlipunan'];
+    $term1_phase6_epp_tle = $_POST['term1_phase6_epp_tle'];
+    $term1_phase6_music = $_POST['term1_phase6_music'];
+    $term1_phase6_arts = $_POST['term1_phase6_arts'];
+    $term1_phase6_pe = $_POST['term1_phase6_pe'];
+    $term1_phase6_health = $_POST['term1_phase6_health'];
+    $term1_phase6_esp = $_POST['term1_phase6_esp'];
+    $term1_phase6_arabic_language = $_POST['term1_phase6_arabic_language'];
+    $term1_phase6_islamic_values = $_POST['term1_phase6_islamic_values'];
+    $term1_phase6_remarks = 'none'; 
+
+    //term2_phase6 grades
+    //term2_phase6 
+    $term2_phase6 = 2;
+    $term2_phase6_mother_tongue = $_POST['term2_phase6_mother_tongue'];
+    $term2_phase6_filipino = $_POST['term2_phase6_filipino'];
+    $term2_phase6_english = $_POST['term2_phase6_english'];
+    $term2_phase6_mathematics = $_POST['term2_phase6_mathematics'];
+    $term2_phase6_science = $_POST['term2_phase6_science'];
+    $term2_phase6_araling_panlipunan = $_POST['term2_phase6_araling_panlipunan'];
+    $term2_phase6_epp_tle = $_POST['term2_phase6_epp_tle'];
+
+    $term2_phase6_music = $_POST['term2_phase6_music'];
+    $term2_phase6_arts = $_POST['term2_phase6_arts'];
+    $term2_phase6_pe = $_POST['term2_phase6_pe'];
+    $term2_phase6_health = $_POST['term2_phase6_health'];
+    $term2_phase6_esp = $_POST['term2_phase6_esp'];
+    $term2_phase6_arabic_language = $_POST['term2_phase3_arabic_language'];
+    $term2_phase6_islamic_values = $_POST['term2_phase3_islamic_values'];
+    $term2_phase6_remarks = 'none'; 
+
+    //term3_phase6
+    //term3_phase6 grades
+
+    $term3_phase6 = 3;
+    $term3_phase6_mother_tongue = $_POST['term3_phase6_mother_tongue'];
+    $term3_phase6_filipino = $_POST['term3_phase6_filipino'];
+    $term3_phase6_english = $_POST['term3_phase6_english'];
+    $term3_phase6_mathematics = $_POST['term3_phase6_mathematics'];
+    $term3_phase6_science = $_POST['term3_phase6_science'];
+    $term3_phase6_araling_panlipunan = $_POST['term3_phase6_araling_panlipunan'];
+    $term3_phase6_epp_tle = $_POST['term3_phase6_epp_tle'];
+    $term3_phase6_music = $_POST['term3_phase6_music'];
+    $term3_phase6_arts = $_POST['term3_phase6_arts'];
+    $term3_phase6_pe = $_POST['term3_phase6_pe'];
+    $term3_phase6_health = $_POST['term3_phase6_health'];
+    $term3_phase6_esp = $_POST['term3_phase6_esp'];
+    $term3_phase6_arabic_language = $_POST['term3_phase6_arabic_language'];
+    $term3_phase6_islamic_values = $_POST['term3_phase6_islamic_values'];
+    $term3_phase6_remarks = 'none'; 
+
+    //term4_phase6
+    //term4_phase6 grades
+
+    $term4_phase6 = 4;
+    $term4_phase6_mother_tongue = $_POST['term4_phase6_mother_tongue'];
+    $term4_phase6_filipino = $_POST['term4_phase6_filipino'];
+    $term4_phase6_english = $_POST['term4_phase6_english'];
+    $term4_phase6_mathematics = $_POST['term4_phase6_mathematics'];
+    $term4_phase6_science = $_POST['term4_phase6_science'];
+    $term4_phase6_araling_panlipunan = $_POST['term4_phase6_araling_panlipunan'];
+    $term4_phase6_epp_tle = $_POST['term4_phase6_epp_tle'];
+    $term4_phase6_music = $_POST['term4_phase6_music'];
+    $term4_phase6_arts = $_POST['term4_phase6_arts'];
+    $term4_phase6_pe = $_POST['term2_phase6_pe'];
+    $term4_phase6_health = $_POST['term4_phase6_health'];
+    $term4_phase6_esp = $_POST['term4_phase6_esp'];
+    $term4_phase6_arabic_language = $_POST['term4_phase6_arabic_language'];
+    $term4_phase6_islamic_values = $_POST['term4_phase6_islamic_values'];
+    $term4_phase6_remarks = 'none';
+
+    // PHASE 7 
+
+
+
+    $phase7 = 7;
+    $phase7_name_of_school = $_POST['phase7_name_of_school'];
+    $phase7_school_id = $_POST['phase7_school_id'];
+    $phase7_district = $_POST['phase7_district'];
+    $phase7_division = $_POST['phase7_division'];
+    $phase7_region = $_POST['phase7_region'];
+    $phase7_classified_as_grade = $_POST['phase7_classified_as_grade'];
+    $phase7_section = $_POST['phase7_section'];
+    $phase7_school_year = $_POST['phase7_school_year'];
+    $phase7_name_of_teacher = $_POST['phase7_name_of_teacher'];
+    $phase7_signature = $_POST['phase7_signature'];
+    $phase7_remarks = 'none';
+
+    //term1_phase7 grades
+    $term1_phase7 = 1;
+    $term1_phase7_mother_tongue = $_POST['term1_phase7_mother_tongue'];
+    $term1_phase7_filipino = $_POST['term1_phase7_filipino'];
+    $term1_phase7_english = $_POST['term1_phase7_english'];
+    $term1_phase7_mathematics = $_POST['term1_phase7_mathematics'];
+    $term1_phase7_science = $_POST['term1_phase7_science'];
+    $term1_phase7_araling_panlipunan = $_POST['term1_phase7_araling_panlipunan'];
+    $term1_phase7_epp_tle = $_POST['term1_phase7_epp_tle'];
+    $term1_phase7_music = $_POST['term1_phase7_music'];
+    $term1_phase7_arts = $_POST['term1_phase7_arts'];
+    $term1_phase7_pe = $_POST['term1_phase7_pe'];
+    $term1_phase7_health = $_POST['term1_phase7_health'];
+    $term1_phase7_esp = $_POST['term1_phase7_esp'];
+    $term1_phase7_arabic_language = $_POST['term1_phase7_arabic_language'];
+    $term1_phase7_islamic_values = $_POST['term1_phase7_islamic_values'];
+    $term1_phase7_remarks = 'none'; 
+
+    //term2_phase7 grades
+    //term2_phase7
+    $term2_phase7 = 2;
+    $term2_phase7_mother_tongue = $_POST['term2_phase7_mother_tongue'];
+    $term2_phase7_filipino = $_POST['term2_phase7_filipino'];
+    $term2_phase7_english = $_POST['term2_phase7_english'];
+    $term2_phase7_mathematics = $_POST['term2_phase7_mathematics'];
+    $term2_phase7_science = $_POST['term2_phase7_science'];
+    $term2_phase7_araling_panlipunan = $_POST['term2_phase7_araling_panlipunan'];
+    $term2_phase7_epp_tle = $_POST['term2_phase7_epp_tle'];
+
+    $term2_phase7_music = $_POST['term2_phase7_music'];
+    $term2_phase7_arts = $_POST['term2_phase7_arts'];
+    $term2_phase7_pe = $_POST['term2_phase7_pe'];
+    $term2_phase7_health = $_POST['term2_phase7_health'];
+    $term2_phase7_esp = $_POST['term2_phase7_esp'];
+    $term2_phase7_arabic_language = $_POST['term2_phase7_arabic_language'];
+    $term2_phase7_islamic_values = $_POST['term2_phase7_islamic_values'];
+    $term2_phase7_remarks = 'none'; 
+
+    //term3_phase7
+    //term3_phase7 grades
+
+    $term3_phase7 = 3;
+    $term3_phase7_mother_tongue = $_POST['term3_phase7_mother_tongue'];
+    $term3_phase7_filipino = $_POST['term3_phase7_filipino'];
+    $term3_phase7_english = $_POST['term3_phase7_english'];
+    $term3_phase7_mathematics = $_POST['term3_phase7_mathematics'];
+    $term3_phase7_science = $_POST['term3_phase7_science'];
+    $term3_phase7_araling_panlipunan = $_POST['term3_phase7_araling_panlipunan'];
+    $term3_phase7_epp_tle = $_POST['term3_phase7_epp_tle'];
+    $term3_phase7_music = $_POST['term3_phase7_music'];
+    $term3_phase7_arts = $_POST['term3_phase7_arts'];
+    $term3_phase7_pe = $_POST['term3_phase7_pe'];
+    $term3_phase7_health = $_POST['term3_phase7_health'];
+    $term3_phase7_esp = $_POST['term3_phase7_esp'];
+    $term3_phase7_arabic_language = $_POST['term3_phase7_arabic_language'];
+    $term3_phase7_islamic_values = $_POST['term3_phase7_islamic_values'];
+    $term3_phase7_remarks = 'none'; 
+
+    //term4_phase7
+    //term4_phase7 grades
+
+    $term4_phase7 = 4;
+    $term4_phase7_mother_tongue = $_POST['term4_phase7_mother_tongue'];
+    $term4_phase7_filipino = $_POST['term4_phase7_filipino'];
+    $term4_phase7_english = $_POST['term4_phase7_english'];
+    $term4_phase7_mathematics = $_POST['term4_phase7_mathematics'];
+    $term4_phase7_science = $_POST['term4_phase7_science'];
+    $term4_phase7_araling_panlipunan = $_POST['term4_phase7_araling_panlipunan'];
+    $term4_phase7_epp_tle = $_POST['term4_phase7_epp_tle'];
+    $term4_phase7_music = $_POST['term4_phase7_music'];
+    $term4_phase7_arts = $_POST['term4_phase7_arts'];
+    $term4_phase7_pe = $_POST['term2_phase7_pe'];
+    $term4_phase7_health = $_POST['term4_phase7_health'];
+    $term4_phase7_esp = $_POST['term4_phase7_esp'];
+    $term4_phase7_arabic_language = $_POST['term4_phase7_arabic_language'];
+    $term4_phase7_islamic_values = $_POST['term4_phase7_islamic_values'];
+    $term4_phase7_remarks = 'none';
+
+    // PHASE 8
+
+    $phase8 = 8;
+    $phase8_name_of_school = $_POST['phase8_name_of_school'];
+    $phase8_school_id = $_POST['phase8_school_id'];
+    $phase8_district = $_POST['phase8_district'];
+    $phase8_division = $_POST['phase8_division'];
+    $phase8_region = $_POST['phase8_region'];
+    $phase8_classified_as_grade = $_POST['phase8_classified_as_grade'];
+    $phase8_section = $_POST['phase8_section'];
+    $phase8_school_year = $_POST['phase8_school_year'];
+    $phase8_name_of_teacher = $_POST['phase8_name_of_teacher'];
+    $phase8_signature = $_POST['phase8_signature'];
+    $phase8_remarks = 'none';
+
+    //term1_phase8 grades
+    $term1_phase8 = 1;
+    $term1_phase8_mother_tongue = $_POST['term1_phase8_mother_tongue'];
+    $term1_phase8_filipino = $_POST['term1_phase8_filipino'];
+    $term1_phase8_english = $_POST['term1_phase8_english'];
+    $term1_phase8_mathematics = $_POST['term1_phase8_mathematics'];
+    $term1_phase8_science = $_POST['term1_phase7_science'];
+    $term1_phase8_araling_panlipunan = $_POST['term1_phase7_araling_panlipunan'];
+    $term1_phase8_epp_tle = $_POST['term1_phase7_epp_tle'];
+    $term1_phase8_music = $_POST['term1_phase7_music'];
+    $term1_phase8_arts = $_POST['term1_phase7_arts'];
+    $term1_phase8_pe = $_POST['term1_phase7_pe'];
+    $term1_phase8_health = $_POST['term1_phase7_health'];
+    $term1_phase8_esp = $_POST['term1_phase7_esp'];
+    $term1_phase8_arabic_language = $_POST['term1_phase8_arabic_language'];
+    $term1_phase8_islamic_values = $_POST['term1_phase8_islamic_values'];
+    $term1_phase8_remarks = 'none'; 
+
+    //term2_phase8 grades
+    //term2_phase8
+    $term2_phase8 = 2;
+    $term2_phase8_mother_tongue = $_POST['term2_phase8_mother_tongue'];
+    $term2_phase8_filipino = $_POST['term2_phase8_filipino'];
+    $term2_phase8_english = $_POST['term2_phase8_english'];
+    $term2_phase8_mathematics = $_POST['term2_phase8_mathematics'];
+    $term2_phase8_science = $_POST['term2_phase8_science'];
+    $term2_phase8_araling_panlipunan = $_POST['term2_phase8_araling_panlipunan'];
+    $term2_phase8_epp_tle = $_POST['term2_phase8_epp_tle'];
+
+    $term2_phase8_music = $_POST['term2_phase8_music'];
+    $term2_phase8_arts = $_POST['term2_phase8_arts'];
+    $term2_phase8_pe = $_POST['term2_phase8_pe'];
+    $term2_phase8_health = $_POST['term2_phase8_health'];
+    $term2_phase8_esp = $_POST['term2_phase8_esp'];
+    $term2_phase8_arabic_language = $_POST['term2_phase8_arabic_language'];
+    $term2_phase8_islamic_values = $_POST['term2_phase8_islamic_values'];
+    $term2_phase8_remarks = 'none'; 
+
+    //term3_phase8
+    //term3_phase8 grades
+
+    $term3_phase8 = 3;
+    $term3_phase8_mother_tongue = $_POST['term3_phase8_mother_tongue'];
+    $term3_phase8_filipino = $_POST['term3_phase8_filipino'];
+    $term3_phase8_english = $_POST['term3_phase8_english'];
+    $term3_phase8_mathematics = $_POST['term3_phase8_mathematics'];
+    $term3_phase8_science = $_POST['term3_phase8_science'];
+    $term3_phase8_araling_panlipunan = $_POST['term3_phase8_araling_panlipunan'];
+    $term3_phase8_epp_tle = $_POST['term3_phase8_epp_tle'];
+    $term3_phase8_music = $_POST['term3_phase8_music'];
+    $term3_phase8_arts = $_POST['term3_phase8_arts'];
+    $term3_phase8_pe = $_POST['term3_phase8_pe'];
+    $term3_phase8_health = $_POST['term3_phase8_health'];
+    $term3_phase8_esp = $_POST['term3_phase8_esp'];
+    $term3_phase8_arabic_language = $_POST['term3_phase8_arabic_language'];
+    $term3_phase8_islamic_values = $_POST['term3_phase8_islamic_values'];
+    $term3_phase8_remarks = 'none'; 
+
+    //term4_phase7
+    //term4_phase7 grades
+
+    $term4_phase8 = 4;
+    $term4_phase8_mother_tongue = $_POST['term4_phase8_mother_tongue'];
+    $term4_phase8_filipino = $_POST['term4_phase8_filipino'];
+    $term4_phase8_english = $_POST['term4_phase8_english'];
+    $term4_phase8_mathematics = $_POST['term4_phase8_mathematics'];
+    $term4_phase8_science = $_POST['term4_phase8_science'];
+    $term4_phase8_araling_panlipunan = $_POST['term4_phase8_araling_panlipunan'];
+    $term4_phase8_epp_tle = $_POST['term4_phase8_epp_tle'];
+    $term4_phase8_music = $_POST['term4_phase8_music'];
+    $term4_phase8_arts = $_POST['term4_phase8_arts'];
+    $term4_phase8_pe = $_POST['term2_phase8_pe'];
+    $term4_phase8_health = $_POST['term4_phase8_health'];
+    $term4_phase8_esp = $_POST['term4_phase8_esp'];
+    $term4_phase8_arabic_language = $_POST['term4_phase8_arabic_language'];
+    $term4_phase8_islamic_values = $_POST['term4_phase8_islamic_values'];
+    $term4_phase8_remarks = 'none';
+
 
 
 
@@ -1540,9 +3755,82 @@ if(isset($_POST['next'])){
 
     $term4_phase1_average_of_mapeh = round(($term4_phase1_music + $term4_phase1_arts + $term4_phase1_pe + $term4_phase1_health) / 4) ;
 
+    // phase 2 
+
+    $term1_phase2_average_of_mapeh = round(($term1_phase2_music + $term1_phase2_arts + $term1_phase2_pe + $term1_phase2_health) / 4) ;
+
+    $term2_phase2_average_of_mapeh = round(($term2_phase2_music + $term2_phase2_arts + $term2_phase2_pe + $term2_phase2_health) / 4) ;
+
+    $term3_phase2_average_of_mapeh = round(($term3_phase2_music + $term3_phase2_arts + $term3_phase2_pe + $term3_phase2_health) / 4) ;
+
+    $term4_phase2_average_of_mapeh = round(($term4_phase2_music + $term4_phase2_arts + $term4_phase2_pe + $term4_phase2_health) / 4) ;
+    
+    //phase 3
+
+
+    $term1_phase3_average_of_mapeh = round(($term1_phase3_music + $term1_phase3_arts + $term1_phase3_pe + $term1_phase3_health) / 4) ;
+
+    $term2_phase3_average_of_mapeh = round(($term2_phase3_music + $term2_phase3_arts + $term2_phase3_pe + $term2_phase3_health) / 4) ;
+
+    $term3_phase3_average_of_mapeh = round(($term3_phase3_music + $term3_phase3_arts + $term3_phase3_pe + $term3_phase3_health) / 4) ;
+
+    $term4_phase3_average_of_mapeh = round(($term4_phase3_music + $term4_phase3_arts + $term4_phase3_pe + $term4_phase3_health) / 4) ;
+    
+    //phase 4
+
+    $term1_phase4_average_of_mapeh = round(($term1_phase4_music + $term1_phase4_arts + $term1_phase4_pe + $term1_phase4_health) / 4) ;
+
+    $term2_phase4_average_of_mapeh = round(($term2_phase4_music + $term2_phase4_arts + $term2_phase4_pe + $term2_phase4_health) / 4) ;
+
+    $term3_phase4_average_of_mapeh = round(($term3_phase4_music + $term3_phase4_arts + $term3_phase4_pe + $term3_phase4_health) / 4) ;
+
+    $term4_phase4_average_of_mapeh = round(($term4_phase4_music + $term4_phase4_arts + $term4_phase4_pe + $term4_phase4_health) / 4) ;
+    
+    //phase5
+    $term1_phase5_average_of_mapeh = round(($term1_phase5_music + $term1_phase5_arts + $term1_phase5_pe + $term1_phase5_health) / 4) ;
+
+    $term2_phase5_average_of_mapeh = round(($term2_phase5_music + $term2_phase5_arts + $term2_phase5_pe + $term2_phase5_health) / 4) ;
+
+    $term3_phase5_average_of_mapeh = round(($term3_phase5_music + $term3_phase5_arts + $term3_phase5_pe + $term3_phase5_health) / 4) ;
+
+    $term4_phase5_average_of_mapeh = round(($term4_phase5_music + $term4_phase5_arts + $term4_phase5_pe + $term4_phase5_health) / 4) ;
+    
+
+    //phase 6
+
+    $term1_phase6_average_of_mapeh = round(($term1_phase6_music + $term1_phase6_arts + $term1_phase6_pe + $term1_phase6_health) / 4) ;
+
+    $term2_phase6_average_of_mapeh = round(($term2_phase6_music + $term2_phase6_arts + $term2_phase6_pe + $term2_phase6_health) / 4) ;
+
+    $term3_phase6_average_of_mapeh = round(($term3_phase6_music + $term3_phase6_arts + $term3_phase6_pe + $term3_phase6_health) / 4) ;
+
+    $term4_phase6_average_of_mapeh = round(($term4_phase6_music + $term4_phase6_arts + $term4_phase6_pe + $term4_phase6_health) / 4) ;
+    
+
+    //phase 7 
+
+    $term1_phase7_average_of_mapeh = round(($term1_phase7_music + $term1_phase7_arts + $term1_phase7_pe + $term1_phase7_health) / 4) ;
+
+    $term2_phase7_average_of_mapeh = round(($term2_phase7_music + $term2_phase7_arts + $term2_phase7_pe + $term2_phase7_health) / 4) ;
+
+    $term3_phase7_average_of_mapeh = round(($term3_phase7_music + $term3_phase7_arts + $term3_phase7_pe + $term3_phase7_health) / 4) ;
+
+    $term4_phase7_average_of_mapeh = round(($term4_phase7_music + $term4_phase7_arts + $term4_phase7_pe + $term4_phase7_health) / 4) ;
 
     
-    
+    //phase8
+
+    $term1_phase8_average_of_mapeh = round(($term1_phase8_music + $term1_phase8_arts + $term1_phase8_pe + $term1_phase8_health) / 4) ;
+
+    $term2_phase8_average_of_mapeh = round(($term2_phase8_music + $term2_phase8_arts + $term2_phase8_pe + $term2_phase8_health) / 4) ;
+
+    $term3_phase8_average_of_mapeh = round(($term3_phase8_music + $term3_phase8_arts + $term3_phase8_pe + $term3_phase8_health) / 4) ;
+
+    $term4_phase8_average_of_mapeh = round(($term4_phase8_music + $term4_phase8_arts + $term4_phase8_pe + $term4_phase8_health) / 4) ;
+
+
+
+    ///////////////////////////////////////////////////////////////PHASE 1 ////////////////////////
 
     $term5 = 'Final Rating';
   
@@ -1577,97 +3865,1014 @@ if(isset($_POST['next'])){
     $phase1_final_rating_arabic_language = round(($term1_phase1_arabic_language + $term2_phase1_arabic_language + $term3_phase1_arabic_language + $term4_phase1_arabic_language) / 4);
 
     $phase1_final_rating_islamic_values = round(($term1_phase1_islamic_values + $term2_phase1_islamic_values + $term3_phase1_islamic_values + $term4_phase1_islamic_values) / 4);
-    //gagawa naman ako ng if statement kapag more than 75 == passed else failed
+    
+    
+    
+    ///////////////////////////////////////////////////////////////PHASE 2 ////////////////////////
 
+    $phase2_term5 = 'Final Rating';
+  
+
+    $phase2_final_rating_mother_tongue = round(($term1_phase2_mother_tongue + $term2_phase2_mother_tongue + 
+    $term3_phase2_mother_tongue + $term4_phase2_mother_tongue) / 4);
+
+    $phase2_final_rating_filipino = round(($term1_phase2_filipino + $term2_phase2_filipino + $term3_phase2_filipino + $term4_phase2_filipino) / 4);
+
+    $phase2_final_rating_english = round(($term1_phase2_english + $term2_phase2_english + $term3_phase2_english + $term4_phase2_english) / 4);
+
+    $phase2_final_rating_math = round(($term1_phase2_mathematics + $term2_phase2_mathematics + $term3_phase2_mathematics + $term4_phase2_mathematics ) / 4);
+
+    $phase2_final_rating_science = round(($term1_phase2_science + $term2_phase2_science + $term3_phase2_science + $term4_phase2_science) / 4);
+
+    $phase2_final_rating_AP = round(($term1_phase2_araling_panlipunan + $term2_phase2_araling_panlipunan + $term3_phase2_araling_panlipunan + $term4_phase2_araling_panlipunan) / 4);
+
+    $phase2_final_rating_epp_tle = round(($term1_phase2_epp_tle + $term2_phase2_epp_tle + $term3_phase2_epp_tle + $term4_phase2_epp_tle) / 4);
+
+    $phase2_final_rating_mapeh = round(($term1_phase2_average_of_mapeh + $term2_phase2_average_of_mapeh + $term3_phase2_average_of_mapeh + $term4_phase2_average_of_mapeh) / 4 );
+
+    $phase2_final_rating_music = round(($term1_phase2_music + $term2_phase2_music + $term3_phase2_music + $term4_phase2_music) / 4);
+
+    $phase2_final_rating_arts = round(($term1_phase2_arts + $term2_phase2_arts + $term3_phase2_arts + $term4_phase2_arts ) / 4);
+
+    $phase2_final_rating_PE = round(($term1_phase2_pe + $term2_phase2_pe + $term3_phase2_pe + $term4_phase2_pe) / 4);
+
+    $phase2_final_rating_health = round(($term1_phase2_health + $term2_phase2_health + $term3_phase2_health + $term4_phase2_health)/ 4);
+
+    $phase2_final_rating_esp = round(($term1_phase2_esp + $term2_phase2_esp + $term3_phase2_esp + $term4_phase2_esp) / 4);
+    
+    $phase2_final_rating_arabic_language = round(($term1_phase2_arabic_language + $term2_phase2_arabic_language + $term3_phase2_arabic_language + $term4_phase2_arabic_language) / 4);
+
+    $phase2_final_rating_islamic_values = round(($term1_phase2_islamic_values + $term2_phase2_islamic_values + $term3_phase2_islamic_values + $term4_phase2_islamic_values) / 4);
+    
+    
+    //phase 3
+
+
+    $phase3_term5 = 'Final Rating';
+  
+
+    $phase3_final_rating_mother_tongue = round(($term1_phase3_mother_tongue + $term2_phase3_mother_tongue + 
+    $term3_phase3_mother_tongue + $term4_phase3_mother_tongue) / 4);
+
+    $phase3_final_rating_filipino = round(($term1_phase3_filipino + $term2_phase3_filipino + $term3_phase3_filipino + $term4_phase3_filipino) / 4);
+
+    $phase3_final_rating_english = round(($term1_phase3_english + $term2_phase3_english + $term3_phase3_english + $term4_phase3_english) / 4);
+
+    $phase3_final_rating_math = round(($term1_phase3_mathematics + $term2_phase3_mathematics + $term3_phase3_mathematics + $term4_phase3_mathematics ) / 4);
+
+    $phase3_final_rating_science = round(($term1_phase3_science + $term2_phase3_science + $term3_phase3_science + $term4_phase3_science) / 4);
+
+    $phase3_final_rating_AP = round(($term1_phase3_araling_panlipunan + $term2_phase3_araling_panlipunan + $term3_phase3_araling_panlipunan + $term4_phase3_araling_panlipunan) / 4);
+
+    $phase3_final_rating_epp_tle = round(($term1_phase3_epp_tle + $term2_phase3_epp_tle + $term3_phase3_epp_tle + $term4_phase3_epp_tle) / 4);
+
+    $phase3_final_rating_mapeh = round(($term1_phase3_average_of_mapeh + $term2_phase3_average_of_mapeh + $term3_phase3_average_of_mapeh + $term4_phase3_average_of_mapeh) / 4 );
+
+    $phase3_final_rating_music = round(($term1_phase3_music + $term2_phase3_music + $term3_phase3_music + $term4_phase3_music) / 4);
+
+    $phase3_final_rating_arts = round(($term1_phase3_arts + $term2_phase3_arts + $term3_phase3_arts + $term4_phase3_arts ) / 4);
+
+    $phase3_final_rating_PE = round(($term1_phase3_pe + $term2_phase3_pe + $term3_phase3_pe + $term4_phase3_pe) / 4);
+
+    $phase3_final_rating_health = round(($term1_phase3_health + $term2_phase3_health + $term3_phase3_health + $term4_phase3_health)/ 4);
+
+    $phase3_final_rating_esp = round(($term1_phase3_esp + $term2_phase3_esp + $term3_phase3_esp + $term4_phase3_esp) / 4);
+    
+    $phase3_final_rating_arabic_language = round(($term1_phase3_arabic_language + $term2_phase3_arabic_language + $term3_phase3_arabic_language + $term4_phase3_arabic_language) / 4);
+
+    $phase3_final_rating_islamic_values = round(($term1_phase3_islamic_values + $term2_phase3_islamic_values + $term3_phase3_islamic_values + $term4_phase3_islamic_values) / 4);
+    
+
+    //phase 4
+
+
+    $phase4_term5 = 'Final Rating';
+  
+
+    $phase4_final_rating_mother_tongue = round(($term1_phase4_mother_tongue + $term2_phase4_mother_tongue + 
+    $term3_phase4_mother_tongue + $term4_phase4_mother_tongue) / 4);
+
+    $phase4_final_rating_filipino = round(($term1_phase4_filipino + $term2_phase4_filipino + $term3_phase4_filipino + $term4_phase4_filipino) / 4);
+
+    $phase4_final_rating_english = round(($term1_phase4_english + $term2_phase4_english + $term3_phase4_english + $term4_phase4_english) / 4);
+
+    $phase4_final_rating_math = round(($term1_phase4_mathematics + $term2_phase4_mathematics + $term3_phase4_mathematics + $term4_phase4_mathematics ) / 4);
+
+    $phase4_final_rating_science = round(($term1_phase4_science + $term2_phase4_science + $term3_phase4_science + $term4_phase4_science) / 4);
+
+    $phase4_final_rating_AP = round(($term1_phase4_araling_panlipunan + $term2_phase4_araling_panlipunan + $term3_phase4_araling_panlipunan + $term4_phase4_araling_panlipunan) / 4);
+
+    $phase4_final_rating_epp_tle = round(($term1_phase4_epp_tle + $term2_phase4_epp_tle + $term3_phase4_epp_tle + $term4_phase4_epp_tle) / 4);
+
+    $phase4_final_rating_mapeh = round(($term1_phase4_average_of_mapeh + $term2_phase4_average_of_mapeh + $term3_phase4_average_of_mapeh + $term4_phase4_average_of_mapeh) / 4 );
+
+    $phase4_final_rating_music = round(($term1_phase4_music + $term2_phase4_music + $term3_phase4_music + $term4_phase4_music) / 4);
+
+    $phase4_final_rating_arts = round(($term1_phase4_arts + $term2_phase4_arts + $term3_phase4_arts + $term4_phase4_arts ) / 4);
+
+    $phase4_final_rating_PE = round(($term1_phase4_pe + $term2_phase4_pe + $term3_phase4_pe + $term4_phase4_pe) / 4);
+
+    $phase4_final_rating_health = round(($term1_phase4_health + $term2_phase4_health + $term3_phase4_health + $term4_phase4_health)/ 4);
+
+    $phase4_final_rating_esp = round(($term1_phase4_esp + $term2_phase4_esp + $term3_phase4_esp + $term4_phase4_esp) / 4);
+    
+    $phase4_final_rating_arabic_language = round(($term1_phase4_arabic_language + $term2_phase4_arabic_language + $term3_phase4_arabic_language + $term4_phase4_arabic_language) / 4);
+
+    $phase4_final_rating_islamic_values = round(($term1_phase4_islamic_values + $term2_phase4_islamic_values + $term3_phase4_islamic_values + $term4_phase4_islamic_values) / 4);
+    
+
+    //phase 5
+
+
+    $phase5_term5 = 'Final Rating';
+  
+
+    $phase5_final_rating_mother_tongue = round(($term1_phase5_mother_tongue + $term2_phase5_mother_tongue + 
+    $term3_phase5_mother_tongue + $term4_phase5_mother_tongue) / 4);
+
+    $phase5_final_rating_filipino = round(($term1_phase5_filipino + $term2_phase5_filipino + $term3_phase5_filipino + $term4_phase5_filipino) / 4);
+
+    $phase5_final_rating_english = round(($term1_phase5_english + $term2_phase5_english + $term3_phase5_english + $term4_phase5_english) / 4);
+
+    $phase5_final_rating_math = round(($term1_phase5_mathematics + $term2_phase5_mathematics + $term3_phase5_mathematics + $term4_phase5_mathematics ) / 4);
+
+    $phase5_final_rating_science = round(($term1_phase5_science + $term2_phase5_science + $term3_phase5_science + $term4_phase5_science) / 4);
+
+    $phase5_final_rating_AP = round(($term1_phase5_araling_panlipunan + $term2_phase5_araling_panlipunan + $term3_phase5_araling_panlipunan + $term4_phase5_araling_panlipunan) / 4);
+
+    $phase5_final_rating_epp_tle = round(($term1_phase5_epp_tle + $term2_phase5_epp_tle + $term3_phase5_epp_tle + $term4_phase5_epp_tle) / 4);
+
+    $phase5_final_rating_mapeh = round(($term1_phase5_average_of_mapeh + $term2_phase5_average_of_mapeh + $term3_phase5_average_of_mapeh + $term4_phase5_average_of_mapeh) / 4 );
+
+    $phase5_final_rating_music = round(($term1_phase5_music + $term2_phase5_music + $term3_phase5_music + $term4_phase5_music) / 4);
+
+    $phase5_final_rating_arts = round(($term1_phase5_arts + $term2_phase5_arts + $term3_phase5_arts + $term4_phase5_arts ) / 4);
+
+    $phase5_final_rating_PE = round(($term1_phase5_pe + $term2_phase5_pe + $term3_phase5_pe + $term4_phase5_pe) / 4);
+
+    $phase5_final_rating_health = round(($term1_phase5_health + $term2_phase5_health + $term3_phase5_health + $term4_phase5_health)/ 4);
+
+    $phase5_final_rating_esp = round(($term1_phase5_esp + $term2_phase5_esp + $term3_phase5_esp + $term4_phase5_esp) / 4);
+    
+    $phase5_final_rating_arabic_language = round(($term1_phase5_arabic_language + $term2_phase5_arabic_language + $term3_phase5_arabic_language + $term4_phase5_arabic_language) / 4);
+
+    $phase5_final_rating_islamic_values = round(($term1_phase5_islamic_values + $term2_phase5_islamic_values + $term3_phase5_islamic_values + $term4_phase5_islamic_values) / 4);
+    
+    
+    
+     //phase 6
+
+
+     $phase6_term5 = 'Final Rating';
+  
+
+     $phase6_final_rating_mother_tongue = round(($term1_phase6_mother_tongue + $term2_phase6_mother_tongue + 
+     $term3_phase6_mother_tongue + $term4_phase6_mother_tongue) / 4);
+ 
+     $phase6_final_rating_filipino = round(($term1_phase6_filipino + $term2_phase6_filipino + $term3_phase6_filipino + $term4_phase6_filipino) / 4);
+ 
+     $phase6_final_rating_english = round(($term1_phase6_english + $term2_phase6_english + $term3_phase6_english + $term4_phase6_english) / 4);
+ 
+     $phase6_final_rating_math = round(($term1_phase6_mathematics + $term2_phase6_mathematics + $term3_phase6_mathematics + $term4_phase6_mathematics ) / 4);
+ 
+     $phase6_final_rating_science = round(($term1_phase6_science + $term2_phase6_science + $term3_phase6_science + $term4_phase6_science) / 4);
+ 
+     $phase6_final_rating_AP = round(($term1_phase6_araling_panlipunan + $term2_phase6_araling_panlipunan + $term3_phase6_araling_panlipunan + $term4_phase6_araling_panlipunan) / 4);
+ 
+     $phase6_final_rating_epp_tle = round(($term1_phase6_epp_tle + $term2_phase6_epp_tle + $term3_phase6_epp_tle + $term4_phase6_epp_tle) / 4);
+ 
+     $phase6_final_rating_mapeh = round(($term1_phase6_average_of_mapeh + $term2_phase6_average_of_mapeh + $term3_phase6_average_of_mapeh + $term4_phase6_average_of_mapeh) / 4 );
+ 
+     $phase6_final_rating_music = round(($term1_phase6_music + $term2_phase6_music + $term3_phase6_music + $term4_phase6_music) / 4);
+ 
+     $phase6_final_rating_arts = round(($term1_phase6_arts + $term2_phase6_arts + $term3_phase6_arts + $term4_phase6_arts ) / 4);
+ 
+     $phase6_final_rating_PE = round(($term1_phase6_pe + $term2_phase6_pe + $term3_phase6_pe + $term4_phase6_pe) / 4);
+ 
+     $phase6_final_rating_health = round(($term1_phase6_health + $term2_phase6_health + $term3_phase6_health + $term4_phase6_health)/ 4);
+ 
+     $phase6_final_rating_esp = round(($term1_phase6_esp + $term2_phase6_esp + $term3_phase6_esp + $term4_phase6_esp) / 4);
+     
+     $phase6_final_rating_arabic_language = round(($term1_phase6_arabic_language + $term2_phase6_arabic_language + $term3_phase6_arabic_language + $term4_phase6_arabic_language) / 4);
+ 
+     $phase6_final_rating_islamic_values = round(($term1_phase6_islamic_values + $term2_phase6_islamic_values + $term3_phase6_islamic_values + $term4_phase6_islamic_values) / 4);
+
+
+      //phase 7
+
+
+      $phase7_term5 = 'Final Rating';
+  
+
+      $phase7_final_rating_mother_tongue = round(($term1_phase7_mother_tongue + $term2_phase7_mother_tongue + 
+      $term3_phase7_mother_tongue + $term4_phase7_mother_tongue) / 4);
+  
+      $phase7_final_rating_filipino = round(($term1_phase7_filipino + $term2_phase7_filipino + $term3_phase7_filipino + $term4_phase7_filipino) / 4);
+  
+      $phase7_final_rating_english = round(($term1_phase7_english + $term2_phase7_english + $term3_phase7_english + $term4_phase7_english) / 4);
+  
+      $phase7_final_rating_math = round(($term1_phase7_mathematics + $term2_phase7_mathematics + $term3_phase7_mathematics + $term4_phase7_mathematics ) / 4);
+  
+      $phase7_final_rating_science = round(($term1_phase7_science + $term2_phase7_science + $term3_phase7_science + $term4_phase7_science) / 4);
+  
+      $phase7_final_rating_AP = round(($term1_phase7_araling_panlipunan + $term2_phase7_araling_panlipunan + $term3_phase7_araling_panlipunan + $term4_phase7_araling_panlipunan) / 4);
+  
+      $phase7_final_rating_epp_tle = round(($term1_phase7_epp_tle + $term2_phas7_epp_tle + $term3_phase7_epp_tle + $term4_phase7_epp_tle) / 4);
+  
+      $phase7_final_rating_mapeh = round(($term1_phase7_average_of_mapeh + $term2_phase7_average_of_mapeh + $term3_phase7_average_of_mapeh + $term4_phase7_average_of_mapeh) / 4 );
+  
+      $phase7_final_rating_music = round(($term1_phase7_music + $term2_phase7_music + $term3_phase7_music + $term4_phase7_music) / 4);
+  
+      $phase7_final_rating_arts = round(($term1_phase7_arts + $term2_phase7_arts + $term3_phase7_arts + $term4_phase7_arts ) / 4);
+  
+      $phase7_final_rating_PE = round(($term1_phase7_pe + $term2_phase7_pe + $term3_phase7_pe + $term4_phase7_pe) / 4);
+  
+      $phase7_final_rating_health = round(($term1_phase7_health + $term2_phase7_health + $term3_phase7_health + $term4_phase7_health)/ 4);
+  
+      $phase7_final_rating_esp = round(($term1_phase7_esp + $term2_phase7_esp + $term3_phase7_esp + $term4_phase7_esp) / 4);
+      
+      $phase7_final_rating_arabic_language = round(($term1_phase7_arabic_language + $term2_phase7_arabic_language + $term3_phase7_arabic_language + $term4_phase7_arabic_language) / 4);
+  
+      $phase7_final_rating_islamic_values = round(($term1_phase7_islamic_values + $term2_phase7_islamic_values + $term3_phase7_islamic_values + $term4_phase7_islamic_values) / 4);
+
+        //phase 8
+
+
+      $phase8_term5 = 'Final Rating';
+  
+
+      $phase8_final_rating_mother_tongue = round(($term1_phase8_mother_tongue + $term2_phase8_mother_tongue + 
+      $term3_phase8_mother_tongue + $term4_phase8_mother_tongue) / 4);
+  
+      $phase8_final_rating_filipino = round(($term1_phase8_filipino + $term2_phase8_filipino + $term3_phase8_filipino + $term4_phase8_filipino) / 4);
+  
+      $phase8_final_rating_english = round(($term1_phase8_english + $term2_phase8_english + $term3_phase8_english + $term4_phase8_english) / 4);
+  
+      $phase8_final_rating_math = round(($term1_phase8_mathematics + $term2_phase8_mathematics + $term3_phase8_mathematics + $term4_phase8_mathematics ) / 4);
+  
+      $phase8_final_rating_science = round(($term1_phase8_science + $term2_phase8_science + $term3_phase8_science + $term4_phase8_science) / 4);
+  
+      $phase8_final_rating_AP = round(($term1_phase8_araling_panlipunan + $term2_phase8_araling_panlipunan + $term3_phase8_araling_panlipunan + $term4_phase8_araling_panlipunan) / 4);
+  
+      $phase8_final_rating_epp_tle = round(($term1_phase8_epp_tle + $term2_phas8_epp_tle + $term3_phase8_epp_tle + $term4_phase8_epp_tle) / 4);
+  
+      $phase8_final_rating_mapeh = round(($term1_phase8_average_of_mapeh + $term2_phase8_average_of_mapeh + $term3_phase8_average_of_mapeh + $term4_phase8_average_of_mapeh) / 4 );
+  
+      $phase8_final_rating_music = round(($term1_phase8_music + $term2_phase8_music + $term3_phase8_music + $term4_phase8_music) / 4);
+  
+      $phase8_final_rating_arts = round(($term1_phase8_arts + $term2_phase8_arts + $term3_phase8_arts + $term4_phase8_arts ) / 4);
+  
+      $phase8_final_rating_PE = round(($term1_phase8_pe + $term2_phase8_pe + $term3_phase8_pe + $term4_phase8_pe) / 4);
+  
+      $phase8_final_rating_health = round(($term1_phase8_health + $term2_phase8_health + $term3_phase8_health + $term4_phase8_health)/ 4);
+  
+      $phase8_final_rating_esp = round(($term1_phase8_esp + $term2_phase8_esp + $term3_phase8_esp + $term4_phase8_esp) / 4);
+      
+      $phase8_final_rating_arabic_language = round(($term1_phase8_arabic_language + $term2_phase8_arabic_language + $term3_phase8_arabic_language + $term4_phase8_arabic_language) / 4);
+  
+      $phase8_final_rating_islamic_values = round(($term1_phase8_islamic_values + $term2_phase7_islamic_values + $term3_phase8_islamic_values + $term4_phase8_islamic_values) / 4);
+
+
+
+
+    
+    //gagawa naman ako ng if statement kapag more than 75 == passed else failed
     //remarks ito sa right side ng final rating
+    
+    
+    //PHASE 1 VALIDATION OF FINAL RATING
     if($phase1_final_rating_mother_tongue >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_mother_tongue_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_mother_tongue_output = 'FAILED';
     }
 
     if($phase1_final_rating_filipino >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_filipino_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_filipino_output ='FAILED';
     }
 
     if($phase1_final_rating_english >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_english_output ='PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_english_output = 'FAILED';
     }
 
     if($phase1_final_rating_math >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_math_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_math_output =  'FAILED';
     }
 
     if($phase1_final_rating_science >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_science_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_science_output = 'FAILED';
     }
 
     if($phase1_final_rating_AP >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_AP_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_AP_output = 'FAILED';
     }
 
     if($phase1_final_rating_epp_tle >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_epp_tle_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_epp_tle_output = 'FAILED';
     }
 
     if($phase1_final_rating_mapeh >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_mapeh_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_mapeh_output = 'FAILED';
     }
 
     if($phase1_final_rating_music >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_music_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_music_output = 'FAILED';
     }
 
     if($phase1_final_rating_arts >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_arts_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_arts_output = 'FAILED';
     }
 
     if($phase1_final_rating_PE >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_PE_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_PE_output ='FAILED';
     }
 
     if($phase1_final_rating_health >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_health_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_health_output = 'FAILED';
     }
 
     if($phase1_final_rating_esp >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_esp_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_esp_output = 'FAILED';
     }
 
     if($phase1_final_rating_arabic_language >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_arabic_language_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $_phase1_final_rating_arabic_language_output = 'FAILED';
     }
 
     if($phase1_final_rating_islamic_values >= 75){
-        $output = 'PASSED';
+        $phase1_final_rating_islamic_values_output = 'PASSED';
     }else{
-        $output = 'FAILED';
+        $phase1_final_rating_islamic_values_output = 'FAILED';
+    }
+
+
+
+    //PHASE 2 VALIDATION OF FINAL RATING
+    if($phase2_final_rating_mother_tongue >= 75){
+        $phase2_final_rating_mother_tongue_output = 'PASSED';
+    }else{
+        $phase2_final_rating_mother_tongue_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_filipino >= 75){
+        $phase2_final_rating_filipino_output = 'PASSED';
+    }else{
+        $phase2_final_rating_filipino_output ='FAILED';
+    }
+
+    if($phase2_final_rating_english >= 75){
+        $phase2_final_rating_english_output ='PASSED';
+    }else{
+        $phase2_final_rating_english_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_math >= 75){
+        $phase2_final_rating_math_output = 'PASSED';
+    }else{
+        $phase2_final_rating_math_output =  'FAILED';
+    }
+
+    if($phase2_final_rating_science >= 75){
+        $phase2_final_rating_science_output = 'PASSED';
+    }else{
+        $phase2_final_rating_science_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_AP >= 75){
+        $phase2_final_rating_AP_output = 'PASSED';
+    }else{
+        $phase2_final_rating_AP_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_epp_tle >= 75){
+        $phase2_final_rating_epp_tle_output = 'PASSED';
+    }else{
+        $phase2_final_rating_epp_tle_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_mapeh >= 75){
+        $phase2_final_rating_mapeh_output = 'PASSED';
+    }else{
+        $phase2_final_rating_mapeh_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_music >= 75){
+        $phase2_final_rating_music_output = 'PASSED';
+    }else{
+        $phase2_final_rating_music_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_arts >= 75){
+        $phase2_final_rating_arts_output = 'PASSED';
+    }else{
+        $phase2_final_rating_arts_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_PE >= 75){
+        $phase2_final_rating_PE_output = 'PASSED';
+    }else{
+        $phase2_final_rating_PE_output ='FAILED';
+    }
+
+    if($phase2_final_rating_health >= 75){
+        $phase2_final_rating_health_output = 'PASSED';
+    }else{
+        $phase2_final_rating_health_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_esp >= 75){
+        $phase2_final_rating_esp_output = 'PASSED';
+    }else{
+        $phase2_final_rating_esp_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_arabic_language >= 75){
+        $phase2_final_rating_arabic_language_output = 'PASSED';
+    }else{
+        $_phase2_final_rating_arabic_language_output = 'FAILED';
+    }
+
+    if($phase2_final_rating_islamic_values >= 75){
+        $phase2_final_rating_islamic_values_output = 'PASSED';
+    }else{
+        $phase2_final_rating_islamic_values_output = 'FAILED';
+    }
+
+
+    //PHASE 3 VALIDATION OF FINAL RATING
+    if($phase3_final_rating_mother_tongue >= 75){
+        $phase3_final_rating_mother_tongue_output = 'PASSED';
+    }else{
+        $phase3_final_rating_mother_tongue_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_filipino >= 75){
+        $phase3_final_rating_filipino_output = 'PASSED';
+    }else{
+        $phase3_final_rating_filipino_output ='FAILED';
+    }
+
+    if($phase3_final_rating_english >= 75){
+        $phase3_final_rating_english_output ='PASSED';
+    }else{
+        $phase3_final_rating_english_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_math >= 75){
+        $phase3_final_rating_math_output = 'PASSED';
+    }else{
+        $phase3_final_rating_math_output =  'FAILED';
+    }
+
+    if($phase3_final_rating_science >= 75){
+        $phase3_final_rating_science_output = 'PASSED';
+    }else{
+        $phase3_final_rating_science_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_AP >= 75){
+        $phase3_final_rating_AP_output = 'PASSED';
+    }else{
+        $phase3_final_rating_AP_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_epp_tle >= 75){
+        $phase3_final_rating_epp_tle_output = 'PASSED';
+    }else{
+        $phase3_final_rating_epp_tle_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_mapeh >= 75){
+        $phase3_final_rating_mapeh_output = 'PASSED';
+    }else{
+        $phase3_final_rating_mapeh_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_music >= 75){
+        $phase3_final_rating_music_output = 'PASSED';
+    }else{
+        $phase3_final_rating_music_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_arts >= 75){
+        $phase3_final_rating_arts_output = 'PASSED';
+    }else{
+        $phase3_final_rating_arts_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_PE >= 75){
+        $phase3_final_rating_PE_output = 'PASSED';
+    }else{
+        $phase3_final_rating_PE_output ='FAILED';
+    }
+
+    if($phase3_final_rating_health >= 75){
+        $phase3_final_rating_health_output = 'PASSED';
+    }else{
+        $phase3_final_rating_health_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_esp >= 75){
+        $phase3_final_rating_esp_output = 'PASSED';
+    }else{
+        $phase3_final_rating_esp_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_arabic_language >= 75){
+        $phase3_final_rating_arabic_language_output = 'PASSED';
+    }else{
+        $_phase3_final_rating_arabic_language_output = 'FAILED';
+    }
+
+    if($phase3_final_rating_islamic_values >= 75){
+        $phase3_final_rating_islamic_values_output = 'PASSED';
+    }else{
+        $phase3_final_rating_islamic_values_output = 'FAILED';
+    }
+
+    //PHASE 4 VALIDATION OF FINAL RATING
+    if($phase4_final_rating_mother_tongue >= 75){
+        $phase4_final_rating_mother_tongue_output = 'PASSED';
+    }else{
+        $phase4_final_rating_mother_tongue_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_filipino >= 75){
+        $phase4_final_rating_filipino_output = 'PASSED';
+    }else{
+        $phase4_final_rating_filipino_output ='FAILED';
+    }
+
+    if($phase4_final_rating_english >= 75){
+        $phase4_final_rating_english_output ='PASSED';
+    }else{
+        $phase4_final_rating_english_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_math >= 75){
+        $phase4_final_rating_math_output = 'PASSED';
+    }else{
+        $phase4_final_rating_math_output =  'FAILED';
+    }
+
+    if($phase4_final_rating_science >= 75){
+        $phase4_final_rating_science_output = 'PASSED';
+    }else{
+        $phase4_final_rating_science_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_AP >= 75){
+        $phase4_final_rating_AP_output = 'PASSED';
+    }else{
+        $phase4_final_rating_AP_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_epp_tle >= 75){
+        $phase4_final_rating_epp_tle_output = 'PASSED';
+    }else{
+        $phase4_final_rating_epp_tle_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_mapeh >= 75){
+        $phase4_final_rating_mapeh_output = 'PASSED';
+    }else{
+        $phase4_final_rating_mapeh_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_music >= 75){
+        $phase4_final_rating_music_output = 'PASSED';
+    }else{
+        $phase4_final_rating_music_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_arts >= 75){
+        $phase4_final_rating_arts_output = 'PASSED';
+    }else{
+        $phase4_final_rating_arts_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_PE >= 75){
+        $phase4_final_rating_PE_output = 'PASSED';
+    }else{
+        $phase4_final_rating_PE_output ='FAILED';
+    }
+
+    if($phase4_final_rating_health >= 75){
+        $phase4_final_rating_health_output = 'PASSED';
+    }else{
+        $phase4_final_rating_health_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_esp >= 75){
+        $phase4_final_rating_esp_output = 'PASSED';
+    }else{
+        $phase4_final_rating_esp_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_arabic_language >= 75){
+        $phase4_final_rating_arabic_language_output = 'PASSED';
+    }else{
+        $_phase4_final_rating_arabic_language_output = 'FAILED';
+    }
+
+    if($phase4_final_rating_islamic_values >= 75){
+        $phase4_final_rating_islamic_values_output = 'PASSED';
+    }else{
+        $phase4_final_rating_islamic_values_output = 'FAILED';
+    }
+
+
+
+     //PHASE 5 VALIDATION OF FINAL RATING
+     if($phase5_final_rating_mother_tongue >= 75){
+        $phase5_final_rating_mother_tongue_output = 'PASSED';
+    }else{
+        $phase5_final_rating_mother_tongue_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_filipino >= 75){
+        $phase5_final_rating_filipino_output = 'PASSED';
+    }else{
+        $phase5_final_rating_filipino_output ='FAILED';
+    }
+
+    if($phase5_final_rating_english >= 75){
+        $phase5_final_rating_english_output ='PASSED';
+    }else{
+        $phase5_final_rating_english_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_math >= 75){
+        $phase5_final_rating_math_output = 'PASSED';
+    }else{
+        $phase5_final_rating_math_output =  'FAILED';
+    }
+
+    if($phase5_final_rating_science >= 75){
+        $phase5_final_rating_science_output = 'PASSED';
+    }else{
+        $phase5_final_rating_science_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_AP >= 75){
+        $phase5_final_rating_AP_output = 'PASSED';
+    }else{
+        $phase5_final_rating_AP_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_epp_tle >= 75){
+        $phase5_final_rating_epp_tle_output = 'PASSED';
+    }else{
+        $phase4_final_rating_epp_tle_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_mapeh >= 75){
+        $phase5_final_rating_mapeh_output = 'PASSED';
+    }else{
+        $phase5_final_rating_mapeh_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_music >= 75){
+        $phase5_final_rating_music_output = 'PASSED';
+    }else{
+        $phase5_final_rating_music_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_arts >= 75){
+        $phase5_final_rating_arts_output = 'PASSED';
+    }else{
+        $phase5_final_rating_arts_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_PE >= 75){
+        $phase5_final_rating_PE_output = 'PASSED';
+    }else{
+        $phase5_final_rating_PE_output ='FAILED';
+    }
+
+    if($phase5_final_rating_health >= 75){
+        $phase5_final_rating_health_output = 'PASSED';
+    }else{
+        $phase5_final_rating_health_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_esp >= 75){
+        $phase5_final_rating_esp_output = 'PASSED';
+    }else{
+        $phase5_final_rating_esp_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_arabic_language >= 75){
+        $phase5_final_rating_arabic_language_output = 'PASSED';
+    }else{
+        $_phase5_final_rating_arabic_language_output = 'FAILED';
+    }
+
+    if($phase5_final_rating_islamic_values >= 75){
+        $phase5_final_rating_islamic_values_output = 'PASSED';
+    }else{
+        $phase5_final_rating_islamic_values_output = 'FAILED';
+    }
+
+
+    //PHASE 6 VALIDATION OF FINAL RATING
+    if($phase6_final_rating_mother_tongue >= 75){
+        $phase6_final_rating_mother_tongue_output = 'PASSED';
+    }else{
+        $phase6_final_rating_mother_tongue_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_filipino >= 75){
+        $phase6_final_rating_filipino_output = 'PASSED';
+    }else{
+        $phase6_final_rating_filipino_output ='FAILED';
+    }
+
+    if($phase6_final_rating_english >= 75){
+        $phase6_final_rating_english_output ='PASSED';
+    }else{
+        $phase6_final_rating_english_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_math >= 75){
+        $phase6_final_rating_math_output = 'PASSED';
+    }else{
+        $phase6_final_rating_math_output =  'FAILED';
+    }
+
+    if($phase6_final_rating_science >= 75){
+        $phase6_final_rating_science_output = 'PASSED';
+    }else{
+        $phase6_final_rating_science_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_AP >= 75){
+        $phase6_final_rating_AP_output = 'PASSED';
+    }else{
+        $phase6_final_rating_AP_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_epp_tle >= 75){
+        $phase6_final_rating_epp_tle_output = 'PASSED';
+    }else{
+        $phase6_final_rating_epp_tle_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_mapeh >= 75){
+        $phase6_final_rating_mapeh_output = 'PASSED';
+    }else{
+        $phase6_final_rating_mapeh_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_music >= 75){
+        $phase6_final_rating_music_output = 'PASSED';
+    }else{
+        $phase6_final_rating_music_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_arts >= 75){
+        $phase6_final_rating_arts_output = 'PASSED';
+    }else{
+        $phase6_final_rating_arts_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_PE >= 75){
+        $phase6_final_rating_PE_output = 'PASSED';
+    }else{
+        $phase6_final_rating_PE_output ='FAILED';
+    }
+
+    if($phase6_final_rating_health >= 75){
+        $phase6_final_rating_health_output = 'PASSED';
+    }else{
+        $phase6_final_rating_health_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_esp >= 75){
+        $phase6_final_rating_esp_output = 'PASSED';
+    }else{
+        $phase6_final_rating_esp_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_arabic_language >= 75){
+        $phase6_final_rating_arabic_language_output = 'PASSED';
+    }else{
+        $_phase6_final_rating_arabic_language_output = 'FAILED';
+    }
+
+    if($phase6_final_rating_islamic_values >= 75){
+        $phase6_final_rating_islamic_values_output = 'PASSED';
+    }else{
+        $phase6_final_rating_islamic_values_output = 'FAILED';
+    }
+
+
+     //PHASE 7 VALIDATION OF FINAL RATING
+     if($phase7_final_rating_mother_tongue >= 75){
+        $phase6_final_rating_mother_tongue_output = 'PASSED';
+    }else{
+        $phase7_final_rating_mother_tongue_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_filipino >= 75){
+        $phase7_final_rating_filipino_output = 'PASSED';
+    }else{
+        $phase7_final_rating_filipino_output ='FAILED';
+    }
+
+    if($phase7_final_rating_english >= 75){
+        $phase7_final_rating_english_output ='PASSED';
+    }else{
+        $phase7_final_rating_english_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_math >= 75){
+        $phase7_final_rating_math_output = 'PASSED';
+    }else{
+        $phase7_final_rating_math_output =  'FAILED';
+    }
+
+    if($phase7_final_rating_science >= 75){
+        $phase7_final_rating_science_output = 'PASSED';
+    }else{
+        $phase7_final_rating_science_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_AP >= 75){
+        $phase7_final_rating_AP_output = 'PASSED';
+    }else{
+        $phase7_final_rating_AP_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_epp_tle >= 75){
+        $phase7_final_rating_epp_tle_output = 'PASSED';
+    }else{
+        $phase7_final_rating_epp_tle_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_mapeh >= 75){
+        $phase7_final_rating_mapeh_output = 'PASSED';
+    }else{
+        $phase7_final_rating_mapeh_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_music >= 75){
+        $phase7_final_rating_music_output = 'PASSED';
+    }else{
+        $phase7_final_rating_music_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_arts >= 75){
+        $phase7_final_rating_arts_output = 'PASSED';
+    }else{
+        $phase7_final_rating_arts_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_PE >= 75){
+        $phase7_final_rating_PE_output = 'PASSED';
+    }else{
+        $phase7_final_rating_PE_output ='FAILED';
+    }
+
+    if($phase7_final_rating_health >= 75){
+        $phase7_final_rating_health_output = 'PASSED';
+    }else{
+        $phase7_final_rating_health_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_esp >= 75){
+        $phase7_final_rating_esp_output = 'PASSED';
+    }else{
+        $phase7_final_rating_esp_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_arabic_language >= 75){
+        $phase7_final_rating_arabic_language_output = 'PASSED';
+    }else{
+        $_phase7_final_rating_arabic_language_output = 'FAILED';
+    }
+
+    if($phase7_final_rating_islamic_values >= 75){
+        $phase7_final_rating_islamic_values_output = 'PASSED';
+    }else{
+        $phase7_final_rating_islamic_values_output = 'FAILED';
+    }
+
+    //PHASE 8 VALIDATION OF FINAL RATING
+    if($phase8_final_rating_mother_tongue >= 75){
+        $phase8_final_rating_mother_tongue_output = 'PASSED';
+    }else{
+        $phase8_final_rating_mother_tongue_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_filipino >= 75){
+        $phase8_final_rating_filipino_output = 'PASSED';
+    }else{
+        $phase8_final_rating_filipino_output ='FAILED';
+    }
+
+    if($phase8_final_rating_english >= 75){
+        $phase8_final_rating_english_output ='PASSED';
+    }else{
+        $phase8_final_rating_english_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_math >= 75){
+        $phase8_final_rating_math_output = 'PASSED';
+    }else{
+        $phase8_final_rating_math_output =  'FAILED';
+    }
+
+    if($phase8_final_rating_science >= 75){
+        $phase8_final_rating_science_output = 'PASSED';
+    }else{
+        $phase8_final_rating_science_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_AP >= 75){
+        $phase8_final_rating_AP_output = 'PASSED';
+    }else{
+        $phase8_final_rating_AP_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_epp_tle >= 75){
+        $phase8_final_rating_epp_tle_output = 'PASSED';
+    }else{
+        $phase8_final_rating_epp_tle_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_mapeh >= 75){
+        $phase8_final_rating_mapeh_output = 'PASSED';
+    }else{
+        $phase8_final_rating_mapeh_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_music >= 75){
+        $phase8_final_rating_music_output = 'PASSED';
+    }else{
+        $phase8_final_rating_music_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_arts >= 75){
+        $phase8_final_rating_arts_output = 'PASSED';
+    }else{
+        $phase8_final_rating_arts_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_PE >= 75){
+        $phase8_final_rating_PE_output = 'PASSED';
+    }else{
+        $phase8_final_rating_PE_output ='FAILED';
+    }
+
+    if($phase8_final_rating_health >= 75){
+        $phase8_final_rating_health_output = 'PASSED';
+    }else{
+        $phase8_final_rating_health_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_esp >= 75){
+        $phase8_final_rating_esp_output = 'PASSED';
+    }else{
+        $phase8_final_rating_esp_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_arabic_language >= 75){
+        $phase8_final_rating_arabic_language_output = 'PASSED';
+    }else{
+        $_phase8_final_rating_arabic_language_output = 'FAILED';
+    }
+
+    if($phase8_final_rating_islamic_values >= 75){
+        $phase8_final_rating_islamic_values_output = 'PASSED';
+    }else{
+        $phase8_final_rating_islamic_values_output = 'FAILED';
     }
 
 
@@ -1678,8 +4883,11 @@ if(isset($_POST['next'])){
 
 
 
-    //left side ito
+    //left side ito  phase 1,3,5,7.
     //once na matapos ko to, mag query ako ng insert
+
+    //phase 1
+
     $phase1_term1_general_average = round(($term1_phase1_mother_tongue + $term1_phase1_mathematics + $term1_phase1_araling_panlipunan + $term1_phase1_average_of_mapeh + $term1_phase1_esp ) / 5);
 
     $phase1_term2_general_average = round(($term2_phase1_mother_tongue + $term2_phase1_filipino + $term2_phase1_mathematics + $term2_phase1_araling_panlipunan + $term2_phase1_average_of_mapeh + $term2_phase1_esp) / 6);
@@ -1690,6 +4898,43 @@ if(isset($_POST['next'])){
 
     $phase1_term5_general_average = round(($phase1_final_rating_mother_tongue + $phase1_final_rating_filipino + $phase1_final_rating_english + $phase1_final_rating_math + $phase1_final_rating_science + $phase1_final_rating_AP + $phase1_final_rating_epp_tle + $phase1_final_rating_mapeh + $phase1_final_rating_esp) / 9);
 
+    //phase 3
+
+    $phase3_term1_general_average = round(($term1_phase3_mother_tongue + $term1_phase3_mathematics + $term1_phase3_araling_panlipunan + $term1_phase3_average_of_mapeh + $term1_phase3_esp ) / 5);
+
+    $phase3_term2_general_average = round(($term2_phase3_mother_tongue + $term2_phase3_filipino + $term2_phase3_mathematics + $term2_phase3_araling_panlipunan + $term2_phase3_average_of_mapeh + $term2_phase3_esp) / 6);
+
+    $phase3_term3_general_average = round(($term3_phase3_mother_tongue + $term3_phase3_filipino + $term3_phase3_english + $term3_phase3_mathematics + $term3_phase3_araling_panlipunan + $term3_phase3_average_of_mapeh + $term3_phase3_esp) / 7);
+
+    $phase3_term4_general_average = round(($term4_phase3_mother_tongue + $term4_phase3_filipino + $term4_phase3_english + $term4_phase3_mathematics + $term4_phase3_araling_panlipunan + $term4_phase3_average_of_mapeh + $term4_phase3_esp) / 7);
+
+    $phase3_term5_general_average = round(($phase3_final_rating_mother_tongue + $phase3_final_rating_filipino + $phase3_final_rating_english + $phase3_final_rating_math + $phase3_final_rating_science + $phase3_final_rating_AP + $phase3_final_rating_epp_tle + $phase3_final_rating_mapeh + $phase3_final_rating_esp) / 9);
+
+    //phase 5
+
+    $phase5_term1_general_average = round(($term1_phase5_mother_tongue + $term1_phase5_mathematics + $term1_phase5_araling_panlipunan + $term1_phase5_average_of_mapeh + $term1_phase5_esp ) / 5);
+
+    $phase5_term2_general_average = round(($term2_phase5_mother_tongue + $term2_phase5_filipino + $term2_phase5_mathematics + $term2_phase5_araling_panlipunan + $term2_phase5_average_of_mapeh + $term2_phase5_esp) / 6);
+
+    $phase5_term3_general_average = round(($term3_phase5_mother_tongue + $term3_phase5_filipino + $term3_phase5_english + $term3_phase5_mathematics + $term3_phase5_araling_panlipunan + $term3_phase5_average_of_mapeh + $term3_phase5_esp) / 7);
+
+    $phase5_term4_general_average = round(($term4_phase5_mother_tongue + $term4_phase5_filipino + $term4_phase5_english + $term4_phase5_mathematics + $term4_phase5_araling_panlipunan + $term4_phase5_average_of_mapeh + $term4_phase5_esp) / 7);
+
+    $phase5_term5_general_average = round(($phase5_final_rating_mother_tongue + $phase5_final_rating_filipino + $phase5_final_rating_english + $phase5_final_rating_math + $phase5_final_rating_science + $phase5_final_rating_AP + $phase5_final_rating_epp_tle + $phase5_final_rating_mapeh + $phase5_final_rating_esp) / 9);
+
+
+     //phase 7
+
+     $phase7_term1_general_average = round(($term1_phase7_mother_tongue + $term1_phase7_mathematics + $term1_phase7_araling_panlipunan + $term1_phase7_average_of_mapeh + $term1_phase7_esp ) / 5);
+
+     $phase7_term2_general_average = round(($term2_phase7_mother_tongue + $term2_phase7_filipino + $term2_phase7_mathematics + $term2_phase7_araling_panlipunan + $term2_phase7_average_of_mapeh + $term2_phase7_esp) / 6);
+ 
+     $phase7_term3_general_average = round(($term3_phase7_mother_tongue + $term3_phase7_filipino + $term3_phase7_english + $term3_phase7_mathematics + $term3_phase7_araling_panlipunan + $term3_phase7_average_of_mapeh + $term3_phase5_esp) / 7);
+ 
+     $phase7_term4_general_average = round(($term4_phase7_mother_tongue + $term4_phase7_filipino + $term4_phase7_english + $term4_phase7_mathematics + $term4_phase7_araling_panlipunan + $term4_phase7_average_of_mapeh + $term4_phase5_esp) / 7);
+ 
+     $phase7_term5_general_average = round(($phase7_final_rating_mother_tongue + $phase7_final_rating_filipino + $phase7_final_rating_english + $phase7_final_rating_math + $phase7_final_rating_science + $phase7_final_rating_AP + $phase7_final_rating_epp_tle + $phase7_final_rating_mapeh + $phase7_final_rating_esp) / 9);
+
     
 
 
@@ -1699,7 +4944,37 @@ if(isset($_POST['next'])){
 
 
 
-    //right side itooooo
+    //right side itooooo 
+    // phase 2,4,6,8
+
+    //PHASE 2 
+    $phase2_term1_general_average = round(($term1_phase2_mother_tongue + $term1_phase2_filipino + $term1_phase2_english + $term1_phase2_mathematics + $term1_phase2_science + $term1_phase2_araling_panlipunan + $term1_phase2_epp_tle + $term1_phase2_average_of_mapeh + $term1_phase2_esp) / 9);
+    $phase2_term2_general_average = round(($term2_phase2_mother_tongue + $term2_phase2_filipino + $term2_phase2_english + $term2_phase2_mathematics + $term2_phase2_science + $term2_phase2_araling_panlipunan + $term2_phase2_epp_tle + $term2_phase2_average_of_mapeh + $term2_phase2_esp) / 9);
+    $phase2_term3_general_average = round(($term3_phase2_mother_tongue + $term3_phase2_filipino + $term3_phase2_english + $term3_phase2_mathematics + $term3_phase2_science + $term3_phase2_araling_panlipunan + $term3_phase2_epp_tle + $term3_phase2_average_of_mapeh + $term3_phase2_esp) / 9);
+    $phase2_term4_general_average = round(($term4_phase2_mother_tongue + $term4_phase2_filipino + $term4_phase2_english + $term4_phase2_mathematics + $term4_phase2_science + $term4_phase2_araling_panlipunan + $term4_phase2_epp_tle + $term4_phase2_average_of_mapeh + $term4_phase2_esp) / 9);
+    $phase2_term5_general_average = round(($term5_phase2_mother_tongue + $term5_phase2_filipino + $term5_phase2_english + $term5_phase2_mathematics + $term5_phase2_science + $term5_phase2_araling_panlipunan + $term5_phase2_epp_tle + $term5_phase2_average_of_mapeh + $term5_phase2_esp) / 9);
+
+    //PHASE 4 
+    $phase4_term1_general_average = round(($term1_phase4_mother_tongue + $term1_phase4_filipino + $term1_phase4_english + $term1_phase4_mathematics + $term1_phase4_science + $term1_phase4_araling_panlipunan + $term1_phase4_epp_tle + $term1_phase4_average_of_mapeh + $term1_phase4_esp) / 9);
+    $phase4_term2_general_average = round(($term2_phase4_mother_tongue + $term2_phase4_filipino + $term2_phase4_english + $term2_phase4_mathematics + $term2_phase4_science + $term2_phase4_araling_panlipunan + $term2_phase4_epp_tle + $term2_phase4_average_of_mapeh + $term2_phase4_esp) / 9);
+    $phase4_term3_general_average = round(($term3_phase4_mother_tongue + $term3_phase4_filipino + $term3_phase4_english + $term3_phase4_mathematics + $term3_phase4_science + $term3_phase4_araling_panlipunan + $term3_phase4_epp_tle + $term3_phase4_average_of_mapeh + $term3_phase4_esp) / 9);
+    $phase4_term4_general_average = round(($term4_phase4_mother_tongue + $term4_phase4_filipino + $term4_phase4_english + $term4_phase4_mathematics + $term4_phase4_science + $term4_phase4_araling_panlipunan + $term4_phase4_epp_tle + $term4_phase4_average_of_mapeh + $term4_phase4_esp) / 9);
+    $phase4_term5_general_average = round(($term5_phase4_mother_tongue + $term5_phase4_filipino + $term5_phase4_english + $term5_phase4_mathematics + $term5_phase4_science + $term5_phase4_araling_panlipunan + $term5_phase4_epp_tle + $term5_phase4_average_of_mapeh + $term5_phase4_esp) / 9);
+
+
+    //PHASE 6
+    $phase6_term1_general_average = round(($term1_phase6_mother_tongue + $term1_phase6_filipino + $term1_phase6_english + $term1_phase6_mathematics + $term1_phase6_science + $term1_phase6_araling_panlipunan + $term1_phase6_epp_tle + $term1_phase6_average_of_mapeh + $term1_phase6_esp) / 9);
+    $phase6_term2_general_average = round(($term2_phase6_mother_tongue + $term2_phase6_filipino + $term2_phase6_english + $term2_phase6_mathematics + $term2_phase6_science + $term2_phase6_araling_panlipunan + $term2_phase6_epp_tle + $term2_phase6_average_of_mapeh + $term2_phase6_esp) / 9);
+    $phase6_term3_general_average = round(($term3_phase6_mother_tongue + $term3_phase6_filipino + $term3_phase6_english + $term3_phase6_mathematics + $term3_phase6_science + $term3_phase6_araling_panlipunan + $term3_phase6_epp_tle + $term3_phase6_average_of_mapeh + $term3_phase6_esp) / 9);
+    $phase6_term4_general_average = round(($term4_phase6_mother_tongue + $term4_phase6_filipino + $term4_phase6_english + $term4_phase6_mathematics + $term4_phase6_science + $term4_phase6_araling_panlipunan + $term4_phase6_epp_tle + $term4_phase6_average_of_mapeh + $term4_phase6_esp) / 9);
+    $phase6_term5_general_average = round(($term5_phase6_mother_tongue + $term5_phase6_filipino + $term5_phase6_english + $term5_phase6_mathematics + $term5_phase6_science + $term5_phase6_araling_panlipunan + $term5_phase6_epp_tle + $term5_phase6_average_of_mapeh + $term5_phase6_esp) / 9);
+
+    //PHASE 8
+    $phase8_term1_general_average = round(($term1_phase8_mother_tongue + $term1_phase8_filipino + $term1_phase8_english + $term1_phase8_mathematics + $term1_phase8_science + $term1_phase8_araling_panlipunan + $term1_phase8_epp_tle + $term1_phase8_average_of_mapeh + $term1_phase8_esp) / 9);
+    $phase8_term2_general_average = round(($term2_phase8_mother_tongue + $term2_phase8_filipino + $term2_phase8_english + $term2_phase8_mathematics + $term2_phase8_science + $term2_phase8_araling_panlipunan + $term2_phase8_epp_tle + $term2_phase8_average_of_mapeh + $term2_phase8_esp) / 9);
+    $phase8_term3_general_average = round(($term3_phase8_mother_tongue + $term3_phase8_filipino + $term3_phase8_english + $term3_phase8_mathematics + $term3_phase8_science + $term3_phase8_araling_panlipunan + $term3_phase8_epp_tle + $term3_phase8_average_of_mapeh + $term3_phase8_esp) / 9);
+    $phase8_term4_general_average = round(($term4_phase8_mother_tongue + $term4_phase8_filipino + $term4_phase8_english + $term4_phase8_mathematics + $term4_phase8_science + $term4_phase8_araling_panlipunan + $term4_phase8_epp_tle + $term4_phase8_average_of_mapeh + $term4_phase8_esp) / 9);
+    $phase8_term5_general_average = round(($term5_phase8_mother_tongue + $term5_phase8_filipino + $term5_phase8_english + $term5_phase8_mathematics + $term5_phase8_science + $term5_phase8_araling_panlipunan + $term5_phase8_epp_tle + $term5_phase8_average_of_mapeh + $term5_phase8_esp) / 9);
   
     
 
@@ -1860,10 +5135,10 @@ if(isset($_POST['next'])){
         if($run_student_grades_term2_phase1_pe){
             echo "added insert_term2_phase1_PE ";
         }else{
-            echo "error insert_term2_phase1_PE". $conn->error;
+            echo "error insert_term2_phase1_PE". 
+            $conn->error;
         }
-        
-        ERROR TJ
+            //term 3 phase 
 
 
 
