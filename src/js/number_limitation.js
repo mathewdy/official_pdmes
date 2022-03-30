@@ -14,20 +14,21 @@ $(document).ready(function(){
         previous_form.hide();
     });
 
-    var invalidInputs = ["-","+","e",]; 
-    $('#grade').keydown( function(e){
-        if ($(this).val().length >= maxChar) { 
-            $(this).val($(this).val().substr(0, maxChar));
-        }
-        if (invalidInputs.includes(e.key)) {
-            e.preventDefault();
-        }
+    $('td #grade').each(function(){
+        var maxChar = 2;
+        var invalidInputs = ["-","+","e",]; 
+        $('td #grade').keydown( function(e){
+            if ($(this).val().length >= maxChar) { 
+                $(this).val($(this).val().substr(0, maxChar));
+            }
+            if (invalidInputs.includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+        $('td #grade').keyup( function(e){
+            if ($(this).val().length >= maxChar) { 
+                $(this).val($(this).val().substr(0, maxChar));
+            }
+        });
     });
-    var maxChar = 2;
-    $('#grade').keyup( function(e){
-        if ($(this).val().length >= maxChar) { 
-            $(this).val($(this).val().substr(0, maxChar));
-        }
-    });
-    
 });
