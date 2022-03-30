@@ -414,7 +414,7 @@ include('connection.php');
             <?php 
             while($rows = mysqli_fetch_array($query_phase1_mapeh)){
             ?>
-            <td><input type="number" name="phase1_mapeh_grades[]" id="grade" 
+            <td><input type="number" readonly name="phase1_mapeh_grades[]" id="grade" 
             value="<?php if($rows['grade'] == 0){ echo " "; }else{ echo $rows['grade'];}?>"title="Please input 2 Numbers only" ></td>
             <?php }?> 
             <?php
@@ -2246,7 +2246,7 @@ include('connection.php');
       </div>
     </div>
       <input type="button" name="previous" style="float:left;" class="previous-form btn btn-default" value="Previous" /> 
-      <input type="submit" name="update" style="float:right;" class="submitbtn btn btn-success" value="submit">
+      <input type="submit" name="update" style="float:right;" class="submitbtn btn btn-success" value="Submit">
       <!-- <input type="button" class="next-form text-end btn btn-success" value="Next" /> -->
     </fieldset>
       <!-- -->
@@ -2295,8 +2295,49 @@ if(isset($_POST['update'])){
     $phase1_sr_signature = $_POST['phase1_sr_signature'];
 
     // PHASE 1 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
-    echo implode(',',$_POST['sg_term']);
-    print_r($lrn);
+    $sg_term = $_POST['sg_term'];
+    $phase1_mother_tounge_grades = $_POST['phase1_mother_tounge_grades'];
+    $phase1_filipino_grades = $_POST['phase1_filipino_grades'];
+    $phase1_english_grades = $_POST['phase1_english_grades'];
+    $phase1_math_grades = $_POST['phase1_math_grades'];
+    $phase1_science_grades = $_POST['phase1_science_grades'];
+    $phase1_araling_panlipunan_grades = $_POST['phase1_araling_panlipunan_grades'];
+    $phase1_epp_tle_grades = $_POST['phase1_epp_tle_grades'];
+    $phase1_mapeh_grades = $_POST['phase1_mapeh_grades'];
+    $phase1_music_grades = $_POST['phase1_music_grades'];
+    $phase1_art_grades = $_POST['phase1_art_grades'];
+    $phase1_pe_grades = $_POST['phase1_pe_grades'];
+    $phase1_health_grades = $_POST['phase1_health_grades'];
+    $phase1_esp_grades = $_POST['phase1_esp_grades'];
+    $phase1_arabic_lang_grades = $_POST['phase1_arabic_lang_grades'];
+    $phase1_islamic_values_grades = $_POST['phase1_islamic_values_grades'];
+
+    // PHASE 1 AVERAGE OF EVERY SUBJECTS
+    $phase1_sum_of_mother_tounge_grades = array_sum($phase1_mother_tounge_grades);
+    $phase1_ave_of_mother_tounge_grades = $phase1_sum_of_mother_tounge_grades/count($phase1_mother_tounge_grades);
+
+    $phase1_sum_of_filipino_grades = array_sum($phase1_filipino_grades);
+    $phase1_ave_of_filipino_grades = $phase1_sum_of_filipino_grades/count($phase1_filipino_grades);
+
+    $phase1_sum_of_english_grades = array_sum($phase1_english_grades);
+    $phase1_ave_of_english_grades = $phase1_sum_of_english_grades/count($phase1_english_grades);
+
+    $phase1_sum_of_math_grades = array_sum($phase1_math_grades);
+    $phase1_ave_of_math_grades = $phase1_sum_of_math_grades/count($phase1_math_grades);
+
+    $phase1_sum_of_science_grades = array_sum($phase1_science_grades);
+    $phase1_ave_of_science_grades = $phase1_sum_of_science_grades/count($phase1_science_grades);
+
+    $phase1_sum_of_araling_panlipunan_grades = array_sum($phase1_araling_panlipunan_grades);
+    $phase1_ave_of_araling_panlipunan_grades = $phase1_sum_of_araling_panlipunan_grades/count($phase1_araling_panlipunan_grades);
+
+    $phase1_sum_of_epp_tle_grades = array_sum($phase1_epp_tle_grades);
+    $phase1_ave_of_epp_tle_grades = $phase1_sum_of_epp_tle_grades/count($phase1_epp_tle_grades);
+
+    $phase1_sum_of_mapeh_grades = array_sum($phase1_mapeh_grades);
+    $phase1_ave_of_mapeh_grades = $phase1_sum_of_mapeh_grades/count($phase1_mapeh_grades);
+
+    
 
 }
 ob_end_flush();
