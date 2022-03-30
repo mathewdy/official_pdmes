@@ -41,6 +41,9 @@ form .gen-container{
     border: none;
     border-bottom: 1px solid black;
 }
+.last-cred span input[type=text]:focus{
+    outline: none;
+}
 .header{
     border: 2px solid black;
     border-bottom: none;
