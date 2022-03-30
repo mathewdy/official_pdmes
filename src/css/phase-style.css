@@ -71,6 +71,9 @@ table input[type=text]{
     width: 100%;
     text-align: center;
 }
+td #grade:focus{
+    outline: none;
+}
 .table-condensed thead > tr > th,
 .table-condensed tbody > tr > th,
 .table-condensed thead > tr > td,
