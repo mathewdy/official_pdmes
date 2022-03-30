@@ -17,6 +17,10 @@ form .gen-container{
     border: none;
     border-bottom: 1px solid black;
 }
+.line-1 input[type=text]:focus, 
+.line-2 input[type=text]:focus{
+    outline: none;
+}
 .credentials-row{
     font-size: 10pt;
 }
