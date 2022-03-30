@@ -1,6 +1,6 @@
 #up_form fieldset:not(:first-of-type) {
     display: none;
-  }
+}
 body{
     background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
     --bs-bg-opacity: 1;

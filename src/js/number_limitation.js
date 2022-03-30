@@ -29,4 +29,5 @@ $(document).ready(function(){
             $(this).val($(this).val().substr(0, maxChar));
         }
     });
+    
 });

@@ -2296,6 +2296,7 @@ if(isset($_POST['update'])){
 
     // PHASE 1 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
     echo implode(',',$_POST['sg_term']);
+    print_r($lrn);
 
 }
 ob_end_flush();
