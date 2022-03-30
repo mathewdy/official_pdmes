@@ -578,10 +578,6 @@ if(isset($_POST['add'])){
     $phase2_final_rating_islamic_values = round(($term1_phase2_islamic_values + $term2_phase2_islamic_values + $term3_phase2_islamic_values + $term4_phase2_islamic_values) / 4);
 
 
-
-
-
-
     if($phase2_final_rating_mother_tongue >= 75){
         $phase2_final_rating_mother_tongue_output = 'PASSED';
     }else{
