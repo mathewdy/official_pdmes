@@ -18,32 +18,6 @@ date_default_timezone_set('Asia/Manila');
 
 <form action="" method = "post" >
 
-
-<h1>Learner's Personal Information</h1>
-<label for="">Last Name: </label>
-<input type="text" name="last_name">
-<br>
-<label for="">First Name:</label>
-<input type="text" name="first_name">
-<br>
-<label for="">Name EXTN. (Jr, I, II): </label>
-<input type="text" name="suffix">
-<br>
-<label for="">Middle Name: </label>
-<input type="text" name="middle_name">
-<br>
-<label for="">Learner Reference Number (LRN) :</label>
-<input type="text" name="lrn">
-<br>
-<label for="">Birth Date:</label>
-<input type="date" name="birth_date" id="">
-<br>
-<label for="">Sex:</label>
-<select name="sex" id="">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-</select>
-
         <h1>Phase 6</h1>
     <label for="">School: </label>
     <input type="text" name="phase6_name_of_school">
@@ -387,7 +361,64 @@ date_default_timezone_set('Asia/Manila');
     <br>
     <label for="">*Islamic Values Education</label>
     <input type="text" name="term4_phase6_islamic_values">
+
+
+<br>
+<h1> Remedial Class</h1>
+
+<label for="">Conducted From</label>
+<input type="date" name="phase6_remedial_from" >
+<br>
+
+<label for="">TO: </label>
+<input type="date" name="phase6_remedial_to" >
+<br>
+
+<label for="">Learning Areas </label> <br>
+
+
+<label for=""> term 1 </label> 
+<input type= "text" name="phase6_remedial_learning_areas_1"> <br>
+
+<label for=""> term 2 </label> 
+<input type= "text" name="phase6_remedial_learning_areas_2"> <br>
+
+
+
+<label for=""> Final Rating  </label> <br>
+<label for =""> term 1  </label>
+<input type= "text" name="phase6_remedial_final_rating_1"> <br>
+
+<label for=""> term 2 </label>
+<input type= "text" name="phase6_remedial_final_rating_2"> <br>
+
+
+<label for=""> Remedial Class Mark </label> <br>
+<label for=""> term 1 </label>
+<input type= "text" name="phase6_remedial_class_mark_1"> <br>
+
+<label for=""> term 2 </label>
+<input type= "text" name="phase6_remedial_class_mark_2"> <br>
+
+
+<label for="">Recomputed Final Grade </label> <br>
+<label for=""> term 1 </label>
+<input type= "text" name="phase6_recomputed_final_grade_1"> <br>
+
+<label for=""> term 2 </label>
+<input type= "text" name="phase6_recomputed_final_grade_2"> <br>
+
+
+
+<label for=""> Remarks </label> <br>
+<label for=""> term 1 </label>
+<input type="text" name="phase6_remedial_remarks_1" > <Br>
+<label for=""> term 2 </label>
+<input type="text" name="phase6_remedial_remarks_2" > <br>
+
+
 <input type = "submit" name= "add" value = "submit"> 
+
 </form>
 </body>
 </html>
@@ -399,16 +430,9 @@ date_default_timezone_set('Asia/Manila');
 
 if(isset($_POST['add'])){
 
-    $last_name = ucfirst($_POST['last_name']);
-    $first_name = ucfirst($_POST['first_name']);
-    $suffix = $_POST['suffix'];
-    $middle_name = ucfirst($_POST['middle_name']);
-    $lrn = $_POST['lrn'];
-    $birth_date = date('M-d-Y',strtotime($_POST['birth_date']));
-    $sex = $_POST['sex'];
+    $lrn = 123456789012;
     $dateCreated = date("y-m-d h:i:a");
     $dateUpdated = date("y-m-d h:i:a");
-    $remarks = 'none';
 
 
     
@@ -526,6 +550,25 @@ if(isset($_POST['add'])){
     $term4_phase6_islamic_values = $_POST['term4_phase6_islamic_values'];
     $term4_phase6_remarks = 'none';
 
+    //phase 6 remedial
+
+    $phase6_remedial_from = date("m-d-y",strtotime($_POST['phase6_remedial_from']));
+    $phase6_remedial_to = date("m-d-y" ,strtotime($_POST['phase6_remedial_to']));
+    $phase6_remedial_learning_areas_1 = $_POST['phase6_remedial_learning_areas_1'] ;
+    $phase6_remedial_final_rating_1 =$_POST['phase6_remedial_final_rating_1'];
+    $phase6_remedial_class_mark_1 = $_POST['phase6_remedial_class_mark_1'];
+    $phase6_recomputed_final_grade_1 = $_POST['phase6_recomputed_final_grade_1'];
+    $phase6_remedial_remarks_1 = $_POST['phase6_remedial_remarks_1'];
+
+    $phase6_remedial_learning_areas_2 = $_POST['phase6_remedial_learning_areas_2'] ;
+    $phase6_remedial_final_rating_2 =$_POST['phase6_remedial_final_rating_2'];
+    $phase6_remedial_class_mark_2 = $_POST['phase6_remedial_class_mark_2'];
+    $phase6_recomputed_final_grade_2 = $_POST['phase6_recomputed_final_grade_2'];
+    $phase6_remedial_remarks_2 = $_POST['phase6_remedial_remarks_2'];
+
+
+    //phase 6 average of mapeh
+
     $term1_phase6_average_of_mapeh = round(($term1_phase6_music + $term1_phase6_arts + $term1_phase6_pe + $term1_phase6_health) / 4) ;
 
     $term2_phase6_average_of_mapeh = round(($term2_phase6_music + $term2_phase6_arts + $term2_phase6_pe + $term2_phase6_health) / 4) ;
@@ -533,7 +576,10 @@ if(isset($_POST['add'])){
     $term3_phase6_average_of_mapeh = round(($term3_phase6_music + $term3_phase6_arts + $term3_phase6_pe + $term3_phase6_health) / 4) ;
 
     $term4_phase6_average_of_mapeh = round(($term4_phase6_music + $term4_phase6_arts + $term4_phase6_pe + $term4_phase6_health) / 4) ;
-    
+
+
+
+    // phase 6 final rating
 
     $phase6_term5 = 'Final Rating6';
   
@@ -568,6 +614,9 @@ if(isset($_POST['add'])){
      $phase6_final_rating_arabic_language = round(($term1_phase6_arabic_language + $term2_phase6_arabic_language + $term3_phase6_arabic_language + $term4_phase6_arabic_language) / 4);
  
      $phase6_final_rating_islamic_values = round(($term1_phase6_islamic_values + $term2_phase6_islamic_values + $term3_phase6_islamic_values + $term4_phase6_islamic_values) / 4);
+
+
+    // validation of mother tongue
 
 
      if($phase6_final_rating_mother_tongue >= 75){
@@ -661,6 +710,8 @@ if(isset($_POST['add'])){
     }
 
 
+    // phase 6 general average phase 6
+
     $phase6_term1_general_average = round(($term1_phase6_mother_tongue + $term1_phase6_filipino + $term1_phase6_english + $term1_phase6_mathematics + $term1_phase6_science + $term1_phase6_araling_panlipunan + $term1_phase6_epp_tle + $term1_phase6_average_of_mapeh + $term1_phase6_esp) / 9);
     $phase6_term2_general_average = round(($term2_phase6_mother_tongue + $term2_phase6_filipino + $term2_phase6_english + $term2_phase6_mathematics + $term2_phase6_science + $term2_phase6_araling_panlipunan + $term2_phase6_epp_tle + $term2_phase6_average_of_mapeh + $term2_phase6_esp) / 9);
     $phase6_term3_general_average = round(($term3_phase6_mother_tongue + $term3_phase6_filipino + $term3_phase6_english + $term3_phase6_mathematics + $term3_phase6_science + $term3_phase6_araling_panlipunan + $term3_phase6_epp_tle + $term3_phase6_average_of_mapeh + $term3_phase6_esp) / 9);
@@ -676,6 +727,8 @@ if(isset($_POST['add'])){
 
             //inserting of students grades
 
+            //phase 6 term 1 mother tongue
+
 
             $insert_student_grades_term1_phase6_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mother_tongue', '$term1_phase6_mother_tongue','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -689,6 +742,8 @@ if(isset($_POST['add'])){
                 $conn->error;;
             }
 
+            //phase 6 term 1 filipino
+
             $insert_student_grades_term1_phase6_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$filipino', '$term1_phase6_filipino','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase6_filipino = mysqli_query($conn,$insert_student_grades_term1_phase6_filipino);
@@ -700,6 +755,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //phase 6 term 1 english
 
             $insert_student_grades_term1_phase6_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$english', '$term1_phase6_english','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -713,6 +770,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //phase 6 term 1 math
+
             $insert_student_grades_term1_phase6_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$math', '$term1_phase6_mathematics','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
               $run_student_grades_term1_phase6_math = mysqli_query($conn,$insert_student_grades_term1_phase6_math);
@@ -724,6 +783,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //phase 6 term 1 science
 
             $insert_student_grades_term1_phase6_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$science', '$term1_phase6_science','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -737,6 +798,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //phase 6 term 1 ap 
+
             $insert_student_grades_term1_phase6_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
               VALUES ('$lrn','$AP', '$term1_phase6_araling_panlipunan','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
                 $run_student_grades_term1_phase6_ap = mysqli_query($conn,$insert_student_grades_term1_phase6_ap);
@@ -748,6 +811,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //phase 6 term 1 epp tle
 
             $insert_student_grades_term1_phase6_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$epp_tle', '$term1_phase6_epp_tle','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -761,6 +826,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //phase 6 term 1 mapeh
+
             $insert_student_grades_term1_phase6_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mapeh', '$term1_phase6_average_of_mapeh','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase6_mapeh = mysqli_query($conn,$insert_student_grades_term1_phase6_mapeh);
@@ -772,6 +839,9 @@ if(isset($_POST['add'])){
                     $conn->error;
                 }
 
+
+                //phase 6 term 1 music
+
             $insert_student_grades_term1_phase6_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$music', '$term1_phase6_music','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase6_music = mysqli_query($conn,$insert_student_grades_term1_phase6_music);
@@ -782,6 +852,9 @@ if(isset($_POST['add'])){
                    else{
                     $conn->error;
                 }
+
+                //phase 6 term 1 arts
+
             $insert_student_grades_term1_phase6_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arts', '$term1_phase6_arts','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase6_arts = mysqli_query($conn,$insert_student_grades_term1_phase6_arts);
@@ -794,6 +867,9 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    //phase 6 term 1 pe
+
             $insert_student_grades_term1_phase6_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$PE', '$term1_phase6_pe','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase6_pe = mysqli_query($conn,$insert_student_grades_term1_phase6_pe);
@@ -805,6 +881,8 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    //phase 6 term 1 health
 
             $insert_student_grades_term1_phase6_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$health', '$term1_phase6_health','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -819,6 +897,8 @@ if(isset($_POST['add'])){
                         $conn->error;
                     }
 
+                    //phase 6 term 1 esp
+
             $insert_student_grades_term1_phase6_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$esp', '$term1_phase6_esp','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase6_esp = mysqli_query($conn,$insert_student_grades_term1_phase6_esp);
@@ -829,6 +909,8 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    //phase 6 term 1 arabic
 
             $insert_student_grades_term1_phase6_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arabic_language', '$term1_phase6_arabic_language','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -842,6 +924,8 @@ if(isset($_POST['add'])){
                     $conn->error;
                 }
 
+                //phase 6 term 1 islamic
+
             $insert_student_grades_term1_phase6_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$islamic_values', '$term1_phase6_islamic_values','$term1_phase6', '$phase6', '$term1_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase6_islamic = mysqli_query($conn,$insert_student_grades_term1_phase6_islamic);
@@ -854,7 +938,7 @@ if(isset($_POST['add'])){
              else{
                   echo "error term1_phase6 islamic" . '<br>';
                 }
-                    //general average
+                    //general average phase 6
                 $insert_phase6_term1_general_average = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
                 VALUES ('$lrn','$phase6_term1_general_average','$term1_phase6','$phase6','$phase6_remarks','$dateCreated','$dateUpdated');";
                 $run_phase6_term1_student_averages = mysqli_query($conn,$insert_phase6_term1_general_average);
@@ -866,9 +950,11 @@ if(isset($_POST['add'])){
                 }else{
                     echo "error student_averages" . $conn->error;
                 }
+                //phase 6 term 1  ends here------------------------
 
+                //insertion of grades
 
-                //  phase 1 term 2 
+                //  phase 6 term 2 mother tongue
 
 
                 $insert_student_grades_term2_phase6_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
@@ -883,6 +969,8 @@ if(isset($_POST['add'])){
                 $conn->error;;
             }
 
+            //  phase 6 term 2 filipino
+
             $insert_student_grades_term2_phase6_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$filipino', '$term2_phase6_filipino','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase6_filipino = mysqli_query($conn,$insert_student_grades_term2_phase6_filipino);
@@ -894,6 +982,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //  phase 6 term 2  english
 
             $insert_student_grades_term2_phase6_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$english', '$term2_phase6_english','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -907,6 +997,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //  phase 6 term 2 math
+
             $insert_student_grades_term2_phase6_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$math', '$term2_phase6_mathematics','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
               $run_student_grades_term2_phase6_math = mysqli_query($conn,$insert_student_grades_term2_phase6_math);
@@ -918,6 +1010,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //  phase 6 term 2 science
 
             $insert_student_grades_term2_phase6_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$science', '$term2_phase6_science','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -931,6 +1025,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //  phase 6 term 2 ap
+
             $insert_student_grades_term2_phase6_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
               VALUES ('$lrn','$AP', '$term2_phase6_araling_panlipunan','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
                 $run_student_grades_term2_phase6_ap = mysqli_query($conn,$insert_student_grades_term2_phase6_ap);
@@ -942,6 +1038,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //  phase 6 term 2 epp tle
 
             $insert_student_grades_term2_phase6_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$epp_tle', '$term2_phase6_epp_tle','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -955,6 +1053,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //  phase 6 term 2 mapeh
+
             $insert_student_grades_term2_phase6_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mapeh', '$term2_phase6_average_of_mapeh','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase6_mapeh = mysqli_query($conn,$insert_student_grades_term2_phase6_mapeh);
@@ -966,6 +1066,8 @@ if(isset($_POST['add'])){
                     $conn->error;
                 }
 
+                //  phase 6 term 2 music
+
             $insert_student_grades_term2_phase6_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$music', '$term2_phase6_music','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase6_music = mysqli_query($conn,$insert_student_grades_term2_phase6_music);
@@ -976,6 +1078,9 @@ if(isset($_POST['add'])){
                    else{
                     $conn->error;
                 }
+
+                //  phase 6 term 2 arts
+
             $insert_student_grades_term2_phase6_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arts', '$term2_phase6_arts','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase6_arts = mysqli_query($conn,$insert_student_grades_term2_phase6_arts);
@@ -988,6 +1093,9 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    //  phase 6 term 2 pe
+
             $insert_student_grades_term2_phase6_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$PE', '$term2_phase6_pe','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase6_pe = mysqli_query($conn,$insert_student_grades_term2_phase6_pe);
@@ -999,6 +1107,8 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    //  phase 6 term 2 health 
 
             $insert_student_grades_term2_phase6_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$health', '$term2_phase6_health','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1013,6 +1123,8 @@ if(isset($_POST['add'])){
                         $conn->error;
                     }
 
+                //  phase 6 term 2 esp
+
             $insert_student_grades_term2_phase6_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$esp', '$term2_phase6_esp','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase6_esp = mysqli_query($conn,$insert_student_grades_term2_phase6_esp);
@@ -1023,6 +1135,9 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+
+              //  phase 6 term 2 arabic      
 
             $insert_student_grades_term2_phase6_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arabic_language', '$term2_phase6_arabic_language','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1035,6 +1150,8 @@ if(isset($_POST['add'])){
                  else{
                     $conn->error;
                 }
+
+                //  phase 6 term 2 islamic 
 
             $insert_student_grades_term2_phase6_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$islamic_values', '$term2_phase6_islamic_values','$term2_phase6', '$phase6', '$term2_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1052,7 +1169,7 @@ if(isset($_POST['add'])){
 
 
         
-                    // general average of term 2
+                    // general average phase 6 of term 2
 
                     $insert_phase6_term2_general_average = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
                 VALUES ('$lrn','$phase6_term2_general_average','$term2_phase6','$phase6',' $term2_phase6_remarks','$dateCreated','$dateUpdated');";
@@ -1065,9 +1182,11 @@ if(isset($_POST['add'])){
                     echo "error student_averages" . $conn->error;
                 }
 
+                //  phase 6 term 2  ends here----------------------
 
+                    //insertion of grades 
 
-                //phase 1 term 3 
+                //phase 6 term 3 mother tongue
 
                 $insert_student_grades_term3_phase6_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mother_tongue', '$term3_phase6_mother_tongue','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1081,6 +1200,8 @@ if(isset($_POST['add'])){
                 $conn->error;;
             }
 
+            //phase 6 term 3 filipino
+
             $insert_student_grades_term3_phase6_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$filipino', '$term3_phase6_filipino','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase6_filipino = mysqli_query($conn,$insert_student_grades_term3_phase6_filipino);
@@ -1092,6 +1213,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //phase 6 term 3 english
 
             $insert_student_grades_term3_phase6_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$english', '$term3_phase6_english','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1105,6 +1228,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //phase 6 term 3 math
+
             $insert_student_grades_term3_phase6_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$math', '$term3_phase6_mathematics','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
               $run_student_grades_term3_phase6_math = mysqli_query($conn,$insert_student_grades_term3_phase6_math);
@@ -1116,6 +1241,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //phase 6 term 3 science
 
             $insert_student_grades_term3_phase6_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$science', '$term3_phase6_science','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1129,6 +1256,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //phase 6 term 3 ap
+
             $insert_student_grades_term3_phase6_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
               VALUES ('$lrn','$AP', '$term3_phase6_araling_panlipunan','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
                 $run_student_grades_term3_phase6_ap = mysqli_query($conn,$insert_student_grades_term3_phase6_ap);
@@ -1140,6 +1269,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            //phase 6 term 3 epp tle
 
             $insert_student_grades_term3_phase6_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$epp_tle', '$term3_phase6_epp_tle','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1153,6 +1284,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            //phase 6 term 3 mapeh
+
             $insert_student_grades_term3_phase6_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mapeh', '$term3_phase6_average_of_mapeh','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase6_mapeh = mysqli_query($conn,$insert_student_grades_term3_phase6_mapeh);
@@ -1164,6 +1297,8 @@ if(isset($_POST['add'])){
                     $conn->error;
                 }
 
+                //phase 6 term 3 music
+
             $insert_student_grades_term3_phase6_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$music', '$term3_phase6_music','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase6_music = mysqli_query($conn,$insert_student_grades_term3_phase6_music);
@@ -1174,6 +1309,9 @@ if(isset($_POST['add'])){
                    else{
                     $conn->error;
                 }
+
+                //phase 6 term 3 arts
+
             $insert_student_grades_term3_phase6_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arts', '$term3_phase6_arts','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase6_arts = mysqli_query($conn,$insert_student_grades_term3_phase6_arts);
@@ -1186,6 +1324,9 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    //phase 6 term 3 pe
+
             $insert_student_grades_term3_phase6_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$PE', '$term3_phase6_pe','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase6_pe = mysqli_query($conn,$insert_student_grades_term3_phase6_pe);
@@ -1197,6 +1338,8 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    //phase 6 term 3 health
 
             $insert_student_grades_term3_phase6_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$health', '$term3_phase6_health','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1211,6 +1354,8 @@ if(isset($_POST['add'])){
                         $conn->error;
                     }
 
+                    //phase 6 term 3 esp
+
             $insert_student_grades_term3_phase6_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$esp', '$term3_phase6_esp','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase6_esp = mysqli_query($conn,$insert_student_grades_term3_phase6_esp);
@@ -1221,6 +1366,8 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    //phase 6 term 3 arabic
 
             $insert_student_grades_term3_phase6_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arabic_language', '$term3_phase6_arabic_language','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1233,6 +1380,9 @@ if(isset($_POST['add'])){
                  else{
                     $conn->error;
                 }
+
+
+                //phase 6 term 3 islamic
 
             $insert_student_grades_term3_phase6_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$islamic_values', '$term3_phase6_islamic_values','$term3_phase6', '$phase6', '$term3_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1250,7 +1400,7 @@ if(isset($_POST['add'])){
 
 
         
-                    // general average of term 3
+                    // general average phase 6 of term 3
 
                     $insert_phase6_term3_general_average = "INSERT INTO student_general_averages (`lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
                 VALUES ('$lrn','$phase6_term3_general_average','$term3_phase6','$phase6',' $term3_phase6_remarks','$dateCreated','$dateUpdated');";
@@ -1263,11 +1413,13 @@ if(isset($_POST['add'])){
                     echo "error student_averages" . $conn->error;
                 }
                 
+                //phase 6 term 3 ends here----------------------------------------
+                
+                //insertion grades of 
+                // phase 6 term 4 
 
 
-                // phase 1 term 4 
-
-
+                // phase 6 term 4 mother tongue
 
                 $insert_student_grades_term4_phase6_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mother_tongue', '$term4_phase6_mother_tongue','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1281,6 +1433,8 @@ if(isset($_POST['add'])){
                 $conn->error;;
             }
 
+            // phase 6 term 4 filipino
+
             $insert_student_grades_term4_phase6_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$filipino', '$term4_phase6_filipino','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase6_filipino = mysqli_query($conn,$insert_student_grades_term4_phase6_filipino);
@@ -1292,6 +1446,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            // phase 6 term 4 english
 
             $insert_student_grades_term4_phase6_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$english', '$term4_phase6_english','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1305,6 +1461,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            // phase 6 term 4 math
+
             $insert_student_grades_term4_phase6_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$math', '$term4_phase6_mathematics','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
               $run_student_grades_term4_phase6_math = mysqli_query($conn,$insert_student_grades_term4_phase6_math);
@@ -1316,6 +1474,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            // phase 6 term 4 science
 
             $insert_student_grades_term4_phase6_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$science', '$term4_phase6_science','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1329,6 +1489,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            // phase 6 term 4 ap 
+
             $insert_student_grades_term4_phase6_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
               VALUES ('$lrn','$AP', '$term4_phase6_araling_panlipunan','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
                 $run_student_grades_term4_phase6_ap = mysqli_query($conn,$insert_student_grades_term4_phase6_ap);
@@ -1340,6 +1502,8 @@ if(isset($_POST['add'])){
             else{
                 $conn->error;
             }
+
+            // phase 6 term 4 epp tle
 
             $insert_student_grades_term4_phase6_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$epp_tle', '$term4_phase6_epp_tle','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1353,6 +1517,8 @@ if(isset($_POST['add'])){
                 $conn->error;
             }
 
+            // phase 6 term 4 mapeh
+
             $insert_student_grades_term4_phase6_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mapeh', '$term4_phase6_average_of_mapeh','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase6_mapeh = mysqli_query($conn,$insert_student_grades_term4_phase6_mapeh);
@@ -1364,6 +1530,8 @@ if(isset($_POST['add'])){
                     $conn->error;
                 }
 
+                // phase 6 term 4 music
+
             $insert_student_grades_term4_phase6_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$music', '$term4_phase6_music','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase6_music = mysqli_query($conn,$insert_student_grades_term4_phase6_music);
@@ -1374,6 +1542,8 @@ if(isset($_POST['add'])){
                    else{
                     $conn->error;
                 }
+
+                // phase 6 term 4 arts
             $insert_student_grades_term4_phase6_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arts', '$term4_phase6_arts','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase6_arts = mysqli_query($conn,$insert_student_grades_term4_phase6_arts);
@@ -1386,6 +1556,9 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+
+                   // phase 6 term 4 pe 
             $insert_student_grades_term4_phase6_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$PE', '$term4_phase6_pe','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase6_pe = mysqli_query($conn,$insert_student_grades_term4_phase6_pe);
@@ -1398,6 +1571,8 @@ if(isset($_POST['add'])){
                         $conn->error;
                     }
 
+
+                    // phase 6 term 4 health
             $insert_student_grades_term4_phase6_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$health', '$term4_phase6_health','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase6_health = mysqli_query($conn,$insert_student_grades_term4_phase6_health);
@@ -1411,6 +1586,8 @@ if(isset($_POST['add'])){
                         $conn->error;
                     }
 
+                    // phase 6 term 4 esp
+
             $insert_student_grades_term4_phase6_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$esp', '$term4_phase6_esp','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase6_esp = mysqli_query($conn,$insert_student_grades_term4_phase6_esp);
@@ -1421,6 +1598,8 @@ if(isset($_POST['add'])){
                     else{
                         $conn->error;
                     }
+
+                    // phase 6 term 4 arabic
 
             $insert_student_grades_term4_phase6_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arabic_language', '$term4_phase6_arabic_language','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1433,6 +1612,8 @@ if(isset($_POST['add'])){
                  else{
                     $conn->error;
                 }
+
+                // phase 6 term 4 islmic
 
             $insert_student_grades_term4_phase6_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$islamic_values', '$term4_phase6_islamic_values','$term4_phase6', '$phase6', '$term4_phase6_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1450,7 +1631,7 @@ if(isset($_POST['add'])){
 
 
         
-                    // general average of term 4
+                    // general average phase 6 of term 4
 
                     $insert_phase6_term4_general_average = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
                 VALUES ('$lrn','$phase6_term4_general_average','$term4_phase6','$phase6',' $term4_phase6_remarks','$dateCreated','$dateUpdated');";
@@ -1463,7 +1644,9 @@ if(isset($_POST['add'])){
                     echo "error student_averages" . $conn->error;
                 }
 
+                // phase 6 term 4  ends here------------------------------
 
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT mother tongue
 
                 $insert_student_final_ratings_mt = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$mother_tongue','$phase6_final_rating_mother_tongue', '$phase6_term5', '$phase6', '$phase6_final_rating_mother_tongue_output', '$dateCreated' , '$dateUpdated')";
@@ -1475,6 +1658,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings MT" . '<br>';
             }
 
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT filipino
 
             $insert_student_final_ratings_filipino = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$filipino', '$phase6_final_rating_filipino','$phase6_term5', '$phase6', '$phase6_final_rating_filipino_output', '$dateCreated' , '$dateUpdated')";
@@ -1486,7 +1670,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings filipino" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT English
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT English
 
             $insert_student_final_ratings_english = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$english','$phase6_final_rating_english', '$phase6_term5', '$phase6', '$phase6_final_rating_english_output', '$dateCreated' , '$dateUpdated')";
@@ -1498,7 +1682,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings english" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT Math
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT Math
 
             $insert_student_final_ratings_math = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$math','$phase6_final_rating_math', '$phase6_term5', '$phase6', '$phase6_final_rating_math_output', '$dateCreated' , '$dateUpdated')";
@@ -1510,7 +1694,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings math" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT Science
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT Science
 
             $insert_student_final_ratings_science = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$science','$phase6_final_rating_science', '$phase6_term5', '$phase6', '$phase6_final_rating_science_output', '$dateCreated' , '$dateUpdated')";
@@ -1522,7 +1706,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings math" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT AP
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT AP
 
             $insert_student_final_ratings_AP = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$AP','$phase6_final_rating_AP', '$phase6_term5', '$phase6_term5', '$phase6_final_rating_AP_output', '$dateCreated' , '$dateUpdated')";
@@ -1534,7 +1718,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings AP" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT EPP / TLE
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT EPP / TLE
 
             $insert_student_final_ratings_epp_tle = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$epp_tle','$phase6_final_rating_epp_tle', '$phase6_term5', '$phase6', '$phase6_final_rating_epp_tle_output', '$dateCreated' , '$dateUpdated')";
@@ -1546,7 +1730,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings epp tle" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT MAPEH
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT MAPEH
 
             $insert_student_final_ratings_mapeh = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$mapeh','$phase6_final_rating_mapeh', '$phase6_term5', '$phase6', '$phase6_final_rating_mapeh_output', '$dateCreated' , '$dateUpdated')";
@@ -1558,7 +1742,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings mapeh" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT music
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT music
 
             $insert_student_final_ratings_music = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$music','$phase6_final_rating_music', '$phase6_term5', '$phase6', '$phase6_final_rating_music_output', '$dateCreated' , '$dateUpdated')";
@@ -1570,7 +1754,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings music" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT arts
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT arts
 
             $insert_student_final_ratings_arts = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$arts','$phase6_final_rating_arts', '$phase6_term5', '$phase6', '$phase6_final_rating_arts_output', '$dateCreated' , '$dateUpdated')";
@@ -1582,7 +1766,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings arts" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT pe
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT pe
 
             $insert_student_final_ratings_pe = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$PE','$phase6_final_rating_PE', '$phase6_term5', '$phase6', '$phase6_final_rating_PE_output', '$dateCreated' , '$dateUpdated')";
@@ -1594,7 +1778,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings PE" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT health
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT health
 
             $insert_student_final_ratings_health = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$health','$phase6_final_rating_health', '$phase6_term5', '$phase6', '$phase6_final_rating_health_output', '$dateCreated' , '$dateUpdated')";
@@ -1606,7 +1790,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings health" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT ESP
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT ESP
 
             $insert_student_final_ratings_esp = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$esp', '$phase6_final_rating_esp','$phase6_term5', '$phase6', '$phase6_final_rating_esp_output', '$dateCreated' , '$dateUpdated')";
@@ -1619,7 +1803,7 @@ if(isset($_POST['add'])){
             }
 
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT arabic language
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT arabic language
 
             $insert_student_final_ratings_arabic = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$arabic_language','$phase6_final_rating_arabic_language', '$phase6_term5', '$phase6', '$phase6_final_rating_arabic_language_output', '$dateCreated' , '$dateUpdated')";
@@ -1631,7 +1815,7 @@ if(isset($_POST['add'])){
                 echo "Error student final ratings arabic" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT islamic values
+            //insert ko sa PHASE 6 FINAL RATINGS table PER SUBJECT islamic values
 
             $insert_student_final_ratings_islam = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$islamic_values','$phase6_final_rating_islamic_values', '$phase6_term5', '$phase6', '$phase6_final_rating_islamic_values_output', '$dateCreated' , '$dateUpdated')";
@@ -1644,7 +1828,7 @@ if(isset($_POST['add'])){
             }
 
 
-                //general averag of phase 1 term 5 
+                //general averag of phase 6 term 5 
             $insert_phase6_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
             VALUES ('$lrn','$phase6_term5_general_average', ' $phase6_term5','$term1_phase6_remarks', '$dateCreated','$dateUpdated')";
 
@@ -1656,6 +1840,48 @@ if(isset($_POST['add'])){
                 echo "added student averages term5";
             }
 
+            //insert of remedial phase 6 
+
+
+            for ($phase6_remedial_term = 1; $phase6_remedial_term <=2 ; $phase6_remedial_term++){
+
+
+
+                if($phase6_remedial_term ==1){
+            $phase6_remedial_query= "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`, `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, `term`, `remarks`, `date_time_created`, `date_time_updated`) 
+            VALUES ('$lrn','$phase6_remedial_from','$phase6_remedial_to','$phase6_remedial_learning_areas_1',' $phase6_remedial_final_rating_1','$phase6_remedial_class_mark_1','$phase6_recomputed_final_grade_1','$phase6','$phase6_remedial_term','$phase6_remedial_remarks_1','$dateCreated','$dateUpdated')";
+            
+            $phase6_run_query = mysqli_query($conn,$phase6_remedial_query);
+
+            if($phase6_run_query){
+            echo "remedial query success <br>";
+            }
+            else
+            {
+                $conn->error;
+            }
+                
+        }
+
+
+
+             elseif($phase6_remedial_term ==2) {
+                
+
+            $phase6_remedial_query= "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`, `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, `term`, `remarks`, `date_time_created`, `date_time_updated`) 
+            VALUES ('$lrn','$phase6_remedial_from','$phase6_remedial_to','$phase6_remedial_learning_areas_2',' $phase6_remedial_final_rating_2','$phase6_remedial_class_mark_2','$phase6_recomputed_final_grade_2','$phase6','$phase6_remedial_term','$phase6_remedial_remarks_2','$dateCreated','$dateUpdated')";
+            
+            $phase6_run_query = mysqli_query($conn,$phase6_remedial_query);
+
+                if($phase6_run_query){
+                    echo "remedial query success term2  <br>";
+                }
+                    else
+                    {
+                        $conn->error;
+                    }
+        }   
+        }
 
 
 

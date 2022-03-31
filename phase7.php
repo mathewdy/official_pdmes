@@ -19,31 +19,6 @@ date_default_timezone_set('Asia/Manila');
 
     <form action = "" method = "post">
 
-    <h1>Learner's Personal Information</h1>
-<label for="">Last Name: </label>
-<input type="text" name="last_name">
-<br>
-<label for="">First Name:</label>
-<input type="text" name="first_name">
-<br>
-<label for="">Name EXTN. (Jr, I, II): </label>
-<input type="text" name="suffix">
-<br>
-<label for="">Middle Name: </label>
-<input type="text" name="middle_name">
-<br>
-<label for="">Learner Reference Number (LRN) :</label>
-<input type="text" name="lrn">
-<br>
-<label for="">Birth Date:</label>
-<input type="date" name="birth_date" id="">
-<br>
-<label for="">Sex:</label>
-<select name="sex" id="">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-</select>
-<br>
     <h1>Phase 7</h1>
     <label for="">School: </label>
     <input type="text" name="phase7_name_of_school">
@@ -393,6 +368,59 @@ date_default_timezone_set('Asia/Manila');
     <input type="text" readonly>
     
     <br>
+
+    <h1>Remedial Class</h1>
+
+<label for="">Conducted From</label>
+<input type="date" name="phase7_remedial_from" >
+<br>
+
+<label for="">TO: </label>
+<input type="date" name="phase7_remedial_to" >
+<br>
+
+<label for="">Learning Areas </label> <br>
+
+
+<label for=""> term 1 </label> 
+<input type= "text" name="phase7_remedial_learning_areas_1"> <br>
+
+<label for=""> term 2 </label> 
+<input type= "text" name="phase7_remedial_learning_areas_2"> <br>
+
+
+
+<label for=""> Final Rating  </label> <br>
+<label for =""> term 1  </label>
+<input type= "text" name="phase7_remedial_final_rating_1"> <br>
+
+<label for=""> term 2 </label>
+<input type= "text" name="phase7_remedial_final_rating_2"> <br>
+
+
+<label for=""> Remedial Class Mark </label> <br>
+<label for=""> term 1 </label>
+<input type= "text" name="phase7_remedial_class_mark_1"> <br>
+
+<label for=""> term 2 </label>
+<input type= "text" name="phase7_remedial_class_mark_2"> <br>
+
+
+<label for="">Recomputed Final Grade </label> <br>
+<label for=""> term 1 </label>
+<input type= "text" name="phase7_recomputed_final_grade_1"> <br>
+
+<label for=""> term 2 </label>
+<input type= "text" name="phase7_recomputed_final_grade_2"> <br>
+
+
+
+<label for=""> Remarks </label> <br>
+<label for=""> term 1 </label>
+<input type="text" name="phase7_remedial_remarks_1" > <Br>
+<label for=""> term 2 </label>
+<input type="text" name="phase7_remedial_remarks_2" > <br>
+
     <input type = "submit" name= "add" value = "submit">
 
 
@@ -405,13 +433,9 @@ date_default_timezone_set('Asia/Manila');
 <?php
 if(isset($_POST['add'])){
 
-$last_name = ucfirst($_POST['last_name']);
-    $first_name = ucfirst($_POST['first_name']);
-    $suffix = $_POST['suffix'];
-    $middle_name = ucfirst($_POST['middle_name']);
-    $lrn = $_POST['lrn'];
-    $birth_date = date('M-d-Y',strtotime($_POST['birth_date']));
-    $sex = $_POST['sex'];
+
+    $lrn = 123456789012;
+   
     $dateCreated = date("y-m-d h:i:a");
     $dateUpdated = date("y-m-d h:i:a");
     $remarks = 'none';
@@ -533,6 +557,26 @@ $last_name = ucfirst($_POST['last_name']);
     $term4_phase7_remarks = 'none';
 
 
+    //phase 7 remedial
+
+
+    $phase7_remedial_from = date("m-d-y",strtotime($_POST['phase7_remedial_from']));
+    $phase7_remedial_to = date("m-d-y" ,strtotime($_POST['phase7_remedial_to']));
+    $phase7_remedial_learning_areas_1 = $_POST['phase7_remedial_learning_areas_1'] ;
+    $phase7_remedial_final_rating_1 =$_POST['phase7_remedial_final_rating_1'];
+    $phase7_remedial_class_mark_1 = $_POST['phase7_remedial_class_mark_1'];
+    $phase7_recomputed_final_grade_1 = $_POST['phase7_recomputed_final_grade_1'];
+    $phase7_remedial_remarks_1 = $_POST['phase7_remedial_remarks_1'];
+
+    $phase7_remedial_learning_areas_2 = $_POST['phase7_remedial_learning_areas_2'] ;
+    $phase7_remedial_final_rating_2 =$_POST['phase7_remedial_final_rating_2'];
+    $phase7_remedial_class_mark_2 = $_POST['phase7_remedial_class_mark_2'];
+    $phase7_recomputed_final_grade_2 = $_POST['phase7_recomputed_final_grade_2'];
+    $phase7_remedial_remarks_2 = $_POST['phase7_remedial_remarks_2'];
+
+    //phase 7 average of mapeh
+
+
     $term1_phase7_average_of_mapeh = round(($term1_phase7_music + $term1_phase7_arts + $term1_phase7_pe + $term1_phase7_health) / 4) ;
 
     $term2_phase7_average_of_mapeh = round(($term2_phase7_music + $term2_phase7_arts + $term2_phase7_pe + $term2_phase7_health) / 4) ;
@@ -541,6 +585,8 @@ $last_name = ucfirst($_POST['last_name']);
 
     $term4_phase7_average_of_mapeh = round(($term4_phase7_music + $term4_phase7_arts + $term4_phase7_pe + $term4_phase7_health) / 4) ;
 
+
+    // phase 7 final rating
 
 
     $phase7_term5 = 'Final Rating7';
@@ -576,6 +622,9 @@ $last_name = ucfirst($_POST['last_name']);
     $phase7_final_rating_arabic_language = round(($term1_phase7_arabic_language + $term2_phase7_arabic_language + $term3_phase7_arabic_language + $term4_phase7_arabic_language) / 4);
 
     $phase7_final_rating_islamic_values = round(($term1_phase7_islamic_values + $term2_phase7_islamic_values + $term3_phase7_islamic_values + $term4_phase7_islamic_values) / 4);
+
+
+    // phase 7 validation
 
     if($phase7_final_rating_mother_tongue >= 75){
         $phase7_final_rating_mother_tongue_output = 'PASSED';
@@ -667,6 +716,9 @@ $last_name = ucfirst($_POST['last_name']);
         $phase7_final_rating_islamic_values_output = 'FAILED';
     }
 
+
+    //phase 7 average
+
     $phase7_term1_general_average = round(($term1_phase7_mother_tongue + $term1_phase7_mathematics + $term1_phase7_araling_panlipunan + $term1_phase7_average_of_mapeh + $term1_phase7_esp ) / 5);
 
     $phase7_term2_general_average = round(($term2_phase7_mother_tongue + $term2_phase7_filipino + $term2_phase7_mathematics + $term2_phase7_araling_panlipunan + $term2_phase7_average_of_mapeh + $term2_phase7_esp) / 6);
@@ -685,8 +737,10 @@ $last_name = ucfirst($_POST['last_name']);
         $phase7_run_scholastic_records = mysqli_query($conn,$phase7_insert_scholastic_records);
         if($phase7_run_scholastic_records){
 
-            //inserting of students grades
 
+
+            //inserting of students grades
+            // phase 7 term 1 mother tongue
 
             $insert_student_grades_term1_phase7_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mother_tongue', '$term1_phase7_mother_tongue','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -700,6 +754,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;;
             }
 
+            // phase 7 term 1 filipino
+
             $insert_student_grades_term1_phase7_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$filipino', '$term1_phase7_filipino','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase7_filipino = mysqli_query($conn,$insert_student_grades_term1_phase7_filipino);
@@ -711,6 +767,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            // phase 7 term 1 english
 
             $insert_student_grades_term1_phase7_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$english', '$term1_phase7_english','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -724,6 +782,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            // phase 7 term 1 math
+
             $insert_student_grades_term1_phase7_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$math', '$term1_phase7_mathematics','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
               $run_student_grades_term1_phase7_math = mysqli_query($conn,$insert_student_grades_term1_phase7_math);
@@ -735,6 +795,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            // phase 7 term 1 science
 
             $insert_student_grades_term1_phase7_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$science', '$term1_phase7_science','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -748,6 +810,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            // phase 7 term 1 ap
+
             $insert_student_grades_term1_phase7_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
               VALUES ('$lrn','$AP', '$term1_phase7_araling_panlipunan','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
                 $run_student_grades_term1_phase7_ap = mysqli_query($conn,$insert_student_grades_term1_phase7_ap);
@@ -759,6 +823,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            // phase 7 term 1 epp tle
 
             $insert_student_grades_term1_phase7_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$epp_tle', '$term1_phase7_epp_tle','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -772,6 +838,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            // phase 7 term 1 mapeh
+
             $insert_student_grades_term1_phase7_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mapeh', '$term1_phase7_average_of_mapeh','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase7_mapeh = mysqli_query($conn,$insert_student_grades_term1_phase7_mapeh);
@@ -783,6 +851,8 @@ $last_name = ucfirst($_POST['last_name']);
                     $conn->error;
                 }
 
+                // phase 7 term 1 music
+
             $insert_student_grades_term1_phase7_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$music', '$term1_phase7_music','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase7_music = mysqli_query($conn,$insert_student_grades_term1_phase7_music);
@@ -793,6 +863,9 @@ $last_name = ucfirst($_POST['last_name']);
                    else{
                     $conn->error;
                 }
+
+                // phase 7 term 1 arts
+
             $insert_student_grades_term1_phase7_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arts', '$term1_phase7_arts','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase7_arts = mysqli_query($conn,$insert_student_grades_term1_phase7_arts);
@@ -805,6 +878,9 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    // phase 7 term 1  pe
+
             $insert_student_grades_term1_phase7_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$PE', '$term1_phase7_pe','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase7_pe = mysqli_query($conn,$insert_student_grades_term1_phase7_pe);
@@ -816,6 +892,8 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    // phase 7 term 1 health
 
             $insert_student_grades_term1_phase7_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$health', '$term1_phase7_health','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -830,6 +908,8 @@ $last_name = ucfirst($_POST['last_name']);
                         $conn->error;
                     }
 
+                    // phase 7 term 1 esp
+
             $insert_student_grades_term1_phase7_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$esp', '$term1_phase7_esp','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase7_esp = mysqli_query($conn,$insert_student_grades_term1_phase7_esp);
@@ -840,6 +920,8 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    // phase 7 term 1 arabic
 
             $insert_student_grades_term1_phase7_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arabic_language', '$term1_phase7_arabic_language','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -853,6 +935,8 @@ $last_name = ucfirst($_POST['last_name']);
                     $conn->error;
                 }
 
+                // phase 7 term 1 islamic
+
             $insert_student_grades_term1_phase7_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$islamic_values', '$term1_phase7_islamic_values','$term1_phase7', '$phase7', '$term1_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term1_phase7_islamic = mysqli_query($conn,$insert_student_grades_term1_phase7_islamic);
@@ -865,7 +949,7 @@ $last_name = ucfirst($_POST['last_name']);
              else{
                   echo "error term1_phase7 islamic" . '<br>';
                 }
-                    //general average
+                    //phase 7 general average
                 $insert_phase7_term1_general_average = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
                 VALUES ('$lrn','$phase7_term1_general_average','$term1_phase7','$phase7','$phase7_remarks','$dateCreated','$dateUpdated');";
                 $run_phase7_term1_student_averages = mysqli_query($conn,$insert_phase7_term1_general_average);
@@ -878,8 +962,11 @@ $last_name = ucfirst($_POST['last_name']);
                     echo "error student_averages" . $conn->error;
                 }
 
+                // phase 7 term 1  ends here ------------------------------
 
-                //  phase 1 term 2 
+
+                //  insertion of grades 
+                //  phase 7 term 2 mother tongue
 
 
                 $insert_student_grades_term2_phase7_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
@@ -894,6 +981,9 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;;
             }
 
+
+            //  phase 7 term 2 filipino
+
             $insert_student_grades_term2_phase7_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$filipino', '$term2_phase7_filipino','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase7_filipino = mysqli_query($conn,$insert_student_grades_term2_phase7_filipino);
@@ -905,6 +995,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            //  phase 7 term 2 english
 
             $insert_student_grades_term2_phase7_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$english', '$term2_phase7_english','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -918,6 +1010,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            //  phase 7 term 2 math
+
             $insert_student_grades_term2_phase7_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$math', '$term2_phase7_mathematics','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
               $run_student_grades_term2_phase7_math = mysqli_query($conn,$insert_student_grades_term2_phase7_math);
@@ -929,6 +1023,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            //  phase 7 term 2 science
 
             $insert_student_grades_term2_phase7_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$science', '$term2_phase7_science','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -942,6 +1038,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            //  phase 7 term 2 ap
+
             $insert_student_grades_term2_phase7_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
               VALUES ('$lrn','$AP', '$term2_phase7_araling_panlipunan','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
                 $run_student_grades_term2_phase7_ap = mysqli_query($conn,$insert_student_grades_term2_phase7_ap);
@@ -953,6 +1051,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            //  phase 7 term 2 epp tle
 
             $insert_student_grades_term2_phase7_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$epp_tle', '$term2_phase7_epp_tle','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -966,6 +1066,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            //  phase 7 term 2 mapeh
+
             $insert_student_grades_term2_phase7_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mapeh', '$term2_phase7_average_of_mapeh','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase7_mapeh = mysqli_query($conn,$insert_student_grades_term2_phase7_mapeh);
@@ -977,6 +1079,8 @@ $last_name = ucfirst($_POST['last_name']);
                     $conn->error;
                 }
 
+                //  phase 7 term 2 music
+
             $insert_student_grades_term2_phase7_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$music', '$term2_phase7_music','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase7_music = mysqli_query($conn,$insert_student_grades_term2_phase7_music);
@@ -987,6 +1091,9 @@ $last_name = ucfirst($_POST['last_name']);
                    else{
                     $conn->error;
                 }
+
+                //  phase 7 term 2 arts
+
             $insert_student_grades_term2_phase7_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arts', '$term2_phase7_arts','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase7_arts = mysqli_query($conn,$insert_student_grades_term2_phase7_arts);
@@ -999,6 +1106,9 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    //  phase 7 term 2 pe
+
             $insert_student_grades_term2_phase7_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$PE', '$term2_phase7_pe','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase7_pe = mysqli_query($conn,$insert_student_grades_term2_phase7_pe);
@@ -1010,6 +1120,9 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+
+                    //  phase 7 term 2  health
 
             $insert_student_grades_term2_phase7_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$health', '$term2_phase7_health','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1024,6 +1137,8 @@ $last_name = ucfirst($_POST['last_name']);
                         $conn->error;
                     }
 
+                    //  phase 7 term 2 esp
+
             $insert_student_grades_term2_phase7_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$esp', '$term2_phase7_esp','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term2_phase7_esp = mysqli_query($conn,$insert_student_grades_term2_phase7_esp);
@@ -1034,6 +1149,8 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    //  phase 7 term 2 arabic
 
             $insert_student_grades_term2_phase7_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arabic_language', '$term2_phase7_arabic_language','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1046,6 +1163,8 @@ $last_name = ucfirst($_POST['last_name']);
                  else{
                     $conn->error;
                 }
+
+                //  phase 7 term 2 islamic
 
             $insert_student_grades_term2_phase7_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$islamic_values', '$term2_phase7_islamic_values','$term2_phase7', '$phase7', '$term2_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1063,7 +1182,7 @@ $last_name = ucfirst($_POST['last_name']);
 
 
         
-                    // general average of term 2
+                    // phase 7 general average of term 2
 
                     $insert_phase7_term2_general_average = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
                 VALUES ('$lrn','$phase7_term2_general_average','$term2_phase7','$phase7',' $term2_phase7_remarks','$dateCreated','$dateUpdated');";
@@ -1076,9 +1195,11 @@ $last_name = ucfirst($_POST['last_name']);
                     echo "error student_averages" . $conn->error;
                 }
 
+                //  phase 7 term 2  ends here ---------------------------
 
+                //insertion of grades
 
-                //phase 1 term 3 
+                //phase 7 term 3 moother tongue
 
                 $insert_student_grades_term3_phase7_mother_tongue = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mother_tongue', '$term3_phase7_mother_tongue','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1092,6 +1213,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;;
             }
 
+            //phase 7 term 3 filipino
+
             $insert_student_grades_term3_phase7_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$filipino', '$term3_phase7_filipino','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase7_filipino = mysqli_query($conn,$insert_student_grades_term3_phase7_filipino);
@@ -1103,6 +1226,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            //phase 7 term 3 english
 
             $insert_student_grades_term3_phase7_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$english', '$term3_phase7_english','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1116,6 +1241,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            //phase 7 term 3 math
+
             $insert_student_grades_term3_phase7_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$math', '$term3_phase7_mathematics','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
               $run_student_grades_term3_phase7_math = mysqli_query($conn,$insert_student_grades_term3_phase7_math);
@@ -1127,6 +1254,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            //phase 7 term 3 science
 
             $insert_student_grades_term3_phase7_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$science', '$term3_phase7_science','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1140,6 +1269,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            //phase 7 term 3 ap
+
             $insert_student_grades_term3_phase7_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
               VALUES ('$lrn','$AP', '$term3_phase7_araling_panlipunan','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
                 $run_student_grades_term3_phase7_ap = mysqli_query($conn,$insert_student_grades_term3_phase7_ap);
@@ -1151,6 +1282,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            //phase 7 term 3 epp tle
 
             $insert_student_grades_term3_phase7_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$epp_tle', '$term3_phase7_epp_tle','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1164,6 +1297,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            //phase 7 term 3 mapeh
+
             $insert_student_grades_term3_phase7_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mapeh', '$term3_phase7_average_of_mapeh','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase7_mapeh = mysqli_query($conn,$insert_student_grades_term3_phase7_mapeh);
@@ -1175,6 +1310,8 @@ $last_name = ucfirst($_POST['last_name']);
                     $conn->error;
                 }
 
+                //phase 7 term 3 music
+
             $insert_student_grades_term3_phase7_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$music', '$term3_phase7_music','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase7_music = mysqli_query($conn,$insert_student_grades_term3_phase7_music);
@@ -1185,6 +1322,9 @@ $last_name = ucfirst($_POST['last_name']);
                    else{
                     $conn->error;
                 }
+
+                //phase 7 term 3  arts
+
             $insert_student_grades_term3_phase7_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arts', '$term3_phase7_arts','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase7_arts = mysqli_query($conn,$insert_student_grades_term3_phase7_arts);
@@ -1197,6 +1337,9 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    //phase 7 term 3 pe
+
             $insert_student_grades_term3_phase7_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$PE', '$term3_phase7_pe','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase7_pe = mysqli_query($conn,$insert_student_grades_term3_phase7_pe);
@@ -1208,6 +1351,8 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    //phase 7 term 3 health 
 
             $insert_student_grades_term3_phase7_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$health', '$term3_phase7_health','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1222,6 +1367,8 @@ $last_name = ucfirst($_POST['last_name']);
                         $conn->error;
                     }
 
+                    //phase 7 term 3 esp
+
             $insert_student_grades_term3_phase7_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$esp', '$term3_phase7_esp','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term3_phase7_esp = mysqli_query($conn,$insert_student_grades_term3_phase7_esp);
@@ -1232,6 +1379,8 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    //phase 7 term 3 arabic
 
             $insert_student_grades_term3_phase7_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arabic_language', '$term3_phase7_arabic_language','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1244,6 +1393,8 @@ $last_name = ucfirst($_POST['last_name']);
                  else{
                     $conn->error;
                 }
+
+                //phase 7 term 3 islamic
 
             $insert_student_grades_term3_phase7_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$islamic_values', '$term3_phase7_islamic_values','$term3_phase7', '$phase7', '$term3_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1258,10 +1409,10 @@ $last_name = ucfirst($_POST['last_name']);
                   echo "error term3_phase7 islamic" . '<br>';
                 }
 
-
+                
 
         
-                    // general average of term 3
+                    // phase 7 general average of term 3
 
                     $insert_phase7_term3_general_average = "INSERT INTO student_general_averages (`lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
                 VALUES ('$lrn','$phase7_term3_general_average','$term3_phase7','$phase7',' $term3_phase7_remarks','$dateCreated','$dateUpdated');";
@@ -1273,10 +1424,11 @@ $last_name = ucfirst($_POST['last_name']);
                 }else{
                     echo "error student_averages" . $conn->error;
                 }
-                
+                //phase 7 term 3  ends here ---------------------------
+                    //insertion of grades 
 
+                // phase 7 term 4 mother tongue
 
-                // phase 1 term 4 
 
 
 
@@ -1292,6 +1444,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;;
             }
 
+            // phase 7 term 4  filipino
+
             $insert_student_grades_term4_phase7_filipino = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$filipino', '$term4_phase7_filipino','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase7_filipino = mysqli_query($conn,$insert_student_grades_term4_phase7_filipino);
@@ -1303,6 +1457,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            // phase 7 term 4 english
 
             $insert_student_grades_term4_phase7_english = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$english', '$term4_phase7_english','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1316,6 +1472,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            // phase 7 term 4 math
+
             $insert_student_grades_term4_phase7_math = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$math', '$term4_phase7_mathematics','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
               $run_student_grades_term4_phase7_math = mysqli_query($conn,$insert_student_grades_term4_phase7_math);
@@ -1327,6 +1485,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            // phase 7 term 4 science
 
             $insert_student_grades_term4_phase7_science = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$science', '$term4_phase7_science','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1340,6 +1500,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            // phase 7 term 4 ap
+
             $insert_student_grades_term4_phase7_ap = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
               VALUES ('$lrn','$AP', '$term4_phase7_araling_panlipunan','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
                 $run_student_grades_term4_phase7_ap = mysqli_query($conn,$insert_student_grades_term4_phase7_ap);
@@ -1351,6 +1513,8 @@ $last_name = ucfirst($_POST['last_name']);
             else{
                 $conn->error;
             }
+
+            // phase 7 term 4  epp tle
 
             $insert_student_grades_term4_phase7_epp_tle = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$epp_tle', '$term4_phase7_epp_tle','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1364,6 +1528,8 @@ $last_name = ucfirst($_POST['last_name']);
                 $conn->error;
             }
 
+            // phase 7 term 4 mapeh
+
             $insert_student_grades_term4_phase7_mapeh = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$mapeh', '$term4_phase7_average_of_mapeh','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase7_mapeh = mysqli_query($conn,$insert_student_grades_term4_phase7_mapeh);
@@ -1375,6 +1541,8 @@ $last_name = ucfirst($_POST['last_name']);
                     $conn->error;
                 }
 
+                // phase 7 term 4 music
+
             $insert_student_grades_term4_phase7_music = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$music', '$term4_phase7_music','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase7_music = mysqli_query($conn,$insert_student_grades_term4_phase7_music);
@@ -1385,6 +1553,9 @@ $last_name = ucfirst($_POST['last_name']);
                    else{
                     $conn->error;
                 }
+
+                // phase 7 term 4 arts
+
             $insert_student_grades_term4_phase7_arts = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arts', '$term4_phase7_arts','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase7_arts = mysqli_query($conn,$insert_student_grades_term4_phase7_arts);
@@ -1397,6 +1568,9 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    // phase 7 term 4 pe
+
             $insert_student_grades_term4_phase7_pe = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$PE', '$term4_phase7_pe','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase7_pe = mysqli_query($conn,$insert_student_grades_term4_phase7_pe);
@@ -1408,6 +1582,8 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+                    // phase 7 term 4 health
 
             $insert_student_grades_term4_phase7_health = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
              VALUES ('$lrn','$health', '$term4_phase7_health','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1422,6 +1598,8 @@ $last_name = ucfirst($_POST['last_name']);
                         $conn->error;
                     }
 
+                    // phase 7 term 4 esp
+
             $insert_student_grades_term4_phase7_esp = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$esp', '$term4_phase7_esp','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
             $run_student_grades_term4_phase7_esp = mysqli_query($conn,$insert_student_grades_term4_phase7_esp);
@@ -1432,6 +1610,9 @@ $last_name = ucfirst($_POST['last_name']);
                     else{
                         $conn->error;
                     }
+
+
+                    // phase 7 term 4 arabic
 
             $insert_student_grades_term4_phase7_arabic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn','$arabic_language', '$term4_phase7_arabic_language','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1444,6 +1625,8 @@ $last_name = ucfirst($_POST['last_name']);
                  else{
                     $conn->error;
                 }
+
+                // phase 7 term 4 islamic
 
             $insert_student_grades_term4_phase7_islamic = "INSERT INTO student_grades (lrn,subject_id,grade,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn',' $islamic_values', '$term4_phase7_islamic_values','$term4_phase7', '$phase7', '$term4_phase7_remarks','$dateCreated', '$dateUpdated')" ;
@@ -1461,7 +1644,7 @@ $last_name = ucfirst($_POST['last_name']);
 
 
         
-                    // general average of term 4
+                    // phase 7 general average of term 4
 
                     $insert_phase7_term4_general_average = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
                 VALUES ('$lrn','$phase7_term4_general_average','$term4_phase7','$phase7',' $term4_phase7_remarks','$dateCreated','$dateUpdated');";
@@ -1474,7 +1657,11 @@ $last_name = ucfirst($_POST['last_name']);
                     echo "error student_averages" . $conn->error;
                 }
 
+                // phase 7 term 4  ends here ----------------
 
+                //inserting of final grades
+
+                 //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT mother tongue
 
                 $insert_student_final_ratings_mt = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$mother_tongue','$phase7_final_rating_mother_tongue', '$phase7_term5', '$phase7', '$phase7_final_rating_mother_tongue_output', '$dateCreated' , '$dateUpdated')";
@@ -1486,6 +1673,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings MT" . '<br>';
             }
 
+             //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT filipino
 
             $insert_student_final_ratings_filipino = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$filipino', '$phase7_final_rating_filipino','$phase7_term5', '$phase7', '$phase7_final_rating_filipino_output', '$dateCreated' , '$dateUpdated')";
@@ -1497,7 +1685,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings filipino" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT English
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT English
 
             $insert_student_final_ratings_english = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$english','$phase7_final_rating_english', '$phase7_term5', '$phase7', '$phase7_final_rating_english_output', '$dateCreated' , '$dateUpdated')";
@@ -1509,7 +1697,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings english" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT Math
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT Math
 
             $insert_student_final_ratings_math = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$math','$phase7_final_rating_math', '$phase7_term5', '$phase7', '$phase7_final_rating_math_output', '$dateCreated' , '$dateUpdated')";
@@ -1521,7 +1709,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings math" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT Science
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT Science
 
             $insert_student_final_ratings_science = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$science','$phase7_final_rating_science', '$phase7_term5', '$phase7', '$phase7_final_rating_science_output', '$dateCreated' , '$dateUpdated')";
@@ -1533,7 +1721,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings math" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT AP
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT AP
 
             $insert_student_final_ratings_AP = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$AP','$phase7_final_rating_AP', '$phase7_term5', '$phase7', '$phase7_final_rating_AP_output', '$dateCreated' , '$dateUpdated')";
@@ -1545,7 +1733,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings AP" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT EPP / TLE
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT EPP / TLE
 
             $insert_student_final_ratings_epp_tle = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$epp_tle','$phase7_final_rating_epp_tle', '$phase7_term5', '$phase7', '$phase7_final_rating_epp_tle_output', '$dateCreated' , '$dateUpdated')";
@@ -1557,7 +1745,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings epp tle" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT MAPEH
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT MAPEH
 
             $insert_student_final_ratings_mapeh = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$mapeh','$phase7_final_rating_mapeh', '$phase7_term5', '$phase7', '$phase7_final_rating_mapeh_output', '$dateCreated' , '$dateUpdated')";
@@ -1569,7 +1757,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings mapeh" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT music
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT music
 
             $insert_student_final_ratings_music = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$music','$phase7_final_rating_music', '$phase7_term5', '$phase7', '$phase7_final_rating_music_output', '$dateCreated' , '$dateUpdated')";
@@ -1581,7 +1769,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings music" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT arts
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT arts
 
             $insert_student_final_ratings_arts = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$arts','$phase7_final_rating_arts', '$phase7_term5', '$phase7', '$phase7_final_rating_arts_output', '$dateCreated' , '$dateUpdated')";
@@ -1593,7 +1781,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings arts" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT pe
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT pe
 
             $insert_student_final_ratings_pe = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$PE','$phase7_final_rating_PE', '$phase7_term5', '$phase7', '$phase7_final_rating_PE_output', '$dateCreated' , '$dateUpdated')";
@@ -1605,7 +1793,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings PE" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT health
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT health
 
             $insert_student_final_ratings_health = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$health','$phase7_final_rating_health', '$phase7_term5', '$phase7', '$phase7_final_rating_health_output', '$dateCreated' , '$dateUpdated')";
@@ -1617,7 +1805,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings health" . '<br>';
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT ESP
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT ESP
 
             $insert_student_final_ratings_esp = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$esp', '$phase7_final_rating_esp','$phase7_term5', '$phase7', '$phase7_final_rating_esp_output', '$dateCreated' , '$dateUpdated')";
@@ -1630,7 +1818,7 @@ $last_name = ucfirst($_POST['last_name']);
             }
 
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT arabic language
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT arabic language
 
             $insert_student_final_ratings_arabic = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$arabic_language', '$phase7_final_rating_arabic_language','$phase7_term5', '$phase7', '$phase7_final_rating_arabic_language_output', '$dateCreated' , '$dateUpdated')";
@@ -1643,7 +1831,7 @@ $last_name = ucfirst($_POST['last_name']);
                 echo "Error student final ratings arabic" . $conn->error();
             }
 
-            //insert ko sa FINAL RATINGS table PER SUBJECT islamic values
+            //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT islamic values
 
             $insert_student_final_ratings_islam = "INSERT INTO student_final_ratings (lrn,subject_id,final_rating,term,phase,remarks,date_time_created,date_time_updated)
             VALUES ('$lrn', '$islamic_values','$phase7_final_rating_arabic_language', '$phase7_term5', '$phase7', '$phase7_final_rating_islamic_values_output', '$dateCreated' , '$dateUpdated')";
@@ -1656,7 +1844,7 @@ $last_name = ucfirst($_POST['last_name']);
             }
 
 
-                //general averag of phase 1 term 5 
+                //general averag of phase 7 term 5 
             $insert_phase7_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
             VALUES ('$lrn','$phase7_term5_general_average', ' $phase7_term5','$term1_phase7_remarks', '$dateCreated','$dateUpdated')";
 
@@ -1667,6 +1855,46 @@ $last_name = ucfirst($_POST['last_name']);
             }else{
                 echo "added student averages term5";
             }
+
+            for ($phase7_remedial_term = 1; $phase7_remedial_term <=2 ; $phase7_remedial_term++){
+
+
+
+                if($phase7_remedial_term ==1){
+            $phase7_remedial_query= "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`, `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, `term`, `remarks`, `date_time_created`, `date_time_updated`) 
+            VALUES ('$lrn','$phase7_remedial_from','$phase7_remedial_to','$phase7_remedial_learning_areas_1',' $phase7_remedial_final_rating_1','$phase7_remedial_class_mark_1','$phase7_recomputed_final_grade_1','$phase7','$phase7_remedial_term','$phase7_remedial_remarks_1','$dateCreated','$dateUpdated')";
+            
+            $phase7_run_query = mysqli_query($conn,$phase7_remedial_query);
+
+            if($phase7_run_query){
+            echo "remedial query success <br>";
+            }
+            else
+            {
+                $conn->error;
+            }
+                
+        }
+
+
+
+             elseif($phase7_remedial_term ==2) {
+                
+
+            $phase7_remedial_query= "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`, `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, `term`, `remarks`, `date_time_created`, `date_time_updated`) 
+            VALUES ('$lrn','$phase7_remedial_from','$phase7_remedial_to','$phase7_remedial_learning_areas_2',' $phase7_remedial_final_rating_2','$phase7_remedial_class_mark_2','$phase7_recomputed_final_grade_2','$phase7','$phase7_remedial_term','$phase7_remedial_remarks_2','$dateCreated','$dateUpdated')";
+            
+            $phase7_run_query = mysqli_query($conn,$phase7_remedial_query);
+
+                if($phase7_run_query){
+                    echo "remedial query success term2  <br>";
+                }
+                    else
+                    {
+                        $conn->error;
+                    }
+        }   
+        }
 
 
 
