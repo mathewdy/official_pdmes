@@ -57,3 +57,15 @@ $(document).ready(function(){
         });
     });
 });
+
+$('.line-1 input[type=text]').on('keypress', function (event) {
+    // $('.line-1 input').on('input', function() {
+    //     $(this).val($(this).val().replace(/[^a-zA-Z-\-\']/g, ""));
+    // });
+    var regex = new RegExp("^[a-zA-Z0-9]");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+});
