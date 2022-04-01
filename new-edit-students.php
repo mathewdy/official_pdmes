@@ -532,13 +532,12 @@ include('connection.php');
             if(mysqli_num_rows($query_phase1_mapeh) > 0){
             while($rows = mysqli_fetch_array($query_phase1_mapeh)){
             ?>
-            <td><input type="number" name="phase1_mapeh_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
             <?php }}else{?>
-            <td><input type="number" name="phase1_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <?php
             }
             ?>
@@ -1289,13 +1288,12 @@ include('connection.php');
             if(mysqli_num_rows($query_phase2_mapeh) > 0){
             while($rows = mysqli_fetch_array($query_phase2_mapeh)){
             ?>
-            <td><input type="number" name="phase2_mapeh_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
             <?php }}else{?>
-            <td><input type="number" name="phase2_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase2_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase2_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase2_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <?php
             }
             ?>
@@ -2046,13 +2044,12 @@ include('connection.php');
             if(mysqli_num_rows($query_phase3_mapeh) > 0){
             while($rows = mysqli_fetch_array($query_phase3_mapeh)){
             ?>
-            <td><input type="number" name="phase3_mapeh_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
             <?php }}else{?>
-            <td><input type="number" name="phase3_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase3_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase3_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase3_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <?php
             }
             ?>
@@ -2801,13 +2798,12 @@ include('connection.php');
             if(mysqli_num_rows($query_phase4_mapeh) > 0){
             while($rows = mysqli_fetch_array($query_phase4_mapeh)){
             ?>
-            <td><input type="number" name="phase4_mapeh_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
             <?php }}else{?>
-            <td><input type="number" name="phase4_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase4_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase4_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase4_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <?php
             }
             ?>
@@ -3562,13 +3558,12 @@ include('connection.php');
             if(mysqli_num_rows($query_phase5_mapeh) > 0){
             while($rows = mysqli_fetch_array($query_phase5_mapeh)){
             ?>
-            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
             <?php }}else{?>
-            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <?php
             }
             ?>
@@ -4317,13 +4312,12 @@ include('connection.php');
             if(mysqli_num_rows($query_phase6_mapeh) > 0){
             while($rows = mysqli_fetch_array($query_phase6_mapeh)){
             ?>
-            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
             <?php }}else{?>
-            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <?php
             }
             ?>
@@ -5074,13 +5068,12 @@ include('connection.php');
             if(mysqli_num_rows($query_phase7_mapeh) > 0){
             while($rows = mysqli_fetch_array($query_phase7_mapeh)){
             ?>
-            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
             <?php }}else{?>
-            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <?php
             }
             ?>
@@ -5829,13 +5822,12 @@ include('connection.php');
             if(mysqli_num_rows($query_phase8_mapeh) > 0){
             while($rows = mysqli_fetch_array($query_phase8_mapeh)){
             ?>
-            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
             <?php }}else{?>
-            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <?php
             }
             ?>
@@ -6294,7 +6286,6 @@ if(isset($_POST['update'])){
     $phase1_science_grades = $_POST['phase1_science_grades'];
     $phase1_araling_panlipunan_grades = $_POST['phase1_araling_panlipunan_grades'];
     $phase1_epp_tle_grades = $_POST['phase1_epp_tle_grades'];
-    $phase1_mapeh_grades = $_POST['phase1_mapeh_grades'];
     $phase1_music_grades = $_POST['phase1_music_grades'];
     $phase1_art_grades = $_POST['phase1_art_grades'];
     $phase1_pe_grades = $_POST['phase1_pe_grades'];
@@ -6344,9 +6335,6 @@ if(isset($_POST['update'])){
     $phase1_sum_of_epp_tle_grades = array_sum($phase1_epp_tle_grades);
     $phase1_ave_of_epp_tle_grades = $phase1_sum_of_epp_tle_grades/count($phase1_epp_tle_grades);
 
-    $phase1_sum_of_mapeh_grades = array_sum($phase1_mapeh_grades);
-    $phase1_ave_of_mapeh_grades = $phase1_sum_of_mapeh_grades/count($phase1_mapeh_grades);
-
     $phase1_sum_of_music_grades = array_sum($phase1_music_grades);
     $phase1_ave_of_music_grades = $phase1_sum_of_music_grades/count($phase1_music_grades);
 
@@ -6389,7 +6377,6 @@ if(isset($_POST['update'])){
     $phase2_science_grades = $_POST['phase2_science_grades'];
     $phase2_araling_panlipunan_grades = $_POST['phase2_araling_panlipunan_grades'];
     $phase2_epp_tle_grades = $_POST['phase2_epp_tle_grades'];
-    $phase2_mapeh_grades = $_POST['phase2_mapeh_grades'];
     $phase2_music_grades = $_POST['phase2_music_grades'];
     $phase2_art_grades = $_POST['phase2_art_grades'];
     $phase2_pe_grades = $_POST['phase2_pe_grades'];
@@ -6439,9 +6426,6 @@ if(isset($_POST['update'])){
     $phase2_sum_of_epp_tle_grades = array_sum($phase2_epp_tle_grades);
     $phase2_ave_of_epp_tle_grades = $phase2_sum_of_epp_tle_grades/count($phase2_epp_tle_grades);
 
-    $phase2_sum_of_mapeh_grades = array_sum($phase2_mapeh_grades);
-    $phase2_ave_of_mapeh_grades = $phase2_sum_of_mapeh_grades/count($phase2_mapeh_grades);
-
     $phase2_sum_of_music_grades = array_sum($phase2_music_grades);
     $phase2_ave_of_music_grades = $phase2_sum_of_music_grades/count($phase2_music_grades);
 
@@ -6484,7 +6468,6 @@ if(isset($_POST['update'])){
     $phase3_science_grades = $_POST['phase3_science_grades'];
     $phase3_araling_panlipunan_grades = $_POST['phase3_araling_panlipunan_grades'];
     $phase3_epp_tle_grades = $_POST['phase3_epp_tle_grades'];
-    $phase3_mapeh_grades = $_POST['phase3_mapeh_grades'];
     $phase3_music_grades = $_POST['phase3_music_grades'];
     $phase3_art_grades = $_POST['phase3_art_grades'];
     $phase3_pe_grades = $_POST['phase3_pe_grades'];
@@ -6534,9 +6517,6 @@ if(isset($_POST['update'])){
     $phase3_sum_of_epp_tle_grades = array_sum($phase3_epp_tle_grades);
     $phase3_ave_of_epp_tle_grades = $phase3_sum_of_epp_tle_grades/count($phase3_epp_tle_grades);
 
-    $phase3_sum_of_mapeh_grades = array_sum($phase3_mapeh_grades);
-    $phase3_ave_of_mapeh_grades = $phase3_sum_of_mapeh_grades/count($phase3_mapeh_grades);
-
     $phase3_sum_of_music_grades = array_sum($phase3_music_grades);
     $phase3_ave_of_music_grades = $phase3_sum_of_music_grades/count($phase3_music_grades);
 
@@ -6579,7 +6559,6 @@ if(isset($_POST['update'])){
     $phase4_science_grades = $_POST['phase4_science_grades'];
     $phase4_araling_panlipunan_grades = $_POST['phase4_araling_panlipunan_grades'];
     $phase4_epp_tle_grades = $_POST['phase4_epp_tle_grades'];
-    $phase4_mapeh_grades = $_POST['phase4_mapeh_grades'];
     $phase4_music_grades = $_POST['phase4_music_grades'];
     $phase4_art_grades = $_POST['phase4_art_grades'];
     $phase4_pe_grades = $_POST['phase4_pe_grades'];
@@ -6629,9 +6608,6 @@ if(isset($_POST['update'])){
     $phase4_sum_of_epp_tle_grades = array_sum($phase4_epp_tle_grades);
     $phase4_ave_of_epp_tle_grades = $phase4_sum_of_epp_tle_grades/count($phase4_epp_tle_grades);
 
-    $phase4_sum_of_mapeh_grades = array_sum($phase4_mapeh_grades);
-    $phase4_ave_of_mapeh_grades = $phase4_sum_of_mapeh_grades/count($phase4_mapeh_grades);
-
     $phase4_sum_of_music_grades = array_sum($phase4_music_grades);
     $phase4_ave_of_music_grades = $phase4_sum_of_music_grades/count($phase4_music_grades);
 
@@ -6674,7 +6650,6 @@ if(isset($_POST['update'])){
     $phase5_science_grades = $_POST['phase5_science_grades'];
     $phase5_araling_panlipunan_grades = $_POST['phase5_araling_panlipunan_grades'];
     $phase5_epp_tle_grades = $_POST['phase5_epp_tle_grades'];
-    $phase5_mapeh_grades = $_POST['phase5_mapeh_grades'];
     $phase5_music_grades = $_POST['phase5_music_grades'];
     $phase5_art_grades = $_POST['phase5_art_grades'];
     $phase5_pe_grades = $_POST['phase5_pe_grades'];
@@ -6724,9 +6699,6 @@ if(isset($_POST['update'])){
     $phase5_sum_of_epp_tle_grades = array_sum($phase5_epp_tle_grades);
     $phase5_ave_of_epp_tle_grades = $phase5_sum_of_epp_tle_grades/count($phase5_epp_tle_grades);
 
-    $phase5_sum_of_mapeh_grades = array_sum($phase5_mapeh_grades);
-    $phase5_ave_of_mapeh_grades = $phase5_sum_of_mapeh_grades/count($phase5_mapeh_grades);
-
     $phase5_sum_of_music_grades = array_sum($phase5_music_grades);
     $phase5_ave_of_music_grades = $phase5_sum_of_music_grades/count($phase5_music_grades);
 
@@ -6769,7 +6741,6 @@ if(isset($_POST['update'])){
     $phase6_science_grades = $_POST['phase6_science_grades'];
     $phase6_araling_panlipunan_grades = $_POST['phase6_araling_panlipunan_grades'];
     $phase6_epp_tle_grades = $_POST['phase6_epp_tle_grades'];
-    $phase6_mapeh_grades = $_POST['phase6_mapeh_grades'];
     $phase6_music_grades = $_POST['phase6_music_grades'];
     $phase6_art_grades = $_POST['phase6_art_grades'];
     $phase6_pe_grades = $_POST['phase6_pe_grades'];
@@ -6819,9 +6790,6 @@ if(isset($_POST['update'])){
     $phase6_sum_of_epp_tle_grades = array_sum($phase6_epp_tle_grades);
     $phase6_ave_of_epp_tle_grades = $phase6_sum_of_epp_tle_grades/count($phase6_epp_tle_grades);
 
-    $phase6_sum_of_mapeh_grades = array_sum($phase6_mapeh_grades);
-    $phase6_ave_of_mapeh_grades = $phase6_sum_of_mapeh_grades/count($phase6_mapeh_grades);
-
     $phase6_sum_of_music_grades = array_sum($phase6_music_grades);
     $phase6_ave_of_music_grades = $phase6_sum_of_music_grades/count($phase6_music_grades);
 
@@ -6864,7 +6832,6 @@ if(isset($_POST['update'])){
     $phase7_science_grades = $_POST['phase7_science_grades'];
     $phase7_araling_panlipunan_grades = $_POST['phase7_araling_panlipunan_grades'];
     $phase7_epp_tle_grades = $_POST['phase7_epp_tle_grades'];
-    $phase7_mapeh_grades = $_POST['phase7_mapeh_grades'];
     $phase7_music_grades = $_POST['phase7_music_grades'];
     $phase7_art_grades = $_POST['phase7_art_grades'];
     $phase7_pe_grades = $_POST['phase7_pe_grades'];
@@ -6914,9 +6881,6 @@ if(isset($_POST['update'])){
     $phase7_sum_of_epp_tle_grades = array_sum($phase7_epp_tle_grades);
     $phase7_ave_of_epp_tle_grades = $phase7_sum_of_epp_tle_grades/count($phase7_epp_tle_grades);
 
-    $phase7_sum_of_mapeh_grades = array_sum($phase7_mapeh_grades);
-    $phase7_ave_of_mapeh_grades = $phase7_sum_of_mapeh_grades/count($phase7_mapeh_grades);
-
     $phase7_sum_of_music_grades = array_sum($phase7_music_grades);
     $phase7_ave_of_music_grades = $phase7_sum_of_music_grades/count($phase7_music_grades);
 
@@ -6959,7 +6923,6 @@ if(isset($_POST['update'])){
     $phase8_science_grades = $_POST['phase8_science_grades'];
     $phase8_araling_panlipunan_grades = $_POST['phase8_araling_panlipunan_grades'];
     $phase8_epp_tle_grades = $_POST['phase8_epp_tle_grades'];
-    $phase8_mapeh_grades = $_POST['phase8_mapeh_grades'];
     $phase8_music_grades = $_POST['phase8_music_grades'];
     $phase8_art_grades = $_POST['phase8_art_grades'];
     $phase8_pe_grades = $_POST['phase8_pe_grades'];
@@ -7008,9 +6971,6 @@ if(isset($_POST['update'])){
 
     $phase8_sum_of_epp_tle_grades = array_sum($phase8_epp_tle_grades);
     $phase8_ave_of_epp_tle_grades = $phase8_sum_of_epp_tle_grades/count($phase8_epp_tle_grades);
-
-    $phase8_sum_of_mapeh_grades = array_sum($phase8_mapeh_grades);
-    $phase8_ave_of_mapeh_grades = $phase8_sum_of_mapeh_grades/count($phase8_mapeh_grades);
 
     $phase8_sum_of_music_grades = array_sum($phase8_music_grades);
     $phase8_ave_of_music_grades = $phase8_sum_of_music_grades/count($phase8_music_grades);
@@ -7077,170 +7037,166 @@ if(isset($_POST['update'])){
     // }
 
     // UPDATE OF PHASE 1 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS
-    for($i=0;$i<count($sg_term);$i++){
-    $sql_update_phase1_student_mother_tounge_grade = "UPDATE `student_grades` SET `grade`=".$phase1_mother_tounge_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '1' AND phase = '1'";
-    $query_update_phase1_student_mother_tounge_grade = mysqli_query($conn, $sql_update_phase1_student_mother_tounge_grade) or die (mysqli_error($conn));
+    // for($i=0;$i<count($sg_term);$i++){
+    // $sql_update_phase1_student_mother_tounge_grade = "UPDATE `student_grades` SET `grade`=".$phase1_mother_tounge_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '1' AND phase = '1'";
+    // $query_update_phase1_student_mother_tounge_grade = mysqli_query($conn, $sql_update_phase1_student_mother_tounge_grade) or die (mysqli_error($conn));
     
     
-    $sql_update_phase1_student_filipino_grade = "UPDATE `student_grades` SET `grade`=".$phase1_filipino_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '2' AND phase = '1'";
-    $query_update_phase1_student_filipino_grade = mysqli_query($conn, $sql_update_phase1_student_filipino_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_filipino_grade = "UPDATE `student_grades` SET `grade`=".$phase1_filipino_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '2' AND phase = '1'";
+    // $query_update_phase1_student_filipino_grade = mysqli_query($conn, $sql_update_phase1_student_filipino_grade) or die (mysqli_error($conn));
 
     
-    $sql_update_phase1_student_english_grade = "UPDATE `student_grades` SET `grade`=".$phase1_english_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '3' AND phase = '1'";
-    $query_update_phase1_student_english_grade = mysqli_query($conn, $sql_update_phase1_student_english_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_english_grade = "UPDATE `student_grades` SET `grade`=".$phase1_english_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '3' AND phase = '1'";
+    // $query_update_phase1_student_english_grade = mysqli_query($conn, $sql_update_phase1_student_english_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_math_grade = "UPDATE `student_grades` SET `grade`=".$phase1_math_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '4' AND phase = '1'";
-    $query_update_phase1_student_math_grade = mysqli_query($conn, $sql_update_phase1_student_math_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_math_grade = "UPDATE `student_grades` SET `grade`=".$phase1_math_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '4' AND phase = '1'";
+    // $query_update_phase1_student_math_grade = mysqli_query($conn, $sql_update_phase1_student_math_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_science_grade = "UPDATE `student_grades` SET `grade`=".$phase1_science_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '5' AND phase = '1'";
-    $query_update_phase1_student_science_grade = mysqli_query($conn, $sql_update_phase1_student_science_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_science_grade = "UPDATE `student_grades` SET `grade`=".$phase1_science_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '5' AND phase = '1'";
+    // $query_update_phase1_student_science_grade = mysqli_query($conn, $sql_update_phase1_student_science_grade) or die (mysqli_error($conn));
     
     
-    $sql_update_phase1_student_araling_panlipunan_grade = "UPDATE `student_grades` SET `grade`=".$phase1_araling_panlipunan_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '6' AND phase = '1'";
-    $query_update_phase1_student_araling_panlipunan_grade = mysqli_query($conn, $sql_update_phase1_student_araling_panlipunan_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_araling_panlipunan_grade = "UPDATE `student_grades` SET `grade`=".$phase1_araling_panlipunan_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '6' AND phase = '1'";
+    // $query_update_phase1_student_araling_panlipunan_grade = mysqli_query($conn, $sql_update_phase1_student_araling_panlipunan_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_epp_tle_grade = "UPDATE `student_grades` SET `grade`=".$phase1_epp_tle_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '7' AND phase = '1'";
-    $query_update_phase1_student_epp_tle_grade = mysqli_query($conn, $sql_update_phase1_student_epp_tle_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_epp_tle_grade = "UPDATE `student_grades` SET `grade`=".$phase1_epp_tle_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '7' AND phase = '1'";
+    // $query_update_phase1_student_epp_tle_grade = mysqli_query($conn, $sql_update_phase1_student_epp_tle_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_mapeh_grade = "UPDATE `student_grades` SET `grade`=".$phase1_mapeh_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '8' AND phase = '1'";
-    $query_update_phase1_student_mapeh_grade = mysqli_query($conn, $sql_update_phase1_student_mapeh_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_music_grade = "UPDATE `student_grades` SET `grade`=".$phase1_music_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '9' AND phase = '1'";
+    // $query_update_phase1_student_music_grade = mysqli_query($conn, $sql_update_phase1_student_music_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_music_grade = "UPDATE `student_grades` SET `grade`=".$phase1_music_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '9' AND phase = '1'";
-    $query_update_phase1_student_music_grade = mysqli_query($conn, $sql_update_phase1_student_music_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_art_grade = "UPDATE `student_grades` SET `grade`=".$phase1_art_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '10' AND phase = '1'";
+    // $query_update_phase1_student_art_grade = mysqli_query($conn, $sql_update_phase1_student_art_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_art_grade = "UPDATE `student_grades` SET `grade`=".$phase1_art_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '10' AND phase = '1'";
-    $query_update_phase1_student_art_grade = mysqli_query($conn, $sql_update_phase1_student_art_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_pe_grade = "UPDATE `student_grades` SET `grade`=".$phase1_pe_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '11' AND phase = '1'";
+    // $query_update_phase1_student_pe_grade = mysqli_query($conn, $sql_update_phase1_student_pe_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_pe_grade = "UPDATE `student_grades` SET `grade`=".$phase1_pe_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '11' AND phase = '1'";
-    $query_update_phase1_student_pe_grade = mysqli_query($conn, $sql_update_phase1_student_pe_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_health_grade = "UPDATE `student_grades` SET `grade`=".$phase1_health_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '12' AND phase = '1'";
+    // $query_update_phase1_student_health_grade = mysqli_query($conn, $sql_update_phase1_student_health_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_health_grade = "UPDATE `student_grades` SET `grade`=".$phase1_health_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '12' AND phase = '1'";
-    $query_update_phase1_student_health_grade = mysqli_query($conn, $sql_update_phase1_student_health_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_esp_grade = "UPDATE `student_grades` SET `grade`=".$phase1_esp_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '13' AND phase = '1'";
+    // $query_update_phase1_student_esp_grade = mysqli_query($conn, $sql_update_phase1_student_esp_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_esp_grade = "UPDATE `student_grades` SET `grade`=".$phase1_esp_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '13' AND phase = '1'";
-    $query_update_phase1_student_esp_grade = mysqli_query($conn, $sql_update_phase1_student_esp_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_arabic_lang_grade = "UPDATE `student_grades` SET `grade`=".$phase1_arabic_lang_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '14' AND phase = '1'";
+    // $query_update_phase1_student_arabic_lang_grade = mysqli_query($conn, $sql_update_phase1_student_arabic_lang_grade) or die (mysqli_error($conn));
 
 
-    $sql_update_phase1_student_arabic_lang_grade = "UPDATE `student_grades` SET `grade`=".$phase1_arabic_lang_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '14' AND phase = '1'";
-    $query_update_phase1_student_arabic_lang_grade = mysqli_query($conn, $sql_update_phase1_student_arabic_lang_grade) or die (mysqli_error($conn));
+    // $sql_update_phase1_student_islamic_values_grade = "UPDATE `student_grades` SET `grade`=".$phase1_islamic_values_grades[$i].",
+    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '15' AND phase = '1'";
+    // $query_update_phase1_student_islamic_values_grade = mysqli_query($conn, $sql_update_phase1_student_islamic_values_grade) or die (mysqli_error($conn));
+    // }
+    // if($query_update_phase1_student_mother_tounge_grade == true){
+    //   echo "Update Phase 1 mother tounge Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
+    // if($query_update_phase1_student_filipino_grade == true){
+    //   echo "Update Phase 1 filipino Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    $sql_update_phase1_student_islamic_values_grade = "UPDATE `student_grades` SET `grade`=".$phase1_islamic_values_grades[$i].",
-    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '15' AND phase = '1'";
-    $query_update_phase1_student_islamic_values_grade = mysqli_query($conn, $sql_update_phase1_student_islamic_values_grade) or die (mysqli_error($conn));
-    }
-    if($query_update_phase1_student_mother_tounge_grade == true){
-      echo "Update Phase 1 mother tounge Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_english_grade == true){
+    //   echo "Update Phase 1 english Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_filipino_grade == true){
-      echo "Update Phase 1 filipino Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_math_grade == true){
+    //   echo "Update Phase 1 math Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_english_grade == true){
-      echo "Update Phase 1 english Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_science_grade == true){
+    //   echo "Update Phase 1 science Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_math_grade == true){
-      echo "Update Phase 1 math Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_araling_panlipunan_grade == true){
+    //   echo "Update Phase 1 araling_panlipunan Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_science_grade == true){
-      echo "Update Phase 1 science Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_epp_tle_grade == true){
+    //   echo "Update Phase 1 epp_tle Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_araling_panlipunan_grade == true){
-      echo "Update Phase 1 araling_panlipunan Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_mapeh_grade == true){
+    //   echo "Update Phase 1 mapeh Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_epp_tle_grade == true){
-      echo "Update Phase 1 epp_tle Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_music_grade == true){
+    //   echo "Update Phase 1 music Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_mapeh_grade == true){
-      echo "Update Phase 1 mapeh Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_art_grade == true){
+    //   echo "Update Phase 1 art Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_music_grade == true){
-      echo "Update Phase 1 music Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_pe_grade == true){
+    //   echo "Update Phase 1 pe Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_art_grade == true){
-      echo "Update Phase 1 art Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_health_grade == true){
+    //   echo "Update Phase 1 health Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_pe_grade == true){
-      echo "Update Phase 1 pe Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_esp_grade == true){
+    //   echo "Update Phase 1 esp Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_health_grade == true){
-      echo "Update Phase 1 health Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_arabic_lang_grade == true){
+    //   echo "Update Phase 1 arabic_lang Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_esp_grade == true){
-      echo "Update Phase 1 esp Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
+    // if($query_update_phase1_student_islamic_values_grade == true){
+    //   echo "Update Phase 1 islamic_values Student Grade Successfully <br>";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    if($query_update_phase1_student_arabic_lang_grade == true){
-      echo "Update Phase 1 arabic_lang Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
-
-    if($query_update_phase1_student_islamic_values_grade == true){
-      echo "Update Phase 1 islamic_values Student Grade Successfully <br>";
-    }else{
-      echo $conn->error;
-    }
 
     // for($i=0;$i<count($sg_term);$i++){
     //   $sql_update_phase1_student_filipino_grade = "UPDATE `student_grades` SET `grade`=".$phase1_filipino_grades[$i].",
