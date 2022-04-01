@@ -782,7 +782,7 @@ include('connection.php');
           <?php
             $phase1_islamic_values = "SELECT * FROM student_grades
             WHERE student_grades.lrn = '109857060083' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '14'";
+            AND student_grades.phase = '1' AND student_grades.subject_id = '15'";
             $query_phase1_islamic_values= mysqli_query($conn, $phase1_islamic_values) or die (mysqli_error($conn));
             
             ?>
@@ -803,7 +803,7 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '1'";
+            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '1'";
             $query_phase1_finalrating_islamic_values= mysqli_query($conn, $phase1_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase1_finalrating_islamic_values)){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_islamic_values);
@@ -1539,7 +1539,7 @@ include('connection.php');
           <?php
             $phase2_islamic_values = "SELECT * FROM student_grades
             WHERE student_grades.lrn = '109857060083' 
-            AND student_grades.phase = '2' AND student_grades.subject_id = '14'";
+            AND student_grades.phase = '2' AND student_grades.subject_id = '15'";
             $query_phase2_islamic_values= mysqli_query($conn, $phase2_islamic_values) or die (mysqli_error($conn));
             
             ?>
@@ -1560,7 +1560,7 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '2'";
+            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '2'";
             $query_phase2_finalrating_islamic_values= mysqli_query($conn, $phase2_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase2_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_islamic_values);
@@ -2296,7 +2296,7 @@ include('connection.php');
           <?php
             $phase3_islamic_values = "SELECT * FROM student_grades
             WHERE student_grades.lrn = '109857060083' 
-            AND student_grades.phase = '3' AND student_grades.subject_id = '14'";
+            AND student_grades.phase = '3' AND student_grades.subject_id = '15'";
             $query_phase3_islamic_values= mysqli_query($conn, $phase3_islamic_values) or die (mysqli_error($conn));
             
             ?>
@@ -2317,7 +2317,7 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '3'";
+            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '3'";
             $query_phase3_finalrating_islamic_values= mysqli_query($conn, $phase3_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase3_finalrating_islamic_values)){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_islamic_values);
@@ -3051,7 +3051,7 @@ include('connection.php');
           <?php
             $phase4_islamic_values = "SELECT * FROM student_grades
             WHERE student_grades.lrn = '109857060083' 
-            AND student_grades.phase = '4' AND student_grades.subject_id = '14'";
+            AND student_grades.phase = '4' AND student_grades.subject_id = '15'";
             $query_phase4_islamic_values= mysqli_query($conn, $phase4_islamic_values) or die (mysqli_error($conn));
             
             ?>
@@ -3072,7 +3072,7 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '4'";
+            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '4'";
             $query_phase4_finalrating_islamic_values= mysqli_query($conn, $phase4_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase4_finalrating_islamic_values)){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_islamic_values);
@@ -3812,7 +3812,7 @@ include('connection.php');
           <?php
             $phase5_islamic_values = "SELECT * FROM student_grades
             WHERE student_grades.lrn = '109857060083' 
-            AND student_grades.phase = '5' AND student_grades.subject_id = '14'";
+            AND student_grades.phase = '5' AND student_grades.subject_id = '15'";
             $query_phase5_islamic_values= mysqli_query($conn, $phase5_islamic_values) or die (mysqli_error($conn));
             
             ?>
@@ -3833,7 +3833,7 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '5'";
+            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '5'";
             $query_phase5_finalrating_islamic_values= mysqli_query($conn, $phase5_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase5_finalrating_islamic_values)){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_islamic_values);
@@ -4567,7 +4567,7 @@ include('connection.php');
           <?php
             $phase6_islamic_values = "SELECT * FROM student_grades
             WHERE student_grades.lrn = '109857060083' 
-            AND student_grades.phase = '6' AND student_grades.subject_id = '14'";
+            AND student_grades.phase = '6' AND student_grades.subject_id = '15'";
             $query_phase6_islamic_values= mysqli_query($conn, $phase6_islamic_values) or die (mysqli_error($conn));
             
             ?>
@@ -4588,7 +4588,7 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '6'";
+            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '6'";
             $query_phase6_finalrating_islamic_values= mysqli_query($conn, $phase6_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase6_finalrating_islamic_values)){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_islamic_values);
@@ -5324,7 +5324,7 @@ include('connection.php');
           <?php
             $phase7_islamic_values = "SELECT * FROM student_grades
             WHERE student_grades.lrn = '109857060083' 
-            AND student_grades.phase = '7' AND student_grades.subject_id = '14'";
+            AND student_grades.phase = '7' AND student_grades.subject_id = '15'";
             $query_phase7_islamic_values= mysqli_query($conn, $phase7_islamic_values) or die (mysqli_error($conn));
             
             ?>
@@ -5345,7 +5345,7 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '7'";
+            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '7'";
             $query_phase7_finalrating_islamic_values= mysqli_query($conn, $phase7_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase7_finalrating_islamic_values)){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_islamic_values);
@@ -6079,7 +6079,7 @@ include('connection.php');
           <?php
             $phase8_islamic_values = "SELECT * FROM student_grades
             WHERE student_grades.lrn = '109857060083' 
-            AND student_grades.phase = '8' AND student_grades.subject_id = '14'";
+            AND student_grades.phase = '8' AND student_grades.subject_id = '15'";
             $query_phase8_islamic_values= mysqli_query($conn, $phase8_islamic_values) or die (mysqli_error($conn));
             
             ?>
@@ -6100,7 +6100,7 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '8'";
+            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '8'";
             $query_phase8_finalrating_islamic_values= mysqli_query($conn, $phase8_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase8_finalrating_islamic_values)){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_islamic_values);
@@ -7033,8 +7033,8 @@ if(isset($_POST['update'])){
     $phase8_sum_of_islamic_values_grades = array_sum($phase8_islamic_values_grades);
     $phase8_ave_of_islamic_values_grades = $phase8_sum_of_islamic_values_grades/count($phase8_islamic_values_grades);
 
+    
     // UPDATE SECTION OF STUDENT LEARNER PERSONAL INFO
-
     // $update_student_learner_personal_infos = "UPDATE `learners_personal_infos` 
     // SET `lrn`='$lrn',`last_name`='$last_name',
     // `first_name`='$first_name',`middle_name`='$middle_name',
@@ -7064,17 +7064,199 @@ if(isset($_POST['update'])){
     // UPDATE SECTION OF STUDENT SCHOLASTIC RECORDS
 
     // PHASE 1 OF UPDATE STUDENT SCHOLASTIC RECORDS
-    $update_phase1_student_scholastic_record = "UPDATE `scholastic_records` SET `lrn`='$lrn',
-    `school`='$phase1_sr_school',`school_id`='$phase1_sr_school_id',`district`='$phase1_sr_district',
-    `division`='$phase1_sr_division',`region`='$phase1_sr_region',`classified_as_grade`='$phase1_sr_classified_as_grade',
-    `section`='$phase1_sr_section',`school_year`='$phase1_sr_school_year',`name_of_teacher`='$phase1_sr_name_of_adviser',
-    `signature`='$phase1_sr_signature',`phase`='1',`date_time_updated`='$date_time_updated' WHERE `lrn`='$lrn'";
-    $query_update_phase1_student_scholastic_record = mysqli_query($conn, $update_phase1_student_scholastic_record) or die (mysqli_error($conn));
-    if($query_update_phase1_student_scholastic_record == true){
-      echo "Update Phase 1 Student Scholastic Records Successfully";
+    // $update_phase1_student_scholastic_record = "UPDATE `scholastic_records` SET `lrn`='$lrn',
+    // `school`='$phase1_sr_school',`school_id`='$phase1_sr_school_id',`district`='$phase1_sr_district',
+    // `division`='$phase1_sr_division',`region`='$phase1_sr_region',`classified_as_grade`='$phase1_sr_classified_as_grade',
+    // `section`='$phase1_sr_section',`school_year`='$phase1_sr_school_year',`name_of_teacher`='$phase1_sr_name_of_adviser',
+    // `signature`='$phase1_sr_signature',`phase`='1',`date_time_updated`='$date_time_updated' WHERE `lrn`='$lrn'";
+    // $query_update_phase1_student_scholastic_record = mysqli_query($conn, $update_phase1_student_scholastic_record) or die (mysqli_error($conn));
+    // if($query_update_phase1_student_scholastic_record == true){
+    //   echo "Update Phase 1 Student Scholastic Records Successfully";
+    // }else{
+    //   echo $conn->error;
+    // }
+
+    // UPDATE OF PHASE 1 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS
+    for($i=0;$i<count($sg_term);$i++){
+    $sql_update_phase1_student_mother_tounge_grade = "UPDATE `student_grades` SET `grade`=".$phase1_mother_tounge_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '1' AND phase = '1'";
+    $query_update_phase1_student_mother_tounge_grade = mysqli_query($conn, $sql_update_phase1_student_mother_tounge_grade) or die (mysqli_error($conn));
+    
+    
+    $sql_update_phase1_student_filipino_grade = "UPDATE `student_grades` SET `grade`=".$phase1_filipino_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '2' AND phase = '1'";
+    $query_update_phase1_student_filipino_grade = mysqli_query($conn, $sql_update_phase1_student_filipino_grade) or die (mysqli_error($conn));
+
+    
+    $sql_update_phase1_student_english_grade = "UPDATE `student_grades` SET `grade`=".$phase1_english_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '3' AND phase = '1'";
+    $query_update_phase1_student_english_grade = mysqli_query($conn, $sql_update_phase1_student_english_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_math_grade = "UPDATE `student_grades` SET `grade`=".$phase1_math_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '4' AND phase = '1'";
+    $query_update_phase1_student_math_grade = mysqli_query($conn, $sql_update_phase1_student_math_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_science_grade = "UPDATE `student_grades` SET `grade`=".$phase1_science_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '5' AND phase = '1'";
+    $query_update_phase1_student_science_grade = mysqli_query($conn, $sql_update_phase1_student_science_grade) or die (mysqli_error($conn));
+    
+    
+    $sql_update_phase1_student_araling_panlipunan_grade = "UPDATE `student_grades` SET `grade`=".$phase1_araling_panlipunan_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '6' AND phase = '1'";
+    $query_update_phase1_student_araling_panlipunan_grade = mysqli_query($conn, $sql_update_phase1_student_araling_panlipunan_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_epp_tle_grade = "UPDATE `student_grades` SET `grade`=".$phase1_epp_tle_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '7' AND phase = '1'";
+    $query_update_phase1_student_epp_tle_grade = mysqli_query($conn, $sql_update_phase1_student_epp_tle_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_mapeh_grade = "UPDATE `student_grades` SET `grade`=".$phase1_mapeh_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '8' AND phase = '1'";
+    $query_update_phase1_student_mapeh_grade = mysqli_query($conn, $sql_update_phase1_student_mapeh_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_music_grade = "UPDATE `student_grades` SET `grade`=".$phase1_music_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '9' AND phase = '1'";
+    $query_update_phase1_student_music_grade = mysqli_query($conn, $sql_update_phase1_student_music_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_art_grade = "UPDATE `student_grades` SET `grade`=".$phase1_art_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '10' AND phase = '1'";
+    $query_update_phase1_student_art_grade = mysqli_query($conn, $sql_update_phase1_student_art_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_pe_grade = "UPDATE `student_grades` SET `grade`=".$phase1_pe_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '11' AND phase = '1'";
+    $query_update_phase1_student_pe_grade = mysqli_query($conn, $sql_update_phase1_student_pe_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_health_grade = "UPDATE `student_grades` SET `grade`=".$phase1_health_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '12' AND phase = '1'";
+    $query_update_phase1_student_health_grade = mysqli_query($conn, $sql_update_phase1_student_health_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_esp_grade = "UPDATE `student_grades` SET `grade`=".$phase1_esp_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '13' AND phase = '1'";
+    $query_update_phase1_student_esp_grade = mysqli_query($conn, $sql_update_phase1_student_esp_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_arabic_lang_grade = "UPDATE `student_grades` SET `grade`=".$phase1_arabic_lang_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '14' AND phase = '1'";
+    $query_update_phase1_student_arabic_lang_grade = mysqli_query($conn, $sql_update_phase1_student_arabic_lang_grade) or die (mysqli_error($conn));
+
+
+    $sql_update_phase1_student_islamic_values_grade = "UPDATE `student_grades` SET `grade`=".$phase1_islamic_values_grades[$i].",
+    `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '15' AND phase = '1'";
+    $query_update_phase1_student_islamic_values_grade = mysqli_query($conn, $sql_update_phase1_student_islamic_values_grade) or die (mysqli_error($conn));
+    }
+    if($query_update_phase1_student_mother_tounge_grade == true){
+      echo "Update Phase 1 mother tounge Student Grade Successfully <br>";
     }else{
       echo $conn->error;
     }
+
+    if($query_update_phase1_student_filipino_grade == true){
+      echo "Update Phase 1 filipino Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_english_grade == true){
+      echo "Update Phase 1 english Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_math_grade == true){
+      echo "Update Phase 1 math Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_science_grade == true){
+      echo "Update Phase 1 science Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_araling_panlipunan_grade == true){
+      echo "Update Phase 1 araling_panlipunan Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_epp_tle_grade == true){
+      echo "Update Phase 1 epp_tle Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_mapeh_grade == true){
+      echo "Update Phase 1 mapeh Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_music_grade == true){
+      echo "Update Phase 1 music Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_art_grade == true){
+      echo "Update Phase 1 art Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_pe_grade == true){
+      echo "Update Phase 1 pe Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_health_grade == true){
+      echo "Update Phase 1 health Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_esp_grade == true){
+      echo "Update Phase 1 esp Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_arabic_lang_grade == true){
+      echo "Update Phase 1 arabic_lang Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    if($query_update_phase1_student_islamic_values_grade == true){
+      echo "Update Phase 1 islamic_values Student Grade Successfully <br>";
+    }else{
+      echo $conn->error;
+    }
+
+    // for($i=0;$i<count($sg_term);$i++){
+    //   $sql_update_phase1_student_filipino_grade = "UPDATE `student_grades` SET `grade`=".$phase1_filipino_grades[$i].",
+    //   `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '2' AND phase = '1'";
+    //   $query_update_phase1_student_filipino_grade = mysqli_query($conn, $sql_update_phase1_student_filipino_grade) or die (mysqli_error($conn));
+    //   }
+    //   echo count($sg_term);
+    //   if($query_update_phase1_student_filipino_grade == true){
+    //     echo "Update Phase 1 Filipino Student Grade Successfully";
+    //   }else{
+    //     echo $conn->error;
+    //   }
+
+    
+
+    
 }
 ob_end_flush();
 ?>
