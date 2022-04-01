@@ -12,12 +12,14 @@ form .gen-container{
     margin: 0;
 }
 
-.line-1 input[type=text], 
+.line-1 input[type=text],
+.line-2 input[type=number], 
 .line-2 input[type=text]{
     border: none;
     border-bottom: 1px solid black;
 }
-.line-1 input[type=text]:focus, 
+.line-1 input[type=text]:focus,
+.line-2 input[type=number]:focus, 
 .line-2 input[type=text]:focus{
     outline: none;
 }
