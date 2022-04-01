@@ -896,11 +896,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="date_from">
+                  <input type="date" class="datefrom" name="phase1_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="date_to">
+                  <input type="date" class="dateto" name="phase1_date_to">
                 </span>
               </span>
             </th>
@@ -1012,10 +1012,10 @@ include('connection.php');
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
+                <th class="w-10">1</th>
+                <th class="w-10">2</th>
+                <th class="w-10">3</th>
+                <th class="w-10">4</th>
           </tr>
         </thead>
         <tbody>
@@ -1653,11 +1653,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="date_from">
+                  <input type="date" class="datefrom" name="phase2_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="date_to">
+                  <input type="date" class="dateto" name="phase2_date_to">
                 </span>
               </span>
             </th>
@@ -1769,10 +1769,10 @@ include('connection.php');
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
+                <th class="w-10">1</th>
+                <th class="w-10">2</th>
+                <th class="w-10">3</th>
+                <th class="w-10">4</th>
           </tr>
         </thead>
         <tbody>
@@ -2410,11 +2410,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="date_from">
+                  <input type="date" class="datefrom" name="phase3_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="date_to">
+                  <input type="date" class="dateto" name="phase3_date_to">
                 </span>
               </span>
             </th>
@@ -2524,10 +2524,10 @@ include('connection.php');
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
+                <th class="w-10">1</th>
+                <th class="w-10">2</th>
+                <th class="w-10">3</th>
+                <th class="w-10">4</th>
           </tr>
         </thead>
         <tbody>
@@ -3165,11 +3165,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="date_from">
+                  <input type="date" class="datefrom" name="phase4_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="date_to">
+                  <input type="date" class="dateto" name="phase4_date_to">
                 </span>
               </span>
             </th>
@@ -3205,52 +3205,76 @@ include('connection.php');
       <input type="button" class="next-form text-end btn btn-success" style="float: right;" value="Next" />
     </fieldset>
     <fieldset>
-      <!-- back -->
+      <!-- BACK PHASES -->
       <div class="gen-container d-flex flex-row">
       <div class="form-container" style="padding: 0 7px 7px 0;">
       <section class="header">
       <span class="d-flex justify-content-between">
+        <!-- PHASE 5 OF SCHOLASTIC RECORDS -->
+        <?php
+          $phase5_scholastic_records = "SELECT * FROM scholastic_records
+          WHERE lrn = '109857060083' AND phase = '5'";
+          $query_phase5_scholastic_records = mysqli_query($conn, $phase5_scholastic_records) or die (mysqli_error($conn,));
+          $rows = mysqli_fetch_array($query_phase5_scholastic_records);
+          ?>
         <span>
-          <label>School</label>
-          <input type="text" name="school" class="school">
+          <label>School:</label>
+          <input type="text" name="phase5_sr_school" 
+          value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
-          <label>School ID</label>
-          <input type="text" name="school_id" class="school_id">
+          <label>School ID:</label>
+          <input type="text" name="phase5_sr_school_id" 
+          value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
-          <label>District</label>
-          <input type="text" class="w-50" name="school" class="district">
+          <label>District:</label>
+          <input type="text" class="w-50" name="phase5_sr_district" 
+          value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
-          <label>Division</label>
-          <input type="text" class="w-50" name="school_id" class="division">
+          <label>Division:</label>
+          <input type="text" class="w-50" name="phase5_sr_division" 
+          value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
-          <label>Region</label>
-          <input type="text" class="w-50" name="school_id" class="region">
+          <label>Region:</label>
+          <input type="text" class="w-50" name="phase5_sr_region" 
+          value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
-          <label>Classified as Grade</label>
-          <input type="text" style="width: 20%;" name="classified_as_grade" >
+          <label>Classified as Grade:</label>
+          <input type="text" style="width: 20%;" name="phase5_sr_classified_as_grade" 
+          value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
-          <label>Section</label>
-          <input type="text" class="w-50" name="section"> 
+          <label>Section:</label>
+          <input type="text" class="w-50" name="phase5_sr_section" 
+          value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
-          <label>School Year</label>
-          <input type="text" class="w-50" name="school_year">
+          <label>School Year:</label>
+          <input type="text" class="w-50" name="phase5_sr_school_year" 
+          value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
-      <span class="d-flex">
-        <label for="">Name of Adviser: </label>
-        <input type="text" name="name_of_adviser">
+      <span class="d-flex justify-content-between">
+        <span>
+        <label for="">Name of Adviser:</label>
+        <input type="text" name="phase5_sr_name_of_adviser" 
+        value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
+        </span>
+        <span>
+          <label>Signature:</label>
+          <input type="text" name="phase5_sr_signature" 
+          value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
+        </span>
       </span>
+    
     </section>
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
@@ -3260,125 +3284,567 @@ include('connection.php');
             <th rowspan="2">Final Rating</th>
           </tr>
           <tr style="width: 5%;">
-            <th class="w-10">1</th>
-            <th class="w-10">2</th>
-            <th class="w-10">3</th>
-            <th class="w-10">4</th>
+          
+                <th class="w-10">1</th>
+                <th class="w-10">2</th>
+                <th class="w-10">3</th>
+                <th class="w-10">4</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <?php
+            $phase5_mother_tounge = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '1'";
+            $query_phase5_mother_tounge = mysqli_query($conn, $phase5_mother_tounge) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Mother Tongue</td>
-            <td><input type="number" name="mother_tounge1" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge2" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge3" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge4" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge5" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_mother_tounge) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_mother_tounge)){
+            ?>
+            <td><input type="number" name="phase5_mother_tounge_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '5'";
+            $query_phase5_finalrating_mother_tounge = mysqli_query($conn, $phase5_finalrating_mother_tounge);
+            if(mysqli_num_rows($query_phase5_finalrating_mother_tounge) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_mother_tounge);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase5_filipino = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '2'";
+            $query_phase5_filipino = mysqli_query($conn, $phase5_filipino) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Filipino</td>
-            <td><input type="number" name="filipino1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_filipino) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_filipino)){
+            ?>
+            <td><input type="number" name="phase5_filipino_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_filipino = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '5'";
+            $query_phase5_finalrating_filipino = mysqli_query($conn, $phase5_finalrating_filipino);
+            if(mysqli_num_rows($query_phase5_finalrating_filipino) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_filipino);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
           <tr>
+          <?php
+            $phase5_english = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '3'";
+            $query_phase5_english = mysqli_query($conn, $phase5_english) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">English</td>
-            <td><input type="number" name="english1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_english) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_english)){
+            ?>
+            <td><input type="number" name="phase5_english_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_english = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '5'";
+            $query_phase5_finalrating_english = mysqli_query($conn, $phase5_finalrating_english);
+            if(mysqli_num_rows($query_phase5_finalrating_english) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_english);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Math</td>
-            <td><input type="number" name="math1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase5_math = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '4'";
+            $query_phase5_math = mysqli_query($conn, $phase5_math) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Mathematics</td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_math) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_math)){
+            ?>
+            <td><input type="number" name="phase5_math_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_math = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '5'";
+            $query_phase5_finalrating_math = mysqli_query($conn, $phase5_finalrating_math);
+            if(mysqli_num_rows($query_phase5_finalrating_math) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_math);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase5_science = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '5'";
+            $query_phase5_science = mysqli_query($conn, $phase5_science) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Science</td>
-            <td><input type="number" name="science1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_science) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_science)){
+            ?>
+            <td><input type="number" name="phase5_science_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_science = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '5'";
+            $query_phase5_finalrating_science = mysqli_query($conn, $phase5_finalrating_science);
+            if(mysqli_num_rows($query_phase5_finalrating_science) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_science);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Aralin Panlipunan</td>
-            <td><input type="number" name="araling_panlipunan1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase5_araling_panlipunan = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '6'";
+            $query_phase5_araling_panlipunan= mysqli_query($conn, $phase5_araling_panlipunan) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Araling Panlipunan</td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_araling_panlipunan) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_araling_panlipunan)){
+            ?>
+            <td><input type="number" name="phase5_araling_panlipunan_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '5'";
+            $query_phase5_finalrating_araling_panlipunan= mysqli_query($conn, $phase5_finalrating_araling_panlipunan);
+            if(mysqli_num_rows($query_phase5_finalrating_araling_panlipunan) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_araling_panlipunan);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase5_epp_tle = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '7'";
+            $query_phase5_epp_tle= mysqli_query($conn, $phase5_epp_tle) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">EPP/TLE</td>
-            <td><input type="number" name="epp_tle1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_epp_tle) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_epp_tle)){
+            ?>
+            <td><input type="number" name="phase5_epp_tle_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_epp_tle = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '5'";
+            $query_phase5_finalrating_epp_tle= mysqli_query($conn, $phase5_finalrating_epp_tle);
+            if(mysqli_num_rows($query_phase5_finalrating_epp_tle) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_epp_tle);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase5_mapeh = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '8'";
+            $query_phase5_mapeh= mysqli_query($conn, $phase5_mapeh) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">MAPEH</td>
-            <td><input type="number" name="mapeh1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_mapeh) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_mapeh)){
+            ?>
+            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_mapeh = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5'";
+            $query_phase5_finalrating_mapeh= mysqli_query($conn, $phase5_finalrating_mapeh);
+            if(mysqli_num_rows($query_phase5_finalrating_mapeh) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_mapeh);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase5_music = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '9'";
+            $query_phase5_music= mysqli_query($conn, $phase5_music) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Music</i></td>
-            <td><input type="number" name="music1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_music) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_music)){
+            ?>
+            <td><input type="number" name="phase5_music_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_music = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '5'";
+            $query_phase5_finalrating_music= mysqli_query($conn, $phase5_finalrating_music);
+            if(mysqli_num_rows($query_phase5_finalrating_music) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_music);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start"><i>PE</i></td>
-            <td><input type="number" name="p_e1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase5_art = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '10'";
+            $query_phase5_art= mysqli_query($conn, $phase5_art) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Arts</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_art) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_art)){
+            ?>
+            <td><input type="number" name="phase5_art_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_art = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '5'";
+            $query_phase5_finalrating_art= mysqli_query($conn, $phase5_finalrating_art);
+            if(mysqli_num_rows($query_phase5_finalrating_art) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_art);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+          
           <tr>
+          <?php
+            $phase5_pe = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '11'";
+            $query_phase5_pe= mysqli_query($conn, $phase5_pe) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Physical Education</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_pe) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_pe)){
+            ?>
+            <td><input type="number" name="phase5_pe_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_pe = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '5'";
+            $query_phase5_finalrating_pe= mysqli_query($conn, $phase5_finalrating_pe);
+            if(mysqli_num_rows($query_phase5_finalrating_pe) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_pe);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
+          </tr>
+
+
+          <tr>
+          <?php
+            $phase5_health = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '12'";
+            $query_phase5_health= mysqli_query($conn, $phase5_health) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Health</i></td>
-            <td><input type="number" name="health1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_health) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_health)){
+            ?>
+            <td><input type="number" name="phase5_health_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_health = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '5'";
+            $query_phase5_finalrating_health= mysqli_query($conn, $phase5_finalrating_health);
+            if(mysqli_num_rows($query_phase5_finalrating_health) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_health);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Edukasyon sa Pagkakatao</td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase5_esp = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '13'";
+            $query_phase5_esp= mysqli_query($conn, $phase5_esp) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_esp) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_esp)){
+            ?>
+            <td><input type="number" name="phase5_esp_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_esp = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '5'";
+            $query_phase5_finalrating_esp= mysqli_query($conn, $phase5_finalrating_esp);
+            if(mysqli_num_rows($query_phase5_finalrating_esp) > 0){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_esp);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase5_arabic_lang = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '14'";
+            $query_phase5_arabic_lang= mysqli_query($conn, $phase5_arabic_lang) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Arabic Language</i></td>
-            <td><input type="number" name="arabic_language1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_arabic_lang) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_arabic_lang)){
+            ?>
+            <td><input type="number" name="phase5_arabic_lang_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '5'";
+            $query_phase5_finalrating_arabic_lang= mysqli_query($conn, $phase5_finalrating_arabic_lang);
+            if(mysqli_num_rows($query_phase5_finalrating_arabic_lang)){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_arabic_lang);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start"><i>Islamic Values</i></td>
-            <td><input type="number" name="islamic_values1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase5_islamic_values = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '5' AND student_grades.subject_id = '14'";
+            $query_phase5_islamic_values= mysqli_query($conn, $phase5_islamic_values) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Islamic Values Education</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase5_islamic_values) > 0){
+            while($rows = mysqli_fetch_array($query_phase5_islamic_values)){
+            ?>
+            <td><input type="number" name="phase5_islamic_values_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase5_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase5_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase5_finalrating_islamic_values = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '5'";
+            $query_phase5_finalrating_islamic_values= mysqli_query($conn, $phase5_finalrating_islamic_values);
+            if(mysqli_num_rows($query_phase5_finalrating_islamic_values)){
+            $final_rating = mysqli_fetch_array($query_phase5_finalrating_islamic_values);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+          
           <tr>
             <td class="text-start fw-bold">General Average</td>
             <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
@@ -3389,8 +3855,70 @@ include('connection.php');
           </tr>
         </tbody>
       </table>
-  <!-- Remedial Table phase 5 -->
-      <table class="table-condensed text-center w-100" >
+
+  <!-- Remedial Table PHASE 5 -->
+  
+        <?php
+        $phase5_remedial_classes_dates = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '5'";
+        $query_phase5_remedial_classes_dates = mysqli_query($conn, $phase5_remedial_classes_dates);
+        if(mysqli_num_rows($query_phase5_remedial_classes_dates) > 0){
+          $row = mysqli_fetch_array($query_phase5_remedial_classes_dates);
+          ?>
+          <table class="table-condensed text-center w-100">
+        <thead> 
+          <tr>
+            <th colspan="2">Remedial Classes</th>
+            <th colspan="4">
+              <span class="d-flex flex-row justify-content-between">
+                <span>
+                  <label for="">Date conducted: </label>
+                  <input type="date" class="datefrom" name="phase5_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                </span>
+                <span>
+                  <label for="">To: </label>
+                  <input type="date" class="dateto" name="phase5_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                </span>
+              </span>
+            </th>
+          </tr>
+          <tr>
+            <th>Learning Areas</th>
+            <th>Final Rating</th>
+            <th>Remarks</th>
+            <th>Recomputed Final Grade</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" class="learning-areas1" name="phase5_learning_areas1" 
+            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            <td><input type="number" id="grade" class="final_rating1" name="phase5_final_rating1" 
+            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            <td><input type="text" name="phase5_remedial_class_mark1" 
+            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            <td><input type="number" id="grade" name="phase5_recomputed_final_grade1" 
+            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text" name="phase5_remedial_remarks1" 
+            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="learning_areas2" name="phase5_learning_areas2"
+            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            <td><input type="number" id="grade" class="final_rating2" name="phase5_final_rating2"
+            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            <td><input type="text" name="phase5_remedial_class_mark2" 
+            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            <td><input type="number" id="grade" name="phase5_recomputed_final_grade2" 
+            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text"name="phase5_remedial_remarks2" 
+            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+          </tr>
+        </tbody>
+      </table>
+        <?php }else{?>
+          <table class="table-condensed text-center w-100">
         <thead> 
           <tr>
             <th colspan="2" >Remedial Classes</th>
@@ -3398,11 +3926,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="date_from">
+                  <input type="date" class="datefrom" name="phase5_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="date_to">
+                  <input type="date" class="dateto" name="phase5_date_to">
                 </span>
               </span>
             </th>
@@ -3417,66 +3945,91 @@ include('connection.php');
         </thead>
         <tbody>
           <tr>
-            <td><input type="text" class="learning-areas1" name="learning_areas1"></td>
-            <td><input type="number" id="grade" class="final_rating1" name="final_rating1"></td>
-            <td><input type="text" name="remedial_class_mark1" id=""></td>
-            <td><input type="number" id="grade" name="recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="text" name="remedial_remarks1" id=""> </td>
+            <td><input type="text" class="learning-areas1" name="phase5_learning_areas1"></td>
+            <td><input type="number" id="grade" class="final_rating1" name="phase5_final_rating1"></td>
+            <td><input type="text" name="phase5_remedial_class_mark1" id=""></td>
+            <td><input type="number" id="grade" name="phase5_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text" name="phase5_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="text" class="learning_areas2" name="learning_areas2"></td>
-            <td><input type="number" id="grade" class="final_rating2" name="final_rating2"></td>
-            <td><input type="text" name="remedial_class_mark2" id=""> </td>
-            <td><input type="number" id="grade" name="recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="text"name="remedial_remarks2" id=""></td>
+            <td><input type="text" class="learning_areas2" name="phase5_learning_areas2"></td>
+            <td><input type="number" id="grade" class="final_rating2" name="phase5_final_rating2"></td>
+            <td><input type="text" name="phase5_remedial_class_mark2" id=""> </td>
+            <td><input type="number" id="grade" name="phase5_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text"name="phase5_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
+        <?php }?>
       </div>
       <div class="form-container" style="padding: 0 0 7px 7px ;">
       <section class="header">
       <span class="d-flex justify-content-between">
+        <!-- PHASE 6 OF SCHOLASTIC RECORDS -->
+        <?php
+          $phase6_scholastic_records = "SELECT * FROM scholastic_records
+          WHERE lrn = '109857060083' AND phase = '6'";
+          $query_phase6_scholastic_records = mysqli_query($conn, $phase6_scholastic_records) or die (mysqli_error($conn,));
+          $rows = mysqli_fetch_array($query_phase6_scholastic_records);
+          ?>
         <span>
-          <label>School</label>
-          <input type="text" name="school" class="school">
+          <label>School:</label>
+          <input type="text" name="phase6_sr_school" 
+          value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
-          <label>School ID</label>
-          <input type="text" name="school_id" class="school_id">
+          <label>School ID:</label>
+          <input type="text" name="phase6_sr_school_id" 
+          value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
-          <label>District</label>
-          <input type="text" class="w-50" name="school" class="district">
+          <label>District:</label>
+          <input type="text" class="w-50" name="phase6_sr_district" 
+          value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
-          <label>Division</label>
-          <input type="text" class="w-50" name="school_id" class="division">
+          <label>Division:</label>
+          <input type="text" class="w-50" name="phase6_sr_division" 
+          value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
-          <label>Region</label>
-          <input type="text" class="w-50" name="school_id" class="region">
+          <label>Region:</label>
+          <input type="text" class="w-50" name="phase6_sr_region" 
+          value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
-          <label>Classified as Grade</label>
-          <input type="text" style="width: 20%;" name="classified_as_grade" >
+          <label>Classified as Grade:</label>
+          <input type="text" style="width: 20%;" name="phase6_sr_classified_as_grade" 
+          value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
-          <label>Section</label>
-          <input type="text" class="w-50" name="section"> 
+          <label>Section:</label>
+          <input type="text" class="w-50" name="phase6_sr_section" 
+          value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
-          <label>School Year</label>
-          <input type="text" class="w-50" name="school_year">
+          <label>School Year:</label>
+          <input type="text" class="w-50" name="phase6_sr_school_year" 
+          value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
-      <span class="d-flex">
-        <label for="">Name of Adviser: </label>
-        <input type="text" name="name_of_adviser">
+      <span class="d-flex justify-content-between">
+        <span>
+        <label for="">Name of Adviser:</label>
+        <input type="text" name="phase6_sr_name_of_adviser" 
+        value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
+        </span>
+        <span>
+          <label>Signature:</label>
+          <input type="text" name="phase6_sr_signature" 
+          value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
+        </span>
       </span>
+    
     </section>
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
@@ -3486,125 +4039,567 @@ include('connection.php');
             <th rowspan="2">Final Rating</th>
           </tr>
           <tr style="width: 5%;">
-            <th class="w-10">1</th>
-            <th class="w-10">2</th>
-            <th class="w-10">3</th>
-            <th class="w-10">4</th>
+          
+                <th class="w-10">1</th>
+                <th class="w-10">2</th>
+                <th class="w-10">3</th>
+                <th class="w-10">4</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <?php
+            $phase6_mother_tounge = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '1'";
+            $query_phase6_mother_tounge = mysqli_query($conn, $phase6_mother_tounge) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Mother Tongue</td>
-            <td><input type="number" name="mother_tounge1" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge2" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge3" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge4" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge5" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_mother_tounge) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_mother_tounge)){
+            ?>
+            <td><input type="number" name="phase6_mother_tounge_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '6'";
+            $query_phase6_finalrating_mother_tounge = mysqli_query($conn, $phase6_finalrating_mother_tounge);
+            if(mysqli_num_rows($query_phase6_finalrating_mother_tounge) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_mother_tounge);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase6_filipino = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '2'";
+            $query_phase6_filipino = mysqli_query($conn, $phase6_filipino) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Filipino</td>
-            <td><input type="number" name="filipino1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_filipino) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_filipino)){
+            ?>
+            <td><input type="number" name="phase6_filipino_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_filipino = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '6'";
+            $query_phase6_finalrating_filipino = mysqli_query($conn, $phase6_finalrating_filipino);
+            if(mysqli_num_rows($query_phase6_finalrating_filipino) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_filipino);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
           <tr>
+          <?php
+            $phase6_english = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '3'";
+            $query_phase6_english = mysqli_query($conn, $phase6_english) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">English</td>
-            <td><input type="number" name="english1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_english) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_english)){
+            ?>
+            <td><input type="number" name="phase6_english_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_english = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '6'";
+            $query_phase6_finalrating_english = mysqli_query($conn, $phase6_finalrating_english);
+            if(mysqli_num_rows($query_phase6_finalrating_english) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_english);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Math</td>
-            <td><input type="number" name="math1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase6_math = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '4'";
+            $query_phase6_math = mysqli_query($conn, $phase6_math) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Mathematics</td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_math) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_math)){
+            ?>
+            <td><input type="number" name="phase6_math_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_math = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '6'";
+            $query_phase6_finalrating_math = mysqli_query($conn, $phase6_finalrating_math);
+            if(mysqli_num_rows($query_phase6_finalrating_math) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_math);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase6_science = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '5'";
+            $query_phase6_science = mysqli_query($conn, $phase6_science) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Science</td>
-            <td><input type="number" name="science1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_science) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_science)){
+            ?>
+            <td><input type="number" name="phase6_science_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_science = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '6'";
+            $query_phase6_finalrating_science = mysqli_query($conn, $phase6_finalrating_science);
+            if(mysqli_num_rows($query_phase6_finalrating_science) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_science);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Aralin Panlipunan</td>
-            <td><input type="number" name="araling_panlipunan1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase6_araling_panlipunan = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '6'";
+            $query_phase6_araling_panlipunan= mysqli_query($conn, $phase6_araling_panlipunan) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Araling Panlipunan</td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_araling_panlipunan) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_araling_panlipunan)){
+            ?>
+            <td><input type="number" name="phase6_araling_panlipunan_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '6'";
+            $query_phase6_finalrating_araling_panlipunan= mysqli_query($conn, $phase6_finalrating_araling_panlipunan);
+            if(mysqli_num_rows($query_phase6_finalrating_araling_panlipunan) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_araling_panlipunan);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase6_epp_tle = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '7'";
+            $query_phase6_epp_tle= mysqli_query($conn, $phase6_epp_tle) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">EPP/TLE</td>
-            <td><input type="number" name="epp_tle1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_epp_tle) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_epp_tle)){
+            ?>
+            <td><input type="number" name="phase6_epp_tle_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_epp_tle = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '6'";
+            $query_phase6_finalrating_epp_tle= mysqli_query($conn, $phase6_finalrating_epp_tle);
+            if(mysqli_num_rows($query_phase6_finalrating_epp_tle) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_epp_tle);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase6_mapeh = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '8'";
+            $query_phase6_mapeh= mysqli_query($conn, $phase6_mapeh) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">MAPEH</td>
-            <td><input type="number" name="mapeh1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_mapeh) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_mapeh)){
+            ?>
+            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_mapeh = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6'";
+            $query_phase6_finalrating_mapeh= mysqli_query($conn, $phase6_finalrating_mapeh);
+            if(mysqli_num_rows($query_phase6_finalrating_mapeh) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_mapeh);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase6_music = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '9'";
+            $query_phase6_music= mysqli_query($conn, $phase6_music) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Music</i></td>
-            <td><input type="number" name="music1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_music) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_music)){
+            ?>
+            <td><input type="number" name="phase6_music_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_music = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '6'";
+            $query_phase6_finalrating_music= mysqli_query($conn, $phase6_finalrating_music);
+            if(mysqli_num_rows($query_phase6_finalrating_music) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_music);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start"><i>PE</i></td>
-            <td><input type="number" name="p_e1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase6_art = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '10'";
+            $query_phase6_art= mysqli_query($conn, $phase6_art) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Arts</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_art) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_art)){
+            ?>
+            <td><input type="number" name="phase6_art_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_art = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '6'";
+            $query_phase6_finalrating_art= mysqli_query($conn, $phase6_finalrating_art);
+            if(mysqli_num_rows($query_phase6_finalrating_art) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_art);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+          
           <tr>
+          <?php
+            $phase6_pe = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '11'";
+            $query_phase6_pe= mysqli_query($conn, $phase6_pe) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Physical Education</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_pe) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_pe)){
+            ?>
+            <td><input type="number" name="phase6_pe_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_pe = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '6'";
+            $query_phase6_finalrating_pe= mysqli_query($conn, $phase6_finalrating_pe);
+            if(mysqli_num_rows($query_phase6_finalrating_pe) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_pe);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
+          </tr>
+
+
+          <tr>
+          <?php
+            $phase6_health = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '12'";
+            $query_phase6_health= mysqli_query($conn, $phase6_health) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Health</i></td>
-            <td><input type="number" name="health1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_health) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_health)){
+            ?>
+            <td><input type="number" name="phase6_health_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_health = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '6'";
+            $query_phase6_finalrating_health= mysqli_query($conn, $phase6_finalrating_health);
+            if(mysqli_num_rows($query_phase6_finalrating_health) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_health);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Edukasyon sa Pagkakatao</td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase6_esp = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '13'";
+            $query_phase6_esp= mysqli_query($conn, $phase6_esp) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_esp) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_esp)){
+            ?>
+            <td><input type="number" name="phase6_esp_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_esp = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '6'";
+            $query_phase6_finalrating_esp= mysqli_query($conn, $phase6_finalrating_esp);
+            if(mysqli_num_rows($query_phase6_finalrating_esp) > 0){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_esp);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase6_arabic_lang = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '14'";
+            $query_phase6_arabic_lang= mysqli_query($conn, $phase6_arabic_lang) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Arabic Language</i></td>
-            <td><input type="number" name="arabic_language1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_arabic_lang) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_arabic_lang)){
+            ?>
+            <td><input type="number" name="phase6_arabic_lang_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '6'";
+            $query_phase6_finalrating_arabic_lang= mysqli_query($conn, $phase6_finalrating_arabic_lang);
+            if(mysqli_num_rows($query_phase6_finalrating_arabic_lang)){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_arabic_lang);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start"><i>Islamic Values</i></td>
-            <td><input type="number" name="islamic_values1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase6_islamic_values = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '6' AND student_grades.subject_id = '14'";
+            $query_phase6_islamic_values= mysqli_query($conn, $phase6_islamic_values) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Islamic Values Education</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase6_islamic_values) > 0){
+            while($rows = mysqli_fetch_array($query_phase6_islamic_values)){
+            ?>
+            <td><input type="number" name="phase6_islamic_values_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase6_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase6_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase6_finalrating_islamic_values = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '6'";
+            $query_phase6_finalrating_islamic_values= mysqli_query($conn, $phase6_finalrating_islamic_values);
+            if(mysqli_num_rows($query_phase6_finalrating_islamic_values)){
+            $final_rating = mysqli_fetch_array($query_phase6_finalrating_islamic_values);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+          
           <tr>
             <td class="text-start fw-bold">General Average</td>
             <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
@@ -3615,8 +4610,70 @@ include('connection.php');
           </tr>
         </tbody>
       </table>
-  <!-- Remedial Table phase 6 -->
-      <table class="table-condensed text-center w-100">
+
+  <!-- Remedial Table PHASE 6 -->
+  
+        <?php
+        $phase6_remedial_classes_dates = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '6'";
+        $query_phase6_remedial_classes_dates = mysqli_query($conn, $phase6_remedial_classes_dates);
+        if(mysqli_num_rows($query_phase6_remedial_classes_dates) > 0){
+          $row = mysqli_fetch_array($query_phase6_remedial_classes_dates);
+          ?>
+          <table class="table-condensed text-center w-100">
+        <thead> 
+          <tr>
+            <th colspan="2">Remedial Classes</th>
+            <th colspan="4">
+              <span class="d-flex flex-row justify-content-between">
+                <span>
+                  <label for="">Date conducted: </label>
+                  <input type="date" class="datefrom" name="phase6_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                </span>
+                <span>
+                  <label for="">To: </label>
+                  <input type="date" class="dateto" name="phase6_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                </span>
+              </span>
+            </th>
+          </tr>
+          <tr>
+            <th>Learning Areas</th>
+            <th>Final Rating</th>
+            <th>Remarks</th>
+            <th>Recomputed Final Grade</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" class="learning-areas1" name="phase6_learning_areas1" 
+            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            <td><input type="number" id="grade" class="final_rating1" name="phase6_final_rating1" 
+            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            <td><input type="text" name="phase6_remedial_class_mark1" 
+            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            <td><input type="number" id="grade" name="phase6_recomputed_final_grade1" 
+            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text" name="phase6_remedial_remarks1" 
+            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="learning_areas2" name="phase6_learning_areas2"
+            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            <td><input type="number" id="grade" class="final_rating2" name="phase6_final_rating2"
+            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            <td><input type="text" name="phase6_remedial_class_mark2" 
+            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            <td><input type="number" id="grade" name="phase6_recomputed_final_grade2" 
+            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text"name="phase6_remedial_remarks2" 
+            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+          </tr>
+        </tbody>
+      </table>
+        <?php }else{?>
+          <table class="table-condensed text-center w-100">
         <thead> 
           <tr>
             <th colspan="2" >Remedial Classes</th>
@@ -3624,11 +4681,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="date_from">
+                  <input type="date" class="datefrom" name="phase6_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="date_to">
+                  <input type="date" class="dateto" name="phase6_date_to">
                 </span>
               </span>
             </th>
@@ -3643,68 +4700,93 @@ include('connection.php');
         </thead>
         <tbody>
           <tr>
-            <td><input type="text" class="learning-areas1" name="learning_areas1"></td>
-            <td><input type="number" id="grade" class="final_rating1" name="final_rating1"></td>
-            <td><input type="text" name="remedial_class_mark1" id=""></td>
-            <td><input type="number" id="grade" name="recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="text" name="remedial_remarks1" id=""> </td>
+            <td><input type="text" class="learning-areas1" name="phase6_learning_areas1"></td>
+            <td><input type="number" id="grade" class="final_rating1" name="phase6_final_rating1"></td>
+            <td><input type="text" name="phase6_remedial_class_mark1" id=""></td>
+            <td><input type="number" id="grade" name="phase6_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text" name="phase6_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="text" class="learning_areas2" name="learning_areas2"></td>
-            <td><input type="number" id="grade" class="final_rating2" name="final_rating2"></td>
-            <td><input type="text" name="remedial_class_mark2" id=""> </td>
-            <td><input type="number" id="grade" name="recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="text"name="remedial_remarks2" id=""></td>
+            <td><input type="text" class="learning_areas2" name="phase6_learning_areas2"></td>
+            <td><input type="number" id="grade" class="final_rating2" name="phase6_final_rating2"></td>
+            <td><input type="text" name="phase6_remedial_class_mark2" id=""> </td>
+            <td><input type="number" id="grade" name="phase6_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text"name="phase6_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
+        <?php }?>
       </div>
       </div>
       <div class="gen-container d-flex">
       <div class="form-container" style="padding:7px 7px 0 0;">
       <section class="header">
       <span class="d-flex justify-content-between">
+        <!-- PHASE 7 OF SCHOLASTIC RECORDS -->
+        <?php
+          $phase7_scholastic_records = "SELECT * FROM scholastic_records
+          WHERE lrn = '109857060083' AND phase = '7'";
+          $query_phase7_scholastic_records = mysqli_query($conn, $phase7_scholastic_records) or die (mysqli_error($conn,));
+          $rows = mysqli_fetch_array($query_phase7_scholastic_records);
+          ?>
         <span>
-          <label>School</label>
-          <input type="text" name="school" class="school">
+          <label>School:</label>
+          <input type="text" name="phase7_sr_school" 
+          value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
-          <label>School ID</label>
-          <input type="text" name="school_id" class="school_id">
+          <label>School ID:</label>
+          <input type="text" name="phase7_sr_school_id" 
+          value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
-          <label>District</label>
-          <input type="text" class="w-50" name="school" class="district">
+          <label>District:</label>
+          <input type="text" class="w-50" name="phase7_sr_district" 
+          value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
-          <label>Division</label>
-          <input type="text" class="w-50" name="school_id" class="division">
+          <label>Division:</label>
+          <input type="text" class="w-50" name="phase7_sr_division" 
+          value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
-          <label>Region</label>
-          <input type="text" class="w-50" name="school_id" class="region">
+          <label>Region:</label>
+          <input type="text" class="w-50" name="phase7_sr_region" 
+          value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
-          <label>Classified as Grade</label>
-          <input type="text" style="width: 20%;" name="classified_as_grade" >
+          <label>Classified as Grade:</label>
+          <input type="text" style="width: 20%;" name="phase7_sr_classified_as_grade" 
+          value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
-          <label>Section</label>
-          <input type="text" class="w-50" name="section"> 
+          <label>Section:</label>
+          <input type="text" class="w-50" name="phase7_sr_section" 
+          value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
-          <label>School Year</label>
-          <input type="text" class="w-50" name="school_year">
+          <label>School Year:</label>
+          <input type="text" class="w-50" name="phase7_sr_school_year" 
+          value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
-      <span class="d-flex">
-        <label for="">Name of Adviser: </label>
-        <input type="text" name="name_of_adviser">
+      <span class="d-flex justify-content-between">
+        <span>
+        <label for="">Name of Adviser:</label>
+        <input type="text" name="phase7_sr_name_of_adviser" 
+        value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
+        </span>
+        <span>
+          <label>Signature:</label>
+          <input type="text" name="phase7_sr_signature" 
+          value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
+        </span>
       </span>
+    
     </section>
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
@@ -3714,125 +4796,567 @@ include('connection.php');
             <th rowspan="2">Final Rating</th>
           </tr>
           <tr style="width: 5%;">
-            <th class="w-10">1</th>
-            <th class="w-10">2</th>
-            <th class="w-10">3</th>
-            <th class="w-10">4</th>
+          
+                <th class="w-10">1</th>
+                <th class="w-10">2</th>
+                <th class="w-10">3</th>
+                <th class="w-10">4</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <?php
+            $phase7_mother_tounge = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '1'";
+            $query_phase7_mother_tounge = mysqli_query($conn, $phase7_mother_tounge) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Mother Tongue</td>
-            <td><input type="number" name="mother_tounge1" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge2" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge3" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge4" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge5" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_mother_tounge) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_mother_tounge)){
+            ?>
+            <td><input type="number" name="phase7_mother_tounge_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '7'";
+            $query_phase7_finalrating_mother_tounge = mysqli_query($conn, $phase7_finalrating_mother_tounge);
+            if(mysqli_num_rows($query_phase7_finalrating_mother_tounge) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_mother_tounge);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase7_filipino = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '2'";
+            $query_phase7_filipino = mysqli_query($conn, $phase7_filipino) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Filipino</td>
-            <td><input type="number" name="filipino1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_filipino) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_filipino)){
+            ?>
+            <td><input type="number" name="phase7_filipino_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_filipino = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '7'";
+            $query_phase7_finalrating_filipino = mysqli_query($conn, $phase7_finalrating_filipino);
+            if(mysqli_num_rows($query_phase7_finalrating_filipino) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_filipino);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
           <tr>
+          <?php
+            $phase7_english = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '3'";
+            $query_phase7_english = mysqli_query($conn, $phase7_english) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">English</td>
-            <td><input type="number" name="english1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_english) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_english)){
+            ?>
+            <td><input type="number" name="phase7_english_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_english = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '7'";
+            $query_phase7_finalrating_english = mysqli_query($conn, $phase7_finalrating_english);
+            if(mysqli_num_rows($query_phase7_finalrating_english) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_english);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Math</td>
-            <td><input type="number" name="math1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase7_math = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '4'";
+            $query_phase7_math = mysqli_query($conn, $phase7_math) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Mathematics</td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_math) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_math)){
+            ?>
+            <td><input type="number" name="phase7_math_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_math = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '7'";
+            $query_phase7_finalrating_math = mysqli_query($conn, $phase7_finalrating_math);
+            if(mysqli_num_rows($query_phase7_finalrating_math) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_math);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase7_science = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '5'";
+            $query_phase7_science = mysqli_query($conn, $phase7_science) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Science</td>
-            <td><input type="number" name="science1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_science) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_science)){
+            ?>
+            <td><input type="number" name="phase7_science_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_science = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '7'";
+            $query_phase7_finalrating_science = mysqli_query($conn, $phase7_finalrating_science);
+            if(mysqli_num_rows($query_phase7_finalrating_science) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_science);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Aralin Panlipunan</td>
-            <td><input type="number" name="araling_panlipunan1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase7_araling_panlipunan = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '6'";
+            $query_phase7_araling_panlipunan= mysqli_query($conn, $phase7_araling_panlipunan) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Araling Panlipunan</td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_araling_panlipunan) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_araling_panlipunan)){
+            ?>
+            <td><input type="number" name="phase7_araling_panlipunan_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '7'";
+            $query_phase7_finalrating_araling_panlipunan= mysqli_query($conn, $phase7_finalrating_araling_panlipunan);
+            if(mysqli_num_rows($query_phase7_finalrating_araling_panlipunan) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_araling_panlipunan);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase7_epp_tle = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '7'";
+            $query_phase7_epp_tle= mysqli_query($conn, $phase7_epp_tle) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">EPP/TLE</td>
-            <td><input type="number" name="epp_tle1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_epp_tle) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_epp_tle)){
+            ?>
+            <td><input type="number" name="phase7_epp_tle_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_epp_tle = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '7'";
+            $query_phase7_finalrating_epp_tle= mysqli_query($conn, $phase7_finalrating_epp_tle);
+            if(mysqli_num_rows($query_phase7_finalrating_epp_tle) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_epp_tle);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase7_mapeh = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '8'";
+            $query_phase7_mapeh= mysqli_query($conn, $phase7_mapeh) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">MAPEH</td>
-            <td><input type="number" name="mapeh1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_mapeh) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_mapeh)){
+            ?>
+            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_mapeh = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7'";
+            $query_phase7_finalrating_mapeh= mysqli_query($conn, $phase7_finalrating_mapeh);
+            if(mysqli_num_rows($query_phase7_finalrating_mapeh) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_mapeh);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase7_music = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '9'";
+            $query_phase7_music= mysqli_query($conn, $phase7_music) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Music</i></td>
-            <td><input type="number" name="music1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_music) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_music)){
+            ?>
+            <td><input type="number" name="phase7_music_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_music = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '7'";
+            $query_phase7_finalrating_music= mysqli_query($conn, $phase7_finalrating_music);
+            if(mysqli_num_rows($query_phase7_finalrating_music) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_music);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start"><i>PE</i></td>
-            <td><input type="number" name="p_e1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase7_art = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '10'";
+            $query_phase7_art= mysqli_query($conn, $phase7_art) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Arts</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_art) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_art)){
+            ?>
+            <td><input type="number" name="phase7_art_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_art = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '7'";
+            $query_phase7_finalrating_art= mysqli_query($conn, $phase7_finalrating_art);
+            if(mysqli_num_rows($query_phase7_finalrating_art) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_art);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+          
           <tr>
+          <?php
+            $phase7_pe = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '11'";
+            $query_phase7_pe= mysqli_query($conn, $phase7_pe) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Physical Education</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_pe) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_pe)){
+            ?>
+            <td><input type="number" name="phase7_pe_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_pe = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '7'";
+            $query_phase7_finalrating_pe= mysqli_query($conn, $phase7_finalrating_pe);
+            if(mysqli_num_rows($query_phase7_finalrating_pe) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_pe);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
+          </tr>
+
+
+          <tr>
+          <?php
+            $phase7_health = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '12'";
+            $query_phase7_health= mysqli_query($conn, $phase7_health) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Health</i></td>
-            <td><input type="number" name="health1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_health) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_health)){
+            ?>
+            <td><input type="number" name="phase7_health_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_health = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '7'";
+            $query_phase7_finalrating_health= mysqli_query($conn, $phase7_finalrating_health);
+            if(mysqli_num_rows($query_phase7_finalrating_health) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_health);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Edukasyon sa Pagkakatao</td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase7_esp = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '13'";
+            $query_phase7_esp= mysqli_query($conn, $phase7_esp) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_esp) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_esp)){
+            ?>
+            <td><input type="number" name="phase7_esp_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_esp = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '7'";
+            $query_phase7_finalrating_esp= mysqli_query($conn, $phase7_finalrating_esp);
+            if(mysqli_num_rows($query_phase7_finalrating_esp) > 0){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_esp);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase7_arabic_lang = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '14'";
+            $query_phase7_arabic_lang= mysqli_query($conn, $phase7_arabic_lang) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Arabic Language</i></td>
-            <td><input type="number" name="arabic_language1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_arabic_lang) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_arabic_lang)){
+            ?>
+            <td><input type="number" name="phase7_arabic_lang_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '7'";
+            $query_phase7_finalrating_arabic_lang= mysqli_query($conn, $phase7_finalrating_arabic_lang);
+            if(mysqli_num_rows($query_phase7_finalrating_arabic_lang)){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_arabic_lang);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start"><i>Islamic Values</i></td>
-            <td><input type="number" name="islamic_values1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase7_islamic_values = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '7' AND student_grades.subject_id = '14'";
+            $query_phase7_islamic_values= mysqli_query($conn, $phase7_islamic_values) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Islamic Values Education</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase7_islamic_values) > 0){
+            while($rows = mysqli_fetch_array($query_phase7_islamic_values)){
+            ?>
+            <td><input type="number" name="phase7_islamic_values_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase7_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase7_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase7_finalrating_islamic_values = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '7'";
+            $query_phase7_finalrating_islamic_values= mysqli_query($conn, $phase7_finalrating_islamic_values);
+            if(mysqli_num_rows($query_phase7_finalrating_islamic_values)){
+            $final_rating = mysqli_fetch_array($query_phase7_finalrating_islamic_values);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+          
           <tr>
             <td class="text-start fw-bold">General Average</td>
             <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
@@ -3843,8 +5367,70 @@ include('connection.php');
           </tr>
         </tbody>
       </table>
-  <!-- Remedial Table phase 7 -->
-      <table class="table-condensed mb-5 text-center w-100">
+
+  <!-- Remedial Table PHASE 7 -->
+  
+        <?php
+        $phase7_remedial_classes_dates = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '7'";
+        $query_phase7_remedial_classes_dates = mysqli_query($conn, $phase7_remedial_classes_dates);
+        if(mysqli_num_rows($query_phase7_remedial_classes_dates) > 0){
+          $row = mysqli_fetch_array($query_phase7_remedial_classes_dates);
+          ?>
+          <table class="table-condensed text-center w-100">
+        <thead> 
+          <tr>
+            <th colspan="2">Remedial Classes</th>
+            <th colspan="4">
+              <span class="d-flex flex-row justify-content-between">
+                <span>
+                  <label for="">Date conducted: </label>
+                  <input type="date" class="datefrom" name="phase7_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                </span>
+                <span>
+                  <label for="">To: </label>
+                  <input type="date" class="dateto" name="phase7_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                </span>
+              </span>
+            </th>
+          </tr>
+          <tr>
+            <th>Learning Areas</th>
+            <th>Final Rating</th>
+            <th>Remarks</th>
+            <th>Recomputed Final Grade</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" class="learning-areas1" name="phase7_learning_areas1" 
+            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            <td><input type="number" id="grade" class="final_rating1" name="phase7_final_rating1" 
+            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            <td><input type="text" name="phase7_remedial_class_mark1" 
+            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            <td><input type="number" id="grade" name="phase7_recomputed_final_grade1" 
+            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text" name="phase7_remedial_remarks1" 
+            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="learning_areas2" name="phase7_learning_areas2"
+            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            <td><input type="number" id="grade" class="final_rating2" name="phase7_final_rating2"
+            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            <td><input type="text" name="phase7_remedial_class_mark2" 
+            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            <td><input type="number" id="grade" name="phase7_recomputed_final_grade2" 
+            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text"name="phase7_remedial_remarks2" 
+            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+          </tr>
+        </tbody>
+      </table>
+        <?php }else{?>
+          <table class="table-condensed text-center w-100">
         <thead> 
           <tr>
             <th colspan="2" >Remedial Classes</th>
@@ -3852,11 +5438,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="date_from">
+                  <input type="date" class="datefrom" name="phase7_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="date_to">
+                  <input type="date" class="dateto" name="phase7_date_to">
                 </span>
               </span>
             </th>
@@ -3871,66 +5457,91 @@ include('connection.php');
         </thead>
         <tbody>
           <tr>
-            <td><input type="text" class="learning-areas1" name="learning_areas1"></td>
-            <td><input type="number" id="grade" class="final_rating1" name="final_rating1"></td>
-            <td><input type="text" name="remedial_class_mark1" id=""></td>
-            <td><input type="number" id="grade" name="recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="text" name="remedial_remarks1" id=""> </td>
+            <td><input type="text" class="learning-areas1" name="phase7_learning_areas1"></td>
+            <td><input type="number" id="grade" class="final_rating1" name="phase7_final_rating1"></td>
+            <td><input type="text" name="phase7_remedial_class_mark1" id=""></td>
+            <td><input type="number" id="grade" name="phase7_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text" name="phase7_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="text" class="learning_areas2" name="learning_areas2"></td>
-            <td><input type="number" id="grade" class="final_rating2" name="final_rating2"></td>
-            <td><input type="text" name="remedial_class_mark2" id=""> </td>
-            <td><input type="number" id="grade" name="recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="text"name="remedial_remarks2" id=""></td>
+            <td><input type="text" class="learning_areas2" name="phase7_learning_areas2"></td>
+            <td><input type="number" id="grade" class="final_rating2" name="phase7_final_rating2"></td>
+            <td><input type="text" name="phase7_remedial_class_mark2" id=""> </td>
+            <td><input type="number" id="grade" name="phase7_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text"name="phase7_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
+        <?php }?>
       </div>
       <div class="form-container" style="padding: 7px 0 0 7px;">
       <section class="header">
       <span class="d-flex justify-content-between">
+        <!-- PHASE 8 OF SCHOLASTIC RECORDS -->
+        <?php
+          $phase8_scholastic_records = "SELECT * FROM scholastic_records
+          WHERE lrn = '109857060083' AND phase = '8'";
+          $query_phase8_scholastic_records = mysqli_query($conn, $phase8_scholastic_records) or die (mysqli_error($conn,));
+          $rows = mysqli_fetch_array($query_phase8_scholastic_records);
+          ?>
         <span>
-          <label>School</label>
-          <input type="text" name="school" class="school">
+          <label>School:</label>
+          <input type="text" name="phase8_sr_school" 
+          value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
-          <label>School ID</label>
-          <input type="text" name="school_id" class="school_id">
+          <label>School ID:</label>
+          <input type="text" name="phase8_sr_school_id" 
+          value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
-          <label>District</label>
-          <input type="text" class="w-50" name="school" class="district">
+          <label>District:</label>
+          <input type="text" class="w-50" name="phase8_sr_district" 
+          value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
-          <label>Division</label>
-          <input type="text" class="w-50" name="school_id" class="division">
+          <label>Division:</label>
+          <input type="text" class="w-50" name="phase8_sr_division" 
+          value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
-          <label>Region</label>
-          <input type="text" class="w-50" name="school_id" class="region">
+          <label>Region:</label>
+          <input type="text" class="w-50" name="phase8_sr_region" 
+          value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
-          <label>Classified as Grade</label>
-          <input type="text" style="width: 20%;" name="classified_as_grade" >
+          <label>Classified as Grade:</label>
+          <input type="text" style="width: 20%;" name="phase8_sr_classified_as_grade" 
+          value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
-          <label>Section</label>
-          <input type="text" class="w-50" name="section"> 
+          <label>Section:</label>
+          <input type="text" class="w-50" name="phase8_sr_section" 
+          value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
-          <label>School Year</label>
-          <input type="text" class="w-50" name="school_year">
+          <label>School Year:</label>
+          <input type="text" class="w-50" name="phase8_sr_school_year" 
+          value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
-      <span class="d-flex">
-        <label for="">Name of Adviser: </label>
-        <input type="text" name="name_of_adviser">
+      <span class="d-flex justify-content-between">
+        <span>
+        <label for="">Name of Adviser:</label>
+        <input type="text" name="phase8_sr_name_of_adviser" 
+        value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
+        </span>
+        <span>
+          <label>Signature:</label>
+          <input type="text" name="phase8_sr_signature" 
+          value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
+        </span>
       </span>
+    
     </section>
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
@@ -3940,125 +5551,567 @@ include('connection.php');
             <th rowspan="2">Final Rating</th>
           </tr>
           <tr style="width: 5%;">
-            <th class="w-10">1</th>
-            <th class="w-10">2</th>
-            <th class="w-10">3</th>
-            <th class="w-10">4</th>
+          
+                <th class="w-10">1</th>
+                <th class="w-10">2</th>
+                <th class="w-10">3</th>
+                <th class="w-10">4</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <?php
+            $phase8_mother_tounge = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '1'";
+            $query_phase8_mother_tounge = mysqli_query($conn, $phase8_mother_tounge) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Mother Tongue</td>
-            <td><input type="number" name="mother_tounge1" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge2" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge3" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge4" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="mother_tounge5" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_mother_tounge) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_mother_tounge)){
+            ?>
+            <td><input type="number" name="phase8_mother_tounge_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '8'";
+            $query_phase8_finalrating_mother_tounge = mysqli_query($conn, $phase8_finalrating_mother_tounge);
+            if(mysqli_num_rows($query_phase8_finalrating_mother_tounge) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_mother_tounge);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase8_filipino = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '2'";
+            $query_phase8_filipino = mysqli_query($conn, $phase8_filipino) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Filipino</td>
-            <td><input type="number" name="filipino1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="filipino5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_filipino) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_filipino)){
+            ?>
+            <td><input type="number" name="phase8_filipino_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_filipino = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '8'";
+            $query_phase8_finalrating_filipino = mysqli_query($conn, $phase8_finalrating_filipino);
+            if(mysqli_num_rows($query_phase8_finalrating_filipino) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_filipino);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
           <tr>
+          <?php
+            $phase8_english = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '3'";
+            $query_phase8_english = mysqli_query($conn, $phase8_english) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">English</td>
-            <td><input type="number" name="english1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="english5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_english) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_english)){
+            ?>
+            <td><input type="number" name="phase8_english_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_english = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '8'";
+            $query_phase8_finalrating_english = mysqli_query($conn, $phase8_finalrating_english);
+            if(mysqli_num_rows($query_phase8_finalrating_english) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_english);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Math</td>
-            <td><input type="number" name="math1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="math5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase8_math = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '4'";
+            $query_phase8_math = mysqli_query($conn, $phase8_math) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Mathematics</td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_math) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_math)){
+            ?>
+            <td><input type="number" name="phase8_math_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_math = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '8'";
+            $query_phase8_finalrating_math = mysqli_query($conn, $phase8_finalrating_math);
+            if(mysqli_num_rows($query_phase8_finalrating_math) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_math);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase8_science = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '5'";
+            $query_phase8_science = mysqli_query($conn, $phase8_science) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">Science</td>
-            <td><input type="number" name="science1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="science5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_science) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_science)){
+            ?>
+            <td><input type="number" name="phase8_science_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_science = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '8'";
+            $query_phase8_finalrating_science = mysqli_query($conn, $phase8_finalrating_science);
+            if(mysqli_num_rows($query_phase8_finalrating_science) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_science);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Aralin Panlipunan</td>
-            <td><input type="number" name="araling_panlipunan1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="araling_panlipunan5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase8_araling_panlipunan = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '6'";
+            $query_phase8_araling_panlipunan= mysqli_query($conn, $phase8_araling_panlipunan) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Araling Panlipunan</td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_araling_panlipunan) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_araling_panlipunan)){
+            ?>
+            <td><input type="number" name="phase8_araling_panlipunan_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '8'";
+            $query_phase8_finalrating_araling_panlipunan= mysqli_query($conn, $phase8_finalrating_araling_panlipunan);
+            if(mysqli_num_rows($query_phase8_finalrating_araling_panlipunan) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_araling_panlipunan);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase8_epp_tle = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '7'";
+            $query_phase8_epp_tle= mysqli_query($conn, $phase8_epp_tle) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">EPP/TLE</td>
-            <td><input type="number" name="epp_tle1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="epp_tle5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_epp_tle) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_epp_tle)){
+            ?>
+            <td><input type="number" name="phase8_epp_tle_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_epp_tle = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '8'";
+            $query_phase8_finalrating_epp_tle= mysqli_query($conn, $phase8_finalrating_epp_tle);
+            if(mysqli_num_rows($query_phase8_finalrating_epp_tle) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_epp_tle);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase8_mapeh = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '8'";
+            $query_phase8_mapeh= mysqli_query($conn, $phase8_mapeh) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start fw-bold">MAPEH</td>
-            <td><input type="number" name="mapeh1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="mapeh5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_mapeh) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_mapeh)){
+            ?>
+            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_mapeh_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_mapeh = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8'";
+            $query_phase8_finalrating_mapeh= mysqli_query($conn, $phase8_finalrating_mapeh);
+            if(mysqli_num_rows($query_phase8_finalrating_mapeh) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_mapeh);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase8_music = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '9'";
+            $query_phase8_music= mysqli_query($conn, $phase8_music) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Music</i></td>
-            <td><input type="number" name="music1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="music5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_music) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_music)){
+            ?>
+            <td><input type="number" name="phase8_music_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_music = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '8'";
+            $query_phase8_finalrating_music= mysqli_query($conn, $phase8_finalrating_music);
+            if(mysqli_num_rows($query_phase8_finalrating_music) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_music);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start"><i>PE</i></td>
-            <td><input type="number" name="p_e1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="p_e5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase8_art = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '10'";
+            $query_phase8_art= mysqli_query($conn, $phase8_art) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Arts</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_art) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_art)){
+            ?>
+            <td><input type="number" name="phase8_art_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_art = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '8'";
+            $query_phase8_finalrating_art= mysqli_query($conn, $phase8_finalrating_art);
+            if(mysqli_num_rows($query_phase8_finalrating_art) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_art);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+          
           <tr>
+          <?php
+            $phase8_pe = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '11'";
+            $query_phase8_pe= mysqli_query($conn, $phase8_pe) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Physical Education</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_pe) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_pe)){
+            ?>
+            <td><input type="number" name="phase8_pe_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_pe = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '8'";
+            $query_phase8_finalrating_pe= mysqli_query($conn, $phase8_finalrating_pe);
+            if(mysqli_num_rows($query_phase8_finalrating_pe) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_pe);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
+          </tr>
+
+
+          <tr>
+          <?php
+            $phase8_health = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '12'";
+            $query_phase8_health= mysqli_query($conn, $phase8_health) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Health</i></td>
-            <td><input type="number" name="health1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="health5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_health) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_health)){
+            ?>
+            <td><input type="number" name="phase8_health_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_health = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '8'";
+            $query_phase8_finalrating_health= mysqli_query($conn, $phase8_finalrating_health);
+            if(mysqli_num_rows($query_phase8_finalrating_health) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_health);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start fw-bold">Edukasyon sa Pagkakatao</td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="edukasyon_sa_pagpapakatao5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase8_esp = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '13'";
+            $query_phase8_esp= mysqli_query($conn, $phase8_esp) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_esp) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_esp)){
+            ?>
+            <td><input type="number" name="phase8_esp_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_esp = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '8'";
+            $query_phase8_finalrating_esp= mysqli_query($conn, $phase8_finalrating_esp);
+            if(mysqli_num_rows($query_phase8_finalrating_esp) > 0){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_esp);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
+          <?php
+            $phase8_arabic_lang = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '14'";
+            $query_phase8_arabic_lang= mysqli_query($conn, $phase8_arabic_lang) or die (mysqli_error($conn));
+            
+            ?>
             <td class="text-start"><i>Arabic Language</i></td>
-            <td><input type="number" name="arabic_language1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="arabic_language5" id="grade" title="Please input 2 Numbers only"></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_arabic_lang) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_arabic_lang)){
+            ?>
+            <td><input type="number" name="phase8_arabic_lang_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '8'";
+            $query_phase8_finalrating_arabic_lang= mysqli_query($conn, $phase8_finalrating_arabic_lang);
+            if(mysqli_num_rows($query_phase8_finalrating_arabic_lang)){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_arabic_lang);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+
           <tr>
-            <td class="text-start"><i>Islamic Values</i></td>
-            <td><input type="number" name="islamic_values1" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values2" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values3" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values4" id="grade" title="Please input 2 Numbers only"></td>
-            <td><input type="number" name="islamic_values5" id="grade" title="Please input 2 Numbers only"></td>
+          <?php
+            $phase8_islamic_values = "SELECT * FROM student_grades
+            WHERE student_grades.lrn = '109857060083' 
+            AND student_grades.phase = '8' AND student_grades.subject_id = '14'";
+            $query_phase8_islamic_values= mysqli_query($conn, $phase8_islamic_values) or die (mysqli_error($conn));
+            
+            ?>
+            <td class="text-start"><i>Islamic Values Education</i></td>
+            <?php 
+            if(mysqli_num_rows($query_phase8_islamic_values) > 0){
+            while($rows = mysqli_fetch_array($query_phase8_islamic_values)){
+            ?>
+            <td><input type="number" name="phase8_islamic_values_grades[]" id="grade" 
+            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+            <?php }}else{?>
+            <td><input type="number" name="phase8_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <td><input type="number" name="phase8_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+            <?php
+            }
+            ?>
+            <?php
+            $phase8_finalrating_islamic_values = "SELECT * FROM student_final_ratings
+            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '8'";
+            $query_phase8_finalrating_islamic_values= mysqli_query($conn, $phase8_finalrating_islamic_values);
+            if(mysqli_num_rows($query_phase8_finalrating_islamic_values)){
+            $final_rating = mysqli_fetch_array($query_phase8_finalrating_islamic_values);
+            ?>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+          <?php }else{?>
+            <td></td>
+          <?php } ?>
           </tr>
+
+          
           <tr>
             <td class="text-start fw-bold">General Average</td>
             <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
@@ -4069,8 +6122,70 @@ include('connection.php');
           </tr>
         </tbody>
       </table>
-  <!-- Remedial Table phase 8 -->
-      <table class="table-condensed mb-5 text-center w-100">
+
+  <!-- Remedial Table PHASE 8 -->
+  
+        <?php
+        $phase8_remedial_classes_dates = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '8'";
+        $query_phase8_remedial_classes_dates = mysqli_query($conn, $phase8_remedial_classes_dates);
+        if(mysqli_num_rows($query_phase8_remedial_classes_dates) > 0){
+          $row = mysqli_fetch_array($query_phase8_remedial_classes_dates);
+          ?>
+          <table class="table-condensed text-center w-100">
+        <thead> 
+          <tr>
+            <th colspan="2">Remedial Classes</th>
+            <th colspan="4">
+              <span class="d-flex flex-row justify-content-between">
+                <span>
+                  <label for="">Date conducted: </label>
+                  <input type="date" class="datefrom" name="phase8_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                </span>
+                <span>
+                  <label for="">To: </label>
+                  <input type="date" class="dateto" name="phase8_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                </span>
+              </span>
+            </th>
+          </tr>
+          <tr>
+            <th>Learning Areas</th>
+            <th>Final Rating</th>
+            <th>Remarks</th>
+            <th>Recomputed Final Grade</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" class="learning-areas1" name="phase8_learning_areas1" 
+            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            <td><input type="number" id="grade" class="final_rating1" name="phase8_final_rating1" 
+            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            <td><input type="text" name="phase8_remedial_class_mark1" 
+            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            <td><input type="number" id="grade" name="phase8_recomputed_final_grade1" 
+            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text" name="phase8_remedial_remarks1" 
+            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="learning_areas2" name="phase8_learning_areas2"
+            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            <td><input type="number" id="grade" class="final_rating2" name="phase8_final_rating2"
+            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            <td><input type="text" name="phase8_remedial_class_mark2" 
+            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            <td><input type="number" id="grade" name="phase8_recomputed_final_grade2" 
+            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text"name="phase8_remedial_remarks2" 
+            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+          </tr>
+        </tbody>
+      </table>
+        <?php }else{?>
+          <table class="table-condensed text-center w-100">
         <thead> 
           <tr>
             <th colspan="2" >Remedial Classes</th>
@@ -4078,11 +6193,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="date_from">
+                  <input type="date" class="datefrom" name="phase8_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="date_to">
+                  <input type="date" class="dateto" name="phase8_date_to">
                 </span>
               </span>
             </th>
@@ -4097,21 +6212,22 @@ include('connection.php');
         </thead>
         <tbody>
           <tr>
-            <td><input type="text" class="learning-areas1" name="learning_areas1"></td>
-            <td><input type="number" id="grade" class="final_rating1" name="final_rating1"></td>
-            <td><input type="text" name="remedial_class_mark1" id=""></td>
-            <td><input type="number" id="grade" name="recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="text" name="remedial_remarks1" id=""> </td>
+            <td><input type="text" class="learning-areas1" name="phase8_learning_areas1"></td>
+            <td><input type="number" id="grade" class="final_rating1" name="phase8_final_rating1"></td>
+            <td><input type="text" name="phase8_remedial_class_mark1" id=""></td>
+            <td><input type="number" id="grade" name="phase8_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text" name="phase8_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="text" class="learning_areas2" name="learning_areas2"></td>
-            <td><input type="number" id="grade" class="final_rating2" name="final_rating2"></td>
-            <td><input type="text" name="remedial_class_mark2" id=""> </td>
-            <td><input type="number" id="grade" name="recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="text"name="remedial_remarks2" id=""></td>
+            <td><input type="text" class="learning_areas2" name="phase8_learning_areas2"></td>
+            <td><input type="number" id="grade" class="final_rating2" name="phase8_final_rating2"></td>
+            <td><input type="text" name="phase8_remedial_class_mark2" id=""> </td>
+            <td><input type="number" id="grade" name="phase8_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            <td><input type="text"name="phase8_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
+        <?php }?>
       </div>
     </div>
       <input type="button" name="previous" style="float:left;" class="previous-form btn btn-default" value="Previous" /> 
@@ -4143,7 +6259,7 @@ if(isset($_POST['update'])){
     $sex = ucwords($_POST['sex']);
 
     // Eligibility for Elem School Enrollment
-    $credential_presented = implode(',', $_POST['credential_presented']);
+    $credential_presented = implode(', ', $_POST['credential_presented']);
     $efese_name_of_school = strtoupper($_POST['efese_name_of_school']);
     $efese_school_id = strtoupper($_POST['efese_school_id']);
     $efese_address_of_school = strtoupper($_POST['efese_address_of_school']);
@@ -4159,15 +6275,15 @@ if(isset($_POST['update'])){
     $sg_term = $_POST['sg_term'];
 
     // PHASE 1 OF SCHOLASTIC RECORDS
-    $phase1_sr_school = $_POST['phase1_sr_school'];
+    $phase1_sr_school = strtoupper($_POST['phase1_sr_school']);
     $phase1_sr_school_id = $_POST['phase1_sr_school_id'];
     $phase1_sr_district = $_POST['phase1_sr_district'];
     $phase1_sr_division = $_POST['phase1_sr_division'];
-    $phase1_sr_region = $_POST['phase1_sr_region'];
+    $phase1_sr_region = strtoupper($_POST['phase1_sr_region']);
     $phase1_sr_classified_as_grade = $_POST['phase1_sr_classified_as_grade'];
-    $phase1_sr_section = $_POST['phase1_sr_section'];
+    $phase1_sr_section = ucwords($_POST['phase1_sr_section']);
     $phase1_sr_school_year = $_POST['phase1_sr_school_year'];
-    $phase1_sr_name_of_adviser = $_POST['phase1_sr_name_of_adviser'];
+    $phase1_sr_name_of_adviser = ucwords($_POST['phase1_sr_name_of_adviser']);
     $phase1_sr_signature = $_POST['phase1_sr_signature'];
 
     // PHASE 1 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
@@ -4252,18 +6368,713 @@ if(isset($_POST['update'])){
     $phase1_sum_of_islamic_values_grades = array_sum($phase1_islamic_values_grades);
     $phase1_ave_of_islamic_values_grades = $phase1_sum_of_islamic_values_grades/count($phase1_islamic_values_grades);
 
+    
+    // PHASE 2 OF SCHOLASTIC RECORDS
+    $phase2_sr_school = strtoupper($_POST['phase2_sr_school']);
+    $phase2_sr_school_id = $_POST['phase2_sr_school_id'];
+    $phase2_sr_district = $_POST['phase2_sr_district'];
+    $phase2_sr_division = $_POST['phase2_sr_division'];
+    $phase2_sr_region = strtoupper($_POST['phase2_sr_region']);
+    $phase2_sr_classified_as_grade = $_POST['phase2_sr_classified_as_grade'];
+    $phase2_sr_section = ucwords($_POST['phase2_sr_section']);
+    $phase2_sr_school_year = $_POST['phase2_sr_school_year'];
+    $phase2_sr_name_of_adviser = ucwords($_POST['phase2_sr_name_of_adviser']);
+    $phase2_sr_signature = $_POST['phase2_sr_signature'];
+
+    // PHASE 2 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
+    $phase2_mother_tounge_grades = $_POST['phase2_mother_tounge_grades'];
+    $phase2_filipino_grades = $_POST['phase2_filipino_grades'];
+    $phase2_english_grades = $_POST['phase2_english_grades'];
+    $phase2_math_grades = $_POST['phase2_math_grades'];
+    $phase2_science_grades = $_POST['phase2_science_grades'];
+    $phase2_araling_panlipunan_grades = $_POST['phase2_araling_panlipunan_grades'];
+    $phase2_epp_tle_grades = $_POST['phase2_epp_tle_grades'];
+    $phase2_mapeh_grades = $_POST['phase2_mapeh_grades'];
+    $phase2_music_grades = $_POST['phase2_music_grades'];
+    $phase2_art_grades = $_POST['phase2_art_grades'];
+    $phase2_pe_grades = $_POST['phase2_pe_grades'];
+    $phase2_health_grades = $_POST['phase2_health_grades'];
+    $phase2_esp_grades = $_POST['phase2_esp_grades'];
+    $phase2_arabic_lang_grades = $_POST['phase2_arabic_lang_grades'];
+    $phase2_islamic_values_grades = $_POST['phase2_islamic_values_grades'];
+
+    // PHASE 2 REMEDIAL CLASSES
+    $phase2_date_from = $_POST['phase2_date_from'];
+    $phase2_date_to = $_POST['phase2_date_to'];
+
+    // PHASE 2 REMEDIAL CLASSES LEARNING AREAS LINE 1
+    $phase2_learning_areas1 = $_POST['phase2_learning_areas1'];
+    $phase2_final_rating1 = $_POST['phase2_final_rating1'];
+    $phase2_remedial_class_mark1 = $_POST['phase2_remedial_class_mark1'];
+    $phase2_recomputed_final_grade1 = $_POST['phase2_recomputed_final_grade1'];
+    $phase2_remedial_remarks1 = $_POST['phase2_remedial_remarks1'];
+
+    // PHASE 2 REMEDIAL CLASSES LEARNING AREAS LINE 2
+    $phase2_learning_areas2 = $_POST['phase2_learning_areas2'];
+    $phase2_final_rating2 = $_POST['phase2_final_rating2'];
+    $phase2_remedial_class_mark2 = $_POST['phase2_remedial_class_mark2'];
+    $phase2_recomputed_final_grade2 = $_POST['phase2_recomputed_final_grade2'];
+    $phase2_remedial_remarks2 = $_POST['phase2_remedial_remarks2'];
 
 
+    // PHASE 2 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
+    $phase2_sum_of_mother_tounge_grades = array_sum($phase2_mother_tounge_grades);
+    $phase2_ave_of_mother_tounge_grades = $phase2_sum_of_mother_tounge_grades/count($phase2_mother_tounge_grades);
+
+    $phase2_sum_of_filipino_grades = array_sum($phase2_filipino_grades);
+    $phase2_ave_of_filipino_grades = $phase2_sum_of_filipino_grades/count($phase2_filipino_grades);
+
+    $phase2_sum_of_english_grades = array_sum($phase2_english_grades);
+    $phase2_ave_of_english_grades = $phase2_sum_of_english_grades/count($phase2_english_grades);
+
+    $phase2_sum_of_math_grades = array_sum($phase2_math_grades);
+    $phase2_ave_of_math_grades = $phase2_sum_of_math_grades/count($phase2_math_grades);
+
+    $phase2_sum_of_science_grades = array_sum($phase2_science_grades);
+    $phase2_ave_of_science_grades = $phase2_sum_of_science_grades/count($phase2_science_grades);
+
+    $phase2_sum_of_araling_panlipunan_grades = array_sum($phase2_araling_panlipunan_grades);
+    $phase2_ave_of_araling_panlipunan_grades = $phase2_sum_of_araling_panlipunan_grades/count($phase2_araling_panlipunan_grades);
+
+    $phase2_sum_of_epp_tle_grades = array_sum($phase2_epp_tle_grades);
+    $phase2_ave_of_epp_tle_grades = $phase2_sum_of_epp_tle_grades/count($phase2_epp_tle_grades);
+
+    $phase2_sum_of_mapeh_grades = array_sum($phase2_mapeh_grades);
+    $phase2_ave_of_mapeh_grades = $phase2_sum_of_mapeh_grades/count($phase2_mapeh_grades);
+
+    $phase2_sum_of_music_grades = array_sum($phase2_music_grades);
+    $phase2_ave_of_music_grades = $phase2_sum_of_music_grades/count($phase2_music_grades);
+
+    $phase2_sum_of_art_grades = array_sum($phase2_art_grades);
+    $phase2_ave_of_art_grades = $phase2_sum_of_art_grades/count($phase2_art_grades);
+
+    $phase2_sum_of_pe_grades = array_sum($phase2_pe_grades);
+    $phase2_ave_of_pe_grades = $phase2_sum_of_pe_grades/count($phase2_pe_grades);
+
+    $phase2_sum_of_health_grades = array_sum($phase2_health_grades);
+    $phase2_ave_of_health_grades = $phase2_sum_of_health_grades/count($phase2_health_grades);
+
+    $phase2_sum_of_esp_grades = array_sum($phase2_esp_grades);
+    $phase2_ave_of_esp_grades = $phase2_sum_of_esp_grades/count($phase2_esp_grades);
+
+    $phase2_sum_of_arabic_lang_grades = array_sum($phase2_arabic_lang_grades);
+    $phase2_ave_of_arabic_lang_grades = $phase2_sum_of_arabic_lang_grades/count($phase2_arabic_lang_grades);
+
+    $phase2_sum_of_islamic_values_grades = array_sum($phase2_islamic_values_grades);
+    $phase2_ave_of_islamic_values_grades = $phase2_sum_of_islamic_values_grades/count($phase2_islamic_values_grades);
+
+
+    // PHASE 3 OF SCHOLASTIC RECORDS
+    $phase3_sr_school = strtoupper($_POST['phase3_sr_school']);
+    $phase3_sr_school_id = $_POST['phase3_sr_school_id'];
+    $phase3_sr_district = $_POST['phase3_sr_district'];
+    $phase3_sr_division = $_POST['phase3_sr_division'];
+    $phase3_sr_region = strtoupper($_POST['phase3_sr_region']);
+    $phase3_sr_classified_as_grade = $_POST['phase3_sr_classified_as_grade'];
+    $phase3_sr_section = ucwords($_POST['phase3_sr_section']);
+    $phase3_sr_school_year = $_POST['phase3_sr_school_year'];
+    $phase3_sr_name_of_adviser = ucwords($_POST['phase3_sr_name_of_adviser']);
+    $phase3_sr_signature = $_POST['phase3_sr_signature'];
+
+    // PHASE 3 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
+    $phase3_mother_tounge_grades = $_POST['phase3_mother_tounge_grades'];
+    $phase3_filipino_grades = $_POST['phase3_filipino_grades'];
+    $phase3_english_grades = $_POST['phase3_english_grades'];
+    $phase3_math_grades = $_POST['phase3_math_grades'];
+    $phase3_science_grades = $_POST['phase3_science_grades'];
+    $phase3_araling_panlipunan_grades = $_POST['phase3_araling_panlipunan_grades'];
+    $phase3_epp_tle_grades = $_POST['phase3_epp_tle_grades'];
+    $phase3_mapeh_grades = $_POST['phase3_mapeh_grades'];
+    $phase3_music_grades = $_POST['phase3_music_grades'];
+    $phase3_art_grades = $_POST['phase3_art_grades'];
+    $phase3_pe_grades = $_POST['phase3_pe_grades'];
+    $phase3_health_grades = $_POST['phase3_health_grades'];
+    $phase3_esp_grades = $_POST['phase3_esp_grades'];
+    $phase3_arabic_lang_grades = $_POST['phase3_arabic_lang_grades'];
+    $phase3_islamic_values_grades = $_POST['phase3_islamic_values_grades'];
+
+    // PHASE 3 REMEDIAL CLASSES
+    $phase3_date_from = $_POST['phase3_date_from'];
+    $phase3_date_to = $_POST['phase3_date_to'];
+
+    // PHASE 3 REMEDIAL CLASSES LEARNING AREAS LINE 1
+    $phase3_learning_areas1 = $_POST['phase3_learning_areas1'];
+    $phase3_final_rating1 = $_POST['phase3_final_rating1'];
+    $phase3_remedial_class_mark1 = $_POST['phase3_remedial_class_mark1'];
+    $phase3_recomputed_final_grade1 = $_POST['phase3_recomputed_final_grade1'];
+    $phase3_remedial_remarks1 = $_POST['phase3_remedial_remarks1'];
+
+    // PHASE 3 REMEDIAL CLASSES LEARNING AREAS LINE 2
+    $phase3_learning_areas2 = $_POST['phase3_learning_areas2'];
+    $phase3_final_rating2 = $_POST['phase3_final_rating2'];
+    $phase3_remedial_class_mark2 = $_POST['phase3_remedial_class_mark2'];
+    $phase3_recomputed_final_grade2 = $_POST['phase3_recomputed_final_grade2'];
+    $phase3_remedial_remarks2 = $_POST['phase3_remedial_remarks2'];
+
+
+    // PHASE 3 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
+    $phase3_sum_of_mother_tounge_grades = array_sum($phase3_mother_tounge_grades);
+    $phase3_ave_of_mother_tounge_grades = $phase3_sum_of_mother_tounge_grades/count($phase3_mother_tounge_grades);
+
+    $phase3_sum_of_filipino_grades = array_sum($phase3_filipino_grades);
+    $phase3_ave_of_filipino_grades = $phase3_sum_of_filipino_grades/count($phase3_filipino_grades);
+
+    $phase3_sum_of_english_grades = array_sum($phase3_english_grades);
+    $phase3_ave_of_english_grades = $phase3_sum_of_english_grades/count($phase3_english_grades);
+
+    $phase3_sum_of_math_grades = array_sum($phase3_math_grades);
+    $phase3_ave_of_math_grades = $phase3_sum_of_math_grades/count($phase3_math_grades);
+
+    $phase3_sum_of_science_grades = array_sum($phase3_science_grades);
+    $phase3_ave_of_science_grades = $phase3_sum_of_science_grades/count($phase3_science_grades);
+
+    $phase3_sum_of_araling_panlipunan_grades = array_sum($phase3_araling_panlipunan_grades);
+    $phase3_ave_of_araling_panlipunan_grades = $phase3_sum_of_araling_panlipunan_grades/count($phase3_araling_panlipunan_grades);
+
+    $phase3_sum_of_epp_tle_grades = array_sum($phase3_epp_tle_grades);
+    $phase3_ave_of_epp_tle_grades = $phase3_sum_of_epp_tle_grades/count($phase3_epp_tle_grades);
+
+    $phase3_sum_of_mapeh_grades = array_sum($phase3_mapeh_grades);
+    $phase3_ave_of_mapeh_grades = $phase3_sum_of_mapeh_grades/count($phase3_mapeh_grades);
+
+    $phase3_sum_of_music_grades = array_sum($phase3_music_grades);
+    $phase3_ave_of_music_grades = $phase3_sum_of_music_grades/count($phase3_music_grades);
+
+    $phase3_sum_of_art_grades = array_sum($phase3_art_grades);
+    $phase3_ave_of_art_grades = $phase3_sum_of_art_grades/count($phase3_art_grades);
+
+    $phase3_sum_of_pe_grades = array_sum($phase3_pe_grades);
+    $phase3_ave_of_pe_grades = $phase3_sum_of_pe_grades/count($phase3_pe_grades);
+
+    $phase3_sum_of_health_grades = array_sum($phase3_health_grades);
+    $phase3_ave_of_health_grades = $phase3_sum_of_health_grades/count($phase3_health_grades);
+
+    $phase3_sum_of_esp_grades = array_sum($phase3_esp_grades);
+    $phase3_ave_of_esp_grades = $phase3_sum_of_esp_grades/count($phase3_esp_grades);
+
+    $phase3_sum_of_arabic_lang_grades = array_sum($phase3_arabic_lang_grades);
+    $phase3_ave_of_arabic_lang_grades = $phase3_sum_of_arabic_lang_grades/count($phase3_arabic_lang_grades);
+
+    $phase3_sum_of_islamic_values_grades = array_sum($phase3_islamic_values_grades);
+    $phase3_ave_of_islamic_values_grades = $phase3_sum_of_islamic_values_grades/count($phase3_islamic_values_grades);
+
+
+    // PHASE 4 OF SCHOLASTIC RECORDS
+    $phase4_sr_school = strtoupper($_POST['phase4_sr_school']);
+    $phase4_sr_school_id = $_POST['phase4_sr_school_id'];
+    $phase4_sr_district = $_POST['phase4_sr_district'];
+    $phase4_sr_division = $_POST['phase4_sr_division'];
+    $phase4_sr_region = strtoupper($_POST['phase4_sr_region']);
+    $phase4_sr_classified_as_grade = $_POST['phase4_sr_classified_as_grade'];
+    $phase4_sr_section = ucwords($_POST['phase4_sr_section']);
+    $phase4_sr_school_year = $_POST['phase4_sr_school_year'];
+    $phase4_sr_name_of_adviser = ucwords($_POST['phase4_sr_name_of_adviser']);
+    $phase4_sr_signature = $_POST['phase4_sr_signature'];
+
+    // PHASE 4 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
+    $phase4_mother_tounge_grades = $_POST['phase4_mother_tounge_grades'];
+    $phase4_filipino_grades = $_POST['phase4_filipino_grades'];
+    $phase4_english_grades = $_POST['phase4_english_grades'];
+    $phase4_math_grades = $_POST['phase4_math_grades'];
+    $phase4_science_grades = $_POST['phase4_science_grades'];
+    $phase4_araling_panlipunan_grades = $_POST['phase4_araling_panlipunan_grades'];
+    $phase4_epp_tle_grades = $_POST['phase4_epp_tle_grades'];
+    $phase4_mapeh_grades = $_POST['phase4_mapeh_grades'];
+    $phase4_music_grades = $_POST['phase4_music_grades'];
+    $phase4_art_grades = $_POST['phase4_art_grades'];
+    $phase4_pe_grades = $_POST['phase4_pe_grades'];
+    $phase4_health_grades = $_POST['phase4_health_grades'];
+    $phase4_esp_grades = $_POST['phase4_esp_grades'];
+    $phase4_arabic_lang_grades = $_POST['phase4_arabic_lang_grades'];
+    $phase4_islamic_values_grades = $_POST['phase4_islamic_values_grades'];
+
+    // PHASE 4 REMEDIAL CLASSES
+    $phase4_date_from = $_POST['phase4_date_from'];
+    $phase4_date_to = $_POST['phase4_date_to'];
+
+    // PHASE 4 REMEDIAL CLASSES LEARNING AREAS LINE 1
+    $phase4_learning_areas1 = $_POST['phase4_learning_areas1'];
+    $phase4_final_rating1 = $_POST['phase4_final_rating1'];
+    $phase4_remedial_class_mark1 = $_POST['phase4_remedial_class_mark1'];
+    $phase4_recomputed_final_grade1 = $_POST['phase4_recomputed_final_grade1'];
+    $phase4_remedial_remarks1 = $_POST['phase4_remedial_remarks1'];
+
+    // PHASE 4 REMEDIAL CLASSES LEARNING AREAS LINE 2
+    $phase4_learning_areas2 = $_POST['phase4_learning_areas2'];
+    $phase4_final_rating2 = $_POST['phase4_final_rating2'];
+    $phase4_remedial_class_mark2 = $_POST['phase4_remedial_class_mark2'];
+    $phase4_recomputed_final_grade2 = $_POST['phase4_recomputed_final_grade2'];
+    $phase4_remedial_remarks2 = $_POST['phase4_remedial_remarks2'];
+
+
+    // PHASE 4 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
+    $phase4_sum_of_mother_tounge_grades = array_sum($phase4_mother_tounge_grades);
+    $phase4_ave_of_mother_tounge_grades = $phase4_sum_of_mother_tounge_grades/count($phase4_mother_tounge_grades);
+
+    $phase4_sum_of_filipino_grades = array_sum($phase4_filipino_grades);
+    $phase4_ave_of_filipino_grades = $phase4_sum_of_filipino_grades/count($phase4_filipino_grades);
+
+    $phase4_sum_of_english_grades = array_sum($phase4_english_grades);
+    $phase4_ave_of_english_grades = $phase4_sum_of_english_grades/count($phase4_english_grades);
+
+    $phase4_sum_of_math_grades = array_sum($phase4_math_grades);
+    $phase4_ave_of_math_grades = $phase4_sum_of_math_grades/count($phase4_math_grades);
+
+    $phase4_sum_of_science_grades = array_sum($phase4_science_grades);
+    $phase4_ave_of_science_grades = $phase4_sum_of_science_grades/count($phase4_science_grades);
+
+    $phase4_sum_of_araling_panlipunan_grades = array_sum($phase4_araling_panlipunan_grades);
+    $phase4_ave_of_araling_panlipunan_grades = $phase4_sum_of_araling_panlipunan_grades/count($phase4_araling_panlipunan_grades);
+
+    $phase4_sum_of_epp_tle_grades = array_sum($phase4_epp_tle_grades);
+    $phase4_ave_of_epp_tle_grades = $phase4_sum_of_epp_tle_grades/count($phase4_epp_tle_grades);
+
+    $phase4_sum_of_mapeh_grades = array_sum($phase4_mapeh_grades);
+    $phase4_ave_of_mapeh_grades = $phase4_sum_of_mapeh_grades/count($phase4_mapeh_grades);
+
+    $phase4_sum_of_music_grades = array_sum($phase4_music_grades);
+    $phase4_ave_of_music_grades = $phase4_sum_of_music_grades/count($phase4_music_grades);
+
+    $phase4_sum_of_art_grades = array_sum($phase4_art_grades);
+    $phase4_ave_of_art_grades = $phase4_sum_of_art_grades/count($phase4_art_grades);
+
+    $phase4_sum_of_pe_grades = array_sum($phase4_pe_grades);
+    $phase4_ave_of_pe_grades = $phase4_sum_of_pe_grades/count($phase4_pe_grades);
+
+    $phase4_sum_of_health_grades = array_sum($phase4_health_grades);
+    $phase4_ave_of_health_grades = $phase4_sum_of_health_grades/count($phase4_health_grades);
+
+    $phase4_sum_of_esp_grades = array_sum($phase4_esp_grades);
+    $phase4_ave_of_esp_grades = $phase4_sum_of_esp_grades/count($phase4_esp_grades);
+
+    $phase4_sum_of_arabic_lang_grades = array_sum($phase4_arabic_lang_grades);
+    $phase4_ave_of_arabic_lang_grades = $phase4_sum_of_arabic_lang_grades/count($phase4_arabic_lang_grades);
+
+    $phase4_sum_of_islamic_values_grades = array_sum($phase4_islamic_values_grades);
+    $phase4_ave_of_islamic_values_grades = $phase4_sum_of_islamic_values_grades/count($phase4_islamic_values_grades);
+
+
+    // PHASE 5 OF SCHOLASTIC RECORDS
+    $phase5_sr_school = strtoupper($_POST['phase5_sr_school']);
+    $phase5_sr_school_id = $_POST['phase5_sr_school_id'];
+    $phase5_sr_district = $_POST['phase5_sr_district'];
+    $phase5_sr_division = $_POST['phase5_sr_division'];
+    $phase5_sr_region = strtoupper($_POST['phase5_sr_region']);
+    $phase5_sr_classified_as_grade = $_POST['phase5_sr_classified_as_grade'];
+    $phase5_sr_section = ucwords($_POST['phase5_sr_section']);
+    $phase5_sr_school_year = $_POST['phase5_sr_school_year'];
+    $phase5_sr_name_of_adviser = ucwords($_POST['phase5_sr_name_of_adviser']);
+    $phase5_sr_signature = $_POST['phase5_sr_signature'];
+
+    // PHASE 5 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
+    $phase5_mother_tounge_grades = $_POST['phase5_mother_tounge_grades'];
+    $phase5_filipino_grades = $_POST['phase5_filipino_grades'];
+    $phase5_english_grades = $_POST['phase5_english_grades'];
+    $phase5_math_grades = $_POST['phase5_math_grades'];
+    $phase5_science_grades = $_POST['phase5_science_grades'];
+    $phase5_araling_panlipunan_grades = $_POST['phase5_araling_panlipunan_grades'];
+    $phase5_epp_tle_grades = $_POST['phase5_epp_tle_grades'];
+    $phase5_mapeh_grades = $_POST['phase5_mapeh_grades'];
+    $phase5_music_grades = $_POST['phase5_music_grades'];
+    $phase5_art_grades = $_POST['phase5_art_grades'];
+    $phase5_pe_grades = $_POST['phase5_pe_grades'];
+    $phase5_health_grades = $_POST['phase5_health_grades'];
+    $phase5_esp_grades = $_POST['phase5_esp_grades'];
+    $phase5_arabic_lang_grades = $_POST['phase5_arabic_lang_grades'];
+    $phase5_islamic_values_grades = $_POST['phase5_islamic_values_grades'];
+
+    // PHASE 5 REMEDIAL CLASSES
+    $phase5_date_from = $_POST['phase5_date_from'];
+    $phase5_date_to = $_POST['phase5_date_to'];
+
+    // PHASE 5 REMEDIAL CLASSES LEARNING AREAS LINE 1
+    $phase5_learning_areas1 = $_POST['phase5_learning_areas1'];
+    $phase5_final_rating1 = $_POST['phase5_final_rating1'];
+    $phase5_remedial_class_mark1 = $_POST['phase5_remedial_class_mark1'];
+    $phase5_recomputed_final_grade1 = $_POST['phase5_recomputed_final_grade1'];
+    $phase5_remedial_remarks1 = $_POST['phase5_remedial_remarks1'];
+
+    // PHASE 5 REMEDIAL CLASSES LEARNING AREAS LINE 2
+    $phase5_learning_areas2 = $_POST['phase5_learning_areas2'];
+    $phase5_final_rating2 = $_POST['phase5_final_rating2'];
+    $phase5_remedial_class_mark2 = $_POST['phase5_remedial_class_mark2'];
+    $phase5_recomputed_final_grade2 = $_POST['phase5_recomputed_final_grade2'];
+    $phase5_remedial_remarks2 = $_POST['phase5_remedial_remarks2'];
+
+
+    // PHASE 5 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
+    $phase5_sum_of_mother_tounge_grades = array_sum($phase5_mother_tounge_grades);
+    $phase5_ave_of_mother_tounge_grades = $phase5_sum_of_mother_tounge_grades/count($phase5_mother_tounge_grades);
+
+    $phase5_sum_of_filipino_grades = array_sum($phase5_filipino_grades);
+    $phase5_ave_of_filipino_grades = $phase5_sum_of_filipino_grades/count($phase5_filipino_grades);
+
+    $phase5_sum_of_english_grades = array_sum($phase5_english_grades);
+    $phase5_ave_of_english_grades = $phase5_sum_of_english_grades/count($phase5_english_grades);
+
+    $phase5_sum_of_math_grades = array_sum($phase5_math_grades);
+    $phase5_ave_of_math_grades = $phase5_sum_of_math_grades/count($phase5_math_grades);
+
+    $phase5_sum_of_science_grades = array_sum($phase5_science_grades);
+    $phase5_ave_of_science_grades = $phase5_sum_of_science_grades/count($phase5_science_grades);
+
+    $phase5_sum_of_araling_panlipunan_grades = array_sum($phase5_araling_panlipunan_grades);
+    $phase5_ave_of_araling_panlipunan_grades = $phase5_sum_of_araling_panlipunan_grades/count($phase5_araling_panlipunan_grades);
+
+    $phase5_sum_of_epp_tle_grades = array_sum($phase5_epp_tle_grades);
+    $phase5_ave_of_epp_tle_grades = $phase5_sum_of_epp_tle_grades/count($phase5_epp_tle_grades);
+
+    $phase5_sum_of_mapeh_grades = array_sum($phase5_mapeh_grades);
+    $phase5_ave_of_mapeh_grades = $phase5_sum_of_mapeh_grades/count($phase5_mapeh_grades);
+
+    $phase5_sum_of_music_grades = array_sum($phase5_music_grades);
+    $phase5_ave_of_music_grades = $phase5_sum_of_music_grades/count($phase5_music_grades);
+
+    $phase5_sum_of_art_grades = array_sum($phase5_art_grades);
+    $phase5_ave_of_art_grades = $phase5_sum_of_art_grades/count($phase5_art_grades);
+
+    $phase5_sum_of_pe_grades = array_sum($phase5_pe_grades);
+    $phase5_ave_of_pe_grades = $phase5_sum_of_pe_grades/count($phase5_pe_grades);
+
+    $phase5_sum_of_health_grades = array_sum($phase5_health_grades);
+    $phase5_ave_of_health_grades = $phase5_sum_of_health_grades/count($phase5_health_grades);
+
+    $phase5_sum_of_esp_grades = array_sum($phase5_esp_grades);
+    $phase5_ave_of_esp_grades = $phase5_sum_of_esp_grades/count($phase5_esp_grades);
+
+    $phase5_sum_of_arabic_lang_grades = array_sum($phase5_arabic_lang_grades);
+    $phase5_ave_of_arabic_lang_grades = $phase5_sum_of_arabic_lang_grades/count($phase5_arabic_lang_grades);
+
+    $phase5_sum_of_islamic_values_grades = array_sum($phase5_islamic_values_grades);
+    $phase5_ave_of_islamic_values_grades = $phase5_sum_of_islamic_values_grades/count($phase5_islamic_values_grades);
+
+
+    // PHASE 6 OF SCHOLASTIC RECORDS
+    $phase6_sr_school = strtoupper($_POST['phase6_sr_school']);
+    $phase6_sr_school_id = $_POST['phase6_sr_school_id'];
+    $phase6_sr_district = $_POST['phase6_sr_district'];
+    $phase6_sr_division = $_POST['phase6_sr_division'];
+    $phase6_sr_region = strtoupper($_POST['phase6_sr_region']);
+    $phase6_sr_classified_as_grade = $_POST['phase6_sr_classified_as_grade'];
+    $phase6_sr_section = ucwords($_POST['phase6_sr_section']);
+    $phase6_sr_school_year = $_POST['phase6_sr_school_year'];
+    $phase6_sr_name_of_adviser = ucwords($_POST['phase6_sr_name_of_adviser']);
+    $phase6_sr_signature = $_POST['phase6_sr_signature'];
+
+    // PHASE 6 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
+    $phase6_mother_tounge_grades = $_POST['phase6_mother_tounge_grades'];
+    $phase6_filipino_grades = $_POST['phase6_filipino_grades'];
+    $phase6_english_grades = $_POST['phase6_english_grades'];
+    $phase6_math_grades = $_POST['phase6_math_grades'];
+    $phase6_science_grades = $_POST['phase6_science_grades'];
+    $phase6_araling_panlipunan_grades = $_POST['phase6_araling_panlipunan_grades'];
+    $phase6_epp_tle_grades = $_POST['phase6_epp_tle_grades'];
+    $phase6_mapeh_grades = $_POST['phase6_mapeh_grades'];
+    $phase6_music_grades = $_POST['phase6_music_grades'];
+    $phase6_art_grades = $_POST['phase6_art_grades'];
+    $phase6_pe_grades = $_POST['phase6_pe_grades'];
+    $phase6_health_grades = $_POST['phase6_health_grades'];
+    $phase6_esp_grades = $_POST['phase6_esp_grades'];
+    $phase6_arabic_lang_grades = $_POST['phase6_arabic_lang_grades'];
+    $phase6_islamic_values_grades = $_POST['phase6_islamic_values_grades'];
+
+    // PHASE 6 REMEDIAL CLASSES
+    $phase6_date_from = $_POST['phase6_date_from'];
+    $phase6_date_to = $_POST['phase6_date_to'];
+
+    // PHASE 6 REMEDIAL CLASSES LEARNING AREAS LINE 1
+    $phase6_learning_areas1 = $_POST['phase6_learning_areas1'];
+    $phase6_final_rating1 = $_POST['phase6_final_rating1'];
+    $phase6_remedial_class_mark1 = $_POST['phase6_remedial_class_mark1'];
+    $phase6_recomputed_final_grade1 = $_POST['phase6_recomputed_final_grade1'];
+    $phase6_remedial_remarks1 = $_POST['phase6_remedial_remarks1'];
+
+    // PHASE 6 REMEDIAL CLASSES LEARNING AREAS LINE 2
+    $phase6_learning_areas2 = $_POST['phase6_learning_areas2'];
+    $phase6_final_rating2 = $_POST['phase6_final_rating2'];
+    $phase6_remedial_class_mark2 = $_POST['phase6_remedial_class_mark2'];
+    $phase6_recomputed_final_grade2 = $_POST['phase6_recomputed_final_grade2'];
+    $phase6_remedial_remarks2 = $_POST['phase6_remedial_remarks2'];
+
+
+    // PHASE 6 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
+    $phase6_sum_of_mother_tounge_grades = array_sum($phase6_mother_tounge_grades);
+    $phase6_ave_of_mother_tounge_grades = $phase6_sum_of_mother_tounge_grades/count($phase6_mother_tounge_grades);
+
+    $phase6_sum_of_filipino_grades = array_sum($phase6_filipino_grades);
+    $phase6_ave_of_filipino_grades = $phase6_sum_of_filipino_grades/count($phase6_filipino_grades);
+
+    $phase6_sum_of_english_grades = array_sum($phase6_english_grades);
+    $phase6_ave_of_english_grades = $phase6_sum_of_english_grades/count($phase6_english_grades);
+
+    $phase6_sum_of_math_grades = array_sum($phase6_math_grades);
+    $phase6_ave_of_math_grades = $phase6_sum_of_math_grades/count($phase6_math_grades);
+
+    $phase6_sum_of_science_grades = array_sum($phase6_science_grades);
+    $phase6_ave_of_science_grades = $phase6_sum_of_science_grades/count($phase6_science_grades);
+
+    $phase6_sum_of_araling_panlipunan_grades = array_sum($phase6_araling_panlipunan_grades);
+    $phase6_ave_of_araling_panlipunan_grades = $phase6_sum_of_araling_panlipunan_grades/count($phase6_araling_panlipunan_grades);
+
+    $phase6_sum_of_epp_tle_grades = array_sum($phase6_epp_tle_grades);
+    $phase6_ave_of_epp_tle_grades = $phase6_sum_of_epp_tle_grades/count($phase6_epp_tle_grades);
+
+    $phase6_sum_of_mapeh_grades = array_sum($phase6_mapeh_grades);
+    $phase6_ave_of_mapeh_grades = $phase6_sum_of_mapeh_grades/count($phase6_mapeh_grades);
+
+    $phase6_sum_of_music_grades = array_sum($phase6_music_grades);
+    $phase6_ave_of_music_grades = $phase6_sum_of_music_grades/count($phase6_music_grades);
+
+    $phase6_sum_of_art_grades = array_sum($phase6_art_grades);
+    $phase6_ave_of_art_grades = $phase6_sum_of_art_grades/count($phase6_art_grades);
+
+    $phase6_sum_of_pe_grades = array_sum($phase6_pe_grades);
+    $phase6_ave_of_pe_grades = $phase6_sum_of_pe_grades/count($phase6_pe_grades);
+
+    $phase6_sum_of_health_grades = array_sum($phase6_health_grades);
+    $phase6_ave_of_health_grades = $phase6_sum_of_health_grades/count($phase6_health_grades);
+
+    $phase6_sum_of_esp_grades = array_sum($phase6_esp_grades);
+    $phase6_ave_of_esp_grades = $phase6_sum_of_esp_grades/count($phase6_esp_grades);
+
+    $phase6_sum_of_arabic_lang_grades = array_sum($phase6_arabic_lang_grades);
+    $phase6_ave_of_arabic_lang_grades = $phase6_sum_of_arabic_lang_grades/count($phase6_arabic_lang_grades);
+
+    $phase6_sum_of_islamic_values_grades = array_sum($phase6_islamic_values_grades);
+    $phase6_ave_of_islamic_values_grades = $phase6_sum_of_islamic_values_grades/count($phase6_islamic_values_grades);
+
+
+    // PHASE 7 OF SCHOLASTIC RECORDS
+    $phase7_sr_school = strtoupper($_POST['phase7_sr_school']);
+    $phase7_sr_school_id = $_POST['phase7_sr_school_id'];
+    $phase7_sr_district = $_POST['phase7_sr_district'];
+    $phase7_sr_division = $_POST['phase7_sr_division'];
+    $phase7_sr_region = strtoupper($_POST['phase7_sr_region']);
+    $phase7_sr_classified_as_grade = $_POST['phase7_sr_classified_as_grade'];
+    $phase7_sr_section = ucwords($_POST['phase7_sr_section']);
+    $phase7_sr_school_year = $_POST['phase7_sr_school_year'];
+    $phase7_sr_name_of_adviser = ucwords($_POST['phase7_sr_name_of_adviser']);
+    $phase7_sr_signature = $_POST['phase7_sr_signature'];
+
+    // PHASE 7 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
+    $phase7_mother_tounge_grades = $_POST['phase7_mother_tounge_grades'];
+    $phase7_filipino_grades = $_POST['phase7_filipino_grades'];
+    $phase7_english_grades = $_POST['phase7_english_grades'];
+    $phase7_math_grades = $_POST['phase7_math_grades'];
+    $phase7_science_grades = $_POST['phase7_science_grades'];
+    $phase7_araling_panlipunan_grades = $_POST['phase7_araling_panlipunan_grades'];
+    $phase7_epp_tle_grades = $_POST['phase7_epp_tle_grades'];
+    $phase7_mapeh_grades = $_POST['phase7_mapeh_grades'];
+    $phase7_music_grades = $_POST['phase7_music_grades'];
+    $phase7_art_grades = $_POST['phase7_art_grades'];
+    $phase7_pe_grades = $_POST['phase7_pe_grades'];
+    $phase7_health_grades = $_POST['phase7_health_grades'];
+    $phase7_esp_grades = $_POST['phase7_esp_grades'];
+    $phase7_arabic_lang_grades = $_POST['phase7_arabic_lang_grades'];
+    $phase7_islamic_values_grades = $_POST['phase7_islamic_values_grades'];
+
+    // PHASE 7 REMEDIAL CLASSES
+    $phase7_date_from = $_POST['phase7_date_from'];
+    $phase7_date_to = $_POST['phase7_date_to'];
+
+    // PHASE 7 REMEDIAL CLASSES LEARNING AREAS LINE 1
+    $phase7_learning_areas1 = $_POST['phase7_learning_areas1'];
+    $phase7_final_rating1 = $_POST['phase7_final_rating1'];
+    $phase7_remedial_class_mark1 = $_POST['phase7_remedial_class_mark1'];
+    $phase7_recomputed_final_grade1 = $_POST['phase7_recomputed_final_grade1'];
+    $phase7_remedial_remarks1 = $_POST['phase7_remedial_remarks1'];
+
+    // PHASE 7 REMEDIAL CLASSES LEARNING AREAS LINE 2
+    $phase7_learning_areas2 = $_POST['phase7_learning_areas2'];
+    $phase7_final_rating2 = $_POST['phase7_final_rating2'];
+    $phase7_remedial_class_mark2 = $_POST['phase7_remedial_class_mark2'];
+    $phase7_recomputed_final_grade2 = $_POST['phase7_recomputed_final_grade2'];
+    $phase7_remedial_remarks2 = $_POST['phase7_remedial_remarks2'];
+
+
+    // PHASE 7 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
+    $phase7_sum_of_mother_tounge_grades = array_sum($phase7_mother_tounge_grades);
+    $phase7_ave_of_mother_tounge_grades = $phase7_sum_of_mother_tounge_grades/count($phase7_mother_tounge_grades);
+
+    $phase7_sum_of_filipino_grades = array_sum($phase7_filipino_grades);
+    $phase7_ave_of_filipino_grades = $phase7_sum_of_filipino_grades/count($phase7_filipino_grades);
+
+    $phase7_sum_of_english_grades = array_sum($phase7_english_grades);
+    $phase7_ave_of_english_grades = $phase7_sum_of_english_grades/count($phase7_english_grades);
+
+    $phase7_sum_of_math_grades = array_sum($phase7_math_grades);
+    $phase7_ave_of_math_grades = $phase7_sum_of_math_grades/count($phase7_math_grades);
+
+    $phase7_sum_of_science_grades = array_sum($phase7_science_grades);
+    $phase7_ave_of_science_grades = $phase7_sum_of_science_grades/count($phase7_science_grades);
+
+    $phase7_sum_of_araling_panlipunan_grades = array_sum($phase7_araling_panlipunan_grades);
+    $phase7_ave_of_araling_panlipunan_grades = $phase7_sum_of_araling_panlipunan_grades/count($phase7_araling_panlipunan_grades);
+
+    $phase7_sum_of_epp_tle_grades = array_sum($phase7_epp_tle_grades);
+    $phase7_ave_of_epp_tle_grades = $phase7_sum_of_epp_tle_grades/count($phase7_epp_tle_grades);
+
+    $phase7_sum_of_mapeh_grades = array_sum($phase7_mapeh_grades);
+    $phase7_ave_of_mapeh_grades = $phase7_sum_of_mapeh_grades/count($phase7_mapeh_grades);
+
+    $phase7_sum_of_music_grades = array_sum($phase7_music_grades);
+    $phase7_ave_of_music_grades = $phase7_sum_of_music_grades/count($phase7_music_grades);
+
+    $phase7_sum_of_art_grades = array_sum($phase7_art_grades);
+    $phase7_ave_of_art_grades = $phase7_sum_of_art_grades/count($phase7_art_grades);
+
+    $phase7_sum_of_pe_grades = array_sum($phase7_pe_grades);
+    $phase7_ave_of_pe_grades = $phase7_sum_of_pe_grades/count($phase7_pe_grades);
+
+    $phase7_sum_of_health_grades = array_sum($phase7_health_grades);
+    $phase7_ave_of_health_grades = $phase7_sum_of_health_grades/count($phase7_health_grades);
+
+    $phase7_sum_of_esp_grades = array_sum($phase7_esp_grades);
+    $phase7_ave_of_esp_grades = $phase7_sum_of_esp_grades/count($phase7_esp_grades);
+
+    $phase7_sum_of_arabic_lang_grades = array_sum($phase7_arabic_lang_grades);
+    $phase7_ave_of_arabic_lang_grades = $phase7_sum_of_arabic_lang_grades/count($phase7_arabic_lang_grades);
+
+    $phase7_sum_of_islamic_values_grades = array_sum($phase7_islamic_values_grades);
+    $phase7_ave_of_islamic_values_grades = $phase7_sum_of_islamic_values_grades/count($phase7_islamic_values_grades);
+
+
+    // PHASE 8 OF SCHOLASTIC RECORDS
+    $phase8_sr_school = strtoupper($_POST['phase8_sr_school']);
+    $phase8_sr_school_id = $_POST['phase8_sr_school_id'];
+    $phase8_sr_district = $_POST['phase8_sr_district'];
+    $phase8_sr_division = $_POST['phase8_sr_division'];
+    $phase8_sr_region = strtoupper($_POST['phase8_sr_region']);
+    $phase8_sr_classified_as_grade = $_POST['phase8_sr_classified_as_grade'];
+    $phase8_sr_section = ucwords($_POST['phase8_sr_section']);
+    $phase8_sr_school_year = $_POST['phase8_sr_school_year'];
+    $phase8_sr_name_of_adviser = ucwords($_POST['phase8_sr_name_of_adviser']);
+    $phase8_sr_signature = $_POST['phase8_sr_signature'];
+
+    // PHASE 8 TERM 1 - 5 OF STUDENT GRADES IN SCHOLASTIC RECORDS
+    $phase8_mother_tounge_grades = $_POST['phase8_mother_tounge_grades'];
+    $phase8_filipino_grades = $_POST['phase8_filipino_grades'];
+    $phase8_english_grades = $_POST['phase8_english_grades'];
+    $phase8_math_grades = $_POST['phase8_math_grades'];
+    $phase8_science_grades = $_POST['phase8_science_grades'];
+    $phase8_araling_panlipunan_grades = $_POST['phase8_araling_panlipunan_grades'];
+    $phase8_epp_tle_grades = $_POST['phase8_epp_tle_grades'];
+    $phase8_mapeh_grades = $_POST['phase8_mapeh_grades'];
+    $phase8_music_grades = $_POST['phase8_music_grades'];
+    $phase8_art_grades = $_POST['phase8_art_grades'];
+    $phase8_pe_grades = $_POST['phase8_pe_grades'];
+    $phase8_health_grades = $_POST['phase8_health_grades'];
+    $phase8_esp_grades = $_POST['phase8_esp_grades'];
+    $phase8_arabic_lang_grades = $_POST['phase8_arabic_lang_grades'];
+    $phase8_islamic_values_grades = $_POST['phase8_islamic_values_grades'];
+
+    // PHASE 8 REMEDIAL CLASSES
+    $phase8_date_from = $_POST['phase8_date_from'];
+    $phase8_date_to = $_POST['phase8_date_to'];
+
+    // PHASE 8 REMEDIAL CLASSES LEARNING AREAS LINE 1
+    $phase8_learning_areas1 = $_POST['phase8_learning_areas1'];
+    $phase8_final_rating1 = $_POST['phase8_final_rating1'];
+    $phase8_remedial_class_mark1 = $_POST['phase8_remedial_class_mark1'];
+    $phase8_recomputed_final_grade1 = $_POST['phase8_recomputed_final_grade1'];
+    $phase8_remedial_remarks1 = $_POST['phase8_remedial_remarks1'];
+
+    // PHASE 8 REMEDIAL CLASSES LEARNING AREAS LINE 2
+    $phase8_learning_areas2 = $_POST['phase8_learning_areas2'];
+    $phase8_final_rating2 = $_POST['phase8_final_rating2'];
+    $phase8_remedial_class_mark2 = $_POST['phase8_remedial_class_mark2'];
+    $phase8_recomputed_final_grade2 = $_POST['phase8_recomputed_final_grade2'];
+    $phase8_remedial_remarks2 = $_POST['phase8_remedial_remarks2'];
+
+
+    // PHASE 8 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
+    $phase8_sum_of_mother_tounge_grades = array_sum($phase8_mother_tounge_grades);
+    $phase8_ave_of_mother_tounge_grades = $phase8_sum_of_mother_tounge_grades/count($phase8_mother_tounge_grades);
+
+    $phase8_sum_of_filipino_grades = array_sum($phase8_filipino_grades);
+    $phase8_ave_of_filipino_grades = $phase8_sum_of_filipino_grades/count($phase8_filipino_grades);
+
+    $phase8_sum_of_english_grades = array_sum($phase8_english_grades);
+    $phase8_ave_of_english_grades = $phase8_sum_of_english_grades/count($phase8_english_grades);
+
+    $phase8_sum_of_math_grades = array_sum($phase8_math_grades);
+    $phase8_ave_of_math_grades = $phase8_sum_of_math_grades/count($phase8_math_grades);
+
+    $phase8_sum_of_science_grades = array_sum($phase8_science_grades);
+    $phase8_ave_of_science_grades = $phase8_sum_of_science_grades/count($phase8_science_grades);
+
+    $phase8_sum_of_araling_panlipunan_grades = array_sum($phase8_araling_panlipunan_grades);
+    $phase8_ave_of_araling_panlipunan_grades = $phase8_sum_of_araling_panlipunan_grades/count($phase8_araling_panlipunan_grades);
+
+    $phase8_sum_of_epp_tle_grades = array_sum($phase8_epp_tle_grades);
+    $phase8_ave_of_epp_tle_grades = $phase8_sum_of_epp_tle_grades/count($phase8_epp_tle_grades);
+
+    $phase8_sum_of_mapeh_grades = array_sum($phase8_mapeh_grades);
+    $phase8_ave_of_mapeh_grades = $phase8_sum_of_mapeh_grades/count($phase8_mapeh_grades);
+
+    $phase8_sum_of_music_grades = array_sum($phase8_music_grades);
+    $phase8_ave_of_music_grades = $phase8_sum_of_music_grades/count($phase8_music_grades);
+
+    $phase8_sum_of_art_grades = array_sum($phase8_art_grades);
+    $phase8_ave_of_art_grades = $phase8_sum_of_art_grades/count($phase8_art_grades);
+
+    $phase8_sum_of_pe_grades = array_sum($phase8_pe_grades);
+    $phase8_ave_of_pe_grades = $phase8_sum_of_pe_grades/count($phase8_pe_grades);
+
+    $phase8_sum_of_health_grades = array_sum($phase8_health_grades);
+    $phase8_ave_of_health_grades = $phase8_sum_of_health_grades/count($phase8_health_grades);
+
+    $phase8_sum_of_esp_grades = array_sum($phase8_esp_grades);
+    $phase8_ave_of_esp_grades = $phase8_sum_of_esp_grades/count($phase8_esp_grades);
+
+    $phase8_sum_of_arabic_lang_grades = array_sum($phase8_arabic_lang_grades);
+    $phase8_ave_of_arabic_lang_grades = $phase8_sum_of_arabic_lang_grades/count($phase8_arabic_lang_grades);
+
+    $phase8_sum_of_islamic_values_grades = array_sum($phase8_islamic_values_grades);
+    $phase8_ave_of_islamic_values_grades = $phase8_sum_of_islamic_values_grades/count($phase8_islamic_values_grades);
 
     // UPDATE SECTION OF STUDENT LEARNER PERSONAL INFO
 
-    $update_student_learner_personal_infos = "UPDATE `learners_personal_infos` 
-    SET `lrn`='$lrn',`last_name`='$last_name',
-    `first_name`='$first_name',`middle_name`='$middle_name',
-    `suffix`='$suffix',`birth_date`='$birthday',`sex`='$sex',
-    `date_time_updated`='$date_time_updated' WHERE lrn = '$lrn'";
+    // $update_student_learner_personal_infos = "UPDATE `learners_personal_infos` 
+    // SET `lrn`='$lrn',`last_name`='$last_name',
+    // `first_name`='$first_name',`middle_name`='$middle_name',
+    // `suffix`='$suffix',`birth_date`='$birthday',`sex`='$sex',
+    // `date_time_updated`='$date_time_updated' WHERE lrn = '$lrn'";
+    // $query_update_student_learner_personal_infos = mysqli_query($conn, $update_student_learner_personal_infos) or die (mysqli_error($conn));
+    // if($query_update_student_learner_personal_infos == true){
+    //   echo "Student Learning Personal Info Update Successfully";
+    // }else{
+    //   echo $conn->error;
+    // }
 
-    echo $update_student_learner_personal_infos;
+    // // UPDATE SECTION OF STUDENT ELIGIBILITY FOR ELEM SCHOOL ENROLLMENT
+    // $update_student_efese = "UPDATE `eligibility_for_elementary_school_enrollment` SET `lrn`='$lrn',
+    // `credential_presented`='$credential_presented',`name_of_school`='$efese_name_of_school',`school_id`='$efese_school_id',
+    // `address_of_school`='$efese_address_of_school',`pept_passer`='$pept_passer',`rating`='$efese_rating',
+    // `date_of_assessment`='$date_of_assessment',`others`='$efese_others',`specify`='$efese_specify',
+    // `name_and_address_testing_center`='$efese_testing_center',`remarks`='$efese_remarks',
+    // `date_time_updated`='$date_time_updated' WHERE `lrn` = '$lrn'";
+    // $query_update_student_efese = mysqli_query($conn, $update_student_efese) or die (mysqli_error($conn));
+    // if($query_update_student_efese == true){
+    //   echo "Student Efese Successfully";
+    // }else{
+    //   echo $conn->error;
+    // }
+
+    // UPDATE SECTION OF STUDENT SCHOLASTIC RECORDS
+
+    // PHASE 1 OF UPDATE STUDENT SCHOLASTIC RECORDS
+    $update_phase1_student_scholastic_record = "UPDATE `scholastic_records` SET `lrn`='$lrn',
+    `school`='$phase1_sr_school',`school_id`='$phase1_sr_school_id',`district`='$phase1_sr_district',
+    `division`='$phase1_sr_division',`region`='$phase1_sr_region',`classified_as_grade`='$phase1_sr_classified_as_grade',
+    `section`='$phase1_sr_section',`school_year`='$phase1_sr_school_year',`name_of_teacher`='$phase1_sr_name_of_adviser',
+    `signature`='$phase1_sr_signature',`phase`='1',`date_time_updated`='$date_time_updated' WHERE `lrn`='$lrn'";
+    $query_update_phase1_student_scholastic_record = mysqli_query($conn, $update_phase1_student_scholastic_record) or die (mysqli_error($conn));
+    if($query_update_phase1_student_scholastic_record == true){
+      echo "Update Phase 1 Student Scholastic Records Successfully";
+    }else{
+      echo $conn->error;
+    }
 }
 ob_end_flush();
 ?>
