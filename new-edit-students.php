@@ -57,7 +57,7 @@ include('connection.php');
             </span>
             <span class="hstack d-flex align-items-center">
                 <label for="">FIRST NAME:</label>
-                <input type="text" name="first_name" 
+                <input type="text" name="first_name"
                 value="<?php if(empty($rows['first_name'])){ echo "";}else{ echo $rows['first_name'];}?>" required>   
             </span>
             <span class="hstack d-flex align-items-center" >
@@ -189,7 +189,7 @@ include('connection.php');
           ?>
         <span>
           <label>School:</label>
-          <input type="text" name="phase1_sr_school" 
+          <input type="text" id="text-only" name="phase1_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
@@ -218,7 +218,7 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
           <label>Classified as Grade:</label>
-          <input type="text" style="width: 20%;" name="phase1_sr_classified_as_grade" 
+          <input type="number" id="number-only" style="width: 20%;" name="phase1_sr_classified_as_grade" 
           value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
@@ -235,12 +235,12 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="text" name="phase1_sr_name_of_adviser" 
+        <input type="text" id="text-only" name="phase1_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="text" name="phase1_sr_signature" 
+          <input type="text" id="text-only" name="phase1_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -946,7 +946,7 @@ include('connection.php');
           ?>
         <span>
           <label>School:</label>
-          <input type="text" name="phase2_sr_school" 
+          <input type="text" id="text-only" name="phase2_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
@@ -975,7 +975,7 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
           <label>Classified as Grade:</label>
-          <input type="text" style="width: 20%;" name="phase2_sr_classified_as_grade" 
+          <input type="number" id="number-only" style="width: 20%;" name="phase2_sr_classified_as_grade" 
           value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
@@ -992,12 +992,12 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="text" name="phase2_sr_name_of_adviser" 
+        <input type="text" id="text-only" name="phase2_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="text" name="phase2_sr_signature" 
+          <input type="text" id="text-only" name="phase2_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -1703,7 +1703,7 @@ include('connection.php');
           ?>
         <span>
           <label>School:</label>
-          <input type="text" name="phase3_sr_school" 
+          <input type="text" id="text-only" name="phase3_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
@@ -1732,7 +1732,7 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
           <label>Classified as Grade:</label>
-          <input type="text" style="width: 20%;" name="phase3_sr_classified_as_grade" 
+          <input type="number" id="number-only" style="width: 20%;" name="phase3_sr_classified_as_grade" 
           value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
@@ -1749,12 +1749,12 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="text" name="phase3_sr_name_of_adviser" 
+        <input type="text" id="text-only" name="phase3_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="text" name="phase3_sr_signature" 
+          <input type="text" id="text-only" name="phase3_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -2458,7 +2458,7 @@ include('connection.php');
           ?>
         <span>
           <label>School:</label>
-          <input type="text" name="phase4_sr_school" 
+          <input type="text" id="text-only" name="phase4_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
@@ -2487,7 +2487,7 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
           <label>Classified as Grade:</label>
-          <input type="text" style="width: 20%;" name="phase4_sr_classified_as_grade" 
+          <input type="number" id="number-only" style="width: 20%;" name="phase4_sr_classified_as_grade" 
           value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
@@ -2504,12 +2504,12 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="text" name="phase4_sr_name_of_adviser" 
+        <input type="text" id="text-only" name="phase4_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="text" name="phase4_sr_signature" 
+          <input type="text" id="text-only" name="phase4_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -3219,7 +3219,7 @@ include('connection.php');
           ?>
         <span>
           <label>School:</label>
-          <input type="text" name="phase5_sr_school" 
+          <input type="text" id="text-only" name="phase5_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
@@ -3248,7 +3248,7 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
           <label>Classified as Grade:</label>
-          <input type="text" style="width: 20%;" name="phase5_sr_classified_as_grade" 
+          <input type="number" id="number-only" style="width: 20%;" name="phase5_sr_classified_as_grade" 
           value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
@@ -3265,12 +3265,12 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="text" name="phase5_sr_name_of_adviser" 
+        <input type="text" id="text-only" name="phase5_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="text" name="phase5_sr_signature" 
+          <input type="text" id="text-only" name="phase5_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -3974,7 +3974,7 @@ include('connection.php');
           ?>
         <span>
           <label>School:</label>
-          <input type="text" name="phase6_sr_school" 
+          <input type="text" id="text-only" name="phase6_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
@@ -4003,7 +4003,7 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
           <label>Classified as Grade:</label>
-          <input type="text" style="width: 20%;" name="phase6_sr_classified_as_grade" 
+          <input type="number" id="number-only" style="width: 20%;" name="phase6_sr_classified_as_grade" 
           value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
@@ -4020,12 +4020,12 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="text" name="phase6_sr_name_of_adviser" 
+        <input type="text" id="text-only" name="phase6_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="text" name="phase6_sr_signature" 
+          <input type="text" id="text-only" name="phase6_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -4731,7 +4731,7 @@ include('connection.php');
           ?>
         <span>
           <label>School:</label>
-          <input type="text" name="phase7_sr_school" 
+          <input type="text" id="text-only" name="phase7_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
@@ -4760,7 +4760,7 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
           <label>Classified as Grade:</label>
-          <input type="text" style="width: 20%;" name="phase7_sr_classified_as_grade" 
+          <input type="number" id="number-only" style="width: 20%;" name="phase7_sr_classified_as_grade" 
           value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
@@ -4777,12 +4777,12 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="text" name="phase7_sr_name_of_adviser" 
+        <input type="text" id="text-only" name="phase7_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="text" name="phase7_sr_signature" 
+          <input type="text" id="text-only" name="phase7_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -5486,7 +5486,7 @@ include('connection.php');
           ?>
         <span>
           <label>School:</label>
-          <input type="text" name="phase8_sr_school" 
+          <input type="text" id="text-only" name="phase8_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
@@ -5515,7 +5515,7 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
           <label>Classified as Grade:</label>
-          <input type="text" style="width: 20%;" name="phase8_sr_classified_as_grade" 
+          <input type="number" id="number-only" style="width: 20%;" name="phase8_sr_classified_as_grade" 
           value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
         </span>
         <span>
@@ -5532,12 +5532,12 @@ include('connection.php');
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="text" name="phase8_sr_name_of_adviser" 
+        <input type="text" id="text-only" name="phase8_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="text" name="phase8_sr_signature" 
+          <input type="text" id="text-only" name="phase8_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>

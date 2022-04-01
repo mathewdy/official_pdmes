@@ -31,13 +31,29 @@ $(document).ready(function(){
             }
         });
     });
-
-    $('section input').each(function(){
-        $('section input').bind('keydown', function(event) {
+    $('section #text-only').each(function(){
+        $('section #text-only').bind('keydown', function(event) {
             var key = event.which;
             if (key >=48 && key <= 57) {
-              event.preventDefault();
+                event.preventDefault();
             }
+        });
+    });
+    $('section span #text-only').each(function(){
+        $('.header #text-only').bind('keydown', function(event) {
+            var key = event.which;
+            if (key >=48 && key <= 57) {
+                event.preventDefault();
+            }
+        });
+    });
+    $('.header #number-only').each(function(){
+        var invalidInputs = ["-","+","e",]; 
+        $('.header #number-only').keydown( function(e){
+            var invalidInputs = ["-","+","e",];
+            if (invalidInputs.includes(e.key)) {
+                e.preventDefault();
+            } 
         });
     });
 });
