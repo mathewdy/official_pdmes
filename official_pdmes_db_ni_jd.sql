@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 06:50 PM
+-- Generation Time: Apr 02, 2022 at 12:52 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -76,6 +76,13 @@ CREATE TABLE `eligibility_for_elementary_school_enrollment` (
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `eligibility_for_elementary_school_enrollment`
+--
+
+INSERT INTO `eligibility_for_elementary_school_enrollment` (`id`, `lrn`, `credential_presented`, `name_of_school`, `school_id`, `address_of_school`, `pept_passer`, `rating`, `date_of_assessment`, `others`, `specify`, `name_and_address_testing_center`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(20, '109857060083', 'Kinder Progress Report, Kindergarden Certificate of Completion', 'SAMPLE SCHOOL', '19283', 'PUTOTOY', '1', '80', '2022-03-02', '1', 'sample other', 'SAMPLE TESTER', 'sample remarks', '2022-03-28 12:43:00', '2022-04-01 10:14:33');
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +102,13 @@ CREATE TABLE `learners_personal_infos` (
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `learners_personal_infos`
+--
+
+INSERT INTO `learners_personal_infos` (`id`, `lrn`, `last_name`, `first_name`, `middle_name`, `suffix`, `birth_date`, `sex`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(27, '109857060083', 'Lapore', 'Jade Cutie', 'Hundsum', '', '2022-03-28', 'Male', 'none', '2022-03-28 12:43:00', '2022-04-01 10:14:33');
 
 -- --------------------------------------------------------
 
@@ -116,6 +130,13 @@ CREATE TABLE `remedial_classes` (
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `remedial_classes`
+--
+
+INSERT INTO `remedial_classes` (`id`, `lrn`, `date_from`, `date_to`, `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(1, '109857060083', '2022-03-23', '2022-03-24', 'sample areas', '89', 'PASSED', '88', 1, 'PASSED', '2022-03-27 18:45:41', '2022-03-27 18:45:41');
 
 -- --------------------------------------------------------
 
@@ -142,6 +163,13 @@ CREATE TABLE `scholastic_records` (
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `scholastic_records`
+--
+
+INSERT INTO `scholastic_records` (`id`, `lrn`, `school`, `school_id`, `district`, `division`, `region`, `classified_as_grade`, `section`, `school_year`, `name_of_teacher`, `signature`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(3, '109857060083', 'STA ANA ELEMENTARY SCHOOL', '9281', '6', '6', 'NCR', '4', 'A', '2021-2022', 'Mr. Plaza', '', 1, 'none', '2022-03-28', '2022-04-01 11:38:34');
+
 -- --------------------------------------------------------
 
 --
@@ -160,6 +188,27 @@ CREATE TABLE `student_final_ratings` (
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `student_final_ratings`
+--
+
+INSERT INTO `student_final_ratings` (`id`, `lrn`, `subject_id`, `final_rating`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(145, '109857060083', 1, 83, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(146, '109857060083', 2, 85, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(147, '109857060083', 3, 87, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(148, '109857060083', 4, 85, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(149, '109857060083', 5, 85, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(150, '109857060083', 6, 87, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(151, '109857060083', 7, 87, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(152, '109857060083', 8, 86, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(153, '109857060083', 9, 87, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(154, '109857060083', 10, 85, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(155, '109857060083', 11, 87, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(156, '109857060083', 12, 85, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(157, '109857060083', 13, 85, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(158, '109857060083', 14, 85, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00'),
+(159, '109857060083', 15, 87, 'Final Rating', 1, 'PASSED', '2022-03-28 12:43:00', '2022-03-28 12:43:00');
+
 -- --------------------------------------------------------
 
 --
@@ -176,6 +225,13 @@ CREATE TABLE `student_general_averages` (
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student_general_averages`
+--
+
+INSERT INTO `student_general_averages` (`id`, `lrn`, `general_average`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(2, '109857060083', 90, '1', 1, 'PASSED', '2022-03-27 20:09:23', '2022-03-27 20:09:23');
 
 -- --------------------------------------------------------
 
@@ -194,6 +250,72 @@ CREATE TABLE `student_grades` (
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `student_grades`
+--
+
+INSERT INTO `student_grades` (`id`, `lrn`, `subject_id`, `grade`, `term`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(116, '109857060083', 1, 20, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(117, '109857060083', 2, 10, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(118, '109857060083', 3, 20, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(119, '109857060083', 4, 60, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(120, '109857060083', 5, 90, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(121, '109857060083', 6, 50, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(122, '109857060083', 7, 10, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(123, '109857060083', 8, 40, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(124, '109857060083', 9, 80, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(125, '109857060083', 10, 20, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(126, '109857060083', 11, 50, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(127, '109857060083', 12, 80, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(128, '109857060083', 13, 70, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(129, '109857060083', 14, 99, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(130, '109857060083', 15, 87, '1', 1, 'none', '2022-03-28 12:43:00', '2022-04-01 03:06:38'),
+(132, '109857060083', 1, 30, '2', 1, 'none', '2022-03-27 20:11:16', '2022-04-01 03:06:38'),
+(135, '109857060083', 1, 40, '3', 1, 'none', '2022-03-29 22:40:50', '2022-04-01 03:06:38'),
+(136, '109857060083', 1, 50, '4', 1, 'none', '2022-03-29 22:40:50', '2022-04-01 03:06:38'),
+(137, '109857060083', 2, 20, '2', 1, 'none', '2022-03-30 05:50:37', '2022-04-01 03:06:38'),
+(138, '109857060083', 2, 30, '3', 1, 'none', '2022-03-30 05:50:37', '2022-04-01 03:06:38'),
+(139, '109857060083', 2, 40, '4', 1, 'none', '2022-03-30 05:51:48', '2022-04-01 03:06:38'),
+(141, '109857060083', 3, 30, '2', 1, 'none', '2022-03-30 05:55:42', '2022-04-01 03:06:38'),
+(142, '109857060083', 3, 40, '3', 1, 'none', '2022-03-30 05:55:42', '2022-04-01 03:06:38'),
+(143, '109857060083', 3, 50, '4', 1, 'none', '2022-03-30 05:55:42', '2022-04-01 03:06:38'),
+(144, '109857060083', 4, 70, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(145, '109857060083', 4, 80, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(146, '109857060083', 4, 90, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(147, '109857060083', 5, 80, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(148, '109857060083', 5, 70, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(149, '109857060083', 5, 60, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(150, '109857060083', 6, 40, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(151, '109857060083', 6, 20, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(152, '109857060083', 6, 10, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(153, '109857060083', 7, 20, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(154, '109857060083', 7, 30, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(155, '109857060083', 7, 40, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(156, '109857060083', 8, 50, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(157, '109857060083', 8, 60, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(158, '109857060083', 8, 70, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(159, '109857060083', 9, 90, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(160, '109857060083', 9, 60, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(161, '109857060083', 9, 40, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(162, '109857060083', 10, 50, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(163, '109857060083', 10, 60, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(164, '109857060083', 10, 70, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(165, '109857060083', 11, 80, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(166, '109857060083', 11, 90, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(167, '109857060083', 11, 70, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(168, '109857060083', 12, 60, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(169, '109857060083', 12, 50, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(170, '109857060083', 12, 60, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(171, '109857060083', 13, 50, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(172, '109857060083', 13, 40, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(173, '109857060083', 13, 77, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(174, '109857060083', 14, 88, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(175, '109857060083', 14, 78, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(176, '109857060083', 14, 67, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(177, '109857060083', 15, 98, '2', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(178, '109857060083', 15, 76, '3', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38'),
+(179, '109857060083', 15, 87, '4', 1, 'none', '2022-03-30 05:57:05', '2022-04-01 03:06:38');
 
 -- --------------------------------------------------------
 
@@ -325,43 +447,43 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `eligibility_for_elementary_school_enrollment`
 --
 ALTER TABLE `eligibility_for_elementary_school_enrollment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `learners_personal_infos`
 --
 ALTER TABLE `learners_personal_infos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `remedial_classes`
 --
 ALTER TABLE `remedial_classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `scholastic_records`
 --
 ALTER TABLE `scholastic_records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student_final_ratings`
 --
 ALTER TABLE `student_final_ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT for table `student_general_averages`
 --
 ALTER TABLE `student_general_averages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_grades`
 --
 ALTER TABLE `student_grades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -402,7 +524,7 @@ ALTER TABLE `student_final_ratings`
 -- Constraints for table `student_general_averages`
 --
 ALTER TABLE `student_general_averages`
-  ADD CONSTRAINT `student_general_averages_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `student_grades` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `student_general_averages_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `learners_personal_infos` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `student_grades`

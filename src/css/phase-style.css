@@ -12,12 +12,14 @@ form .gen-container{
     margin: 0;
 }
 
-.line-1 input[type=text], 
+.line-1 input[type=text],
+.line-2 input[type=number], 
 .line-2 input[type=text]{
     border: none;
     border-bottom: 1px solid black;
 }
-.line-1 input[type=text]:focus, 
+.line-1 input[type=text]:focus,
+.line-2 input[type=number]:focus, 
 .line-2 input[type=text]:focus{
     outline: none;
 }
@@ -30,11 +32,13 @@ form .gen-container{
 .credentials-row input[type=text]:focus{
     outline: none;
 }
-.other-cred .wrapper > span input[type=text] {
+.wrapper input[type=text],
+.wrapper input[name="efese_rating"]{
     border: none;
     border-bottom: 1px solid black;
 }
-.other-cred .wrapper > span input[type=text]:focus{
+.wrapper input[type=text]:focus,
+.wrapper input[name="efese_rating"]:focus{
     outline: none;
 }
 .other-cred .last-cred > span input[type=text]{
@@ -48,11 +52,13 @@ form .gen-container{
     border: 2px solid black;
     border-bottom: none;
 }
-.header input[type=text]{
+.header input[type=text], 
+.header input[type=number]{
     border: none;
     border-bottom: 1px solid black;
 }
-.header input[type=text]:focus{
+.header input[type=text]:focus,
+.header input[type=number]:focus{
     outline: none;
 }
 .table{
@@ -71,7 +77,8 @@ table input[type=text]{
     width: 100%;
     text-align: center;
 }
-td #grade:focus{
+td #grade:focus,
+td input[type=text]{
     outline: none;
 }
 .table-condensed thead > tr > th,

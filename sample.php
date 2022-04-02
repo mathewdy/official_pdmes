@@ -71,35 +71,35 @@ if(isset($_POST['submit'])){
 
 
 
-// $count_array_passed = array("PASSED");
-// $count_array_failed = array("FAILED");
+ $count_array_passed = array("PASSED");
+ $count_array_failed = array("FAILED");
 // //eto yung nasa loob ng database, and i call out mo
-// $string = "PASSED PASSED  PASSED PASSED";
+ $string = "PASSED PASSED  PASSED PASSED";
 
 // echo $string;
 
-// foreach($count_array_passed as $word_passed){
+ foreach($count_array_passed as $word_passed){
 
-//     $number = substr_count(strtoupper($string), $word_passed);
-//     echo '<br>' . $word_passed  . $number . "times" . '<br>';
-// }
+    $number = substr_count(strtoupper($string), $word_passed);
+     echo '<br>' . $word_passed  . $number . "times" . '<br>';
+ }
 
 
-// foreach($count_array_failed as $word_failed){
+ foreach($count_array_failed as $word_failed){
 
-//     $number = substr_count(strtoupper($string), $word_failed);
-//     echo '<br>' . $word_failed  . $number . "times" . '<br>';
+     $number = substr_count(strtoupper($string), $word_failed);
+     echo '<br>' . $word_failed  . $number . "times" . '<br>';
 
-//     if($number >= 3){
-//         echo "RETAINED" . "<br>";
-//     }else if($number  == 2){
+    if($number >= 3){
+        echo "RETAINED" . "<br>";
+    }else if($number  == 2){
        
-//         echo "REMEDIAL" . "<br>";
-//     }else if($number <= 1){
-//         echo "PASSED";
-//     }
+        echo "REMEDIAL" . "<br>";
+     }else if($number <= 1){
+         echo "PASSED";
+    }
 
-// }
+}
 
 
 // if(75 >= 75){
@@ -108,4 +108,65 @@ if(isset($_POST['submit'])){
 //     echo $output = "failed";
 // }
 
+
+
 ?>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>LRN</th>
+            <th>Total Passed</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+
+        $count_array_passed = array("PASSED");
+        $count_array_failed = array("FAILED");
+
+        $sql1 = "SELECT COUNT(remarks) AS 'total_remarks', lrn AS 'lrn' FROM student_final_ratings WHERE lrn = '123456789012' AND phase = '1' AND remarks = 'PASSED'";
+        $run1 = mysqli_query($conn,$sql1);
+
+        if(mysqli_num_rows($run1) > 0){
+            $number = 0;
+            foreach($run1 as $row1){
+
+                $number++;
+                ?>
+
+                    <tr>
+                        <td><?php echo $number; ?></td>
+                        <td><?php echo $row1 ['lrn']?></td>
+                        <td><?php echo $row1 ['total_remarks']?></td>
+                        
+
+                       
+
+                        
+                        
+                    </tr>
+
+
+                    
+                <?php
+
+                
+
+            }
+        }
+
+                      
+        foreach($count_array_passed as $word_passed ){
+            
+            $number_of_passed = substr_count(strtoupper($row1['total_remarks']), $word_passed);
+            echo $word_passed . $number_of_passed . "times" . '<br>';
+         
+        }
+
+    ?>
+
+    </tbody>
+</table>
