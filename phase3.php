@@ -572,7 +572,7 @@ if(isset($_POST['add'])){
     $phase3_recomputed_final_grade_2 = $_POST['phase3_recomputed_final_grade_2'];
     $phase3_remedial_remarks_2 = $_POST['phase3_remedial_remarks_2'];
 
-    // average of mapeh
+    // average of mapeh phase 3
 
 
     $term1_phase3_average_of_mapeh = round(($term1_phase3_music + $term1_phase3_arts + $term1_phase3_pe + $term1_phase3_health) / 4) ;
@@ -1920,10 +1920,4 @@ if(isset($_POST['add'])){
 
 }
 
-
-
-
-
-
-
-    ?>
+?>
