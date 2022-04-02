@@ -29,8 +29,8 @@ session_start();
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        
-        $query="SELECT`username`, `password` FROM `admin` WHERE username = '$username'";
+
+        $query="SELECT username, password FROM admin WHERE username = '$username'";
         $result = mysqli_query($conn,$query);
         if (mysqli_num_rows($result)>0){
             while($row=mysqli_fetch_assoc($result)){
@@ -40,32 +40,13 @@ session_start();
                     $_SESSION['username'] = $username;
                     header("location: home.php");
                      die();
-                    
+
                 } 
                 else{
                     echo '<script>alert("Incorrect credentials")</script>' ; 
                 }
-            
-                
-                
-        
-
-                
-
-                
-                    
-                
 
 
-                
-                   
-                
-
-                
-
-        
-
-       
     }
 
     }
@@ -74,6 +55,6 @@ session_start();
 
 ?> 
 
-  
+
 </body>
 </html>
