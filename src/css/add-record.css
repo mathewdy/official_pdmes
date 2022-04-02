@@ -1,0 +1,106 @@
+#up_form fieldset:not(:first-of-type) {
+    display: none;
+}
+body{
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+    --bs-bg-opacity: 1;
+}
+form{
+    font-size:10pt;
+}
+form .gen-container{
+    margin: 0;
+}
+
+.line-1 input[type=text],
+.line-2 input[type=number], 
+.line-2 input[type=text]{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.line-1 input[type=text]:focus,
+.line-2 input[type=number]:focus, 
+.line-2 input[type=text]:focus{
+    outline: none;
+}
+.credentials-row{
+    font-size: 10pt;
+}
+.credentials-row input[type=text]{
+    border: none;
+}
+.credentials-row input[type=text]:focus{
+    outline: none;
+}
+.wrapper input[type=text],
+.wrapper input[name="efese_rating"]{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.wrapper input[type=text]:focus,
+.wrapper input[name="efese_rating"]:focus{
+    outline: none;
+}
+.other-cred .last-cred > span input[type=text]{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.last-cred span input[type=text]:focus{
+    outline: none;
+}
+.header{
+    border: 2px solid black;
+    border-bottom: none;
+}
+.header input[type=text], 
+.header input[type=number]{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.header input[type=text]:focus,
+.header input[type=number]:focus{
+    outline: none;
+}
+.table{
+    border:2px solid black;
+}
+table{
+    border: 2px solid black;
+    width: 10%;
+}
+table th, td{
+    border:1px solid black;
+} 
+table input[type=number], 
+table input[type=text]{
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+td #grade:focus,
+td input[type=text]{
+    outline: none;
+}
+.table-condensed thead > tr > th,
+.table-condensed tbody > tr > th,
+.table-condensed thead > tr > td,
+.table-condensed tbody > tr > td{
+    padding: 3px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.next-form svg:hover{
+    fill: #80b5ff;
+}
+.previous-form svg:hover{
+    fill: #D1D1D1;
+}
+.submitbtn{
+    border-radius: 20px;
+}

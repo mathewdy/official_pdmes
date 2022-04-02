@@ -6,3341 +6,2195 @@ session_start();
 date_default_timezone_set('Asia/Manila');
 
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-<form action="new-student.php" method = "post">
-
-
-<h1>Learner's Personal Information</h1>
-<label for="">Last Name: </label>
-<input type="text" name="last_name">
-<br>
-<label for="">First Name:</label>
-<input type="text" name="first_name">
-<br>
-<label for="">Name EXTN. (Jr, I, II): </label>
-<input type="text" name="suffix">
-<br>
-<label for="">Middle Name: </label>
-<input type="text" name="middle_name">
-<br>
-<label for="">Learner Reference Number (LRN) :</label>
-<input type="text" name="lrn">
-<br>
-<label for="">Birth Date:</label>
-<input type="date" name="birth_date" id="">
-<br>
-<label for="">Sex:</label>
-<select name="sex" id="">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-</select>
-<br>
-
-<h1>Eligbility for Elementary School Enrollment</h1>
-
-    <label for="">Credential Presented for Grade 1 : </label>
-    <br>
-
-    <label for="">Kinder Progress Report:</label>
-    <input type="checkbox" name="credential_presented[]" value="Kinder progress report">
-    <br>
-
-    <label for="">ECCD Checklist:</label>
-    <input type="checkbox" name="credential_presented[]" value="ECCD Checklist" >
-    <br>
-
-
-    <label for="">Kindergarten Cetifcate of Completion:</label>
-    <input type="checkbox" name="credential_presented[]" value="Kindergarten Certificate of Completion" >
-
-    <br>
-    <label for="">Name of School: </label>
-    <input type="text" name="eligibility_name_of_school">
-
-    <br>
-    <label for="">School ID: </label>
-    <input type="text" name="school_id">
-
-    <br>
-    <label for="">Address of School: </label>
-    <input type="text" name="address_of_school">
-
-    <br>
-
-    <!--other credential-->
-
-    <label for="">Other Credential Presented</label>
-
-    <br>
-    <!---dapat 1 kapag nag check, kapag hindi 0 ang value sa database-->
-
-    <!---bukod to sa  eligiblity--->
-
-    <label for="">PEPT Passer</label>
-    <input type="checkbox" name="pept_passer" value="1">
-    <br>
-
-    <label for="">Rating:</label>
-    <input type="text" name="rating">
-    <br>
-
-    <label for="">Date of Assessment: </label>
-    <input type="date" name="date_of_assessment">
-    <br>
-
-    <label for="">Others: </label>
-    <input type="checkbox" name="others" value="1">
-    <input type="text" name="others_please_specify">
-
-    <br>
-
-    <label for="">Name and Address of Testing Center:</label>
-    <input type="text" name="name_and_address_testing_center">
-
-    <br>
-
-    <label for="">Remark: </label>
-    <input type="text" name="eligibility_remarks">
-    <br>
-
-
-<h1>Phase 1</h1>
-    <label for="">School: </label>
-    <input type="text" name="phase1_name_of_school">
-
-    <br>
-
-    <label for="">School ID:</label>
-    <input type="text" name="phase1_school_id">
-    
-
-    <br>
-    <label for="">District: </label>
-    <input type="text" name="phase1_district">
-
-    <br>
-    <label for="">Division: </label>
-    <input type="text" name="phase1_division">
-
-    <br>
-    <label for="">Region:</label>
-    <input type="text" name="phase1_region">
-
-    <br>
-
-    <label for="">Classified as Grade: </label>
-    <input type="text" name="phase1_classified_as_grade">
-
-    <br>
-
-    <label for="">Section: </label>
-    <input type="text" name="phase1_section">
-
-    <br>
-
-    <label for="">School Year: </label>
-    <input type="text" name="phase1_school_year">
-
-    <br>
-
-    <label for="">Name of Teacher:</label>
-    <input type="text" name="phase1_name_of_teacher">
-
-    <br>
-
-    <label for="">Signature:</label>
-    <input type="text" name="phase1_signature" >
-
-    
-
-    <!---learning areas (subjects na ito)---->
-
-    <h2>Learning Areas</h2>
-    <h3>Quarter 1</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term1_phase1_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term1_phase1_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term1_phase1_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term1_phase1_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term1_phase1_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_phase1_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term1_phase1_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term1_phase1_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term1_phase1_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term1_phase1_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term1_phase1_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term1_phase1_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_phase1_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term1_phase1_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_phase1_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!----term 2--->
-
-    <h3>Quarter 2</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term2_phase1_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term2_phase1_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term2_phase1_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term2_phase1_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term2_phase1_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_phase1_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term2_phase1_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term2_phase1_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term2_phase1_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term2_phase1_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term2_phase1_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term2_phase1_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_phase1_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term2_phase1_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_phase1_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!-----term3_phase1----->
-    
-    <h3>Quarter 3</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term3_phase1_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term3_phase1_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term3_phase1_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term3_phase1_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term3_phase1_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_phase1_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term3_phase1_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term3_phase1_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term3_phase1_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term3_phase1_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term3_phase1_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term3_phase1_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_phase1_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term3_phase1_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_phase1_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-
-    <h3>Quarter 4</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term4_phase1_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term4_phase1_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term4_phase1_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term4_phase1_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term4_phase1_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_phase1_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term4_phase1_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term4_phase1_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term4_phase1_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term4_phase1_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term4_phase1_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term4_phase1_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_phase1_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term4_phase1_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_phase1_islamic_values">
-
-    <br>
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-    <br>
-
-
-    <h1>Remedial Class</h1>
-
-<label for="">Conducted From</label>
-<input type="date" name="phase1_remedial_from" >
-<br>
-
-<label for="">TO: </label>
-<input type="date" name="phase1_remedial_to" >
-<br>
-
-<label for="">Learning Areas </label> <br>
-
-
-<label for=""> term 1 </label> 
-<input type= "text" name="phase1_remedial_learning_areas_1"> <br>
-
-<label for=""> term 2 </label> 
-<input type= "text" name="phase1_remedial_learning_areas_2"> <br>
-
-
-
-<label for=""> Final Rating  </label> <br>
-<label for =""> term 1  </label>
-<input type= "text" name="phase1_remedial_final_rating_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase1_remedial_final_rating_2"> <br>
-
-
-<label for=""> Remedial Class Mark </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase1_remedial_class_mark_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase1_remedial_class_mark_2"> <br>
-
-
-<label for="">Recomputed Final Grade </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase1_recomputed_final_grade_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase1_recomputed_final_grade_2"> <br>
-
-
-
-<label for=""> Remarks </label> <br>
-<label for=""> term 1 </label>
-<input type="text" name="phase1_remedial_remarks_1" > <Br>
-<label for=""> term 2 </label>
-<input type="text" name="phase1_remedial_remarks_2" > <br>
-
-
-
-<h1>Phase 2</h1>
-    <label for="">School: </label>
-    <input type="text" name="phase2_name_of_school">
-
-    <br>
-
-    <label for="">School ID:</label>
-    <input type="text" name="phase2_school_id">
-    
-
-    <br>
-    <label for="">District: </label>
-    <input type="text" name="phase2_district">
-
-    <br>
-    <label for="">Division: </label>
-    <input type="text" name="phase2_division">
-
-    <br>
-    <label for="">Region:</label>
-    <input type="text" name="phase2_region">
-
-    <br>
-
-    <label for="">Classified as Grade: </label>
-    <input type="text" name="phase2_classified_as_grade">
-
-    <br>
-
-    <label for="">Section: </label>
-    <input type="text" name="phase2_section">
-
-    <br>
-
-    <label for="">School Year: </label>
-    <input type="text" name="phase2_school_year">
-
-    <br>
-
-    <label for="">Name of Teacher:</label>
-    <input type="text" name="phase2_name_of_teacher">
-
-    <br>
-
-    <label for="">Signature:</label>
-    <input type="text" name="phase2_signature" >
-
-    
-
-    <!---learning areas (subjects na ito)---->
-
-    <h2>Learning Areas</h2>
-    <h3>Quarter 1</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term1_phase2_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term1_phase2_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term1_phase2_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term1_phase2_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term1_phase2_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_phase2_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term1_phase2_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term1_phase2_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term1_phase2_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term1_phase2_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term1_phase2_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term1_phase2_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_phase2_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term1_phase2_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_phase2_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!----term 2--->
-
-    <h3>Quarter 2</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term2_phase2_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term2_phase2_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term2_phase2_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term2_phase2_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term2_phase2_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_phase2_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term2_phase2_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term2_phase2_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term2_phase2_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term2_phase2_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term2_phase2_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term2_phase2_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_phase2_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term2_phase2_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_phase2_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!-----term3_phase1----->
-    
-    <h3>Quarter 3</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term3_phase2_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term3_phase2_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term3_phase2_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term3_phase2_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term3_phase2_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_phase2_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term3_phase2_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term3_phase2_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term3_phase2_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term3_phase2_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term3_phase2_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term3_phase2_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_phase2_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term3_phase2_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_phase2_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-
-    <h3>Quarter 4</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term4_phase2_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term4_phase2_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term4_phase2_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term4_phase2_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term4_phase2_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_phase2_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term4_phase2_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term4_phase2_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term4_phase2_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term4_phase2_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term4_phase2_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term4_phase2_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_phase2_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term4_phase2_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_phase2_islamic_values">
-
-    <br>
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-    <br>
-
-    <h1>Remedial Class</h1>
-
-<label for="">Conducted From</label>
-<input type="date" name="phase2_remedial_from" >
-<br>
-
-<label for="">TO: </label>
-<input type="date" name="phase2_remedial_to" >
-<br>
-
-<label for="">Learning Areas </label> <br>
-
-
-<label for=""> term 1 </label> 
-<input type= "text" name="phase2_remedial_learning_areas_1"> <br>
-
-<label for=""> term 2 </label> 
-<input type= "text" name="phase2_remedial_learning_areas_2"> <br>
-
-
-
-<label for=""> Final Rating  </label> <br>
-<label for =""> term 1  </label>
-<input type= "text" name="phase2_remedial_final_rating_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase2_remedial_final_rating_2"> <br>
-
-
-<label for=""> Remedial Class Mark </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase2_remedial_class_mark_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase2_remedial_class_mark_2"> <br>
-
-
-<label for="">Recomputed Final Grade </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase2_recomputed_final_grade_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase2_recomputed_final_grade_2"> <br>
-
-
-
-<label for=""> Remarks </label> <br>
-<label for=""> term 1 </label>
-<input type="text" name="phase2_remedial_remarks_1" > <Br>
-<label for=""> term 2 </label>
-<input type="text" name="phase2_remedial_remarks_2" > <br>
-
-
-<h1>Phase 3</h1>
-<br>
-    <label for="">School: </label>
-    <input type="text" name="phase3_name_of_school">
-
-    <br>
-
-    <label for="">School ID:</label>
-    <input type="text" name="phase3_school_id">
-    
-
-    <br>
-    <label for="">District: </label>
-    <input type="text" name="phase3_district">
-
-    <br>
-    <label for="">Division: </label>
-    <input type="text" name="phase3_division">
-
-    <br>
-    <label for="">Region:</label>
-    <input type="text" name="phase3_region">
-
-    <br>
-
-    <label for="">Classified as Grade: </label>
-    <input type="text" name="phase3_classified_as_grade">
-
-    <br>
-
-    <label for="">Section: </label>
-    <input type="text" name="phase3_section">
-
-    <br>
-
-    <label for="">School Year: </label>
-    <input type="text" name="phase3_school_year">
-
-    <br>
-
-    <label for="">Name of Teacher:</label>
-    <input type="text" name="phase3_name_of_teacher">
-
-    <br>
-
-    <label for="">Signature:</label>
-    <input type="text" name="phase3_signature" >
-
-    
-
-    <!---learning areas (subjects na ito)---->
-
-    <h2>Learning Areas</h2>
-    <h3>Quarter 1</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term1_phase3_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term1_phase3_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term1_phase3_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term1_phase3_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term1_phase3_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_phase3_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term1_phase3_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term1_phase3_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term1_phase3_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term1_phase3_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term1_phase3_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term1_phase3_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_phase3_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term1_phase3_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_phase3_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!----term 2--->
-
-    <h3>Quarter 2</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term2_phase3_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term2_phase3_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term2_phase3_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term2_phase3_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term2_phase3_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_phase3_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term2_phase3_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term2_phase3_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term2_phase3_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term2_phase3_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term2_phase3_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term2_phase3_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_phase3_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term2_phase3_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_phase3_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!-----term3_phase1----->
-    
-    <h3>Quarter 3</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term3_phase3_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term3_phase3_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term3_phase3_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term3_phase3_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term3_phase3_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_phase3_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term3_phase3_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term3_phase3_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term3_phase3_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term3_phase3_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term3_phase3_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term3_phase3_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_phase3_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term3_phase3_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_phase3_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-
-    <h3>Quarter 4</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term4_phase3_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term4_phase3_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term4_phase3_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term4_phase3_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term4_phase3_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_phase3_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term4_phase3_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term4_phase3_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term4_phase3_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term4_phase3_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term4_phase3_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term4_phase3_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_phase3_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term4_phase3_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_phase3_islamic_values">
-
-    <br>
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-    <br>
-
-    <h1>Remedial Class</h1>
-
-<label for="">Conducted From</label>
-<input type="date" name="phase3_remedial_from" >
-<br>
-
-<label for="">TO: </label>
-<input type="date" name="phase3_remedial_to" >
-<br>
-
-<label for="">Learning Areas </label> <br>
-
-
-<label for=""> term 1 </label> 
-<input type= "text" name="phase3_remedial_learning_areas_1"> <br>
-
-<label for=""> term 2 </label> 
-<input type= "text" name="phase3_remedial_learning_areas_2"> <br>
-
-
-
-<label for=""> Final Rating  </label> <br>
-<label for =""> term 1  </label>
-<input type= "text" name="phase3_remedial_final_rating_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase3_remedial_final_rating_2"> <br>
-
-
-<label for=""> Remedial Class Mark </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase3_remedial_class_mark_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase3_remedial_class_mark_2"> <br>
-
-
-<label for="">Recomputed Final Grade </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase3_recomputed_final_grade_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase3_recomputed_final_grade_2"> <br>
-
-
-
-<label for=""> Remarks </label> <br>
-<label for=""> term 1 </label>
-<input type="text" name="phase3_remedial_remarks_1" > <Br>
-<label for=""> term 2 </label>
-<input type="text" name="phase3_remedial_remarks_2" > <br>
-
-
-
-
-<h1>Phase 4</h1>
-    <label for="">School: </label>
-    <input type="text" name="phase4_name_of_school">
-
-    <br>
-
-    <label for="">School ID:</label>
-    <input type="text" name="phase4_school_id">
-    
-
-    <br>
-    <label for="">District: </label>
-    <input type="text" name="phase4_district">
-
-    <br>
-    <label for="">Division: </label>
-    <input type="text" name="phase4_division">
-
-    <br>
-    <label for="">Region:</label>
-    <input type="text" name="phase4_region">
-
-    <br>
-
-    <label for="">Classified as Grade: </label>
-    <input type="text" name="phase4_classified_as_grade">
-
-    <br>
-
-    <label for="">Section: </label>
-    <input type="text" name="phase4_section">
-
-    <br>
-
-    <label for="">School Year: </label>
-    <input type="text" name="phase4_school_year">
-
-    <br>
-
-    <label for="">Name of Teacher:</label>
-    <input type="text" name="phase4_name_of_teacher">
-
-    <br>
-
-    <label for="">Signature:</label>
-    <input type="text" name="phase4_signature" >
-
-    
-
-    <!---learning areas (subjects na ito)---->
-
-    <h2>Learning Areas</h2>
-    <h3>Quarter 1</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term1_phase4_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term1_phase4_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term1_phase4_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term1_phase4_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term1_phase4_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_phase4_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term1_phase4_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term1_phase4_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term1_phase4_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term1_phase4_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term1_phase4_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term1_phase4_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_phase4_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term1_phase4_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_phase4_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!----term 2--->
-
-    <h3>Quarter 2</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term2_phase4_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term2_phase4_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term2_phase4_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term2_phase4_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term2_phase4_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_phase4_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term2_phase4_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term2_phase4_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term2_phase4_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term2_phase4_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term2_phase4_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term2_phase4_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_phase4_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term2_phase4_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_phase4_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!-----term3_phase4----->
-    
-    <h3>Quarter 3</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term3_phase4_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term3_phase4_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term3_phase4_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term3_phase4_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term3_phase4_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_phase4_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term3_phase4_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term3_phase4_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term3_phase4_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term3_phase4_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term3_phase4_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term3_phase4_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_phase4_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term3_phase4_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_phase4_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-
-    <h3>Quarter 4</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term4_phase4_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term4_phase4_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term4_phase4_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term4_phase4_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term4_phase4_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_phase4_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term4_phase4_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term4_phase4_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term4_phase4_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term4_phase4_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term4_phase4_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term4_phase4_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_phase4_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term4_phase4_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_phase4_islamic_values">
-
-    <br>
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-    <br>
-
-    <h1>Remedial Class</h1>
-
-<label for="">Conducted From</label>
-<input type="date" name="phase4_remedial_from" >
-<br>
-
-<label for="">TO: </label>
-<input type="date" name="phase4_remedial_to" >
-<br>
-
-<label for="">Learning Areas </label> <br>
-
-
-<label for=""> term 1 </label> 
-<input type= "text" name="phase4_remedial_learning_areas_1"> <br>
-
-<label for=""> term 2 </label> 
-<input type= "text" name="phase4_remedial_learning_areas_2"> <br>
-
-
-
-<label for=""> Final Rating  </label> <br>
-<label for =""> term 1  </label>
-<input type= "text" name="phase4_remedial_final_rating_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase4_remedial_final_rating_2"> <br>
-
-
-<label for=""> Remedial Class Mark </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase4_remedial_class_mark_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase4_remedial_class_mark_2"> <br>
-
-
-<label for="">Recomputed Final Grade </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase4_recomputed_final_grade_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase4_recomputed_final_grade_2"> <br>
-
-
-
-<label for=""> Remarks </label> <br>
-<label for=""> term 1 </label>
-<input type="text" name="phase4_remedial_remarks_1" > <Br>
-<label for=""> term 2 </label>
-<input type="text" name="phase4_remedial_remarks_2" > <br>
-
-
-<h1>Phase 5</h1>
-    <label for="">School: </label>
-    <input type="text" name="phase5_name_of_school">
-
-    <br>
-
-    <label for="">School ID:</label>
-    <input type="text" name="phase5_school_id">
-    
-
-    <br>
-    <label for="">District: </label>
-    <input type="text" name="phase5_district">
-
-    <br>
-    <label for="">Division: </label>
-    <input type="text" name="phase5_division">
-
-    <br>
-    <label for="">Region:</label>
-    <input type="text" name="phase5_region">
-
-    <br>
-
-    <label for="">Classified as Grade: </label>
-    <input type="text" name="phase5_classified_as_grade">
-
-    <br>
-
-    <label for="">Section: </label>
-    <input type="text" name="phase5_section">
-
-    <br>
-
-    <label for="">School Year: </label>
-    <input type="text" name="phase5_school_year">
-
-    <br>
-
-    <label for="">Name of Teacher:</label>
-    <input type="text" name="phase5_name_of_teacher">
-
-    <br>
-
-    <label for="">Signature:</label>
-    <input type="text" name="phase5_signature" >
-
-    
-
-    <!---learning areas (subjects na ito)---->
-
-    <h2>Learning Areas</h2>
-
-    
-    <h3>Quarter 1</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term1_phase5_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term1_phase5_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term1_phase5_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term1_phase5_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term1_phase5_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_phase5_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term1_phase5_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term1_phase5_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term1_phase5_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term1_phase5_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term1_phase5_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term1_phase5_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_phase5_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term1_phase5_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_phase5_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!----term 2--->
-
-    <h3>Quarter 2</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term2_phase5_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term2_phase5_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term2_phase5_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term2_phase5_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term2_phase5_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_phase5_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term2_phase5_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term2_phase5_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term2_phase5_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term2_phase5_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term2_phase5_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term2_phase5_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_phase5_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term2_phase5_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_phase5_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    
-    <h3>Quarter 3</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term3_phase5_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term3_phase5_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term3_phase5_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term3_phase5_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term3_phase5_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_phase5_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term3_phase5_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term3_phase5_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term3_phase5_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term3_phase5_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term3_phase5_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term3_phase5_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_phase5_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term3_phase5_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_phase5_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-
-    <h3>Quarter 4</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term4_phase5_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term4_phase5_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term4_phase5_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term4_phase5_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term4_phase5_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_phase5_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term4_phase5_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term4_phase5_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term4_phase5_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term4_phase5_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term4_phase5_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term4_phase5_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_phase5_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term4_phase5_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_phase5_islamic_values">
-
-    <br>
-    <label for="">General Average</label>
-    <input type="text" readonly>
-    
-    <br>
-
-    <h1>Remedial Class</h1>
-
-<label for="">Conducted From</label>
-<input type="date" name="phase5_remedial_from" >
-<br>
-
-<label for="">TO: </label>
-<input type="date" name="phase5_remedial_to" >
-<br>
-
-<label for="">Learning Areas </label> <br>
-
-
-<label for=""> term 1 </label> 
-<input type= "text" name="phase5_remedial_learning_areas_1"> <br>
-
-<label for=""> term 2 </label> 
-<input type= "text" name="phase5_remedial_learning_areas_2"> <br>
-
-
-
-<label for=""> Final Rating  </label> <br>
-<label for =""> term 1  </label>
-<input type= "text" name="phase5_remedial_final_rating_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase5_remedial_final_rating_2"> <br>
-
-
-<label for=""> Remedial Class Mark </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase5_remedial_class_mark_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase5_remedial_class_mark_2"> <br>
-
-
-<label for="">Recomputed Final Grade </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase5_recomputed_final_grade_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase5_recomputed_final_grade_2"> <br>
-
-<label for=""> Remarks </label> <br>
-<label for=""> term 1 </label>
-<input type="text" name="phase5_remedial_remarks_1" > <Br>
-<label for=""> term 2 </label>
-<input type="text" name="phase5_remedial_remarks_2" > <br>
-
-
-<h1>Phase 6</h1>
-    <label for="">School: </label>
-    <input type="text" name="phase6_name_of_school">
-
-    <br>
-
-    <label for="">School ID:</label>
-    <input type="text" name="phase6_school_id">
-    
-
-    <br>
-    <label for="">District: </label>
-    <input type="text" name="phase6_district">
-
-    <br>
-    <label for="">Division: </label>
-    <input type="text" name="phase6_division">
-
-    <br>
-    <label for="">Region:</label>
-    <input type="text" name="phase6_region">
-
-    <br>
-
-    <label for="">Classified as Grade: </label>
-    <input type="text" name="phase6_classified_as_grade">
-
-    <br>
-
-    <label for="">Section: </label>
-    <input type="text" name="phase6_section">
-
-    <br>
-
-    <label for="">School Year: </label>
-    <input type="text" name="phase6_school_year">
-
-    <br>
-
-    <label for="">Name of Teacher:</label>
-    <input type="text" name="phase6_name_of_teacher">
-
-    <br>
-
-    <label for="">Signature:</label>
-    <input type="text" name="phase6_signature" >
-
-    
-
-    <!---learning areas (subjects na ito)---->
-
-    <h2>Learning Areas</h2>
-
-    
-    <h3>Quarter 1</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term1_phase6_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term1_phase6_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term1_phase6_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term1_phase6_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term1_phase6_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_phase6_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term1_phase6_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term1_phase6_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term1_phase6_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term1_phase6_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term1_phase6_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term1_phase6_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_phase6_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term1_phase6_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_phase6_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!----term 2--->
-
-    <h3>Quarter 2</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term2_phase6_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term2_phase6_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term2_phase6_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term2_phase6_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term2_phase6_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_phase6_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term2_phase6_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term2_phase6_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term2_phase6_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term2_phase6_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term2_phase6_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term2_phase6_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_phase6_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term2_phase6_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_phase6_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    
-    <h3>Quarter 3</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term3_phase6_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term3_phase6_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term3_phase6_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term3_phase6_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term3_phase6_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_phase6_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term3_phase6_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term3_phase6_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term3_phase6_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term3_phase6_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term3_phase6_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term3_phase6_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_phase6_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term3_phase6_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_phase6_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-
-    <h3>Quarter 4</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term4_phase6_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term4_phase6_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term4_phase6_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term4_phase6_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term4_phase6_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_phase6_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term4_phase6_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term4_phase6_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term4_phase6_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term4_phase6_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term4_phase6_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term4_phase6_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_phase6_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term4_phase6_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_phase6_islamic_values">
-
-
-<br>
-<h1> Remedial Class</h1>
-
-<label for="">Conducted From</label>
-<input type="date" name="phase6_remedial_from" >
-<br>
-
-<label for="">TO: </label>
-<input type="date" name="phase6_remedial_to" >
-<br>
-
-<label for="">Learning Areas </label> <br>
-
-
-<label for=""> term 1 </label> 
-<input type= "text" name="phase6_remedial_learning_areas_1"> <br>
-
-<label for=""> term 2 </label> 
-<input type= "text" name="phase6_remedial_learning_areas_2"> <br>
-
-
-
-<label for=""> Final Rating  </label> <br>
-<label for =""> term 1  </label>
-<input type= "text" name="phase6_remedial_final_rating_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase6_remedial_final_rating_2"> <br>
-
-
-<label for=""> Remedial Class Mark </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase6_remedial_class_mark_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase6_remedial_class_mark_2"> <br>
-
-
-<label for="">Recomputed Final Grade </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase6_recomputed_final_grade_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase6_recomputed_final_grade_2"> <br>
-
-
-
-<label for=""> Remarks </label> <br>
-<label for=""> term 1 </label>
-<input type="text" name="phase6_remedial_remarks_1" > <Br>
-<label for=""> term 2 </label>
-<input type="text" name="phase6_remedial_remarks_2" > <br>
-
-
-<h1>Phase 7</h1>
-    <label for="">School: </label>
-    <input type="text" name="phase7_name_of_school">
-
-    <br>
-
-    <label for="">School ID:</label>
-    <input type="text" name="phase7_school_id">
-    
-
-    <br>
-    <label for="">District: </label>
-    <input type="text" name="phase7_district">
-
-    <br>
-    <label for="">Division: </label>
-    <input type="text" name="phase7_division">
-
-    <br>
-    <label for="">Region:</label>
-    <input type="text" name="phase7_region">
-
-    <br>
-
-    <label for="">Classified as Grade: </label>
-    <input type="text" name="phase7_classified_as_grade">
-
-    <br>
-
-    <label for="">Section: </label>
-    <input type="text" name="phase7_section">
-
-    <br>
-
-    <label for="">School Year: </label>
-    <input type="text" name="phase7_school_year">
-
-    <br>
-
-    <label for="">Name of Teacher:</label>
-    <input type="text" name="phase7_name_of_teacher">
-
-    <br>
-
-    <label for="">Signature:</label>
-    <input type="text" name="phase7_signature" >
-
-    
-
-    <!---learning areas (subjects na ito)---->
-
-    <h2>Learning Areas</h2>
-
-    
-    <h3>Quarter 1</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term1_phase7_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term1_phase7_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term1_phase7_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term1_phase7_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term1_phase7_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_phase7_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term1_phase7_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term1_phase7_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term1_phase7_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term1_phase7_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term1_phase7_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term1_phase7_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_phase7_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term1_phase7_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_phase7_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!----term 2--->
-
-    <h3>Quarter 2</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term2_phase7_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term2_phase7_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term2_phase7_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term2_phase7_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term2_phase7_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_phase7_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term2_phase7_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term2_phase7_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term2_phase7_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term2_phase7_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term2_phase7_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term2_phase7_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_phase7_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term2_phase7_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_phase7_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    
-    <h3>Quarter 3</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term3_phase7_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term3_phase7_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term3_phase7_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term3_phase7_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term3_phase7_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_phase7_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term3_phase7_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term3_phase7_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term3_phase7_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term3_phase7_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term3_phase7_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term3_phase7_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_phase7_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term3_phase7_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_phase7_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-
-    <h3>Quarter 4</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term4_phase7_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term4_phase7_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term4_phase7_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term4_phase7_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term4_phase7_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_phase7_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term4_phase7_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term4_phase7_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term4_phase7_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term4_phase7_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term4_phase7_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term4_phase7_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_phase7_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term4_phase7_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_phase7_islamic_values">
-
-    <br>
-    <label for="">General Average</label>
-    <input type="text" readonly>
-    
-    <br>
-
-    <h1>Remedial Class</h1>
-
-<label for="">Conducted From</label>
-<input type="date" name="phase7_remedial_from" >
-<br>
-
-<label for="">TO: </label>
-<input type="date" name="phase7_remedial_to" >
-<br>
-
-<label for="">Learning Areas </label> <br>
-
-
-<label for=""> term 1 </label> 
-<input type= "text" name="phase7_remedial_learning_areas_1"> <br>
-
-<label for=""> term 2 </label> 
-<input type= "text" name="phase7_remedial_learning_areas_2"> <br>
-
-
-
-<label for=""> Final Rating  </label> <br>
-<label for =""> term 1  </label>
-<input type= "text" name="phase7_remedial_final_rating_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase7_remedial_final_rating_2"> <br>
-
-
-<label for=""> Remedial Class Mark </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase7_remedial_class_mark_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase7_remedial_class_mark_2"> <br>
-
-
-<label for="">Recomputed Final Grade </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase7_recomputed_final_grade_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase7_recomputed_final_grade_2"> <br>
-
-
-
-<label for=""> Remarks </label> <br>
-<label for=""> term 1 </label>
-<input type="text" name="phase7_remedial_remarks_1" > <Br>
-<label for=""> term 2 </label>
-<input type="text" name="phase7_remedial_remarks_2" > <br>
-
-
-<h1>Phase  8  </h1>
-    <label for="">School: </label>
-    <input type="text" name="phase8_name_of_school">
-
-    <br>
-
-    <label for="">School ID:</label>
-    <input type="text" name="phase8_school_id">
-    
-
-    <br>
-    <label for="">District: </label>
-    <input type="text" name="phase8_district">
-
-    <br>
-    <label for="">Division: </label>
-    <input type="text" name="phase8_division">
-
-    <br>
-    <label for="">Region:</label>
-    <input type="text" name="phase8_region">
-
-    <br>
-
-    <label for="">Classified as Grade: </label>
-    <input type="text" name="phase8_classified_as_grade">
-
-    <br>
-
-    <label for="">Section: </label>
-    <input type="text" name="phase8_section">
-
-    <br>
-
-    <label for="">School Year: </label>
-    <input type="text" name="phase8_school_year">
-
-    <br>
-
-    <label for="">Name of Teacher:</label>
-    <input type="text" name="phase8_name_of_teacher">
-
-    <br>
-
-    <label for="">Signature:</label>
-    <input type="text" name="phase8_signature" >
-
-    
-
-    <!---learning areas (subjects na ito)---->
-
-    <h2>Learning Areas</h2>
-
-    
-    <h3>Quarter 1</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term1_phase8_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term1_phase8_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term1_phase8_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term1_phase8_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term1_phase8_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term1_phase8_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term1_phase8_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term1_phase8_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term1_phase8_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term1_phase8_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term1_phase8_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term1_phase8_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term1_phase8_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term1_phase8_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term1_phase8_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    <!----term 2--->
-
-    <h3>Quarter 2</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term2_phase8_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term2_phase8_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term2_phase8_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term2_phase8_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term2_phase8_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term2_phase8_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term2_phase8_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term2_phase8_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term2_phase8_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term2_phase8_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term2_phase8_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term2_phase8_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term2_phase8_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term2_phase8_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term2_phase8_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-    
-    <h3>Quarter 3</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term3_phase8_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term3_phase8_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term3_phase8_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term3_phase8_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term3_phase8_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term3_phase8_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term3_phase8_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term3_phase8_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term3_phase8_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term3_phase8_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term3_phase8_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term3_phase8_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term3_phase8_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term3_phase8_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term3_phase8_islamic_values">
-
-    <br>
-
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-
-
-    <h3>Quarter 4</h3>
-
-    <label for="">Mother Tongue</label>
-    <input type="text" name="term4_phase8_mother_tongue">
-
-    <br>
-
-    <label for="">Filipino</label>
-    <input type="text" name="term4_phase8_filipino">
-
-    <br>
-
-    <label for="">English</label>
-    <input type="text" name="term4_phase8_english">
-
-
-    <br>
-    <label for="">Mathematics</label>
-    <input type="text" name="term4_phase8_mathematics">
-
-    <br>
-    <label for="">Science</label>
-    <input type="text" name="term4_phase8_science">
-
-    <br>
-    <label for="">Araling Panlipunan</label>
-    <input type="text" name="term4_phase8_araling_panlipunan">
-
-    <br>
-    <label for="">EPP / TLE</label>
-    <input type="text" name="term4_phase8_epp_tle">
-
-    <br>
-
-    <label for="">MAPEH</label>
-    <input type="text" name="term4_phase8_mapeh" readonly>
-
-    <br>
-
-    <label for="">Music</label>
-    <input type="text" name="term4_phase8_music">
-
-    <br>
-    <label for="">Arts</label>
-    <input type="text" name="term4_phase8_arts">
-
-    <br>
-    <label for="">Physical Education</label>
-    <input type="text" name="term4_phase8_pe" id="">
-
-    <br>
-    <label for="">Health</label>
-    <input type="text" name="term4_phase8_health">
-
-    <br>
-    <label for="">Eduk. sa Pagpapakatao</label>
-    <input type="text" name="term4_phase8_esp">
-
-    <br>
-    <label for="">*Arabic Language</label>
-    <input type="text" name="term4_phase8_arabic_language">
-
-
-    <br>
-    <label for="">*Islamic Values Education</label>
-    <input type="text" name="term4_phase8_islamic_values">
-
-    <br>
-    <label for="">General Average</label>
-    <input type="text" readonly>
-
-    <br>
-
-
-    <h1>Remedial Class</h1>
-
-<label for="">Conducted From</label>
-<input type="date" name="phase8_remedial_from" >
-<br>
-
-<label for="">TO: </label>
-<input type="date" name="phase8_remedial_to" >
-<br>
-
-<label for="">Learning Areas </label> <br>
-
-
-<label for=""> term 1 </label> 
-<input type= "text" name="phase8_remedial_learning_areas_1"> <br>
-
-<label for=""> term 2 </label> 
-<input type= "text" name="phase8_remedial_learning_areas_2"> <br>
-
-
-
-<label for=""> Final Rating  </label> <br>
-<label for =""> term 1  </label>
-<input type= "text" name="phase8_remedial_final_rating_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase8_remedial_final_rating_2"> <br>
-
-
-<label for=""> Remedial Class Mark </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase8_remedial_class_mark_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase8_remedial_class_mark_2"> <br>
-
-
-<label for="">Recomputed Final Grade </label> <br>
-<label for=""> term 1 </label>
-<input type= "text" name="phase8_recomputed_final_grade_1"> <br>
-
-<label for=""> term 2 </label>
-<input type= "text" name="phase8_recomputed_final_grade_2"> <br>
-
-
-
-<label for=""> Remarks </label> <br>
-<label for=""> term 1 </label>
-<input type="text" name="phase8_remedial_remarks_1" > <Br>
-<label for=""> term 2 </label>
-<input type="text" name="phase8_remedial_remarks_2" > <br>
-
-
-
-
-<input type = "submit" name= "add" value = "Add Records"> 
-
-
+<?php include 'includes/header.php';?>
+<link rel="stylesheet" href="src/css/phase-style.css">
+<link rel="stylesheet" href="src/css/loading-spinner.css">
+<?php include 'includes/topnav.php';?>
+<div id="loadingscreen">
+    <div class="load-spinner"></div>
+</div>
+<div class="container-xl bg-white">
+<form novalidate action="new-student.php" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
+    <fieldset>
+    <section class="form-top d-flex flex-row justify-content-around align-items-center">
+        <img src="src/images/DepEd.png" width="120" height="120" alt="">
+        <span class="text-center">
+            <p class="p-0 m-0">Republic of the Philippines</p>
+            <p class="p-0 m-0">Department of Education	</p> 
+            <h4 class="fw-bold">Learner's Permanent Academic Record for Elementary School</h4>
+            <h4 class="p-0 m-0">(SF10-ES)</h4>
+            <p class="p-0 m-0"><i>(Formerly Form 137)</i></p>
+        </span>
+        <img src="src/images/DepEd_2.png" width="150" height="100" alt="">
+    </section>
+    <p style="background:#808080; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">LEARNER'S PERSONAL INFORMATION</p>
+    <section class="line-1 pt-2 pb-2 d-flex justify-content-between">
+    <span class="hstack d-flex align-items-center">
+            <label for="">LAST NAME:</label>
+            <input type="text" id="text-only" name="last_name" required>    
+    </span>
+    <span class="hstack d-flex align-items-center">
+        <label for="">FIRST NAME:</label>
+        <input type="text" id="text-only" name="first_name" required>   
+    </span>
+    <span class="hstack d-flex align-items-center" >
+        <label for="">NAME EXTN. (Jr,I,II): </label>
+        <input type="text" id="text-only" name="suffix">
+    </span>
+    <span class="hstack d-flex justify-content-end align-items-center">
+        <label for="">MIDDLE NAME: </label>
+        <input type="text" id="text-only" name="middle_name" required>                    
+    </span>
+    </section>
+    <section class="line-2 d-flex justify-content-between">
+        <span class="hstack d-flex align-items-end w-75">
+            <label for="">Learner Reference Number (LRN):</label>
+            <input type="text" style="margin: 0 1em 0 0; width:30%;" name="lrn" required>
+            <label for="">Birthdate (mm/dd/yyyy):</label>
+            <input type="date" name="birth_date" required>  
+        </span>
+        <span class="hstack d-flex align-items-center w-25">
+        <label for="">Sex:</label>
+            <select class=" w-100" name="sex" id="" required>
+            <option value="">-Gender-</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            </select>
+        </span>
+    </section>
+    <p style="background:#d3d3d3; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">ELIGIBILITY FOR ELEMENTARY SCHOOL ENROLLMENT</p>
+    <div class="credentials-row border border-dark px-2">
+        <div class="d-flex flex-row justify-content-between">
+            <i>Credential Presented for Grade 1</i>
+            <span class="form-check form-check-inline">
+                <label class="form-check-label">Kinder Progress Report </label>
+                <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kinder progress report">
+            </span>
+            <span class="form-check form-check-inline">
+                <label class="form-check-label">ECCD Checklist </label>
+                <input type="checkbox" class="form-check-input" name="credential_presented[]" value="ECCD Checklist">
+            </span>
+            <span class="form-check form-check-inline">
+                <label class="form-check-label">Kindergarten Certificate of Completion </label>
+                <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kindergarten Certificate of Completion">
+            </span>
+        </div>
+        <section class="cred-info d-flex flex-row justify-content-between">
+            <span class="hstack d-flex align-items-center">
+                <label for="">Name of School:</label>
+                <input type="text" name="eligibility_name_of_school" required>
+            </span>
+            <span class="hstack d-flex align-items-center justify-content-start">
+                <label for="">School ID:</label>
+                <input type="text" name="school_id" required>
+            </span>
+            <span class="hstack d-flex align-items-center">
+                <label for="">Address of School:</label>
+                <input type="text" name="address_of_school" required>
+            </span>
+        </section>
+    </div>
+    <div class="other-cred">
+    <p>Other Credential Presented</p>
+    <span class="wrapper d-flex flex-row justify-content-evenly">
+        <span>
+        <input type="checkbox" name="pept_passer" value="1" class="form-check-input">
+            <label class="form-check-label" style="padding: 0 2px 0 0;">PEPT Passer</label>
+            <label for="">Rating:</label>
+            <input type="number" class="w-30" name="rating" required>
+        </span>
+        <span>
+            <label for="">Date of Examination/Assessment (dd/mm/yyyy):</label>
+            <input type="date" name="date_of_assessment" id=""> 
+            <input type="checkbox" class="form-check-input" name="others" value="1" >
+            <label for="">Others (Pls. Specify):</label>
+            <input type="text" style="width:20%;" name="others_please_specify" id="">
+        </span>
+    </span>
+    <section class="last-cred d-flex flex-row justify-content-evenly px-5">
+        <span class="hstack w-75">
+            <label for="">Name and Address of Testing Center:</label>
+            <input type="text" class="w-50" name="name_and_address_testing_center" id="">
+        </span>
+        <span class="w-50">
+            <label for="">Remark:</label>
+            <input type="text" class="w-75"  name="eligibility_remarks" id="">
+        </span>
+    </section>
+    </div>
+    <!-- Phase 1 -->
+    <p style="background:#c0c0c0; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">SCHOLASTIC RECORDS</p>
+    <div class="gen-container d-flex flex-row mt-0 pt-0">
+        <div class="form-container" style="padding: 0 7px 7px 0 ;">
+        <section class="header">
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>School:</label>
+                    <input type="text" id="text-only" name="phase1_name_of_school"  class="school">
+                </span>
+                <span>
+                    <label>School ID:</label>
+                    <input type="text" name="phase1_school_id" class="school_id">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>District:</label>
+                    <input type="text" class="w-50" name="phase1_district" class="district">
+                </span>
+                <span>
+                    <label>Division:</label>
+                    <input type="text" class="w-50" name="phase1_division" class="division">
+                </span>
+                <span class="text-end">
+                    <label>Region:</label>
+                    <input type="text" class="w-50" name="phase1_region" class="region">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>Classified as Grade:</label>
+                    <input type="number" id="number-only" style="width: 20%;" name="phase1_classified_as_grade">
+                </span>
+                <span>
+                    <label>Section:</label>
+                    <input type="text" class="w-50" name="phase1_section"> 
+                </span>
+                <span>
+                    <label>School Year:</label>
+                    <input type="text" class="w-50" name="phase1_school_year">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                <label for="">Name of Adviser:</label>
+                <input type="text" id="text-only" name="phase1_name_of_teacher">
+                </span>
+                <span>
+                    <label>Signature:</label>
+                    <input type="text" id="text-only" name="phase1_signature" class="school_id">
+                </span>
+            </span>
+        </section>
+        <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
+                    <th colspan="4">Quarterly Rating</th>
+                    <th rowspan="2">Final Rating</th>
+                    <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
+                </tr>
+                <tr style="width: 5%;">
+            
+                    <th><input type="hidden" value="1" readonly>1</th>
+                    <th><input type="hidden" value="2" readonly>2</th>
+                    <th><input type="hidden" value="3" readonly>3</th>
+                    <th><input type="hidden" value="4" readonly>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start fw-bold">Mother Tongue</td>
+                    <td><input type="number" name="term1_phase1_mother_tongue" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Filipino</td>
+                    <td><input type="number" name="term1_phase1_filipino" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Failed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">English</td>
+                    <td><input type="number" name="term1_phase1_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Retained</td>
+                </tr>
+                    <td class="text-start fw-bold">Mathematics</td>
+                    <td><input type="number" name="term1_phase1_mathematics" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Science</td>
+                    <td><input type="number" name="term1_phase1_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Araling Panlipunan</td>
+                    <td><input type="number" name="term1_phase1_araling_panlipunan" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">EPP/TLE</td>
+                    <td><input type="number" name="term1_phase1_epp_tle" id="grade"  title="Please input 2 Numbers only" ></td>           
+                    <td><input type="number" name="term2_phase1_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">MAPEH</td>
+                    <td><input type="text" name="term1_phase1_mapeh" readonly></td>
+                    <td><input type="text" name="term2_phase1_mapeh" readonly></td>
+                    <td><input type="text" name="term3_phase1_mapeh" readonly></td>
+                    <td><input type="text" name="term4_phase1_mapeh" readonly></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>               
+                    <td class="text-start"><i>Music</i></td>           
+                    <td><input type="number" name="term1_phase1_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Arts</i></td>
+                    <td><input type="number" name="term1_phase1_arts" id="grade" title="Please input 2 Numbers only" ></td>       
+                    <td><input type="number" name="term2_phase1_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_arts" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Physical Education</i></td>
+                    <td><input type="number" name="term1_phase1_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_pe"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Health</i></td>
+                    <td><input type="number" name="term1_phase1_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                    <td><input type="number" name="term1_phase1_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Arabic Language</td>        
+                    <td><input type="number" name="term1_phase1_arabic_language" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Islamic Values Education</td>
+                    <td><input type="number" name="term1_phase1_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase1_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase1_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase1_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">General Average</td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Remedial Table PHASE 1 -->
+        <table class="table-condensed text-center w-100">
+            <thead> 
+                <tr>
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="4">
+                        <span class="d-flex flex-row justify-content-between">
+                            <span>
+                                <label for="">Date conducted: </label>
+                                <input type="date" class="datefrom"  name="phase1_remedial_from">
+                            </span>
+                            <span>
+                                <label for="">To: </label>
+                                <input type="date" class="dateto" name="phase1_remedial_to" >
+                            </span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Learning Areas</th>
+                    <th>Final Rating</th>
+                    <th>Remarks</th>
+                    <th>Recomputed Final Grade</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="learning-areas1" name="phase1_remedial_learning_areas_1"></td>
+                    <td><input type="number" id="grade" class="final_rating1" name="phase1_remedial_final_rating_1"></td>
+                    <td><input type="text" name="phase1_remedial_class_mark_1" id=""></td>
+                    <td><input type="number" id="grade" name="phase1_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase1_remedial_remarks_1" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="learning_areas2" name="phase1_remedial_learning_areas_2"></td>
+                    <td><input type="number" id="grade" class="final_rating2" name="phase1_remedial_final_rating_2"></td>
+                    <td><input type="text" name="phase1_remedial_class_mark_2" id=""> </td>
+                    <td><input type="number" id="grade" name="phase1_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase1_remedial_remarks_2" id=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Phase 2 -->
+    <div class="form-container" style="padding:0 0 7px 7px;">
+        <section class="header">
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>School:</label>
+                    <input type="text" id="text-only" name="phase1_name_of_school"  class="school">
+                </span>
+                <span>
+                    <label>School ID:</label>
+                    <input type="text" name="phase1_school_id" class="school_id">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>District:</label>
+                    <input type="text" class="w-50" name="phase1_district" class="district">
+                </span>
+                <span>
+                    <label>Division:</label>
+                    <input type="text" class="w-50" name="phase1_division" class="division">
+                </span>
+                <span class="text-end">
+                    <label>Region:</label>
+                    <input type="text" class="w-50" name="phase1_region" class="region">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>Classified as Grade:</label>
+                    <input type="number" id="number-only" style="width: 20%;" name="phase1_classified_as_grade">
+                </span>
+                <span>
+                    <label>Section:</label>
+                    <input type="text" class="w-50" name="phase1_section"> 
+                </span>
+                <span>
+                    <label>School Year:</label>
+                    <input type="text" class="w-50" name="phase1_school_year">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                <label for="">Name of Adviser:</label>
+                <input type="text" id="text-only" name="phase1_name_of_teacher">
+                </span>
+                <span>
+                    <label>Signature:</label>
+                    <input type="text" id="text-only" name="phase1_signature" class="school_id">
+                </span>
+            </span>
+        </section>
+        <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
+                    <th colspan="4">Quarterly Rating</th>
+                    <th rowspan="2">Final Rating</th>
+                    <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
+                </tr>
+                <tr style="width: 5%;">
+                    <th><input type="hidden" value="1" readonly>1</th>
+                    <th><input type="hidden" value="2" readonly>2</th>
+                    <th><input type="hidden" value="3" readonly>3</th>
+                    <th><input type="hidden" value="4" readonly>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start fw-bold">Mother Tongue</td>
+                    <td><input type="number" name="term1_phase2_mother_tongue" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Filipino</td>
+                    <td><input type="number" name="term1_phase2_filipino" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Failed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">English</td>
+                    <td><input type="number" name="term1_phase2_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Retained</td>
+                </tr>
+                    <td class="text-start fw-bold">Mathematics</td>
+                    <td><input type="number" name="term1_phase2_mathematics" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Science</td>
+                    <td><input type="number" name="term1_phase2_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Araling Panlipunan</td>
+                    <td><input type="number" name="term1_phase2_araling_panlipunan" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">EPP/TLE</td>
+                    <td><input type="number" name="term1_phase2_epp_tle" id="grade"  title="Please input 2 Numbers only" ></td>           
+                    <td><input type="number" name="term2_phase2_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">MAPEH</td>
+                    <td><input type="text" name="term1_phase2_mapeh" readonly></td>
+                    <td><input type="text" name="term2_phase2_mapeh" readonly></td>
+                    <td><input type="text" name="term3_phase2_mapeh" readonly></td>
+                    <td><input type="text" name="term4_phase2_mapeh" readonly></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>               
+                    <td class="text-start"><i>Music</i></td>           
+                    <td><input type="number" name="term1_phase2_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Arts</i></td>
+                    <td><input type="number" name="term1_phase2_arts" id="grade" title="Please input 2 Numbers only" ></td>       
+                    <td><input type="number" name="term2_phase2_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_arts" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Physical Education</i></td>
+                    <td><input type="number" name="term1_phase2_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_pe"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Health</i></td>
+                    <td><input type="number" name="term1_phase2_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                    <td><input type="number" name="term1_phase2_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Arabic Language</td>        
+                    <td><input type="number" name="term1_phase2_arabic_language" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Islamic Values Education</td>
+                    <td><input type="number" name="term1_phase2_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">General Average</td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Remedial Table PHASE 2 -->
+        <table class="table-condensed text-center w-100">
+            <thead> 
+                <tr>
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="4">
+                        <span class="d-flex flex-row justify-content-between">
+                            <span>
+                                <label for="">Date conducted: </label>
+                                <input type="date" class="datefrom"  name="phase2_remedial_from">
+                            </span>
+                            <span>
+                                <label for="">To: </label>
+                                <input type="date" class="dateto" name="phase2_remedial_to" >
+                            </span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Learning Areas</th>
+                    <th>Final Rating</th>
+                    <th>Remarks</th>
+                    <th>Recomputed Final Grade</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="learning-areas1" name="phase2_remedial_learning_areas_1"></td>
+                    <td><input type="number" id="grade" class="final_rating1" name="phase2_remedial_final_rating_1"></td>
+                    <td><input type="text" name="phase2_remedial_class_mark_1" id=""></td>
+                    <td><input type="number" id="grade" name="phase2_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase2_remedial_remarks_1" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="learning_areas2" name="phase2_remedial_learning_areas_2"></td>
+                    <td><input type="number" id="grade" class="final_rating2" name="phase2_remedial_final_rating_2"></td>
+                    <td><input type="text" name="phase2_remedial_class_mark_2" id=""> </td>
+                    <td><input type="number" id="grade" name="phase2_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase2_remedial_remarks_2" id=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="gen-container d-flex flex-row mt-0 pt-0">
+        <!-- Phase 3 -->
+        <div class="form-container" style="padding: 0 7px 7px 0 ;">
+        <section class="header">
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>School:</label>
+                    <input type="text" id="text-only" name="phase3_name_of_school"  class="school">
+                </span>
+                <span>
+                    <label>School ID:</label>
+                    <input type="text" name="phase3_school_id" class="school_id">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>District:</label>
+                    <input type="text" class="w-50" name="phase1_district" class="district">
+                </span>
+                <span>
+                    <label>Division:</label>
+                    <input type="text" class="w-50" name="phase3_division" class="division">
+                </span>
+                <span class="text-end">
+                    <label>Region:</label>
+                    <input type="text" class="w-50" name="phase3_region" class="region">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>Classified as Grade:</label>
+                    <input type="number" id="number-only" style="width: 20%;" name="phase3_classified_as_grade">
+                </span>
+                <span>
+                    <label>Section:</label>
+                    <input type="text" class="w-50" name="phase3_section"> 
+                </span>
+                <span>
+                    <label>School Year:</label>
+                    <input type="text" class="w-50" name="phase3_school_year">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                <label for="">Name of Adviser:</label>
+                <input type="text" id="text-only" name="phase3_name_of_teacher">
+                </span>
+                <span>
+                    <label>Signature:</label>
+                    <input type="text" id="text-only" name="phase3_signature" class="school_id">
+                </span>
+            </span>
+        </section>
+        <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
+                    <th colspan="4">Quarterly Rating</th>
+                    <th rowspan="2">Final Rating</th>
+                    <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
+                </tr>
+                <tr style="width: 5%;">
+            
+                    <th><input type="hidden" value="1" readonly>1</th>
+                    <th><input type="hidden" value="2" readonly>2</th>
+                    <th><input type="hidden" value="3" readonly>3</th>
+                    <th><input type="hidden" value="4" readonly>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start fw-bold">Mother Tongue</td>
+                    <td><input type="number" name="term1_phase3_mother_tongue" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Filipino</td>
+                    <td><input type="number" name="term1_phase3_filipino" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Failed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">English</td>
+                    <td><input type="number" name="term1_phase3_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Retained</td>
+                </tr>
+                    <td class="text-start fw-bold">Mathematics</td>
+                    <td><input type="number" name="term1_phase3_mathematics" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Science</td>
+                    <td><input type="number" name="term1_phase3_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Araling Panlipunan</td>
+                    <td><input type="number" name="term1_phase3_araling_panlipunan" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">EPP/TLE</td>
+                    <td><input type="number" name="term1_phase3_epp_tle" id="grade"  title="Please input 2 Numbers only" ></td>           
+                    <td><input type="number" name="term2_phase3_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">MAPEH</td>
+                    <td><input type="text" name="term1_phase3_mapeh" readonly></td>
+                    <td><input type="text" name="term2_phase3_mapeh" readonly></td>
+                    <td><input type="text" name="term3_phase3_mapeh" readonly></td>
+                    <td><input type="text" name="term4_phase3_mapeh" readonly></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>               
+                    <td class="text-start"><i>Music</i></td>           
+                    <td><input type="number" name="term1_phase3_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Arts</i></td>
+                    <td><input type="number" name="term1_phase3_arts" id="grade" title="Please input 2 Numbers only" ></td>       
+                    <td><input type="number" name="term2_phase3_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_arts" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Physical Education</i></td>
+                    <td><input type="number" name="term1_phase3_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_pe"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Health</i></td>
+                    <td><input type="number" name="term1_phase3_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                    <td><input type="number" name="term1_phase3_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Arabic Language</td>        
+                    <td><input type="number" name="term1_phase3_arabic_language" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Islamic Values Education</td>
+                    <td><input type="number" name="term1_phase3_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase3_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase3_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase3_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">General Average</td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Remedial Table PHASE 3 -->
+        <table class="table-condensed text-center w-100">
+            <thead> 
+                <tr>
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="4">
+                        <span class="d-flex flex-row justify-content-between">
+                            <span>
+                                <label for="">Date conducted: </label>
+                                <input type="date" class="datefrom"  name="phase3_remedial_from">
+                            </span>
+                            <span>
+                                <label for="">To: </label>
+                                <input type="date" class="dateto" name="phase3_remedial_to" >
+                            </span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Learning Areas</th>
+                    <th>Final Rating</th>
+                    <th>Remarks</th>
+                    <th>Recomputed Final Grade</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="learning-areas1" name="phase3_remedial_learning_areas_1"></td>
+                    <td><input type="number" id="grade" class="final_rating1" name="phase3_remedial_final_rating_1"></td>
+                    <td><input type="text" name="phase3_remedial_class_mark_1" id=""></td>
+                    <td><input type="number" id="grade" name="phase3_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase3_remedial_remarks_1" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="learning_areas2" name="phase3_remedial_learning_areas_2"></td>
+                    <td><input type="number" id="grade" class="final_rating2" name="phase3_remedial_final_rating_2"></td>
+                    <td><input type="text" name="phase3_remedial_class_mark_2" id=""> </td>
+                    <td><input type="number" id="grade" name="phase3_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase3_remedial_remarks_2" id=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Phase 4 -->
+    <div class="form-container" style="padding:0 0 7px 7px;">
+        <section class="header">
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>School:</label>
+                    <input type="text" id="text-only" name="phase4_name_of_school"  class="school">
+                </span>
+                <span>
+                    <label>School ID:</label>
+                    <input type="text" name="phase4_school_id" class="school_id">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>District:</label>
+                    <input type="text" class="w-50" name="phase4_district" class="district">
+                </span>
+                <span>
+                    <label>Division:</label>
+                    <input type="text" class="w-50" name="phase4_division" class="division">
+                </span>
+                <span class="text-end">
+                    <label>Region:</label>
+                    <input type="text" class="w-50" name="phase4_region" class="region">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>Classified as Grade:</label>
+                    <input type="number" id="number-only" style="width: 20%;" name="phase4_classified_as_grade">
+                </span>
+                <span>
+                    <label>Section:</label>
+                    <input type="text" class="w-50" name="phase4_section"> 
+                </span>
+                <span>
+                    <label>School Year:</label>
+                    <input type="text" class="w-50" name="phase4_school_year">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                <label for="">Name of Adviser:</label>
+                <input type="text" id="text-only" name="phase4_name_of_teacher">
+                </span>
+                <span>
+                    <label>Signature:</label>
+                    <input type="text" id="text-only" name="phase4_signature" class="school_id">
+                </span>
+            </span>
+        </section>
+        <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
+                    <th colspan="4">Quarterly Rating</th>
+                    <th rowspan="2">Final Rating</th>
+                    <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
+                </tr>
+                <tr style="width: 5%;">
+                    <th><input type="hidden" value="1" readonly>1</th>
+                    <th><input type="hidden" value="2" readonly>2</th>
+                    <th><input type="hidden" value="3" readonly>3</th>
+                    <th><input type="hidden" value="4" readonly>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start fw-bold">Mother Tongue</td>
+                    <td><input type="number" name="term1_phase4_mother_tongue" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Filipino</td>
+                    <td><input type="number" name="term1_phase4_filipino" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Failed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">English</td>
+                    <td><input type="number" name="term1_phase2_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Retained</td>
+                </tr>
+                    <td class="text-start fw-bold">Mathematics</td>
+                    <td><input type="number" name="term1_phase4_mathematics" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Science</td>
+                    <td><input type="number" name="term1_phase4_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Araling Panlipunan</td>
+                    <td><input type="number" name="term1_phase4_araling_panlipunan" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">EPP/TLE</td>
+                    <td><input type="number" name="term1_phase4_epp_tle" id="grade"  title="Please input 2 Numbers only" ></td>           
+                    <td><input type="number" name="term2_phase4_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">MAPEH</td>
+                    <td><input type="text" name="term1_phase4_mapeh" readonly></td>
+                    <td><input type="text" name="term2_phase4_mapeh" readonly></td>
+                    <td><input type="text" name="term3_phase4_mapeh" readonly></td>
+                    <td><input type="text" name="term4_phase4_mapeh" readonly></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>               
+                    <td class="text-start"><i>Music</i></td>           
+                    <td><input type="number" name="term1_phase4_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Arts</i></td>
+                    <td><input type="number" name="term1_phase4_arts" id="grade" title="Please input 2 Numbers only" ></td>       
+                    <td><input type="number" name="term2_phase4_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_arts" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Physical Education</i></td>
+                    <td><input type="number" name="term1_phase4_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_pe"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Health</i></td>
+                    <td><input type="number" name="term1_phase4_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                    <td><input type="number" name="term1_phase4_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Arabic Language</td>        
+                    <td><input type="number" name="term1_phase4_arabic_language" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Islamic Values Education</td>
+                    <td><input type="number" name="term1_phase4_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">General Average</td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Remedial Table PHASE 4 -->
+        <table class="table-condensed text-center w-100">
+            <thead> 
+                <tr>
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="4">
+                        <span class="d-flex flex-row justify-content-between">
+                            <span>
+                                <label for="">Date conducted: </label>
+                                <input type="date" class="datefrom"  name="phase4_remedial_from">
+                            </span>
+                            <span>
+                                <label for="">To: </label>
+                                <input type="date" class="dateto" name="phase4_remedial_to" >
+                            </span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Learning Areas</th>
+                    <th>Final Rating</th>
+                    <th>Remarks</th>
+                    <th>Recomputed Final Grade</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="learning-areas1" name="phase4_remedial_learning_areas_1"></td>
+                    <td><input type="number" id="grade" class="final_rating1" name="phase4_remedial_final_rating_1"></td>
+                    <td><input type="text" name="phase4_remedial_class_mark_1" id=""></td>
+                    <td><input type="number" id="grade" name="phase4_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase4_remedial_remarks_1" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="learning_areas2" name="phase4_remedial_learning_areas_2"></td>
+                    <td><input type="number" id="grade" class="final_rating2" name="phase4_remedial_final_rating_2"></td>
+                    <td><input type="text" name="phase4_remedial_class_mark_2" id=""> </td>
+                    <td><input type="number" id="grade" name="phase4_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase4_remedial_remarks_2" id=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <input type="button" class="next-form text-end btn btn-success" style="float: right;" value="Next" />
+    </fieldset>
+    <fieldset>
+    <!-- Phase 5 -->
+    <p style="background:#c0c0c0; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">SCHOLASTIC RECORDS</p>
+    <div class="gen-container d-flex flex-row mt-0 pt-0">
+        <div class="form-container" style="padding: 0 7px 7px 0 ;">
+        <section class="header">
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>School:</label>
+                    <input type="text" id="text-only" name="phase5_name_of_school"  class="school">
+                </span>
+                <span>
+                    <label>School ID:</label>
+                    <input type="text" name="phase5_school_id" class="school_id">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>District:</label>
+                    <input type="text" class="w-50" name="phase5_district" class="district">
+                </span>
+                <span>
+                    <label>Division:</label>
+                    <input type="text" class="w-50" name="phase5_division" class="division">
+                </span>
+                <span class="text-end">
+                    <label>Region:</label>
+                    <input type="text" class="w-50" name="phase5_region" class="region">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>Classified as Grade:</label>
+                    <input type="number" id="number-only" style="width: 20%;" name="phase5_classified_as_grade">
+                </span>
+                <span>
+                    <label>Section:</label>
+                    <input type="text" class="w-50" name="phase5_section"> 
+                </span>
+                <span>
+                    <label>School Year:</label>
+                    <input type="text" class="w-50" name="phase5_school_year">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                <label for="">Name of Adviser:</label>
+                <input type="text" id="text-only" name="phase5_name_of_teacher">
+                </span>
+                <span>
+                    <label>Signature:</label>
+                    <input type="text" id="text-only" name="phase5_signature" class="school_id">
+                </span>
+            </span>
+        </section>
+        <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
+                    <th colspan="4">Quarterly Rating</th>
+                    <th rowspan="2">Final Rating</th>
+                    <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
+                </tr>
+                <tr style="width: 5%;">
+            
+                    <th><input type="hidden" value="1" readonly>1</th>
+                    <th><input type="hidden" value="2" readonly>2</th>
+                    <th><input type="hidden" value="3" readonly>3</th>
+                    <th><input type="hidden" value="4" readonly>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start fw-bold">Mother Tongue</td>
+                    <td><input type="number" name="term1_phase5_mother_tongue" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Filipino</td>
+                    <td><input type="number" name="term1_phase5_filipino" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Failed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">English</td>
+                    <td><input type="number" name="term1_phase5_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Retained</td>
+                </tr>
+                    <td class="text-start fw-bold">Mathematics</td>
+                    <td><input type="number" name="term1_phase5_mathematics" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Science</td>
+                    <td><input type="number" name="term1_phase5_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Araling Panlipunan</td>
+                    <td><input type="number" name="term1_phase5_araling_panlipunan" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">EPP/TLE</td>
+                    <td><input type="number" name="term1_phase5_epp_tle" id="grade"  title="Please input 2 Numbers only" ></td>           
+                    <td><input type="number" name="term2_phase5_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">MAPEH</td>
+                    <td><input type="text" name="term1_phase5_mapeh" readonly></td>
+                    <td><input type="text" name="term2_phase5_mapeh" readonly></td>
+                    <td><input type="text" name="term3_phase5_mapeh" readonly></td>
+                    <td><input type="text" name="term4_phase5_mapeh" readonly></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>               
+                    <td class="text-start"><i>Music</i></td>           
+                    <td><input type="number" name="term1_phase5_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Arts</i></td>
+                    <td><input type="number" name="term1_phase5_arts" id="grade" title="Please input 2 Numbers only" ></td>       
+                    <td><input type="number" name="term2_phase5_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_arts" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Physical Education</i></td>
+                    <td><input type="number" name="term1_phase5_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_pe"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Health</i></td>
+                    <td><input type="number" name="term1_phase5_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                    <td><input type="number" name="term1_phase5_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Arabic Language</td>        
+                    <td><input type="number" name="term1_phase5_arabic_language" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Islamic Values Education</td>
+                    <td><input type="number" name="term1_phase5_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase5_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase5_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase5_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">General Average</td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Remedial Table PHASE 5 -->
+        <table class="table-condensed text-center w-100">
+            <thead> 
+                <tr>
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="4">
+                        <span class="d-flex flex-row justify-content-between">
+                            <span>
+                                <label for="">Date conducted: </label>
+                                <input type="date" class="datefrom"  name="phase5_remedial_from">
+                            </span>
+                            <span>
+                                <label for="">To: </label>
+                                <input type="date" class="dateto" name="phase5_remedial_to" >
+                            </span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Learning Areas</th>
+                    <th>Final Rating</th>
+                    <th>Remarks</th>
+                    <th>Recomputed Final Grade</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="learning-areas1" name="phase5_remedial_learning_areas_1"></td>
+                    <td><input type="number" id="grade" class="final_rating1" name="phase5_remedial_final_rating_1"></td>
+                    <td><input type="text" name="phase5_remedial_class_mark_1" id=""></td>
+                    <td><input type="number" id="grade" name="phase1_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase5_remedial_remarks_1" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="learning_areas2" name="phase5_remedial_learning_areas_2"></td>
+                    <td><input type="number" id="grade" class="final_rating2" name="phase5_remedial_final_rating_2"></td>
+                    <td><input type="text" name="phase5_remedial_class_mark_2" id=""> </td>
+                    <td><input type="number" id="grade" name="phase5_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase5_remedial_remarks_2" id=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Phase 6 -->
+    <div class="form-container" style="padding:0 0 7px 7px;">
+        <section class="header">
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>School:</label>
+                    <input type="text" id="text-only" name="phase6_name_of_school"  class="school">
+                </span>
+                <span>
+                    <label>School ID:</label>
+                    <input type="text" name="phase6_school_id" class="school_id">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>District:</label>
+                    <input type="text" class="w-50" name="phase6_district" class="district">
+                </span>
+                <span>
+                    <label>Division:</label>
+                    <input type="text" class="w-50" name="phase6_division" class="division">
+                </span>
+                <span class="text-end">
+                    <label>Region:</label>
+                    <input type="text" class="w-50" name="phase6_region" class="region">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>Classified as Grade:</label>
+                    <input type="number" id="number-only" style="width: 20%;" name="phase6_classified_as_grade">
+                </span>
+                <span>
+                    <label>Section:</label>
+                    <input type="text" class="w-50" name="phase6_section"> 
+                </span>
+                <span>
+                    <label>School Year:</label>
+                    <input type="text" class="w-50" name="phase6_school_year">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                <label for="">Name of Adviser:</label>
+                <input type="text" id="text-only" name="phase6_name_of_teacher">
+                </span>
+                <span>
+                    <label>Signature:</label>
+                    <input type="text" id="text-only" name="phase6_signature" class="school_id">
+                </span>
+            </span>
+        </section>
+        <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
+                    <th colspan="4">Quarterly Rating</th>
+                    <th rowspan="2">Final Rating</th>
+                    <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
+                </tr>
+                <tr style="width: 5%;">
+                    <th><input type="hidden" value="1" readonly>1</th>
+                    <th><input type="hidden" value="2" readonly>2</th>
+                    <th><input type="hidden" value="3" readonly>3</th>
+                    <th><input type="hidden" value="4" readonly>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start fw-bold">Mother Tongue</td>
+                    <td><input type="number" name="term1_phase6_mother_tongue" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Filipino</td>
+                    <td><input type="number" name="term1_phase6_filipino" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Failed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">English</td>
+                    <td><input type="number" name="term1_phase6_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Retained</td>
+                </tr>
+                    <td class="text-start fw-bold">Mathematics</td>
+                    <td><input type="number" name="term1_phase6_mathematics" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Science</td>
+                    <td><input type="number" name="term1_phase2_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Araling Panlipunan</td>
+                    <td><input type="number" name="term1_phase6_araling_panlipunan" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">EPP/TLE</td>
+                    <td><input type="number" name="term1_phase6_epp_tle" id="grade"  title="Please input 2 Numbers only" ></td>           
+                    <td><input type="number" name="term2_phase6_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">MAPEH</td>
+                    <td><input type="text" name="term1_phase2_mapeh" readonly></td>
+                    <td><input type="text" name="term2_phase2_mapeh" readonly></td>
+                    <td><input type="text" name="term3_phase2_mapeh" readonly></td>
+                    <td><input type="text" name="term4_phase2_mapeh" readonly></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>               
+                    <td class="text-start"><i>Music</i></td>           
+                    <td><input type="number" name="term1_phase6_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Arts</i></td>
+                    <td><input type="number" name="term1_phase6_arts" id="grade" title="Please input 2 Numbers only" ></td>       
+                    <td><input type="number" name="term2_phase6_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_arts" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Physical Education</i></td>
+                    <td><input type="number" name="term1_phase6_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_pe"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Health</i></td>
+                    <td><input type="number" name="term1_phase6_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                    <td><input type="number" name="term1_phase6_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Arabic Language</td>        
+                    <td><input type="number" name="term1_phase6_arabic_language" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Islamic Values Education</td>
+                    <td><input type="number" name="term1_phase6_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">General Average</td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Remedial Table PHASE 6 -->
+        <table class="table-condensed text-center w-100">
+            <thead> 
+                <tr>
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="4">
+                        <span class="d-flex flex-row justify-content-between">
+                            <span>
+                                <label for="">Date conducted: </label>
+                                <input type="date" class="datefrom"  name="phase6_remedial_from">
+                            </span>
+                            <span>
+                                <label for="">To: </label>
+                                <input type="date" class="dateto" name="phase6_remedial_to" >
+                            </span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Learning Areas</th>
+                    <th>Final Rating</th>
+                    <th>Remarks</th>
+                    <th>Recomputed Final Grade</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="learning-areas1" name="phase6_remedial_learning_areas_1"></td>
+                    <td><input type="number" id="grade" class="final_rating1" name="phase6_remedial_final_rating_1"></td>
+                    <td><input type="text" name="phase6_remedial_class_mark_1" id=""></td>
+                    <td><input type="number" id="grade" name="phase6_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase6_remedial_remarks_1" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="learning_areas2" name="phase6_remedial_learning_areas_2"></td>
+                    <td><input type="number" id="grade" class="final_rating2" name="phase6_remedial_final_rating_2"></td>
+                    <td><input type="text" name="phase6_remedial_class_mark_2" id=""> </td>
+                    <td><input type="number" id="grade" name="phase2_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase6_remedial_remarks_2" id=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    <div class="gen-container d-flex flex-row mt-0 pt-0">
+        <!-- Phase 7 -->
+        <div class="form-container" style="padding: 0 7px 7px 0 ;">
+        <section class="header">
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>School:</label>
+                    <input type="text" id="text-only" name="phase7_name_of_school"  class="school">
+                </span>
+                <span>
+                    <label>School ID:</label>
+                    <input type="text" name="phase7_school_id" class="school_id">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>District:</label>
+                    <input type="text" class="w-50" name="phase7_district" class="district">
+                </span>
+                <span>
+                    <label>Division:</label>
+                    <input type="text" class="w-50" name="phase7_division" class="division">
+                </span>
+                <span class="text-end">
+                    <label>Region:</label>
+                    <input type="text" class="w-50" name="phase7_region" class="region">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>Classified as Grade:</label>
+                    <input type="number" id="number-only" style="width: 20%;" name="phase7_classified_as_grade">
+                </span>
+                <span>
+                    <label>Section:</label>
+                    <input type="text" class="w-50" name="phas71_section"> 
+                </span>
+                <span>
+                    <label>School Year:</label>
+                    <input type="text" class="w-50" name="phase7_school_year">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                <label for="">Name of Adviser:</label>
+                <input type="text" id="text-only" name="phase7_name_of_teacher">
+                </span>
+                <span>
+                    <label>Signature:</label>
+                    <input type="text" id="text-only" name="phase7_signature" class="school_id">
+                </span>
+            </span>
+        </section>
+        <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
+                    <th colspan="4">Quarterly Rating</th>
+                    <th rowspan="2">Final Rating</th>
+                    <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
+                </tr>
+                <tr style="width: 5%;">
+            
+                    <th><input type="hidden" value="1" readonly>1</th>
+                    <th><input type="hidden" value="2" readonly>2</th>
+                    <th><input type="hidden" value="3" readonly>3</th>
+                    <th><input type="hidden" value="4" readonly>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start fw-bold">Mother Tongue</td>
+                    <td><input type="number" name="term1_phase7_mother_tongue" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Filipino</td>
+                    <td><input type="number" name="term1_phase7_filipino" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Failed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">English</td>
+                    <td><input type="number" name="term1_phase7_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Retained</td>
+                </tr>
+                    <td class="text-start fw-bold">Mathematics</td>
+                    <td><input type="number" name="term1_phase7_mathematics" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Science</td>
+                    <td><input type="number" name="term1_phase7_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Araling Panlipunan</td>
+                    <td><input type="number" name="term1_phase7_araling_panlipunan" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">EPP/TLE</td>
+                    <td><input type="number" name="term1_phase7_epp_tle" id="grade"  title="Please input 2 Numbers only" ></td>           
+                    <td><input type="number" name="term2_phase7_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">MAPEH</td>
+                    <td><input type="text" name="term1_phase7_mapeh" readonly></td>
+                    <td><input type="text" name="term2_phase7_mapeh" readonly></td>
+                    <td><input type="text" name="term3_phase7_mapeh" readonly></td>
+                    <td><input type="text" name="term4_phase7_mapeh" readonly></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>               
+                    <td class="text-start"><i>Music</i></td>           
+                    <td><input type="number" name="term1_phase7_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Arts</i></td>
+                    <td><input type="number" name="term1_phase7_arts" id="grade" title="Please input 2 Numbers only" ></td>       
+                    <td><input type="number" name="term2_phase7_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_arts" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Physical Education</i></td>
+                    <td><input type="number" name="term1_phase7_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_pe"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Health</i></td>
+                    <td><input type="number" name="term1_phase7_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                    <td><input type="number" name="term1_phase7_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Arabic Language</td>        
+                    <td><input type="number" name="term1_phase7_arabic_language" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Islamic Values Education</td>
+                    <td><input type="number" name="term1_phase7_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase7_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase7_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase7_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">General Average</td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Remedial Table PHASE 7 -->
+        <table class="table-condensed text-center w-100">
+            <thead> 
+                <tr>
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="4">
+                        <span class="d-flex flex-row justify-content-between">
+                            <span>
+                                <label for="">Date conducted: </label>
+                                <input type="date" class="datefrom"  name="phase7_remedial_from">
+                            </span>
+                            <span>
+                                <label for="">To: </label>
+                                <input type="date" class="dateto" name="phase7_remedial_to" >
+                            </span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Learning Areas</th>
+                    <th>Final Rating</th>
+                    <th>Remarks</th>
+                    <th>Recomputed Final Grade</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="learning-areas1" name="phase7_remedial_learning_areas_1"></td>
+                    <td><input type="number" id="grade" class="final_rating1" name="phase7_remedial_final_rating_1"></td>
+                    <td><input type="text" name="phase7_remedial_class_mark_1" id=""></td>
+                    <td><input type="number" id="grade" name="phase7_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase7_remedial_remarks_1" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="learning_areas2" name="phase7_remedial_learning_areas_2"></td>
+                    <td><input type="number" id="grade" class="final_rating2" name="phase7_remedial_final_rating_2"></td>
+                    <td><input type="text" name="phase7_remedial_class_mark_2" id=""> </td>
+                    <td><input type="number" id="grade" name="phase7_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase7_remedial_remarks_2" id=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Phase 8 -->
+    <div class="form-container" style="padding:0 0 7px 7px;">
+        <section class="header">
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>School:</label>
+                    <input type="text" id="text-only" name="phase8_name_of_school"  class="school">
+                </span>
+                <span>
+                    <label>School ID:</label>
+                    <input type="text" name="phase8_school_id" class="school_id">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>District:</label>
+                    <input type="text" class="w-50" name="phase8_district" class="district">
+                </span>
+                <span>
+                    <label>Division:</label>
+                    <input type="text" class="w-50" name="phase8_division" class="division">
+                </span>
+                <span class="text-end">
+                    <label>Region:</label>
+                    <input type="text" class="w-50" name="phase8_region" class="region">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                    <label>Classified as Grade:</label>
+                    <input type="number" id="number-only" style="width: 20%;" name="phase8_classified_as_grade">
+                </span>
+                <span>
+                    <label>Section:</label>
+                    <input type="text" class="w-50" name="phase8_section"> 
+                </span>
+                <span>
+                    <label>School Year:</label>
+                    <input type="text" class="w-50" name="phase8_school_year">
+                </span>
+            </span>
+            <span class="d-flex justify-content-between">
+                <span>
+                <label for="">Name of Adviser:</label>
+                <input type="text" id="text-only" name="phase8_name_of_teacher">
+                </span>
+                <span>
+                    <label>Signature:</label>
+                    <input type="text" id="text-only" name="phase8_signature" class="school_id">
+                </span>
+            </span>
+        </section>
+        <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
+                    <th colspan="4">Quarterly Rating</th>
+                    <th rowspan="2">Final Rating</th>
+                    <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
+                </tr>
+                <tr style="width: 5%;">
+                    <th><input type="hidden" value="1" readonly>1</th>
+                    <th><input type="hidden" value="2" readonly>2</th>
+                    <th><input type="hidden" value="3" readonly>3</th>
+                    <th><input type="hidden" value="4" readonly>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start fw-bold">Mother Tongue</td>
+                    <td><input type="number" name="term1_phase8_mother_tongue" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Filipino</td>
+                    <td><input type="number" name="term1_phase8_filipino" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_filipino" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Failed</td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">English</td>
+                    <td><input type="number" name="term1_phase8_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td>Retained</td>
+                </tr>
+                    <td class="text-start fw-bold">Mathematics</td>
+                    <td><input type="number" name="term1_phase8_mathematics" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Science</td>
+                    <td><input type="number" name="term1_phase8_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Araling Panlipunan</td>
+                    <td><input type="number" name="term1_phase8_araling_panlipunan" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">EPP/TLE</td>
+                    <td><input type="number" name="term1_phase8_epp_tle" id="grade"  title="Please input 2 Numbers only" ></td>           
+                    <td><input type="number" name="term2_phase8_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">MAPEH</td>
+                    <td><input type="text" name="term1_phase8_mapeh" readonly></td>
+                    <td><input type="text" name="term2_phase8_mapeh" readonly></td>
+                    <td><input type="text" name="term3_phase8_mapeh" readonly></td>
+                    <td><input type="text" name="term4_phase8_mapeh" readonly></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>               
+                    <td class="text-start"><i>Music</i></td>           
+                    <td><input type="number" name="term1_phase8_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_music" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Arts</i></td>
+                    <td><input type="number" name="term1_phase8_arts" id="grade" title="Please input 2 Numbers only" ></td>       
+                    <td><input type="number" name="term2_phase8_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_arts" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_arts"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Physical Education</i></td>
+                    <td><input type="number" name="term1_phase8_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_pe"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_pe" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start"><i>Health</i></td>
+                    <td><input type="number" name="term1_phase8_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_health" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                    <td><input type="number" name="term1_phase8_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_esp" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Arabic Language</td>        
+                    <td><input type="number" name="term1_phase8_arabic_language" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start">*Islamic Values Education</td>
+                    <td><input type="number" name="term1_phase8_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase8_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase8_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase8_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-start fw-bold">General Average</td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Remedial Table PHASE 8 -->
+        <table class="table-condensed text-center w-100">
+            <thead> 
+                <tr>
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="4">
+                        <span class="d-flex flex-row justify-content-between">
+                            <span>
+                                <label for="">Date conducted: </label>
+                                <input type="date" class="datefrom"  name="phase8_remedial_from">
+                            </span>
+                            <span>
+                                <label for="">To: </label>
+                                <input type="date" class="dateto" name="phase8_remedial_to" >
+                            </span>
+                        </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Learning Areas</th>
+                    <th>Final Rating</th>
+                    <th>Remarks</th>
+                    <th>Recomputed Final Grade</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="learning-areas1" name="phase8_remedial_learning_areas_1"></td>
+                    <td><input type="number" id="grade" class="final_rating1" name="phase8_remedial_final_rating_1"></td>
+                    <td><input type="text" name="phase8_remedial_class_mark_1" id=""></td>
+                    <td><input type="number" id="grade" name="phase2_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase8_remedial_remarks_1" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="learning_areas2" name="phase8_remedial_learning_areas_2"></td>
+                    <td><input type="number" id="grade" class="final_rating2" name="phase8_remedial_final_rating_2"></td>
+                    <td><input type="text" name="phase8_remedial_class_mark_2" id=""> </td>
+                    <td><input type="number" id="grade" name="phase8_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="text" name="phase8_remedial_remarks_2" id=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <input type="button" name="previous" style="float:left;" class="previous-form btn btn-light" value="Previous" />
+    <!-- <input type="button" class="next-form text-end btn btn-success" style="float: right;" value="Next" /> -->
+    <input type = "submit" name= "add" class="btn btn-success" style="float:right; border-radius:20px;" value = "Add Record"> 
+</fieldset>
+</div>
+
+<script src="src/js/number_limitation.js"></script>
+<script src="src/js/loading_screen.js"></script>
 </body>
 </html>
 
