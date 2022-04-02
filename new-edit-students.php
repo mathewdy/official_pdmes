@@ -52,22 +52,22 @@ include('connection.php');
             $efese_others = explode(',', $rows['others']);
             ?>
                     <label for="">LAST NAME:</label>
-                    <input type="text"  name="last_name" 
+                    <input type="text" id="text-only" name="last_name" 
                     value="<?php if(empty($rows['last_name'])){ echo "";}else{ echo $rows['last_name'];}?>" required>    
             </span>
             <span class="hstack d-flex align-items-center">
                 <label for="">FIRST NAME:</label>
-                <input type="text" name="first_name"
+                <input type="text" id="text-only" name="first_name"
                 value="<?php if(empty($rows['first_name'])){ echo "";}else{ echo $rows['first_name'];}?>" required>   
             </span>
             <span class="hstack d-flex align-items-center" >
                 <label for="">NAME EXTN. (Jr,I,II): </label>
-                <input type="text" name="suffix_name" 
+                <input type="text" id="text-only" name="suffix_name" 
                 value="<?php if(empty($rows['suffix'])){ echo "";}else{ echo $rows['suffix'];}?>">
             </span>
             <span class="hstack d-flex justify-content-end align-items-center">
                 <label for="">MIDDLE NAME: </label>
-                <input type="text" name="middle_name" 
+                <input type="text" id="text-only" name="middle_name" 
                 value="<?php if(empty($rows['middle_name'])){ echo "";}else{ echo $rows['middle_name'];}?>" required>                    
             </span>
         </section>
