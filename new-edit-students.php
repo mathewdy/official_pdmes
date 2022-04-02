@@ -52,22 +52,22 @@ include('connection.php');
             $efese_others = explode(',', $rows['others']);
             ?>
                     <label for="">LAST NAME:</label>
-                    <input type="text"  name="last_name" 
+                    <input type="text" id="text-only" name="last_name" 
                     value="<?php if(empty($rows['last_name'])){ echo "";}else{ echo $rows['last_name'];}?>" required>    
             </span>
             <span class="hstack d-flex align-items-center">
                 <label for="">FIRST NAME:</label>
-                <input type="text" name="first_name"
+                <input type="text" id="text-only" name="first_name"
                 value="<?php if(empty($rows['first_name'])){ echo "";}else{ echo $rows['first_name'];}?>" required>   
             </span>
             <span class="hstack d-flex align-items-center" >
                 <label for="">NAME EXTN. (Jr,I,II): </label>
-                <input type="text" name="suffix_name" 
+                <input type="text" id="text-only" name="suffix_name" 
                 value="<?php if(empty($rows['suffix'])){ echo "";}else{ echo $rows['suffix'];}?>">
             </span>
             <span class="hstack d-flex justify-content-end align-items-center">
                 <label for="">MIDDLE NAME: </label>
-                <input type="text" name="middle_name" 
+                <input type="text" id="text-only" name="middle_name" 
                 value="<?php if(empty($rows['middle_name'])){ echo "";}else{ echo $rows['middle_name'];}?>" required>                    
             </span>
         </section>
@@ -249,16 +249,17 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" class="w-50">Learner's Area</th>
+            <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
+            <th rowspan="2" style="width:14%;">Remarks</th>
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
-                <th class="w-10"><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
+                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
           </tr>
         </thead>
         <tbody>
@@ -296,6 +297,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td>Passed</td>
           </tr>
 
 
@@ -333,6 +335,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+            <td>Failed</td>
           </tr>
           <tr>
           <?php
@@ -368,9 +371,8 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+            <td>Retained</td>
           </tr>
-
-
           <tr>
           <?php
             $phase1_math = "SELECT * FROM student_grades
@@ -405,6 +407,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+            <td></td>
           </tr>
 
 
@@ -442,6 +445,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -479,6 +483,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -516,6 +521,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -552,6 +558,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -589,6 +596,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -626,6 +634,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -663,6 +672,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -700,6 +710,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -737,6 +748,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -748,7 +760,7 @@ include('connection.php');
             $query_phase1_arabic_lang= mysqli_query($conn, $phase1_arabic_lang) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Arabic Language</i></td>
+            <td class="text-start">*Arabic Language</td>
             <?php 
             if(mysqli_num_rows($query_phase1_arabic_lang) > 0){
             while($rows = mysqli_fetch_array($query_phase1_arabic_lang)){
@@ -774,6 +786,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -785,7 +798,7 @@ include('connection.php');
             $query_phase1_islamic_values= mysqli_query($conn, $phase1_islamic_values) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Islamic Values Education</i></td>
+            <td class="text-start">*Islamic Values Education</td>
             <?php 
             if(mysqli_num_rows($query_phase1_islamic_values) > 0){
             while($rows = mysqli_fetch_array($query_phase1_islamic_values)){
@@ -811,6 +824,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -1019,16 +1033,17 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" class="w-50">Learner's Area</th>
+          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
+            <th rowspan="2" style="width:14%;">Remarks</th>
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10">1</th>
-                <th class="w-10">2</th>
-                <th class="w-10">3</th>
-                <th class="w-10">4</th>
+                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
           </tr>
         </thead>
         <tbody>
@@ -1066,6 +1081,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1103,6 +1119,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
           <tr>
           <?php
@@ -1138,6 +1155,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1175,6 +1193,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1212,6 +1231,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1249,6 +1269,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1285,7 +1306,8 @@ include('connection.php');
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
           <?php }else{?>
             <td></td>
-          <?php } ?>
+          <?php } ?> 
+          <td></td>
           </tr>
 
 
@@ -1322,6 +1344,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1358,7 +1381,8 @@ include('connection.php');
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
           <?php }else{?>
             <td></td>
-          <?php } ?>
+          <?php } ?> 
+          <td></td>
           </tr>
 
 
@@ -1396,6 +1420,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -1433,6 +1458,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1470,6 +1496,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1506,7 +1533,8 @@ include('connection.php');
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
           <?php }else{?>
             <td></td>
-          <?php } ?>
+          <?php } ?> 
+            <td></td>
           </tr>
 
 
@@ -1544,6 +1572,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+            <td></td>
           </tr>
 
 
@@ -1581,6 +1610,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+            <td></td>
           </tr>
 
           
@@ -1789,16 +1819,17 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" class="w-50">Learner's Area</th>
+          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
+            <th rowspan="2" style="width:14%;">Remarks</th>
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10">1</th>
-                <th class="w-10">2</th>
-                <th class="w-10">3</th>
-                <th class="w-10">4</th>
+                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
           </tr>
         </thead>
         <tbody>
@@ -1836,6 +1867,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1873,6 +1905,8 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
+
           </tr>
           <tr>
           <?php
@@ -1908,6 +1942,8 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
+
           </tr>
 
 
@@ -1945,6 +1981,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -1982,6 +2019,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2019,6 +2057,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2056,6 +2095,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2092,6 +2132,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2129,6 +2170,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2166,6 +2208,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -2203,6 +2246,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2240,6 +2284,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2277,6 +2322,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2288,7 +2334,7 @@ include('connection.php');
             $query_phase3_arabic_lang= mysqli_query($conn, $phase3_arabic_lang) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Arabic Language</i></td>
+            <td class="text-start">*Arabic Language</td>
             <?php 
             if(mysqli_num_rows($query_phase3_arabic_lang) > 0){
             while($rows = mysqli_fetch_array($query_phase3_arabic_lang)){
@@ -2314,6 +2360,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2325,7 +2372,7 @@ include('connection.php');
             $query_phase3_islamic_values= mysqli_query($conn, $phase3_islamic_values) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Islamic Values Education</i></td>
+            <td class="text-start">*Islamic Values Education</td>
             <?php 
             if(mysqli_num_rows($query_phase3_islamic_values) > 0){
             while($rows = mysqli_fetch_array($query_phase3_islamic_values)){
@@ -2351,9 +2398,8 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
-          </tr>
-
-          
+          <td></td>
+          </tr>     
           <tr>
           <?php
             $phase3_general_average = "SELECT * FROM student_general_averages
@@ -2557,16 +2603,17 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" class="w-50">Learner's Area</th>
+          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
+            <th rowspan="2" style="width:14%;">Remarks</th>
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10">1</th>
-                <th class="w-10">2</th>
-                <th class="w-10">3</th>
-                <th class="w-10">4</th>
+                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
           </tr>
         </thead>
         <tbody>
@@ -2604,6 +2651,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2641,6 +2689,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
           <tr>
           <?php
@@ -2676,6 +2725,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2713,6 +2763,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2750,6 +2801,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2787,6 +2839,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2824,6 +2877,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2860,6 +2914,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2897,6 +2952,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -2934,6 +2990,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -2971,6 +3028,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3008,6 +3066,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3045,6 +3104,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3082,6 +3142,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3119,6 +3180,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -3331,16 +3393,17 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" class="w-50">Learner's Area</th>
+          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
+            <th rowspan="2" style="width:14%;">Remarks</th>
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10">1</th>
-                <th class="w-10">2</th>
-                <th class="w-10">3</th>
-                <th class="w-10">4</th>
+                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
           </tr>
         </thead>
         <tbody>
@@ -3378,6 +3441,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3415,6 +3479,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
           <tr>
           <?php
@@ -3450,6 +3515,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3487,6 +3553,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3524,6 +3591,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3561,6 +3629,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3598,6 +3667,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3635,8 +3705,6 @@ include('connection.php');
             <td></td>
           <?php } ?>
           </tr>
-
-
           <tr>
           <?php
             $phase5_music = "SELECT * FROM student_grades
@@ -3671,6 +3739,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3708,6 +3777,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -3745,6 +3815,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3782,6 +3853,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3819,6 +3891,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3856,6 +3929,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -3893,6 +3967,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -4099,16 +4174,17 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" class="w-50">Learner's Area</th>
+          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
+            <th rowspan="2" style="width:14%;">Remarks</th>
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10">1</th>
-                <th class="w-10">2</th>
-                <th class="w-10">3</th>
-                <th class="w-10">4</th>
+                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
           </tr>
         </thead>
         <tbody>
@@ -4146,6 +4222,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4183,6 +4260,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
           <tr>
           <?php
@@ -4218,6 +4296,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4255,6 +4334,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4292,6 +4372,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4329,6 +4410,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4366,6 +4448,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4402,6 +4485,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4439,6 +4523,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4476,6 +4561,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -4513,6 +4599,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4550,6 +4637,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4587,6 +4675,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4598,7 +4687,7 @@ include('connection.php');
             $query_phase6_arabic_lang= mysqli_query($conn, $phase6_arabic_lang) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Arabic Language</i></td>
+            <td class="text-start">*Arabic Language</td>
             <?php 
             if(mysqli_num_rows($query_phase6_arabic_lang) > 0){
             while($rows = mysqli_fetch_array($query_phase6_arabic_lang)){
@@ -4624,6 +4713,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4635,7 +4725,7 @@ include('connection.php');
             $query_phase6_islamic_values= mysqli_query($conn, $phase6_islamic_values) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Islamic Values Education</i></td>
+            <td class="text-start">*Islamic Values Education</td>
             <?php 
             if(mysqli_num_rows($query_phase6_islamic_values) > 0){
             while($rows = mysqli_fetch_array($query_phase6_islamic_values)){
@@ -4661,6 +4751,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -4869,16 +4960,17 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" class="w-50">Learner's Area</th>
+          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
+            <th rowspan="2" style="width:14%;">Remarks</th>
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10">1</th>
-                <th class="w-10">2</th>
-                <th class="w-10">3</th>
-                <th class="w-10">4</th>
+                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
           </tr>
         </thead>
         <tbody>
@@ -4916,6 +5008,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -4953,6 +5046,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
           <tr>
           <?php
@@ -4988,6 +5082,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5025,6 +5120,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5062,6 +5158,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5099,6 +5196,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5136,6 +5234,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5172,6 +5271,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5209,6 +5309,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5246,6 +5347,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -5283,6 +5385,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5320,6 +5423,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5357,6 +5461,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5368,7 +5473,7 @@ include('connection.php');
             $query_phase7_arabic_lang= mysqli_query($conn, $phase7_arabic_lang) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Arabic Language</i></td>
+            <td class="text-start">*Arabic Language</td>
             <?php 
             if(mysqli_num_rows($query_phase7_arabic_lang) > 0){
             while($rows = mysqli_fetch_array($query_phase7_arabic_lang)){
@@ -5394,6 +5499,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5405,7 +5511,7 @@ include('connection.php');
             $query_phase7_islamic_values= mysqli_query($conn, $phase7_islamic_values) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Islamic Values Education</i></td>
+            <td class="text-start">*Islamic Values Education</td>
             <?php 
             if(mysqli_num_rows($query_phase7_islamic_values) > 0){
             while($rows = mysqli_fetch_array($query_phase7_islamic_values)){
@@ -5431,6 +5537,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -5637,16 +5744,17 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" class="w-50">Learner's Area</th>
+          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
+            <th rowspan="2" style="width:14%;">Remarks</th>
           </tr>
           <tr style="width: 5%;">
           
-                <th class="w-10">1</th>
-                <th class="w-10">2</th>
-                <th class="w-10">3</th>
-                <th class="w-10">4</th>
+                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
           </tr>
         </thead>
         <tbody>
@@ -5684,6 +5792,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5721,6 +5830,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
           <tr>
           <?php
@@ -5756,6 +5866,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5793,6 +5904,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5830,6 +5942,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5867,6 +5980,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5904,6 +6018,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5940,6 +6055,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -5977,6 +6093,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -6014,6 +6131,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
@@ -6051,6 +6169,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -6088,6 +6207,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -6125,6 +6245,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -6136,7 +6257,7 @@ include('connection.php');
             $query_phase8_arabic_lang= mysqli_query($conn, $phase8_arabic_lang) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Arabic Language</i></td>
+            <td class="text-start">*Arabic Language</td>
             <?php 
             if(mysqli_num_rows($query_phase8_arabic_lang) > 0){
             while($rows = mysqli_fetch_array($query_phase8_arabic_lang)){
@@ -6162,6 +6283,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
 
@@ -6173,7 +6295,7 @@ include('connection.php');
             $query_phase8_islamic_values= mysqli_query($conn, $phase8_islamic_values) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Islamic Values Education</i></td>
+            <td class="text-start">*Islamic Values Education</td>
             <?php 
             if(mysqli_num_rows($query_phase8_islamic_values) > 0){
             while($rows = mysqli_fetch_array($query_phase8_islamic_values)){
@@ -6199,6 +6321,7 @@ include('connection.php');
           <?php }else{?>
             <td></td>
           <?php } ?>
+          <td></td>
           </tr>
 
           
