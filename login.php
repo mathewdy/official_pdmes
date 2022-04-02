@@ -21,7 +21,7 @@ session_start();
     <label for="">Password</label>
     <input type="password" name="password"> <br>
 
-    <input type = "submit" name= "submit" value="submit" >
+    <input type = "submit" name= "submit" value="Login" >
 
 </form>
  <?php
@@ -38,7 +38,7 @@ session_start();
                     return  header("location: chngpass.php");
                 if (password_verify($password, $row['password'])){ 
                     $_SESSION['username'] = $username;
-                    header("location: sample.php");
+                    header("location: home.php");
                      die();
                     
                 } 

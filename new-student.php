@@ -4,6 +4,7 @@ ob_start();
 include('connection.php');
 session_start();
 date_default_timezone_set('Asia/Manila');
+include('security.php');
 
 ?>
 <?php include 'includes/header.php';?>
