@@ -24,11 +24,11 @@
                 $number++;
 
                 if($row ['total_remarks'] >= 3){
-                    echo "retained"; 
+                    echo "<h2> retained </h2> "; 
                 }else if ($row ['total_remarks'] == 2){
                     echo "Remedial";
                 }else if($row['total_remarks'] <= 1){
-                    echo "Promoted";
+                    echo " <h2> Promoted </h2>";
                 }
                 ?>
 

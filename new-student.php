@@ -5522,7 +5522,7 @@ if(isset($_POST['add'])){
 
 
     //CHECK DITO kung papasa si student, RETAINED, REMEDIAL OR PROMOTED
-    //if 3 bagsak pataas Retained
+    //if 3 bagsak pataas RETAINED
     // if 2 bagsak Remedial
     // if 1 or 0 Promoted
 
@@ -15029,11 +15029,11 @@ if($phase7_run_scholastic_records){
         foreach($run_total_remarks_phase1 as $row1){
 
             if($row1 ['total_remarks'] >= 3){
-                echo "retained"; 
+                echo "RETAINED"; 
             }else if ($row1 ['total_remarks'] == 2){
-                echo "Remedial";
+                echo "REMEDIAL";
             }else if($row1['total_remarks'] <= 1){
-                echo "Promoted";
+                echo "PROMOTED";
             }
         }
     }
@@ -15048,11 +15048,11 @@ if($phase7_run_scholastic_records){
         foreach($run_total_remarks_phase2 as $row2){
 
             if($row2 ['total_remarks'] >= 3){
-                echo "retained"; 
+                echo "RETAINED"; 
             }else if ($row2 ['total_remarks'] == 2){
-                echo "Remedial";
+                echo "REMEDIAL";
             }else if($row2 ['total_remarks'] <= 1){
-                echo "Promoted";
+                echo "PROMOTED";
             }
         }
     }
@@ -15066,11 +15066,11 @@ if($phase7_run_scholastic_records){
         foreach($run_total_remarks_phase3 as $row3){
 
             if($row3 ['total_remarks'] >= 3){
-                echo "retained"; 
+                echo "RETAINED"; 
             }else if ($row3 ['total_remarks'] == 2){
-                echo "Remedial";
+                echo "REMEDIAL";
             }else if($row3 ['total_remarks'] <= 1){
-                echo "Promoted";
+                echo "PROMOTED";
             }
         }
     }
@@ -15086,11 +15086,11 @@ if($phase7_run_scholastic_records){
         foreach($run_total_remarks_phase4 as $row4){
 
             if($row4 ['total_remarks'] >= 3){
-                echo "retained"; 
+                echo "RETAINED"; 
             }else if ($row4 ['total_remarks'] == 2){
-                echo "Remedial";
+                echo "REMEDIAL";
             }else if($row4 ['total_remarks'] <= 1){
-                echo "Promoted";
+                echo "PROMOTED";
             }
         }
     }
@@ -15105,11 +15105,11 @@ if($phase7_run_scholastic_records){
         foreach($run_total_remarks_phase5 as $row5){
 
             if($row5 ['total_remarks'] >= 3){
-                echo "retained"; 
+                echo "RETAINED"; 
             }else if ($row5 ['total_remarks'] == 2){
-                echo "Remedial";
+                echo "REMEDIAL";
             }else if($row5 ['total_remarks'] <= 1){
-                echo "Promoted";
+                echo "PROMOTED";
             }
         }
     }
@@ -15124,11 +15124,11 @@ if($phase7_run_scholastic_records){
         foreach($run_total_remarks_phase5 as $row6){
 
             if($row6 ['total_remarks'] >= 3){
-                echo "retained"; 
+                echo "RETAINED"; 
             }else if ($row6 ['total_remarks'] == 2){
-                echo "Remedial";
+                echo "REMEDIAL";
             }else if($row6 ['total_remarks'] <= 1){
-                echo "Promoted";
+                echo "PROMOTED";
             }
         }
     }
@@ -15143,11 +15143,11 @@ if($phase7_run_scholastic_records){
         foreach($run_total_remarks_phase5 as $row7){
 
             if($row7 ['total_remarks'] >= 3){
-                echo "retained"; 
+                echo "RETAINED"; 
             }else if ($row7 ['total_remarks'] == 2){
-                echo "Remedial";
+                echo "REMEDIAL";
             }else if($row7 ['total_remarks'] <= 1){
-                echo "Promoted";
+                echo "PROMOTED";
             }
         }
     }
@@ -15162,11 +15162,11 @@ if($phase7_run_scholastic_records){
         foreach($run_total_remarks_phase8 as $row8){
 
             if($row8 ['total_remarks'] >= 3){
-                echo "retained"; 
+                echo "RETAINED"; 
             }else if ($row8 ['total_remarks'] == 2){
-                echo "Remedial";
+                echo "REMEDIAL";
             }else if($row8 ['total_remarks'] <= 1){
-                echo "Promoted";
+                echo "PROMOTED";
             }
         }
     }
