@@ -1,5 +1,9 @@
 <?php
 // dali tangina mo ayusin mo na yung body and subject ng php mailer kasi pang tanga nilagay ko 
+
+
+
+////////////BABAGUHIN KAPAG NASA PDMES NA /////////////////////
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -93,6 +97,8 @@ if(isset($_POST['submit'])){
     $grades = $_POST['grades'];
       
 
+
+    ///////// USERS SA LAPTOP NI MAM///////////
     if ($grades == "prep"){
         $path = 'C:\Users\Thaddeus\Documents\files\prep/'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
