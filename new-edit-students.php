@@ -22,8 +22,11 @@ include('connection.php');
 
 <?php include 'includes/header.php';?>
 <link rel="stylesheet" href="src/css/phase-style.css">
+<link rel="stylesheet" href="src/css/loading-spinner.css">
 <?php include 'includes/topnav.php';?>
-
+<div id="loadingscreen" style="position:fixed; height:100%; width:100%; overflow:hidden; top:0; left:0; background:rgba(0, 0, 0, 0.5); display:grid; place-items:center;">
+  <div class="load-spinner"></div>
+</div>
 <div class="container-xl bg-white">
     <form novalidate action="new-edit-students.php" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
     <fieldset>
@@ -76,7 +79,6 @@ include('connection.php');
                 <label for="">Learner Reference Number (LRN):</label>
                 <input type="text" style="margin: 0 1em 0 0; width:30%;" name="lrn" 
                 value="<?php if(empty($rows['lrn'])){ echo "";}else{ echo $rows['lrn'];}?>" required>
-
                 <label for="">Birthdate (mm/dd/yyyy):</label>
                 <input type="date" name="birthday" value="<?php echo strftime('%Y-%m-%d', strtotime($rows['birth_date']));?>" required>  
             </span>
@@ -249,10 +251,10 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-            <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+            <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
+            <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
           </tr>
           <tr style="width: 5%;">
           
@@ -1019,10 +1021,10 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+          <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
+            <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
           </tr>
           <tr style="width: 5%;">
           
@@ -1532,7 +1534,7 @@ include('connection.php');
             $query_phase2_arabic_lang= mysqli_query($conn, $phase2_arabic_lang) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Arabic Language</i></td>
+            <td class="text-start">*Arabic Language</td>
             <?php 
             if(mysqli_num_rows($query_phase2_arabic_lang) > 0){
             while($rows = mysqli_fetch_array($query_phase2_arabic_lang)){
@@ -1570,7 +1572,7 @@ include('connection.php');
             $query_phase2_islamic_values= mysqli_query($conn, $phase2_islamic_values) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Islamic Values Education</i></td>
+            <td class="text-start">*Islamic Values Education</td>
             <?php 
             if(mysqli_num_rows($query_phase2_islamic_values) > 0){
             while($rows = mysqli_fetch_array($query_phase2_islamic_values)){
@@ -1791,10 +1793,10 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+          <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
+            <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
           </tr>
           <tr style="width: 5%;">
           
@@ -2561,10 +2563,10 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+          <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
+            <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
           </tr>
           <tr style="width: 5%;">
           
@@ -3074,7 +3076,7 @@ include('connection.php');
             $query_phase4_arabic_lang= mysqli_query($conn, $phase4_arabic_lang) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Arabic Language</i></td>
+            <td class="text-start">*Arabic Language</td>
             <?php 
             if(mysqli_num_rows($query_phase4_arabic_lang) > 0){
             while($rows = mysqli_fetch_array($query_phase4_arabic_lang)){
@@ -3112,7 +3114,7 @@ include('connection.php');
             $query_phase4_islamic_values= mysqli_query($conn, $phase4_islamic_values) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Islamic Values Education</i></td>
+            <td class="text-start">*Islamic Values Education</td>
             <?php 
             if(mysqli_num_rows($query_phase4_islamic_values) > 0){
             while($rows = mysqli_fetch_array($query_phase4_islamic_values)){
@@ -3337,10 +3339,10 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+          <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
+            <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
           </tr>
           <tr style="width: 5%;">
           
@@ -3847,7 +3849,7 @@ include('connection.php');
             $query_phase5_arabic_lang= mysqli_query($conn, $phase5_arabic_lang) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Arabic Language</i></td>
+            <td class="text-start">*Arabic Language</td>
             <?php 
             if(mysqli_num_rows($query_phase5_arabic_lang) > 0){
             while($rows = mysqli_fetch_array($query_phase5_arabic_lang)){
@@ -3885,7 +3887,7 @@ include('connection.php');
             $query_phase5_islamic_values= mysqli_query($conn, $phase5_islamic_values) or die (mysqli_error($conn));
             
             ?>
-            <td class="text-start"><i>Islamic Values Education</i></td>
+            <td class="text-start">*Islamic Values Education</td>
             <?php 
             if(mysqli_num_rows($query_phase5_islamic_values) > 0){
             while($rows = mysqli_fetch_array($query_phase5_islamic_values)){
@@ -4104,10 +4106,10 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+          <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
+            <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
           </tr>
           <tr style="width: 5%;">
           
@@ -4876,10 +4878,10 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+          <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
+            <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
           </tr>
           <tr style="width: 5%;">
           
@@ -5646,10 +5648,10 @@ include('connection.php');
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
           <tr>
-          <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+          <th rowspan="2" style="width:40%;"><h6 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">LEARNING AREAS</h6></th>
             <th colspan="4">Quarterly Rating</th>
             <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
+            <th rowspan="2" style="width:15%;"><h5 style="font-size:12pt; font-weight:600; padding:0 0 5px 0;">Remarks</h5></th>
           </tr>
           <tr style="width: 5%;">
           
@@ -6354,6 +6356,7 @@ include('connection.php');
 </div>
 <!-- <script src="src/js/stepper.js"></script> -->
 <script src="src/js/number_limitation.js"></script>
+<script src="src/js/loading_screen.js"></script>
 <?php
 include 'includes/footer.php';
 ?>
