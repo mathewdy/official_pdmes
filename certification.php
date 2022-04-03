@@ -64,6 +64,8 @@ date_default_timezone_set('Asia/Manila');
 <!-- character only -->
 <br>
 
+<label for="">Affix School Seal here</label>
+
 
 
 
@@ -88,8 +90,6 @@ date_default_timezone_set('Asia/Manila');
     $dateCreated = date("y-m-d h:i:a");
     $dateUpdated = date("y-m-d h:i:a");
     $remarks = 'none';
-
-
 
     $cert_query = "INSERT INTO `cetifications`(`lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `Name_of_Principal`, `remarks`, `date_time_created`, `date_time_updated`) VALUES 
     ('$lrn','$name','$grade','$school','$school_id','$division','$last_school','$date', '$name_of_principal','$remarks','$dateCreated','$dateUpdated')" ;

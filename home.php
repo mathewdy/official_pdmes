@@ -30,8 +30,7 @@ $start_from = ($page-1)*10;
 <body>
 
 <br>
-<a href="home.php">Home</a>
-<a href="logout.php">Logout</a>
+
 
 
 <form action="" method="POST">
@@ -55,7 +54,7 @@ $start_from = ($page-1)*10;
     <tbody>
         <?php
 
-            $query = "SELECT * FROM learners_personal_infos";
+            $query = "SELECT * FROM `learners_personal_infos` ORDER BY last_name";
             $run = mysqli_query($conn,$query);
 
             if(mysqli_num_rows($run) > 0){
@@ -72,6 +71,7 @@ $start_from = ($page-1)*10;
                             <td>
                                 <a href="">Edit</a>
                                 <a href="">Delete</a>
+                                <a href="">View</a>
                             </td>
                         </tr>
 
