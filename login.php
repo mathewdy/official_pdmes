@@ -4,33 +4,45 @@ session_start();
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="src/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="src/css/login.css">
+    <title>Login</title>
 </head>
-<body> 
-<form action = "" method = "POST"> 
-
-
-    <label for="">Username</label>
-    <input type="text" name="username"> <br>
-    <label for="">Password</label>
-    <input type="password" name="password"> <br>
-
-    <input type = "submit" name= "submit" value="submit" >
-
-</form>
+<body>
+<div class="container-fluid px-0 py-2 text-center text-white bg-success">
+    <p class="display-6 m-0">PLACIDO DEL MUNDO</p>
+    <p class="lead m-0">ELEMENTARY SCHOOL</p>
+    <p class="address">1116 Quirino Hwy, Novaliches, Quezon City, 1116 Metro Manila</p>
+</div>
+<div class="form-container container-lg mt-0 d-flex flex-column justify-content-center align-items-center text-center">
+    <form action="#" method="POST" class="login-form">
+        <span class="form-header">
+            <h1 class="header-text bg-success display-6">SIGN IN</h5>
+        </span>
+        <span class="input-boxes">
+            <input type="text" class="form-control" name="username" placeholder="USERNAME" required >
+            <input type="password" class="form-control" name="password" placeholder="PASSWORD" required>
+            <input type="submit" name="submit" value="SUBMIT">
+        </span>
+    </form>
+</div>
+<?php
+include "includes/footer.php";
+?>
  <?php
    if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        
-        $query="SELECT`username`, `password` FROM `admin` WHERE username = '$username'";
+
+        $query="SELECT username, password FROM admin WHERE username = '$username'";
         $result = mysqli_query($conn,$query);
         if (mysqli_num_rows($result)>0){
             while($row=mysqli_fetch_assoc($result)){
@@ -38,34 +50,15 @@ session_start();
                     return  header("location: chngpass.php");
                 if (password_verify($password, $row['password'])){ 
                     $_SESSION['username'] = $username;
-                    header("location: sample.php");
+                    header("location: home.php");
                      die();
-                    
+
                 } 
                 else{
                     echo '<script>alert("Incorrect credentials")</script>' ; 
                 }
-            
-                
-                
-        
-
-                
-
-                
-                    
-                
 
 
-                
-                   
-                
-
-                
-
-        
-
-       
     }
 
     }
@@ -74,6 +67,6 @@ session_start();
 
 ?> 
 
-  
+
 </body>
 </html>

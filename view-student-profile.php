@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 include('connection.php');
-
+include('security.php');
 
 // if(empty($_SESSION['username'])){
 //     echo "<script>window.location.href='login.php' </script>";
