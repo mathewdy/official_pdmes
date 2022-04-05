@@ -867,7 +867,7 @@ include('connection.php');
           
           <tr>
             <?php
-            $phase1_general_average = "SELECT * FROM student_general_averages
+            $phase1_general_average = "SELECT general_average FROM student_general_averages
             WHERE lrn = '109857060083' AND phase = '1'";
             $query_phase1_general_average = mysqli_query($conn, $phase1_general_average);
             ?>
@@ -1668,7 +1668,7 @@ include('connection.php');
           
           <tr>
           <?php
-            $phase2_general_average = "SELECT * FROM student_general_averages
+            $phase2_general_average = "SELECT general_average FROM student_general_averages
             WHERE lrn = '109857060083' AND phase = '2'";
             $query_phase2_general_average = mysqli_query($conn, $phase2_general_average);
             ?>
@@ -2469,7 +2469,7 @@ include('connection.php');
           </tr>     
           <tr>
           <?php
-            $phase3_general_average = "SELECT * FROM student_general_averages
+            $phase3_general_average = "SELECT general_average FROM student_general_averages
             WHERE lrn = '109857060083' AND phase = '3'";
             $query_phase3_general_average = mysqli_query($conn, $phase3_general_average);
             ?>
@@ -3268,7 +3268,7 @@ include('connection.php');
           
           <tr>
           <?php
-            $phase4_general_average = "SELECT * FROM student_general_averages
+            $phase4_general_average = "SELECT general_average FROM student_general_averages
             WHERE lrn = '109857060083' AND phase = '4'";
             $query_phase4_general_average = mysqli_query($conn, $phase4_general_average);
             ?>
@@ -4071,7 +4071,7 @@ include('connection.php');
           
           <tr>
           <?php
-            $phase5_general_average = "SELECT * FROM student_general_averages
+            $phase5_general_average = "SELECT general_average FROM student_general_averages
             WHERE lrn = '109857060083' AND phase = '5'";
             $query_phase5_general_average = mysqli_query($conn, $phase5_general_average);
             ?>
@@ -4869,7 +4869,7 @@ include('connection.php');
           
           <tr>
           <?php
-            $phase6_general_average = "SELECT * FROM student_general_averages
+            $phase6_general_average = "SELECT general_average FROM student_general_averages
             WHERE lrn = '109857060083' AND phase = '6'";
             $query_phase6_general_average = mysqli_query($conn, $phase6_general_average);
             ?>
@@ -5670,7 +5670,7 @@ include('connection.php');
           
           <tr>
           <?php
-            $phase7_general_average = "SELECT * FROM student_general_averages
+            $phase7_general_average = "SELECT general_average FROM student_general_averages
             WHERE lrn = '109857060083' AND phase = '7'";
             $query_phase7_general_average = mysqli_query($conn, $phase7_general_average);
             ?>
@@ -6469,7 +6469,7 @@ include('connection.php');
           
           <tr>
           <?php
-            $phase8_general_average = "SELECT * FROM student_general_averages
+            $phase8_general_average = "SELECT general_average FROM student_general_averages
             WHERE lrn = '109857060083' AND phase = '8'";
             $query_phase8_general_average = mysqli_query($conn, $phase8_general_average);
             ?>
@@ -6628,17 +6628,33 @@ if(isset($_POST['update'])){
     $sex = ucwords($_POST['sex']);
 
     // Eligibility for Elem School Enrollment
-    $credential_presented = implode(', ', $_POST['credential_presented']);
     $efese_name_of_school = strtoupper($_POST['efese_name_of_school']);
     $efese_school_id = strtoupper($_POST['efese_school_id']);
     $efese_address_of_school = strtoupper($_POST['efese_address_of_school']);
-    $pept_passer = $_POST['pept_passer'];
     $efese_rating = $_POST['efese_rating'];
     $date_of_assessment = $_POST['date_of_assessment'];
-    $efese_others = $_POST['efese_others'];
     $efese_specify = $_POST['efese_specify'];
     $efese_testing_center = strtoupper($_POST['efese_testing_center']);
     $efese_remarks = $_POST['efese_remarks'];
+
+    // CHECKING EFESE CREDENTIAL, PEPT PASSER, EFESE OTHERS
+    if(isset($_POST['credential_presented'])){
+      $credential_presented = implode(',', $_POST['credential_presented']);
+    }else{
+      $credential_presented = "none";
+    }
+
+    if(isset($_POST['pept_passer'])){
+      $pept_passer = $_POST['pept_passer'];
+    }else{
+      $pept_passer = 0;
+    }
+
+    if(isset($_POST['efese_others'])){
+      $efese_others = $_POST['efese_others'];
+    }else{
+      $efese_others = 0;
+    }
 
     // ARRAY, TERM 1-5 OF SCHOLASTIC RECORDS
     $sg_term = $_POST['sg_term'];
@@ -7372,31 +7388,31 @@ if(isset($_POST['update'])){
 
     
     // UPDATE SECTION OF STUDENT LEARNER PERSONAL INFO
-    // $update_student_learner_personal_infos = "UPDATE `learners_personal_infos` 
-    // SET `lrn`='$lrn',`last_name`='$last_name',
-    // `first_name`='$first_name',`middle_name`='$middle_name',
-    // `suffix`='$suffix',`birth_date`='$birthday',`sex`='$sex',
-    // `date_time_updated`='$date_time_updated' WHERE lrn = '$lrn'";
-    // $query_update_student_learner_personal_infos = mysqli_query($conn, $update_student_learner_personal_infos) or die (mysqli_error($conn));
-    // if($query_update_student_learner_personal_infos == true){
-    //   echo "Student Learning Personal Info Update Successfully";
-    // }else{
-    //   echo $conn->error;
-    // }
+    $update_student_learner_personal_infos = "UPDATE `learners_personal_infos` 
+    SET `lrn`='$lrn',`last_name`='$last_name',
+    `first_name`='$first_name',`middle_name`='$middle_name',
+    `suffix`='$suffix',`birth_date`='$birthday',`sex`='$sex',
+    `date_time_updated`='$date_time_updated' WHERE lrn = '$lrn'";
+    $query_update_student_learner_personal_infos = mysqli_query($conn, $update_student_learner_personal_infos) or die (mysqli_error($conn));
+    if($query_update_student_learner_personal_infos == true){
+      echo "Student Learning Personal Info Update Successfully";
+    }else{
+      echo $conn->error;
+    }
 
-    // // UPDATE SECTION OF STUDENT ELIGIBILITY FOR ELEM SCHOOL ENROLLMENT
-    // $update_student_efese = "UPDATE `eligibility_for_elementary_school_enrollment` SET `lrn`='$lrn',
-    // `credential_presented`='$credential_presented',`name_of_school`='$efese_name_of_school',`school_id`='$efese_school_id',
-    // `address_of_school`='$efese_address_of_school',`pept_passer`='$pept_passer',`rating`='$efese_rating',
-    // `date_of_assessment`='$date_of_assessment',`others`='$efese_others',`specify`='$efese_specify',
-    // `name_and_address_testing_center`='$efese_testing_center',`remarks`='$efese_remarks',
-    // `date_time_updated`='$date_time_updated' WHERE `lrn` = '$lrn'";
-    // $query_update_student_efese = mysqli_query($conn, $update_student_efese) or die (mysqli_error($conn));
-    // if($query_update_student_efese == true){
-    //   echo "Student Efese Successfully";
-    // }else{
-    //   echo $conn->error;
-    // }
+    // UPDATE SECTION OF STUDENT ELIGIBILITY FOR ELEM SCHOOL ENROLLMENT
+    $update_student_efese = "UPDATE `eligibility_for_elementary_school_enrollment` SET `lrn`='$lrn',
+    `credential_presented`='$credential_presented',`name_of_school`='$efese_name_of_school',`school_id`='$efese_school_id',
+    `address_of_school`='$efese_address_of_school',`pept_passer`='$pept_passer',`rating`='$efese_rating',
+    `date_of_assessment`='$date_of_assessment',`others`='$efese_others',`specify`='$efese_specify',
+    `name_and_address_testing_center`='$efese_testing_center',`remarks`='$efese_remarks',
+    `date_time_updated`='$date_time_updated' WHERE `lrn` = '$lrn'";
+    $query_update_student_efese = mysqli_query($conn, $update_student_efese) or die (mysqli_error($conn));
+    if($query_update_student_efese == true){
+      echo "Student Efese Successfully";
+    }else{
+      echo $conn->error;
+    }
 
     // UPDATE SECTION OF STUDENT SCHOLASTIC RECORDS
 
@@ -12062,9 +12078,9 @@ if(isset($_POST['update'])){
     // PHASE 1 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase1_round_off_ave_of_mother_tounge_grades = round($phase1_ave_of_mother_tounge_grades);
     if($phase1_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '1'";
@@ -12097,9 +12113,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_filipino_grades = round($phase1_ave_of_filipino_grades);
     if($phase1_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '1'";
@@ -12132,9 +12148,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_english_grades = round($phase1_ave_of_english_grades);
     if($phase1_round_off_ave_of_english_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '1'";
@@ -12167,9 +12183,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_math_grades = round($phase1_ave_of_math_grades);
     if($phase1_round_off_ave_of_math_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '1'";
@@ -12202,9 +12218,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_science_grades = round($phase1_ave_of_science_grades);
     if($phase1_round_off_ave_of_science_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '1'";
@@ -12237,9 +12253,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_araling_panlipunan_grades = round($phase1_ave_of_araling_panlipunan_grades);
     if($phase1_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '1'";
@@ -12272,9 +12288,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_epp_tle_grades = round($phase1_ave_of_epp_tle_grades);
     if($phase1_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '1'";
@@ -12314,9 +12330,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase1_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase1_finalrating_mapeh_grade >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $phase1_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '1'";
@@ -12352,9 +12368,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_music_grades = round($phase1_ave_of_music_grades);
     if($phase1_round_off_ave_of_music_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '1'";
@@ -12387,9 +12403,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_art_grades = round($phase1_ave_of_art_grades);
     if($phase1_round_off_ave_of_art_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '1'";
@@ -12422,9 +12438,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_pe_grades = round($phase1_ave_of_pe_grades);
     if($phase1_round_off_ave_of_pe_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '1'";
@@ -12457,9 +12473,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_health_grades = round($phase1_ave_of_health_grades);
     if($phase1_round_off_ave_of_health_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '1'";
@@ -12492,9 +12508,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_esp_grades = round($phase1_ave_of_esp_grades);
     if($phase1_round_off_ave_of_esp_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '1'";
@@ -12527,9 +12543,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_arabic_lang_grades = round($phase1_ave_of_arabic_lang_grades);
     if($phase1_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '1'";
@@ -12562,9 +12578,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_islamic_values_grades = round($phase1_ave_of_islamic_values_grades);
     if($phase1_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase1_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '1'";
@@ -12598,9 +12614,9 @@ if(isset($_POST['update'])){
     // PHASE 2 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase2_round_off_ave_of_mother_tounge_grades = round($phase2_ave_of_mother_tounge_grades);
     if($phase2_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '2'";
@@ -12633,9 +12649,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_filipino_grades = round($phase2_ave_of_filipino_grades);
     if($phase2_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '2'";
@@ -12668,9 +12684,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_english_grades = round($phase2_ave_of_english_grades);
     if($phase2_round_off_ave_of_english_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '2'";
@@ -12703,9 +12719,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_math_grades = round($phase2_ave_of_math_grades);
     if($phase2_round_off_ave_of_math_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '2'";
@@ -12738,9 +12754,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_science_grades = round($phase2_ave_of_science_grades);
     if($phase2_round_off_ave_of_science_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '2'";
@@ -12773,9 +12789,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_araling_panlipunan_grades = round($phase2_ave_of_araling_panlipunan_grades);
     if($phase2_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '2'";
@@ -12808,9 +12824,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_epp_tle_grades = round($phase2_ave_of_epp_tle_grades);
     if($phase2_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '2'";
@@ -12850,9 +12866,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase2_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase2_finalrating_mapeh_grade >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $phase2_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '2'";
@@ -12888,9 +12904,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_music_grades = round($phase2_ave_of_music_grades);
     if($phase2_round_off_ave_of_music_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '2'";
@@ -12923,9 +12939,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_art_grades = round($phase2_ave_of_art_grades);
     if($phase2_round_off_ave_of_art_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '2'";
@@ -12958,9 +12974,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_pe_grades = round($phase2_ave_of_pe_grades);
     if($phase2_round_off_ave_of_pe_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '2'";
@@ -12993,9 +13009,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_health_grades = round($phase2_ave_of_health_grades);
     if($phase2_round_off_ave_of_health_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '2'";
@@ -13028,9 +13044,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_esp_grades = round($phase2_ave_of_esp_grades);
     if($phase2_round_off_ave_of_esp_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '2'";
@@ -13063,9 +13079,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_arabic_lang_grades = round($phase2_ave_of_arabic_lang_grades);
     if($phase2_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '2'";
@@ -13098,9 +13114,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_islamic_values_grades = round($phase2_ave_of_islamic_values_grades);
     if($phase2_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase2_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '2'";
@@ -13134,9 +13150,9 @@ if(isset($_POST['update'])){
     // PHASE 3 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase3_round_off_ave_of_mother_tounge_grades = round($phase3_ave_of_mother_tounge_grades);
     if($phase3_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '3'";
@@ -13169,9 +13185,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_filipino_grades = round($phase3_ave_of_filipino_grades);
     if($phase3_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '3'";
@@ -13204,9 +13220,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_english_grades = round($phase3_ave_of_english_grades);
     if($phase3_round_off_ave_of_english_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '3'";
@@ -13239,9 +13255,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_math_grades = round($phase3_ave_of_math_grades);
     if($phase3_round_off_ave_of_math_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '3'";
@@ -13274,9 +13290,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_science_grades = round($phase3_ave_of_science_grades);
     if($phase3_round_off_ave_of_science_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '3'";
@@ -13309,9 +13325,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_araling_panlipunan_grades = round($phase3_ave_of_araling_panlipunan_grades);
     if($phase3_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '3'";
@@ -13344,9 +13360,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_epp_tle_grades = round($phase3_ave_of_epp_tle_grades);
     if($phase3_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '3'";
@@ -13386,9 +13402,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase3_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase3_finalrating_mapeh_grade >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $phase3_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '3'";
@@ -13424,9 +13440,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_music_grades = round($phase3_ave_of_music_grades);
     if($phase3_round_off_ave_of_music_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '3'";
@@ -13459,9 +13475,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_art_grades = round($phase3_ave_of_art_grades);
     if($phase3_round_off_ave_of_art_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '3'";
@@ -13494,9 +13510,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_pe_grades = round($phase3_ave_of_pe_grades);
     if($phase3_round_off_ave_of_pe_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '3'";
@@ -13529,9 +13545,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_health_grades = round($phase3_ave_of_health_grades);
     if($phase3_round_off_ave_of_health_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '3'";
@@ -13564,9 +13580,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_esp_grades = round($phase3_ave_of_esp_grades);
     if($phase3_round_off_ave_of_esp_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '3'";
@@ -13599,9 +13615,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_arabic_lang_grades = round($phase3_ave_of_arabic_lang_grades);
     if($phase3_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '3'";
@@ -13634,9 +13650,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_islamic_values_grades = round($phase3_ave_of_islamic_values_grades);
     if($phase3_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase3_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '3'";
@@ -13670,9 +13686,9 @@ if(isset($_POST['update'])){
     // PHASE 4 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase4_round_off_ave_of_mother_tounge_grades = round($phase4_ave_of_mother_tounge_grades);
     if($phase4_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '4'";
@@ -13705,9 +13721,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_filipino_grades = round($phase4_ave_of_filipino_grades);
     if($phase4_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '4'";
@@ -13740,9 +13756,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_english_grades = round($phase4_ave_of_english_grades);
     if($phase4_round_off_ave_of_english_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '4'";
@@ -13775,9 +13791,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_math_grades = round($phase4_ave_of_math_grades);
     if($phase4_round_off_ave_of_math_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '4'";
@@ -13810,9 +13826,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_science_grades = round($phase4_ave_of_science_grades);
     if($phase4_round_off_ave_of_science_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '4'";
@@ -13845,9 +13861,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_araling_panlipunan_grades = round($phase4_ave_of_araling_panlipunan_grades);
     if($phase4_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '4'";
@@ -13880,9 +13896,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_epp_tle_grades = round($phase4_ave_of_epp_tle_grades);
     if($phase4_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '4'";
@@ -13922,9 +13938,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase4_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase4_finalrating_mapeh_grade >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $phase4_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '4'";
@@ -13960,9 +13976,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_music_grades = round($phase4_ave_of_music_grades);
     if($phase4_round_off_ave_of_music_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '4'";
@@ -13995,9 +14011,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_art_grades = round($phase4_ave_of_art_grades);
     if($phase4_round_off_ave_of_art_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '4'";
@@ -14030,9 +14046,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_pe_grades = round($phase4_ave_of_pe_grades);
     if($phase4_round_off_ave_of_pe_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '4'";
@@ -14065,9 +14081,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_health_grades = round($phase4_ave_of_health_grades);
     if($phase4_round_off_ave_of_health_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '4'";
@@ -14100,9 +14116,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_esp_grades = round($phase4_ave_of_esp_grades);
     if($phase4_round_off_ave_of_esp_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '4'";
@@ -14135,9 +14151,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_arabic_lang_grades = round($phase4_ave_of_arabic_lang_grades);
     if($phase4_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '4'";
@@ -14170,9 +14186,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_islamic_values_grades = round($phase4_ave_of_islamic_values_grades);
     if($phase4_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase4_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '4'";
@@ -14206,9 +14222,9 @@ if(isset($_POST['update'])){
     // PHASE 5 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase5_round_off_ave_of_mother_tounge_grades = round($phase5_ave_of_mother_tounge_grades);
     if($phase5_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '5'";
@@ -14241,9 +14257,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_filipino_grades = round($phase5_ave_of_filipino_grades);
     if($phase5_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '5'";
@@ -14276,9 +14292,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_english_grades = round($phase5_ave_of_english_grades);
     if($phase5_round_off_ave_of_english_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '5'";
@@ -14311,9 +14327,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_math_grades = round($phase5_ave_of_math_grades);
     if($phase5_round_off_ave_of_math_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '5'";
@@ -14346,9 +14362,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_science_grades = round($phase5_ave_of_science_grades);
     if($phase5_round_off_ave_of_science_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '5'";
@@ -14381,9 +14397,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_araling_panlipunan_grades = round($phase5_ave_of_araling_panlipunan_grades);
     if($phase5_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '5'";
@@ -14416,9 +14432,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_epp_tle_grades = round($phase5_ave_of_epp_tle_grades);
     if($phase5_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '5'";
@@ -14458,9 +14474,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase5_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase5_finalrating_mapeh_grade >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $phase5_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5'";
@@ -14496,9 +14512,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_music_grades = round($phase5_ave_of_music_grades);
     if($phase5_round_off_ave_of_music_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '5'";
@@ -14531,9 +14547,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_art_grades = round($phase5_ave_of_art_grades);
     if($phase5_round_off_ave_of_art_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '5'";
@@ -14566,9 +14582,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_pe_grades = round($phase5_ave_of_pe_grades);
     if($phase5_round_off_ave_of_pe_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '5'";
@@ -14601,9 +14617,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_health_grades = round($phase5_ave_of_health_grades);
     if($phase5_round_off_ave_of_health_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '5'";
@@ -14636,9 +14652,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_esp_grades = round($phase5_ave_of_esp_grades);
     if($phase5_round_off_ave_of_esp_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '5'";
@@ -14671,9 +14687,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_arabic_lang_grades = round($phase5_ave_of_arabic_lang_grades);
     if($phase5_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '5'";
@@ -14706,9 +14722,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_islamic_values_grades = round($phase5_ave_of_islamic_values_grades);
     if($phase5_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase5_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '5'";
@@ -14742,9 +14758,9 @@ if(isset($_POST['update'])){
     // PHASE 6 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase6_round_off_ave_of_mother_tounge_grades = round($phase6_ave_of_mother_tounge_grades);
     if($phase6_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '6'";
@@ -14777,9 +14793,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_filipino_grades = round($phase6_ave_of_filipino_grades);
     if($phase6_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '6'";
@@ -14812,9 +14828,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_english_grades = round($phase6_ave_of_english_grades);
     if($phase6_round_off_ave_of_english_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '6'";
@@ -14847,9 +14863,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_math_grades = round($phase6_ave_of_math_grades);
     if($phase6_round_off_ave_of_math_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '6'";
@@ -14882,9 +14898,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_science_grades = round($phase6_ave_of_science_grades);
     if($phase6_round_off_ave_of_science_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '6'";
@@ -14917,9 +14933,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_araling_panlipunan_grades = round($phase6_ave_of_araling_panlipunan_grades);
     if($phase6_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '6'";
@@ -14952,9 +14968,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_epp_tle_grades = round($phase6_ave_of_epp_tle_grades);
     if($phase6_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '6'";
@@ -14994,9 +15010,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase6_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase6_finalrating_mapeh_grade >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $phase6_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6'";
@@ -15032,9 +15048,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_music_grades = round($phase6_ave_of_music_grades);
     if($phase6_round_off_ave_of_music_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '6'";
@@ -15067,9 +15083,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_art_grades = round($phase6_ave_of_art_grades);
     if($phase6_round_off_ave_of_art_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '6'";
@@ -15102,9 +15118,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_pe_grades = round($phase6_ave_of_pe_grades);
     if($phase6_round_off_ave_of_pe_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '6'";
@@ -15137,9 +15153,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_health_grades = round($phase6_ave_of_health_grades);
     if($phase6_round_off_ave_of_health_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '6'";
@@ -15172,9 +15188,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_esp_grades = round($phase6_ave_of_esp_grades);
     if($phase6_round_off_ave_of_esp_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '6'";
@@ -15207,9 +15223,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_arabic_lang_grades = round($phase6_ave_of_arabic_lang_grades);
     if($phase6_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '6'";
@@ -15242,9 +15258,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_islamic_values_grades = round($phase6_ave_of_islamic_values_grades);
     if($phase6_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase6_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '6'";
@@ -15278,9 +15294,9 @@ if(isset($_POST['update'])){
     // PHASE 7 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase7_round_off_ave_of_mother_tounge_grades = round($phase7_ave_of_mother_tounge_grades);
     if($phase7_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '7'";
@@ -15313,9 +15329,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_filipino_grades = round($phase7_ave_of_filipino_grades);
     if($phase7_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '7'";
@@ -15348,9 +15364,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_english_grades = round($phase7_ave_of_english_grades);
     if($phase7_round_off_ave_of_english_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '7'";
@@ -15383,9 +15399,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_math_grades = round($phase7_ave_of_math_grades);
     if($phase7_round_off_ave_of_math_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '7'";
@@ -15418,9 +15434,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_science_grades = round($phase7_ave_of_science_grades);
     if($phase7_round_off_ave_of_science_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '7'";
@@ -15453,9 +15469,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_araling_panlipunan_grades = round($phase7_ave_of_araling_panlipunan_grades);
     if($phase7_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '7'";
@@ -15488,9 +15504,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_epp_tle_grades = round($phase7_ave_of_epp_tle_grades);
     if($phase7_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '7'";
@@ -15530,9 +15546,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase7_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase7_finalrating_mapeh_grade >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $phase7_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7'";
@@ -15568,9 +15584,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_music_grades = round($phase7_ave_of_music_grades);
     if($phase7_round_off_ave_of_music_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '7'";
@@ -15603,9 +15619,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_art_grades = round($phase7_ave_of_art_grades);
     if($phase7_round_off_ave_of_art_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '7'";
@@ -15638,9 +15654,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_pe_grades = round($phase7_ave_of_pe_grades);
     if($phase7_round_off_ave_of_pe_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '7'";
@@ -15673,9 +15689,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_health_grades = round($phase7_ave_of_health_grades);
     if($phase7_round_off_ave_of_health_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '7'";
@@ -15708,9 +15724,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_esp_grades = round($phase7_ave_of_esp_grades);
     if($phase7_round_off_ave_of_esp_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '7'";
@@ -15743,9 +15759,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_arabic_lang_grades = round($phase7_ave_of_arabic_lang_grades);
     if($phase7_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '7'";
@@ -15778,9 +15794,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_islamic_values_grades = round($phase7_ave_of_islamic_values_grades);
     if($phase7_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase7_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '7'";
@@ -15814,9 +15830,9 @@ if(isset($_POST['update'])){
     // PHASE 8 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase8_round_off_ave_of_mother_tounge_grades = round($phase8_ave_of_mother_tounge_grades);
     if($phase8_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '8'";
@@ -15849,9 +15865,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_filipino_grades = round($phase8_ave_of_filipino_grades);
     if($phase8_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '8'";
@@ -15884,9 +15900,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_english_grades = round($phase8_ave_of_english_grades);
     if($phase8_round_off_ave_of_english_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '8'";
@@ -15919,9 +15935,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_math_grades = round($phase8_ave_of_math_grades);
     if($phase8_round_off_ave_of_math_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '8'";
@@ -15954,9 +15970,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_science_grades = round($phase8_ave_of_science_grades);
     if($phase8_round_off_ave_of_science_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '8'";
@@ -15989,9 +16005,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_araling_panlipunan_grades = round($phase8_ave_of_araling_panlipunan_grades);
     if($phase8_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '8'";
@@ -16024,9 +16040,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_epp_tle_grades = round($phase8_ave_of_epp_tle_grades);
     if($phase8_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '8'";
@@ -16066,9 +16082,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase8_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase8_finalrating_mapeh_grade >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $phase8_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8'";
@@ -16104,9 +16120,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_music_grades = round($phase8_ave_of_music_grades);
     if($phase8_round_off_ave_of_music_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '8'";
@@ -16139,9 +16155,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_art_grades = round($phase8_ave_of_art_grades);
     if($phase8_round_off_ave_of_art_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '8'";
@@ -16174,9 +16190,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_pe_grades = round($phase8_ave_of_pe_grades);
     if($phase8_round_off_ave_of_pe_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '8'";
@@ -16209,9 +16225,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_health_grades = round($phase8_ave_of_health_grades);
     if($phase8_round_off_ave_of_health_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '8'";
@@ -16244,9 +16260,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_esp_grades = round($phase8_ave_of_esp_grades);
     if($phase8_round_off_ave_of_esp_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '8'";
@@ -16279,9 +16295,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_arabic_lang_grades = round($phase8_ave_of_arabic_lang_grades);
     if($phase8_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '8'";
@@ -16314,9 +16330,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_islamic_values_grades = round($phase8_ave_of_islamic_values_grades);
     if($phase8_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "Passed";
+        $remarks = "none";
     }else{
-        $remarks = "Failed";
+        $remarks = "none";
     }
     $phase8_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '8'";
@@ -16358,9 +16374,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_1);
         $phase1_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase1_gen_ave_term_1 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase1_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '1'";
@@ -16401,9 +16417,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_2);
         $phase1_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase1_gen_ave_term_2 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase1_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '1'";
@@ -16444,9 +16460,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_3);
         $phase1_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase1_gen_ave_term_3 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase1_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '1'";
@@ -16487,9 +16503,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_4);
         $phase1_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase1_gen_ave_term_4 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase1_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '1'";
@@ -16530,9 +16546,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_1);
         $phase2_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase2_gen_ave_term_1 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase2_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '2'";
@@ -16573,9 +16589,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_2);
         $phase2_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase2_gen_ave_term_2 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase2_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '2'";
@@ -16616,9 +16632,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_3);
         $phase2_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase2_gen_ave_term_3 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase2_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '2'";
@@ -16659,9 +16675,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_4);
         $phase2_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase2_gen_ave_term_4 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase2_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '2'";
@@ -16702,9 +16718,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_1);
         $phase3_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase3_gen_ave_term_1 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase3_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '3'";
@@ -16745,9 +16761,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_2);
         $phase3_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase3_gen_ave_term_2 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase3_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '3'";
@@ -16788,9 +16804,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_3);
         $phase3_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase3_gen_ave_term_3 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase3_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '3'";
@@ -16831,9 +16847,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_4);
         $phase3_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase3_gen_ave_term_4 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase3_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '3'";
@@ -16874,9 +16890,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_1);
         $phase4_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase4_gen_ave_term_1 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase4_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '4'";
@@ -16917,9 +16933,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_2);
         $phase4_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase4_gen_ave_term_2 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase4_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '4'";
@@ -16960,9 +16976,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_3);
         $phase4_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase4_gen_ave_term_3 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase4_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '4'";
@@ -17003,9 +17019,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_4);
         $phase4_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase4_gen_ave_term_4 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase4_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '4'";
@@ -17046,9 +17062,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_1);
         $phase5_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase5_gen_ave_term_1 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase5_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '5'";
@@ -17089,9 +17105,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_2);
         $phase5_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase5_gen_ave_term_2 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase5_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '5'";
@@ -17132,9 +17148,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_3);
         $phase5_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase5_gen_ave_term_3 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase5_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '5'";
@@ -17175,9 +17191,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_4);
         $phase5_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase5_gen_ave_term_4 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase5_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '5'";
@@ -17218,9 +17234,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_1);
         $phase6_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase6_gen_ave_term_1 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase6_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '6'";
@@ -17261,9 +17277,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_2);
         $phase6_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase6_gen_ave_term_2 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase6_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '6'";
@@ -17304,9 +17320,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_3);
         $phase6_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase6_gen_ave_term_3 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase6_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '6'";
@@ -17347,9 +17363,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_4);
         $phase6_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase6_gen_ave_term_4 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase6_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '6'";
@@ -17390,9 +17406,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_1);
         $phase7_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase7_gen_ave_term_1 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase7_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '7'";
@@ -17433,9 +17449,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_2);
         $phase7_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase7_gen_ave_term_2 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase7_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '7'";
@@ -17476,9 +17492,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_3);
         $phase7_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase7_gen_ave_term_3 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase7_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '7'";
@@ -17519,9 +17535,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_4);
         $phase7_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase7_gen_ave_term_4 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase7_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '7'";
@@ -17562,9 +17578,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_1);
         $phase8_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase8_gen_ave_term_1 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase8_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '8'";
@@ -17605,9 +17621,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_2);
         $phase8_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase8_gen_ave_term_2 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase8_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '8'";
@@ -17648,9 +17664,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_3);
         $phase8_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase8_gen_ave_term_3 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase8_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '8'";
@@ -17691,9 +17707,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_4);
         $phase8_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase8_gen_ave_term_4 >= 75){
-            $remarks = "Passed";
+            $remarks = "none";
         }else{
-            $remarks = "Failed";
+            $remarks = "none";
         }
         $check_phase8_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '8'";
@@ -17735,17 +17751,12 @@ if(isset($_POST['update'])){
     if($query_phase1_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase1_gen_ave_of_final_rating);
         $phase1_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        if($phase1_gen_ave_final_rating >= 75){
-            $remarks = "Passed";
-        }else{
-            $remarks = "Failed";
-        }
         $phase1_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '1'";
         $query_phase1_check_gen_ave_of_final_rating = mysqli_query($conn, $phase1_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase1_check_gen_ave_of_final_rating) > 0){
             $phase1_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
-            SET general_average = '$phase1_gen_ave_final_rating', remarks = '$remarks',
-            date_time_update = '$date_time_updated'
+            SET general_average = '$phase1_gen_ave_final_rating', remarks = 'none',
+            date_time_updated = '$date_time_updated'
             WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '1'";
             $query_phase1_update_gen_ave_final_rating = mysqli_query($conn, $phase1_update_gen_ave_of_final_rating);
             if($query_phase1_update_gen_ave_final_rating == true){
@@ -17756,7 +17767,7 @@ if(isset($_POST['update'])){
         }else{
             $phase1_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase1_gen_ave_final_rating','Final Rating', '1','$remarks','$date_time_created')";
+            ('109857060083','$phase1_gen_ave_final_rating','Final Rating', '1','none','$date_time_created')";
             $query_phase1_insert_gen_ave_final_rating = mysqli_query($conn, $phase1_insert_gen_ave_final_rating);
             if($query_phase1_insert_gen_ave_final_rating == true){
                 echo "Phase 1 Gen Average of Final Rating Inserted <br>";
@@ -17778,18 +17789,13 @@ if(isset($_POST['update'])){
     if($query_phase2_gen_ave_of_final_rating == true){
       $rows = mysqli_fetch_array($query_phase2_gen_ave_of_final_rating);
         $phase2_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        if($phase2_gen_ave_final_rating >= 75){
-            $remarks = "Passed";
-        }else{
-            $remarks = "Failed";
-        }
         $phase2_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '2'";
         $query_phase2_check_gen_ave_of_final_rating = mysqli_query($conn, $phase2_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase2_check_gen_ave_of_final_rating) > 0){
             $phase2_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
-            SET general_average = '$phase2_gen_ave_final_rating', remarks = '$remarks',
-            date_time_update = '$date_time_updated'
+            SET general_average = '$phase2_gen_ave_final_rating', remarks = 'none',
+            date_time_updated = '$date_time_updated'
             WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '2'";
             $query_phase2_update_gen_ave_final_rating = mysqli_query($conn, $phase2_update_gen_ave_of_final_rating);
             if($query_phase2_update_gen_ave_final_rating == true){
@@ -17800,7 +17806,7 @@ if(isset($_POST['update'])){
         }else{
             $phase2_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase2_gen_ave_final_rating','Final Rating', '2','$remarks','$date_time_created')";
+            ('109857060083','$phase2_gen_ave_final_rating','Final Rating', '2','none','$date_time_created')";
             $query_phase2_insert_gen_ave_final_rating = mysqli_query($conn, $phase2_insert_gen_ave_final_rating);
             if($query_phase2_insert_gen_ave_final_rating == true){
                 echo "Phase 2 Gen Average of Final Rating Inserted <br>";
@@ -17822,18 +17828,13 @@ if(isset($_POST['update'])){
     if($query_phase3_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase3_gen_ave_of_final_rating);
         $phase3_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        if($phase3_gen_ave_final_rating >= 75){
-            $remarks = "Passed";
-        }else{
-            $remarks = "Failed";
-        }
         $phase3_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '3'";
         $query_phase3_check_gen_ave_of_final_rating = mysqli_query($conn, $phase3_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase3_check_gen_ave_of_final_rating) > 0){
             $phase3_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
-            SET general_average = '$phase3_gen_ave_final_rating', remarks = '$remarks',
-            date_time_update = '$date_time_updated'
+            SET general_average = '$phase3_gen_ave_final_rating', remarks = 'none',
+            date_time_updated = '$date_time_updated'
             WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '3'";
             $query_phase3_update_gen_ave_final_rating = mysqli_query($conn, $phase3_update_gen_ave_of_final_rating);
             if($query_phase3_update_gen_ave_final_rating == true){
@@ -17844,7 +17845,7 @@ if(isset($_POST['update'])){
         }else{
             $phase3_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase3_gen_ave_final_rating','Final Rating', '3','$remarks','$date_time_created')";
+            ('109857060083','$phase3_gen_ave_final_rating','Final Rating', '3','none','$date_time_created')";
             $query_phase3_insert_gen_ave_final_rating = mysqli_query($conn, $phase3_insert_gen_ave_final_rating);
             if($query_phase3_insert_gen_ave_final_rating == true){
                 echo "Phase 3 Gen Average of Final Rating Inserted <br>";
@@ -17866,18 +17867,13 @@ if(isset($_POST['update'])){
     if($query_phase4_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase4_gen_ave_of_final_rating);
         $phase4_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        if($phase4_gen_ave_final_rating >= 75){
-            $remarks = "Passed";
-        }else{
-            $remarks = "Failed";
-        }
         $phase4_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '4'";
         $query_phase4_check_gen_ave_of_final_rating = mysqli_query($conn, $phase4_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase4_check_gen_ave_of_final_rating) > 0){
             $phase4_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
-            SET general_average = '$phase4_gen_ave_final_rating', remarks = '$remarks',
-            date_time_update = '$date_time_updated'
+            SET general_average = '$phase4_gen_ave_final_rating', remarks = 'none',
+            date_time_updated = '$date_time_updated'
             WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '4'";
             $query_phase4_update_gen_ave_final_rating = mysqli_query($conn, $phase4_update_gen_ave_of_final_rating);
             if($query_phase4_update_gen_ave_final_rating == true){
@@ -17888,7 +17884,7 @@ if(isset($_POST['update'])){
         }else{
             $phase4_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase4_gen_ave_final_rating','Final Rating', '4','$remarks','$date_time_created')";
+            ('109857060083','$phase4_gen_ave_final_rating','Final Rating', '4','none','$date_time_created')";
             $query_phase4_insert_gen_ave_final_rating = mysqli_query($conn, $phase4_insert_gen_ave_final_rating);
             if($query_phase4_insert_gen_ave_final_rating == true){
                 echo "Phase 4 Gen Average of Final Rating Inserted <br>";
@@ -17910,18 +17906,13 @@ if(isset($_POST['update'])){
     if($query_phase5_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase5_gen_ave_of_final_rating);
         $phase5_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        if($phase5_gen_ave_final_rating >= 75){
-            $remarks = "Passed";
-        }else{
-            $remarks = "Failed";
-        }
         $phase5_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '5'";
         $query_phase5_check_gen_ave_of_final_rating = mysqli_query($conn, $phase5_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase5_check_gen_ave_of_final_rating) > 0){
             $phase5_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
-            SET general_average = '$phase5_gen_ave_final_rating', remarks = '$remarks',
-            date_time_update = '$date_time_updated'
+            SET general_average = '$phase5_gen_ave_final_rating', remarks = 'none',
+            date_time_updated = '$date_time_updated'
             WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '5'";
             $query_phase5_update_gen_ave_final_rating = mysqli_query($conn, $phase5_update_gen_ave_of_final_rating);
             if($query_phase5_update_gen_ave_final_rating == true){
@@ -17932,7 +17923,7 @@ if(isset($_POST['update'])){
         }else{
             $phase5_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase5_gen_ave_final_rating','Final Rating', '5','$remarks','$date_time_created')";
+            ('109857060083','$phase5_gen_ave_final_rating','Final Rating', '5','none','$date_time_created')";
             $query_phase5_insert_gen_ave_final_rating = mysqli_query($conn, $phase5_insert_gen_ave_final_rating);
             if($query_phase5_insert_gen_ave_final_rating == true){
                 echo "Phase 5 Gen Average of Final Rating Inserted <br>";
@@ -17954,18 +17945,13 @@ if(isset($_POST['update'])){
     if($query_phase6_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase6_gen_ave_of_final_rating);
         $phase6_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        if($phase6_gen_ave_final_rating >= 75){
-            $remarks = "Passed";
-        }else{
-            $remarks = "Failed";
-        }
         $phase6_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '6'";
         $query_phase6_check_gen_ave_of_final_rating = mysqli_query($conn, $phase6_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase6_check_gen_ave_of_final_rating) > 0){
             $phase6_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
-            SET general_average = '$phase6_gen_ave_final_rating', remarks = '$remarks',
-            date_time_update = '$date_time_updated'
+            SET general_average = '$phase6_gen_ave_final_rating', remarks = 'none',
+            date_time_updated = '$date_time_updated'
             WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '6'";
             $query_phase6_update_gen_ave_final_rating = mysqli_query($conn, $phase6_update_gen_ave_of_final_rating);
             if($query_phase6_update_gen_ave_final_rating == true){
@@ -17976,7 +17962,7 @@ if(isset($_POST['update'])){
         }else{
             $phase6_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase6_gen_ave_final_rating','Final Rating', '6','$remarks','$date_time_created')";
+            ('109857060083','$phase6_gen_ave_final_rating','Final Rating', '6','none','$date_time_created')";
             $query_phase6_insert_gen_ave_final_rating = mysqli_query($conn, $phase6_insert_gen_ave_final_rating);
             if($query_phase6_insert_gen_ave_final_rating == true){
                 echo "Phase 6 Gen Average of Final Rating Inserted <br>";
@@ -17998,18 +17984,13 @@ if(isset($_POST['update'])){
     if($query_phase7_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase7_gen_ave_of_final_rating);
         $phase7_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        if($phase7_gen_ave_final_rating >= 75){
-            $remarks = "Passed";
-        }else{
-            $remarks = "Failed";
-        }
         $phase7_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '7'";
         $query_phase7_check_gen_ave_of_final_rating = mysqli_query($conn, $phase7_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase7_check_gen_ave_of_final_rating) > 0){
             $phase7_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
-            SET general_average = '$phase7_gen_ave_final_rating', remarks = '$remarks',
-            date_time_update = '$date_time_updated'
+            SET general_average = '$phase7_gen_ave_final_rating', remarks = 'none',
+            date_time_updated = '$date_time_updated'
             WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '7'";
             $query_phase7_update_gen_ave_final_rating = mysqli_query($conn, $phase7_update_gen_ave_of_final_rating);
             if($query_phase7_update_gen_ave_final_rating == true){
@@ -18020,7 +18001,7 @@ if(isset($_POST['update'])){
         }else{
             $phase7_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase7_gen_ave_final_rating','Final Rating', '7','$remarks','$date_time_created')";
+            ('109857060083','$phase7_gen_ave_final_rating','Final Rating', '7','none','$date_time_created')";
             $query_phase7_insert_gen_ave_final_rating = mysqli_query($conn, $phase7_insert_gen_ave_final_rating);
             if($query_phase7_insert_gen_ave_final_rating == true){
                 echo "Phase 7 Gen Average of Final Rating Inserted <br>";
@@ -18042,18 +18023,13 @@ if(isset($_POST['update'])){
     if($query_phase8_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase8_gen_ave_of_final_rating);
         $phase8_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        if($phase8_gen_ave_final_rating >= 75){
-            $remarks = "Passed";
-        }else{
-            $remarks = "Failed";
-        }
         $phase8_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '8'";
         $query_phase8_check_gen_ave_of_final_rating = mysqli_query($conn, $phase8_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase8_check_gen_ave_of_final_rating) > 0){
             $phase8_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
-            SET general_average = '$phase8_gen_ave_final_rating', remarks = '$remarks',
-            date_time_update = '$date_time_updated'
+            SET general_average = '$phase8_gen_ave_final_rating', remarks = 'none',
+            date_time_updated = '$date_time_updated'
             WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '8'";
             $query_phase8_update_gen_ave_final_rating = mysqli_query($conn, $phase8_update_gen_ave_of_final_rating);
             if($query_phase8_update_gen_ave_final_rating == true){
@@ -18064,7 +18040,7 @@ if(isset($_POST['update'])){
         }else{
             $phase8_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase8_gen_ave_final_rating','Final Rating', '8','$remarks','$date_time_created')";
+            ('109857060083','$phase8_gen_ave_final_rating','Final Rating', '8','none','$date_time_created')";
             $query_phase8_insert_gen_ave_final_rating = mysqli_query($conn, $phase8_insert_gen_ave_final_rating);
             if($query_phase8_insert_gen_ave_final_rating == true){
                 echo "Phase 8 Gen Average of Final Rating Inserted <br>";
