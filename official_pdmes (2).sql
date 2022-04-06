@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2022 at 08:39 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Apr 06, 2022 at 11:44 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,9 +48,16 @@ INSERT INTO `a` (`aaaaaa`, `name`, `name2`) VALUES
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+(1, 'ADMIN', '$2y$10$3mJukQfTTZO1EBEI8LgW9.I9zfje8E6cMjZGIUhsXKDy80Sl6ary2');
 
 -- --------------------------------------------------------
 
@@ -111,6 +118,31 @@ CREATE TABLE `eligibility_for_elementary_school_enrollment` (
 
 INSERT INTO `eligibility_for_elementary_school_enrollment` (`id`, `lrn`, `credential_presented`, `name_of_school`, `school_id`, `address_of_school`, `pept_passer`, `rating`, `date_of_assessment`, `others`, `specify`, `name_and_address_testing_center`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
 (94, '109857060083', 'Kinder progress report, ECCD Checklist, Kindergarten Certificate of Completion', 'PDMES', '1234', 'QUEZON CITY', '', '', 'Jan-01-1970', '', '', '', '', '2022-04-01 06:05:12', '2022-04-01 06:05:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+
+CREATE TABLE `history` (
+  `id` int(11) NOT NULL,
+  `lrn` varchar(50) NOT NULL,
+  `send_to` varchar(50) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `grade_level` varchar(50) NOT NULL,
+  `remarks` varchar(50) NOT NULL,
+  `date_time_created` varchar(50) NOT NULL,
+  `date_time_updated` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`id`, `lrn`, `send_to`, `subject`, `grade_level`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(1, '109857060083', 'asd', 'asd', 'asd', 'sent', 'Apr-03-2022 03:01:pm', '2022-04-03 15:06:21'),
+(2, '109857060083', 'ads', 'asd', 'asd', 'sent', 'Apr-03-2022 03:11:pm', '2022-04-03 15:08:21');
 
 -- --------------------------------------------------------
 
@@ -392,7 +424,7 @@ INSERT INTO `student_general_averages` (`id`, `lrn`, `general_average`, `term`, 
 (684, '109857060083', 82, '2', '1', ' none', '2022-04-01 06:05:12', '2022-04-01 06:05:12'),
 (685, '109857060083', 83, '3', '1', ' none', '2022-04-01 06:05:12', '2022-04-01 06:05:12'),
 (686, '109857060083', 84, '4', '1', ' none', '2022-04-01 06:05:12', '2022-04-01 06:05:12'),
-(687, '109857060083', 83, ' Final Rating', '1', 'none', '2022-04-01 06:05:12', '2022-04-01 06:05:12'),
+(687, '109857060083', 83, 'Final Rating', '1', 'none', '2022-04-01 06:05:12', '2022-04-01 06:05:12'),
 (688, '109857060083', 81, '1', '2', 'none', '2022-04-01 06:05:12', '2022-04-01 06:05:12'),
 (689, '109857060083', 82, '2', '2', ' none', '2022-04-01 06:05:12', '2022-04-01 06:05:12'),
 (690, '109857060083', 83, '3', '2', ' none', '2022-04-01 06:05:12', '2022-04-01 06:05:12'),
@@ -1000,6 +1032,13 @@ ALTER TABLE `eligibility_for_elementary_school_enrollment`
   ADD KEY `lrn` (`lrn`);
 
 --
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `lrn` (`lrn`);
+
+--
 -- Indexes for table `learners_personal_infos`
 --
 ALTER TABLE `learners_personal_infos`
@@ -1064,7 +1103,7 @@ ALTER TABLE `a`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cetifications`
@@ -1077,6 +1116,12 @@ ALTER TABLE `cetifications`
 --
 ALTER TABLE `eligibility_for_elementary_school_enrollment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `learners_personal_infos`
@@ -1135,6 +1180,12 @@ ALTER TABLE `cetifications`
 --
 ALTER TABLE `eligibility_for_elementary_school_enrollment`
   ADD CONSTRAINT `eligibility_for_elementary_school_enrollment_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `learners_personal_infos` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `history`
+--
+ALTER TABLE `history`
+  ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `learners_personal_infos` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `remedial_classes`
