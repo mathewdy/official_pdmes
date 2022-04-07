@@ -5137,7 +5137,33 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
             <td>'.$rows['remedial_class_mark'].'</td>
             <td>'.$rows['recomputed_final_grade'].'</td>
             </tr>
-            <tr>
+           
+
+            
+            
+
+          
+           
+           ';
+            
+        }
+
+    }
+    
+
+
+      // term 2
+      if($phase2_remedial_term == 2 ){
+
+        $phase2_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase2' AND term = '$phase2_remedial_term' ";
+    $phase2_run_query = mysqli_query($conn,$phase2_remedial_query);
+    if(mysqli_num_rows($phase2_run_query)> 0 ){
+        $rows = mysqli_fetch_array($phase2_run_query);
+        while(mysqli_fetch_array($phase2_run_query));
+
+
+      $html.='
+             <tr>
             <td>'.$rows['learning_areas'].'</td>
             <td>'.$rows['final_rating'].'</td>
             <td>'.$rows['remarks'].'</td>
@@ -5146,40 +5172,19 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
             </tr>
             </tbody>
 
-            
-            
 
-            
-            </table>
-           </div>
-           
-           ';
-            
-        }
+      </table>
+      </div>
 
+    
+      ';
+   
     }
+}
 
-            // term 2
-        if($phase2_remedial_term == 2 ){
-
-            $phase2_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase2' AND term = '$phase2_remedial_term' ";
-        $phase2_run_query = mysqli_query($conn,$phase2_remedial_query);
-        if(mysqli_num_rows($phase2_run_query)> 0 ){
-            $rows = mysqli_fetch_array($phase2_run_query);
-            while(mysqli_fetch_array($phase2_run_query));
-            $html.='
-           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
-           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
-           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
-           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
-
-           
-           </body>
-           ';
-        }
-
-        }
-
+      
+        
+      
     
 }// end of remedial phase 2 
     
