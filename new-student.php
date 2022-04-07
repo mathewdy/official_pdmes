@@ -5578,7 +5578,7 @@ if(isset($_POST['add'])){
 
                 //general averag of phase 1 term 5 
             $insert_phase1_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
-            VALUES ('$lrn','$phase1_term5_general_average', ' $phase1_term5','$phase1','$term1_phase1_remarks', '$dateCreated','$dateUpdated')";
+            VALUES ('$lrn','$phase1_term5_general_average', '$phase1_term5','$phase1','$term1_phase1_remarks', '$dateCreated','$dateUpdated')";
 
             $run_phase1_term5_general_average = mysqli_query($conn,$insert_phase1_term5_general_average);
 
@@ -6771,7 +6771,7 @@ if($phase2_run_scholastic_records){
 
         //general averag of phase 2 term 5 
     $insert_phase2_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
-    VALUES ('$lrn','$phase2_term5_general_average', ' $phase2_term5','$phase2','$term1_phase2_remarks', '$dateCreated','$dateUpdated')";
+    VALUES ('$lrn','$phase2_term5_general_average', '$phase2_term5','$phase2','$term1_phase2_remarks', '$dateCreated','$dateUpdated')";
 
     $run_phase2_term5_general_average = mysqli_query($conn,$insert_phase2_term5_general_average);
 
@@ -7948,7 +7948,7 @@ if($phase3_run_scholastic_records){
 
         //general average of phase 3 term 5 
     $insert_phase3_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
-    VALUES ('$lrn','$phase3_term5_general_average', ' $phase3_term5','$phase3','$term1_phase3_remarks', '$dateCreated','$dateUpdated')";
+    VALUES ('$lrn','$phase3_term5_general_average', '$phase3_term5','$phase3','$term1_phase3_remarks', '$dateCreated','$dateUpdated')";
 
     $run_phase3_term5_general_average = mysqli_query($conn,$insert_phase3_term5_general_average);
 
@@ -9114,7 +9114,7 @@ if($phase4_run_scholastic_records){
 
         //general averag of phase 4 term 5 
     $insert_phase4_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
-    VALUES ('$lrn','$phase4_term5_general_average', ' $phase4_term5','$phase4','$term1_phase4_remarks', '$dateCreated','$dateUpdated')";
+    VALUES ('$lrn','$phase4_term5_general_average', '$phase4_term5','$phase4','$term1_phase4_remarks', '$dateCreated','$dateUpdated')";
 
     $run_phase4_term5_general_average = mysqli_query($conn,$insert_phase4_term5_general_average);
 
@@ -10289,7 +10289,7 @@ if($phase5_run_scholastic_records){
 
         //general averag of phase 5 term 5 
     $insert_phase5_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
-    VALUES ('$lrn','$phase5_term5_general_average', ' $phase5_term5','$phase5','$term1_phase5_remarks', '$dateCreated','$dateUpdated')";
+    VALUES ('$lrn','$phase5_term5_general_average', '$phase5_term5','$phase5','$term1_phase5_remarks', '$dateCreated','$dateUpdated')";
 
     $run_phase5_term5_general_average = mysqli_query($conn,$insert_phase5_term5_general_average);
 
@@ -11456,7 +11456,7 @@ if($phase6_run_scholastic_records){
 
         //general averag of phase 6 term 5 
     $insert_phase6_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
-    VALUES ('$lrn','$phase6_term5_general_average', ' $phase6_term5','$phase6','$term1_phase6_remarks', '$dateCreated','$dateUpdated')";
+    VALUES ('$lrn','$phase6_term5_general_average', '$phase6_term5','$phase6','$term1_phase6_remarks', '$dateCreated','$dateUpdated')";
 
     $run_phase6_term5_general_average = mysqli_query($conn,$insert_phase6_term5_general_average);
 
@@ -12632,7 +12632,7 @@ if($phase7_run_scholastic_records){
 
         //general averag of phase 7 term 5 
     $insert_phase7_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
-    VALUES ('$lrn','$phase7_term5_general_average', ' $phase7_term5','$phase7','$term1_phase7_remarks', '$dateCreated','$dateUpdated')";
+    VALUES ('$lrn','$phase7_term5_general_average', '$phase7_term5','$phase7','$term1_phase7_remarks', '$dateCreated','$dateUpdated')";
 
     $run_phase7_term5_general_average = mysqli_query($conn,$insert_phase7_term5_general_average);
 
@@ -13816,7 +13816,7 @@ if($phase7_run_scholastic_records){
 
          //general averag of phase 8 term 5 
      $insert_phase8_term5_general_average = "INSERT INTO student_general_averages(lrn,general_average,term,phase,remarks,date_time_created,date_time_updated) 
-     VALUES ('$lrn','$phase8_term5_general_average', ' $phase8_term5','$phase8','$term1_phase8_remarks', '$dateCreated','$dateUpdated')";
+     VALUES ('$lrn','$phase8_term5_general_average', '$phase8_term5','$phase8','$term1_phase8_remarks', '$dateCreated','$dateUpdated')";
 
      $run_phase8_term5_general_average = mysqli_query($conn,$insert_phase8_term5_general_average);
 
