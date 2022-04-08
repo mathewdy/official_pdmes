@@ -896,7 +896,7 @@ include('connection.php');
         WHERE lrn = '109857060083' AND phase = '1'";
         $query_phase1_remedial_classes_dates = mysqli_query($conn, $phase1_remedial_classes_dates);
         if(mysqli_num_rows($query_phase1_remedial_classes_dates) > 0){
-          $date = mysqli_fetch_array($query_phase1_remedial_classes_dates);
+          $row = mysqli_fetch_array($query_phase1_remedial_classes_dates);
           ?>
           <table class="table-condensed text-center w-100">
         <thead> 
@@ -906,11 +906,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase1_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($date['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase1_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase1_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($date['date_to']));?>">
+                  <input type="date" class="dateto" name="phase1_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
                 </span>
               </span>
             </th>
@@ -18148,7 +18148,506 @@ if(isset($_POST['update'])){
 
 
     // PHASE 1 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
-    // LAST SHIT KO
+    $check_phase1_remedial_classes_line1 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '1' AND term = '1'";
+    $query_check_phase1_remedial_classes_line1 = mysqli_query($conn, $check_phase1_remedial_classes_line1);
+    if(mysqli_num_rows($query_check_phase1_remedial_classes_line1) > 0){
+        $update_phase1_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase1_date_from', 
+        date_to = '$phase1_date_to', learning_areas = '$phase1_learning_areas1', final_rating = '$phase1_final_rating1', 
+        remedial_class_mark = '$phase1_remedial_class_mark1', recomputed_final_grade = '$phase1_recomputed_final_grade1', 
+        remarks = '$phase1_remedial_remarks1', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '1' AND term = '1'";
+        $query_update_phase1_remedial_classes_line1 = mysqli_query($conn, $update_phase1_remedial_classes_line1);
+        if($query_update_phase1_remedial_classes_line1 == true){
+            echo "Phase 1 Line 1 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase1_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase1_date_from','$phase1_date_to', '$phase1_learning_areas1','$phase1_final_rating1',
+        '$phase1_remedial_class_mark1', '$phase1_recomputed_final_grade1','1','1','$phase1_remedial_remarks1','$date_time_created')";
+        $query_insert_phase1_remedial_classes_line1 = mysqli_query($conn, $insert_phase1_remedial_classes_line1);
+        if($query_insert_phase1_remedial_classes_line1 == true){
+            echo "Phase 1 Line 1 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+    $check_phase1_remedial_classes_line2 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '1' AND term = '2'";
+    $query_check_phase1_remedial_classes_line2 = mysqli_query($conn, $check_phase1_remedial_classes_line2);
+    if(mysqli_num_rows($query_check_phase1_remedial_classes_line2) > 0){
+        $update_phase1_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase1_date_from', 
+        date_to = '$phase1_date_to', learning_areas = '$phase1_learning_areas2', final_rating = '$phase1_final_rating2', 
+        remedial_class_mark = '$phase1_remedial_class_mark2', recomputed_final_grade = '$phase1_recomputed_final_grade2', 
+        remarks = '$phase1_remedial_remarks2', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '1' AND term = '2'";
+        $query_update_phase1_remedial_classes_line2 = mysqli_query($conn, $update_phase1_remedial_classes_line2);
+        if($query_update_phase1_remedial_classes_line2 == true){
+            echo "Phase 1 Line 2 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase1_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase1_date_from','$phase1_date_to', '$phase1_learning_areas2','$phase1_final_rating2',
+        '$phase1_remedial_class_mark2', '$phase1_recomputed_final_grade2','1','2','$phase1_remedial_remarks2','$date_time_created')";
+        $query_insert_phase1_remedial_classes_line2 = mysqli_query($conn, $insert_phase1_remedial_classes_line2);
+        if($query_insert_phase1_remedial_classes_line2 == true){
+            echo "Phase 1 Line 2 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+
+
+    // PHASE 2 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
+    $check_phase2_remedial_classes_line1 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '2' AND term = '1'";
+    $query_check_phase2_remedial_classes_line1 = mysqli_query($conn, $check_phase2_remedial_classes_line1);
+    if(mysqli_num_rows($query_check_phase2_remedial_classes_line1) > 0){
+        $update_phase2_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase2_date_from', 
+        date_to = '$phase2_date_to', learning_areas = '$phase2_learning_areas1', final_rating = '$phase2_final_rating1', 
+        remedial_class_mark = '$phase2_remedial_class_mark1', recomputed_final_grade = '$phase2_recomputed_final_grade1', 
+        remarks = '$phase2_remedial_remarks1', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '2' AND term = '1'";
+        $query_update_phase2_remedial_classes_line1 = mysqli_query($conn, $update_phase2_remedial_classes_line1);
+        if($query_update_phase2_remedial_classes_line1 == true){
+            echo "Phase 2 Line 1 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase2_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase2_date_from','$phase2_date_to', '$phase2_learning_areas1','$phase2_final_rating1',
+        '$phase2_remedial_class_mark1', '$phase2_recomputed_final_grade1','2','1','$phase2_remedial_remarks1','$date_time_created')";
+        $query_insert_phase2_remedial_classes_line1 = mysqli_query($conn, $insert_phase2_remedial_classes_line1);
+        if($query_insert_phase2_remedial_classes_line1 == true){
+            echo "Phase 2 Line 1 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+    $check_phase2_remedial_classes_line2 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '2' AND term = '2'";
+    $query_check_phase2_remedial_classes_line2 = mysqli_query($conn, $check_phase2_remedial_classes_line2);
+    if(mysqli_num_rows($query_check_phase2_remedial_classes_line2) > 0){
+        $update_phase2_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase2_date_from', 
+        date_to = '$phase2_date_to', learning_areas = '$phase2_learning_areas2', final_rating = '$phase2_final_rating2', 
+        remedial_class_mark = '$phase2_remedial_class_mark2', recomputed_final_grade = '$phase2_recomputed_final_grade2', 
+        remarks = '$phase2_remedial_remarks2', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '2' AND term = '2'";
+        $query_update_phase2_remedial_classes_line2 = mysqli_query($conn, $update_phase2_remedial_classes_line2);
+        if($query_update_phase2_remedial_classes_line2 == true){
+            echo "Phase 2 Line 2 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase2_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase2_date_from','$phase2_date_to', '$phase2_learning_areas2','$phase2_final_rating2',
+        '$phase2_remedial_class_mark2', '$phase2_recomputed_final_grade2','2','2','$phase2_remedial_remarks2','$date_time_created')";
+        $query_insert_phase2_remedial_classes_line2 = mysqli_query($conn, $insert_phase2_remedial_classes_line2);
+        if($query_insert_phase2_remedial_classes_line2 == true){
+            echo "Phase 2 Line 2 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+
+
+    // PHASE 3 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
+    $check_phase3_remedial_classes_line1 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '3' AND term = '1'";
+    $query_check_phase3_remedial_classes_line1 = mysqli_query($conn, $check_phase3_remedial_classes_line1);
+    if(mysqli_num_rows($query_check_phase3_remedial_classes_line1) > 0){
+        $update_phase3_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase3_date_from', 
+        date_to = '$phase3_date_to', learning_areas = '$phase3_learning_areas1', final_rating = '$phase3_final_rating1', 
+        remedial_class_mark = '$phase3_remedial_class_mark1', recomputed_final_grade = '$phase3_recomputed_final_grade1', 
+        remarks = '$phase3_remedial_remarks1', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '3' AND term = '1'";
+        $query_update_phase3_remedial_classes_line1 = mysqli_query($conn, $update_phase3_remedial_classes_line1);
+        if($query_update_phase3_remedial_classes_line1 == true){
+            echo "Phase 3 Line 1 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase3_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase3_date_from','$phase3_date_to', '$phase3_learning_areas1','$phase3_final_rating1',
+        '$phase3_remedial_class_mark1', '$phase3_recomputed_final_grade1','3','1','$phase3_remedial_remarks1','$date_time_created')";
+        $query_insert_phase3_remedial_classes_line1 = mysqli_query($conn, $insert_phase3_remedial_classes_line1);
+        if($query_insert_phase3_remedial_classes_line1 == true){
+            echo "Phase 3 Line 1 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+    $check_phase3_remedial_classes_line2 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '3' AND term = '2'";
+    $query_check_phase3_remedial_classes_line2 = mysqli_query($conn, $check_phase3_remedial_classes_line2);
+    if(mysqli_num_rows($query_check_phase3_remedial_classes_line2) > 0){
+        $update_phase3_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase3_date_from', 
+        date_to = '$phase3_date_to', learning_areas = '$phase3_learning_areas2', final_rating = '$phase3_final_rating2', 
+        remedial_class_mark = '$phase3_remedial_class_mark2', recomputed_final_grade = '$phase3_recomputed_final_grade2', 
+        remarks = '$phase3_remedial_remarks2', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '3' AND term = '2'";
+        $query_update_phase3_remedial_classes_line2 = mysqli_query($conn, $update_phase3_remedial_classes_line2);
+        if($query_update_phase3_remedial_classes_line2 == true){
+            echo "Phase 3 Line 2 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase3_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase3_date_from','$phase3_date_to', '$phase3_learning_areas2','$phase3_final_rating2',
+        '$phase3_remedial_class_mark2', '$phase3_recomputed_final_grade2','3','2','$phase3_remedial_remarks2','$date_time_created')";
+        $query_insert_phase3_remedial_classes_line2 = mysqli_query($conn, $insert_phase3_remedial_classes_line2);
+        if($query_insert_phase3_remedial_classes_line2 == true){
+            echo "Phase 3 Line 2 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+
+
+    // PHASE 4 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
+    $check_phase4_remedial_classes_line1 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '4' AND term = '1'";
+    $query_check_phase4_remedial_classes_line1 = mysqli_query($conn, $check_phase4_remedial_classes_line1);
+    if(mysqli_num_rows($query_check_phase4_remedial_classes_line1) > 0){
+        $update_phase4_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase4_date_from', 
+        date_to = '$phase4_date_to', learning_areas = '$phase4_learning_areas1', final_rating = '$phase4_final_rating1', 
+        remedial_class_mark = '$phase4_remedial_class_mark1', recomputed_final_grade = '$phase4_recomputed_final_grade1', 
+        remarks = '$phase4_remedial_remarks1', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '4' AND term = '1'";
+        $query_update_phase4_remedial_classes_line1 = mysqli_query($conn, $update_phase4_remedial_classes_line1);
+        if($query_update_phase4_remedial_classes_line1 == true){
+            echo "Phase 4 Line 1 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase4_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase4_date_from','$phase4_date_to', '$phase4_learning_areas1','$phase4_final_rating1',
+        '$phase4_remedial_class_mark1', '$phase4_recomputed_final_grade1','4','1','$phase4_remedial_remarks1','$date_time_created')";
+        $query_insert_phase4_remedial_classes_line1 = mysqli_query($conn, $insert_phase4_remedial_classes_line1);
+        if($query_insert_phase4_remedial_classes_line1 == true){
+            echo "Phase 4 Line 1 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+    $check_phase4_remedial_classes_line2 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '4' AND term = '2'";
+    $query_check_phase4_remedial_classes_line2 = mysqli_query($conn, $check_phase4_remedial_classes_line2);
+    if(mysqli_num_rows($query_check_phase4_remedial_classes_line2) > 0){
+        $update_phase4_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase4_date_from', 
+        date_to = '$phase4_date_to', learning_areas = '$phase4_learning_areas2', final_rating = '$phase4_final_rating2', 
+        remedial_class_mark = '$phase4_remedial_class_mark2', recomputed_final_grade = '$phase4_recomputed_final_grade2', 
+        remarks = '$phase4_remedial_remarks2', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '4' AND term = '2'";
+        $query_update_phase4_remedial_classes_line2 = mysqli_query($conn, $update_phase4_remedial_classes_line2);
+        if($query_update_phase4_remedial_classes_line2 == true){
+            echo "Phase 4 Line 2 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase4_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase4_date_from','$phase4_date_to', '$phase4_learning_areas2','$phase4_final_rating2',
+        '$phase4_remedial_class_mark2', '$phase4_recomputed_final_grade2','4','2','$phase4_remedial_remarks2','$date_time_created')";
+        $query_insert_phase4_remedial_classes_line2 = mysqli_query($conn, $insert_phase4_remedial_classes_line2);
+        if($query_insert_phase4_remedial_classes_line2 == true){
+            echo "Phase 4 Line 2 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+
+
+    // PHASE 5 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
+    $check_phase5_remedial_classes_line1 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '5' AND term = '1'";
+    $query_check_phase5_remedial_classes_line1 = mysqli_query($conn, $check_phase5_remedial_classes_line1);
+    if(mysqli_num_rows($query_check_phase5_remedial_classes_line1) > 0){
+        $update_phase5_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase5_date_from', 
+        date_to = '$phase5_date_to', learning_areas = '$phase5_learning_areas1', final_rating = '$phase5_final_rating1', 
+        remedial_class_mark = '$phase5_remedial_class_mark1', recomputed_final_grade = '$phase5_recomputed_final_grade1', 
+        remarks = '$phase5_remedial_remarks1', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '5' AND term = '1'";
+        $query_update_phase5_remedial_classes_line1 = mysqli_query($conn, $update_phase5_remedial_classes_line1);
+        if($query_update_phase5_remedial_classes_line1 == true){
+            echo "Phase 5 Line 1 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase5_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase5_date_from','$phase5_date_to', '$phase5_learning_areas1','$phase5_final_rating1',
+        '$phase5_remedial_class_mark1', '$phase5_recomputed_final_grade1','5','1','$phase5_remedial_remarks1','$date_time_created')";
+        $query_insert_phase5_remedial_classes_line1 = mysqli_query($conn, $insert_phase5_remedial_classes_line1);
+        if($query_insert_phase5_remedial_classes_line1 == true){
+            echo "Phase 5 Line 1 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+    $check_phase5_remedial_classes_line2 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '5' AND term = '2'";
+    $query_check_phase5_remedial_classes_line2 = mysqli_query($conn, $check_phase5_remedial_classes_line2);
+    if(mysqli_num_rows($query_check_phase5_remedial_classes_line2) > 0){
+        $update_phase5_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase5_date_from', 
+        date_to = '$phase5_date_to', learning_areas = '$phase5_learning_areas2', final_rating = '$phase5_final_rating2', 
+        remedial_class_mark = '$phase5_remedial_class_mark2', recomputed_final_grade = '$phase5_recomputed_final_grade2', 
+        remarks = '$phase5_remedial_remarks2', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '5' AND term = '2'";
+        $query_update_phase5_remedial_classes_line2 = mysqli_query($conn, $update_phase5_remedial_classes_line2);
+        if($query_update_phase5_remedial_classes_line2 == true){
+            echo "Phase 5 Line 2 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase5_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase5_date_from','$phase5_date_to', '$phase5_learning_areas2','$phase5_final_rating2',
+        '$phase5_remedial_class_mark2', '$phase5_recomputed_final_grade2','5','2','$phase5_remedial_remarks2','$date_time_created')";
+        $query_insert_phase5_remedial_classes_line2 = mysqli_query($conn, $insert_phase5_remedial_classes_line2);
+        if($query_insert_phase5_remedial_classes_line2 == true){
+            echo "Phase 5 Line 2 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+
+
+    // PHASE 6 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
+    $check_phase6_remedial_classes_line1 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '6' AND term = '1'";
+    $query_check_phase6_remedial_classes_line1 = mysqli_query($conn, $check_phase6_remedial_classes_line1);
+    if(mysqli_num_rows($query_check_phase6_remedial_classes_line1) > 0){
+        $update_phase6_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase6_date_from', 
+        date_to = '$phase6_date_to', learning_areas = '$phase6_learning_areas1', final_rating = '$phase6_final_rating1', 
+        remedial_class_mark = '$phase6_remedial_class_mark1', recomputed_final_grade = '$phase6_recomputed_final_grade1', 
+        remarks = '$phase6_remedial_remarks1', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '6' AND term = '1'";
+        $query_update_phase6_remedial_classes_line1 = mysqli_query($conn, $update_phase6_remedial_classes_line1);
+        if($query_update_phase6_remedial_classes_line1 == true){
+            echo "Phase 6 Line 1 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase6_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase6_date_from','$phase6_date_to', '$phase6_learning_areas1','$phase6_final_rating1',
+        '$phase6_remedial_class_mark1', '$phase6_recomputed_final_grade1','6','1','$phase6_remedial_remarks1','$date_time_created')";
+        $query_insert_phase6_remedial_classes_line1 = mysqli_query($conn, $insert_phase6_remedial_classes_line1);
+        if($query_insert_phase6_remedial_classes_line1 == true){
+            echo "Phase 6 Line 1 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+    $check_phase6_remedial_classes_line2 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '6' AND term = '2'";
+    $query_check_phase6_remedial_classes_line2 = mysqli_query($conn, $check_phase6_remedial_classes_line2);
+    if(mysqli_num_rows($query_check_phase6_remedial_classes_line2) > 0){
+        $update_phase6_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase6_date_from', 
+        date_to = '$phase6_date_to', learning_areas = '$phase6_learning_areas2', final_rating = '$phase6_final_rating2', 
+        remedial_class_mark = '$phase6_remedial_class_mark2', recomputed_final_grade = '$phase6_recomputed_final_grade2', 
+        remarks = '$phase6_remedial_remarks2', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '6' AND term = '2'";
+        $query_update_phase6_remedial_classes_line2 = mysqli_query($conn, $update_phase6_remedial_classes_line2);
+        if($query_update_phase6_remedial_classes_line2 == true){
+            echo "Phase 6 Line 2 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase6_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase6_date_from','$phase6_date_to', '$phase6_learning_areas2','$phase6_final_rating2',
+        '$phase6_remedial_class_mark2', '$phase6_recomputed_final_grade2','6','2','$phase6_remedial_remarks2','$date_time_created')";
+        $query_insert_phase6_remedial_classes_line2 = mysqli_query($conn, $insert_phase6_remedial_classes_line2);
+        if($query_insert_phase6_remedial_classes_line2 == true){
+            echo "Phase 6 Line 2 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+
+
+    // PHASE 7 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
+    $check_phase7_remedial_classes_line1 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '7' AND term = '1'";
+    $query_check_phase7_remedial_classes_line1 = mysqli_query($conn, $check_phase7_remedial_classes_line1);
+    if(mysqli_num_rows($query_check_phase7_remedial_classes_line1) > 0){
+        $update_phase7_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase7_date_from', 
+        date_to = '$phase7_date_to', learning_areas = '$phase7_learning_areas1', final_rating = '$phase7_final_rating1', 
+        remedial_class_mark = '$phase7_remedial_class_mark1', recomputed_final_grade = '$phase7_recomputed_final_grade1', 
+        remarks = '$phase7_remedial_remarks1', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '7' AND term = '1'";
+        $query_update_phase7_remedial_classes_line1 = mysqli_query($conn, $update_phase7_remedial_classes_line1);
+        if($query_update_phase7_remedial_classes_line1 == true){
+            echo "Phase 7 Line 1 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase7_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase7_date_from','$phase7_date_to', '$phase7_learning_areas1','$phase7_final_rating1',
+        '$phase7_remedial_class_mark1', '$phase7_recomputed_final_grade1','7','1','$phase7_remedial_remarks1','$date_time_created')";
+        $query_insert_phase7_remedial_classes_line1 = mysqli_query($conn, $insert_phase7_remedial_classes_line1);
+        if($query_insert_phase7_remedial_classes_line1 == true){
+            echo "Phase 7 Line 1 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+    $check_phase7_remedial_classes_line2 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '7' AND term = '2'";
+    $query_check_phase7_remedial_classes_line2 = mysqli_query($conn, $check_phase7_remedial_classes_line2);
+    if(mysqli_num_rows($query_check_phase7_remedial_classes_line2) > 0){
+        $update_phase7_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase7_date_from', 
+        date_to = '$phase7_date_to', learning_areas = '$phase7_learning_areas2', final_rating = '$phase7_final_rating2', 
+        remedial_class_mark = '$phase7_remedial_class_mark2', recomputed_final_grade = '$phase7_recomputed_final_grade2', 
+        remarks = '$phase7_remedial_remarks2', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '7' AND term = '2'";
+        $query_update_phase7_remedial_classes_line2 = mysqli_query($conn, $update_phase7_remedial_classes_line2);
+        if($query_update_phase7_remedial_classes_line2 == true){
+            echo "Phase 7 Line 2 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase7_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase7_date_from','$phase7_date_to', '$phase7_learning_areas2','$phase7_final_rating2',
+        '$phase7_remedial_class_mark2', '$phase7_recomputed_final_grade2','7','2','$phase7_remedial_remarks2','$date_time_created')";
+        $query_insert_phase7_remedial_classes_line2 = mysqli_query($conn, $insert_phase7_remedial_classes_line2);
+        if($query_insert_phase7_remedial_classes_line2 == true){
+            echo "Phase 7 Line 2 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+
+
+    // PHASE 8 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
+    $check_phase8_remedial_classes_line1 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '8' AND term = '1'";
+    $query_check_phase8_remedial_classes_line1 = mysqli_query($conn, $check_phase8_remedial_classes_line1);
+    if(mysqli_num_rows($query_check_phase8_remedial_classes_line1) > 0){
+        $update_phase8_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase8_date_from', 
+        date_to = '$phase8_date_to', learning_areas = '$phase8_learning_areas1', final_rating = '$phase8_final_rating1', 
+        remedial_class_mark = '$phase8_remedial_class_mark1', recomputed_final_grade = '$phase8_recomputed_final_grade1', 
+        remarks = '$phase8_remedial_remarks1', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '8' AND term = '1'";
+        $query_update_phase8_remedial_classes_line1 = mysqli_query($conn, $update_phase8_remedial_classes_line1);
+        if($query_update_phase8_remedial_classes_line1 == true){
+            echo "Phase 8 Line 1 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase8_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase8_date_from','$phase8_date_to', '$phase8_learning_areas1','$phase8_final_rating1',
+        '$phase8_remedial_class_mark1', '$phase8_recomputed_final_grade1','8','1','$phase8_remedial_remarks1','$date_time_created')";
+        $query_insert_phase8_remedial_classes_line1 = mysqli_query($conn, $insert_phase8_remedial_classes_line1);
+        if($query_insert_phase8_remedial_classes_line1 == true){
+            echo "Phase 8 Line 1 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
+
+    $check_phase8_remedial_classes_line2 = "SELECT * FROM remedial_classes
+    WHERE lrn = '109857060083' AND phase = '8' AND term = '2'";
+    $query_check_phase8_remedial_classes_line2 = mysqli_query($conn, $check_phase8_remedial_classes_line2);
+    if(mysqli_num_rows($query_check_phase8_remedial_classes_line2) > 0){
+        $update_phase8_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase8_date_from', 
+        date_to = '$phase8_date_to', learning_areas = '$phase8_learning_areas2', final_rating = '$phase8_final_rating2', 
+        remedial_class_mark = '$phase8_remedial_class_mark2', recomputed_final_grade = '$phase8_recomputed_final_grade2', 
+        remarks = '$phase8_remedial_remarks2', date_time_updated = '$date_time_updated'
+        WHERE lrn = '109857060083' AND phase = '8' AND term = '2'";
+        $query_update_phase8_remedial_classes_line2 = mysqli_query($conn, $update_phase8_remedial_classes_line2);
+        if($query_update_phase8_remedial_classes_line2 == true){
+            echo "Phase 8 Line 2 of Remedial Classes Updated";
+        }else{
+            echo $conn->error;
+        }
+    }else{
+        $insert_phase8_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
+        `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
+        `term`, `remarks`, `date_time_created`) VALUES 
+        ('109857060083','$phase8_date_from','$phase8_date_to', '$phase8_learning_areas2','$phase8_final_rating2',
+        '$phase8_remedial_class_mark2', '$phase8_recomputed_final_grade2','8','2','$phase8_remedial_remarks2','$date_time_created')";
+        $query_insert_phase8_remedial_classes_line2 = mysqli_query($conn, $insert_phase8_remedial_classes_line2);
+        if($query_insert_phase8_remedial_classes_line2 == true){
+            echo "Phase 8 Line 2 of Remedial Classes Inserted";
+        }else{
+            echo $conn->error;
+        }
+    }
+
 
 
 
