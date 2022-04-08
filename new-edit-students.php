@@ -45,7 +45,6 @@ include('connection.php');
 <?php include 'includes/header.php';?>
 <link rel="stylesheet" href="src/css/phase-style.css">
 <?php include 'includes/topnav.php';?>
-
 <div class="container-xl bg-white">
     <form novalidate action="new-edit-students.php" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
     <fieldset>
@@ -897,7 +896,7 @@ include('connection.php');
         WHERE lrn = '109857060083' AND phase = '1'";
         $query_phase1_remedial_classes_dates = mysqli_query($conn, $phase1_remedial_classes_dates);
         if(mysqli_num_rows($query_phase1_remedial_classes_dates) > 0){
-          $row = mysqli_fetch_array($query_phase1_remedial_classes_dates);
+          $date = mysqli_fetch_array($query_phase1_remedial_classes_dates);
           ?>
           <table class="table-condensed text-center w-100">
         <thead> 
@@ -907,11 +906,11 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase1_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase1_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($date['date_from']));?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase1_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase1_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($date['date_to']));?>">
                 </span>
               </span>
             </th>
@@ -924,30 +923,42 @@ include('connection.php');
             <th>Remarks</th>
           </tr>
         </thead>
+        <?php
+        $phase1_remedial_classes_term1 = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '1' AND term = '1'";
+        $query_phase1_remedial_classes_term1 = mysqli_query($conn, $phase1_remedial_classes_term1) or die (mysqli_error($conn));
+        $remedial_classes_term1 = mysqli_fetch_array($query_phase1_remedial_classes_term1);
+        ?>
         <tbody>
         <tr>
             <td><input type="text" class="learning-areas1" name="phase1_learning_areas1" 
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating1" name="phase1_final_rating1" 
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
             <td><input type="text" name="phase1_remedial_class_mark1" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" id="grade" name="phase1_recomputed_final_grade1" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text" name="phase1_remedial_remarks1" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
+          <?php
+          $phase1_remedial_classes_term2 = "SELECT * FROM remedial_classes
+          WHERE lrn = '109857060083' AND phase = '1' AND term = '2'";
+          $query_phase1_remedial_classes_term2 = mysqli_query($conn, $phase1_remedial_classes_term2) or die (mysqli_error($conn));
+          $remedial_classes_term2 = mysqli_fetch_array($query_phase1_remedial_classes_term2);
+        ?>
           <tr>
             <td><input type="text" class="learning_areas2" name="phase1_learning_areas2"
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating2" name="phase1_final_rating2"
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
             <td><input type="text" name="phase1_remedial_class_mark2" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" id="grade" name="phase1_recomputed_final_grade2" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text"name="phase1_remedial_remarks2" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -1725,30 +1736,42 @@ include('connection.php');
             <th>Remarks</th>
           </tr>
         </thead>
+        <?php
+        $phase2_remedial_classes_term1 = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '2' AND term = '1'";
+        $query_phase2_remedial_classes_term1 = mysqli_query($conn, $phase2_remedial_classes_term1) or die (mysqli_error($conn));
+        $remedial_classes_term1 = mysqli_fetch_array($query_phase2_remedial_classes_term1);
+        ?>
         <tbody>
         <tr>
             <td><input type="text" class="learning-areas1" name="phase2_learning_areas1" 
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating1" name="phase2_final_rating1" 
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
             <td><input type="text" name="phase2_remedial_class_mark1" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" id="grade" name="phase2_recomputed_final_grade1" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text" name="phase2_remedial_remarks1" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
+          <?php
+          $phase2_remedial_classes_term2 = "SELECT * FROM remedial_classes
+          WHERE lrn = '109857060083' AND phase = '2' AND term = '2'";
+          $query_phase2_remedial_classes_term2 = mysqli_query($conn, $phase2_remedial_classes_term2) or die (mysqli_error($conn));
+          $remedial_classes_term2 = mysqli_fetch_array($query_phase2_remedial_classes_term2);
+        ?>
           <tr>
             <td><input type="text" class="learning_areas2" name="phase2_learning_areas2"
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating2" name="phase2_final_rating2"
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
             <td><input type="text" name="phase2_remedial_class_mark2" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" id="grade" name="phase2_recomputed_final_grade2" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text"name="phase2_remedial_remarks2" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -2526,30 +2549,42 @@ include('connection.php');
             <th>Remarks</th>
           </tr>
         </thead>
+        <?php
+        $phase3_remedial_classes_term1 = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '3' AND term = '1'";
+        $query_phase3_remedial_classes_term1 = mysqli_query($conn, $phase3_remedial_classes_term1) or die (mysqli_error($conn));
+        $remedial_classes_term1 = mysqli_fetch_array($query_phase3_remedial_classes_term1);
+        ?>
         <tbody>
         <tr>
             <td><input type="text" class="learning-areas1" name="phase3_learning_areas1" 
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating1" name="phase3_final_rating1" 
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
             <td><input type="text" name="phase3_remedial_class_mark1" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" id="grade" name="phase3_recomputed_final_grade1" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text" name="phase3_remedial_remarks1" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
+          <?php
+          $phase3_remedial_classes_term2 = "SELECT * FROM remedial_classes
+          WHERE lrn = '109857060083' AND phase = '3' AND term = '2'";
+          $query_phase3_remedial_classes_term2 = mysqli_query($conn, $phase3_remedial_classes_term2) or die (mysqli_error($conn));
+          $remedial_classes_term2 = mysqli_fetch_array($query_phase3_remedial_classes_term2);
+        ?>
           <tr>
             <td><input type="text" class="learning_areas2" name="phase3_learning_areas2"
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating2" name="phase3_final_rating2"
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
             <td><input type="text" name="phase3_remedial_class_mark2" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" id="grade" name="phase3_recomputed_final_grade2" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text"name="phase3_remedial_remarks2" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -3325,30 +3360,42 @@ include('connection.php');
             <th>Remarks</th>
           </tr>
         </thead>
+        <?php
+        $phase4_remedial_classes_term1 = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '4' AND term = '1'";
+        $query_phase4_remedial_classes_term1 = mysqli_query($conn, $phase4_remedial_classes_term1) or die (mysqli_error($conn));
+        $remedial_classes_term1 = mysqli_fetch_array($query_phase4_remedial_classes_term1);
+        ?>
         <tbody>
         <tr>
             <td><input type="text" class="learning-areas1" name="phase4_learning_areas1" 
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating1" name="phase4_final_rating1" 
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
             <td><input type="text" name="phase4_remedial_class_mark1" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" id="grade" name="phase4_recomputed_final_grade1" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text" name="phase4_remedial_remarks1" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
+          <?php
+          $phase4_remedial_classes_term2 = "SELECT * FROM remedial_classes
+          WHERE lrn = '109857060083' AND phase = '4' AND term = '2'";
+          $query_phase4_remedial_classes_term2 = mysqli_query($conn, $phase4_remedial_classes_term2) or die (mysqli_error($conn));
+          $remedial_classes_term2 = mysqli_fetch_array($query_phase4_remedial_classes_term2);
+        ?>
           <tr>
             <td><input type="text" class="learning_areas2" name="phase4_learning_areas2"
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating2" name="phase4_final_rating2"
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
             <td><input type="text" name="phase4_remedial_class_mark2" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" id="grade" name="phase4_recomputed_final_grade2" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text"name="phase4_remedial_remarks2" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -4128,30 +4175,42 @@ include('connection.php');
             <th>Remarks</th>
           </tr>
         </thead>
+        <?php
+        $phase5_remedial_classes_term1 = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '5' AND term = '1'";
+        $query_phase5_remedial_classes_term1 = mysqli_query($conn, $phase5_remedial_classes_term1) or die (mysqli_error($conn));
+        $remedial_classes_term1 = mysqli_fetch_array($query_phase5_remedial_classes_term1);
+        ?>
         <tbody>
         <tr>
             <td><input type="text" class="learning-areas1" name="phase5_learning_areas1" 
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating1" name="phase5_final_rating1" 
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
             <td><input type="text" name="phase5_remedial_class_mark1" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" id="grade" name="phase5_recomputed_final_grade1" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text" name="phase5_remedial_remarks1" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
+          <?php
+          $phase5_remedial_classes_term2 = "SELECT * FROM remedial_classes
+          WHERE lrn = '109857060083' AND phase = '5' AND term = '2'";
+          $query_phase5_remedial_classes_term2 = mysqli_query($conn, $phase5_remedial_classes_term2) or die (mysqli_error($conn));
+          $remedial_classes_term2 = mysqli_fetch_array($query_phase5_remedial_classes_term2);
+        ?>
           <tr>
             <td><input type="text" class="learning_areas2" name="phase5_learning_areas2"
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating2" name="phase5_final_rating2"
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
             <td><input type="text" name="phase5_remedial_class_mark2" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" id="grade" name="phase5_recomputed_final_grade2" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text"name="phase5_remedial_remarks2" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -4393,10 +4452,11 @@ include('connection.php');
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-          <?php }else{?>
+            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <?php }else{?>
+            <td></td>
             <td></td>
           <?php } ?>
-          <td></td>
           </tr>
 
 
@@ -4926,30 +4986,42 @@ include('connection.php');
             <th>Remarks</th>
           </tr>
         </thead>
+        <?php
+        $phase6_remedial_classes_term1 = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '6' AND term = '1'";
+        $phase6_remedial_classes_term1 = mysqli_query($conn, $phase6_remedial_classes_term1) or die (mysqli_error($conn));
+        $remedial_classes_term1 = mysqli_fetch_array($phase6_remedial_classes_term1);
+        ?>
         <tbody>
         <tr>
             <td><input type="text" class="learning-areas1" name="phase6_learning_areas1" 
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating1" name="phase6_final_rating1" 
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
             <td><input type="text" name="phase6_remedial_class_mark1" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" id="grade" name="phase6_recomputed_final_grade1" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text" name="phase6_remedial_remarks1" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
+          <?php
+          $phase6_remedial_classes_term2 = "SELECT * FROM remedial_classes
+          WHERE lrn = '109857060083' AND phase = '6' AND term = '2'";
+          $phase6_remedial_classes_term2 = mysqli_query($conn, $phase6_remedial_classes_term2) or die (mysqli_error($conn));
+          $remedial_classes_term2 = mysqli_fetch_array($phase6_remedial_classes_term2);
+        ?>
           <tr>
             <td><input type="text" class="learning_areas2" name="phase6_learning_areas2"
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating2" name="phase6_final_rating2"
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
             <td><input type="text" name="phase6_remedial_class_mark2" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" id="grade" name="phase6_recomputed_final_grade2" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text"name="phase6_remedial_remarks2" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -5727,30 +5799,42 @@ include('connection.php');
             <th>Remarks</th>
           </tr>
         </thead>
+        <?php
+        $phase7_remedial_classes_term1 = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '7' AND term = '1'";
+        $phase7_remedial_classes_term1 = mysqli_query($conn, $phase7_remedial_classes_term1) or die (mysqli_error($conn));
+        $remedial_classes_term1 = mysqli_fetch_array($phase7_remedial_classes_term1);
+        ?>
         <tbody>
         <tr>
             <td><input type="text" class="learning-areas1" name="phase7_learning_areas1" 
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating1" name="phase7_final_rating1" 
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
             <td><input type="text" name="phase7_remedial_class_mark1" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" id="grade" name="phase7_recomputed_final_grade1" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text" name="phase7_remedial_remarks1" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
+          <?php
+          $phase7_remedial_classes_term2 = "SELECT * FROM remedial_classes
+          WHERE lrn = '109857060083' AND phase = '7' AND term = '2'";
+          $phase7_remedial_classes_term2 = mysqli_query($conn, $phase7_remedial_classes_term2) or die (mysqli_error($conn));
+          $remedial_classes_term2 = mysqli_fetch_array($phase7_remedial_classes_term2);
+        ?>
           <tr>
             <td><input type="text" class="learning_areas2" name="phase7_learning_areas2"
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating2" name="phase7_final_rating2"
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
             <td><input type="text" name="phase7_remedial_class_mark2" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" id="grade" name="phase7_recomputed_final_grade2" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text"name="phase7_remedial_remarks2" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -6526,30 +6610,42 @@ include('connection.php');
             <th>Remarks</th>
           </tr>
         </thead>
+        <?php
+        $phase8_remedial_classes_term1 = "SELECT * FROM remedial_classes
+        WHERE lrn = '109857060083' AND phase = '8' AND term = '1'";
+        $phase8_remedial_classes_term1 = mysqli_query($conn, $phase8_remedial_classes_term1) or die (mysqli_error($conn));
+        $remedial_classes_term1 = mysqli_fetch_array($phase8_remedial_classes_term1);
+        ?>
         <tbody>
         <tr>
             <td><input type="text" class="learning-areas1" name="phase8_learning_areas1" 
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating1" name="phase8_final_rating1" 
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
             <td><input type="text" name="phase8_remedial_class_mark1" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" id="grade" name="phase8_recomputed_final_grade1" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text" name="phase8_remedial_remarks1" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
+          <?php
+          $phase8_remedial_classes_term2 = "SELECT * FROM remedial_classes
+          WHERE lrn = '109857060083' AND phase = '8' AND term = '2'";
+          $phase8_remedial_classes_term2 = mysqli_query($conn, $phase8_remedial_classes_term2) or die (mysqli_error($conn));
+          $remedial_classes_term2 = mysqli_fetch_array($phase8_remedial_classes_term2);
+        ?>
           <tr>
             <td><input type="text" class="learning_areas2" name="phase8_learning_areas2"
-            value="<?php if(empty($row['learning_areas'])){ echo "";}else {echo $row['learning_areas'];}?>"></td>
+            value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" id="grade" class="final_rating2" name="phase8_final_rating2"
-            value="<?php if(empty($row['final_rating'])){ echo "";}else{ echo $row['final_rating'];}?>"></td>
+            value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
             <td><input type="text" name="phase8_remedial_class_mark2" 
-            value="<?php if(empty($row['remedial_class_mark'])){ echo "";}else{ echo $row['remedial_class_mark'];}?>" id=""> </td>
+            value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" id="grade" name="phase8_recomputed_final_grade2" 
-            value="<?php if(empty($row['recomputed_final_grade'])){ echo "";}else{echo $row['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
+            value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
             <td><input type="text"name="phase8_remedial_remarks2" 
-            value="<?php if(empty($row['remarks'])){ echo "";}else{ echo $row['remarks'];}?>" id=""></td>
+            value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -12078,9 +12174,9 @@ if(isset($_POST['update'])){
     // PHASE 1 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase1_round_off_ave_of_mother_tounge_grades = round($phase1_ave_of_mother_tounge_grades);
     if($phase1_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '1'";
@@ -12113,9 +12209,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_filipino_grades = round($phase1_ave_of_filipino_grades);
     if($phase1_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '1'";
@@ -12148,9 +12244,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_english_grades = round($phase1_ave_of_english_grades);
     if($phase1_round_off_ave_of_english_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '1'";
@@ -12183,9 +12279,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_math_grades = round($phase1_ave_of_math_grades);
     if($phase1_round_off_ave_of_math_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '1'";
@@ -12218,9 +12314,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_science_grades = round($phase1_ave_of_science_grades);
     if($phase1_round_off_ave_of_science_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '1'";
@@ -12253,9 +12349,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_araling_panlipunan_grades = round($phase1_ave_of_araling_panlipunan_grades);
     if($phase1_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '1'";
@@ -12288,9 +12384,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_epp_tle_grades = round($phase1_ave_of_epp_tle_grades);
     if($phase1_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '1'";
@@ -12330,9 +12426,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase1_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase1_finalrating_mapeh_grade >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $phase1_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '1'";
@@ -12368,9 +12464,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_music_grades = round($phase1_ave_of_music_grades);
     if($phase1_round_off_ave_of_music_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '1'";
@@ -12403,9 +12499,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_art_grades = round($phase1_ave_of_art_grades);
     if($phase1_round_off_ave_of_art_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '1'";
@@ -12438,9 +12534,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_pe_grades = round($phase1_ave_of_pe_grades);
     if($phase1_round_off_ave_of_pe_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '1'";
@@ -12473,9 +12569,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_health_grades = round($phase1_ave_of_health_grades);
     if($phase1_round_off_ave_of_health_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '1'";
@@ -12508,9 +12604,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_esp_grades = round($phase1_ave_of_esp_grades);
     if($phase1_round_off_ave_of_esp_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '1'";
@@ -12543,9 +12639,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_arabic_lang_grades = round($phase1_ave_of_arabic_lang_grades);
     if($phase1_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '1'";
@@ -12578,9 +12674,9 @@ if(isset($_POST['update'])){
 
     $phase1_round_off_ave_of_islamic_values_grades = round($phase1_ave_of_islamic_values_grades);
     if($phase1_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase1_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '1'";
@@ -12614,9 +12710,9 @@ if(isset($_POST['update'])){
     // PHASE 2 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase2_round_off_ave_of_mother_tounge_grades = round($phase2_ave_of_mother_tounge_grades);
     if($phase2_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '2'";
@@ -12649,9 +12745,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_filipino_grades = round($phase2_ave_of_filipino_grades);
     if($phase2_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '2'";
@@ -12684,9 +12780,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_english_grades = round($phase2_ave_of_english_grades);
     if($phase2_round_off_ave_of_english_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '2'";
@@ -12719,9 +12815,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_math_grades = round($phase2_ave_of_math_grades);
     if($phase2_round_off_ave_of_math_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '2'";
@@ -12754,9 +12850,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_science_grades = round($phase2_ave_of_science_grades);
     if($phase2_round_off_ave_of_science_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '2'";
@@ -12789,9 +12885,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_araling_panlipunan_grades = round($phase2_ave_of_araling_panlipunan_grades);
     if($phase2_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '2'";
@@ -12824,9 +12920,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_epp_tle_grades = round($phase2_ave_of_epp_tle_grades);
     if($phase2_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '2'";
@@ -12866,9 +12962,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase2_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase2_finalrating_mapeh_grade >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $phase2_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '2'";
@@ -12904,9 +13000,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_music_grades = round($phase2_ave_of_music_grades);
     if($phase2_round_off_ave_of_music_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '2'";
@@ -12939,9 +13035,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_art_grades = round($phase2_ave_of_art_grades);
     if($phase2_round_off_ave_of_art_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '2'";
@@ -12974,9 +13070,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_pe_grades = round($phase2_ave_of_pe_grades);
     if($phase2_round_off_ave_of_pe_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '2'";
@@ -13009,9 +13105,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_health_grades = round($phase2_ave_of_health_grades);
     if($phase2_round_off_ave_of_health_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '2'";
@@ -13044,9 +13140,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_esp_grades = round($phase2_ave_of_esp_grades);
     if($phase2_round_off_ave_of_esp_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '2'";
@@ -13079,9 +13175,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_arabic_lang_grades = round($phase2_ave_of_arabic_lang_grades);
     if($phase2_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '2'";
@@ -13114,9 +13210,9 @@ if(isset($_POST['update'])){
 
     $phase2_round_off_ave_of_islamic_values_grades = round($phase2_ave_of_islamic_values_grades);
     if($phase2_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase2_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '2'";
@@ -13150,9 +13246,9 @@ if(isset($_POST['update'])){
     // PHASE 3 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase3_round_off_ave_of_mother_tounge_grades = round($phase3_ave_of_mother_tounge_grades);
     if($phase3_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '3'";
@@ -13185,9 +13281,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_filipino_grades = round($phase3_ave_of_filipino_grades);
     if($phase3_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '3'";
@@ -13220,9 +13316,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_english_grades = round($phase3_ave_of_english_grades);
     if($phase3_round_off_ave_of_english_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '3'";
@@ -13255,9 +13351,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_math_grades = round($phase3_ave_of_math_grades);
     if($phase3_round_off_ave_of_math_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '3'";
@@ -13290,9 +13386,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_science_grades = round($phase3_ave_of_science_grades);
     if($phase3_round_off_ave_of_science_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '3'";
@@ -13325,9 +13421,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_araling_panlipunan_grades = round($phase3_ave_of_araling_panlipunan_grades);
     if($phase3_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '3'";
@@ -13360,9 +13456,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_epp_tle_grades = round($phase3_ave_of_epp_tle_grades);
     if($phase3_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '3'";
@@ -13402,9 +13498,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase3_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase3_finalrating_mapeh_grade >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $phase3_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '3'";
@@ -13440,9 +13536,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_music_grades = round($phase3_ave_of_music_grades);
     if($phase3_round_off_ave_of_music_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '3'";
@@ -13475,9 +13571,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_art_grades = round($phase3_ave_of_art_grades);
     if($phase3_round_off_ave_of_art_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '3'";
@@ -13510,9 +13606,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_pe_grades = round($phase3_ave_of_pe_grades);
     if($phase3_round_off_ave_of_pe_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '3'";
@@ -13545,9 +13641,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_health_grades = round($phase3_ave_of_health_grades);
     if($phase3_round_off_ave_of_health_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '3'";
@@ -13580,9 +13676,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_esp_grades = round($phase3_ave_of_esp_grades);
     if($phase3_round_off_ave_of_esp_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '3'";
@@ -13615,9 +13711,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_arabic_lang_grades = round($phase3_ave_of_arabic_lang_grades);
     if($phase3_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '3'";
@@ -13650,9 +13746,9 @@ if(isset($_POST['update'])){
 
     $phase3_round_off_ave_of_islamic_values_grades = round($phase3_ave_of_islamic_values_grades);
     if($phase3_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase3_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '3'";
@@ -13686,9 +13782,9 @@ if(isset($_POST['update'])){
     // PHASE 4 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase4_round_off_ave_of_mother_tounge_grades = round($phase4_ave_of_mother_tounge_grades);
     if($phase4_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '4'";
@@ -13721,9 +13817,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_filipino_grades = round($phase4_ave_of_filipino_grades);
     if($phase4_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '4'";
@@ -13756,9 +13852,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_english_grades = round($phase4_ave_of_english_grades);
     if($phase4_round_off_ave_of_english_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '4'";
@@ -13791,9 +13887,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_math_grades = round($phase4_ave_of_math_grades);
     if($phase4_round_off_ave_of_math_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '4'";
@@ -13826,9 +13922,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_science_grades = round($phase4_ave_of_science_grades);
     if($phase4_round_off_ave_of_science_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '4'";
@@ -13861,9 +13957,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_araling_panlipunan_grades = round($phase4_ave_of_araling_panlipunan_grades);
     if($phase4_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '4'";
@@ -13896,9 +13992,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_epp_tle_grades = round($phase4_ave_of_epp_tle_grades);
     if($phase4_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '4'";
@@ -13938,9 +14034,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase4_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase4_finalrating_mapeh_grade >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $phase4_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '4'";
@@ -13976,9 +14072,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_music_grades = round($phase4_ave_of_music_grades);
     if($phase4_round_off_ave_of_music_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '4'";
@@ -14011,9 +14107,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_art_grades = round($phase4_ave_of_art_grades);
     if($phase4_round_off_ave_of_art_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '4'";
@@ -14046,9 +14142,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_pe_grades = round($phase4_ave_of_pe_grades);
     if($phase4_round_off_ave_of_pe_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '4'";
@@ -14081,9 +14177,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_health_grades = round($phase4_ave_of_health_grades);
     if($phase4_round_off_ave_of_health_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '4'";
@@ -14116,9 +14212,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_esp_grades = round($phase4_ave_of_esp_grades);
     if($phase4_round_off_ave_of_esp_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '4'";
@@ -14151,9 +14247,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_arabic_lang_grades = round($phase4_ave_of_arabic_lang_grades);
     if($phase4_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '4'";
@@ -14186,9 +14282,9 @@ if(isset($_POST['update'])){
 
     $phase4_round_off_ave_of_islamic_values_grades = round($phase4_ave_of_islamic_values_grades);
     if($phase4_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase4_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '4'";
@@ -14222,9 +14318,9 @@ if(isset($_POST['update'])){
     // PHASE 5 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase5_round_off_ave_of_mother_tounge_grades = round($phase5_ave_of_mother_tounge_grades);
     if($phase5_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '5'";
@@ -14257,9 +14353,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_filipino_grades = round($phase5_ave_of_filipino_grades);
     if($phase5_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '5'";
@@ -14292,9 +14388,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_english_grades = round($phase5_ave_of_english_grades);
     if($phase5_round_off_ave_of_english_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '5'";
@@ -14327,9 +14423,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_math_grades = round($phase5_ave_of_math_grades);
     if($phase5_round_off_ave_of_math_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '5'";
@@ -14362,9 +14458,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_science_grades = round($phase5_ave_of_science_grades);
     if($phase5_round_off_ave_of_science_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '5'";
@@ -14397,9 +14493,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_araling_panlipunan_grades = round($phase5_ave_of_araling_panlipunan_grades);
     if($phase5_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '5'";
@@ -14432,9 +14528,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_epp_tle_grades = round($phase5_ave_of_epp_tle_grades);
     if($phase5_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '5'";
@@ -14474,9 +14570,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase5_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase5_finalrating_mapeh_grade >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $phase5_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5'";
@@ -14512,9 +14608,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_music_grades = round($phase5_ave_of_music_grades);
     if($phase5_round_off_ave_of_music_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '5'";
@@ -14547,9 +14643,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_art_grades = round($phase5_ave_of_art_grades);
     if($phase5_round_off_ave_of_art_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '5'";
@@ -14582,9 +14678,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_pe_grades = round($phase5_ave_of_pe_grades);
     if($phase5_round_off_ave_of_pe_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '5'";
@@ -14617,9 +14713,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_health_grades = round($phase5_ave_of_health_grades);
     if($phase5_round_off_ave_of_health_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '5'";
@@ -14652,9 +14748,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_esp_grades = round($phase5_ave_of_esp_grades);
     if($phase5_round_off_ave_of_esp_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '5'";
@@ -14687,9 +14783,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_arabic_lang_grades = round($phase5_ave_of_arabic_lang_grades);
     if($phase5_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '5'";
@@ -14722,9 +14818,9 @@ if(isset($_POST['update'])){
 
     $phase5_round_off_ave_of_islamic_values_grades = round($phase5_ave_of_islamic_values_grades);
     if($phase5_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase5_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '5'";
@@ -14758,9 +14854,9 @@ if(isset($_POST['update'])){
     // PHASE 6 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase6_round_off_ave_of_mother_tounge_grades = round($phase6_ave_of_mother_tounge_grades);
     if($phase6_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '6'";
@@ -14793,9 +14889,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_filipino_grades = round($phase6_ave_of_filipino_grades);
     if($phase6_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '6'";
@@ -14828,9 +14924,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_english_grades = round($phase6_ave_of_english_grades);
     if($phase6_round_off_ave_of_english_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '6'";
@@ -14863,9 +14959,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_math_grades = round($phase6_ave_of_math_grades);
     if($phase6_round_off_ave_of_math_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '6'";
@@ -14898,9 +14994,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_science_grades = round($phase6_ave_of_science_grades);
     if($phase6_round_off_ave_of_science_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '6'";
@@ -14933,9 +15029,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_araling_panlipunan_grades = round($phase6_ave_of_araling_panlipunan_grades);
     if($phase6_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '6'";
@@ -14968,9 +15064,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_epp_tle_grades = round($phase6_ave_of_epp_tle_grades);
     if($phase6_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '6'";
@@ -15010,9 +15106,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase6_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase6_finalrating_mapeh_grade >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $phase6_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6'";
@@ -15048,9 +15144,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_music_grades = round($phase6_ave_of_music_grades);
     if($phase6_round_off_ave_of_music_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '6'";
@@ -15083,9 +15179,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_art_grades = round($phase6_ave_of_art_grades);
     if($phase6_round_off_ave_of_art_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '6'";
@@ -15118,9 +15214,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_pe_grades = round($phase6_ave_of_pe_grades);
     if($phase6_round_off_ave_of_pe_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '6'";
@@ -15153,9 +15249,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_health_grades = round($phase6_ave_of_health_grades);
     if($phase6_round_off_ave_of_health_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '6'";
@@ -15188,9 +15284,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_esp_grades = round($phase6_ave_of_esp_grades);
     if($phase6_round_off_ave_of_esp_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '6'";
@@ -15223,9 +15319,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_arabic_lang_grades = round($phase6_ave_of_arabic_lang_grades);
     if($phase6_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '6'";
@@ -15258,9 +15354,9 @@ if(isset($_POST['update'])){
 
     $phase6_round_off_ave_of_islamic_values_grades = round($phase6_ave_of_islamic_values_grades);
     if($phase6_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase6_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '6'";
@@ -15294,9 +15390,9 @@ if(isset($_POST['update'])){
     // PHASE 7 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase7_round_off_ave_of_mother_tounge_grades = round($phase7_ave_of_mother_tounge_grades);
     if($phase7_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '7'";
@@ -15329,9 +15425,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_filipino_grades = round($phase7_ave_of_filipino_grades);
     if($phase7_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '7'";
@@ -15364,9 +15460,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_english_grades = round($phase7_ave_of_english_grades);
     if($phase7_round_off_ave_of_english_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '7'";
@@ -15399,9 +15495,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_math_grades = round($phase7_ave_of_math_grades);
     if($phase7_round_off_ave_of_math_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '7'";
@@ -15434,9 +15530,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_science_grades = round($phase7_ave_of_science_grades);
     if($phase7_round_off_ave_of_science_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '7'";
@@ -15469,9 +15565,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_araling_panlipunan_grades = round($phase7_ave_of_araling_panlipunan_grades);
     if($phase7_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '7'";
@@ -15504,9 +15600,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_epp_tle_grades = round($phase7_ave_of_epp_tle_grades);
     if($phase7_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '7'";
@@ -15546,9 +15642,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase7_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase7_finalrating_mapeh_grade >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $phase7_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7'";
@@ -15584,9 +15680,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_music_grades = round($phase7_ave_of_music_grades);
     if($phase7_round_off_ave_of_music_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '7'";
@@ -15619,9 +15715,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_art_grades = round($phase7_ave_of_art_grades);
     if($phase7_round_off_ave_of_art_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '7'";
@@ -15654,9 +15750,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_pe_grades = round($phase7_ave_of_pe_grades);
     if($phase7_round_off_ave_of_pe_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '7'";
@@ -15689,9 +15785,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_health_grades = round($phase7_ave_of_health_grades);
     if($phase7_round_off_ave_of_health_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '7'";
@@ -15724,9 +15820,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_esp_grades = round($phase7_ave_of_esp_grades);
     if($phase7_round_off_ave_of_esp_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '7'";
@@ -15759,9 +15855,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_arabic_lang_grades = round($phase7_ave_of_arabic_lang_grades);
     if($phase7_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '7'";
@@ -15794,9 +15890,9 @@ if(isset($_POST['update'])){
 
     $phase7_round_off_ave_of_islamic_values_grades = round($phase7_ave_of_islamic_values_grades);
     if($phase7_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase7_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '7'";
@@ -15830,9 +15926,9 @@ if(isset($_POST['update'])){
     // PHASE 8 STUDENT FINAL RATING EVERY SUBJECT (SELECT, UPDATE, INSERT QUERIES)
     $phase8_round_off_ave_of_mother_tounge_grades = round($phase8_ave_of_mother_tounge_grades);
     if($phase8_round_off_ave_of_mother_tounge_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '8'";
@@ -15865,9 +15961,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_filipino_grades = round($phase8_ave_of_filipino_grades);
     if($phase8_round_off_ave_of_filipino_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '8'";
@@ -15900,9 +15996,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_english_grades = round($phase8_ave_of_english_grades);
     if($phase8_round_off_ave_of_english_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '8'";
@@ -15935,9 +16031,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_math_grades = round($phase8_ave_of_math_grades);
     if($phase8_round_off_ave_of_math_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '8'";
@@ -15970,9 +16066,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_science_grades = round($phase8_ave_of_science_grades);
     if($phase8_round_off_ave_of_science_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '8'";
@@ -16005,9 +16101,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_araling_panlipunan_grades = round($phase8_ave_of_araling_panlipunan_grades);
     if($phase8_round_off_ave_of_araling_panlipunan_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '8'";
@@ -16040,9 +16136,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_epp_tle_grades = round($phase8_ave_of_epp_tle_grades);
     if($phase8_round_off_ave_of_epp_tle_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '8'";
@@ -16082,9 +16178,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_mapeh);
         $phase8_finalrating_mapeh_grade = round($rows['AVG(student_grades.grade)']);
         if($phase8_finalrating_mapeh_grade >= 75){
-            $remarks = "none";
+            $remarks = "PASSED";
         }else{
-            $remarks = "none";
+            $remarks = "FAILED";
         }
         $phase8_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
         WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8'";
@@ -16120,9 +16216,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_music_grades = round($phase8_ave_of_music_grades);
     if($phase8_round_off_ave_of_music_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '8'";
@@ -16155,9 +16251,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_art_grades = round($phase8_ave_of_art_grades);
     if($phase8_round_off_ave_of_art_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '8'";
@@ -16190,9 +16286,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_pe_grades = round($phase8_ave_of_pe_grades);
     if($phase8_round_off_ave_of_pe_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '8'";
@@ -16225,9 +16321,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_health_grades = round($phase8_ave_of_health_grades);
     if($phase8_round_off_ave_of_health_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '8'";
@@ -16260,9 +16356,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_esp_grades = round($phase8_ave_of_esp_grades);
     if($phase8_round_off_ave_of_esp_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '8'";
@@ -16295,9 +16391,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_arabic_lang_grades = round($phase8_ave_of_arabic_lang_grades);
     if($phase8_round_off_ave_of_arabic_lang_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '8'";
@@ -16330,9 +16426,9 @@ if(isset($_POST['update'])){
 
     $phase8_round_off_ave_of_islamic_values_grades = round($phase8_ave_of_islamic_values_grades);
     if($phase8_round_off_ave_of_islamic_values_grades >= 75){
-        $remarks = "none";
+        $remarks = "PASSED";
     }else{
-        $remarks = "none";
+        $remarks = "FAILED";
     }
     $phase8_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
     WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '8'";
@@ -16374,9 +16470,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_1);
         $phase1_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase1_gen_ave_term_1 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase1_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '1'";
@@ -16417,9 +16513,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_2);
         $phase1_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase1_gen_ave_term_2 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase1_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '1'";
@@ -16460,9 +16556,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_3);
         $phase1_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase1_gen_ave_term_3 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase1_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '1'";
@@ -16503,9 +16599,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_4);
         $phase1_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase1_gen_ave_term_4 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase1_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '1'";
@@ -16546,9 +16642,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_1);
         $phase2_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase2_gen_ave_term_1 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase2_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '2'";
@@ -16589,9 +16685,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_2);
         $phase2_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase2_gen_ave_term_2 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase2_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '2'";
@@ -16632,9 +16728,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_3);
         $phase2_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase2_gen_ave_term_3 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase2_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '2'";
@@ -16675,9 +16771,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_4);
         $phase2_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase2_gen_ave_term_4 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase2_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '2'";
@@ -16718,9 +16814,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_1);
         $phase3_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase3_gen_ave_term_1 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase3_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '3'";
@@ -16761,9 +16857,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_2);
         $phase3_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase3_gen_ave_term_2 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase3_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '3'";
@@ -16804,9 +16900,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_3);
         $phase3_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase3_gen_ave_term_3 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase3_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '3'";
@@ -16847,9 +16943,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_4);
         $phase3_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase3_gen_ave_term_4 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase3_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '3'";
@@ -16890,9 +16986,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_1);
         $phase4_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase4_gen_ave_term_1 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase4_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '4'";
@@ -16933,9 +17029,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_2);
         $phase4_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase4_gen_ave_term_2 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase4_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '4'";
@@ -16976,9 +17072,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_3);
         $phase4_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase4_gen_ave_term_3 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase4_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '4'";
@@ -17019,9 +17115,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_4);
         $phase4_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase4_gen_ave_term_4 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase4_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '4'";
@@ -17062,9 +17158,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_1);
         $phase5_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase5_gen_ave_term_1 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase5_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '5'";
@@ -17105,9 +17201,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_2);
         $phase5_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase5_gen_ave_term_2 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase5_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '5'";
@@ -17148,9 +17244,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_3);
         $phase5_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase5_gen_ave_term_3 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase5_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '5'";
@@ -17191,9 +17287,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_4);
         $phase5_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase5_gen_ave_term_4 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase5_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '5'";
@@ -17234,9 +17330,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_1);
         $phase6_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase6_gen_ave_term_1 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase6_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '6'";
@@ -17277,9 +17373,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_2);
         $phase6_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase6_gen_ave_term_2 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase6_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '6'";
@@ -17320,9 +17416,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_3);
         $phase6_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase6_gen_ave_term_3 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase6_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '6'";
@@ -17363,9 +17459,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_4);
         $phase6_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase6_gen_ave_term_4 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase6_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '6'";
@@ -17406,9 +17502,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_1);
         $phase7_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase7_gen_ave_term_1 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase7_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '7'";
@@ -17449,9 +17545,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_2);
         $phase7_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase7_gen_ave_term_2 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase7_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '7'";
@@ -17492,9 +17588,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_3);
         $phase7_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase7_gen_ave_term_3 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase7_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '7'";
@@ -17535,9 +17631,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_4);
         $phase7_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase7_gen_ave_term_4 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase7_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '7'";
@@ -17578,9 +17674,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_1);
         $phase8_gen_ave_term_1 = round($rows['AVG(student_grades.grade)']);
         if($phase8_gen_ave_term_1 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase8_gen_ave_term_1 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '1' AND phase = '8'";
@@ -17621,9 +17717,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_2);
         $phase8_gen_ave_term_2 = round($rows['AVG(student_grades.grade)']);
         if($phase8_gen_ave_term_2 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase8_gen_ave_term_2 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '2' AND phase = '8'";
@@ -17664,9 +17760,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_3);
         $phase8_gen_ave_term_3 = round($rows['AVG(student_grades.grade)']);
         if($phase8_gen_ave_term_3 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase8_gen_ave_term_3 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '3' AND phase = '8'";
@@ -17707,9 +17803,9 @@ if(isset($_POST['update'])){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_4);
         $phase8_gen_ave_term_4 = round($rows['AVG(student_grades.grade)']);
         if($phase8_gen_ave_term_4 >= 75){
-            $remarks = "none";
-        }else{
-            $remarks = "none";
+            $remarks = "PASSED";
+    }else{
+        $remarks = "FAILED";
         }
         $check_phase8_gen_ave_term_4 = "SELECT * FROM student_general_averages
         WHERE lrn = '109857060083' AND term = '4' AND phase = '8'";
@@ -18049,6 +18145,10 @@ if(isset($_POST['update'])){
             }
         }
     }
+
+
+    // PHASE 1 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
+    // LAST SHIT KO
 
 
 
