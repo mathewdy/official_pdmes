@@ -763,7 +763,7 @@ while(mysqli_fetch_array($run_learners_query));
 
    </div>
      
-   <label class="Address-School1"  for="">Address of School: '.$rows['pept_passer'].' </label>
+   <label class="Address-School1"  for="">Pept Passer '.$rows['pept_passer'].' </label>
    <label class="rating" for="">Rating: '.$rows['rating'].' </label>
    <label class="date-of-assesment" for="">Date of Assesment '.$rows['date_of_assessment'].' </label>
 
@@ -5183,11 +5183,9092 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
 }
 
       
-        
-      
     
 }// end of remedial phase 2 
+
+
+
+//start of phase 3 
+// scholastic records phase 3 
+// phase 3 scohlastic query 
+
+$phase3_scholastic_query = "SELECT * FROM `scholastic_records` WHERE lrn = '$lrn' AND phase = $phase3";
+$run_phase3_scholastic = mysqli_query($conn,$phase3_scholastic_query);
+if(mysqli_num_rows($run_phase3_scholastic) > 0){
+    $rows = mysqli_fetch_array($run_phase3_scholastic);
+
+    while(mysqli_fetch_array($run_phase3_scholastic));
+
+
+    $html.='<h2> Scholastic Record </h2>
+
+    <label for="">School: '.$rows['school'].' </label> <br>
+    <label for="">School ID: '.$rows['school_id'].' </label> <br>
+    <label for="">District: '.$rows['district'].' </label><br>
+    <label for="">Division: '.$rows['division'].' </label><br>
+    <label for="">Region: '.$rows['region'].' </label><br>
+    <label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label><br>
+    <label for="">Section: '.$rows['section'].' </label><br>
+    <label for="">School year: '.$rows['school_year'].' </label><br>
+    <label for="">Name of adviser: '.$rows['name_of_teacher'].' </label><br>
+    <label for="">Signature: '.$rows['signature'].' </label><br>
+    ';
+}
+
+//phase 3 term 1 
+
+for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
     
+    
+    $term = 1;
+    
+
+            if($phase3_subject_id == 1){
+        
+                        //phase 1 term 1 mother tongue 
+                $phase3_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_mt = mysqli_query($conn,$phase3_mt);
+                if(mysqli_num_rows($run_phase3_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_mt);
+                    while(mysqli_fetch_array($run_phase3_mt));
+
+                        $html.=' <h2> 1</h2>
+                        
+                         <label for="">Mother Tongue: '.$rows['grade'].' </label> <br> ';
+                    
+                    }
+                }
+
+            // phase 3 term 1 filipino
+
+            if($phase3_subject_id == 2 ){
+                $phase3_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_filipino = mysqli_query($conn,$phase3_filipino);
+                if(mysqli_num_rows($run_phase3_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_filipino);
+                    while(mysqli_fetch_array($run_phase3_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 3 term 1 english 
+
+            if($phase3_subject_id == 3 ){
+                $phase3_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_english = mysqli_query($conn,$phase3_english);
+                if(mysqli_num_rows($run_phase3_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_english);
+                    while(mysqli_fetch_array($run_phase3_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 3 term 1 math
+
+            if($phase3_subject_id == 4 ){
+                $phase3_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_math = mysqli_query($conn,$phase3_math);
+                if(mysqli_num_rows($run_phase3_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_math);
+                    while(mysqli_fetch_array($run_phase3_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 3 term 1 science
+
+            if($phase3_subject_id == 5 ){
+                $phase3_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_science = mysqli_query($conn,$phase3_science);
+                if(mysqli_num_rows($run_phase3_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_science);
+                    while(mysqli_fetch_array($run_phase3_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 3 term 1 ap
+            if($phase3_subject_id == 6 ){
+                $phase3_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_AP = mysqli_query($conn,$phase3_AP);
+                if(mysqli_num_rows($run_phase3_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_AP);
+                    while(mysqli_fetch_array($run_phase3_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 1 EPP_TLE
+            if($phase3_subject_id == 7 ){
+                $phase3_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_ep_tle = mysqli_query($conn,$phase3_epp_tle);
+                if(mysqli_num_rows($run_phase3_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_ep_tle);
+                    while(mysqli_fetch_array($run_phase3_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 1 MAPEH
+            if($phase3_subject_id == 8 ){
+                $phase3_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_mapeh = mysqli_query($conn,$phase3_mapeh);
+                if(mysqli_num_rows($run_phase3_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_mapeh);
+                    while(mysqli_fetch_array($run_phase3_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 3 term 1 music
+            if($phase3_subject_id == 9 ){
+                $phase3_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_music = mysqli_query($conn,$phase3_music);
+                if(mysqli_num_rows($run_phase3_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_music);
+                    while(mysqli_fetch_array($run_phase3_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 3 term 1 arts
+            if($phase3_subject_id == 10 ){
+                $phase3_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_arts = mysqli_query($conn,$phase3_arts);
+                if(mysqli_num_rows($run_phase3_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_arts);
+                    while(mysqli_fetch_array($run_phase3_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 1 PE
+            if($phase3_subject_id == 11 ){
+                $phase3_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_pe = mysqli_query($conn,$phase3_pe);
+                if(mysqli_num_rows($run_phase3_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_pe);
+                    while(mysqli_fetch_array($run_phase3_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 1 Health
+            if($phase3_subject_id == 12 ){
+                $phase3_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_health = mysqli_query($conn,$phase3_health);
+                if(mysqli_num_rows($run_phase3_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_health);
+                    while(mysqli_fetch_array($run_phase3_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 3 term 1 eduk sa pag papakatao
+            if($phase3_subject_id == 13 ){
+                $phase3_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_esp = mysqli_query($conn,$phase3_esp);
+                if(mysqli_num_rows($run_phase3_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_esp);
+                    while(mysqli_fetch_array($run_phase3_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 1 arabic
+            if($phase3_subject_id == 14 ){
+                $phase3_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_arabic = mysqli_query($conn,$phase3_arabic);
+                if(mysqli_num_rows($run_phase3_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_arabic);
+                    while(mysqli_fetch_array($run_phase3_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 3 term 1 islamic
+            if($phase3_subject_id == 15 ){
+                $phase3_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_islamic = mysqli_query($conn,$phase3_islamic);
+                if(mysqli_num_rows($run_phase3_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_islamic);
+                    while(mysqli_fetch_array($run_phase3_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 3 term 1 general average
+            if( $phase3_subject_id == 16){
+                $phase3_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase3' ";
+                $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
+                if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase3_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+        
+
+}// ending of for loop ending of phase 3 term 1
+
+
+
+// phase 3 term 2 ////////////////////////////////////////////////
+
+for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
+    
+    
+    $term = 2;
+    
+
+            if($phase3_subject_id == 1){
+        
+                        //phase 1 term 2 mother tongue 
+                $phase3_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_mt = mysqli_query($conn,$phase3_mt);
+                if(mysqli_num_rows($run_phase3_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_mt);
+                    while(mysqli_fetch_array($run_phase3_mt));
+
+                        $html.=' <h2> 2 </h2>
+                        <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+                }
+
+            //phase 1 term 2 filipino
+
+            if($phase3_subject_id == 2 ){
+                $phase3_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_filipino = mysqli_query($conn,$phase3_filipino);
+                if(mysqli_num_rows($run_phase3_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_filipino);
+                    while(mysqli_fetch_array($run_phase3_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 3 term 2 english 
+
+            if($phase3_subject_id == 3 ){
+                $phase3_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_english = mysqli_query($conn,$phase3_english);
+                if(mysqli_num_rows($run_phase3_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_english);
+                    while(mysqli_fetch_array($run_phase3_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 3 term 2 math
+
+            if($phase3_subject_id == 4 ){
+                $phase3_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_math = mysqli_query($conn,$phase3_math);
+                if(mysqli_num_rows($run_phase3_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_math);
+                    while(mysqli_fetch_array($run_phase3_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 3 term 2 science
+
+            if($phase3_subject_id == 5 ){
+                $phase3_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_science = mysqli_query($conn,$phase3_science);
+                if(mysqli_num_rows($run_phase3_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_science);
+                    while(mysqli_fetch_array($run_phase3_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 3 term 2 ap
+            if($phase3_subject_id == 6 ){
+                $phase3_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_AP = mysqli_query($conn,$phase3_AP);
+                if(mysqli_num_rows($run_phase3_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_AP);
+                    while(mysqli_fetch_array($run_phase3_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 2 EPP_TLE
+            if($phase3_subject_id == 7 ){
+                $phase3_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_ep_tle = mysqli_query($conn,$phase3_epp_tle);
+                if(mysqli_num_rows($run_phase3_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_ep_tle);
+                    while(mysqli_fetch_array($run_phase3_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 2 MAPEH
+            if($phase3_subject_id == 8 ){
+                $phase3_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_mapeh = mysqli_query($conn,$phase3_mapeh);
+                if(mysqli_num_rows($run_phase3_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_mapeh);
+                    while(mysqli_fetch_array($run_phase3_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 3 term 2 music
+            if($phase3_subject_id == 9 ){
+                $phase3_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_music = mysqli_query($conn,$phase3_music);
+                if(mysqli_num_rows($run_phase3_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_music);
+                    while(mysqli_fetch_array($run_phase3_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 3 term 2 arts
+            if($phase3_subject_id == 10 ){
+                $phase3_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_arts = mysqli_query($conn,$phase3_arts);
+                if(mysqli_num_rows($run_phase3_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_arts);
+                    while(mysqli_fetch_array($run_phase3_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 2 PE
+            if($phase3_subject_id == 11 ){
+                $phase3_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_pe = mysqli_query($conn,$phase3_pe);
+                if(mysqli_num_rows($run_phase3_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_pe);
+                    while(mysqli_fetch_array($run_phase3_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 2 Health
+            if($phase3_subject_id == 12 ){
+                $phase3_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_health = mysqli_query($conn,$phase3_health);
+                if(mysqli_num_rows($run_phase3_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_health);
+                    while(mysqli_fetch_array($run_phase3_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 3 term 2 eduk sa pag papakatao
+            if($phase3_subject_id == 13 ){
+                $phase3_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_esp = mysqli_query($conn,$phase3_esp);
+                if(mysqli_num_rows($run_phase3_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_esp);
+                    while(mysqli_fetch_array($run_phase3_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 3 term 2 arabic
+            if($phase3_subject_id == 14 ){
+                $phase3_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_arabic = mysqli_query($conn,$phase3_arabic);
+                if(mysqli_num_rows($run_phase3_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_arabic);
+                    while(mysqli_fetch_array($run_phase3_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 3 term 2 islamic
+            if($phase3_subject_id == 15 ){
+                $phase3_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+                $run_phase3_islamic = mysqli_query($conn,$phase3_islamic);
+                if(mysqli_num_rows($run_phase3_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase3_islamic);
+                    while(mysqli_fetch_array($run_phase3_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 3 term 2 general average
+            if( $phase3_subject_id == 16){
+                $phase3_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase3' ";
+                $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
+                if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase3_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+       
+
+}// ending of for loop ending of phase 3 term 2 
+
+            //phase 3 term 3 //////////////////////////////////////////////
+
+for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
+    
+    
+$term = 3;
+
+
+        if($phase3_subject_id == 1){
+    
+                    //phase 1 term 3 mother tongue 
+            $phase3_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_mt = mysqli_query($conn,$phase3_mt);
+            if(mysqli_num_rows($run_phase3_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase3_mt);
+                while(mysqli_fetch_array($run_phase3_mt));
+
+                    $html.=' <h2> 3 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 1 term 3 filipino
+
+        if($phase3_subject_id == 2 ){
+            $phase3_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_filipino = mysqli_query($conn,$phase3_filipino);
+            if(mysqli_num_rows($run_phase3_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase3_filipino);
+                while(mysqli_fetch_array($run_phase3_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 3 term 3 english 
+
+        if($phase3_subject_id == 3 ){
+            $phase3_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_english = mysqli_query($conn,$phase3_english);
+            if(mysqli_num_rows($run_phase3_english) > 0){
+                $rows = mysqli_fetch_array($run_phase3_english);
+                while(mysqli_fetch_array($run_phase3_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 3 math
+
+        if($phase3_subject_id == 4 ){
+            $phase3_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_math = mysqli_query($conn,$phase3_math);
+            if(mysqli_num_rows($run_phase3_math) > 0){
+                $rows = mysqli_fetch_array($run_phase3_math);
+                while(mysqli_fetch_array($run_phase3_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 3 term 3 science
+
+        if($phase3_subject_id == 5 ){
+            $phase3_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_science = mysqli_query($conn,$phase3_science);
+            if(mysqli_num_rows($run_phase3_science) > 0){
+                $rows = mysqli_fetch_array($run_phase3_science);
+                while(mysqli_fetch_array($run_phase3_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 3 term 3 ap
+        if($phase3_subject_id == 6 ){
+            $phase3_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_AP = mysqli_query($conn,$phase3_AP);
+            if(mysqli_num_rows($run_phase3_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase3_AP);
+                while(mysqli_fetch_array($run_phase3_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 3 EPP_TLE
+        if($phase3_subject_id == 7 ){
+            $phase3_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_ep_tle = mysqli_query($conn,$phase3_epp_tle);
+            if(mysqli_num_rows($run_phase3_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase3_ep_tle);
+                while(mysqli_fetch_array($run_phase3_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 3 MAPEH
+        if($phase3_subject_id == 8 ){
+            $phase3_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_mapeh = mysqli_query($conn,$phase3_mapeh);
+            if(mysqli_num_rows($run_phase3_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase3_mapeh);
+                while(mysqli_fetch_array($run_phase3_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 3 term 3 music
+        if($phase3_subject_id == 9 ){
+            $phase3_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_music = mysqli_query($conn,$phase3_music);
+            if(mysqli_num_rows($run_phase3_music) > 0){
+                $rows = mysqli_fetch_array($run_phase3_music);
+                while(mysqli_fetch_array($run_phase3_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 3 term 3 arts
+        if($phase3_subject_id == 10 ){
+            $phase3_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_arts = mysqli_query($conn,$phase3_arts);
+            if(mysqli_num_rows($run_phase3_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase3_arts);
+                while(mysqli_fetch_array($run_phase3_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 3 PE
+        if($phase3_subject_id == 11 ){
+            $phase3_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_pe = mysqli_query($conn,$phase3_pe);
+            if(mysqli_num_rows($run_phase3_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase3_pe);
+                while(mysqli_fetch_array($run_phase3_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 3 Health
+        if($phase3_subject_id == 12 ){
+            $phase3_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_health = mysqli_query($conn,$phase3_health);
+            if(mysqli_num_rows($run_phase3_health) > 0){
+                $rows = mysqli_fetch_array($run_phase3_health);
+                while(mysqli_fetch_array($run_phase3_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 3 term 3 eduk sa pag papakatao
+        if($phase3_subject_id == 13 ){
+            $phase3_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_esp = mysqli_query($conn,$phase3_esp);
+            if(mysqli_num_rows($run_phase3_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase3_esp);
+                while(mysqli_fetch_array($run_phase3_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 3 arabic
+        if($phase3_subject_id == 14 ){
+            $phase3_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_arabic = mysqli_query($conn,$phase3_arabic);
+            if(mysqli_num_rows($run_phase3_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase3_arabic);
+                while(mysqli_fetch_array($run_phase3_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 3 term 3 islamic
+        if($phase3_subject_id == 15 ){
+            $phase3_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_islamic = mysqli_query($conn,$phase3_islamic);
+            if(mysqli_num_rows($run_phase3_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase3_islamic);
+                while(mysqli_fetch_array($run_phase3_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+            
+            }
+
+
+        }
+
+
+        //phase 3 term 3 general average
+        if( $phase3_subject_id == 16){
+            $phase3_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase3' ";
+            $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
+            if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase3_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop  ending of phase 3 term 3 
+
+
+//phase 3 term 4 
+
+for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
+    
+    
+$term = 4;
+
+
+        if($phase3_subject_id == 1){
+    
+                    //phase 3 term 4 mother tongue 
+            $phase3_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_mt = mysqli_query($conn,$phase3_mt);
+            if(mysqli_num_rows($run_phase3_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase3_mt);
+                while(mysqli_fetch_array($run_phase3_mt));
+
+                    $html.=' <h2> 4 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 3 term 4 filipino
+
+        if($phase3_subject_id == 2 ){
+            $phase3_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_filipino = mysqli_query($conn,$phase3_filipino);
+            if(mysqli_num_rows($run_phase3_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase3_filipino);
+                while(mysqli_fetch_array($run_phase3_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 3 term 4 english 
+
+        if($phase3_subject_id == 3 ){
+            $phase3_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_english = mysqli_query($conn,$phase3_english);
+            if(mysqli_num_rows($run_phase3_english) > 0){
+                $rows = mysqli_fetch_array($run_phase3_english);
+                while(mysqli_fetch_array($run_phase3_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 4 math
+
+        if($phase3_subject_id == 4 ){
+            $phase3_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_math = mysqli_query($conn,$phase3_math);
+            if(mysqli_num_rows($run_phase3_math) > 0){
+                $rows = mysqli_fetch_array($run_phase3_math);
+                while(mysqli_fetch_array($run_phase3_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 3 term 4 science
+
+        if($phase3_subject_id == 5 ){
+            $phase3_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_science = mysqli_query($conn,$phase3_science);
+            if(mysqli_num_rows($run_phase3_science) > 0){
+                $rows = mysqli_fetch_array($run_phase3_science);
+                while(mysqli_fetch_array($run_phase3_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 3 term 4 ap
+        if($phase3_subject_id == 6 ){
+            $phase3_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_AP = mysqli_query($conn,$phase3_AP);
+            if(mysqli_num_rows($run_phase3_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase3_AP);
+                while(mysqli_fetch_array($run_phase3_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 4 EPP_TLE
+        if($phase3_subject_id == 7 ){
+            $phase3_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_ep_tle = mysqli_query($conn,$phase3_epp_tle);
+            if(mysqli_num_rows($run_phase3_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase3_ep_tle);
+                while(mysqli_fetch_array($run_phase3_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 4 MAPEH
+        if($phase3_subject_id == 8 ){
+            $phase3_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_mapeh = mysqli_query($conn,$phase3_mapeh);
+            if(mysqli_num_rows($run_phase3_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase3_mapeh);
+                while(mysqli_fetch_array($run_phase3_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 3 term 4 music
+        if($phase3_subject_id == 9 ){
+            $phase3_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_music = mysqli_query($conn,$phase3_music);
+            if(mysqli_num_rows($run_phase3_music) > 0){
+                $rows = mysqli_fetch_array($run_phase3_music);
+                while(mysqli_fetch_array($run_phase3_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 3 term 4 arts
+        if($phase3_subject_id == 10 ){
+            $phase3_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_arts = mysqli_query($conn,$phase3_arts);
+            if(mysqli_num_rows($run_phase3_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase3_arts);
+                while(mysqli_fetch_array($run_phase3_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 4 PE
+        if($phase3_subject_id == 11 ){
+            $phase3_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_pe = mysqli_query($conn,$phase3_pe);
+            if(mysqli_num_rows($run_phase3_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase3_pe);
+                while(mysqli_fetch_array($run_phase3_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 4 Health
+        if($phase3_subject_id == 12 ){
+            $phase3_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_health = mysqli_query($conn,$phase3_health);
+            if(mysqli_num_rows($run_phase3_health) > 0){
+                $rows = mysqli_fetch_array($run_phase3_health);
+                while(mysqli_fetch_array($run_phase3_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 3 term 4 eduk sa pag papakatao
+        if($phase3_subject_id == 13 ){
+            $phase3_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_esp = mysqli_query($conn,$phase3_esp);
+            if(mysqli_num_rows($run_phase3_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase3_esp);
+                while(mysqli_fetch_array($run_phase3_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 3 term 4 arabic
+        if($phase3_subject_id == 14 ){
+            $phase3_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_arabic = mysqli_query($conn,$phase3_arabic);
+            if(mysqli_num_rows($run_phase3_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase3_arabic);
+                while(mysqli_fetch_array($run_phase3_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 3 term 4 islamic
+        if($phase3_subject_id == 15 ){
+            $phase3_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3' AND term = '$term'";
+            $run_phase3_islamic = mysqli_query($conn,$phase3_islamic);
+            if(mysqli_num_rows($run_phase3_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase3_islamic);
+                while(mysqli_fetch_array($run_phase3_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        //phase 3 term 4 general average
+        if( $phase3_subject_id == 16){
+            $phase3_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase3' ";
+            $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
+            if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase3_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop end of phase 1 term 4 
+
+
+// phase 3 final rating
+//phase 1 final rating 
+
+for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
+    
+    
+
+
+
+if($phase3_subject_id == 1){
+
+            //phase 1 final rating mother tongue 
+    $phase3_mt = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_mt = mysqli_query($conn,$phase3_mt);
+    if(mysqli_num_rows($run_phase3_mt) > 0){
+        $rows = mysqli_fetch_array($run_phase3_mt);
+        while(mysqli_fetch_array($run_phase3_mt));
+
+            $html.=' <h2> Final Rating </h2>
+            <label for="">Mother Tongue: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+    }
+
+//phase 1 final rating filipino
+
+if($phase3_subject_id == 2 ){
+    $phase3_filipino = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_filipino = mysqli_query($conn,$phase3_filipino);
+    if(mysqli_num_rows($run_phase3_filipino) > 0){
+        $rows = mysqli_fetch_array($run_phase3_filipino);
+        while(mysqli_fetch_array($run_phase3_filipino));
+
+            $html.='
+            <label for="">Filipino: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 3 final rating english 
+
+if($phase3_subject_id == 3 ){
+    $phase3_english = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_english = mysqli_query($conn,$phase3_english);
+    if(mysqli_num_rows($run_phase3_english) > 0){
+        $rows = mysqli_fetch_array($run_phase3_english);
+        while(mysqli_fetch_array($run_phase3_english));
+
+            $html.='
+            <label for="">English: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 3 final rating math
+
+if($phase3_subject_id == 4 ){
+    $phase3_math = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_math = mysqli_query($conn,$phase3_math);
+    if(mysqli_num_rows($run_phase3_math) > 0){
+        $rows = mysqli_fetch_array($run_phase3_math);
+        while(mysqli_fetch_array($run_phase3_math));
+
+            $html.='
+            <label for="">Mathematics: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }   
+
+
+    }
+
+    // phase 3 final rating science
+
+if($phase3_subject_id == 5 ){
+    $phase3_science = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_science = mysqli_query($conn,$phase3_science);
+    if(mysqli_num_rows($run_phase3_science) > 0){
+        $rows = mysqli_fetch_array($run_phase3_science);
+        while(mysqli_fetch_array($run_phase3_science));
+
+            $html.='
+            <label for="">Science: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>   ';
+        
+        }
+
+
+    }
+
+
+    // phase 3 final rating ap
+if($phase3_subject_id == 6 ){
+    $phase3_AP = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_AP = mysqli_query($conn,$phase3_AP);
+    if(mysqli_num_rows($run_phase3_AP) > 0){
+        $rows = mysqli_fetch_array($run_phase3_AP);
+        while(mysqli_fetch_array($run_phase3_AP));
+
+        $html.='
+        <label for="">Araling Panlipunan: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 3 final rating EPP_TLE
+if($phase3_subject_id == 7 ){
+    $phase3_epp_tle = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_ep_tle = mysqli_query($conn,$phase3_epp_tle);
+    if(mysqli_num_rows($run_phase3_ep_tle) > 0){
+        $rows = mysqli_fetch_array($run_phase3_ep_tle);
+        while(mysqli_fetch_array($run_phase3_ep_tle));
+
+        $html.='
+        <label for="">EPP / TLE: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 3 final rating MAPEH
+if($phase3_subject_id == 8 ){
+    $phase3_mapeh = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_mapeh = mysqli_query($conn,$phase3_mapeh);
+    if(mysqli_num_rows($run_phase3_mapeh) > 0){
+        $rows = mysqli_fetch_array($run_phase3_mapeh);
+        while(mysqli_fetch_array($run_phase3_mapeh));
+
+        $html.='
+        <label for="">MAPEH: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+    // phase 3 final rating music
+if($phase3_subject_id == 9 ){
+    $phase3_music = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_music = mysqli_query($conn,$phase3_music);
+    if(mysqli_num_rows($run_phase3_music) > 0){
+        $rows = mysqli_fetch_array($run_phase3_music);
+        while(mysqli_fetch_array($run_phase3_music));
+
+        $html.='
+        <label for="">Music: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+        // phase 3 final rating arts
+if($phase3_subject_id == 10 ){
+    $phase3_arts = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_arts = mysqli_query($conn,$phase3_arts);
+    if(mysqli_num_rows($run_phase3_arts) > 0){
+        $rows = mysqli_fetch_array($run_phase3_arts);
+        while(mysqli_fetch_array($run_phase3_arts));
+
+        $html.='
+        <label for="">Arts: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 3 final rating PE
+if($phase3_subject_id == 11 ){
+    $phase3_pe = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_pe = mysqli_query($conn,$phase3_pe);
+    if(mysqli_num_rows($run_phase3_pe) > 0){
+        $rows = mysqli_fetch_array($run_phase3_pe);
+        while(mysqli_fetch_array($run_phase3_pe));
+
+        $html.='
+        <label for="">Physical Education: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 3 final rating Health
+if($phase3_subject_id == 12 ){
+    $phase3_health = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_health = mysqli_query($conn,$phase3_health);
+    if(mysqli_num_rows($run_phase3_health) > 0){
+        $rows = mysqli_fetch_array($run_phase3_health);
+        while(mysqli_fetch_array($run_phase3_health));
+
+        $html.='
+        <label for="">Health: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 3 final rating eduk sa pag papakatao
+if($phase3_subject_id == 13 ){
+    $phase3_esp = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_esp = mysqli_query($conn,$phase3_esp);
+    if(mysqli_num_rows($run_phase3_esp) > 0){
+        $rows = mysqli_fetch_array($run_phase3_esp);
+        while(mysqli_fetch_array($run_phase3_esp));
+
+        $html.='
+        <label for="">Eduk. Sa Pagpapakatao: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 3 final rating arabic
+if($phase3_subject_id == 14 ){
+    $phase3_arabic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_arabic = mysqli_query($conn,$phase3_arabic);
+    if(mysqli_num_rows($run_phase3_arabic) > 0){
+        $rows = mysqli_fetch_array($run_phase3_arabic);
+        while(mysqli_fetch_array($run_phase3_arabic));
+
+        $html.='
+        <label for="">*Arabic language: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 3 final rating islamic
+if($phase3_subject_id == 15 ){
+    $phase3_islamic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
+    $run_phase3_islamic = mysqli_query($conn,$phase3_islamic);
+    if(mysqli_num_rows($run_phase3_islamic) > 0){
+        $rows = mysqli_fetch_array($run_phase3_islamic);
+        while(mysqli_fetch_array($run_phase3_islamic));
+
+        $html.='
+        <label for="">*Islamic values Education: '.$rows['final_rating'].' </label> <br> 
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+//phase 3 final rating general average
+if( $phase3_subject_id == 16){
+    $phase3_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase3' AND term = 'Final Rating' ";
+    $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
+    if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
+        $rows = mysqli_fetch_array($run_phase3_term1_general_average);
+        $html.='
+        <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+    
+
+
+    }
+    
+
+
+}
+
+
+}// ending of for loop end of phase 3  
+
+/// remedial  here 
+for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term++){
+
+    if($phase3_remedial_term == 1 ){
+
+        $phase3_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase3' AND term = '$phase3_remedial_term' ";
+        $phase3_run_query = mysqli_query($conn,$phase3_remedial_query);
+        if(mysqli_num_rows($phase3_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase3_run_query);
+            while(mysqli_fetch_array($phase3_run_query));
+            $html.='
+           <h6> Remedial Classes </h6>  
+           <h6> Date Conducted: '.$rows['date_from'].'</h6>
+           <h6> To: '.$rows['date_to'].'</h6> 
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+           
+           ';
+            
+        }
+
+    }
+
+            // term 2
+        if($phase3_remedial_term == 2 ){
+
+            $phase3_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase3' AND term = '$phase3_remedial_term' ";
+        $phase3_run_query = mysqli_query($conn,$phase3_remedial_query);
+        if(mysqli_num_rows($phase3_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase3_run_query);
+            while(mysqli_fetch_array($phase3_run_query));
+            $html.='
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+        
+           ';
+        }
+
+        }
+
+    
+}// end of remedial phase 3 
+
+
+
+
+//start of phase 4 
+// scholastic records phase 4 
+// phase 4 scohlastic query 
+
+$phase4_scholastic_query = "SELECT * FROM `scholastic_records` WHERE lrn = '$lrn' AND phase = $phase4";
+$run_phase4_scholastic = mysqli_query($conn,$phase4_scholastic_query);
+if(mysqli_num_rows($run_phase4_scholastic) > 0){
+    $rows = mysqli_fetch_array($run_phase4_scholastic);
+
+    while(mysqli_fetch_array($run_phase4_scholastic));
+
+
+    $html.='<h2> Scholastic Record </h2>
+
+    <label for="">School: '.$rows['school'].' </label> <br>
+    <label for="">School ID: '.$rows['school_id'].' </label> <br>
+    <label for="">District: '.$rows['district'].' </label><br>
+    <label for="">Division: '.$rows['division'].' </label><br>
+    <label for="">Region: '.$rows['region'].' </label><br>
+    <label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label><br>
+    <label for="">Section: '.$rows['section'].' </label><br>
+    <label for="">School year: '.$rows['school_year'].' </label><br>
+    <label for="">Name of adviser: '.$rows['name_of_teacher'].' </label><br>
+    <label for="">Signature: '.$rows['signature'].' </label><br>
+    ';
+}
+
+//phase 4 term 1 
+
+for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
+    
+    
+    $term = 1;
+    
+
+            if($phase4_subject_id == 1){
+        
+                        //phase 1 term 1 mother tongue 
+                $phase4_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_mt = mysqli_query($conn,$phase4_mt);
+                if(mysqli_num_rows($run_phase4_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_mt);
+                    while(mysqli_fetch_array($run_phase4_mt));
+
+                        $html.=' <h2> 1</h2>
+                        
+                         <label for="">Mother Tongue: '.$rows['grade'].' </label> <br> ';
+                    
+                    }
+                }
+
+            // phase 4 term 1 filipino
+
+            if($phase4_subject_id == 2 ){
+                $phase4_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_filipino = mysqli_query($conn,$phase4_filipino);
+                if(mysqli_num_rows($run_phase4_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_filipino);
+                    while(mysqli_fetch_array($run_phase4_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 4 term 1 english 
+
+            if($phase4_subject_id == 3 ){
+                $phase4_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_english = mysqli_query($conn,$phase4_english);
+                if(mysqli_num_rows($run_phase4_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_english);
+                    while(mysqli_fetch_array($run_phase4_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 4 term 1 math
+
+            if($phase4_subject_id == 4 ){
+                $phase4_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_math = mysqli_query($conn,$phase4_math);
+                if(mysqli_num_rows($run_phase4_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_math);
+                    while(mysqli_fetch_array($run_phase4_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 4 term 1 science
+
+            if($phase4_subject_id == 5 ){
+                $phase4_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_science = mysqli_query($conn,$phase4_science);
+                if(mysqli_num_rows($run_phase4_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_science);
+                    while(mysqli_fetch_array($run_phase4_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 4 term 1 ap
+            if($phase4_subject_id == 6 ){
+                $phase4_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_AP = mysqli_query($conn,$phase4_AP);
+                if(mysqli_num_rows($run_phase4_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_AP);
+                    while(mysqli_fetch_array($run_phase4_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 1 EPP_TLE
+            if($phase4_subject_id == 7 ){
+                $phase4_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_ep_tle = mysqli_query($conn,$phase4_epp_tle);
+                if(mysqli_num_rows($run_phase4_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_ep_tle);
+                    while(mysqli_fetch_array($run_phase4_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 1 MAPEH
+            if($phase4_subject_id == 8 ){
+                $phase4_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_mapeh = mysqli_query($conn,$phase4_mapeh);
+                if(mysqli_num_rows($run_phase4_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_mapeh);
+                    while(mysqli_fetch_array($run_phase4_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 4 term 1 music
+            if($phase4_subject_id == 9 ){
+                $phase4_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_music = mysqli_query($conn,$phase4_music);
+                if(mysqli_num_rows($run_phase4_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_music);
+                    while(mysqli_fetch_array($run_phase4_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 4 term 1 arts
+            if($phase4_subject_id == 10 ){
+                $phase4_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_arts = mysqli_query($conn,$phase4_arts);
+                if(mysqli_num_rows($run_phase4_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_arts);
+                    while(mysqli_fetch_array($run_phase4_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 1 PE
+            if($phase4_subject_id == 11 ){
+                $phase4_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_pe = mysqli_query($conn,$phase4_pe);
+                if(mysqli_num_rows($run_phase4_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_pe);
+                    while(mysqli_fetch_array($run_phase4_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 1 Health
+            if($phase4_subject_id == 12 ){
+                $phase4_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_health = mysqli_query($conn,$phase4_health);
+                if(mysqli_num_rows($run_phase4_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_health);
+                    while(mysqli_fetch_array($run_phase4_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 4 term 1 eduk sa pag papakatao
+            if($phase4_subject_id == 13 ){
+                $phase4_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_esp = mysqli_query($conn,$phase4_esp);
+                if(mysqli_num_rows($run_phase4_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_esp);
+                    while(mysqli_fetch_array($run_phase4_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 1 arabic
+            if($phase4_subject_id == 14 ){
+                $phase4_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_arabic = mysqli_query($conn,$phase4_arabic);
+                if(mysqli_num_rows($run_phase4_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_arabic);
+                    while(mysqli_fetch_array($run_phase4_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 4 term 1 islamic
+            if($phase4_subject_id == 15 ){
+                $phase4_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_islamic = mysqli_query($conn,$phase4_islamic);
+                if(mysqli_num_rows($run_phase4_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_islamic);
+                    while(mysqli_fetch_array($run_phase4_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 4 term 1 general average
+            if( $phase4_subject_id == 16){
+                $phase4_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase4' ";
+                $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
+                if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+        
+
+}// ending of for loop ending of phase 4 term 1
+
+
+
+// phase 4 term 2 ////////////////////////////////////////////////
+
+for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
+    
+    
+    $term = 2;
+    
+
+            if($phase4_subject_id == 1){
+        
+                        //phase 1 term 2 mother tongue 
+                $phase4_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_mt = mysqli_query($conn,$phase4_mt);
+                if(mysqli_num_rows($run_phase4_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_mt);
+                    while(mysqli_fetch_array($run_phase4_mt));
+
+                        $html.=' <h2> 2 </h2>
+                        <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+                }
+
+            //phase 1 term 2 filipino
+
+            if($phase4_subject_id == 2 ){
+                $phase4_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_filipino = mysqli_query($conn,$phase4_filipino);
+                if(mysqli_num_rows($run_phase4_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_filipino);
+                    while(mysqli_fetch_array($run_phase4_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 4 term 2 english 
+
+            if($phase4_subject_id == 3 ){
+                $phase4_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_english = mysqli_query($conn,$phase4_english);
+                if(mysqli_num_rows($run_phase4_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_english);
+                    while(mysqli_fetch_array($run_phase4_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 4 term 2 math
+
+            if($phase4_subject_id == 4 ){
+                $phase4_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_math = mysqli_query($conn,$phase4_math);
+                if(mysqli_num_rows($run_phase4_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_math);
+                    while(mysqli_fetch_array($run_phase4_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 4 term 2 science
+
+            if($phase4_subject_id == 5 ){
+                $phase4_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_science = mysqli_query($conn,$phase4_science);
+                if(mysqli_num_rows($run_phase4_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_science);
+                    while(mysqli_fetch_array($run_phase4_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 4 term 2 ap
+            if($phase4_subject_id == 6 ){
+                $phase4_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_AP = mysqli_query($conn,$phase4_AP);
+                if(mysqli_num_rows($run_phase4_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_AP);
+                    while(mysqli_fetch_array($run_phase4_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 2 EPP_TLE
+            if($phase4_subject_id == 7 ){
+                $phase4_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_ep_tle = mysqli_query($conn,$phase4_epp_tle);
+                if(mysqli_num_rows($run_phase4_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_ep_tle);
+                    while(mysqli_fetch_array($run_phase4_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 2 MAPEH
+            if($phase4_subject_id == 8 ){
+                $phase4_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_mapeh = mysqli_query($conn,$phase4_mapeh);
+                if(mysqli_num_rows($run_phase4_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_mapeh);
+                    while(mysqli_fetch_array($run_phase4_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 4 term 2 music
+            if($phase4_subject_id == 9 ){
+                $phase4_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_music = mysqli_query($conn,$phase4_music);
+                if(mysqli_num_rows($run_phase4_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_music);
+                    while(mysqli_fetch_array($run_phase4_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 4 term 2 arts
+            if($phase4_subject_id == 10 ){
+                $phase4_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_arts = mysqli_query($conn,$phase4_arts);
+                if(mysqli_num_rows($run_phase4_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_arts);
+                    while(mysqli_fetch_array($run_phase4_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 2 PE
+            if($phase4_subject_id == 11 ){
+                $phase4_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_pe = mysqli_query($conn,$phase4_pe);
+                if(mysqli_num_rows($run_phase4_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_pe);
+                    while(mysqli_fetch_array($run_phase4_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 2 Health
+            if($phase4_subject_id == 12 ){
+                $phase4_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_health = mysqli_query($conn,$phase4_health);
+                if(mysqli_num_rows($run_phase4_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_health);
+                    while(mysqli_fetch_array($run_phase4_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 4 term 2 eduk sa pag papakatao
+            if($phase4_subject_id == 13 ){
+                $phase4_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_esp = mysqli_query($conn,$phase4_esp);
+                if(mysqli_num_rows($run_phase4_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_esp);
+                    while(mysqli_fetch_array($run_phase4_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 4 term 2 arabic
+            if($phase4_subject_id == 14 ){
+                $phase4_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_arabic = mysqli_query($conn,$phase4_arabic);
+                if(mysqli_num_rows($run_phase4_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_arabic);
+                    while(mysqli_fetch_array($run_phase4_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 4 term 2 islamic
+            if($phase4_subject_id == 15 ){
+                $phase4_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+                $run_phase4_islamic = mysqli_query($conn,$phase4_islamic);
+                if(mysqli_num_rows($run_phase4_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase4_islamic);
+                    while(mysqli_fetch_array($run_phase4_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 4 term 2 general average
+            if( $phase4_subject_id == 16){
+                $phase4_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase4' ";
+                $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
+                if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+       
+
+}// ending of for loop ending of phase 4 term 2 
+
+            //phase 4 term 3 //////////////////////////////////////////////
+
+for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
+    
+    
+$term = 3;
+
+
+        if($phase4_subject_id == 1){
+    
+                    //phase 1 term 3 mother tongue 
+            $phase4_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_mt = mysqli_query($conn,$phase4_mt);
+            if(mysqli_num_rows($run_phase4_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase4_mt);
+                while(mysqli_fetch_array($run_phase4_mt));
+
+                    $html.=' <h2> 3 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 1 term 3 filipino
+
+        if($phase4_subject_id == 2 ){
+            $phase4_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_filipino = mysqli_query($conn,$phase4_filipino);
+            if(mysqli_num_rows($run_phase4_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase4_filipino);
+                while(mysqli_fetch_array($run_phase4_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 4 term 3 english 
+
+        if($phase4_subject_id == 3 ){
+            $phase4_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_english = mysqli_query($conn,$phase4_english);
+            if(mysqli_num_rows($run_phase4_english) > 0){
+                $rows = mysqli_fetch_array($run_phase4_english);
+                while(mysqli_fetch_array($run_phase4_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 3 math
+
+        if($phase4_subject_id == 4 ){
+            $phase4_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_math = mysqli_query($conn,$phase4_math);
+            if(mysqli_num_rows($run_phase4_math) > 0){
+                $rows = mysqli_fetch_array($run_phase4_math);
+                while(mysqli_fetch_array($run_phase4_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 4 term 3 science
+
+        if($phase4_subject_id == 5 ){
+            $phase4_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_science = mysqli_query($conn,$phase4_science);
+            if(mysqli_num_rows($run_phase4_science) > 0){
+                $rows = mysqli_fetch_array($run_phase4_science);
+                while(mysqli_fetch_array($run_phase4_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 4 term 3 ap
+        if($phase4_subject_id == 6 ){
+            $phase4_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_AP = mysqli_query($conn,$phase4_AP);
+            if(mysqli_num_rows($run_phase4_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase4_AP);
+                while(mysqli_fetch_array($run_phase4_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 3 EPP_TLE
+        if($phase4_subject_id == 7 ){
+            $phase4_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_ep_tle = mysqli_query($conn,$phase4_epp_tle);
+            if(mysqli_num_rows($run_phase4_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase4_ep_tle);
+                while(mysqli_fetch_array($run_phase4_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 3 MAPEH
+        if($phase4_subject_id == 8 ){
+            $phase4_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_mapeh = mysqli_query($conn,$phase4_mapeh);
+            if(mysqli_num_rows($run_phase4_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase4_mapeh);
+                while(mysqli_fetch_array($run_phase4_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 4 term 3 music
+        if($phase4_subject_id == 9 ){
+            $phase4_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_music = mysqli_query($conn,$phase4_music);
+            if(mysqli_num_rows($run_phase4_music) > 0){
+                $rows = mysqli_fetch_array($run_phase4_music);
+                while(mysqli_fetch_array($run_phase4_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 4 term 3 arts
+        if($phase4_subject_id == 10 ){
+            $phase4_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_arts = mysqli_query($conn,$phase4_arts);
+            if(mysqli_num_rows($run_phase4_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase4_arts);
+                while(mysqli_fetch_array($run_phase4_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 3 PE
+        if($phase4_subject_id == 11 ){
+            $phase4_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_pe = mysqli_query($conn,$phase4_pe);
+            if(mysqli_num_rows($run_phase4_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase4_pe);
+                while(mysqli_fetch_array($run_phase4_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 3 Health
+        if($phase4_subject_id == 12 ){
+            $phase4_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_health = mysqli_query($conn,$phase4_health);
+            if(mysqli_num_rows($run_phase4_health) > 0){
+                $rows = mysqli_fetch_array($run_phase4_health);
+                while(mysqli_fetch_array($run_phase4_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 4 term 3 eduk sa pag papakatao
+        if($phase4_subject_id == 13 ){
+            $phase4_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_esp = mysqli_query($conn,$phase4_esp);
+            if(mysqli_num_rows($run_phase4_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase4_esp);
+                while(mysqli_fetch_array($run_phase4_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 3 arabic
+        if($phase4_subject_id == 14 ){
+            $phase4_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_arabic = mysqli_query($conn,$phase4_arabic);
+            if(mysqli_num_rows($run_phase4_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase4_arabic);
+                while(mysqli_fetch_array($run_phase4_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 4 term 3 islamic
+        if($phase4_subject_id == 15 ){
+            $phase4_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_islamic = mysqli_query($conn,$phase4_islamic);
+            if(mysqli_num_rows($run_phase4_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase4_islamic);
+                while(mysqli_fetch_array($run_phase4_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+            
+            }
+
+
+        }
+
+
+        //phase 4 term 3 general average
+        if( $phase4_subject_id == 16){
+            $phase4_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase4' ";
+            $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
+            if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop  ending of phase 4 term 3 
+
+
+//phase 4 term 4 
+
+for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
+    
+    
+$term = 4;
+
+
+        if($phase4_subject_id == 1){
+    
+                    //phase 4 term 4 mother tongue 
+            $phase4_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_mt = mysqli_query($conn,$phase4_mt);
+            if(mysqli_num_rows($run_phase4_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase4_mt);
+                while(mysqli_fetch_array($run_phase4_mt));
+
+                    $html.=' <h2> 4 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 4 term 4 filipino
+
+        if($phase4_subject_id == 2 ){
+            $phase4_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_filipino = mysqli_query($conn,$phase4_filipino);
+            if(mysqli_num_rows($run_phase4_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase4_filipino);
+                while(mysqli_fetch_array($run_phase4_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 4 term 4 english 
+
+        if($phase4_subject_id == 3 ){
+            $phase4_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_english = mysqli_query($conn,$phase4_english);
+            if(mysqli_num_rows($run_phase4_english) > 0){
+                $rows = mysqli_fetch_array($run_phase4_english);
+                while(mysqli_fetch_array($run_phase4_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 4 math
+
+        if($phase4_subject_id == 4 ){
+            $phase4_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_math = mysqli_query($conn,$phase4_math);
+            if(mysqli_num_rows($run_phase4_math) > 0){
+                $rows = mysqli_fetch_array($run_phase4_math);
+                while(mysqli_fetch_array($run_phase4_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 4 term 4 science
+
+        if($phase4_subject_id == 5 ){
+            $phase4_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_science = mysqli_query($conn,$phase4_science);
+            if(mysqli_num_rows($run_phase4_science) > 0){
+                $rows = mysqli_fetch_array($run_phase4_science);
+                while(mysqli_fetch_array($run_phase4_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 4 term 4 ap
+        if($phase4_subject_id == 6 ){
+            $phase4_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_AP = mysqli_query($conn,$phase4_AP);
+            if(mysqli_num_rows($run_phase4_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase4_AP);
+                while(mysqli_fetch_array($run_phase4_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 4 EPP_TLE
+        if($phase4_subject_id == 7 ){
+            $phase4_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_ep_tle = mysqli_query($conn,$phase4_epp_tle);
+            if(mysqli_num_rows($run_phase4_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase4_ep_tle);
+                while(mysqli_fetch_array($run_phase4_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 4 MAPEH
+        if($phase4_subject_id == 8 ){
+            $phase4_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_mapeh = mysqli_query($conn,$phase4_mapeh);
+            if(mysqli_num_rows($run_phase4_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase4_mapeh);
+                while(mysqli_fetch_array($run_phase4_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 4 term 4 music
+        if($phase4_subject_id == 9 ){
+            $phase4_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_music = mysqli_query($conn,$phase4_music);
+            if(mysqli_num_rows($run_phase4_music) > 0){
+                $rows = mysqli_fetch_array($run_phase4_music);
+                while(mysqli_fetch_array($run_phase4_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 4 term 4 arts
+        if($phase4_subject_id == 10 ){
+            $phase4_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_arts = mysqli_query($conn,$phase4_arts);
+            if(mysqli_num_rows($run_phase4_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase4_arts);
+                while(mysqli_fetch_array($run_phase4_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 4 PE
+        if($phase4_subject_id == 11 ){
+            $phase4_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_pe = mysqli_query($conn,$phase4_pe);
+            if(mysqli_num_rows($run_phase4_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase4_pe);
+                while(mysqli_fetch_array($run_phase4_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 4 Health
+        if($phase4_subject_id == 12 ){
+            $phase4_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_health = mysqli_query($conn,$phase4_health);
+            if(mysqli_num_rows($run_phase4_health) > 0){
+                $rows = mysqli_fetch_array($run_phase4_health);
+                while(mysqli_fetch_array($run_phase4_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 4 term 4 eduk sa pag papakatao
+        if($phase4_subject_id == 13 ){
+            $phase4_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_esp = mysqli_query($conn,$phase4_esp);
+            if(mysqli_num_rows($run_phase4_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase4_esp);
+                while(mysqli_fetch_array($run_phase4_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 4 term 4 arabic
+        if($phase4_subject_id == 14 ){
+            $phase4_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_arabic = mysqli_query($conn,$phase4_arabic);
+            if(mysqli_num_rows($run_phase4_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase4_arabic);
+                while(mysqli_fetch_array($run_phase4_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 4 term 4 islamic
+        if($phase4_subject_id == 15 ){
+            $phase4_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4' AND term = '$term'";
+            $run_phase4_islamic = mysqli_query($conn,$phase4_islamic);
+            if(mysqli_num_rows($run_phase4_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase4_islamic);
+                while(mysqli_fetch_array($run_phase4_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        //phase 4 term 4 general average
+        if( $phase4_subject_id == 16){
+            $phase4_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase4' ";
+            $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
+            if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop end of phase 1 term 4 
+
+
+// phase 4 final rating
+//phase 1 final rating 
+
+for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
+    
+    
+
+
+
+if($phase4_subject_id == 1){
+
+            //phase 1 final rating mother tongue 
+    $phase4_mt = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_mt = mysqli_query($conn,$phase4_mt);
+    if(mysqli_num_rows($run_phase4_mt) > 0){
+        $rows = mysqli_fetch_array($run_phase4_mt);
+        while(mysqli_fetch_array($run_phase4_mt));
+
+            $html.=' <h2> Final Rating </h2>
+            <label for="">Mother Tongue: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+    }
+
+//phase 1 final rating filipino
+
+if($phase4_subject_id == 2 ){
+    $phase4_filipino = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_filipino = mysqli_query($conn,$phase4_filipino);
+    if(mysqli_num_rows($run_phase4_filipino) > 0){
+        $rows = mysqli_fetch_array($run_phase4_filipino);
+        while(mysqli_fetch_array($run_phase4_filipino));
+
+            $html.='
+            <label for="">Filipino: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 4 final rating english 
+
+if($phase4_subject_id == 3 ){
+    $phase4_english = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_english = mysqli_query($conn,$phase4_english);
+    if(mysqli_num_rows($run_phase4_english) > 0){
+        $rows = mysqli_fetch_array($run_phase4_english);
+        while(mysqli_fetch_array($run_phase4_english));
+
+            $html.='
+            <label for="">English: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 4 final rating math
+
+if($phase4_subject_id == 4 ){
+    $phase4_math = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_math = mysqli_query($conn,$phase4_math);
+    if(mysqli_num_rows($run_phase4_math) > 0){
+        $rows = mysqli_fetch_array($run_phase4_math);
+        while(mysqli_fetch_array($run_phase4_math));
+
+            $html.='
+            <label for="">Mathematics: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }   
+
+
+    }
+
+    // phase 4 final rating science
+
+if($phase4_subject_id == 5 ){
+    $phase4_science = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_science = mysqli_query($conn,$phase4_science);
+    if(mysqli_num_rows($run_phase4_science) > 0){
+        $rows = mysqli_fetch_array($run_phase4_science);
+        while(mysqli_fetch_array($run_phase4_science));
+
+            $html.='
+            <label for="">Science: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>   ';
+        
+        }
+
+
+    }
+
+
+    // phase 4 final rating ap
+if($phase4_subject_id == 6 ){
+    $phase4_AP = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_AP = mysqli_query($conn,$phase4_AP);
+    if(mysqli_num_rows($run_phase4_AP) > 0){
+        $rows = mysqli_fetch_array($run_phase4_AP);
+        while(mysqli_fetch_array($run_phase4_AP));
+
+        $html.='
+        <label for="">Araling Panlipunan: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 4 final rating EPP_TLE
+if($phase4_subject_id == 7 ){
+    $phase4_epp_tle = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_ep_tle = mysqli_query($conn,$phase4_epp_tle);
+    if(mysqli_num_rows($run_phase4_ep_tle) > 0){
+        $rows = mysqli_fetch_array($run_phase4_ep_tle);
+        while(mysqli_fetch_array($run_phase4_ep_tle));
+
+        $html.='
+        <label for="">EPP / TLE: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 4 final rating MAPEH
+if($phase4_subject_id == 8 ){
+    $phase4_mapeh = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_mapeh = mysqli_query($conn,$phase4_mapeh);
+    if(mysqli_num_rows($run_phase4_mapeh) > 0){
+        $rows = mysqli_fetch_array($run_phase4_mapeh);
+        while(mysqli_fetch_array($run_phase4_mapeh));
+
+        $html.='
+        <label for="">MAPEH: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+    // phase 4 final rating music
+if($phase4_subject_id == 9 ){
+    $phase4_music = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_music = mysqli_query($conn,$phase4_music);
+    if(mysqli_num_rows($run_phase4_music) > 0){
+        $rows = mysqli_fetch_array($run_phase4_music);
+        while(mysqli_fetch_array($run_phase4_music));
+
+        $html.='
+        <label for="">Music: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+        // phase 4 final rating arts
+if($phase4_subject_id == 10 ){
+    $phase4_arts = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_arts = mysqli_query($conn,$phase4_arts);
+    if(mysqli_num_rows($run_phase4_arts) > 0){
+        $rows = mysqli_fetch_array($run_phase4_arts);
+        while(mysqli_fetch_array($run_phase4_arts));
+
+        $html.='
+        <label for="">Arts: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 4 final rating PE
+if($phase4_subject_id == 11 ){
+    $phase4_pe = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_pe = mysqli_query($conn,$phase4_pe);
+    if(mysqli_num_rows($run_phase4_pe) > 0){
+        $rows = mysqli_fetch_array($run_phase4_pe);
+        while(mysqli_fetch_array($run_phase4_pe));
+
+        $html.='
+        <label for="">Physical Education: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 4 final rating Health
+if($phase4_subject_id == 12 ){
+    $phase4_health = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_health = mysqli_query($conn,$phase4_health);
+    if(mysqli_num_rows($run_phase4_health) > 0){
+        $rows = mysqli_fetch_array($run_phase4_health);
+        while(mysqli_fetch_array($run_phase4_health));
+
+        $html.='
+        <label for="">Health: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 4 final rating eduk sa pag papakatao
+if($phase4_subject_id == 13 ){
+    $phase4_esp = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_esp = mysqli_query($conn,$phase4_esp);
+    if(mysqli_num_rows($run_phase4_esp) > 0){
+        $rows = mysqli_fetch_array($run_phase4_esp);
+        while(mysqli_fetch_array($run_phase4_esp));
+
+        $html.='
+        <label for="">Eduk. Sa Pagpapakatao: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 4 final rating arabic
+if($phase4_subject_id == 14 ){
+    $phase4_arabic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_arabic = mysqli_query($conn,$phase4_arabic);
+    if(mysqli_num_rows($run_phase4_arabic) > 0){
+        $rows = mysqli_fetch_array($run_phase4_arabic);
+        while(mysqli_fetch_array($run_phase4_arabic));
+
+        $html.='
+        <label for="">*Arabic language: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 4 final rating islamic
+if($phase4_subject_id == 15 ){
+    $phase4_islamic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase4_subject_id' AND phase = '$phase4'";
+    $run_phase4_islamic = mysqli_query($conn,$phase4_islamic);
+    if(mysqli_num_rows($run_phase4_islamic) > 0){
+        $rows = mysqli_fetch_array($run_phase4_islamic);
+        while(mysqli_fetch_array($run_phase4_islamic));
+
+        $html.='
+        <label for="">*Islamic values Education: '.$rows['final_rating'].' </label> <br> 
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+//phase 4 final rating general average
+if( $phase4_subject_id == 16){
+    $phase4_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase4' AND term = 'Final Rating' ";
+    $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
+    if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
+        $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+        $html.='
+        <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+    
+
+
+    }
+    
+
+
+}
+
+
+}// ending of for loop end of phase 4  
+
+/// remedial  here 
+for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term++){
+
+    if($phase4_remedial_term == 1 ){
+
+        $phase4_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase4' AND term = '$phase4_remedial_term' ";
+        $phase4_run_query = mysqli_query($conn,$phase4_remedial_query);
+        if(mysqli_num_rows($phase4_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase4_run_query);
+            while(mysqli_fetch_array($phase4_run_query));
+            $html.='
+           <h6> Remedial Classes </h6>  
+           <h6> Date Conducted: '.$rows['date_from'].'</h6>
+           <h6> To: '.$rows['date_to'].'</h6> 
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+           
+           ';
+            
+        }
+
+    }
+
+            // term 2
+        if($phase4_remedial_term == 2 ){
+
+            $phase4_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase4' AND term = '$phase4_remedial_term' ";
+        $phase4_run_query = mysqli_query($conn,$phase4_remedial_query);
+        if(mysqli_num_rows($phase4_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase4_run_query);
+            while(mysqli_fetch_array($phase4_run_query));
+            $html.='
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+        
+           ';
+        }
+
+        }
+
+    
+}// end of remedial phase 4 
+
+
+
+//start of phase 5 
+// scholastic records phase 5 
+// phase 5 scohlastic query 
+
+$phase5_scholastic_query = "SELECT * FROM `scholastic_records` WHERE lrn = '$lrn' AND phase = $phase5";
+$run_phase5_scholastic = mysqli_query($conn,$phase5_scholastic_query);
+if(mysqli_num_rows($run_phase5_scholastic) > 0){
+    $rows = mysqli_fetch_array($run_phase5_scholastic);
+
+    while(mysqli_fetch_array($run_phase5_scholastic));
+
+
+    $html.='<h2> Scholastic Record </h2>
+
+    <label for="">School: '.$rows['school'].' </label> <br>
+    <label for="">School ID: '.$rows['school_id'].' </label> <br>
+    <label for="">District: '.$rows['district'].' </label><br>
+    <label for="">Division: '.$rows['division'].' </label><br>
+    <label for="">Region: '.$rows['region'].' </label><br>
+    <label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label><br>
+    <label for="">Section: '.$rows['section'].' </label><br>
+    <label for="">School year: '.$rows['school_year'].' </label><br>
+    <label for="">Name of adviser: '.$rows['name_of_teacher'].' </label><br>
+    <label for="">Signature: '.$rows['signature'].' </label><br>
+    ';
+}
+
+//phase 5 term 1 
+
+for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
+    
+    
+    $term = 1;
+    
+
+            if($phase5_subject_id == 1){
+        
+                        //phase 1 term 1 mother tongue 
+                $phase5_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_mt = mysqli_query($conn,$phase5_mt);
+                if(mysqli_num_rows($run_phase5_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_mt);
+                    while(mysqli_fetch_array($run_phase5_mt));
+
+                        $html.=' <h2> 1</h2>
+                        
+                         <label for="">Mother Tongue: '.$rows['grade'].' </label> <br> ';
+                    
+                    }
+                }
+
+            // phase 5 term 1 filipino
+
+            if($phase5_subject_id == 2 ){
+                $phase5_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_filipino = mysqli_query($conn,$phase5_filipino);
+                if(mysqli_num_rows($run_phase5_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_filipino);
+                    while(mysqli_fetch_array($run_phase5_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 5 term 1 english 
+
+            if($phase5_subject_id == 3 ){
+                $phase5_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_english = mysqli_query($conn,$phase5_english);
+                if(mysqli_num_rows($run_phase5_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_english);
+                    while(mysqli_fetch_array($run_phase5_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 5 term 1 math
+
+            if($phase5_subject_id == 4 ){
+                $phase5_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_math = mysqli_query($conn,$phase5_math);
+                if(mysqli_num_rows($run_phase5_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_math);
+                    while(mysqli_fetch_array($run_phase5_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 5 term 1 science
+
+            if($phase5_subject_id == 5 ){
+                $phase5_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_science = mysqli_query($conn,$phase5_science);
+                if(mysqli_num_rows($run_phase5_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_science);
+                    while(mysqli_fetch_array($run_phase5_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 5 term 1 ap
+            if($phase5_subject_id == 6 ){
+                $phase5_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_AP = mysqli_query($conn,$phase5_AP);
+                if(mysqli_num_rows($run_phase5_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_AP);
+                    while(mysqli_fetch_array($run_phase5_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 1 EPP_TLE
+            if($phase5_subject_id == 7 ){
+                $phase5_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_ep_tle = mysqli_query($conn,$phase5_epp_tle);
+                if(mysqli_num_rows($run_phase5_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_ep_tle);
+                    while(mysqli_fetch_array($run_phase5_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 1 MAPEH
+            if($phase5_subject_id == 8 ){
+                $phase5_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_mapeh = mysqli_query($conn,$phase5_mapeh);
+                if(mysqli_num_rows($run_phase5_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_mapeh);
+                    while(mysqli_fetch_array($run_phase5_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 5 term 1 music
+            if($phase5_subject_id == 9 ){
+                $phase5_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_music = mysqli_query($conn,$phase5_music);
+                if(mysqli_num_rows($run_phase5_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_music);
+                    while(mysqli_fetch_array($run_phase5_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 5 term 1 arts
+            if($phase5_subject_id == 10 ){
+                $phase5_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_arts = mysqli_query($conn,$phase5_arts);
+                if(mysqli_num_rows($run_phase5_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_arts);
+                    while(mysqli_fetch_array($run_phase5_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 1 PE
+            if($phase5_subject_id == 11 ){
+                $phase5_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_pe = mysqli_query($conn,$phase5_pe);
+                if(mysqli_num_rows($run_phase5_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_pe);
+                    while(mysqli_fetch_array($run_phase5_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 1 Health
+            if($phase5_subject_id == 12 ){
+                $phase5_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_health = mysqli_query($conn,$phase5_health);
+                if(mysqli_num_rows($run_phase5_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_health);
+                    while(mysqli_fetch_array($run_phase5_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 5 term 1 eduk sa pag papakatao
+            if($phase5_subject_id == 13 ){
+                $phase5_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_esp = mysqli_query($conn,$phase5_esp);
+                if(mysqli_num_rows($run_phase5_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_esp);
+                    while(mysqli_fetch_array($run_phase5_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 1 arabic
+            if($phase5_subject_id == 14 ){
+                $phase5_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_arabic = mysqli_query($conn,$phase5_arabic);
+                if(mysqli_num_rows($run_phase5_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_arabic);
+                    while(mysqli_fetch_array($run_phase5_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 5 term 1 islamic
+            if($phase5_subject_id == 15 ){
+                $phase5_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_islamic = mysqli_query($conn,$phase5_islamic);
+                if(mysqli_num_rows($run_phase5_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_islamic);
+                    while(mysqli_fetch_array($run_phase5_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 5 term 1 general average
+            if( $phase5_subject_id == 16){
+                $phase5_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase5' ";
+                $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
+                if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+        
+
+}// ending of for loop ending of phase 5 term 1
+
+
+
+// phase 5 term 2 ////////////////////////////////////////////////
+
+for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
+    
+    
+    $term = 2;
+    
+
+            if($phase5_subject_id == 1){
+        
+                        //phase 1 term 2 mother tongue 
+                $phase5_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_mt = mysqli_query($conn,$phase5_mt);
+                if(mysqli_num_rows($run_phase5_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_mt);
+                    while(mysqli_fetch_array($run_phase5_mt));
+
+                        $html.=' <h2> 2 </h2>
+                        <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+                }
+
+            //phase 1 term 2 filipino
+
+            if($phase5_subject_id == 2 ){
+                $phase5_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_filipino = mysqli_query($conn,$phase5_filipino);
+                if(mysqli_num_rows($run_phase5_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_filipino);
+                    while(mysqli_fetch_array($run_phase5_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 5 term 2 english 
+
+            if($phase5_subject_id == 3 ){
+                $phase5_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_english = mysqli_query($conn,$phase5_english);
+                if(mysqli_num_rows($run_phase5_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_english);
+                    while(mysqli_fetch_array($run_phase5_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 5 term 2 math
+
+            if($phase5_subject_id == 4 ){
+                $phase5_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_math = mysqli_query($conn,$phase5_math);
+                if(mysqli_num_rows($run_phase5_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_math);
+                    while(mysqli_fetch_array($run_phase5_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 5 term 2 science
+
+            if($phase5_subject_id == 5 ){
+                $phase5_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_science = mysqli_query($conn,$phase5_science);
+                if(mysqli_num_rows($run_phase5_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_science);
+                    while(mysqli_fetch_array($run_phase5_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 5 term 2 ap
+            if($phase5_subject_id == 6 ){
+                $phase5_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_AP = mysqli_query($conn,$phase5_AP);
+                if(mysqli_num_rows($run_phase5_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_AP);
+                    while(mysqli_fetch_array($run_phase5_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 2 EPP_TLE
+            if($phase5_subject_id == 7 ){
+                $phase5_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_ep_tle = mysqli_query($conn,$phase5_epp_tle);
+                if(mysqli_num_rows($run_phase5_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_ep_tle);
+                    while(mysqli_fetch_array($run_phase5_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 2 MAPEH
+            if($phase5_subject_id == 8 ){
+                $phase5_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_mapeh = mysqli_query($conn,$phase5_mapeh);
+                if(mysqli_num_rows($run_phase5_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_mapeh);
+                    while(mysqli_fetch_array($run_phase5_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 5 term 2 music
+            if($phase5_subject_id == 9 ){
+                $phase5_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_music = mysqli_query($conn,$phase5_music);
+                if(mysqli_num_rows($run_phase5_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_music);
+                    while(mysqli_fetch_array($run_phase5_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 5 term 2 arts
+            if($phase5_subject_id == 10 ){
+                $phase5_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_arts = mysqli_query($conn,$phase5_arts);
+                if(mysqli_num_rows($run_phase5_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_arts);
+                    while(mysqli_fetch_array($run_phase5_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 2 PE
+            if($phase5_subject_id == 11 ){
+                $phase5_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_pe = mysqli_query($conn,$phase5_pe);
+                if(mysqli_num_rows($run_phase5_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_pe);
+                    while(mysqli_fetch_array($run_phase5_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 2 Health
+            if($phase5_subject_id == 12 ){
+                $phase5_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_health = mysqli_query($conn,$phase5_health);
+                if(mysqli_num_rows($run_phase5_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_health);
+                    while(mysqli_fetch_array($run_phase5_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 5 term 2 eduk sa pag papakatao
+            if($phase5_subject_id == 13 ){
+                $phase5_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_esp = mysqli_query($conn,$phase5_esp);
+                if(mysqli_num_rows($run_phase5_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_esp);
+                    while(mysqli_fetch_array($run_phase5_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 5 term 2 arabic
+            if($phase5_subject_id == 14 ){
+                $phase5_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_arabic = mysqli_query($conn,$phase5_arabic);
+                if(mysqli_num_rows($run_phase5_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_arabic);
+                    while(mysqli_fetch_array($run_phase5_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 5 term 2 islamic
+            if($phase5_subject_id == 15 ){
+                $phase5_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+                $run_phase5_islamic = mysqli_query($conn,$phase5_islamic);
+                if(mysqli_num_rows($run_phase5_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase5_islamic);
+                    while(mysqli_fetch_array($run_phase5_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 5 term 2 general average
+            if( $phase5_subject_id == 16){
+                $phase5_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase5' ";
+                $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
+                if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+       
+
+}// ending of for loop ending of phase 5 term 2 
+
+            //phase 5 term 3 //////////////////////////////////////////////
+
+for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
+    
+    
+$term = 3;
+
+
+        if($phase5_subject_id == 1){
+    
+                    //phase 1 term 3 mother tongue 
+            $phase5_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_mt = mysqli_query($conn,$phase5_mt);
+            if(mysqli_num_rows($run_phase5_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase5_mt);
+                while(mysqli_fetch_array($run_phase5_mt));
+
+                    $html.=' <h2> 3 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 1 term 3 filipino
+
+        if($phase5_subject_id == 2 ){
+            $phase5_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_filipino = mysqli_query($conn,$phase5_filipino);
+            if(mysqli_num_rows($run_phase5_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase5_filipino);
+                while(mysqli_fetch_array($run_phase5_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 5 term 3 english 
+
+        if($phase5_subject_id == 3 ){
+            $phase5_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_english = mysqli_query($conn,$phase5_english);
+            if(mysqli_num_rows($run_phase5_english) > 0){
+                $rows = mysqli_fetch_array($run_phase5_english);
+                while(mysqli_fetch_array($run_phase5_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 3 math
+
+        if($phase5_subject_id == 4 ){
+            $phase5_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_math = mysqli_query($conn,$phase5_math);
+            if(mysqli_num_rows($run_phase5_math) > 0){
+                $rows = mysqli_fetch_array($run_phase5_math);
+                while(mysqli_fetch_array($run_phase5_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 5 term 3 science
+
+        if($phase5_subject_id == 5 ){
+            $phase5_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_science = mysqli_query($conn,$phase5_science);
+            if(mysqli_num_rows($run_phase5_science) > 0){
+                $rows = mysqli_fetch_array($run_phase5_science);
+                while(mysqli_fetch_array($run_phase5_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 5 term 3 ap
+        if($phase5_subject_id == 6 ){
+            $phase5_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_AP = mysqli_query($conn,$phase5_AP);
+            if(mysqli_num_rows($run_phase5_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase5_AP);
+                while(mysqli_fetch_array($run_phase5_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 3 EPP_TLE
+        if($phase5_subject_id == 7 ){
+            $phase5_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_ep_tle = mysqli_query($conn,$phase5_epp_tle);
+            if(mysqli_num_rows($run_phase5_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase5_ep_tle);
+                while(mysqli_fetch_array($run_phase5_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 3 MAPEH
+        if($phase5_subject_id == 8 ){
+            $phase5_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_mapeh = mysqli_query($conn,$phase5_mapeh);
+            if(mysqli_num_rows($run_phase5_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase5_mapeh);
+                while(mysqli_fetch_array($run_phase5_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 5 term 3 music
+        if($phase5_subject_id == 9 ){
+            $phase5_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_music = mysqli_query($conn,$phase5_music);
+            if(mysqli_num_rows($run_phase5_music) > 0){
+                $rows = mysqli_fetch_array($run_phase5_music);
+                while(mysqli_fetch_array($run_phase5_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 5 term 3 arts
+        if($phase5_subject_id == 10 ){
+            $phase5_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_arts = mysqli_query($conn,$phase5_arts);
+            if(mysqli_num_rows($run_phase5_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase5_arts);
+                while(mysqli_fetch_array($run_phase5_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 3 PE
+        if($phase5_subject_id == 11 ){
+            $phase5_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_pe = mysqli_query($conn,$phase5_pe);
+            if(mysqli_num_rows($run_phase5_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase5_pe);
+                while(mysqli_fetch_array($run_phase5_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 3 Health
+        if($phase5_subject_id == 12 ){
+            $phase5_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_health = mysqli_query($conn,$phase5_health);
+            if(mysqli_num_rows($run_phase5_health) > 0){
+                $rows = mysqli_fetch_array($run_phase5_health);
+                while(mysqli_fetch_array($run_phase5_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 5 term 3 eduk sa pag papakatao
+        if($phase5_subject_id == 13 ){
+            $phase5_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_esp = mysqli_query($conn,$phase5_esp);
+            if(mysqli_num_rows($run_phase5_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase5_esp);
+                while(mysqli_fetch_array($run_phase5_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 3 arabic
+        if($phase5_subject_id == 14 ){
+            $phase5_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_arabic = mysqli_query($conn,$phase5_arabic);
+            if(mysqli_num_rows($run_phase5_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase5_arabic);
+                while(mysqli_fetch_array($run_phase5_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 5 term 3 islamic
+        if($phase5_subject_id == 15 ){
+            $phase5_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_islamic = mysqli_query($conn,$phase5_islamic);
+            if(mysqli_num_rows($run_phase5_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase5_islamic);
+                while(mysqli_fetch_array($run_phase5_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+            
+            }
+
+
+        }
+
+
+        //phase 5 term 3 general average
+        if( $phase5_subject_id == 16){
+            $phase5_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase5' ";
+            $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
+            if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop  ending of phase 5 term 3 
+
+
+//phase 5 term 4 
+
+for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
+    
+    
+$term = 4;
+
+
+        if($phase5_subject_id == 1){
+    
+                    //phase 5 term 4 mother tongue 
+            $phase5_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_mt = mysqli_query($conn,$phase5_mt);
+            if(mysqli_num_rows($run_phase5_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase5_mt);
+                while(mysqli_fetch_array($run_phase5_mt));
+
+                    $html.=' <h2> 4 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 5 term 4 filipino
+
+        if($phase5_subject_id == 2 ){
+            $phase5_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_filipino = mysqli_query($conn,$phase5_filipino);
+            if(mysqli_num_rows($run_phase5_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase5_filipino);
+                while(mysqli_fetch_array($run_phase5_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 5 term 4 english 
+
+        if($phase5_subject_id == 3 ){
+            $phase5_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_english = mysqli_query($conn,$phase5_english);
+            if(mysqli_num_rows($run_phase5_english) > 0){
+                $rows = mysqli_fetch_array($run_phase5_english);
+                while(mysqli_fetch_array($run_phase5_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 4 math
+
+        if($phase5_subject_id == 4 ){
+            $phase5_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_math = mysqli_query($conn,$phase5_math);
+            if(mysqli_num_rows($run_phase5_math) > 0){
+                $rows = mysqli_fetch_array($run_phase5_math);
+                while(mysqli_fetch_array($run_phase5_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 5 term 4 science
+
+        if($phase5_subject_id == 5 ){
+            $phase5_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_science = mysqli_query($conn,$phase5_science);
+            if(mysqli_num_rows($run_phase5_science) > 0){
+                $rows = mysqli_fetch_array($run_phase5_science);
+                while(mysqli_fetch_array($run_phase5_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 5 term 4 ap
+        if($phase5_subject_id == 6 ){
+            $phase5_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_AP = mysqli_query($conn,$phase5_AP);
+            if(mysqli_num_rows($run_phase5_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase5_AP);
+                while(mysqli_fetch_array($run_phase5_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 4 EPP_TLE
+        if($phase5_subject_id == 7 ){
+            $phase5_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_ep_tle = mysqli_query($conn,$phase5_epp_tle);
+            if(mysqli_num_rows($run_phase5_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase5_ep_tle);
+                while(mysqli_fetch_array($run_phase5_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 4 MAPEH
+        if($phase5_subject_id == 8 ){
+            $phase5_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_mapeh = mysqli_query($conn,$phase5_mapeh);
+            if(mysqli_num_rows($run_phase5_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase5_mapeh);
+                while(mysqli_fetch_array($run_phase5_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 5 term 4 music
+        if($phase5_subject_id == 9 ){
+            $phase5_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_music = mysqli_query($conn,$phase5_music);
+            if(mysqli_num_rows($run_phase5_music) > 0){
+                $rows = mysqli_fetch_array($run_phase5_music);
+                while(mysqli_fetch_array($run_phase5_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 5 term 4 arts
+        if($phase5_subject_id == 10 ){
+            $phase5_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_arts = mysqli_query($conn,$phase5_arts);
+            if(mysqli_num_rows($run_phase5_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase5_arts);
+                while(mysqli_fetch_array($run_phase5_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 4 PE
+        if($phase5_subject_id == 11 ){
+            $phase5_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_pe = mysqli_query($conn,$phase5_pe);
+            if(mysqli_num_rows($run_phase5_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase5_pe);
+                while(mysqli_fetch_array($run_phase5_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 4 Health
+        if($phase5_subject_id == 12 ){
+            $phase5_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_health = mysqli_query($conn,$phase5_health);
+            if(mysqli_num_rows($run_phase5_health) > 0){
+                $rows = mysqli_fetch_array($run_phase5_health);
+                while(mysqli_fetch_array($run_phase5_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 5 term 4 eduk sa pag papakatao
+        if($phase5_subject_id == 13 ){
+            $phase5_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_esp = mysqli_query($conn,$phase5_esp);
+            if(mysqli_num_rows($run_phase5_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase5_esp);
+                while(mysqli_fetch_array($run_phase5_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 5 term 4 arabic
+        if($phase5_subject_id == 14 ){
+            $phase5_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_arabic = mysqli_query($conn,$phase5_arabic);
+            if(mysqli_num_rows($run_phase5_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase5_arabic);
+                while(mysqli_fetch_array($run_phase5_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 5 term 4 islamic
+        if($phase5_subject_id == 15 ){
+            $phase5_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5' AND term = '$term'";
+            $run_phase5_islamic = mysqli_query($conn,$phase5_islamic);
+            if(mysqli_num_rows($run_phase5_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase5_islamic);
+                while(mysqli_fetch_array($run_phase5_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        //phase 5 term 4 general average
+        if( $phase5_subject_id == 16){
+            $phase5_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase5' ";
+            $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
+            if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop end of phase 1 term 4 
+
+
+// phase 5 final rating
+//phase 1 final rating 
+
+for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
+    
+    
+
+
+
+if($phase5_subject_id == 1){
+
+            //phase 1 final rating mother tongue 
+    $phase5_mt = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_mt = mysqli_query($conn,$phase5_mt);
+    if(mysqli_num_rows($run_phase5_mt) > 0){
+        $rows = mysqli_fetch_array($run_phase5_mt);
+        while(mysqli_fetch_array($run_phase5_mt));
+
+            $html.=' <h2> Final Rating </h2>
+            <label for="">Mother Tongue: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+    }
+
+//phase 1 final rating filipino
+
+if($phase5_subject_id == 2 ){
+    $phase5_filipino = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_filipino = mysqli_query($conn,$phase5_filipino);
+    if(mysqli_num_rows($run_phase5_filipino) > 0){
+        $rows = mysqli_fetch_array($run_phase5_filipino);
+        while(mysqli_fetch_array($run_phase5_filipino));
+
+            $html.='
+            <label for="">Filipino: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 5 final rating english 
+
+if($phase5_subject_id == 3 ){
+    $phase5_english = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_english = mysqli_query($conn,$phase5_english);
+    if(mysqli_num_rows($run_phase5_english) > 0){
+        $rows = mysqli_fetch_array($run_phase5_english);
+        while(mysqli_fetch_array($run_phase5_english));
+
+            $html.='
+            <label for="">English: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 5 final rating math
+
+if($phase5_subject_id == 4 ){
+    $phase5_math = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_math = mysqli_query($conn,$phase5_math);
+    if(mysqli_num_rows($run_phase5_math) > 0){
+        $rows = mysqli_fetch_array($run_phase5_math);
+        while(mysqli_fetch_array($run_phase5_math));
+
+            $html.='
+            <label for="">Mathematics: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }   
+
+
+    }
+
+    // phase 5 final rating science
+
+if($phase5_subject_id == 5 ){
+    $phase5_science = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_science = mysqli_query($conn,$phase5_science);
+    if(mysqli_num_rows($run_phase5_science) > 0){
+        $rows = mysqli_fetch_array($run_phase5_science);
+        while(mysqli_fetch_array($run_phase5_science));
+
+            $html.='
+            <label for="">Science: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>   ';
+        
+        }
+
+
+    }
+
+
+    // phase 5 final rating ap
+if($phase5_subject_id == 6 ){
+    $phase5_AP = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_AP = mysqli_query($conn,$phase5_AP);
+    if(mysqli_num_rows($run_phase5_AP) > 0){
+        $rows = mysqli_fetch_array($run_phase5_AP);
+        while(mysqli_fetch_array($run_phase5_AP));
+
+        $html.='
+        <label for="">Araling Panlipunan: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 5 final rating EPP_TLE
+if($phase5_subject_id == 7 ){
+    $phase5_epp_tle = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_ep_tle = mysqli_query($conn,$phase5_epp_tle);
+    if(mysqli_num_rows($run_phase5_ep_tle) > 0){
+        $rows = mysqli_fetch_array($run_phase5_ep_tle);
+        while(mysqli_fetch_array($run_phase5_ep_tle));
+
+        $html.='
+        <label for="">EPP / TLE: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 5 final rating MAPEH
+if($phase5_subject_id == 8 ){
+    $phase5_mapeh = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_mapeh = mysqli_query($conn,$phase5_mapeh);
+    if(mysqli_num_rows($run_phase5_mapeh) > 0){
+        $rows = mysqli_fetch_array($run_phase5_mapeh);
+        while(mysqli_fetch_array($run_phase5_mapeh));
+
+        $html.='
+        <label for="">MAPEH: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+    // phase 5 final rating music
+if($phase5_subject_id == 9 ){
+    $phase5_music = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_music = mysqli_query($conn,$phase5_music);
+    if(mysqli_num_rows($run_phase5_music) > 0){
+        $rows = mysqli_fetch_array($run_phase5_music);
+        while(mysqli_fetch_array($run_phase5_music));
+
+        $html.='
+        <label for="">Music: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+        // phase 5 final rating arts
+if($phase5_subject_id == 10 ){
+    $phase5_arts = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_arts = mysqli_query($conn,$phase5_arts);
+    if(mysqli_num_rows($run_phase5_arts) > 0){
+        $rows = mysqli_fetch_array($run_phase5_arts);
+        while(mysqli_fetch_array($run_phase5_arts));
+
+        $html.='
+        <label for="">Arts: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 5 final rating PE
+if($phase5_subject_id == 11 ){
+    $phase5_pe = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_pe = mysqli_query($conn,$phase5_pe);
+    if(mysqli_num_rows($run_phase5_pe) > 0){
+        $rows = mysqli_fetch_array($run_phase5_pe);
+        while(mysqli_fetch_array($run_phase5_pe));
+
+        $html.='
+        <label for="">Physical Education: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 5 final rating Health
+if($phase5_subject_id == 12 ){
+    $phase5_health = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_health = mysqli_query($conn,$phase5_health);
+    if(mysqli_num_rows($run_phase5_health) > 0){
+        $rows = mysqli_fetch_array($run_phase5_health);
+        while(mysqli_fetch_array($run_phase5_health));
+
+        $html.='
+        <label for="">Health: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 5 final rating eduk sa pag papakatao
+if($phase5_subject_id == 13 ){
+    $phase5_esp = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_esp = mysqli_query($conn,$phase5_esp);
+    if(mysqli_num_rows($run_phase5_esp) > 0){
+        $rows = mysqli_fetch_array($run_phase5_esp);
+        while(mysqli_fetch_array($run_phase5_esp));
+
+        $html.='
+        <label for="">Eduk. Sa Pagpapakatao: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 5 final rating arabic
+if($phase5_subject_id == 14 ){
+    $phase5_arabic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_arabic = mysqli_query($conn,$phase5_arabic);
+    if(mysqli_num_rows($run_phase5_arabic) > 0){
+        $rows = mysqli_fetch_array($run_phase5_arabic);
+        while(mysqli_fetch_array($run_phase5_arabic));
+
+        $html.='
+        <label for="">*Arabic language: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 5 final rating islamic
+if($phase5_subject_id == 15 ){
+    $phase5_islamic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase5_subject_id' AND phase = '$phase5'";
+    $run_phase5_islamic = mysqli_query($conn,$phase5_islamic);
+    if(mysqli_num_rows($run_phase5_islamic) > 0){
+        $rows = mysqli_fetch_array($run_phase5_islamic);
+        while(mysqli_fetch_array($run_phase5_islamic));
+
+        $html.='
+        <label for="">*Islamic values Education: '.$rows['final_rating'].' </label> <br> 
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+//phase 5 final rating general average
+if( $phase5_subject_id == 16){
+    $phase5_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase5' AND term = 'Final Rating' ";
+    $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
+    if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
+        $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+        $html.='
+        <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+    
+
+
+    }
+    
+
+
+}
+
+
+}// ending of for loop end of phase 5  
+
+/// remedial  here 
+for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term++){
+
+    if($phase5_remedial_term == 1 ){
+
+        $phase5_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase5' AND term = '$phase5_remedial_term' ";
+        $phase5_run_query = mysqli_query($conn,$phase5_remedial_query);
+        if(mysqli_num_rows($phase5_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase5_run_query);
+            while(mysqli_fetch_array($phase5_run_query));
+            $html.='
+           <h6> Remedial Classes </h6>  
+           <h6> Date Conducted: '.$rows['date_from'].'</h6>
+           <h6> To: '.$rows['date_to'].'</h6> 
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+           
+           ';
+            
+        }
+
+    }
+
+            // term 2
+        if($phase5_remedial_term == 2 ){
+
+            $phase5_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase5' AND term = '$phase5_remedial_term' ";
+        $phase5_run_query = mysqli_query($conn,$phase5_remedial_query);
+        if(mysqli_num_rows($phase5_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase5_run_query);
+            while(mysqli_fetch_array($phase5_run_query));
+            $html.='
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+        
+           ';
+        }
+
+        }
+
+    
+}// end of remedial phase 5 
+
+
+
+
+//start of phase 6 
+// scholastic records phase 6 
+// phase 6 scohlastic query 
+
+$phase6_scholastic_query = "SELECT * FROM `scholastic_records` WHERE lrn = '$lrn' AND phase = $phase6";
+$run_phase6_scholastic = mysqli_query($conn,$phase6_scholastic_query);
+if(mysqli_num_rows($run_phase6_scholastic) > 0){
+    $rows = mysqli_fetch_array($run_phase6_scholastic);
+
+    while(mysqli_fetch_array($run_phase6_scholastic));
+
+
+    $html.='<h2> Scholastic Record </h2>
+
+    <label for="">School: '.$rows['school'].' </label> <br>
+    <label for="">School ID: '.$rows['school_id'].' </label> <br>
+    <label for="">District: '.$rows['district'].' </label><br>
+    <label for="">Division: '.$rows['division'].' </label><br>
+    <label for="">Region: '.$rows['region'].' </label><br>
+    <label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label><br>
+    <label for="">Section: '.$rows['section'].' </label><br>
+    <label for="">School year: '.$rows['school_year'].' </label><br>
+    <label for="">Name of adviser: '.$rows['name_of_teacher'].' </label><br>
+    <label for="">Signature: '.$rows['signature'].' </label><br>
+    ';
+}
+
+//phase 6 term 1 
+
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+    
+    
+    $term = 1;
+    
+
+            if($phase6_subject_id == 1){
+        
+                        //phase 1 term 1 mother tongue 
+                $phase6_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_mt = mysqli_query($conn,$phase6_mt);
+                if(mysqli_num_rows($run_phase6_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_mt);
+                    while(mysqli_fetch_array($run_phase6_mt));
+
+                        $html.=' <h2> 1</h2>
+                        
+                         <label for="">Mother Tongue: '.$rows['grade'].' </label> <br> ';
+                    
+                    }
+                }
+
+            // phase 6 term 1 filipino
+
+            if($phase6_subject_id == 2 ){
+                $phase6_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_filipino = mysqli_query($conn,$phase6_filipino);
+                if(mysqli_num_rows($run_phase6_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_filipino);
+                    while(mysqli_fetch_array($run_phase6_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 6 term 1 english 
+
+            if($phase6_subject_id == 3 ){
+                $phase6_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_english = mysqli_query($conn,$phase6_english);
+                if(mysqli_num_rows($run_phase6_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_english);
+                    while(mysqli_fetch_array($run_phase6_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 6 term 1 math
+
+            if($phase6_subject_id == 4 ){
+                $phase6_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_math = mysqli_query($conn,$phase6_math);
+                if(mysqli_num_rows($run_phase6_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_math);
+                    while(mysqli_fetch_array($run_phase6_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 6 term 1 science
+
+            if($phase6_subject_id == 5 ){
+                $phase6_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_science = mysqli_query($conn,$phase6_science);
+                if(mysqli_num_rows($run_phase6_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_science);
+                    while(mysqli_fetch_array($run_phase6_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 6 term 1 ap
+            if($phase6_subject_id == 6 ){
+                $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+                if(mysqli_num_rows($run_phase6_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_AP);
+                    while(mysqli_fetch_array($run_phase6_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 1 EPP_TLE
+            if($phase6_subject_id == 7 ){
+                $phase6_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_ep_tle = mysqli_query($conn,$phase6_epp_tle);
+                if(mysqli_num_rows($run_phase6_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_ep_tle);
+                    while(mysqli_fetch_array($run_phase6_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 1 MAPEH
+            if($phase6_subject_id == 8 ){
+                $phase6_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_mapeh = mysqli_query($conn,$phase6_mapeh);
+                if(mysqli_num_rows($run_phase6_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_mapeh);
+                    while(mysqli_fetch_array($run_phase6_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 6 term 1 music
+            if($phase6_subject_id == 9 ){
+                $phase6_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_music = mysqli_query($conn,$phase6_music);
+                if(mysqli_num_rows($run_phase6_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_music);
+                    while(mysqli_fetch_array($run_phase6_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 6 term 1 arts
+            if($phase6_subject_id == 10 ){
+                $phase6_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_arts = mysqli_query($conn,$phase6_arts);
+                if(mysqli_num_rows($run_phase6_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_arts);
+                    while(mysqli_fetch_array($run_phase6_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 1 PE
+            if($phase6_subject_id == 11 ){
+                $phase6_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_pe = mysqli_query($conn,$phase6_pe);
+                if(mysqli_num_rows($run_phase6_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_pe);
+                    while(mysqli_fetch_array($run_phase6_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 1 Health
+            if($phase6_subject_id == 12 ){
+                $phase6_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_health = mysqli_query($conn,$phase6_health);
+                if(mysqli_num_rows($run_phase6_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_health);
+                    while(mysqli_fetch_array($run_phase6_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 6 term 1 eduk sa pag papakatao
+            if($phase6_subject_id == 13 ){
+                $phase6_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_esp = mysqli_query($conn,$phase6_esp);
+                if(mysqli_num_rows($run_phase6_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_esp);
+                    while(mysqli_fetch_array($run_phase6_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 1 arabic
+            if($phase6_subject_id == 14 ){
+                $phase6_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_arabic = mysqli_query($conn,$phase6_arabic);
+                if(mysqli_num_rows($run_phase6_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_arabic);
+                    while(mysqli_fetch_array($run_phase6_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 6 term 1 islamic
+            if($phase6_subject_id == 15 ){
+                $phase6_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_islamic = mysqli_query($conn,$phase6_islamic);
+                if(mysqli_num_rows($run_phase6_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_islamic);
+                    while(mysqli_fetch_array($run_phase6_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 6 term 1 general average
+            if( $phase6_subject_id == 16){
+                $phase6_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase6' ";
+                $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
+                if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+        
+
+}// ending of for loop ending of phase 6 term 1
+
+
+
+// phase 6 term 2 ////////////////////////////////////////////////
+
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+    
+    
+    $term = 2;
+    
+
+            if($phase6_subject_id == 1){
+        
+                        //phase 1 term 2 mother tongue 
+                $phase6_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_mt = mysqli_query($conn,$phase6_mt);
+                if(mysqli_num_rows($run_phase6_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_mt);
+                    while(mysqli_fetch_array($run_phase6_mt));
+
+                        $html.=' <h2> 2 </h2>
+                        <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+                }
+
+            //phase 1 term 2 filipino
+
+            if($phase6_subject_id == 2 ){
+                $phase6_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_filipino = mysqli_query($conn,$phase6_filipino);
+                if(mysqli_num_rows($run_phase6_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_filipino);
+                    while(mysqli_fetch_array($run_phase6_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 6 term 2 english 
+
+            if($phase6_subject_id == 3 ){
+                $phase6_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_english = mysqli_query($conn,$phase6_english);
+                if(mysqli_num_rows($run_phase6_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_english);
+                    while(mysqli_fetch_array($run_phase6_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 6 term 2 math
+
+            if($phase6_subject_id == 4 ){
+                $phase6_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_math = mysqli_query($conn,$phase6_math);
+                if(mysqli_num_rows($run_phase6_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_math);
+                    while(mysqli_fetch_array($run_phase6_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 6 term 2 science
+
+            if($phase6_subject_id == 5 ){
+                $phase6_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_science = mysqli_query($conn,$phase6_science);
+                if(mysqli_num_rows($run_phase6_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_science);
+                    while(mysqli_fetch_array($run_phase6_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 6 term 2 ap
+            if($phase6_subject_id == 6 ){
+                $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+                if(mysqli_num_rows($run_phase6_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_AP);
+                    while(mysqli_fetch_array($run_phase6_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 2 EPP_TLE
+            if($phase6_subject_id == 7 ){
+                $phase6_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_ep_tle = mysqli_query($conn,$phase6_epp_tle);
+                if(mysqli_num_rows($run_phase6_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_ep_tle);
+                    while(mysqli_fetch_array($run_phase6_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 2 MAPEH
+            if($phase6_subject_id == 8 ){
+                $phase6_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_mapeh = mysqli_query($conn,$phase6_mapeh);
+                if(mysqli_num_rows($run_phase6_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_mapeh);
+                    while(mysqli_fetch_array($run_phase6_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 6 term 2 music
+            if($phase6_subject_id == 9 ){
+                $phase6_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_music = mysqli_query($conn,$phase6_music);
+                if(mysqli_num_rows($run_phase6_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_music);
+                    while(mysqli_fetch_array($run_phase6_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 6 term 2 arts
+            if($phase6_subject_id == 10 ){
+                $phase6_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_arts = mysqli_query($conn,$phase6_arts);
+                if(mysqli_num_rows($run_phase6_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_arts);
+                    while(mysqli_fetch_array($run_phase6_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 2 PE
+            if($phase6_subject_id == 11 ){
+                $phase6_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_pe = mysqli_query($conn,$phase6_pe);
+                if(mysqli_num_rows($run_phase6_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_pe);
+                    while(mysqli_fetch_array($run_phase6_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 2 Health
+            if($phase6_subject_id == 12 ){
+                $phase6_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_health = mysqli_query($conn,$phase6_health);
+                if(mysqli_num_rows($run_phase6_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_health);
+                    while(mysqli_fetch_array($run_phase6_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 6 term 2 eduk sa pag papakatao
+            if($phase6_subject_id == 13 ){
+                $phase6_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_esp = mysqli_query($conn,$phase6_esp);
+                if(mysqli_num_rows($run_phase6_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_esp);
+                    while(mysqli_fetch_array($run_phase6_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 6 term 2 arabic
+            if($phase6_subject_id == 14 ){
+                $phase6_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_arabic = mysqli_query($conn,$phase6_arabic);
+                if(mysqli_num_rows($run_phase6_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_arabic);
+                    while(mysqli_fetch_array($run_phase6_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 6 term 2 islamic
+            if($phase6_subject_id == 15 ){
+                $phase6_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_islamic = mysqli_query($conn,$phase6_islamic);
+                if(mysqli_num_rows($run_phase6_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_islamic);
+                    while(mysqli_fetch_array($run_phase6_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 6 term 2 general average
+            if( $phase6_subject_id == 16){
+                $phase6_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase6' ";
+                $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
+                if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+       
+
+}// ending of for loop ending of phase 6 term 2 
+
+            //phase 6 term 3 //////////////////////////////////////////////
+
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+    
+    
+$term = 3;
+
+
+        if($phase6_subject_id == 1){
+    
+                    //phase 1 term 3 mother tongue 
+            $phase6_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_mt = mysqli_query($conn,$phase6_mt);
+            if(mysqli_num_rows($run_phase6_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase6_mt);
+                while(mysqli_fetch_array($run_phase6_mt));
+
+                    $html.=' <h2> 3 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 1 term 3 filipino
+
+        if($phase6_subject_id == 2 ){
+            $phase6_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_filipino = mysqli_query($conn,$phase6_filipino);
+            if(mysqli_num_rows($run_phase6_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase6_filipino);
+                while(mysqli_fetch_array($run_phase6_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 6 term 3 english 
+
+        if($phase6_subject_id == 3 ){
+            $phase6_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_english = mysqli_query($conn,$phase6_english);
+            if(mysqli_num_rows($run_phase6_english) > 0){
+                $rows = mysqli_fetch_array($run_phase6_english);
+                while(mysqli_fetch_array($run_phase6_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 3 math
+
+        if($phase6_subject_id == 4 ){
+            $phase6_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_math = mysqli_query($conn,$phase6_math);
+            if(mysqli_num_rows($run_phase6_math) > 0){
+                $rows = mysqli_fetch_array($run_phase6_math);
+                while(mysqli_fetch_array($run_phase6_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 6 term 3 science
+
+        if($phase6_subject_id == 5 ){
+            $phase6_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_science = mysqli_query($conn,$phase6_science);
+            if(mysqli_num_rows($run_phase6_science) > 0){
+                $rows = mysqli_fetch_array($run_phase6_science);
+                while(mysqli_fetch_array($run_phase6_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 6 term 3 ap
+        if($phase6_subject_id == 6 ){
+            $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+            if(mysqli_num_rows($run_phase6_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase6_AP);
+                while(mysqli_fetch_array($run_phase6_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 3 EPP_TLE
+        if($phase6_subject_id == 7 ){
+            $phase6_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_ep_tle = mysqli_query($conn,$phase6_epp_tle);
+            if(mysqli_num_rows($run_phase6_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase6_ep_tle);
+                while(mysqli_fetch_array($run_phase6_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 3 MAPEH
+        if($phase6_subject_id == 8 ){
+            $phase6_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_mapeh = mysqli_query($conn,$phase6_mapeh);
+            if(mysqli_num_rows($run_phase6_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase6_mapeh);
+                while(mysqli_fetch_array($run_phase6_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 6 term 3 music
+        if($phase6_subject_id == 9 ){
+            $phase6_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_music = mysqli_query($conn,$phase6_music);
+            if(mysqli_num_rows($run_phase6_music) > 0){
+                $rows = mysqli_fetch_array($run_phase6_music);
+                while(mysqli_fetch_array($run_phase6_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 6 term 3 arts
+        if($phase6_subject_id == 10 ){
+            $phase6_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_arts = mysqli_query($conn,$phase6_arts);
+            if(mysqli_num_rows($run_phase6_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase6_arts);
+                while(mysqli_fetch_array($run_phase6_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 3 PE
+        if($phase6_subject_id == 11 ){
+            $phase6_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_pe = mysqli_query($conn,$phase6_pe);
+            if(mysqli_num_rows($run_phase6_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase6_pe);
+                while(mysqli_fetch_array($run_phase6_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 3 Health
+        if($phase6_subject_id == 12 ){
+            $phase6_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_health = mysqli_query($conn,$phase6_health);
+            if(mysqli_num_rows($run_phase6_health) > 0){
+                $rows = mysqli_fetch_array($run_phase6_health);
+                while(mysqli_fetch_array($run_phase6_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 6 term 3 eduk sa pag papakatao
+        if($phase6_subject_id == 13 ){
+            $phase6_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_esp = mysqli_query($conn,$phase6_esp);
+            if(mysqli_num_rows($run_phase6_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase6_esp);
+                while(mysqli_fetch_array($run_phase6_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 3 arabic
+        if($phase6_subject_id == 14 ){
+            $phase6_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_arabic = mysqli_query($conn,$phase6_arabic);
+            if(mysqli_num_rows($run_phase6_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase6_arabic);
+                while(mysqli_fetch_array($run_phase6_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 6 term 3 islamic
+        if($phase6_subject_id == 15 ){
+            $phase6_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_islamic = mysqli_query($conn,$phase6_islamic);
+            if(mysqli_num_rows($run_phase6_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase6_islamic);
+                while(mysqli_fetch_array($run_phase6_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+            
+            }
+
+
+        }
+
+
+        //phase 6 term 3 general average
+        if( $phase6_subject_id == 16){
+            $phase6_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase6' ";
+            $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
+            if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop  ending of phase 6 term 3 
+
+
+//phase 6 term 4 
+
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+    
+    
+$term = 4;
+
+
+        if($phase6_subject_id == 1){
+    
+                    //phase 6 term 4 mother tongue 
+            $phase6_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_mt = mysqli_query($conn,$phase6_mt);
+            if(mysqli_num_rows($run_phase6_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase6_mt);
+                while(mysqli_fetch_array($run_phase6_mt));
+
+                    $html.=' <h2> 4 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 6 term 4 filipino
+
+        if($phase6_subject_id == 2 ){
+            $phase6_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_filipino = mysqli_query($conn,$phase6_filipino);
+            if(mysqli_num_rows($run_phase6_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase6_filipino);
+                while(mysqli_fetch_array($run_phase6_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 6 term 4 english 
+
+        if($phase6_subject_id == 3 ){
+            $phase6_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_english = mysqli_query($conn,$phase6_english);
+            if(mysqli_num_rows($run_phase6_english) > 0){
+                $rows = mysqli_fetch_array($run_phase6_english);
+                while(mysqli_fetch_array($run_phase6_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 4 math
+
+        if($phase6_subject_id == 4 ){
+            $phase6_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_math = mysqli_query($conn,$phase6_math);
+            if(mysqli_num_rows($run_phase6_math) > 0){
+                $rows = mysqli_fetch_array($run_phase6_math);
+                while(mysqli_fetch_array($run_phase6_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 6 term 4 science
+
+        if($phase6_subject_id == 5 ){
+            $phase6_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_science = mysqli_query($conn,$phase6_science);
+            if(mysqli_num_rows($run_phase6_science) > 0){
+                $rows = mysqli_fetch_array($run_phase6_science);
+                while(mysqli_fetch_array($run_phase6_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 6 term 4 ap
+        if($phase6_subject_id == 6 ){
+            $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+            if(mysqli_num_rows($run_phase6_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase6_AP);
+                while(mysqli_fetch_array($run_phase6_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 4 EPP_TLE
+        if($phase6_subject_id == 7 ){
+            $phase6_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_ep_tle = mysqli_query($conn,$phase6_epp_tle);
+            if(mysqli_num_rows($run_phase6_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase6_ep_tle);
+                while(mysqli_fetch_array($run_phase6_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 4 MAPEH
+        if($phase6_subject_id == 8 ){
+            $phase6_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_mapeh = mysqli_query($conn,$phase6_mapeh);
+            if(mysqli_num_rows($run_phase6_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase6_mapeh);
+                while(mysqli_fetch_array($run_phase6_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 6 term 4 music
+        if($phase6_subject_id == 9 ){
+            $phase6_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_music = mysqli_query($conn,$phase6_music);
+            if(mysqli_num_rows($run_phase6_music) > 0){
+                $rows = mysqli_fetch_array($run_phase6_music);
+                while(mysqli_fetch_array($run_phase6_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 6 term 4 arts
+        if($phase6_subject_id == 10 ){
+            $phase6_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_arts = mysqli_query($conn,$phase6_arts);
+            if(mysqli_num_rows($run_phase6_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase6_arts);
+                while(mysqli_fetch_array($run_phase6_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 4 PE
+        if($phase6_subject_id == 11 ){
+            $phase6_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_pe = mysqli_query($conn,$phase6_pe);
+            if(mysqli_num_rows($run_phase6_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase6_pe);
+                while(mysqli_fetch_array($run_phase6_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 4 Health
+        if($phase6_subject_id == 12 ){
+            $phase6_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_health = mysqli_query($conn,$phase6_health);
+            if(mysqli_num_rows($run_phase6_health) > 0){
+                $rows = mysqli_fetch_array($run_phase6_health);
+                while(mysqli_fetch_array($run_phase6_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 6 term 4 eduk sa pag papakatao
+        if($phase6_subject_id == 13 ){
+            $phase6_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_esp = mysqli_query($conn,$phase6_esp);
+            if(mysqli_num_rows($run_phase6_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase6_esp);
+                while(mysqli_fetch_array($run_phase6_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 6 term 4 arabic
+        if($phase6_subject_id == 14 ){
+            $phase6_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_arabic = mysqli_query($conn,$phase6_arabic);
+            if(mysqli_num_rows($run_phase6_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase6_arabic);
+                while(mysqli_fetch_array($run_phase6_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 6 term 4 islamic
+        if($phase6_subject_id == 15 ){
+            $phase6_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+            $run_phase6_islamic = mysqli_query($conn,$phase6_islamic);
+            if(mysqli_num_rows($run_phase6_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase6_islamic);
+                while(mysqli_fetch_array($run_phase6_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        //phase 6 term 4 general average
+        if( $phase6_subject_id == 16){
+            $phase6_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase6' ";
+            $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
+            if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop end of phase 1 term 4 
+
+
+// phase 6 final rating
+//phase 1 final rating 
+
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+    
+    
+
+
+
+if($phase6_subject_id == 1){
+
+            //phase 1 final rating mother tongue 
+    $phase6_mt = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_mt = mysqli_query($conn,$phase6_mt);
+    if(mysqli_num_rows($run_phase6_mt) > 0){
+        $rows = mysqli_fetch_array($run_phase6_mt);
+        while(mysqli_fetch_array($run_phase6_mt));
+
+            $html.=' <h2> Final Rating </h2>
+            <label for="">Mother Tongue: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+    }
+
+//phase 1 final rating filipino
+
+if($phase6_subject_id == 2 ){
+    $phase6_filipino = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_filipino = mysqli_query($conn,$phase6_filipino);
+    if(mysqli_num_rows($run_phase6_filipino) > 0){
+        $rows = mysqli_fetch_array($run_phase6_filipino);
+        while(mysqli_fetch_array($run_phase6_filipino));
+
+            $html.='
+            <label for="">Filipino: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 6 final rating english 
+
+if($phase6_subject_id == 3 ){
+    $phase6_english = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_english = mysqli_query($conn,$phase6_english);
+    if(mysqli_num_rows($run_phase6_english) > 0){
+        $rows = mysqli_fetch_array($run_phase6_english);
+        while(mysqli_fetch_array($run_phase6_english));
+
+            $html.='
+            <label for="">English: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 6 final rating math
+
+if($phase6_subject_id == 4 ){
+    $phase6_math = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_math = mysqli_query($conn,$phase6_math);
+    if(mysqli_num_rows($run_phase6_math) > 0){
+        $rows = mysqli_fetch_array($run_phase6_math);
+        while(mysqli_fetch_array($run_phase6_math));
+
+            $html.='
+            <label for="">Mathematics: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }   
+
+
+    }
+
+    // phase 6 final rating science
+
+if($phase6_subject_id == 5 ){
+    $phase6_science = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_science = mysqli_query($conn,$phase6_science);
+    if(mysqli_num_rows($run_phase6_science) > 0){
+        $rows = mysqli_fetch_array($run_phase6_science);
+        while(mysqli_fetch_array($run_phase6_science));
+
+            $html.='
+            <label for="">Science: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>   ';
+        
+        }
+
+
+    }
+
+
+    // phase 6 final rating ap
+if($phase6_subject_id == 6 ){
+    $phase6_AP = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+    if(mysqli_num_rows($run_phase6_AP) > 0){
+        $rows = mysqli_fetch_array($run_phase6_AP);
+        while(mysqli_fetch_array($run_phase6_AP));
+
+        $html.='
+        <label for="">Araling Panlipunan: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 6 final rating EPP_TLE
+if($phase6_subject_id == 7 ){
+    $phase6_epp_tle = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_ep_tle = mysqli_query($conn,$phase6_epp_tle);
+    if(mysqli_num_rows($run_phase6_ep_tle) > 0){
+        $rows = mysqli_fetch_array($run_phase6_ep_tle);
+        while(mysqli_fetch_array($run_phase6_ep_tle));
+
+        $html.='
+        <label for="">EPP / TLE: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 6 final rating MAPEH
+if($phase6_subject_id == 8 ){
+    $phase6_mapeh = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_mapeh = mysqli_query($conn,$phase6_mapeh);
+    if(mysqli_num_rows($run_phase6_mapeh) > 0){
+        $rows = mysqli_fetch_array($run_phase6_mapeh);
+        while(mysqli_fetch_array($run_phase6_mapeh));
+
+        $html.='
+        <label for="">MAPEH: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+    // phase 6 final rating music
+if($phase6_subject_id == 9 ){
+    $phase6_music = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_music = mysqli_query($conn,$phase6_music);
+    if(mysqli_num_rows($run_phase6_music) > 0){
+        $rows = mysqli_fetch_array($run_phase6_music);
+        while(mysqli_fetch_array($run_phase6_music));
+
+        $html.='
+        <label for="">Music: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+        // phase 6 final rating arts
+if($phase6_subject_id == 10 ){
+    $phase6_arts = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_arts = mysqli_query($conn,$phase6_arts);
+    if(mysqli_num_rows($run_phase6_arts) > 0){
+        $rows = mysqli_fetch_array($run_phase6_arts);
+        while(mysqli_fetch_array($run_phase6_arts));
+
+        $html.='
+        <label for="">Arts: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 6 final rating PE
+if($phase6_subject_id == 11 ){
+    $phase6_pe = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_pe = mysqli_query($conn,$phase6_pe);
+    if(mysqli_num_rows($run_phase6_pe) > 0){
+        $rows = mysqli_fetch_array($run_phase6_pe);
+        while(mysqli_fetch_array($run_phase6_pe));
+
+        $html.='
+        <label for="">Physical Education: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 6 final rating Health
+if($phase6_subject_id == 12 ){
+    $phase6_health = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_health = mysqli_query($conn,$phase6_health);
+    if(mysqli_num_rows($run_phase6_health) > 0){
+        $rows = mysqli_fetch_array($run_phase6_health);
+        while(mysqli_fetch_array($run_phase6_health));
+
+        $html.='
+        <label for="">Health: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 6 final rating eduk sa pag papakatao
+if($phase6_subject_id == 13 ){
+    $phase6_esp = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_esp = mysqli_query($conn,$phase6_esp);
+    if(mysqli_num_rows($run_phase6_esp) > 0){
+        $rows = mysqli_fetch_array($run_phase6_esp);
+        while(mysqli_fetch_array($run_phase6_esp));
+
+        $html.='
+        <label for="">Eduk. Sa Pagpapakatao: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 6 final rating arabic
+if($phase6_subject_id == 14 ){
+    $phase6_arabic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_arabic = mysqli_query($conn,$phase6_arabic);
+    if(mysqli_num_rows($run_phase6_arabic) > 0){
+        $rows = mysqli_fetch_array($run_phase6_arabic);
+        while(mysqli_fetch_array($run_phase6_arabic));
+
+        $html.='
+        <label for="">*Arabic language: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 6 final rating islamic
+if($phase6_subject_id == 15 ){
+    $phase6_islamic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6'";
+    $run_phase6_islamic = mysqli_query($conn,$phase6_islamic);
+    if(mysqli_num_rows($run_phase6_islamic) > 0){
+        $rows = mysqli_fetch_array($run_phase6_islamic);
+        while(mysqli_fetch_array($run_phase6_islamic));
+
+        $html.='
+        <label for="">*Islamic values Education: '.$rows['final_rating'].' </label> <br> 
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+//phase 6 final rating general average
+if( $phase6_subject_id == 16){
+    $phase6_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase6' AND term = 'Final Rating' ";
+    $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
+    if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
+        $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+        $html.='
+        <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+    
+
+
+    }
+    
+
+
+}
+
+
+}// ending of for loop end of phase 6  
+
+/// remedial  here 
+for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term++){
+
+    if($phase6_remedial_term == 1 ){
+
+        $phase6_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase6' AND term = '$phase6_remedial_term' ";
+        $phase6_run_query = mysqli_query($conn,$phase6_remedial_query);
+        if(mysqli_num_rows($phase6_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase6_run_query);
+            while(mysqli_fetch_array($phase6_run_query));
+            $html.='
+           <h6> Remedial Classes </h6>  
+           <h6> Date Conducted: '.$rows['date_from'].'</h6>
+           <h6> To: '.$rows['date_to'].'</h6> 
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+           
+           ';
+            
+        }
+
+    }
+
+            // term 2
+        if($phase6_remedial_term == 2 ){
+
+            $phase6_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase6' AND term = '$phase6_remedial_term' ";
+        $phase6_run_query = mysqli_query($conn,$phase6_remedial_query);
+        if(mysqli_num_rows($phase6_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase6_run_query);
+            while(mysqli_fetch_array($phase6_run_query));
+            $html.='
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+        
+           ';
+        }
+
+        }
+
+    
+}// end of remedial phase 6 
+
+
+
+//start of phase 7 
+// scholastic records phase 7 
+// phase 7 scohlastic query 
+
+$phase7_scholastic_query = "SELECT * FROM `scholastic_records` WHERE lrn = '$lrn' AND phase = $phase7";
+$run_phase7_scholastic = mysqli_query($conn,$phase7_scholastic_query);
+if(mysqli_num_rows($run_phase7_scholastic) > 0){
+    $rows = mysqli_fetch_array($run_phase7_scholastic);
+
+    while(mysqli_fetch_array($run_phase7_scholastic));
+
+
+    $html.='<h2> Scholastic Record </h2>
+
+    <label for="">School: '.$rows['school'].' </label> <br>
+    <label for="">School ID: '.$rows['school_id'].' </label> <br>
+    <label for="">District: '.$rows['district'].' </label><br>
+    <label for="">Division: '.$rows['division'].' </label><br>
+    <label for="">Region: '.$rows['region'].' </label><br>
+    <label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label><br>
+    <label for="">Section: '.$rows['section'].' </label><br>
+    <label for="">School year: '.$rows['school_year'].' </label><br>
+    <label for="">Name of adviser: '.$rows['name_of_teacher'].' </label><br>
+    <label for="">Signature: '.$rows['signature'].' </label><br>
+    ';
+}
+
+//phase 7 term 1 
+
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+    
+    
+    $term = 1;
+    
+
+            if($phase7_subject_id == 1){
+        
+                        //phase 1 term 1 mother tongue 
+                $phase7_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_mt = mysqli_query($conn,$phase7_mt);
+                if(mysqli_num_rows($run_phase7_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_mt);
+                    while(mysqli_fetch_array($run_phase7_mt));
+
+                        $html.=' <h2> 1</h2>
+                        
+                         <label for="">Mother Tongue: '.$rows['grade'].' </label> <br> ';
+                    
+                    }
+                }
+
+            // phase 7 term 1 filipino
+
+            if($phase7_subject_id == 2 ){
+                $phase7_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_filipino = mysqli_query($conn,$phase7_filipino);
+                if(mysqli_num_rows($run_phase7_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_filipino);
+                    while(mysqli_fetch_array($run_phase7_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 7 term 1 english 
+
+            if($phase7_subject_id == 3 ){
+                $phase7_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_english = mysqli_query($conn,$phase7_english);
+                if(mysqli_num_rows($run_phase7_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_english);
+                    while(mysqli_fetch_array($run_phase7_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 7 term 1 math
+
+            if($phase7_subject_id == 4 ){
+                $phase7_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_math = mysqli_query($conn,$phase7_math);
+                if(mysqli_num_rows($run_phase7_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_math);
+                    while(mysqli_fetch_array($run_phase7_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 7 term 1 science
+
+            if($phase7_subject_id == 5 ){
+                $phase7_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_science = mysqli_query($conn,$phase7_science);
+                if(mysqli_num_rows($run_phase7_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_science);
+                    while(mysqli_fetch_array($run_phase7_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 7 term 1 ap
+            if($phase7_subject_id == 6 ){
+                $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+                if(mysqli_num_rows($run_phase7_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_AP);
+                    while(mysqli_fetch_array($run_phase7_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 1 EPP_TLE
+            if($phase7_subject_id == 7 ){
+                $phase7_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_ep_tle = mysqli_query($conn,$phase7_epp_tle);
+                if(mysqli_num_rows($run_phase7_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_ep_tle);
+                    while(mysqli_fetch_array($run_phase7_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 1 MAPEH
+            if($phase7_subject_id == 8 ){
+                $phase7_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_mapeh = mysqli_query($conn,$phase7_mapeh);
+                if(mysqli_num_rows($run_phase7_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_mapeh);
+                    while(mysqli_fetch_array($run_phase7_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 7 term 1 music
+            if($phase7_subject_id == 9 ){
+                $phase7_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_music = mysqli_query($conn,$phase7_music);
+                if(mysqli_num_rows($run_phase7_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_music);
+                    while(mysqli_fetch_array($run_phase7_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 7 term 1 arts
+            if($phase7_subject_id == 10 ){
+                $phase7_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_arts = mysqli_query($conn,$phase7_arts);
+                if(mysqli_num_rows($run_phase7_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_arts);
+                    while(mysqli_fetch_array($run_phase7_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 1 PE
+            if($phase7_subject_id == 11 ){
+                $phase7_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_pe = mysqli_query($conn,$phase7_pe);
+                if(mysqli_num_rows($run_phase7_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_pe);
+                    while(mysqli_fetch_array($run_phase7_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 1 Health
+            if($phase7_subject_id == 12 ){
+                $phase7_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_health = mysqli_query($conn,$phase7_health);
+                if(mysqli_num_rows($run_phase7_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_health);
+                    while(mysqli_fetch_array($run_phase7_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 7 term 1 eduk sa pag papakatao
+            if($phase7_subject_id == 13 ){
+                $phase7_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_esp = mysqli_query($conn,$phase7_esp);
+                if(mysqli_num_rows($run_phase7_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_esp);
+                    while(mysqli_fetch_array($run_phase7_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 1 arabic
+            if($phase7_subject_id == 14 ){
+                $phase7_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_arabic = mysqli_query($conn,$phase7_arabic);
+                if(mysqli_num_rows($run_phase7_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_arabic);
+                    while(mysqli_fetch_array($run_phase7_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 7 term 1 islamic
+            if($phase7_subject_id == 15 ){
+                $phase7_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_islamic = mysqli_query($conn,$phase7_islamic);
+                if(mysqli_num_rows($run_phase7_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_islamic);
+                    while(mysqli_fetch_array($run_phase7_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 7 term 1 general average
+            if( $phase7_subject_id == 16){
+                $phase7_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase7' ";
+                $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
+                if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+        
+
+}// ending of for loop ending of phase 7 term 1
+
+
+
+// phase 7 term 2 ////////////////////////////////////////////////
+
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+    
+    
+    $term = 2;
+    
+
+            if($phase7_subject_id == 1){
+        
+                        //phase 1 term 2 mother tongue 
+                $phase7_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_mt = mysqli_query($conn,$phase7_mt);
+                if(mysqli_num_rows($run_phase7_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_mt);
+                    while(mysqli_fetch_array($run_phase7_mt));
+
+                        $html.=' <h2> 2 </h2>
+                        <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+                }
+
+            //phase 1 term 2 filipino
+
+            if($phase7_subject_id == 2 ){
+                $phase7_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_filipino = mysqli_query($conn,$phase7_filipino);
+                if(mysqli_num_rows($run_phase7_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_filipino);
+                    while(mysqli_fetch_array($run_phase7_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 7 term 2 english 
+
+            if($phase7_subject_id == 3 ){
+                $phase7_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_english = mysqli_query($conn,$phase7_english);
+                if(mysqli_num_rows($run_phase7_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_english);
+                    while(mysqli_fetch_array($run_phase7_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 7 term 2 math
+
+            if($phase7_subject_id == 4 ){
+                $phase7_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_math = mysqli_query($conn,$phase7_math);
+                if(mysqli_num_rows($run_phase7_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_math);
+                    while(mysqli_fetch_array($run_phase7_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 7 term 2 science
+
+            if($phase7_subject_id == 5 ){
+                $phase7_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_science = mysqli_query($conn,$phase7_science);
+                if(mysqli_num_rows($run_phase7_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_science);
+                    while(mysqli_fetch_array($run_phase7_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 7 term 2 ap
+            if($phase7_subject_id == 6 ){
+                $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+                if(mysqli_num_rows($run_phase7_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_AP);
+                    while(mysqli_fetch_array($run_phase7_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 2 EPP_TLE
+            if($phase7_subject_id == 7 ){
+                $phase7_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_ep_tle = mysqli_query($conn,$phase7_epp_tle);
+                if(mysqli_num_rows($run_phase7_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_ep_tle);
+                    while(mysqli_fetch_array($run_phase7_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 2 MAPEH
+            if($phase7_subject_id == 8 ){
+                $phase7_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_mapeh = mysqli_query($conn,$phase7_mapeh);
+                if(mysqli_num_rows($run_phase7_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_mapeh);
+                    while(mysqli_fetch_array($run_phase7_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 7 term 2 music
+            if($phase7_subject_id == 9 ){
+                $phase7_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_music = mysqli_query($conn,$phase7_music);
+                if(mysqli_num_rows($run_phase7_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_music);
+                    while(mysqli_fetch_array($run_phase7_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 7 term 2 arts
+            if($phase7_subject_id == 10 ){
+                $phase7_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_arts = mysqli_query($conn,$phase7_arts);
+                if(mysqli_num_rows($run_phase7_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_arts);
+                    while(mysqli_fetch_array($run_phase7_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 2 PE
+            if($phase7_subject_id == 11 ){
+                $phase7_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_pe = mysqli_query($conn,$phase7_pe);
+                if(mysqli_num_rows($run_phase7_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_pe);
+                    while(mysqli_fetch_array($run_phase7_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 2 Health
+            if($phase7_subject_id == 12 ){
+                $phase7_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_health = mysqli_query($conn,$phase7_health);
+                if(mysqli_num_rows($run_phase7_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_health);
+                    while(mysqli_fetch_array($run_phase7_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 7 term 2 eduk sa pag papakatao
+            if($phase7_subject_id == 13 ){
+                $phase7_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_esp = mysqli_query($conn,$phase7_esp);
+                if(mysqli_num_rows($run_phase7_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_esp);
+                    while(mysqli_fetch_array($run_phase7_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 7 term 2 arabic
+            if($phase7_subject_id == 14 ){
+                $phase7_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_arabic = mysqli_query($conn,$phase7_arabic);
+                if(mysqli_num_rows($run_phase7_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_arabic);
+                    while(mysqli_fetch_array($run_phase7_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 7 term 2 islamic
+            if($phase7_subject_id == 15 ){
+                $phase7_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_islamic = mysqli_query($conn,$phase7_islamic);
+                if(mysqli_num_rows($run_phase7_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_islamic);
+                    while(mysqli_fetch_array($run_phase7_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 7 term 2 general average
+            if( $phase7_subject_id == 16){
+                $phase7_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase7' ";
+                $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
+                if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+       
+
+}// ending of for loop ending of phase 7 term 2 
+
+            //phase 7 term 3 //////////////////////////////////////////////
+
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+    
+    
+$term = 3;
+
+
+        if($phase7_subject_id == 1){
+    
+                    //phase 1 term 3 mother tongue 
+            $phase7_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_mt = mysqli_query($conn,$phase7_mt);
+            if(mysqli_num_rows($run_phase7_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase7_mt);
+                while(mysqli_fetch_array($run_phase7_mt));
+
+                    $html.=' <h2> 3 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 1 term 3 filipino
+
+        if($phase7_subject_id == 2 ){
+            $phase7_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_filipino = mysqli_query($conn,$phase7_filipino);
+            if(mysqli_num_rows($run_phase7_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase7_filipino);
+                while(mysqli_fetch_array($run_phase7_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 7 term 3 english 
+
+        if($phase7_subject_id == 3 ){
+            $phase7_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_english = mysqli_query($conn,$phase7_english);
+            if(mysqli_num_rows($run_phase7_english) > 0){
+                $rows = mysqli_fetch_array($run_phase7_english);
+                while(mysqli_fetch_array($run_phase7_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 3 math
+
+        if($phase7_subject_id == 4 ){
+            $phase7_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_math = mysqli_query($conn,$phase7_math);
+            if(mysqli_num_rows($run_phase7_math) > 0){
+                $rows = mysqli_fetch_array($run_phase7_math);
+                while(mysqli_fetch_array($run_phase7_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 7 term 3 science
+
+        if($phase7_subject_id == 5 ){
+            $phase7_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_science = mysqli_query($conn,$phase7_science);
+            if(mysqli_num_rows($run_phase7_science) > 0){
+                $rows = mysqli_fetch_array($run_phase7_science);
+                while(mysqli_fetch_array($run_phase7_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 7 term 3 ap
+        if($phase7_subject_id == 6 ){
+            $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+            if(mysqli_num_rows($run_phase7_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase7_AP);
+                while(mysqli_fetch_array($run_phase7_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 3 EPP_TLE
+        if($phase7_subject_id == 7 ){
+            $phase7_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_ep_tle = mysqli_query($conn,$phase7_epp_tle);
+            if(mysqli_num_rows($run_phase7_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase7_ep_tle);
+                while(mysqli_fetch_array($run_phase7_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 3 MAPEH
+        if($phase7_subject_id == 8 ){
+            $phase7_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_mapeh = mysqli_query($conn,$phase7_mapeh);
+            if(mysqli_num_rows($run_phase7_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase7_mapeh);
+                while(mysqli_fetch_array($run_phase7_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 7 term 3 music
+        if($phase7_subject_id == 9 ){
+            $phase7_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_music = mysqli_query($conn,$phase7_music);
+            if(mysqli_num_rows($run_phase7_music) > 0){
+                $rows = mysqli_fetch_array($run_phase7_music);
+                while(mysqli_fetch_array($run_phase7_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 7 term 3 arts
+        if($phase7_subject_id == 10 ){
+            $phase7_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_arts = mysqli_query($conn,$phase7_arts);
+            if(mysqli_num_rows($run_phase7_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase7_arts);
+                while(mysqli_fetch_array($run_phase7_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 3 PE
+        if($phase7_subject_id == 11 ){
+            $phase7_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_pe = mysqli_query($conn,$phase7_pe);
+            if(mysqli_num_rows($run_phase7_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase7_pe);
+                while(mysqli_fetch_array($run_phase7_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 3 Health
+        if($phase7_subject_id == 12 ){
+            $phase7_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_health = mysqli_query($conn,$phase7_health);
+            if(mysqli_num_rows($run_phase7_health) > 0){
+                $rows = mysqli_fetch_array($run_phase7_health);
+                while(mysqli_fetch_array($run_phase7_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 7 term 3 eduk sa pag papakatao
+        if($phase7_subject_id == 13 ){
+            $phase7_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_esp = mysqli_query($conn,$phase7_esp);
+            if(mysqli_num_rows($run_phase7_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase7_esp);
+                while(mysqli_fetch_array($run_phase7_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 3 arabic
+        if($phase7_subject_id == 14 ){
+            $phase7_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_arabic = mysqli_query($conn,$phase7_arabic);
+            if(mysqli_num_rows($run_phase7_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase7_arabic);
+                while(mysqli_fetch_array($run_phase7_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 7 term 3 islamic
+        if($phase7_subject_id == 15 ){
+            $phase7_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_islamic = mysqli_query($conn,$phase7_islamic);
+            if(mysqli_num_rows($run_phase7_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase7_islamic);
+                while(mysqli_fetch_array($run_phase7_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+            
+            }
+
+
+        }
+
+
+        //phase 7 term 3 general average
+        if( $phase7_subject_id == 16){
+            $phase7_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase7' ";
+            $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
+            if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop  ending of phase 7 term 3 
+
+
+//phase 7 term 4 
+
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+    
+    
+$term = 4;
+
+
+        if($phase7_subject_id == 1){
+    
+                    //phase 7 term 4 mother tongue 
+            $phase7_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_mt = mysqli_query($conn,$phase7_mt);
+            if(mysqli_num_rows($run_phase7_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase7_mt);
+                while(mysqli_fetch_array($run_phase7_mt));
+
+                    $html.=' <h2> 4 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 7 term 4 filipino
+
+        if($phase7_subject_id == 2 ){
+            $phase7_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_filipino = mysqli_query($conn,$phase7_filipino);
+            if(mysqli_num_rows($run_phase7_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase7_filipino);
+                while(mysqli_fetch_array($run_phase7_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 7 term 4 english 
+
+        if($phase7_subject_id == 3 ){
+            $phase7_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_english = mysqli_query($conn,$phase7_english);
+            if(mysqli_num_rows($run_phase7_english) > 0){
+                $rows = mysqli_fetch_array($run_phase7_english);
+                while(mysqli_fetch_array($run_phase7_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 4 math
+
+        if($phase7_subject_id == 4 ){
+            $phase7_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_math = mysqli_query($conn,$phase7_math);
+            if(mysqli_num_rows($run_phase7_math) > 0){
+                $rows = mysqli_fetch_array($run_phase7_math);
+                while(mysqli_fetch_array($run_phase7_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 7 term 4 science
+
+        if($phase7_subject_id == 5 ){
+            $phase7_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_science = mysqli_query($conn,$phase7_science);
+            if(mysqli_num_rows($run_phase7_science) > 0){
+                $rows = mysqli_fetch_array($run_phase7_science);
+                while(mysqli_fetch_array($run_phase7_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 7 term 4 ap
+        if($phase7_subject_id == 6 ){
+            $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+            if(mysqli_num_rows($run_phase7_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase7_AP);
+                while(mysqli_fetch_array($run_phase7_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 4 EPP_TLE
+        if($phase7_subject_id == 7 ){
+            $phase7_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_ep_tle = mysqli_query($conn,$phase7_epp_tle);
+            if(mysqli_num_rows($run_phase7_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase7_ep_tle);
+                while(mysqli_fetch_array($run_phase7_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 4 MAPEH
+        if($phase7_subject_id == 8 ){
+            $phase7_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_mapeh = mysqli_query($conn,$phase7_mapeh);
+            if(mysqli_num_rows($run_phase7_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase7_mapeh);
+                while(mysqli_fetch_array($run_phase7_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 7 term 4 music
+        if($phase7_subject_id == 9 ){
+            $phase7_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_music = mysqli_query($conn,$phase7_music);
+            if(mysqli_num_rows($run_phase7_music) > 0){
+                $rows = mysqli_fetch_array($run_phase7_music);
+                while(mysqli_fetch_array($run_phase7_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 7 term 4 arts
+        if($phase7_subject_id == 10 ){
+            $phase7_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_arts = mysqli_query($conn,$phase7_arts);
+            if(mysqli_num_rows($run_phase7_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase7_arts);
+                while(mysqli_fetch_array($run_phase7_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 4 PE
+        if($phase7_subject_id == 11 ){
+            $phase7_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_pe = mysqli_query($conn,$phase7_pe);
+            if(mysqli_num_rows($run_phase7_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase7_pe);
+                while(mysqli_fetch_array($run_phase7_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 4 Health
+        if($phase7_subject_id == 12 ){
+            $phase7_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_health = mysqli_query($conn,$phase7_health);
+            if(mysqli_num_rows($run_phase7_health) > 0){
+                $rows = mysqli_fetch_array($run_phase7_health);
+                while(mysqli_fetch_array($run_phase7_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 7 term 4 eduk sa pag papakatao
+        if($phase7_subject_id == 13 ){
+            $phase7_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_esp = mysqli_query($conn,$phase7_esp);
+            if(mysqli_num_rows($run_phase7_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase7_esp);
+                while(mysqli_fetch_array($run_phase7_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 7 term 4 arabic
+        if($phase7_subject_id == 14 ){
+            $phase7_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_arabic = mysqli_query($conn,$phase7_arabic);
+            if(mysqli_num_rows($run_phase7_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase7_arabic);
+                while(mysqli_fetch_array($run_phase7_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 7 term 4 islamic
+        if($phase7_subject_id == 15 ){
+            $phase7_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+            $run_phase7_islamic = mysqli_query($conn,$phase7_islamic);
+            if(mysqli_num_rows($run_phase7_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase7_islamic);
+                while(mysqli_fetch_array($run_phase7_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        //phase 7 term 4 general average
+        if( $phase7_subject_id == 16){
+            $phase7_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase7' ";
+            $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
+            if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop end of phase 1 term 4 
+
+
+// phase 7 final rating
+//phase 1 final rating 
+
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+    
+    
+
+
+
+if($phase7_subject_id == 1){
+
+            //phase 1 final rating mother tongue 
+    $phase7_mt = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_mt = mysqli_query($conn,$phase7_mt);
+    if(mysqli_num_rows($run_phase7_mt) > 0){
+        $rows = mysqli_fetch_array($run_phase7_mt);
+        while(mysqli_fetch_array($run_phase7_mt));
+
+            $html.=' <h2> Final Rating </h2>
+            <label for="">Mother Tongue: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+    }
+
+//phase 1 final rating filipino
+
+if($phase7_subject_id == 2 ){
+    $phase7_filipino = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_filipino = mysqli_query($conn,$phase7_filipino);
+    if(mysqli_num_rows($run_phase7_filipino) > 0){
+        $rows = mysqli_fetch_array($run_phase7_filipino);
+        while(mysqli_fetch_array($run_phase7_filipino));
+
+            $html.='
+            <label for="">Filipino: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 7 final rating english 
+
+if($phase7_subject_id == 3 ){
+    $phase7_english = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_english = mysqli_query($conn,$phase7_english);
+    if(mysqli_num_rows($run_phase7_english) > 0){
+        $rows = mysqli_fetch_array($run_phase7_english);
+        while(mysqli_fetch_array($run_phase7_english));
+
+            $html.='
+            <label for="">English: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 7 final rating math
+
+if($phase7_subject_id == 4 ){
+    $phase7_math = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_math = mysqli_query($conn,$phase7_math);
+    if(mysqli_num_rows($run_phase7_math) > 0){
+        $rows = mysqli_fetch_array($run_phase7_math);
+        while(mysqli_fetch_array($run_phase7_math));
+
+            $html.='
+            <label for="">Mathematics: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }   
+
+
+    }
+
+    // phase 7 final rating science
+
+if($phase7_subject_id == 5 ){
+    $phase7_science = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_science = mysqli_query($conn,$phase7_science);
+    if(mysqli_num_rows($run_phase7_science) > 0){
+        $rows = mysqli_fetch_array($run_phase7_science);
+        while(mysqli_fetch_array($run_phase7_science));
+
+            $html.='
+            <label for="">Science: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>   ';
+        
+        }
+
+
+    }
+
+
+    // phase 7 final rating ap
+if($phase7_subject_id == 6 ){
+    $phase7_AP = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+    if(mysqli_num_rows($run_phase7_AP) > 0){
+        $rows = mysqli_fetch_array($run_phase7_AP);
+        while(mysqli_fetch_array($run_phase7_AP));
+
+        $html.='
+        <label for="">Araling Panlipunan: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 7 final rating EPP_TLE
+if($phase7_subject_id == 7 ){
+    $phase7_epp_tle = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_ep_tle = mysqli_query($conn,$phase7_epp_tle);
+    if(mysqli_num_rows($run_phase7_ep_tle) > 0){
+        $rows = mysqli_fetch_array($run_phase7_ep_tle);
+        while(mysqli_fetch_array($run_phase7_ep_tle));
+
+        $html.='
+        <label for="">EPP / TLE: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 7 final rating MAPEH
+if($phase7_subject_id == 8 ){
+    $phase7_mapeh = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_mapeh = mysqli_query($conn,$phase7_mapeh);
+    if(mysqli_num_rows($run_phase7_mapeh) > 0){
+        $rows = mysqli_fetch_array($run_phase7_mapeh);
+        while(mysqli_fetch_array($run_phase7_mapeh));
+
+        $html.='
+        <label for="">MAPEH: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+    // phase 7 final rating music
+if($phase7_subject_id == 9 ){
+    $phase7_music = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_music = mysqli_query($conn,$phase7_music);
+    if(mysqli_num_rows($run_phase7_music) > 0){
+        $rows = mysqli_fetch_array($run_phase7_music);
+        while(mysqli_fetch_array($run_phase7_music));
+
+        $html.='
+        <label for="">Music: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+        // phase 7 final rating arts
+if($phase7_subject_id == 10 ){
+    $phase7_arts = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_arts = mysqli_query($conn,$phase7_arts);
+    if(mysqli_num_rows($run_phase7_arts) > 0){
+        $rows = mysqli_fetch_array($run_phase7_arts);
+        while(mysqli_fetch_array($run_phase7_arts));
+
+        $html.='
+        <label for="">Arts: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 7 final rating PE
+if($phase7_subject_id == 11 ){
+    $phase7_pe = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_pe = mysqli_query($conn,$phase7_pe);
+    if(mysqli_num_rows($run_phase7_pe) > 0){
+        $rows = mysqli_fetch_array($run_phase7_pe);
+        while(mysqli_fetch_array($run_phase7_pe));
+
+        $html.='
+        <label for="">Physical Education: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 7 final rating Health
+if($phase7_subject_id == 12 ){
+    $phase7_health = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_health = mysqli_query($conn,$phase7_health);
+    if(mysqli_num_rows($run_phase7_health) > 0){
+        $rows = mysqli_fetch_array($run_phase7_health);
+        while(mysqli_fetch_array($run_phase7_health));
+
+        $html.='
+        <label for="">Health: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 7 final rating eduk sa pag papakatao
+if($phase7_subject_id == 13 ){
+    $phase7_esp = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_esp = mysqli_query($conn,$phase7_esp);
+    if(mysqli_num_rows($run_phase7_esp) > 0){
+        $rows = mysqli_fetch_array($run_phase7_esp);
+        while(mysqli_fetch_array($run_phase7_esp));
+
+        $html.='
+        <label for="">Eduk. Sa Pagpapakatao: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 7 final rating arabic
+if($phase7_subject_id == 14 ){
+    $phase7_arabic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_arabic = mysqli_query($conn,$phase7_arabic);
+    if(mysqli_num_rows($run_phase7_arabic) > 0){
+        $rows = mysqli_fetch_array($run_phase7_arabic);
+        while(mysqli_fetch_array($run_phase7_arabic));
+
+        $html.='
+        <label for="">*Arabic language: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 7 final rating islamic
+if($phase7_subject_id == 15 ){
+    $phase7_islamic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+    $run_phase7_islamic = mysqli_query($conn,$phase7_islamic);
+    if(mysqli_num_rows($run_phase7_islamic) > 0){
+        $rows = mysqli_fetch_array($run_phase7_islamic);
+        while(mysqli_fetch_array($run_phase7_islamic));
+
+        $html.='
+        <label for="">*Islamic values Education: '.$rows['final_rating'].' </label> <br> 
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+//phase 7 final rating general average
+if( $phase7_subject_id == 16){
+    $phase7_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase7' AND term = 'Final Rating' ";
+    $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
+    if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
+        $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+        $html.='
+        <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+    
+
+
+    }
+    
+
+
+}
+
+
+}// ending of for loop end of phase 7  
+
+/// remedial  here 
+for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term++){
+
+    if($phase7_remedial_term == 1 ){
+
+        $phase7_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase7' AND term = '$phase7_remedial_term' ";
+        $phase7_run_query = mysqli_query($conn,$phase7_remedial_query);
+        if(mysqli_num_rows($phase7_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase7_run_query);
+            while(mysqli_fetch_array($phase7_run_query));
+            $html.='
+           <h6> Remedial Classes </h6>  
+           <h6> Date Conducted: '.$rows['date_from'].'</h6>
+           <h6> To: '.$rows['date_to'].'</h6> 
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+           
+           ';
+            
+        }
+
+    }
+
+            // term 2
+        if($phase7_remedial_term == 2 ){
+
+            $phase7_remedial_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase7' AND term = '$phase7_remedial_term' ";
+        $phase7_run_query = mysqli_query($conn,$phase7_remedial_query);
+        if(mysqli_num_rows($phase7_run_query)> 0 ){
+            $rows = mysqli_fetch_array($phase7_run_query);
+            while(mysqli_fetch_array($phase7_run_query));
+            $html.='
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+        
+           ';
+        }
+
+        }
+
+    
+}// end of remedial phase 7 
+
+
+
+//start of phase 8 
+// scholastic records phase 8 
+// phase 8 scohlastic query 
+
+$phase8_scholastic_query = "SELECT * FROM `scholastic_records` WHERE lrn = '$lrn' AND phase = $phase8";
+$run_phase8_scholastic = mysqli_query($conn,$phase8_scholastic_query);
+if(mysqli_num_rows($run_phase8_scholastic) > 0){
+    $rows = mysqli_fetch_array($run_phase8_scholastic);
+
+    while(mysqli_fetch_array($run_phase8_scholastic));
+
+
+    $html.='<h2> Scholastic Record </h2>
+
+    <label for="">School: '.$rows['school'].' </label> <br>
+    <label for="">School ID: '.$rows['school_id'].' </label> <br>
+    <label for="">District: '.$rows['district'].' </label><br>
+    <label for="">Division: '.$rows['division'].' </label><br>
+    <label for="">Region: '.$rows['region'].' </label><br>
+    <label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label><br>
+    <label for="">Section: '.$rows['section'].' </label><br>
+    <label for="">School year: '.$rows['school_year'].' </label><br>
+    <label for="">Name of adviser: '.$rows['name_of_teacher'].' </label><br>
+    <label for="">Signature: '.$rows['signature'].' </label><br>
+    ';
+}
+
+//phase 8 term 1 
+
+for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
+    
+    
+    $term = 1;
+    
+
+            if($phase8_subject_id == 1){
+        
+                        //phase 1 term 1 mother tongue 
+                $phase8_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_mt = mysqli_query($conn,$phase8_mt);
+                if(mysqli_num_rows($run_phase8_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_mt);
+                    while(mysqli_fetch_array($run_phase8_mt));
+
+                        $html.=' <h2> 1</h2>
+                        
+                         <label for="">Mother Tongue: '.$rows['grade'].' </label> <br> ';
+                    
+                    }
+                }
+
+            // phase 8 term 1 filipino
+
+            if($phase8_subject_id == 2 ){
+                $phase8_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_filipino = mysqli_query($conn,$phase8_filipino);
+                if(mysqli_num_rows($run_phase8_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_filipino);
+                    while(mysqli_fetch_array($run_phase8_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 8 term 1 english 
+
+            if($phase8_subject_id == 3 ){
+                $phase8_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_english = mysqli_query($conn,$phase8_english);
+                if(mysqli_num_rows($run_phase8_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_english);
+                    while(mysqli_fetch_array($run_phase8_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 8 term 1 math
+
+            if($phase8_subject_id == 4 ){
+                $phase8_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_math = mysqli_query($conn,$phase8_math);
+                if(mysqli_num_rows($run_phase8_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_math);
+                    while(mysqli_fetch_array($run_phase8_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 8 term 1 science
+
+            if($phase8_subject_id == 5 ){
+                $phase8_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_science = mysqli_query($conn,$phase8_science);
+                if(mysqli_num_rows($run_phase8_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_science);
+                    while(mysqli_fetch_array($run_phase8_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 8 term 1 ap
+            if($phase8_subject_id == 6 ){
+                $phase8_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_AP = mysqli_query($conn,$phase8_AP);
+                if(mysqli_num_rows($run_phase8_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_AP);
+                    while(mysqli_fetch_array($run_phase8_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 1 EPP_TLE
+            if($phase8_subject_id == 7 ){
+                $phase8_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_ep_tle = mysqli_query($conn,$phase8_epp_tle);
+                if(mysqli_num_rows($run_phase8_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_ep_tle);
+                    while(mysqli_fetch_array($run_phase8_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 1 MAPEH
+            if($phase8_subject_id == 8 ){
+                $phase8_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_mapeh = mysqli_query($conn,$phase8_mapeh);
+                if(mysqli_num_rows($run_phase8_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_mapeh);
+                    while(mysqli_fetch_array($run_phase8_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 8 term 1 music
+            if($phase8_subject_id == 9 ){
+                $phase8_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_music = mysqli_query($conn,$phase8_music);
+                if(mysqli_num_rows($run_phase8_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_music);
+                    while(mysqli_fetch_array($run_phase8_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 8 term 1 arts
+            if($phase8_subject_id == 10 ){
+                $phase8_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_arts = mysqli_query($conn,$phase8_arts);
+                if(mysqli_num_rows($run_phase8_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_arts);
+                    while(mysqli_fetch_array($run_phase8_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 1 PE
+            if($phase8_subject_id == 11 ){
+                $phase8_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_pe = mysqli_query($conn,$phase8_pe);
+                if(mysqli_num_rows($run_phase8_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_pe);
+                    while(mysqli_fetch_array($run_phase8_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 1 Health
+            if($phase8_subject_id == 12 ){
+                $phase8_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_health = mysqli_query($conn,$phase8_health);
+                if(mysqli_num_rows($run_phase8_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_health);
+                    while(mysqli_fetch_array($run_phase8_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 8 term 1 eduk sa pag papakatao
+            if($phase8_subject_id == 13 ){
+                $phase8_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_esp = mysqli_query($conn,$phase8_esp);
+                if(mysqli_num_rows($run_phase8_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_esp);
+                    while(mysqli_fetch_array($run_phase8_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 1 arabic
+            if($phase8_subject_id == 14 ){
+                $phase8_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_arabic = mysqli_query($conn,$phase8_arabic);
+                if(mysqli_num_rows($run_phase8_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_arabic);
+                    while(mysqli_fetch_array($run_phase8_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 8 term 1 islamic
+            if($phase8_subject_id == 15 ){
+                $phase8_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_islamic = mysqli_query($conn,$phase8_islamic);
+                if(mysqli_num_rows($run_phase8_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_islamic);
+                    while(mysqli_fetch_array($run_phase8_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 8 term 1 general average
+            if( $phase8_subject_id == 16){
+                $phase8_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase8' ";
+                $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
+                if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+        
+
+}// ending of for loop ending of phase 8 term 1
+
+
+
+// phase 8 term 2 ////////////////////////////////////////////////
+
+for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
+    
+    
+    $term = 2;
+    
+
+            if($phase8_subject_id == 1){
+        
+                        //phase 1 term 2 mother tongue 
+                $phase8_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_mt = mysqli_query($conn,$phase8_mt);
+                if(mysqli_num_rows($run_phase8_mt) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_mt);
+                    while(mysqli_fetch_array($run_phase8_mt));
+
+                        $html.=' <h2> 2 </h2>
+                        <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+                }
+
+            //phase 1 term 2 filipino
+
+            if($phase8_subject_id == 2 ){
+                $phase8_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_filipino = mysqli_query($conn,$phase8_filipino);
+                if(mysqli_num_rows($run_phase8_filipino) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_filipino);
+                    while(mysqli_fetch_array($run_phase8_filipino));
+
+                        $html.='
+                        <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 8 term 2 english 
+
+            if($phase8_subject_id == 3 ){
+                $phase8_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_english = mysqli_query($conn,$phase8_english);
+                if(mysqli_num_rows($run_phase8_english) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_english);
+                    while(mysqli_fetch_array($run_phase8_english));
+
+                        $html.='
+                        <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+            // phase 8 term 2 math
+
+            if($phase8_subject_id == 4 ){
+                $phase8_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_math = mysqli_query($conn,$phase8_math);
+                if(mysqli_num_rows($run_phase8_math) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_math);
+                    while(mysqli_fetch_array($run_phase8_math));
+
+                        $html.='
+                        <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }   
+
+            
+                }
+
+                // phase 8 term 2 science
+
+            if($phase8_subject_id == 5 ){
+                $phase8_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_science = mysqli_query($conn,$phase8_science);
+                if(mysqli_num_rows($run_phase8_science) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_science);
+                    while(mysqli_fetch_array($run_phase8_science));
+
+                        $html.='
+                        <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                    
+                    }
+
+            
+                }
+
+
+                // phase 8 term 2 ap
+            if($phase8_subject_id == 6 ){
+                $phase8_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_AP = mysqli_query($conn,$phase8_AP);
+                if(mysqli_num_rows($run_phase8_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_AP);
+                    while(mysqli_fetch_array($run_phase8_AP));
+
+                    $html.='
+                    <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 2 EPP_TLE
+            if($phase8_subject_id == 7 ){
+                $phase8_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_ep_tle = mysqli_query($conn,$phase8_epp_tle);
+                if(mysqli_num_rows($run_phase8_ep_tle) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_ep_tle);
+                    while(mysqli_fetch_array($run_phase8_ep_tle));
+
+                    $html.='
+                    <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 2 MAPEH
+            if($phase8_subject_id == 8 ){
+                $phase8_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_mapeh = mysqli_query($conn,$phase8_mapeh);
+                if(mysqli_num_rows($run_phase8_mapeh) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_mapeh);
+                    while(mysqli_fetch_array($run_phase8_mapeh));
+
+                    $html.='
+                    <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+                // phase 8 term 2 music
+            if($phase8_subject_id == 9 ){
+                $phase8_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_music = mysqli_query($conn,$phase8_music);
+                if(mysqli_num_rows($run_phase8_music) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_music);
+                    while(mysqli_fetch_array($run_phase8_music));
+
+                    $html.='
+                    <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+                    // phase 8 term 2 arts
+            if($phase8_subject_id == 10 ){
+                $phase8_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_arts = mysqli_query($conn,$phase8_arts);
+                if(mysqli_num_rows($run_phase8_arts) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_arts);
+                    while(mysqli_fetch_array($run_phase8_arts));
+
+                    $html.='
+                    <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 2 PE
+            if($phase8_subject_id == 11 ){
+                $phase8_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_pe = mysqli_query($conn,$phase8_pe);
+                if(mysqli_num_rows($run_phase8_pe) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_pe);
+                    while(mysqli_fetch_array($run_phase8_pe));
+
+                    $html.='
+                    <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 2 Health
+            if($phase8_subject_id == 12 ){
+                $phase8_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_health = mysqli_query($conn,$phase8_health);
+                if(mysqli_num_rows($run_phase8_health) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_health);
+                    while(mysqli_fetch_array($run_phase8_health));
+
+                    $html.='
+                    <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+            
+
+            // phase 8 term 2 eduk sa pag papakatao
+            if($phase8_subject_id == 13 ){
+                $phase8_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_esp = mysqli_query($conn,$phase8_esp);
+                if(mysqli_num_rows($run_phase8_esp) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_esp);
+                    while(mysqli_fetch_array($run_phase8_esp));
+
+                    $html.='
+                    <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            // phase 8 term 2 arabic
+            if($phase8_subject_id == 14 ){
+                $phase8_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_arabic = mysqli_query($conn,$phase8_arabic);
+                if(mysqli_num_rows($run_phase8_arabic) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_arabic);
+                    while(mysqli_fetch_array($run_phase8_arabic));
+
+                    $html.='
+                    <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+            
+            // phase 8 term 2 islamic
+            if($phase8_subject_id == 15 ){
+                $phase8_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+                $run_phase8_islamic = mysqli_query($conn,$phase8_islamic);
+                if(mysqli_num_rows($run_phase8_islamic) > 0){
+                    $rows = mysqli_fetch_array($run_phase8_islamic);
+                    while(mysqli_fetch_array($run_phase8_islamic));
+
+                    $html.='
+                    <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+
+            }
+
+
+            //phase 8 term 2 general average
+            if( $phase8_subject_id == 16){
+                $phase8_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase8' ";
+                $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
+                if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
+                    $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+                    $html.='
+                    <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+                
+
+
+                }
+                
+
+
+            }
+
+       
+
+}// ending of for loop ending of phase 8 term 2 
+
+            //phase 8 term 3 //////////////////////////////////////////////
+
+for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
+    
+    
+$term = 3;
+
+
+        if($phase8_subject_id == 1){
+    
+                    //phase 1 term 3 mother tongue 
+            $phase8_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_mt = mysqli_query($conn,$phase8_mt);
+            if(mysqli_num_rows($run_phase8_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase8_mt);
+                while(mysqli_fetch_array($run_phase8_mt));
+
+                    $html.=' <h2> 3 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 1 term 3 filipino
+
+        if($phase8_subject_id == 2 ){
+            $phase8_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_filipino = mysqli_query($conn,$phase8_filipino);
+            if(mysqli_num_rows($run_phase8_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase8_filipino);
+                while(mysqli_fetch_array($run_phase8_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 8 term 3 english 
+
+        if($phase8_subject_id == 3 ){
+            $phase8_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_english = mysqli_query($conn,$phase8_english);
+            if(mysqli_num_rows($run_phase8_english) > 0){
+                $rows = mysqli_fetch_array($run_phase8_english);
+                while(mysqli_fetch_array($run_phase8_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 3 math
+
+        if($phase8_subject_id == 4 ){
+            $phase8_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_math = mysqli_query($conn,$phase8_math);
+            if(mysqli_num_rows($run_phase8_math) > 0){
+                $rows = mysqli_fetch_array($run_phase8_math);
+                while(mysqli_fetch_array($run_phase8_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 8 term 3 science
+
+        if($phase8_subject_id == 5 ){
+            $phase8_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_science = mysqli_query($conn,$phase8_science);
+            if(mysqli_num_rows($run_phase8_science) > 0){
+                $rows = mysqli_fetch_array($run_phase8_science);
+                while(mysqli_fetch_array($run_phase8_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 8 term 3 ap
+        if($phase8_subject_id == 6 ){
+            $phase8_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_AP = mysqli_query($conn,$phase8_AP);
+            if(mysqli_num_rows($run_phase8_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase8_AP);
+                while(mysqli_fetch_array($run_phase8_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 3 EPP_TLE
+        if($phase8_subject_id == 7 ){
+            $phase8_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_ep_tle = mysqli_query($conn,$phase8_epp_tle);
+            if(mysqli_num_rows($run_phase8_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase8_ep_tle);
+                while(mysqli_fetch_array($run_phase8_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 3 MAPEH
+        if($phase8_subject_id == 8 ){
+            $phase8_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_mapeh = mysqli_query($conn,$phase8_mapeh);
+            if(mysqli_num_rows($run_phase8_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase8_mapeh);
+                while(mysqli_fetch_array($run_phase8_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 8 term 3 music
+        if($phase8_subject_id == 9 ){
+            $phase8_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_music = mysqli_query($conn,$phase8_music);
+            if(mysqli_num_rows($run_phase8_music) > 0){
+                $rows = mysqli_fetch_array($run_phase8_music);
+                while(mysqli_fetch_array($run_phase8_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 8 term 3 arts
+        if($phase8_subject_id == 10 ){
+            $phase8_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_arts = mysqli_query($conn,$phase8_arts);
+            if(mysqli_num_rows($run_phase8_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase8_arts);
+                while(mysqli_fetch_array($run_phase8_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 3 PE
+        if($phase8_subject_id == 11 ){
+            $phase8_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_pe = mysqli_query($conn,$phase8_pe);
+            if(mysqli_num_rows($run_phase8_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase8_pe);
+                while(mysqli_fetch_array($run_phase8_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 3 Health
+        if($phase8_subject_id == 12 ){
+            $phase8_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_health = mysqli_query($conn,$phase8_health);
+            if(mysqli_num_rows($run_phase8_health) > 0){
+                $rows = mysqli_fetch_array($run_phase8_health);
+                while(mysqli_fetch_array($run_phase8_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 8 term 3 eduk sa pag papakatao
+        if($phase8_subject_id == 13 ){
+            $phase8_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_esp = mysqli_query($conn,$phase8_esp);
+            if(mysqli_num_rows($run_phase8_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase8_esp);
+                while(mysqli_fetch_array($run_phase8_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 3 arabic
+        if($phase8_subject_id == 14 ){
+            $phase8_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_arabic = mysqli_query($conn,$phase8_arabic);
+            if(mysqli_num_rows($run_phase8_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase8_arabic);
+                while(mysqli_fetch_array($run_phase8_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 8 term 3 islamic
+        if($phase8_subject_id == 15 ){
+            $phase8_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_islamic = mysqli_query($conn,$phase8_islamic);
+            if(mysqli_num_rows($run_phase8_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase8_islamic);
+                while(mysqli_fetch_array($run_phase8_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+                
+            
+            }
+
+
+        }
+
+
+        //phase 8 term 3 general average
+        if( $phase8_subject_id == 16){
+            $phase8_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase8' ";
+            $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
+            if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop  ending of phase 8 term 3 
+
+
+//phase 8 term 4 
+
+for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
+    
+    
+$term = 4;
+
+
+        if($phase8_subject_id == 1){
+    
+                    //phase 8 term 4 mother tongue 
+            $phase8_mt = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_mt = mysqli_query($conn,$phase8_mt);
+            if(mysqli_num_rows($run_phase8_mt) > 0){
+                $rows = mysqli_fetch_array($run_phase8_mt);
+                while(mysqli_fetch_array($run_phase8_mt));
+
+                    $html.=' <h2> 4 </h2>
+                    <label for="">Mother Tongue: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+            }
+
+        //phase 8 term 4 filipino
+
+        if($phase8_subject_id == 2 ){
+            $phase8_filipino = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_filipino = mysqli_query($conn,$phase8_filipino);
+            if(mysqli_num_rows($run_phase8_filipino) > 0){
+                $rows = mysqli_fetch_array($run_phase8_filipino);
+                while(mysqli_fetch_array($run_phase8_filipino));
+
+                    $html.='
+                    <label for="">Filipino: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        // phase 8 term 4 english 
+
+        if($phase8_subject_id == 3 ){
+            $phase8_english = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_english = mysqli_query($conn,$phase8_english);
+            if(mysqli_num_rows($run_phase8_english) > 0){
+                $rows = mysqli_fetch_array($run_phase8_english);
+                while(mysqli_fetch_array($run_phase8_english));
+
+                    $html.='
+                    <label for="">English: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+        //phase 1 term 4 math
+
+        if($phase8_subject_id == 4 ){
+            $phase8_math = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_math = mysqli_query($conn,$phase8_math);
+            if(mysqli_num_rows($run_phase8_math) > 0){
+                $rows = mysqli_fetch_array($run_phase8_math);
+                while(mysqli_fetch_array($run_phase8_math));
+
+                    $html.='
+                    <label for="">Mathematics: '.$rows['grade'].' </label> <br>  ';
+                
+                }   
+
+        
+            }
+
+            // phase 8 term 4 science
+
+        if($phase8_subject_id == 5 ){
+            $phase8_science = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_science = mysqli_query($conn,$phase8_science);
+            if(mysqli_num_rows($run_phase8_science) > 0){
+                $rows = mysqli_fetch_array($run_phase8_science);
+                while(mysqli_fetch_array($run_phase8_science));
+
+                    $html.='
+                    <label for="">Science: '.$rows['grade'].' </label> <br>  ';
+                
+                }
+
+        
+            }
+
+
+            // phase 8 term 4 ap
+        if($phase8_subject_id == 6 ){
+            $phase8_AP = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_AP = mysqli_query($conn,$phase8_AP);
+            if(mysqli_num_rows($run_phase8_AP) > 0){
+                $rows = mysqli_fetch_array($run_phase8_AP);
+                while(mysqli_fetch_array($run_phase8_AP));
+
+                $html.='
+                <label for="">Araling Panlipunan: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 4 EPP_TLE
+        if($phase8_subject_id == 7 ){
+            $phase8_epp_tle = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_ep_tle = mysqli_query($conn,$phase8_epp_tle);
+            if(mysqli_num_rows($run_phase8_ep_tle) > 0){
+                $rows = mysqli_fetch_array($run_phase8_ep_tle);
+                while(mysqli_fetch_array($run_phase8_ep_tle));
+
+                $html.='
+                <label for="">EPP / TLE: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 4 MAPEH
+        if($phase8_subject_id == 8 ){
+            $phase8_mapeh = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_mapeh = mysqli_query($conn,$phase8_mapeh);
+            if(mysqli_num_rows($run_phase8_mapeh) > 0){
+                $rows = mysqli_fetch_array($run_phase8_mapeh);
+                while(mysqli_fetch_array($run_phase8_mapeh));
+
+                $html.='
+                <label for="">MAPEH: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+            // phase 8 term 4 music
+        if($phase8_subject_id == 9 ){
+            $phase8_music = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_music = mysqli_query($conn,$phase8_music);
+            if(mysqli_num_rows($run_phase8_music) > 0){
+                $rows = mysqli_fetch_array($run_phase8_music);
+                while(mysqli_fetch_array($run_phase8_music));
+
+                $html.='
+                <label for="">Music: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+                // phase 8 term 4 arts
+        if($phase8_subject_id == 10 ){
+            $phase8_arts = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_arts = mysqli_query($conn,$phase8_arts);
+            if(mysqli_num_rows($run_phase8_arts) > 0){
+                $rows = mysqli_fetch_array($run_phase8_arts);
+                while(mysqli_fetch_array($run_phase8_arts));
+
+                $html.='
+                <label for="">Arts: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 4 PE
+        if($phase8_subject_id == 11 ){
+            $phase8_pe = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_pe = mysqli_query($conn,$phase8_pe);
+            if(mysqli_num_rows($run_phase8_pe) > 0){
+                $rows = mysqli_fetch_array($run_phase8_pe);
+                while(mysqli_fetch_array($run_phase8_pe));
+
+                $html.='
+                <label for="">Physical Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 4 Health
+        if($phase8_subject_id == 12 ){
+            $phase8_health = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_health = mysqli_query($conn,$phase8_health);
+            if(mysqli_num_rows($run_phase8_health) > 0){
+                $rows = mysqli_fetch_array($run_phase8_health);
+                while(mysqli_fetch_array($run_phase8_health));
+
+                $html.='
+                <label for="">Health: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+        
+
+        // phase 8 term 4 eduk sa pag papakatao
+        if($phase8_subject_id == 13 ){
+            $phase8_esp = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_esp = mysqli_query($conn,$phase8_esp);
+            if(mysqli_num_rows($run_phase8_esp) > 0){
+                $rows = mysqli_fetch_array($run_phase8_esp);
+                while(mysqli_fetch_array($run_phase8_esp));
+
+                $html.='
+                <label for="">Eduk. Sa Pagpapakatao: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        // phase 8 term 4 arabic
+        if($phase8_subject_id == 14 ){
+            $phase8_arabic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_arabic = mysqli_query($conn,$phase8_arabic);
+            if(mysqli_num_rows($run_phase8_arabic) > 0){
+                $rows = mysqli_fetch_array($run_phase8_arabic);
+                while(mysqli_fetch_array($run_phase8_arabic));
+
+                $html.='
+                <label for="">*Arabic language: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+        
+        // phase 8 term 4 islamic
+        if($phase8_subject_id == 15 ){
+            $phase8_islamic = "SELECT * FROM `student_grades` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8' AND term = '$term'";
+            $run_phase8_islamic = mysqli_query($conn,$phase8_islamic);
+            if(mysqli_num_rows($run_phase8_islamic) > 0){
+                $rows = mysqli_fetch_array($run_phase8_islamic);
+                while(mysqli_fetch_array($run_phase8_islamic));
+
+                $html.='
+                <label for="">*Islamic values Education: '.$rows['grade'].' </label> <br>  ';
+            
+            }
+
+
+        }
+
+
+        //phase 8 term 4 general average
+        if( $phase8_subject_id == 16){
+            $phase8_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND term = '$term' AND  phase = '$phase8' ";
+            $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
+            if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
+                $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+                $html.='
+                <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+            
+
+
+            }
+            
+
+
+        }
+
+
+}// ending of for loop end of phase 1 term 4 
+
+
+// phase 8 final rating
+//phase 1 final rating 
+
+for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
+    
+    
+
+
+
+if($phase8_subject_id == 1){
+
+            //phase 1 final rating mother tongue 
+    $phase8_mt = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_mt = mysqli_query($conn,$phase8_mt);
+    if(mysqli_num_rows($run_phase8_mt) > 0){
+        $rows = mysqli_fetch_array($run_phase8_mt);
+        while(mysqli_fetch_array($run_phase8_mt));
+
+            $html.=' <h2> Final Rating </h2>
+            <label for="">Mother Tongue: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+    }
+
+//phase 1 final rating filipino
+
+if($phase8_subject_id == 2 ){
+    $phase8_filipino = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_filipino = mysqli_query($conn,$phase8_filipino);
+    if(mysqli_num_rows($run_phase8_filipino) > 0){
+        $rows = mysqli_fetch_array($run_phase8_filipino);
+        while(mysqli_fetch_array($run_phase8_filipino));
+
+            $html.='
+            <label for="">Filipino: '.$rows['final_rating'].' </label> <br> 
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 8 final rating english 
+
+if($phase8_subject_id == 3 ){
+    $phase8_english = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_english = mysqli_query($conn,$phase8_english);
+    if(mysqli_num_rows($run_phase8_english) > 0){
+        $rows = mysqli_fetch_array($run_phase8_english);
+        while(mysqli_fetch_array($run_phase8_english));
+
+            $html.='
+            <label for="">English: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }
+
+
+    }
+
+// phase 8 final rating math
+
+if($phase8_subject_id == 4 ){
+    $phase8_math = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_math = mysqli_query($conn,$phase8_math);
+    if(mysqli_num_rows($run_phase8_math) > 0){
+        $rows = mysqli_fetch_array($run_phase8_math);
+        while(mysqli_fetch_array($run_phase8_math));
+
+            $html.='
+            <label for="">Mathematics: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+        
+        }   
+
+
+    }
+
+    // phase 8 final rating science
+
+if($phase8_subject_id == 5 ){
+    $phase8_science = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_science = mysqli_query($conn,$phase8_science);
+    if(mysqli_num_rows($run_phase8_science) > 0){
+        $rows = mysqli_fetch_array($run_phase8_science);
+        while(mysqli_fetch_array($run_phase8_science));
+
+            $html.='
+            <label for="">Science: '.$rows['final_rating'].' </label> <br>  
+            <label for=""> Remarks '.$rows['remarks'].' </label> <br>   ';
+        
+        }
+
+
+    }
+
+
+    // phase 8 final rating ap
+if($phase8_subject_id == 6 ){
+    $phase8_AP = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_AP = mysqli_query($conn,$phase8_AP);
+    if(mysqli_num_rows($run_phase8_AP) > 0){
+        $rows = mysqli_fetch_array($run_phase8_AP);
+        while(mysqli_fetch_array($run_phase8_AP));
+
+        $html.='
+        <label for="">Araling Panlipunan: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 8 final rating EPP_TLE
+if($phase8_subject_id == 7 ){
+    $phase8_epp_tle = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_ep_tle = mysqli_query($conn,$phase8_epp_tle);
+    if(mysqli_num_rows($run_phase8_ep_tle) > 0){
+        $rows = mysqli_fetch_array($run_phase8_ep_tle);
+        while(mysqli_fetch_array($run_phase8_ep_tle));
+
+        $html.='
+        <label for="">EPP / TLE: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 8 final rating MAPEH
+if($phase8_subject_id == 8 ){
+    $phase8_mapeh = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_mapeh = mysqli_query($conn,$phase8_mapeh);
+    if(mysqli_num_rows($run_phase8_mapeh) > 0){
+        $rows = mysqli_fetch_array($run_phase8_mapeh);
+        while(mysqli_fetch_array($run_phase8_mapeh));
+
+        $html.='
+        <label for="">MAPEH: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+    // phase 8 final rating music
+if($phase8_subject_id == 9 ){
+    $phase8_music = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_music = mysqli_query($conn,$phase8_music);
+    if(mysqli_num_rows($run_phase8_music) > 0){
+        $rows = mysqli_fetch_array($run_phase8_music);
+        while(mysqli_fetch_array($run_phase8_music));
+
+        $html.='
+        <label for="">Music: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+        // phase 8 final rating arts
+if($phase8_subject_id == 10 ){
+    $phase8_arts = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_arts = mysqli_query($conn,$phase8_arts);
+    if(mysqli_num_rows($run_phase8_arts) > 0){
+        $rows = mysqli_fetch_array($run_phase8_arts);
+        while(mysqli_fetch_array($run_phase8_arts));
+
+        $html.='
+        <label for="">Arts: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 8 final rating PE
+if($phase8_subject_id == 11 ){
+    $phase8_pe = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_pe = mysqli_query($conn,$phase8_pe);
+    if(mysqli_num_rows($run_phase8_pe) > 0){
+        $rows = mysqli_fetch_array($run_phase8_pe);
+        while(mysqli_fetch_array($run_phase8_pe));
+
+        $html.='
+        <label for="">Physical Education: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 8 final rating Health
+if($phase8_subject_id == 12 ){
+    $phase8_health = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_health = mysqli_query($conn,$phase8_health);
+    if(mysqli_num_rows($run_phase8_health) > 0){
+        $rows = mysqli_fetch_array($run_phase8_health);
+        while(mysqli_fetch_array($run_phase8_health));
+
+        $html.='
+        <label for="">Health: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+// phase 8 final rating eduk sa pag papakatao
+if($phase8_subject_id == 13 ){
+    $phase8_esp = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_esp = mysqli_query($conn,$phase8_esp);
+    if(mysqli_num_rows($run_phase8_esp) > 0){
+        $rows = mysqli_fetch_array($run_phase8_esp);
+        while(mysqli_fetch_array($run_phase8_esp));
+
+        $html.='
+        <label for="">Eduk. Sa Pagpapakatao: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 8 final rating arabic
+if($phase8_subject_id == 14 ){
+    $phase8_arabic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_arabic = mysqli_query($conn,$phase8_arabic);
+    if(mysqli_num_rows($run_phase8_arabic) > 0){
+        $rows = mysqli_fetch_array($run_phase8_arabic);
+        while(mysqli_fetch_array($run_phase8_arabic));
+
+        $html.='
+        <label for="">*Arabic language: '.$rows['final_rating'].' </label> <br>  
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br> ';
+    
+    }
+
+
+}
+
+
+// phase 8 final rating islamic
+if($phase8_subject_id == 15 ){
+    $phase8_islamic = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase8_subject_id' AND phase = '$phase8'";
+    $run_phase8_islamic = mysqli_query($conn,$phase8_islamic);
+    if(mysqli_num_rows($run_phase8_islamic) > 0){
+        $rows = mysqli_fetch_array($run_phase8_islamic);
+        while(mysqli_fetch_array($run_phase8_islamic));
+
+        $html.='
+        <label for="">*Islamic values Education: '.$rows['final_rating'].' </label> <br> 
+        <label for=""> Remarks '.$rows['remarks'].' </label> <br>  ';
+    
+    }
+
+
+}
+
+
+//phase 8 final rating general average
+if( $phase8_subject_id == 16){
+    $phase8_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase8' AND term = 'Final Rating' ";
+    $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
+    if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
+        $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+        $html.='
+        <label for="">General average '.$rows['general_average'].' </label> <br>  ';
+    
+
+
+    }
+    
+
+
+}
+
+
+}// ending of for loop end of phase 8  
+
+/// remedial  here 
+for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term++){
+
+    if($phase8_remedial_term == 1 ){
+
+        $cert_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase8' AND term = '$phase8_remedial_term' ";
+        $run_cert_query = mysqli_query($conn,$cert_query);
+        if(mysqli_num_rows($run_cert_query)> 0 ){
+            $rows = mysqli_fetch_array($run_cert_query);
+            while(mysqli_fetch_array($run_cert_query));
+            $html.='
+           <h6> Remedial Classes </h6>  
+           <h6> Date Conducted: '.$rows['date_from'].'</h6>
+           <h6> To: '.$rows['date_to'].'</h6> 
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+           
+           ';
+            
+        }
+
+    }
+
+            // term 2
+        if($phase8_remedial_term == 2 ){
+
+            $cert_query = " SELECT * FROM `remedial_classes` WHERE lrn ='$lrn'AND phase = '$phase8' AND term = '$phase8_remedial_term' ";
+        $run_cert_query = mysqli_query($conn,$cert_query);
+        if(mysqli_num_rows($run_cert_query)> 0 ){
+            $rows = mysqli_fetch_array($run_cert_query);
+            while(mysqli_fetch_array($run_cert_query));
+            $html.='
+           <label for="">Learning areas '.$rows['learning_areas'].' </label> <br> 
+           <label for="">Final rating '.$rows['final_rating'].' </label> <br>
+           <label for="">Remedial Class Mark '.$rows['remedial_class_mark'].' </label> <br> 
+           <label for="">Recomputed Final Grade '.$rows['recomputed_final_grade'].' </label> <br>
+
+           
+        
+           ';
+        }
+
+        }
+
+    
+}// end of remedial phase 8 
+
+
+//certifications
+$cert_query = " SELECT * FROM `cetifications` WHERE lrn ='$lrn' ";
+$run_cert_query = mysqli_query($conn,$cert_query);
+if(mysqli_num_rows($run_cert_query)> 0 ){
+    $rows = mysqli_fetch_array($run_cert_query);
+    while(mysqli_fetch_array($run_cert_query));
+        
+
+  $html .= '<h4>CERTIFICATION</h4>
+    <label for="">CERTIFY that this is a true record of '.$rows['name'].' </label> <br>
+    <label for="">with LRN '.$rows['lrn'].' </label> <br>
+    <label for="">and that he/she is eligible for admission to Grade '.$rows['grade'].' </label> <br>
+    <label for="">School Name: '.$rows['name_of_school'].' </label> <br>
+    <label for="">School ID '.$rows['school_id'].' </label> <br>
+    <label for="">Division '.$rows['division'].' </label> <br>
+    <label for="">Last School Year Attended '.$rows['last_school_year_attended'].' </label> <br>
+    <label for="">Date '.$rows['date'].' </label> <br>
+    <label for="">Name of Principal/School Head Over Printed Name '.$rows['Name_of_Principal'].' </label> <br>
+  
+
+  
+  
+  ';
+        
+} // end of remedial
+// end of phase 8 
 
 
 
