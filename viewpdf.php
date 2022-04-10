@@ -27,6 +27,7 @@ $html='
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../pdmes/bootstrap-5.1.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="styles.css">
     <title>PDMES</title>
@@ -35,6 +36,7 @@ $html='
 <style>
 *{
     font-family:Arial, sans-serif;
+    font-family: DejaVu Sans, sans-serif;
 }
 table, tr ,th ,td{
     border:1px solid black;
@@ -699,11 +701,51 @@ table {page-break-before:auto;}
     $run_learners_query = mysqli_query($conn, $learners_query);
     if(mysqli_num_rows($run_learners_query) > 0){
     $rows = mysqli_fetch_array($run_learners_query);
+    $credentials = explode(',',$rows['credential_presented']);
+  
+
+    if (in_array("Kinder progress report",$credentials)){
+         
+        $kinder= "checked"; 
+    }
+    
+    else{
+
+    $kinder = "";
+    
+    }
+
+    if (in_array("ECCD Checklist",$credentials)){
+
+        $eccd= "checked";
+    }
+
+    else{
+
+        $eccd= "";
+    }
 
 
+    if (in_array("Kindergarten Certificate of Completion",$credentials)){
 
-while(mysqli_fetch_array($run_learners_query));
+  
+         $complete = "checked";
+    }
 
+    else{
+
+        $complete ="";
+    }
+
+
+    if($rows['pept_passer'] == 1){
+        $pass = "checked";
+    }
+
+    else{
+
+        $pass ="";
+    }
     
     $html.='
         <body>
@@ -749,11 +791,11 @@ while(mysqli_fetch_array($run_learners_query));
    
    <label for="">Credential Presented for grade 1: </label>
   
-   <input type="text" class="checkbox" style="height: 15px;width:15px;border:1px solid black;"> 
+   <input type=checkbox name="credential_presented[]" value="Kinder Progress Report" '.$kinder.' > 
    <label class="kinder">Kinder Progress Report </label>
-   <input type="text" class="checkbox" style="height: 15px;width:15px;border:1px solid black;"> 
+   <input type=checkbox name="credential_presented[]" value="ECCD Checklist" '.$eccd.' > 
    <label class="kinder">ECCD checklist </label>
-   <input type="text" class="checkbox" style="height: 15px;width:15px;border:1px solid black;"> 
+   <input type=checkbox name="credential_presented[]" value="Kindergarden Certificate of Completion" '.$complete.' > 
    <label class="kinder">Kindergarten Certificate of Completion </label><<br>
    <div class="school-container">
    <label class="Name-of-School" for="">Name of School: '.$rows['name_of_school'].' </label>
@@ -763,7 +805,8 @@ while(mysqli_fetch_array($run_learners_query));
 
    </div>
      
-   <label class="Address-School1"  for="">Pept Passer '.$rows['pept_passer'].' </label>
+   <input type=checkbox name="peptpasser" value="pept_passer" '.$pass.'  > 
+   <label class="pept">PEPT Passer </label>
    <label class="rating" for="">Rating: '.$rows['rating'].' </label>
    <label class="date-of-assesment" for="">Date of Assesment '.$rows['date_of_assessment'].' </label>
 

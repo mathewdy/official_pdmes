@@ -2222,7 +2222,7 @@ if(isset($_POST['add'])){
 
     //eligibility 
     $credential = $_POST['credential_presented'];
-    $new_credential = implode(", " ,$credential);
+    $new_credential = implode("," ,$credential);
     $eligibility_name_of_school = strtoupper($_POST['eligibility_name_of_school']);
     $school_id = strtoupper($_POST['school_id']);
     $address_of_school = strtoupper($_POST['address_of_school']);
@@ -2496,7 +2496,7 @@ if(isset($_POST['add'])){
    
 
     //final rating
-    $phase1_term5 = 'Final Rating';
+    $phase1_term5 ='Final Rating';
   
 
     $phase1_final_rating_mother_tongue = round(($term1_phase1_mother_tongue + $term2_phase1_mother_tongue + 
@@ -2649,7 +2649,7 @@ if(isset($_POST['add'])){
 
     // final rating phase 2
 
-    $phase2_term5 = 'Final Rating';
+    $phase2_term5 ='Final Rating';
   
 
     $phase2_final_rating_mother_tongue = round(($term1_phase2_mother_tongue + $term2_phase2_mother_tongue + 
@@ -2911,7 +2911,7 @@ if(isset($_POST['add'])){
 
     // final rating phase 3 
 
-    $phase3_term5 = 'Final Rating';
+    $phase3_term5 ='Final Rating';
   
 
     $phase3_final_rating_mother_tongue = round(($term1_phase3_mother_tongue + $term2_phase3_mother_tongue + 
@@ -3177,7 +3177,7 @@ if(isset($_POST['add'])){
 
      // phase 4 final rating
 
-    $phase4_term5 = 'Final Rating';
+    $phase4_term5 ='Final Rating';
   
 
     $phase4_final_rating_mother_tongue = round(($term1_phase4_mother_tongue + $term2_phase4_mother_tongue + 
@@ -3441,7 +3441,7 @@ if(isset($_POST['add'])){
 
         // phase 5 final rating
 
-    $phase5_term5 = 'Final Rating';
+    $phase5_term5 ='Final Rating';
   
 
    
@@ -3708,7 +3708,7 @@ if(isset($_POST['add'])){
 
     // phase 6 final rating
 
-    $phase6_term5 = 'Final Rating';
+    $phase6_term5 ='Final Rating';
   
 
     $phase6_final_rating_mother_tongue = round(($term1_phase6_mother_tongue + $term2_phase6_mother_tongue + 
@@ -3972,7 +3972,7 @@ if(isset($_POST['add'])){
     // phase 7 final rating
 
 
-    $phase7_term5 = 'Final Rating';
+    $phase7_term5 ='Final Rating';
   
 
     $phase7_final_rating_mother_tongue = round(($term1_phase7_mother_tongue + $term2_phase7_mother_tongue + 
@@ -4238,7 +4238,7 @@ if(isset($_POST['add'])){
         // phases 8 final ratings 
 
 
-    $phase8_term5 = 'Final Rating';
+    $phase8_term5 ='Final Rating';
   
 
     $phase8_final_rating_mother_tongue = round(($term1_phase8_mother_tongue + $term2_phase8_mother_tongue + 
