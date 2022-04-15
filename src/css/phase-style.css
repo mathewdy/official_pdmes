@@ -104,3 +104,24 @@ input[type=number] {
 .submitbtn{
     border-radius: 20px;
 }
+.certification-box{
+    border: 2px solid black;
+    font-size: 8pt;
+}
+.cert-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    
+}
+.cert-card label{
+    font-size: 11pt;
+}
+.certification-box input[type=text]{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.certification-box input[type=text]:focus{
+    outline: none;
+}
