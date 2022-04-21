@@ -143,7 +143,7 @@ table {
     margin-right:auto;
     margin:5rem 0;
     position:absolute;
-    top:11.5cm;
+    top:12.5cm;
     right:12.45cm;
     
 }
@@ -155,7 +155,7 @@ table {
     margin-right:auto;
     margin:5rem 0;
     position:absolute;
-    top:11.5cm;
+    top:12.5cm;
     left:10cm;
 }
 
@@ -217,7 +217,7 @@ table {
     width:376px;
     position:absolute;
     right:9.88cm;
-    top:11.5cm;
+    top:12.5cm;
     border:1px solid black;
     
 
@@ -461,7 +461,7 @@ table {
     margin:0 2rem;
     position:absolute;
     left:9.16cm;
-     top:11.5cm;
+    top:12.5cm;
     border:1px solid
 }
 
@@ -712,6 +712,7 @@ while(mysqli_fetch_array($run_learners_query));
     
     $html.='
         <body>
+       
     <div class="top-1">
         <label class="block ">Republic of The Philippines</label><br>
         <label class="block">Department of education</label>
@@ -724,7 +725,13 @@ while(mysqli_fetch_array($run_learners_query));
     <div class="sf">
    <p class="SF">Sf-10-ES</p>
    </div>
-    
+   <div>
+  
+   <img src="DepEd_2.svg" class="deped">
+   <div class="deped_2">
+   <img src="DepEd.svg" class="deped2">
+   </div>
+  
 <br>
 <br>
 
