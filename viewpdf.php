@@ -593,7 +593,18 @@ table {page-break-before:auto;}
 
 
 .school{
-    margin:0 0.2rem;
+    border:1px solid black;
+    
+}
+
+
+
+
+.school_id{
+    border:1px solid black;
+    margin:0 4.5rem;
+    position:absolute;
+    left:3cm;
 }
 
 
@@ -797,7 +808,7 @@ while(mysqli_fetch_array($run_learners_query));
     
         $html.='<h2 class="learners"> Scholastic Record </h2>
         <div class="learners-information1">
-            <div class="school">
+            <div class="school1">
             <label class="school" for="">School: '.$rows['school'].' </label> 
             <label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
             </div>
