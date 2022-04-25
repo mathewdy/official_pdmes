@@ -357,7 +357,7 @@ table {
 
 .Certify{
     margin:0 auto;
-
+    font-size:9pt;
     width:95%;
 
 }
@@ -447,11 +447,13 @@ table {
 
 .date-underline{
     text-decoration:underline;
-    font-size:11px;
+    font-size:9pt;
 }
 
 .name-underline{
     text-decoration:underline;
+    font-size:9pt;
+
 }
 
 
