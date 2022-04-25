@@ -36,18 +36,23 @@ $html='
 *{
     font-family:Arial, sans-serif;
 }
-table, tr ,th ,td{
+table, thead, tr ,th, tbody ,td{
     border:1px solid black;
     border-collapse:collapse;
+    font-size:11px;
 
+}
+
+.remedial{
+    font-size:9px;
 }
 
 td {
-    font-size:11px;
+    font-size:9px;
 }
 
 th{
-    font-size:12px;
+    font-size:10px;
 }
 
 
@@ -144,7 +149,7 @@ table {
     margin:5rem 0;
     position:absolute;
     top:12.5cm;
-    right:12.45cm;
+    right:14.53cm;
     
 }
 
@@ -160,11 +165,9 @@ table {
 }
 
 .container-phase-3{
-    margin-right:auto;
-   
     position:absolute;
     top:2.1cm;
-    right:12.31cm;
+    right:14.40cm;
     font-size:10pt;
 }
 
@@ -181,7 +184,7 @@ table {
    
     position:absolute;
     top:4.1cm;
-    right:12.36cm;
+    right:14.45cm;
     font-size:10pt;
 }
 
@@ -198,7 +201,7 @@ table {
    
     position:absolute;
     top:1.7cm;
-    right:12.37cm;
+    right:14.45cm;
    
 }
 
@@ -314,13 +317,12 @@ table {
 }
 
 .certify{
-    width:1rem;
+    
     font-size:9pt;
    
 }
 .LRN{
-    margin-left:0.1rem;
-    margin-right:0.9rem;
+   
     font-size:9pt;
 }
 
@@ -331,23 +333,20 @@ table {
 }
 
 .school-name{
-    width:1rem;
-    margin: 0 3rem;
     font-size:9pt;
 }
 
 .school-id{
     width:1rem;
     font-size:9pt;
-    margin-right:  4rem;
-    padding: 0 1rem;
+    margin-right:  2rem;
+   
 }
 
 .Division{
     font-size:9pt;
     margin: 0 2rem;
-    width:1rem;
-    padding: 0 2rem;
+   
 }
 
 .last-school{
@@ -385,13 +384,12 @@ table {
 
 .bottom-names{
     width:100%;
-    font-size:11px;
+    font-size:9pt;
 }
 
 .data-name{
     margin-left:10rem;
     font-size:11px;
-}
 
 .data-date{
     margin-left:1rem;
@@ -400,12 +398,12 @@ table {
 .date{
 
     width:2rem;
-    margin-left:1.9rem;
+    margin-left:0.9rem;
 }
 
 .affix{
-    margin-left:5rem;
-    font-size:11px;
+    margin-left:10rem;
+    font-size:9pt;
 }   
 
 .bottom-col{
@@ -413,11 +411,48 @@ table {
     }
 
 .name-of-principal{
-    margin-left:3rem;
-    font-size:11px;
-    padding: 0 1rem;
+    margin-left:4.5rem;
+    font-size:9pt;
+
 }
 
+.certify_underline{
+    text-decoration:underline;
+}
+
+.LRN_underline{
+    text-decoration:underline;
+}
+
+.admission_underline{
+    text-decoration:underline;
+
+}
+
+.school-name-underline{
+    text-decoration:underline;
+}
+
+.school-id-underline{
+    text-decoration:underline;
+}
+
+.Division-underline{
+    text-decoration:underline;
+}
+
+.last-school-underline{
+    text-decoration:underline;
+}
+
+.date-underline{
+    text-decoration:underline;
+    font-size:11px;
+}
+
+.name-underline{
+    text-decoration:underline;
+}
 
 
 
@@ -592,19 +627,57 @@ table {page-break-before:auto;}
 
 
 
-.school{
-    border:1px solid black;
-    
-}
-
-
 
 
 .school_id{
-    border:1px solid black;
+   
     margin:0 4.5rem;
     position:absolute;
     left:3cm;
+    
+   
+}
+
+.school_underline{
+    text-decoration:underline;
+}
+
+.school_id_underline{
+     text-decoration:underline;
+}
+
+.district_underline{
+    text-decoration:underline;
+
+}
+
+.division_underline{
+    text-decoration:underline;
+}
+
+.region_underline{
+    text-decoration:underline;
+}
+
+.classified_underline{
+    text-decoration:underline;
+}
+
+.section_underline{
+    text-decoration:underline;
+}
+
+.school_year_underline{
+    text-decoration:underline;
+}
+
+.name_of_teacher_underline{
+    text-decoration:underline;
+}
+
+.signature_underline{
+    text-decoration:underline;
+    
 }
 
 
@@ -698,6 +771,8 @@ table {page-break-before:auto;}
     top:-0.99cm;
     left:0.7cm;
 }
+
+
 
 </style>
 
@@ -809,24 +884,24 @@ while(mysqli_fetch_array($run_learners_query));
         $html.='<h2 class="learners"> Scholastic Record </h2>
         <div class="learners-information1">
             <div class="school1">
-            <label class="school" for="">School: '.$rows['school'].' </label> 
-            <label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
+            <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
+            <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
             </div>
             <div>
-            <label class="district" for="">District: '.$rows['district'].' </label>
-            <label class="division" for="">Division: '.$rows['division'].' </label>
-            <label class="region" for="">Region: '.$rows['region'].' </label>
-            </div>
-
-            <div>
-            <label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label>
-            <label for="">Section: '.$rows['section'].' </label>
-            <label for="">School year: '.$rows['school_year'].' </label>
+            <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
+            <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
+            <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
             </div>
 
             <div>
-            <label for="">Name of adviser: '.$rows['name_of_teacher'].' </label>
-            <label for="">Signature: '.$rows['signature'].' </label>
+            <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
+            <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
+            <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
+            </div>
+
+            <div>
+            <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
+            <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
             </div>
 
         </div>
@@ -2802,11 +2877,11 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
             <tr>
-            <th>Learning Areas</th>
-            <th>Final Rating</th>
-            <th>Remedial Class Mark</th>
-            <th>Remarks</th>
-            <th>Recomputed Final Grade</th>
+            <td>Learning Areas</td>
+            <td>Final Rating</td>
+            <td>Remedial Class Mark</td>
+            <td>Remarks</td>
+            <td>Recomputed Final Grade</td>
             </tr>
             </thead>
             <tbody>
@@ -2868,25 +2943,25 @@ if(mysqli_num_rows($run_phase1_scholastic) > 0){
 $html.='
 
 <div class="container-4">
-<div class="School">
-<label class="school" for="">School: '.$rows['school'].' </label> 
-<label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
-</div>
-
-<div class="">
-<label class="district" for="">District: '.$rows['district'].' </label>
-<label class="division" for="">Division: '.$rows['division'].' </label>
-<label class="region" for="">Region: '.$rows['region'].' </label> <br>
-</div>
-
-<div class="container-3">
-<label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label>
-<label for="">Section: '.$rows['section'].' </label>
-<label for="">School year: '.$rows['school_year'].' </label><br>
+<div class="school1">
+<label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
+<label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
 </div>
 <div>
-<label for="">Name of adviser: '.$rows['name_of_teacher'].' </label>
-<label for="">Signature: '.$rows['signature'].' </label>
+<label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
+<label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
+<label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
+</div>
+
+<div>
+<label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
+<label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
+<label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
+</div>
+
+<div>
+<label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
+<label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
 </div>
 </div>
 </div>
@@ -5151,19 +5226,19 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
             $rows = mysqli_fetch_array($phase2_run_query);
             while(mysqli_fetch_array($phase2_run_query));
             $html.='
-            <table class="remedial-2">
+            <table>
             <thead>
             <tr>
             <th colspan="2">Remedial Classes</th>
             <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
-            <tr>
-            <th>Learning Areas</th>
-            <th>Final Rating</th>
-            <th>Remedial Class Mark</th>
-            <th>Remarks</th>
-            <th>Recomputed Final Grade</th>
+            <tr class="remedial">
+            <td>Learning Areas</td>
+            <td>Final Rating</td>
+            <td>Remedial Class Mark</td>
+            <td>Remarks</td>
+            <td>Recomputed Final Grade</td>
             </tr>
             </thead>
             <tbody>
@@ -5245,22 +5320,24 @@ if(mysqli_num_rows($run_phase3_scholastic) > 0){
 
     <div class="learners-information-2">
     <div class="School">
-    <label class="school"> School :  '.$rows['school'].'</label>
-    <label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
+    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
+    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
     </div>
     <div>
-    <label class="district" for="">District: '.$rows['district'].' </label>
-    <label class="division" for="">Division: '.$rows['division'].' </label>
-    <label class="region" for="">Region: '.$rows['region'].' </label>
+    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
+    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
+    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
     </div>
+
     <div>
-    <label for="">Classified as Grade: '.$rows['classified_as_grade'].' </label>
-    <label for="">Section: '.$rows['section'].' </label>
-    <label for="">School year: '.$rows['school_year'].' </label>
+    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
+    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
+    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
     </div>
+
     <div>
-    <label for="">Name of adviser: '.$rows['name_of_teacher'].' </label>
-    <label for="">Signature: '.$rows['signature'].' </label>
+    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
+    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
     </div>
     </div>
 
@@ -7622,19 +7699,19 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
             $rows = mysqli_fetch_array($phase3_run_query);
             while(mysqli_fetch_array($phase3_run_query));
             $html.='
-            <table class="remedial-2">
+            <table class="d">
             <thead>
-            <tr>
+            <tr class="remedial">
             <th colspan="2">Remedial Classes</th>
             <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
             <tr>
-            <th>Learning Areas</th>
-            <th>Final Rating</th>
-            <th>Remedial Class Mark</th>
-            <th>Remarks</th>
-            <th>Recomputed Final Grade</th>
+            <td>Learning Areas</td>
+            <td>Final Rating</td>
+            <td>Remedial Class Mark</td>
+            <td>Remarks</td>
+            <td>Recomputed Final Grade</td>
             </tr>
             </thead>
             <tbody>
@@ -7706,23 +7783,25 @@ if(mysqli_num_rows($run_phase4_scholastic) > 0){
 
     <div class="left-container">
     <div class="School">
-    <label class="school" for="">School: '.$rows['school'].' </label> 
-    <label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
+    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
+    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
+    </div>
+    <div>
+    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
+    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
+    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
     </div>
 
     <div>
-    <label class="district" for="">District: '.$rows['district'].' </label>
-    <label class="division" for="">Division: '.$rows['division'].' </label>
-    <label class="region" for="">Region: '.$rows['region'].' </label>
+    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
+    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
+    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
+    </div>
 
     <div>
-    <label class="as_grade" for="">Classified as Grade: '.$rows['classified_as_grade'].' </label>
-    <label class="secton" for="">Section: '.$rows['section'].' </label>
-    <label class="region"for="">School year: '.$rows['school_year'].' </label>
+    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
+    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
     </div>
-    <div>
-    <label class="adviser" for="">Name of adviser: '.$rows['name_of_teacher'].' </label>
-    <label for="">Signature: '.$rows['signature'].' </label>
     </div>    
    
     </div>
@@ -9983,11 +10062,11 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
             <tr>
-            <th>Learning Areas</th>
-            <th>Final Rating</th>
-            <th>Remedial Class Mark</th>
-            <th>Remarks</th>
-            <th>Recomputed Final Grade</th>
+            <td>Learning Areas</td>
+            <td>Final Rating</td>
+            <td>Remedial Class Mark</td>
+            <td>Remarks</th>
+            <td>Recomputed Final Grade</td>
             </tr>
             </thead>
             <tbody>
@@ -10058,28 +10137,26 @@ if(mysqli_num_rows($run_phase5_scholastic) > 0){
 
     $html.='<h2 class="learners"> Scholastic Record </h2>
     <div class="learners-information-5">
-        <div class="School">
-        <label class="school" for="">School: '.$rows['school'].' </label> 
-        <label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
-        </div>
+    <div class="school1">
+    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
+    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
+    </div>
+    <div>
+    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
+    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
+    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
+    </div>
 
-        <div>
-        <label class="district" for="">District: '.$rows['district'].' </label>
-        <label class="division" for="">Division: '.$rows['division'].' </label>
-        <label class="region" for="">Region: '.$rows['region'].' </label>
-        </div>
+    <div>
+    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
+    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
+    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
+    </div>
 
-        <div>
-            <label class="as_grade" for="">Classified as Grade: '.$rows['classified_as_grade'].' </label>
-            <label class="section" for="">Section: '.$rows['section'].' </label>
-            <label class="school_year" for="">School year: '.$rows['school_year'].' </label>
-        
-        </div>
-
-        <div>
-        <label class="adviser" for="">Name of adviser: '.$rows['name_of_teacher'].' </label>
-        <label for="">Signature: '.$rows['signature'].' </label>
-        </div>
+    <div>
+    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
+    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
+    </div>
     </div>
 
    
@@ -12087,11 +12164,11 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
             <tr>
-            <th>Learning Areas</th>
-            <th>Final Rating</th>
-            <th>Remedial Class Mark</th>
-            <th>Remarks</th>
-            <th>Recomputed Final Grade</th>
+            <td>Learning Areas</td>
+            <td>Final Rating</td>
+            <td>Remedial Class Mark</td>
+            <td>Remarks</th>
+            <td>Recomputed Final Grade</td>
             </tr>
             </thead>
             <tbody>
@@ -12155,31 +12232,26 @@ if(mysqli_num_rows($run_phase6_scholastic) > 0){
 
     $html.='
     <div class="left-container-2">
-    <div class="School">
     
-    <label class="school" for="">School: '.$rows['school'].' </label>
-    <label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
+    <div class="school1">
+    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
+    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
+    </div>
+    <div>
+    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
+    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
+    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
     </div>
 
     <div>
-    <label class="district" for="">District: '.$rows['district'].' </label>
-    <label class="division" for="">Division: '.$rows['division'].' </label>
-    <label class="region" for="">Region: '.$rows['region'].' </label><br>
-   
-    </div>
-    
-    <div>
-    <label class="as_grade" for="">Classified as Grade: '.$rows['classified_as_grade'].' </label>
-    
-    <label class="section" for="">Section: '.$rows['section'].' </label>
-    <label class="school_year" for="">School year: '.$rows['school_year'].' </label>
+    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
+    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
+    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
     </div>
 
     <div>
-    
-    <label class="adiviser" for="">Name of adviser: '.$rows['name_of_teacher'].' </label>
-    <label for="">Signature: '.$rows['signature'].' </label>
-    
+    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
+    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
     </div>
 
 
@@ -14249,11 +14321,11 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
             <tr>
-            <th>Learning Areas</th>
-            <th>Final Rating</th>
-            <th>Remedial Class Mark</th>
-            <th>Remarks</th>
-            <th>Recomputed Final Grade</th>
+            <td>Learning Areas</td>
+            <td>Final Rating</td>
+            <td>Remedial Class Mark</td>
+            <td>Remarks</th>
+            <td>Recomputed Final Grade</td>
             </tr>
             </thead>
             <tbody>
@@ -14331,29 +14403,26 @@ if(mysqli_num_rows($run_phase7_scholastic) > 0){
 
     $html.='
     <div class="learners-information-7">
-        <div class="School">
-        <label class="school" for="">School: '.$rows['school'].' </label>
-        <label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
-        </div>
+    <div class="school1">
+    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
+    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
+    </div>
+    <div>
+    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
+    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
+    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
+    </div>
 
-        <div>
-        <label class="district" for="">District: '.$rows['district'].' </label>
-        <label class="division" for="">Division: '.$rows['division'].' </label>
-        <label class="region" for="">Region: '.$rows['region'].' </label>
-            
-        </div>
+    <div>
+    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
+    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
+    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
+    </div>
 
-        <div>
-        <label class="as_grade" for="">Classified as Grade: '.$rows['classified_as_grade'].' </label>
-        <label class="section" for="">Section: '.$rows['section'].' </label>
-        <label class="school_year" for="">School year: '.$rows['school_year'].' </label>
-        </div>
-
-        <div>
-            <label class="adviser" for="">Name of adviser: '.$rows['name_of_teacher'].' </label>
-            <label for="">Signature: '.$rows['signature'].' </label>
-        </div>
-
+    <div>
+    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
+    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
+    </div>
 
 
 
@@ -16513,11 +16582,11 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
             <tr>
-            <th>Learning Areas</th>
-            <th>Final Rating</th>
-            <th>Remedial Class Mark</th>
-            <th>Remarks</th>
-            <th>Recomputed Final Grade</th>
+            <td>Learning Areas</td>
+            <td>Final Rating</td>
+            <td>Remedial Class Mark</td>
+            <td>Remarks</td>
+            <td>Recomputed Final Grade</td>
             </tr>
             </thead>
             <tbody>
@@ -16592,29 +16661,26 @@ if(mysqli_num_rows($run_phase8_scholastic) > 0){
    
     $html.='
     <div class="left-container-3">
-        <div class="School">
-        <label class="school" for="">School: '.$rows['school'].' </label>
-        <label class="school_id" for="">School ID: '.$rows['school_id'].' </label> 
-        </div>
+    <div class="school1">
+    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
+    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
+    </div>
+    <div>
+    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
+    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
+    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
+    </div>
 
-        <div>
-        <label class="district" for="">District: '.$rows['district'].' </label>
-        <label class="division" for="">Division: '.$rows['division'].' </label>
-        <label class="region" for="">Region: '.$rows['region'].' </label>
-            
-        </div>
+    <div>
+    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
+    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
+    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
+    </div>
 
-        <div>
-        <label class="as_grade" for="">Classified as Grade: '.$rows['classified_as_grade'].' </label>
-        <label class="section" for="">Section: '.$rows['section'].' </label>
-        <label class="school_year" for="">School year: '.$rows['school_year'].' </label>
-        </div>
-
-        <div>
-            <label class="adviser" for="">Name of adviser: '.$rows['name_of_teacher'].' </label>
-            <label for="">Signature: '.$rows['signature'].' </label>
-        </div>
-
+    <div>
+    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
+    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
+    </div>
 
 
 
@@ -17431,7 +17497,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>>EPP / TLE</td>
+                    <td>EPP / TLE</td>
                     <td>'.$rows['grade'].'</td>
                   ';
                 
@@ -17685,7 +17751,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>>Music</td>
+                <td>Music</td>
                 <td>'.$rows['grade'].'</td>
                   ';
             
@@ -18706,11 +18772,11 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
             <tr>
-            <th>Learning Areas</th>
-            <th>Final Rating</th>
-            <th>Remedial Class Mark</th>
-            <th>Remarks</th>
-            <th>Recomputed Final Grade</th>
+            <td>Learning Areas</td>
+            <td>Final Rating</td>
+            <td>Remedial Class Mark</td>
+            <td>Remarks</th>
+            <td>Recomputed Final Grade</td>
             </tr>
             </thead>
             <tbody>
@@ -18781,26 +18847,25 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 <div class="certification-top">
 <h4 class="cert">Certification</h4>
 </div>
-
 <div class="Certify">
-<label class="certify" for="">CERTIFY that this is a true record of '.$rows['name'].' </label> 
-<label class="LRN" for="">with LRN '.$rows['lrn'].' </label> 
-<label class="admission" for="">and that he/she is eligible for admission to Grade '.$rows['grade'].' </label> 
+<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].' </span> </label> 
+<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
+<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
 </div>
 
 <div class="second-row">
 
-<label class="school-name" for="">School Name: '.$rows['name_of_school'].' </label> 
-<label class="school-id" for="">School ID '.$rows['school_id'].' </label> 
-<label class="Division" for="">Division '.$rows['division'].' </label> 
-<label class="last-school" for="">Last School Year Attended '.$rows['last_school_year_attended'].' </label>
+<label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
+<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
+<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
+<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
 </div>
 
 
 <div class="third-row">
 <div class="bottom-col">
-<label class="data-date">'.$rows['date'].'</label>
-<label class="data-name">'.$rows['Name_of_Principal'].'</label>
+<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
 </div>
 <div class="bottom-names">
 <label class="date">Date</label>
@@ -18823,24 +18888,24 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 </div>
 
 <div class="Certify">
-<label class="certify" for="">CERTIFY that this is a true record of '.$rows['name'].' </label> 
-<label class="LRN" for="">with LRN '.$rows['lrn'].' </label> 
-<label class="admission" for="">and that he/she is eligible for admission to Grade '.$rows['grade'].' </label> 
+<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].'</span>  </label> 
+<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
+<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
 </div>
 
 <div class="second-row">
 
-<label class="school-name" for="">School Name: '.$rows['name_of_school'].' </label> 
-<label class="school-id" for="">School ID '.$rows['school_id'].' </label> 
-<label class="Division" for="">Division '.$rows['division'].' </label> 
-<label class="last-school" for="">Last School Year Attended '.$rows['last_school_year_attended'].' </label>
+<label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
+<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
+<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
+<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
 </div>
 
 
 <div class="third-row">
 <div class="bottom-col">
-<label class="data-date">'.$rows['date'].'</label>
-<label class="data-name">'.$rows['Name_of_Principal'].'</label>
+<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
 </div>
 <div class="bottom-names">
 <label class="date">Date</label>
@@ -18864,24 +18929,24 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 </div>
 
 <div class="Certify">
-<label class="certify" for="">CERTIFY that this is a true record of '.$rows['name'].' </label> 
-<label class="LRN" for="">with LRN '.$rows['lrn'].' </label> 
-<label class="admission" for="">and that he/she is eligible for admission to Grade '.$rows['grade'].' </label> 
+<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].'</span>  </label> 
+<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
+<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
 </div>
 
 <div class="second-row">
 
-<label class="school-name" for="">School Name: '.$rows['name_of_school'].' </label> 
-<label class="school-id" for="">School ID '.$rows['school_id'].' </label> 
-<label class="Division" for="">Division '.$rows['division'].' </label> 
-<label class="last-school" for="">Last School Year Attended '.$rows['last_school_year_attended'].' </label>
+<label class="school-name" for="">School Name:<span class="school-name-underline"> '.$rows['name_of_school'].'</span> </label> 
+<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
+<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
+<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
 </div>
 
 
 <div class="third-row">
 <div class="bottom-col">
-<label class="data-date">'.$rows['date'].'</label>
-<label class="data-name">'.$rows['Name_of_Principal'].'</label>
+<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
 </div>
 <div class="bottom-names">
 <label class="date">Date</label>
