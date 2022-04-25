@@ -2831,7 +2831,7 @@ if($phase1_subject_id == 7 ){
              for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                  //phase 1 final rating general average
     if( $phase1_subject_id == 16){
-        $phase1_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase1' AND term = ' Final Rating' ";
+        $phase1_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase1' AND term = 'Final Rating' ";
         $run_phase1_term1_general_average = mysqli_query($conn,$phase1_term1_general_average_query);
         if(mysqli_num_rows($run_phase1_term1_general_average)> 0 ){
             $rows = mysqli_fetch_array($run_phase1_term1_general_average);
@@ -5187,7 +5187,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         //phase 2 final rating general average
 if( $phase2_subject_id == 16){
-    $phase2_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase2' AND term = ' Final Rating' ";
+    $phase2_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$lrn' AND  phase = '$phase2' AND term = 'Final Rating' ";
     $run_phase2_term1_general_average = mysqli_query($conn,$phase2_term1_general_average_query);
     if(mysqli_num_rows($run_phase2_term1_general_average)> 0 ){
         $rows5 = mysqli_fetch_array($run_phase2_term1_general_average);
