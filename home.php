@@ -1,55 +1,79 @@
 <?php
 ob_start();
-include('connection.php');
+include 'connection.php';
 session_start();
-include('security.php');
+include 'security.php';
+include 'includes/header.php';
 ?>
+  <link rel="stylesheet" href="src/css/table.data.css">
+  <script src="src/js/table_init.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<?php include 'includes/topnav.php';?>
+<div class="container py-4">
+<div class="card px-3 pb-3 pt-2" style="box-shadow: 5px 5px 20px 2px #EBEBEB ;">
+<div class="card-header bg-white px-0 pb-3" style="border-bottom: none;">
+    <a href="new-student.php" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 18">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+</svg>
+        Add New Record</a>
+</div>
+<table class="table table-hover table-light text-center mt-5" id="data">
+    <thead style="font-family:var(--poppins); font: weight 500px;">
+        <tr>
+            <th>No.</th>
+            <th>LRN</th>
+            <th>Full Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
 
-<?php include 'includes/header.php'; ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<?php include 'includes/topnav.php'; ?>
-<?php include 'includes/pre-load.php';?>
-    <br />
-    <div class="container">
-        <div class="form-group d-flex justify-content-between py-4">
-            <a href="new-student.php" class="btn btn-success">Add New Record</a>
-            <input type="text" name="search_box" id="search_box" placeholder="Search..." />
-        </div>
-        <div id="dynamic_content"></div>
-    </div>
-  </body>
-</html>
-<script src="src/js/loading_screen.js"></script>
-<script>
-  $(document).ready(function(){
+        $sql = "SELECT learners_personal_infos.lrn, learners_personal_infos.first_name , learners_personal_infos.last_name , history.send_to, history.date_time_created AS 'date_sent', history.grade_level
+        FROM learners_personal_infos 
+        LEFT JOIN history ON learners_personal_infos.lrn = history.lrn 
+        ORDER BY history.date_time_created DESC ";
+        $run = mysqli_query($conn,$sql);
 
-    load_data(1);
+        if(mysqli_num_rows($run) > 0){
+            $count = 0;
+            foreach($run as $row){
+              $lrn = $row['lrn'];
+              $parse_lrn = intval($lrn);
+              $int_lrn = (($parse_lrn * 123456789 * 5977)/ 859475);
+              $edit_link = "new-edit-students.php?sid=". urlencode(base64_encode($int_lrn));
+              $view_link = "view-student-profile.php?sid=" . urlencode(base64_encode($int_lrn));
+              $delete_link = "delete-student.php?sid=" . urlencode(base64_encode($int_lrn));
+                $count++;
+                ?>
 
-    function load_data(page, query = '')
-    {
-      $.ajax({
-        url:"fetch.php",
-        method:"POST",
-        data:{page:page, query:query},
-        success:function(data)
-        {
-          $('#dynamic_content').html(data);
+                    <tr class="clickable-row" data-href="<?php echo $view_link ?>" style="cursor:pointer;">
+                        <td><?php echo $count;?></td>
+                        <td><?php echo $row ['lrn']?></td>
+                        <td><?php echo $row ['first_name'] . $row ['last_name']?></td>
+                        <td class="d-flex flex-row justify-content-evenly">
+                            <a href="<?php echo $edit_link ?>"><i style="color:#56BBF1; font-size:25px;" class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="<?php echo $delete_link ?>"><i style="color:red; font-size:25px;" class="fa-solid fa-circle-minus"></i></a>
+                        </td>
+                    </tr>
+
+
+
+                <?php
+            }
         }
-      });
-    }
 
-    $(document).on('click', '.page-link', function(){
-      var page = $(this).data('page_number');
-      var query = $('#search_box').val();
-      load_data(page, query);
-    });
+        ?>
+    </tbody>
+</table>
+</div>
+</div>
+<script src="src/js/table.click.js"></script>
+</body>
+</html>
+<?php
 
-    $('#search_box').keyup(function(){
-      var query = $('#search_box').val();
-      load_data(1, query);
-    });
+ob_end_flush();
 
-  });
-</script>
+?>
