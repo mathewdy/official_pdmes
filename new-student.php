@@ -2447,80 +2447,79 @@ if(isset($_POST['add'])){
 
 
     $term1_phase1 = 1;
-    $term1_phase1_mother_tongue = $_POST['term1_phase1_mother_tongue'];
-    $term1_phase1_filipino = $_POST['term1_phase1_filipino'];
-    $term1_phase1_english = $_POST['term1_phase1_english'];
-    $term1_phase1_mathematics = $_POST['term1_phase1_mathematics'];
-    $term1_phase1_science = $_POST['term1_phase1_science'];
-    $term1_phase1_araling_panlipunan = $_POST['term1_phase1_araling_panlipunan'];
-    $term1_phase1_epp_tle = $_POST['term1_phase1_epp_tle'];
-    $term1_phase1_music = $_POST['term1_phase1_music'];
-    $term1_phase1_arts = $_POST['term1_phase1_arts'];
-    $term1_phase1_pe = $_POST['term1_phase1_pe'];
-    $term1_phase1_health = $_POST['term1_phase1_health'];
-    $term1_phase1_esp = $_POST['term1_phase1_esp'];
-    $term1_phase1_arabic_language = $_POST['term1_phase1_arabic_language'];
-    $term1_phase1_islamic_values = $_POST['term1_phase1_islamic_values'];
+    $term1_phase1_mother_tongue = intval($_POST['term1_phase1_mother_tongue']);
+    $term1_phase1_filipino = intval($_POST['term1_phase1_filipino']);
+    $term1_phase1_english = intval($_POST['term1_phase1_english']);
+    $term1_phase1_mathematics = intval($_POST['term1_phase1_mathematics']);
+    $term1_phase1_science = intval($_POST['term1_phase1_science']);
+    $term1_phase1_araling_panlipunan = intval($_POST['term1_phase1_araling_panlipunan']);
+    $term1_phase1_epp_tle = intval($_POST['term1_phase1_epp_tle']);
+    $term1_phase1_music = intval($_POST['term1_phase1_music']);
+    $term1_phase1_arts = intval($_POST['term1_phase1_arts']);
+    $term1_phase1_pe = intval($_POST['term1_phase1_pe']);
+    $term1_phase1_health = intval($_POST['term1_phase1_health']);
+    $term1_phase1_esp = intval($_POST['term1_phase1_esp']);
+    $term1_phase1_arabic_language = intval($_POST['term1_phase1_arabic_language']);
+    $term1_phase1_islamic_values = intval($_POST['term1_phase1_islamic_values']);
     $term1_phase1_remarks = 'none'; 
 
     //term2_phase1 grades
     //term2_phase1 
     $term2_phase1 = 2;
-    $term2_phase1_mother_tongue = $_POST['term2_phase1_mother_tongue'];
-    $term2_phase1_filipino = $_POST['term2_phase1_filipino'];
-    $term2_phase1_english = $_POST['term2_phase1_english'];
-    $term2_phase1_mathematics = $_POST['term2_phase1_mathematics'];
-    $term2_phase1_science = $_POST['term2_phase1_science'];
-    $term2_phase1_araling_panlipunan = $_POST['term2_phase1_araling_panlipunan'];
-    $term2_phase1_epp_tle = $_POST['term2_phase1_epp_tle'];
-
-    $term2_phase1_music = $_POST['term2_phase1_music'];
-    $term2_phase1_arts = $_POST['term2_phase1_arts'];
-    $term2_phase1_pe = $_POST['term2_phase1_pe'];
-    $term2_phase1_health = $_POST['term2_phase1_health'];
-    $term2_phase1_esp = $_POST['term2_phase1_esp'];
-    $term2_phase1_arabic_language = $_POST['term2_phase1_arabic_language'];
-    $term2_phase1_islamic_values = $_POST['term2_phase1_islamic_values'];
+    $term2_phase1_mother_tongue = intval($_POST['term2_phase1_mother_tongue']);
+    $term2_phase1_filipino = intval($_POST['term2_phase1_filipino']);
+    $term2_phase1_english = intval($_POST['term2_phase1_english']);
+    $term2_phase1_mathematics = intval($_POST['term2_phase1_mathematics']);
+    $term2_phase1_science = intval($_POST['term2_phase1_science']);
+    $term2_phase1_araling_panlipunan = intval($_POST['term2_phase1_araling_panlipunan']);
+    $term2_phase1_epp_tle = intval($_POST['term2_phase1_epp_tle']);
+    $term2_phase1_music = intval($_POST['term2_phase1_music']);
+    $term2_phase1_arts = intval($_POST['term2_phase1_arts']);
+    $term2_phase1_pe = intval($_POST['term2_phase1_pe']);
+    $term2_phase1_health = intval($_POST['term2_phase1_health']);
+    $term2_phase1_esp = intval($_POST['term2_phase1_esp']);
+    $term2_phase1_arabic_language = intval($_POST['term2_phase1_arabic_language']);
+    $term2_phase1_islamic_values = intval($_POST['term2_phase1_islamic_values']);
     $term2_phase1_remarks = 'none'; 
 
     //term3_phase1
     //term3_phase1 grades
 
     $term3_phase1 = 3;
-    $term3_phase1_mother_tongue = $_POST['term3_phase1_mother_tongue'];
-    $term3_phase1_filipino = $_POST['term3_phase1_filipino'];
-    $term3_phase1_english = $_POST['term3_phase1_english'];
-    $term3_phase1_mathematics = $_POST['term3_phase1_mathematics'];
-    $term3_phase1_science = $_POST['term3_phase1_science'];
-    $term3_phase1_araling_panlipunan = $_POST['term3_phase1_araling_panlipunan'];
-    $term3_phase1_epp_tle = $_POST['term3_phase1_epp_tle'];
-    $term3_phase1_music = $_POST['term3_phase1_music'];
-    $term3_phase1_arts = $_POST['term3_phase1_arts'];
-    $term3_phase1_pe = $_POST['term3_phase1_pe'];
-    $term3_phase1_health = $_POST['term3_phase1_health'];
-    $term3_phase1_esp = $_POST['term3_phase1_esp'];
-    $term3_phase1_arabic_language = $_POST['term3_phase1_arabic_language'];
-    $term3_phase1_islamic_values = $_POST['term3_phase1_islamic_values'];
+    $term3_phase1_mother_tongue = intval($_POST['term3_phase1_mother_tongue']);
+    $term3_phase1_filipino = intval($_POST['term3_phase1_filipino']);
+    $term3_phase1_english = intval($_POST['term3_phase1_english']);
+    $term3_phase1_mathematics = intval($_POST['term3_phase1_mathematics']);
+    $term3_phase1_science = intval($_POST['term3_phase1_science']);
+    $term3_phase1_araling_panlipunan = intval($_POST['term3_phase1_araling_panlipunan']);
+    $term3_phase1_epp_tle = intval($_POST['term3_phase1_epp_tle']);
+    $term3_phase1_music = intval($_POST['term3_phase1_music']);
+    $term3_phase1_arts = intval($_POST['term3_phase1_arts']);
+    $term3_phase1_pe = intval($_POST['term3_phase1_pe']);
+    $term3_phase1_health = intval($_POST['term3_phase1_health']);
+    $term3_phase1_esp = intval($_POST['term3_phase1_esp']);
+    $term3_phase1_arabic_language = intval($_POST['term3_phase1_arabic_language']);
+    $term3_phase1_islamic_values = intval($_POST['term3_phase1_islamic_values']);
     $term3_phase1_remarks = 'none'; 
 
     //term4_phase1
     //term4_phase1 grades
 
     $term4_phase1 = 4;
-    $term4_phase1_mother_tongue = $_POST['term4_phase1_mother_tongue'];
-    $term4_phase1_filipino = $_POST['term4_phase1_filipino'];
-    $term4_phase1_english = $_POST['term4_phase1_english'];
-    $term4_phase1_mathematics = $_POST['term4_phase1_mathematics'];
-    $term4_phase1_science = $_POST['term4_phase1_science'];
-    $term4_phase1_araling_panlipunan = $_POST['term4_phase1_araling_panlipunan'];
-    $term4_phase1_epp_tle = $_POST['term4_phase1_epp_tle'];
-    $term4_phase1_music = $_POST['term4_phase1_music'];
-    $term4_phase1_arts = $_POST['term4_phase1_arts'];
-    $term4_phase1_pe = $_POST['term2_phase1_pe'];
-    $term4_phase1_health = $_POST['term4_phase1_health'];
-    $term4_phase1_esp = $_POST['term4_phase1_esp'];
-    $term4_phase1_arabic_language = $_POST['term4_phase1_arabic_language'];
-    $term4_phase1_islamic_values = $_POST['term4_phase1_islamic_values'];
+    $term4_phase1_mother_tongue = intval($_POST['term4_phase1_mother_tongue']);
+    $term4_phase1_filipino = intval($_POST['term4_phase1_filipino']);
+    $term4_phase1_english = intval($_POST['term4_phase1_english']);
+    $term4_phase1_mathematics = intval($_POST['term4_phase1_mathematics']);
+    $term4_phase1_science = intval($_POST['term4_phase1_science']);
+    $term4_phase1_araling_panlipunan = intval($_POST['term4_phase1_araling_panlipunan']);
+    $term4_phase1_epp_tle = intval($_POST['term4_phase1_epp_tle']);
+    $term4_phase1_music = intval($_POST['term4_phase1_music']);
+    $term4_phase1_arts = intval($_POST['term4_phase1_arts']);
+    $term4_phase1_pe = intval($_POST['term2_phase1_pe']);
+    $term4_phase1_health = intval($_POST['term4_phase1_health']);
+    $term4_phase1_esp = intval($_POST['term4_phase1_esp']);
+    $term4_phase1_arabic_language = intval($_POST['term4_phase1_arabic_language']);
+    $term4_phase1_islamic_values = intval($_POST['term4_phase1_islamic_values']);
     $term4_phase1_remarks = 'none';
 
     // remedial phase1
@@ -2556,80 +2555,80 @@ if(isset($_POST['add'])){
 
 
     $term1_phase2 = 1;
-    $term1_phase2_mother_tongue = $_POST['term1_phase2_mother_tongue'];
-    $term1_phase2_filipino = $_POST['term1_phase2_filipino'];
-    $term1_phase2_english = $_POST['term1_phase2_english'];
-    $term1_phase2_mathematics = $_POST['term1_phase2_mathematics'];
-    $term1_phase2_science = $_POST['term1_phase2_science'];
-    $term1_phase2_araling_panlipunan = $_POST['term1_phase2_araling_panlipunan'];
-    $term1_phase2_epp_tle = $_POST['term1_phase2_epp_tle'];
-    $term1_phase2_music = $_POST['term1_phase2_music'];
-    $term1_phase2_arts = $_POST['term1_phase2_arts'];
-    $term1_phase2_pe = $_POST['term1_phase2_pe'];
-    $term1_phase2_health = $_POST['term1_phase2_health'];
-    $term1_phase2_esp = $_POST['term1_phase2_esp'];
-    $term1_phase2_arabic_language = $_POST['term1_phase2_arabic_language'];
-    $term1_phase2_islamic_values = $_POST['term1_phase2_islamic_values'];
+    $term1_phase2_mother_tongue = intval($_POST['term1_phase2_mother_tongue']);
+    $term1_phase2_filipino = intval($_POST['term1_phase2_filipino']);
+    $term1_phase2_english = intval($_POST['term1_phase2_english']);
+    $term1_phase2_mathematics = intval($_POST['term1_phase2_mathematics']);
+    $term1_phase2_science = intval($_POST['term1_phase2_science']);
+    $term1_phase2_araling_panlipunan = intval($_POST['term1_phase2_araling_panlipunan']);
+    $term1_phase2_epp_tle = intval($_POST['term1_phase2_epp_tle']);
+    $term1_phase2_music = intval($_POST['term1_phase2_music']);
+    $term1_phase2_arts = intval($_POST['term1_phase2_arts']);
+    $term1_phase2_pe = intval($_POST['term1_phase2_pe']);
+    $term1_phase2_health = intval($_POST['term1_phase2_health']);
+    $term1_phase2_esp = intval($_POST['term1_phase2_esp']);
+    $term1_phase2_arabic_language = intval($_POST['term1_phase2_arabic_language']);
+    $term1_phase2_islamic_values = intval($_POST['term1_phase2_islamic_values']);
     $term1_phase2_remarks = 'none'; 
 
     //term2_phase2 grades
     //term2_phase2 
     $term2_phase2 = 2;
-    $term2_phase2_mother_tongue = $_POST['term2_phase2_mother_tongue'];
-    $term2_phase2_filipino = $_POST['term2_phase2_filipino'];
-    $term2_phase2_english = $_POST['term2_phase2_english'];
-    $term2_phase2_mathematics = $_POST['term2_phase2_mathematics'];
-    $term2_phase2_science = $_POST['term2_phase2_science'];
-    $term2_phase2_araling_panlipunan = $_POST['term2_phase2_araling_panlipunan'];
-    $term2_phase2_epp_tle = $_POST['term2_phase2_epp_tle'];
-
-    $term2_phase2_music = $_POST['term2_phase2_music'];
-    $term2_phase2_arts = $_POST['term2_phase2_arts'];
-    $term2_phase2_pe = $_POST['term2_phase2_pe'];
-    $term2_phase2_health = $_POST['term2_phase2_health'];
-    $term2_phase2_esp = $_POST['term2_phase2_esp'];
-    $term2_phase2_arabic_language = $_POST['term2_phase2_arabic_language'];
-    $term2_phase2_islamic_values = $_POST['term2_phase2_islamic_values'];
+    $term2_phase2_mother_tongue = intval($_POST['term2_phase2_mother_tongue']);
+    $term2_phase2_filipino = intval($_POST['term2_phase2_filipino']);
+    $term2_phase2_english = intval($_POST['term2_phase2_english']);
+    $term2_phase2_mathematics = intval($_POST['term2_phase2_mathematics']);
+    $term2_phase2_science = intval($_POST['term2_phase2_science']);
+    $term2_phase2_araling_panlipunan = intval($_POST['term2_phase2_araling_panlipunan']);
+    $term2_phase2_epp_tle = intval($_POST['term2_phase2_epp_tle']);
+    $term2_phase2_music = intval($_POST['term2_phase2_music']);
+    $term2_phase2_arts = intval($_POST['term2_phase2_arts']);
+    $term2_phase2_pe = intval($_POST['term2_phase2_pe']);
+    $term2_phase2_health = intval($_POST['term2_phase2_health']);
+    $term2_phase2_esp = intval($_POST['term2_phase2_esp']);
+    $term2_phase2_arabic_language = intval($_POST['term2_phase2_arabic_language']);
+    $term2_phase2_islamic_values = intval($_POST['term2_phase2_islamic_values']);
     $term2_phase2_remarks = 'none'; 
 
     //term3_phase2
     //term3_phase2 grades
 
     $term3_phase2 = 3;
-    $term3_phase2_mother_tongue = $_POST['term3_phase2_mother_tongue'];
-    $term3_phase2_filipino = $_POST['term3_phase2_filipino'];
-    $term3_phase2_english = $_POST['term3_phase2_english'];
-    $term3_phase2_mathematics = $_POST['term3_phase2_mathematics'];
-    $term3_phase2_science = $_POST['term3_phase2_science'];
-    $term3_phase2_araling_panlipunan = $_POST['term3_phase2_araling_panlipunan'];
-    $term3_phase2_epp_tle = $_POST['term3_phase2_epp_tle'];
-    $term3_phase2_music = $_POST['term3_phase2_music'];
-    $term3_phase2_arts = $_POST['term3_phase2_arts'];
-    $term3_phase2_pe = $_POST['term3_phase2_pe'];
-    $term3_phase2_health = $_POST['term3_phase2_health'];
-    $term3_phase2_esp = $_POST['term3_phase2_esp'];
-    $term3_phase2_arabic_language = $_POST['term3_phase2_arabic_language'];
-    $term3_phase2_islamic_values = $_POST['term3_phase2_islamic_values'];
+    $term3_phase2_mother_tongue = intval($_POST['term3_phase2_mother_tongue']);
+    $term3_phase2_filipino = intval($_POST['term3_phase2_filipino']);
+    $term3_phase2_english = intval($_POST['term3_phase2_english']);
+    $term3_phase2_mathematics = intval($_POST['term3_phase2_mathematics']);
+    $term3_phase2_science = intval($_POST['term3_phase2_science']);
+    $term3_phase2_araling_panlipunan = intval($_POST['term3_phase2_araling_panlipunan']);
+    $term3_phase2_epp_tle = intval($_POST['term3_phase2_epp_tle']);
+    $term3_phase2_music = intval($_POST['term3_phase2_music']);
+    $term3_phase2_arts = intval($_POST['term3_phase2_arts']);
+    $term3_phase2_pe = intval($_POST['term3_phase2_pe']);
+    $term3_phase2_health = intval($_POST['term3_phase2_health']);
+    $term3_phase2_esp = intval($_POST['term3_phase2_esp']);
+    $term3_phase2_arabic_language = intval($_POST['term3_phase2_arabic_language']);
+    $term3_phase2_islamic_values = intval($_POST['term3_phase2_islamic_values']);
+
     $term3_phase2_remarks = 'none'; 
 
     //term4_phase2
     //term4_phase2 grades
 
     $term4_phase2 = 4;
-    $term4_phase2_mother_tongue = $_POST['term4_phase2_mother_tongue'];
-    $term4_phase2_filipino = $_POST['term4_phase2_filipino'];
-    $term4_phase2_english = $_POST['term4_phase2_english'];
-    $term4_phase2_mathematics = $_POST['term4_phase2_mathematics'];
-    $term4_phase2_science = $_POST['term4_phase2_science'];
-    $term4_phase2_araling_panlipunan = $_POST['term4_phase2_araling_panlipunan'];
-    $term4_phase2_epp_tle = $_POST['term4_phase2_epp_tle'];
-    $term4_phase2_music = $_POST['term4_phase2_music'];
-    $term4_phase2_arts = $_POST['term4_phase2_arts'];
-    $term4_phase2_pe = $_POST['term2_phase2_pe'];
-    $term4_phase2_health = $_POST['term4_phase2_health'];
-    $term4_phase2_esp = $_POST['term4_phase2_esp'];
-    $term4_phase2_arabic_language = $_POST['term4_phase2_arabic_language'];
-    $term4_phase2_islamic_values = $_POST['term4_phase2_islamic_values'];
+    $term4_phase2_mother_tongue = intval($_POST['term4_phase2_mother_tongue']);
+    $term4_phase2_filipino = intval($_POST['term4_phase2_filipino']);
+    $term4_phase2_english = intval($_POST['term4_phase2_english']);
+    $term4_phase2_mathematics = intval($_POST['term4_phase2_mathematics']);
+    $term4_phase2_science = intval($_POST['term4_phase2_science']);
+    $term4_phase2_araling_panlipunan = intval($_POST['term4_phase2_araling_panlipunan']);
+    $term4_phase2_epp_tle = intval($_POST['term4_phase2_epp_tle']);
+    $term4_phase2_music = intval($_POST['term4_phase2_music']);
+    $term4_phase2_arts = intval($_POST['term4_phase2_arts']);
+    $term4_phase2_pe = intval($_POST['term2_phase2_pe']);
+    $term4_phase2_health = intval($_POST['term4_phase2_health']);
+    $term4_phase2_esp = intval($_POST['term4_phase2_esp']);
+    $term4_phase2_arabic_language = intval($_POST['term4_phase2_arabic_language']);
+    $term4_phase2_islamic_values = intval($_POST['term4_phase2_islamic_values']);
     $term4_phase2_remarks = 'none';
 
 
@@ -2972,80 +2971,79 @@ if(isset($_POST['add'])){
 
     //term1_phase3 grades
     $term1_phase3 = 1;
-    $term1_phase3_mother_tongue = $_POST['term1_phase3_mother_tongue'];
-    $term1_phase3_filipino = $_POST['term1_phase3_filipino'];
-    $term1_phase3_english = $_POST['term1_phase3_english'];
-    $term1_phase3_mathematics = $_POST['term1_phase3_mathematics'];
-    $term1_phase3_science = $_POST['term1_phase3_science'];
-    $term1_phase3_araling_panlipunan = $_POST['term1_phase3_araling_panlipunan'];
-    $term1_phase3_epp_tle = $_POST['term1_phase3_epp_tle'];
-    $term1_phase3_music = $_POST['term1_phase3_music'];
-    $term1_phase3_arts = $_POST['term1_phase3_arts'];
-    $term1_phase3_pe = $_POST['term1_phase3_pe'];
-    $term1_phase3_health = $_POST['term1_phase3_health'];
-    $term1_phase3_esp = $_POST['term1_phase3_esp'];
-    $term1_phase3_arabic_language = $_POST['term1_phase3_arabic_language'];
-    $term1_phase3_islamic_values = $_POST['term1_phase3_islamic_values'];
+    $term1_phase3_mother_tongue = intval($_POST['term1_phase3_mother_tongue']);
+    $term1_phase3_filipino = intval($_POST['term1_phase3_filipino']);
+    $term1_phase3_english = intval($_POST['term1_phase3_english']);
+    $term1_phase3_mathematics = intval($_POST['term1_phase3_mathematics']);
+    $term1_phase3_science = intval($_POST['term1_phase3_science']);
+    $term1_phase3_araling_panlipunan = intval($_POST['term1_phase3_araling_panlipunan']);
+    $term1_phase3_epp_tle = intval($_POST['term1_phase3_epp_tle']);
+    $term1_phase3_music = intval($_POST['term1_phase3_music']);
+    $term1_phase3_arts = intval($_POST['term1_phase3_arts']);
+    $term1_phase3_pe = intval($_POST['term1_phase3_pe']);
+    $term1_phase3_health = intval($_POST['term1_phase3_health']);
+    $term1_phase3_esp = intval($_POST['term1_phase3_esp']);
+    $term1_phase3_arabic_language = intval($_POST['term1_phase3_arabic_language']);
+    $term1_phase3_islamic_values = intval($_POST['term1_phase3_islamic_values']);
     $term1_phase3_remarks = 'none'; 
 
     //term2_phase3 grades
     //term2_phase3 
     $term2_phase3 = 2;
-    $term2_phase3_mother_tongue = $_POST['term2_phase3_mother_tongue'];
-    $term2_phase3_filipino = $_POST['term2_phase3_filipino'];
-    $term2_phase3_english = $_POST['term2_phase3_english'];
-    $term2_phase3_mathematics = $_POST['term2_phase3_mathematics'];
-    $term2_phase3_science = $_POST['term2_phase3_science'];
-    $term2_phase3_araling_panlipunan = $_POST['term2_phase3_araling_panlipunan'];
-    $term2_phase3_epp_tle = $_POST['term2_phase3_epp_tle'];
-
-    $term2_phase3_music = $_POST['term2_phase3_music'];
-    $term2_phase3_arts = $_POST['term2_phase3_arts'];
-    $term2_phase3_pe = $_POST['term2_phase3_pe'];
-    $term2_phase3_health = $_POST['term2_phase3_health'];
-    $term2_phase3_esp = $_POST['term2_phase3_esp'];
-    $term2_phase3_arabic_language = $_POST['term2_phase3_arabic_language'];
-    $term2_phase3_islamic_values = $_POST['term2_phase3_islamic_values'];
+    $term2_phase3_mother_tongue = intval($_POST['term2_phase3_mother_tongue']);
+    $term2_phase3_filipino = intval($_POST['term2_phase3_filipino']);
+    $term2_phase3_english = intval($_POST['term2_phase3_english']);
+    $term2_phase3_mathematics = intval($_POST['term2_phase3_mathematics']);
+    $term2_phase3_science = intval($_POST['term2_phase3_science']);
+    $term2_phase3_araling_panlipunan = intval($_POST['term2_phase3_araling_panlipunan']);
+    $term2_phase3_epp_tle = intval($_POST['term2_phase3_epp_tle']);
+    $term2_phase3_music = intval($_POST['term2_phase3_music']);
+    $term2_phase3_arts = intval($_POST['term2_phase3_arts']);
+    $term2_phase3_pe = intval($_POST['term2_phase3_pe']);
+    $term2_phase3_health = intval($_POST['term2_phase3_health']);
+    $term2_phase3_esp = intval($_POST['term2_phase3_esp']);
+    $term2_phase3_arabic_language = intval($_POST['term2_phase3_arabic_language']);
+    $term2_phase3_islamic_values = intval($_POST['term2_phase3_islamic_values']);
     $term2_phase3_remarks = 'none'; 
 
     //term3_phase3
     //term3_phase3 grades
 
     $term3_phase3 = 3;
-    $term3_phase3_mother_tongue = $_POST['term3_phase3_mother_tongue'];
-    $term3_phase3_filipino = $_POST['term3_phase3_filipino'];
-    $term3_phase3_english = $_POST['term3_phase3_english'];
-    $term3_phase3_mathematics = $_POST['term3_phase3_mathematics'];
-    $term3_phase3_science = $_POST['term3_phase3_science'];
-    $term3_phase3_araling_panlipunan = $_POST['term3_phase3_araling_panlipunan'];
-    $term3_phase3_epp_tle = $_POST['term3_phase3_epp_tle'];
-    $term3_phase3_music = $_POST['term3_phase3_music'];
-    $term3_phase3_arts = $_POST['term3_phase3_arts'];
-    $term3_phase3_pe = $_POST['term3_phase3_pe'];
-    $term3_phase3_health = $_POST['term3_phase3_health'];
-    $term3_phase3_esp = $_POST['term3_phase3_esp'];
-    $term3_phase3_arabic_language = $_POST['term3_phase3_arabic_language'];
-    $term3_phase3_islamic_values = $_POST['term3_phase3_islamic_values'];
+    $term3_phase3_mother_tongue = intval($_POST['term3_phase3_mother_tongue']);
+    $term3_phase3_filipino = intval($_POST['term3_phase3_filipino']);
+    $term3_phase3_english = intval($_POST['term3_phase3_english']);
+    $term3_phase3_mathematics = intval($_POST['term3_phase3_mathematics']);
+    $term3_phase3_science = intval($_POST['term3_phase3_science']);
+    $term3_phase3_araling_panlipunan = intval($_POST['term3_phase3_araling_panlipunan']);
+    $term3_phase3_epp_tle = intval($_POST['term3_phase3_epp_tle']);
+    $term3_phase3_music = intval($_POST['term3_phase3_music']);
+    $term3_phase3_arts = intval($_POST['term3_phase3_arts']);
+    $term3_phase3_pe = intval($_POST['term3_phase3_pe']);
+    $term3_phase3_health = intval($_POST['term3_phase3_health']);
+    $term3_phase3_esp = intval($_POST['term3_phase3_esp']);
+    $term3_phase3_arabic_language = intval($_POST['term3_phase3_arabic_language']);
+    $term3_phase3_islamic_values = intval($_POST['term3_phase3_islamic_values']);
     $term3_phase3_remarks = 'none'; 
 
     //term4_phase3
     //term4_phase3 grades
 
     $term4_phase3 = 4;
-    $term4_phase3_mother_tongue = $_POST['term4_phase3_mother_tongue'];
-    $term4_phase3_filipino = $_POST['term4_phase3_filipino'];
-    $term4_phase3_english = $_POST['term4_phase3_english'];
-    $term4_phase3_mathematics = $_POST['term4_phase3_mathematics'];
-    $term4_phase3_science = $_POST['term4_phase3_science'];
-    $term4_phase3_araling_panlipunan = $_POST['term4_phase3_araling_panlipunan'];
-    $term4_phase3_epp_tle = $_POST['term4_phase3_epp_tle'];
-    $term4_phase3_music = $_POST['term4_phase3_music'];
-    $term4_phase3_arts = $_POST['term4_phase3_arts'];
-    $term4_phase3_pe = $_POST['term2_phase3_pe'];
-    $term4_phase3_health = $_POST['term4_phase3_health'];
-    $term4_phase3_esp = $_POST['term4_phase3_esp'];
-    $term4_phase3_arabic_language = $_POST['term4_phase3_arabic_language'];
-    $term4_phase3_islamic_values = $_POST['term4_phase3_islamic_values'];
+    $term4_phase3_mother_tongue = intval($_POST['term4_phase3_mother_tongue']);
+    $term4_phase3_filipino = intval($_POST['term4_phase3_filipino']);
+    $term4_phase3_english = intval($_POST['term4_phase3_english']);
+    $term4_phase3_mathematics = intval($_POST['term4_phase3_mathematics']);
+    $term4_phase3_science = intval($_POST['term4_phase3_science']);
+    $term4_phase3_araling_panlipunan = intval($_POST['term4_phase3_araling_panlipunan']);
+    $term4_phase3_epp_tle = intval($_POST['term4_phase3_epp_tle']);
+    $term4_phase3_music = intval($_POST['term4_phase3_music']);
+    $term4_phase3_arts = intval($_POST['term4_phase3_arts']);
+    $term4_phase3_pe = intval($_POST['term2_phase3_pe']);
+    $term4_phase3_health = intval($_POST['term4_phase3_health']);
+    $term4_phase3_esp = intval($_POST['term4_phase3_esp']);
+    $term4_phase3_arabic_language = intval($_POST['term4_phase3_arabic_language']);
+    $term4_phase3_islamic_values = intval($_POST['term4_phase3_islamic_values']);
     $term4_phase3_remarks = 'none';
 
     // remedial phase 3 
@@ -3238,80 +3236,79 @@ if(isset($_POST['add'])){
 
         //term 1 phase 4
     $term1_phase4 = 1;
-    $term1_phase4_mother_tongue = $_POST['term1_phase4_mother_tongue'];
-    $term1_phase4_filipino = $_POST['term1_phase4_filipino'];
-    $term1_phase4_english = $_POST['term1_phase4_english'];
-    $term1_phase4_mathematics = $_POST['term1_phase4_mathematics'];
-    $term1_phase4_science = $_POST['term1_phase4_science'];
-    $term1_phase4_araling_panlipunan = $_POST['term1_phase4_araling_panlipunan'];
-    $term1_phase4_epp_tle = $_POST['term1_phase4_epp_tle'];
-    $term1_phase4_music = $_POST['term1_phase4_music'];
-    $term1_phase4_arts = $_POST['term1_phase4_arts'];
-    $term1_phase4_pe = $_POST['term1_phase4_pe'];
-    $term1_phase4_health = $_POST['term1_phase4_health'];
-    $term1_phase4_esp = $_POST['term1_phase4_esp'];
-    $term1_phase4_arabic_language = $_POST['term1_phase4_arabic_language'];
-    $term1_phase4_islamic_values = $_POST['term1_phase4_islamic_values'];
+    $term1_phase4_mother_tongue = intval($_POST['term1_phase4_mother_tongue']);
+    $term1_phase4_filipino = intval($_POST['term1_phase4_filipino']);
+    $term1_phase4_english = intval($_POST['term1_phase4_english']);
+    $term1_phase4_mathematics = intval($_POST['term1_phase4_mathematics']);
+    $term1_phase4_science = intval($_POST['term1_phase4_science']);
+    $term1_phase4_araling_panlipunan = intval($_POST['term1_phase4_araling_panlipunan']);
+    $term1_phase4_epp_tle = intval($_POST['term1_phase4_epp_tle']);
+    $term1_phase4_music = intval($_POST['term1_phase4_music']);
+    $term1_phase4_arts = intval($_POST['term1_phase4_arts']);
+    $term1_phase4_pe = intval($_POST['term1_phase4_pe']);
+    $term1_phase4_health = intval($_POST['term1_phase4_health']);
+    $term1_phase4_esp = intval($_POST['term1_phase4_esp']);
+    $term1_phase4_arabic_language = intval($_POST['term1_phase4_arabic_language']);
+    $term1_phase4_islamic_values = intval($_POST['term1_phase4_islamic_values']);
     $term1_phase4_remarks = 'none'; 
 
     //term2_phase4 grades
     //term2_phase4 
     $term2_phase4 = 2;
-    $term2_phase4_mother_tongue = $_POST['term2_phase4_mother_tongue'];
-    $term2_phase4_filipino = $_POST['term2_phase4_filipino'];
-    $term2_phase4_english = $_POST['term2_phase4_english'];
-    $term2_phase4_mathematics = $_POST['term2_phase4_mathematics'];
-    $term2_phase4_science = $_POST['term2_phase4_science'];
-    $term2_phase4_araling_panlipunan = $_POST['term2_phase4_araling_panlipunan'];
-    $term2_phase4_epp_tle = $_POST['term2_phase4_epp_tle'];
-
-    $term2_phase4_music = $_POST['term2_phase4_music'];
-    $term2_phase4_arts = $_POST['term2_phase4_arts'];
-    $term2_phase4_pe = $_POST['term2_phase4_pe'];
-    $term2_phase4_health = $_POST['term2_phase4_health'];
-    $term2_phase4_esp = $_POST['term2_phase4_esp'];
-    $term2_phase4_arabic_language = $_POST['term2_phase4_arabic_language'];
-    $term2_phase4_islamic_values = $_POST['term2_phase4_islamic_values'];
+    $term2_phase4_mother_tongue = intval($_POST['term2_phase4_mother_tongue']);
+    $term2_phase4_filipino = intval($_POST['term2_phase4_filipino']);
+    $term2_phase4_english = intval($_POST['term2_phase4_english']);
+    $term2_phase4_mathematics = intval($_POST['term2_phase4_mathematics']);
+    $term2_phase4_science = intval($_POST['term2_phase4_science']);
+    $term2_phase4_araling_panlipunan = intval($_POST['term2_phase4_araling_panlipunan']);
+    $term2_phase4_epp_tle = intval($_POST['term2_phase4_epp_tle']);
+    $term2_phase4_music = intval($_POST['term2_phase4_music']);
+    $term2_phase4_arts = intval($_POST['term2_phase4_arts']);
+    $term2_phase4_pe = intval($_POST['term2_phase4_pe']);
+    $term2_phase4_health = intval($_POST['term2_phase4_health']);
+    $term2_phase4_esp = intval($_POST['term2_phase4_esp']);
+    $term2_phase4_arabic_language = intval($_POST['term2_phase4_arabic_language']);
+    $term2_phase4_islamic_values = intval($_POST['term2_phase4_islamic_values']);
     $term2_phase4_remarks = 'none'; 
 
     //term3_phase4
     //term3_phase4 grades
 
     $term3_phase4 = 3;
-    $term3_phase4_mother_tongue = $_POST['term3_phase4_mother_tongue'];
-    $term3_phase4_filipino = $_POST['term3_phase4_filipino'];
-    $term3_phase4_english = $_POST['term3_phase4_english'];
-    $term3_phase4_mathematics = $_POST['term3_phase4_mathematics'];
-    $term3_phase4_science = $_POST['term3_phase4_science'];
-    $term3_phase4_araling_panlipunan = $_POST['term3_phase4_araling_panlipunan'];
-    $term3_phase4_epp_tle = $_POST['term3_phase4_epp_tle'];
-    $term3_phase4_music = $_POST['term3_phase4_music'];
-    $term3_phase4_arts = $_POST['term3_phase4_arts'];
-    $term3_phase4_pe = $_POST['term3_phase4_pe'];
-    $term3_phase4_health = $_POST['term3_phase4_health'];
-    $term3_phase4_esp = $_POST['term3_phase4_esp'];
-    $term3_phase4_arabic_language = $_POST['term3_phase4_arabic_language'];
-    $term3_phase4_islamic_values = $_POST['term3_phase4_islamic_values'];
+    $term3_phase4_mother_tongue = intval($_POST['term3_phase4_mother_tongue']);
+    $term3_phase4_filipino = intval($_POST['term3_phase4_filipino']);
+    $term3_phase4_english = intval($_POST['term3_phase4_english']);
+    $term3_phase4_mathematics = intval($_POST['term3_phase4_mathematics']);
+    $term3_phase4_science = intval($_POST['term3_phase4_science']);
+    $term3_phase4_araling_panlipunan = intval($_POST['term3_phase4_araling_panlipunan']);
+    $term3_phase4_epp_tle = intval($_POST['term3_phase4_epp_tle']);
+    $term3_phase4_music = intval($_POST['term3_phase4_music']);
+    $term3_phase4_arts = intval($_POST['term3_phase4_arts']);
+    $term3_phase4_pe = intval($_POST['term3_phase4_pe']);
+    $term3_phase4_health = intval($_POST['term3_phase4_health']);
+    $term3_phase4_esp = intval($_POST['term3_phase4_esp']);
+    $term3_phase4_arabic_language = intval($_POST['term3_phase4_arabic_language']);
+    $term3_phase4_islamic_values = intval($_POST['term3_phase4_islamic_values']);
     $term3_phase4_remarks = 'none'; 
 
     //term4_phase4
     //term4_phase4 grades
 
     $term4_phase4 = 4;
-    $term4_phase4_mother_tongue = $_POST['term4_phase4_mother_tongue'];
-    $term4_phase4_filipino = $_POST['term4_phase4_filipino'];
-    $term4_phase4_english = $_POST['term4_phase4_english'];
-    $term4_phase4_mathematics = $_POST['term4_phase4_mathematics'];
-    $term4_phase4_science = $_POST['term4_phase4_science'];
-    $term4_phase4_araling_panlipunan = $_POST['term4_phase4_araling_panlipunan'];
-    $term4_phase4_epp_tle = $_POST['term4_phase4_epp_tle'];
-    $term4_phase4_music = $_POST['term4_phase4_music'];
-    $term4_phase4_arts = $_POST['term4_phase4_arts'];
-    $term4_phase4_pe = $_POST['term2_phase4_pe'];
-    $term4_phase4_health = $_POST['term4_phase4_health'];
-    $term4_phase4_esp = $_POST['term4_phase4_esp'];
-    $term4_phase4_arabic_language = $_POST['term4_phase4_arabic_language'];
-    $term4_phase4_islamic_values = $_POST['term4_phase4_islamic_values'];
+    $term4_phase4_mother_tongue = intval($_POST['term4_phase4_mother_tongue']);
+    $term4_phase4_filipino = intval($_POST['term4_phase4_filipino']);
+    $term4_phase4_english = intval($_POST['term4_phase4_english']);
+    $term4_phase4_mathematics = intval($_POST['term4_phase4_mathematics']);
+    $term4_phase4_science = intval($_POST['term4_phase4_science']);
+    $term4_phase4_araling_panlipunan = intval($_POST['term4_phase4_araling_panlipunan']);
+    $term4_phase4_epp_tle = intval($_POST['term4_phase4_epp_tle']);
+    $term4_phase4_music = intval($_POST['term4_phase4_music']);
+    $term4_phase4_arts = intval($_POST['term4_phase4_arts']);
+    $term4_phase4_pe = intval($_POST['term2_phase4_pe']);
+    $term4_phase4_health = intval($_POST['term4_phase4_health']);
+    $term4_phase4_esp = intval($_POST['term4_phase4_esp']);
+    $term4_phase4_arabic_language = intval($_POST['term4_phase4_arabic_language']);
+    $term4_phase4_islamic_values = intval($_POST['term4_phase4_islamic_values']);
     $term4_phase4_remarks = 'none';
 
     //remedial phase 4 
@@ -3501,80 +3498,79 @@ if(isset($_POST['add'])){
 
     //term1_phase5 grades
     $term1_phase5 = 1;
-    $term1_phase5_mother_tongue = $_POST['term1_phase5_mother_tongue'];
-    $term1_phase5_filipino = $_POST['term1_phase5_filipino'];
-    $term1_phase5_english = $_POST['term1_phase5_english'];
-    $term1_phase5_mathematics = $_POST['term1_phase5_mathematics'];
-    $term1_phase5_science = $_POST['term1_phase5_science'];
-    $term1_phase5_araling_panlipunan = $_POST['term1_phase5_araling_panlipunan'];
-    $term1_phase5_epp_tle = $_POST['term1_phase5_epp_tle'];
-    $term1_phase5_music = $_POST['term1_phase5_music'];
-    $term1_phase5_arts = $_POST['term1_phase5_arts'];
-    $term1_phase5_pe = $_POST['term1_phase5_pe'];
-    $term1_phase5_health = $_POST['term1_phase5_health'];
-    $term1_phase5_esp = $_POST['term1_phase5_esp'];
-    $term1_phase5_arabic_language = $_POST['term1_phase5_arabic_language'];
-    $term1_phase5_islamic_values = $_POST['term1_phase5_islamic_values'];
+    $term1_phase5_mother_tongue = intval($_POST['term1_phase5_mother_tongue']);
+    $term1_phase5_filipino = intval($_POST['term1_phase5_filipino']);
+    $term1_phase5_english = intval($_POST['term1_phase5_english']);
+    $term1_phase5_mathematics = intval($_POST['term1_phase5_mathematics']);
+    $term1_phase5_science = intval($_POST['term1_phase5_science']);
+    $term1_phase5_araling_panlipunan = intval($_POST['term1_phase5_araling_panlipunan']);
+    $term1_phase5_epp_tle = intval($_POST['term1_phase5_epp_tle']);
+    $term1_phase5_music = intval($_POST['term1_phase5_music']);
+    $term1_phase5_arts = intval($_POST['term1_phase5_arts']);
+    $term1_phase5_pe = intval($_POST['term1_phase5_pe']);
+    $term1_phase5_health = intval($_POST['term1_phase5_health']);
+    $term1_phase5_esp = intval($_POST['term1_phase5_esp']);
+    $term1_phase5_arabic_language = intval($_POST['term1_phase5_arabic_language']);
+    $term1_phase5_islamic_values = intval($_POST['term1_phase5_islamic_values']);
     $term1_phase5_remarks = 'none'; 
 
     //term2_phase5 grades
     //term2_phase5 
     $term2_phase5 = 2;
-    $term2_phase5_mother_tongue = $_POST['term2_phase5_mother_tongue'];
-    $term2_phase5_filipino = $_POST['term2_phase5_filipino'];
-    $term2_phase5_english = $_POST['term2_phase5_english'];
-    $term2_phase5_mathematics = $_POST['term2_phase5_mathematics'];
-    $term2_phase5_science = $_POST['term2_phase5_science'];
-    $term2_phase5_araling_panlipunan = $_POST['term2_phase5_araling_panlipunan'];
-    $term2_phase5_epp_tle = $_POST['term2_phase5_epp_tle'];
-
-    $term2_phase5_music = $_POST['term2_phase5_music'];
-    $term2_phase5_arts = $_POST['term2_phase5_arts'];
-    $term2_phase5_pe = $_POST['term2_phase5_pe'];
-    $term2_phase5_health = $_POST['term2_phase5_health'];
-    $term2_phase5_esp = $_POST['term2_phase5_esp'];
-    $term2_phase5_arabic_language = $_POST['term2_phase5_arabic_language'];
-    $term2_phase5_islamic_values = $_POST['term2_phase5_islamic_values'];
+    $term2_phase5_mother_tongue = intval($_POST['term2_phase5_mother_tongue']);
+    $term2_phase5_filipino = intval($_POST['term2_phase5_filipino']);
+    $term2_phase5_english = intval($_POST['term2_phase5_english']);
+    $term2_phase5_mathematics = intval($_POST['term2_phase5_mathematics']);
+    $term2_phase5_science = intval($_POST['term2_phase5_science']);
+    $term2_phase5_araling_panlipunan = intval($_POST['term2_phase5_araling_panlipunan']);
+    $term2_phase5_epp_tle = intval($_POST['term2_phase5_epp_tle']);
+    $term2_phase5_music = intval($_POST['term2_phase5_music']);
+    $term2_phase5_arts = intval($_POST['term2_phase5_arts']);
+    $term2_phase5_pe = intval($_POST['term2_phase5_pe']);
+    $term2_phase5_health = intval($_POST['term2_phase5_health']);
+    $term2_phase5_esp = intval($_POST['term2_phase5_esp']);
+    $term2_phase5_arabic_language = intval($_POST['term2_phase5_arabic_language']);
+    $term2_phase5_islamic_values = intval($_POST['term2_phase5_islamic_values']);
     $term2_phase5_remarks = 'none'; 
 
     //term3_phase5
     //term3_phase5 grades
 
     $term3_phase5 = 3;
-    $term3_phase5_mother_tongue = $_POST['term3_phase5_mother_tongue'];
-    $term3_phase5_filipino = $_POST['term3_phase5_filipino'];
-    $term3_phase5_english = $_POST['term3_phase5_english'];
-    $term3_phase5_mathematics = $_POST['term3_phase5_mathematics'];
-    $term3_phase5_science = $_POST['term3_phase5_science'];
-    $term3_phase5_araling_panlipunan = $_POST['term3_phase5_araling_panlipunan'];
-    $term3_phase5_epp_tle = $_POST['term3_phase5_epp_tle'];
-    $term3_phase5_music = $_POST['term3_phase5_music'];
-    $term3_phase5_arts = $_POST['term3_phase5_arts'];
-    $term3_phase5_pe = $_POST['term3_phase5_pe'];
-    $term3_phase5_health = $_POST['term3_phase5_health'];
-    $term3_phase5_esp = $_POST['term3_phase5_esp'];
-    $term3_phase5_arabic_language = $_POST['term3_phase5_arabic_language'];
-    $term3_phase5_islamic_values = $_POST['term3_phase5_islamic_values'];
+    $term3_phase5_mother_tongue = intval($_POST['term3_phase5_mother_tongue']);
+    $term3_phase5_filipino = intval($_POST['term3_phase5_filipino']);
+    $term3_phase5_english = intval($_POST['term3_phase5_english']);
+    $term3_phase5_mathematics = intval($_POST['term3_phase5_mathematics']);
+    $term3_phase5_science = intval($_POST['term3_phase5_science']);
+    $term3_phase5_araling_panlipunan = intval($_POST['term3_phase5_araling_panlipunan']);
+    $term3_phase5_epp_tle = intval($_POST['term3_phase5_epp_tle']);
+    $term3_phase5_music = intval($_POST['term3_phase5_music']);
+    $term3_phase5_arts = intval($_POST['term3_phase5_arts']);
+    $term3_phase5_pe = intval($_POST['term3_phase5_pe']);
+    $term3_phase5_health = intval($_POST['term3_phase5_health']);
+    $term3_phase5_esp = intval($_POST['term3_phase5_esp']);
+    $term3_phase5_arabic_language = intval($_POST['term3_phase5_arabic_language']);
+    $term3_phase5_islamic_values = intval($_POST['term3_phase5_islamic_value']);
     $term3_phase5_remarks = 'none'; 
 
     //term4_phase5
     //term4_phase5 grades
 
     $term4_phase5 = 4;
-    $term4_phase5_mother_tongue = $_POST['term4_phase5_mother_tongue'];
-    $term4_phase5_filipino = $_POST['term4_phase5_filipino'];
-    $term4_phase5_english = $_POST['term4_phase5_english'];
-    $term4_phase5_mathematics = $_POST['term4_phase5_mathematics'];
-    $term4_phase5_science = $_POST['term4_phase5_science'];
-    $term4_phase5_araling_panlipunan = $_POST['term4_phase5_araling_panlipunan'];
-    $term4_phase5_epp_tle = $_POST['term4_phase5_epp_tle'];
-    $term4_phase5_music = $_POST['term4_phase5_music'];
-    $term4_phase5_arts = $_POST['term4_phase5_arts'];
-    $term4_phase5_pe = $_POST['term2_phase5_pe'];
-    $term4_phase5_health = $_POST['term4_phase5_health'];
-    $term4_phase5_esp = $_POST['term4_phase5_esp'];
-    $term4_phase5_arabic_language = $_POST['term4_phase5_arabic_language'];
-    $term4_phase5_islamic_values = $_POST['term4_phase5_islamic_values'];
+    $term4_phase5_mother_tongue = intval($_POST['term4_phase5_mother_tongue']);
+    $term4_phase5_filipino = intval($_POST['term4_phase5_filipino']);
+    $term4_phase5_english = intval($_POST['term4_phase5_english']);
+    $term4_phase5_mathematics = intval($_POST['term4_phase5_mathematics']);
+    $term4_phase5_science = intval($_POST['term4_phase5_science']);
+    $term4_phase5_araling_panlipunan = intval($_POST['term4_phase5_araling_panlipunan']);
+    $term4_phase5_epp_tle = intval($_POST['term4_phase5_epp_tle']);
+    $term4_phase5_music = intval($_POST['term4_phase5_music']);
+    $term4_phase5_arts = intval($_POST['term4_phase5_arts']);
+    $term4_phase5_pe = intval($_POST['term2_phase5_pe']);
+    $term4_phase5_health = intval($_POST['term4_phase5_health']);
+    $term4_phase5_esp = intval($_POST['term4_phase5_esp']);
+    $term4_phase5_arabic_language = intval($_POST['term4_phase5_arabic_language']);
+    $term4_phase5_islamic_values = intval($_POST['term4_phase5_islamic_values']);
     $term4_phase5_remarks = 'none';
 
     //remedial phase 5 
@@ -3769,80 +3765,79 @@ if(isset($_POST['add'])){
 
     //term1_phase6 grades
     $term1_phase6 = 1;
-    $term1_phase6_mother_tongue = $_POST['term1_phase6_mother_tongue'];
-    $term1_phase6_filipino = $_POST['term1_phase6_filipino'];
-    $term1_phase6_english = $_POST['term1_phase6_english'];
-    $term1_phase6_mathematics = $_POST['term1_phase6_mathematics'];
-    $term1_phase6_science = $_POST['term1_phase6_science'];
-    $term1_phase6_araling_panlipunan = $_POST['term1_phase6_araling_panlipunan'];
-    $term1_phase6_epp_tle = $_POST['term1_phase6_epp_tle'];
-    $term1_phase6_music = $_POST['term1_phase6_music'];
-    $term1_phase6_arts = $_POST['term1_phase6_arts'];
-    $term1_phase6_pe = $_POST['term1_phase6_pe'];
-    $term1_phase6_health = $_POST['term1_phase6_health'];
-    $term1_phase6_esp = $_POST['term1_phase6_esp'];
-    $term1_phase6_arabic_language = $_POST['term1_phase6_arabic_language'];
-    $term1_phase6_islamic_values = $_POST['term1_phase6_islamic_values'];
+    $term1_phase6_mother_tongue = intval($_POST['term1_phase6_mother_tongue']);
+    $term1_phase6_filipino = intval($_POST['term1_phase6_filipino']);
+    $term1_phase6_english = intval($_POST['term1_phase6_english']);
+    $term1_phase6_mathematics = intval($_POST['term1_phase6_mathematics']);
+    $term1_phase6_science = intval($_POST['term1_phase6_science']);
+    $term1_phase6_araling_panlipunan = intval($_POST['term1_phase6_araling_panlipunan']);
+    $term1_phase6_epp_tle = intval($_POST['term1_phase6_epp_tle']);
+    $term1_phase6_music = intval($_POST['term1_phase6_music']);
+    $term1_phase6_arts = intval($_POST['term1_phase6_arts']);
+    $term1_phase6_pe = intval($_POST['term1_phase6_pe']);
+    $term1_phase6_health = intval($_POST['term1_phase6_health']);
+    $term1_phase6_esp = intval($_POST['term1_phase6_esp']);
+    $term1_phase6_arabic_language = intval($_POST['term1_phase6_arabic_language']);
+    $term1_phase6_islamic_values = intval($_POST['term1_phase6_islamic_values']);
     $term1_phase6_remarks = 'none'; 
 
     //term2_phase6 grades
     //term2_phase6 
     $term2_phase6 = 2;
-    $term2_phase6_mother_tongue = $_POST['term2_phase6_mother_tongue'];
-    $term2_phase6_filipino = $_POST['term2_phase6_filipino'];
-    $term2_phase6_english = $_POST['term2_phase6_english'];
-    $term2_phase6_mathematics = $_POST['term2_phase6_mathematics'];
-    $term2_phase6_science = $_POST['term2_phase6_science'];
-    $term2_phase6_araling_panlipunan = $_POST['term2_phase6_araling_panlipunan'];
-    $term2_phase6_epp_tle = $_POST['term2_phase6_epp_tle'];
-
-    $term2_phase6_music = $_POST['term2_phase6_music'];
-    $term2_phase6_arts = $_POST['term2_phase6_arts'];
-    $term2_phase6_pe = $_POST['term2_phase6_pe'];
-    $term2_phase6_health = $_POST['term2_phase6_health'];
-    $term2_phase6_esp = $_POST['term2_phase6_esp'];
-    $term2_phase6_arabic_language = $_POST['term2_phase6_arabic_language'];
-    $term2_phase6_islamic_values = $_POST['term2_phase6_islamic_values'];
+    $term2_phase6_mother_tongue = intval($_POST['term2_phase6_mother_tongue']);
+    $term2_phase6_filipino = intval($_POST['term2_phase6_filipino']);
+    $term2_phase6_english = intval($_POST['term2_phase6_english']);
+    $term2_phase6_mathematics = intval($_POST['term2_phase6_mathematics']);
+    $term2_phase6_science = intval($_POST['term2_phase6_science']);
+    $term2_phase6_araling_panlipunan = intval($_POST['term2_phase6_araling_panlipunan']);
+    $term2_phase6_epp_tle = intval($_POST['term2_phase6_epp_tle']);
+    $term2_phase6_music = intval($_POST['term2_phase6_music']);
+    $term2_phase6_arts = intval($_POST['term2_phase6_arts']);
+    $term2_phase6_pe = intval($_POST['term2_phase6_pe']);
+    $term2_phase6_health = intval($_POST['term2_phase6_health']);
+    $term2_phase6_esp = intval($_POST['term2_phase6_esp']);
+    $term2_phase6_arabic_language = intval($_POST['term2_phase6_arabic_language']);
+    $term2_phase6_islamic_values = intval($_POST['term2_phase6_islamic_values']);
     $term2_phase6_remarks = 'none'; 
 
     //term3_phase6
     //term3_phase6 grades
 
     $term3_phase6 = 3;
-    $term3_phase6_mother_tongue = $_POST['term3_phase6_mother_tongue'];
-    $term3_phase6_filipino = $_POST['term3_phase6_filipino'];
-    $term3_phase6_english = $_POST['term3_phase6_english'];
-    $term3_phase6_mathematics = $_POST['term3_phase6_mathematics'];
-    $term3_phase6_science = $_POST['term3_phase6_science'];
-    $term3_phase6_araling_panlipunan = $_POST['term3_phase6_araling_panlipunan'];
-    $term3_phase6_epp_tle = $_POST['term3_phase6_epp_tle'];
-    $term3_phase6_music = $_POST['term3_phase6_music'];
-    $term3_phase6_arts = $_POST['term3_phase6_arts'];
-    $term3_phase6_pe = $_POST['term3_phase6_pe'];
-    $term3_phase6_health = $_POST['term3_phase6_health'];
-    $term3_phase6_esp = $_POST['term3_phase6_esp'];
-    $term3_phase6_arabic_language = $_POST['term3_phase6_arabic_language'];
-    $term3_phase6_islamic_values = $_POST['term3_phase6_islamic_values'];
+    $term3_phase6_mother_tongue = intval($_POST['term3_phase6_mother_tongue']);
+    $term3_phase6_filipino = intval($_POST['term3_phase6_filipino']);
+    $term3_phase6_english = intval($_POST['term3_phase6_english']);
+    $term3_phase6_mathematics = intval($_POST['term3_phase6_mathematics']);
+    $term3_phase6_science = intval($_POST['term3_phase6_science']);
+    $term3_phase6_araling_panlipunan = intval($_POST['term3_phase6_araling_panlipunan']);
+    $term3_phase6_epp_tle = intval($_POST['term3_phase6_epp_tle']);
+    $term3_phase6_music = intval($_POST['term3_phase6_music']);
+    $term3_phase6_arts = intval($_POST['term3_phase6_arts']);
+    $term3_phase6_pe = intval($_POST['term3_phase6_pe']);
+    $term3_phase6_health = intval($_POST['term3_phase6_health']);
+    $term3_phase6_esp = intval($_POST['term3_phase6_esp']);
+    $term3_phase6_arabic_language = intval($_POST['term3_phase6_arabic_language']);
+    $term3_phase6_islamic_values = intval($_POST['term3_phase6_islamic_values']);
     $term3_phase6_remarks = 'none'; 
 
     //term4_phase6
     //term4_phase6 grades
 
     $term4_phase6 = 4;
-    $term4_phase6_mother_tongue = $_POST['term4_phase6_mother_tongue'];
-    $term4_phase6_filipino = $_POST['term4_phase6_filipino'];
-    $term4_phase6_english = $_POST['term4_phase6_english'];
-    $term4_phase6_mathematics = $_POST['term4_phase6_mathematics'];
-    $term4_phase6_science = $_POST['term4_phase6_science'];
-    $term4_phase6_araling_panlipunan = $_POST['term4_phase6_araling_panlipunan'];
-    $term4_phase6_epp_tle = $_POST['term4_phase6_epp_tle'];
-    $term4_phase6_music = $_POST['term4_phase6_music'];
-    $term4_phase6_arts = $_POST['term4_phase6_arts'];
-    $term4_phase6_pe = $_POST['term2_phase6_pe'];
-    $term4_phase6_health = $_POST['term4_phase6_health'];
-    $term4_phase6_esp = $_POST['term4_phase6_esp'];
-    $term4_phase6_arabic_language = $_POST['term4_phase6_arabic_language'];
-    $term4_phase6_islamic_values = $_POST['term4_phase6_islamic_values'];
+    $term4_phase6_mother_tongue = intval($_POST['term4_phase6_mother_tongue']);
+    $term4_phase6_filipino = intval($_POST['term4_phase6_filipino']);
+    $term4_phase6_english = intval($_POST['term4_phase6_english']);
+    $term4_phase6_mathematics = intval($_POST['term4_phase6_mathematics']);
+    $term4_phase6_science = intval($_POST['term4_phase6_science']);
+    $term4_phase6_araling_panlipunan = intval($_POST['term4_phase6_araling_panlipunan']);
+    $term4_phase6_epp_tle = intval($_POST['term4_phase6_epp_tle']);
+    $term4_phase6_music = intval($_POST['term4_phase6_music']);
+    $term4_phase6_arts = intval($_POST['term4_phase6_arts']);
+    $term4_phase6_pe = intval($_POST['term2_phase6_pe']);
+    $term4_phase6_health = intval($_POST['term4_phase6_health']);
+    $term4_phase6_esp = intval($_POST['term4_phase6_esp']);
+    $term4_phase6_arabic_language = intval($_POST['term4_phase6_arabic_language']);
+    $term4_phase6_islamic_values = intval($_POST['term4_phase6_islamic_values']);
     $term4_phase6_remarks = 'none';
 
     //phase 6 remedial
@@ -4031,80 +4026,79 @@ if(isset($_POST['add'])){
 
     //term1_phase7 grades
     $term1_phase7 = 1;
-    $term1_phase7_mother_tongue = $_POST['term1_phase7_mother_tongue'];
-    $term1_phase7_filipino = $_POST['term1_phase7_filipino'];
-    $term1_phase7_english = $_POST['term1_phase7_english'];
-    $term1_phase7_mathematics = $_POST['term1_phase7_mathematics'];
-    $term1_phase7_science = $_POST['term1_phase7_science'];
-    $term1_phase7_araling_panlipunan = $_POST['term1_phase7_araling_panlipunan'];
-    $term1_phase7_epp_tle = $_POST['term1_phase7_epp_tle'];
-    $term1_phase7_music = $_POST['term1_phase7_music'];
-    $term1_phase7_arts = $_POST['term1_phase7_arts'];
-    $term1_phase7_pe = $_POST['term1_phase7_pe'];
-    $term1_phase7_health = $_POST['term1_phase7_health'];
-    $term1_phase7_esp = $_POST['term1_phase7_esp'];
-    $term1_phase7_arabic_language = $_POST['term1_phase7_arabic_language'];
-    $term1_phase7_islamic_values = $_POST['term1_phase7_islamic_values'];
+    $term1_phase7_mother_tongue = intval($_POST['term1_phase7_mother_tongue']);
+    $term1_phase7_filipino = intval($_POST['term1_phase7_filipino']);
+    $term1_phase7_english = intval($_POST['term1_phase7_english']);
+    $term1_phase7_mathematics = intval($_POST['term1_phase7_mathematics']);
+    $term1_phase7_science = intval($_POST['term1_phase7_science']);
+    $term1_phase7_araling_panlipunan = intval($_POST['term1_phase7_araling_panlipunan']);
+    $term1_phase7_epp_tle = intval($_POST['term1_phase7_epp_tle']);
+    $term1_phase7_music = intval($_POST['term1_phase7_music']);
+    $term1_phase7_arts = intval($_POST['term1_phase7_arts']);
+    $term1_phase7_pe = intval($_POST['term1_phase7_pe']);
+    $term1_phase7_health = intval($_POST['term1_phase7_health']);
+    $term1_phase7_esp = intval($_POST['term1_phase7_esp']);
+    $term1_phase7_arabic_language = intval($_POST['term1_phase7_arabic_language']);
+    $term1_phase7_islamic_values = intval($_POST['term1_phase7_islamic_values']);
     $term1_phase7_remarks = 'none'; 
 
     //term2_phase7 grades
     //term2_phase7
     $term2_phase7 = 2;
-    $term2_phase7_mother_tongue = $_POST['term2_phase7_mother_tongue'];
-    $term2_phase7_filipino = $_POST['term2_phase7_filipino'];
-    $term2_phase7_english = $_POST['term2_phase7_english'];
-    $term2_phase7_mathematics = $_POST['term2_phase7_mathematics'];
-    $term2_phase7_science = $_POST['term2_phase7_science'];
-    $term2_phase7_araling_panlipunan = $_POST['term2_phase7_araling_panlipunan'];
-    $term2_phase7_epp_tle = $_POST['term2_phase7_epp_tle'];
-
-    $term2_phase7_music = $_POST['term2_phase7_music'];
-    $term2_phase7_arts = $_POST['term2_phase7_arts'];
-    $term2_phase7_pe = $_POST['term2_phase7_pe'];
-    $term2_phase7_health = $_POST['term2_phase7_health'];
-    $term2_phase7_esp = $_POST['term2_phase7_esp'];
-    $term2_phase7_arabic_language = $_POST['term2_phase7_arabic_language'];
-    $term2_phase7_islamic_values = $_POST['term2_phase7_islamic_values'];
+    $term2_phase7_mother_tongue = intval($_POST['term2_phase7_mother_tongue']);
+    $term2_phase7_filipino = intval($_POST['term2_phase7_filipino']);
+    $term2_phase7_english = intval($_POST['term2_phase7_english']);
+    $term2_phase7_mathematics = intval($_POST['term2_phase7_mathematics']);
+    $term2_phase7_science = intval($_POST['term2_phase7_science']);
+    $term2_phase7_araling_panlipunan = intval($_POST['term2_phase7_araling_panlipunan']);
+    $term2_phase7_epp_tle = intval($_POST['term2_phase7_epp_tle']);
+    $term2_phase7_music = intval($_POST['term2_phase7_music']);
+    $term2_phase7_arts = intval($_POST['term2_phase7_arts']);
+    $term2_phase7_pe = intval($_POST['term2_phase7_pe']);
+    $term2_phase7_health = intval($_POST['term2_phase7_health']);
+    $term2_phase7_esp = intval($_POST['term2_phase7_esp']);
+    $term2_phase7_arabic_language = intval($_POST['term2_phase7_arabic_language']);
+    $term2_phase7_islamic_values = intval($_POST['term2_phase7_islamic_values']);
     $term2_phase7_remarks = 'none'; 
 
     //term3_phase7
     //term3_phase7 grades
 
     $term3_phase7 = 3;
-    $term3_phase7_mother_tongue = $_POST['term3_phase7_mother_tongue'];
-    $term3_phase7_filipino = $_POST['term3_phase7_filipino'];
-    $term3_phase7_english = $_POST['term3_phase7_english'];
-    $term3_phase7_mathematics = $_POST['term3_phase7_mathematics'];
-    $term3_phase7_science = $_POST['term3_phase7_science'];
-    $term3_phase7_araling_panlipunan = $_POST['term3_phase7_araling_panlipunan'];
-    $term3_phase7_epp_tle = $_POST['term3_phase7_epp_tle'];
-    $term3_phase7_music = $_POST['term3_phase7_music'];
-    $term3_phase7_arts = $_POST['term3_phase7_arts'];
-    $term3_phase7_pe = $_POST['term3_phase7_pe'];
-    $term3_phase7_health = $_POST['term3_phase7_health'];
-    $term3_phase7_esp = $_POST['term3_phase7_esp'];
-    $term3_phase7_arabic_language = $_POST['term3_phase7_arabic_language'];
-    $term3_phase7_islamic_values = $_POST['term3_phase7_islamic_values'];
+    $term3_phase7_mother_tongue = intval($_POST['term3_phase7_mother_tongue']);
+    $term3_phase7_filipino = intval($_POST['term3_phase7_filipino']);
+    $term3_phase7_english = intval($_POST['term3_phase7_english']);
+    $term3_phase7_mathematics = intval($_POST['term3_phase7_mathematics']);
+    $term3_phase7_science = intval($_POST['term3_phase7_science']);
+    $term3_phase7_araling_panlipunan = intval($_POST['term3_phase7_araling_panlipunan']);
+    $term3_phase7_epp_tle = intval($_POST['term3_phase7_epp_tle']);
+    $term3_phase7_music = intval($_POST['term3_phase7_music']);
+    $term3_phase7_arts = intval($_POST['term3_phase7_arts']);
+    $term3_phase7_pe = intval($_POST['term3_phase7_pe']);
+    $term3_phase7_health = intval($_POST['term3_phase7_health']);
+    $term3_phase7_esp = intval($_POST['term3_phase7_esp']);
+    $term3_phase7_arabic_language = intval($_POST['term3_phase7_arabic_language']);
+    $term3_phase7_islamic_values = intval($_POST['term3_phase7_islamic_values']);
     $term3_phase7_remarks = 'none'; 
 
     //term4_phase7
     //term4_phase7 grades
 
     $term4_phase7 = 4;
-    $term4_phase7_mother_tongue = $_POST['term4_phase7_mother_tongue'];
-    $term4_phase7_filipino = $_POST['term4_phase7_filipino'];
-    $term4_phase7_english = $_POST['term4_phase7_english'];
-    $term4_phase7_mathematics = $_POST['term4_phase7_mathematics'];
-    $term4_phase7_science = $_POST['term4_phase7_science'];
-    $term4_phase7_araling_panlipunan = $_POST['term4_phase7_araling_panlipunan'];
-    $term4_phase7_epp_tle = $_POST['term4_phase7_epp_tle'];
-    $term4_phase7_music = $_POST['term4_phase7_music'];
-    $term4_phase7_arts = $_POST['term4_phase7_arts'];
-    $term4_phase7_pe = $_POST['term2_phase7_pe'];
-    $term4_phase7_health = $_POST['term4_phase7_health'];
-    $term4_phase7_esp = $_POST['term4_phase7_esp'];
-    $term4_phase7_arabic_language = $_POST['term4_phase7_arabic_language'];
-    $term4_phase7_islamic_values = $_POST['term4_phase7_islamic_values'];
+    $term4_phase7_mother_tongue = intval($_POST['term4_phase7_mother_tongue']);
+    $term4_phase7_filipino = intval($_POST['term4_phase7_filipino']);
+    $term4_phase7_english = intval($_POST['term4_phase7_english']);
+    $term4_phase7_mathematics = intval($_POST['term4_phase7_mathematics']);
+    $term4_phase7_science = intval($_POST['term4_phase7_science']);
+    $term4_phase7_araling_panlipunan = intval($_POST['term4_phase7_araling_panlipunan']);
+    $term4_phase7_epp_tle = intval($_POST['term4_phase7_epp_tle']);
+    $term4_phase7_music = intval($_POST['term4_phase7_music']);
+    $term4_phase7_arts = intval($_POST['term4_phase7_arts']);
+    $term4_phase7_pe = intval($_POST['term2_phase7_pe']);
+    $term4_phase7_health = intval($_POST['term4_phase7_health']);
+    $term4_phase7_esp = intval($_POST['term4_phase7_esp']);
+    $term4_phase7_arabic_language = intval($_POST['term4_phase7_arabic_language']);
+    $term4_phase7_islamic_values = intval($_POST['term4_phase7_islamic_values']);
     $term4_phase7_remarks = 'none';
 
 
@@ -4299,80 +4293,79 @@ if(isset($_POST['add'])){
 
     //term1_phase8 grades
     $term1_phase8 = 1;
-    $term1_phase8_mother_tongue = $_POST['term1_phase8_mother_tongue'];
-    $term1_phase8_filipino = $_POST['term1_phase8_filipino'];
-    $term1_phase8_english = $_POST['term1_phase8_english'];
-    $term1_phase8_mathematics = $_POST['term1_phase8_mathematics'];
-    $term1_phase8_science = $_POST['term1_phase8_science'];
-    $term1_phase8_araling_panlipunan = $_POST['term1_phase8_araling_panlipunan'];
-    $term1_phase8_epp_tle = $_POST['term1_phase8_epp_tle'];
-    $term1_phase8_music = $_POST['term1_phase8_music'];
-    $term1_phase8_arts = $_POST['term1_phase8_arts'];
-    $term1_phase8_pe = $_POST['term1_phase8_pe'];
-    $term1_phase8_health = $_POST['term1_phase8_health'];
-    $term1_phase8_esp = $_POST['term1_phase8_esp'];
-    $term1_phase8_arabic_language = $_POST['term1_phase8_arabic_language'];
-    $term1_phase8_islamic_values = $_POST['term1_phase8_islamic_values'];
+    $term1_phase8_mother_tongue = intval($_POST['term1_phase8_mother_tongue']);
+    $term1_phase8_filipino = intval($_POST['term1_phase8_filipino']);
+    $term1_phase8_english = intval($_POST['term1_phase8_english']);
+    $term1_phase8_mathematics = intval($_POST['term1_phase8_mathematics']);
+    $term1_phase8_science = intval($_POST['term1_phase8_science']);
+    $term1_phase8_araling_panlipunan = intval($_POST['term1_phase8_araling_panlipunan']);
+    $term1_phase8_epp_tle = intval($_POST['term1_phase8_epp_tle']);
+    $term1_phase8_music = intval($_POST['term1_phase8_music']);
+    $term1_phase8_arts = intval($_POST['term1_phase8_arts']);
+    $term1_phase8_pe = intval($_POST['term1_phase8_pe']);
+    $term1_phase8_health = intval($_POST['term1_phase8_health']);
+    $term1_phase8_esp = intval($_POST['term1_phase8_esp']);
+    $term1_phase8_arabic_language = intval($_POST['term1_phase8_arabic_language']);
+    $term1_phase8_islamic_values = intval($_POST['term1_phase8_islamic_values']);
     $term1_phase8_remarks = 'none'; 
 
     //term2_phase8 grades
     //term2_phase8
     $term2_phase8 = 2;
-    $term2_phase8_mother_tongue = $_POST['term2_phase8_mother_tongue'];
-    $term2_phase8_filipino = $_POST['term2_phase8_filipino'];
-    $term2_phase8_english = $_POST['term2_phase8_english'];
-    $term2_phase8_mathematics = $_POST['term2_phase8_mathematics'];
-    $term2_phase8_science = $_POST['term2_phase8_science'];
-    $term2_phase8_araling_panlipunan = $_POST['term2_phase8_araling_panlipunan'];
-    $term2_phase8_epp_tle = $_POST['term2_phase8_epp_tle'];
-
-    $term2_phase8_music = $_POST['term2_phase8_music'];
-    $term2_phase8_arts = $_POST['term2_phase8_arts'];
-    $term2_phase8_pe = $_POST['term2_phase8_pe'];
-    $term2_phase8_health = $_POST['term2_phase8_health'];
-    $term2_phase8_esp = $_POST['term2_phase8_esp'];
-    $term2_phase8_arabic_language = $_POST['term2_phase8_arabic_language'];
-    $term2_phase8_islamic_values = $_POST['term2_phase8_islamic_values'];
+    $term2_phase8_mother_tongue = intval($_POST['term2_phase8_mother_tongue']);
+    $term2_phase8_filipino = intval($_POST['term2_phase8_filipino']);
+    $term2_phase8_english = intval($_POST['term2_phase8_english']);
+    $term2_phase8_mathematics = intval($_POST['term2_phase8_mathematics']);
+    $term2_phase8_science = intval($_POST['term2_phase8_science']);
+    $term2_phase8_araling_panlipunan = intval($_POST['term2_phase8_araling_panlipunan']);
+    $term2_phase8_epp_tle = intval($_POST['term2_phase8_epp_tle']);
+    $term2_phase8_music = intval($_POST['term2_phase8_music']);
+    $term2_phase8_arts = intval($_POST['term2_phase8_arts']);
+    $term2_phase8_pe = intval($_POST['term2_phase8_pe']);
+    $term2_phase8_health = intval($_POST['term2_phase8_health']);
+    $term2_phase8_esp = intval($_POST['term2_phase8_esp']);
+    $term2_phase8_arabic_language = intval($_POST['term2_phase8_arabic_language']);
+    $term2_phase8_islamic_values = intval($_POST['term2_phase8_islamic_values']);
     $term2_phase8_remarks = 'none'; 
 
     //term3_phase8
     //term3_phase8 grades
 
     $term3_phase8 = 3;
-    $term3_phase8_mother_tongue = $_POST['term3_phase8_mother_tongue'];
-    $term3_phase8_filipino = $_POST['term3_phase8_filipino'];
-    $term3_phase8_english = $_POST['term3_phase8_english'];
-    $term3_phase8_mathematics = $_POST['term3_phase8_mathematics'];
-    $term3_phase8_science = $_POST['term3_phase8_science'];
-    $term3_phase8_araling_panlipunan = $_POST['term3_phase8_araling_panlipunan'];
-    $term3_phase8_epp_tle = $_POST['term3_phase8_epp_tle'];
-    $term3_phase8_music = $_POST['term3_phase8_music'];
-    $term3_phase8_arts = $_POST['term3_phase8_arts'];
-    $term3_phase8_pe = $_POST['term3_phase8_pe'];
-    $term3_phase8_health = $_POST['term3_phase8_health'];
-    $term3_phase8_esp = $_POST['term3_phase8_esp'];
-    $term3_phase8_arabic_language = $_POST['term3_phase8_arabic_language'];
-    $term3_phase8_islamic_values = $_POST['term3_phase8_islamic_values'];
+    $term3_phase8_mother_tongue = intval($_POST['term3_phase8_mother_tongue']);
+    $term3_phase8_filipino = intval($_POST['term3_phase8_filipino']);
+    $term3_phase8_english = intval($_POST['term3_phase8_english']);
+    $term3_phase8_mathematics = intval($_POST['term3_phase8_mathematics']);
+    $term3_phase8_science = intval($_POST['term3_phase8_science']);
+    $term3_phase8_araling_panlipunan = intval($_POST['term3_phase8_araling_panlipunan']);
+    $term3_phase8_epp_tle = intval($_POST['term3_phase8_epp_tle']);
+    $term3_phase8_music = intval($_POST['term3_phase8_music']);
+    $term3_phase8_arts = intval($_POST['term3_phase8_arts']);
+    $term3_phase8_pe = intval($_POST['term3_phase8_pe']);
+    $term3_phase8_health = intval($_POST['term3_phase8_health']);
+    $term3_phase8_esp = intval($_POST['term3_phase8_esp']);
+    $term3_phase8_arabic_language = intval($_POST['term3_phase8_arabic_language']);
+    $term3_phase8_islamic_values = intval($_POST['term3_phase8_islamic_values']);
     $term3_phase8_remarks = 'none'; 
 
     //term4_phase8
     //term4_phase8 grades
 
     $term4_phase8 = 4;
-    $term4_phase8_mother_tongue = $_POST['term4_phase8_mother_tongue'];
-    $term4_phase8_filipino = $_POST['term4_phase8_filipino'];
-    $term4_phase8_english = $_POST['term4_phase8_english'];
-    $term4_phase8_mathematics = $_POST['term4_phase8_mathematics'];
-    $term4_phase8_science = $_POST['term4_phase8_science'];
-    $term4_phase8_araling_panlipunan = $_POST['term4_phase8_araling_panlipunan'];
-    $term4_phase8_epp_tle = $_POST['term4_phase8_epp_tle'];
-    $term4_phase8_music = $_POST['term4_phase8_music'];
-    $term4_phase8_arts = $_POST['term4_phase8_arts'];
-    $term4_phase8_pe = $_POST['term2_phase8_pe'];
-    $term4_phase8_health = $_POST['term4_phase8_health'];
-    $term4_phase8_esp = $_POST['term4_phase8_esp'];
-    $term4_phase8_arabic_language = $_POST['term4_phase8_arabic_language'];
-    $term4_phase8_islamic_values = $_POST['term4_phase8_islamic_values'];
+    $term4_phase8_mother_tongue = intval($_POST['term4_phase8_mother_tongue']);
+    $term4_phase8_filipino = intval($_POST['term4_phase8_filipino']);
+    $term4_phase8_english = intval($_POST['term4_phase8_english']);
+    $term4_phase8_mathematics = intval($_POST['term4_phase8_mathematics']);
+    $term4_phase8_science = intval($_POST['term4_phase8_science']);
+    $term4_phase8_araling_panlipunan = intval($_POST['term4_phase8_araling_panlipunan']);
+    $term4_phase8_epp_tle = intval($_POST['term4_phase8_epp_tle']);
+    $term4_phase8_music = intval($_POST['term4_phase8_music']);
+    $term4_phase8_arts = intval($_POST['term4_phase8_arts']);
+    $term4_phase8_pe = intval($_POST['term2_phase8_pe']);
+    $term4_phase8_health = intval($_POST['term4_phase8_health']);
+    $term4_phase8_esp = intval($_POST['term4_phase8_esp']);
+    $term4_phase8_arabic_language = intval($_POST['term4_phase8_arabic_language']);
+    $term4_phase8_islamic_values = intval($_POST['term4_phase8_islamic_values']);
     $term4_phase8_remarks = 'none';
 
         // phase 8 remedial
