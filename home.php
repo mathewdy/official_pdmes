@@ -30,10 +30,7 @@ include 'includes/header.php';
     <tbody>
         <?php
 
-        $sql = "SELECT learners_personal_infos.lrn, learners_personal_infos.first_name , learners_personal_infos.last_name , history.send_to, history.date_time_created AS 'date_sent', history.grade_level
-        FROM learners_personal_infos 
-        LEFT JOIN history ON learners_personal_infos.lrn = history.lrn 
-        ORDER BY history.date_time_created DESC ";
+        $sql = "SELECT * FROM learners_personal_infos ORDER BY id DESC ";
         $run = mysqli_query($conn,$sql);
 
         if(mysqli_num_rows($run) > 0){
