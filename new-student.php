@@ -197,7 +197,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -206,7 +206,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_filipino" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -215,7 +215,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly  ></td>
                     <td></td>
                 </tr>
                     <td class="text-start fw-bold">Mathematics</td>
@@ -223,7 +223,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -232,7 +232,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -241,7 +241,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -250,7 +250,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -268,7 +268,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_music" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -277,7 +277,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_arts"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_arts" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_arts"id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -286,7 +286,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_pe"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_pe" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_pe" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -295,7 +295,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_health" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -304,7 +304,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_esp" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -313,7 +313,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -322,16 +322,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase1_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase1_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase1_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">General Average</td>
-                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only" readonly></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only" readonly></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only" readonly></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only" readonly></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only" readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -385,49 +385,49 @@ include('security.php');
             <span class="d-flex justify-content-between">
                 <span>
                     <label>School:</label>
-                    <input type="text" id="text-only" name="phase1_name_of_school"  class="school">
+                    <input type="text" id="text-only" name="phase2_name_of_school"  class="school">
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase1_school_id" class="school_id">
+                    <input type="text" name="phase2_school_id" class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
                 <span>
                     <label>District:</label>
-                    <input type="text" class="w-50" name="phase1_district" class="district">
+                    <input type="text" class="w-50" name="phase2_district" class="district">
                 </span>
                 <span>
                     <label>Division:</label>
-                    <input type="text" class="w-50" name="phase1_division" class="division">
+                    <input type="text" class="w-50" name="phase2_division" class="division">
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase1_region" class="region">
+                    <input type="text" class="w-50" name="phase2_region" class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
                 <span>
                     <label>Classified as Grade:</label>
-                    <input type="number" id="number-only" style="width: 20%;" name="phase1_classified_as_grade">
+                    <input type="number" id="number-only" style="width: 20%;" name="phase2_classified_as_grade">
                 </span>
                 <span>
                     <label>Section:</label>
-                    <input type="text" class="w-50" name="phase1_section"> 
+                    <input type="text" class="w-50" name="phase2_section"> 
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase1_school_year">
+                    <input type="text" class="w-50" name="phase2_school_year">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
                 <span>
                 <label for="">Name of Adviser:</label>
-                <input type="text" id="text-only" name="phase1_name_of_teacher">
+                <input type="text" id="text-only" name="phase2_name_of_teacher">
                 </span>
                 <span>
                     <label>Signature:</label>
-                    <input type="text" id="text-only" name="phase1_signature" class="school_id">
+                    <input type="text" id="text-only" name="phase2_signature" class="school_id">
                 </span>
             </span>
         </section>
@@ -453,7 +453,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -462,7 +462,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_filipino" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -471,7 +471,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                     <td class="text-start fw-bold">Mathematics</td>
@@ -479,7 +479,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -488,7 +488,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -497,7 +497,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -506,7 +506,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -524,7 +524,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_music" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -533,7 +533,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_arts"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_arts" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_arts"id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -542,7 +542,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_pe"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_pe" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_pe" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -551,7 +551,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_health" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -560,7 +560,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_esp" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -569,7 +569,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -578,16 +578,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase2_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase2_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase2_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">General Average</td>
-                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -653,7 +653,7 @@ include('security.php');
             <span class="d-flex justify-content-between">
                 <span>
                     <label>District:</label>
-                    <input type="text" class="w-50" name="phase1_district" class="district">
+                    <input type="text" class="w-50" name="phase3_district" class="district">
                 </span>
                 <span>
                     <label>Division:</label>
@@ -712,7 +712,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td>Passed</td>
                 </tr>
                 <tr>
@@ -721,7 +721,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_filipino" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -730,7 +730,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                     <td class="text-start fw-bold">Mathematics</td>
@@ -738,7 +738,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -747,7 +747,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -756,7 +756,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -765,7 +765,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -783,7 +783,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_music" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -792,7 +792,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_arts"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_arts" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_arts"id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -801,7 +801,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_pe"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_pe" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_pe" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -810,7 +810,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_health" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -819,7 +819,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_esp" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -828,7 +828,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -837,16 +837,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase3_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase3_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">General Average</td>
-                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -968,7 +968,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td>Passed</td>
                 </tr>
                 <tr>
@@ -977,16 +977,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_filipino" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">English</td>
-                    <td><input type="number" name="term1_phase2_english" id="grade"  title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" name="term2_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" name="term3_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" name="term4_phase2_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term1_phase4_english" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase4_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase4_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase4_english" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                     <td class="text-start fw-bold">Mathematics</td>
@@ -994,7 +994,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1003,7 +1003,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1012,7 +1012,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1021,7 +1021,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1039,7 +1039,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_music" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1048,7 +1048,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_arts"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_arts" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_arts"id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1057,7 +1057,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_pe"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_pe" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_pe" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1066,7 +1066,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_health" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1075,7 +1075,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_esp" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1084,7 +1084,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1093,16 +1093,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase4_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase4_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">General Average</td>
-                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -1231,7 +1231,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td>Passed</td>
                 </tr>
                 <tr>
@@ -1240,7 +1240,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_filipino" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1249,7 +1249,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                     <td class="text-start fw-bold">Mathematics</td>
@@ -1257,7 +1257,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1266,7 +1266,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1275,7 +1275,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1284,7 +1284,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1302,7 +1302,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_music" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1311,7 +1311,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_arts"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_arts" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_arts"id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1320,7 +1320,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_pe"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_pe" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_pe" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1329,7 +1329,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_health" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1338,7 +1338,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_esp" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1347,7 +1347,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1356,16 +1356,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase5_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase5_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">General Average</td>
-                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -1400,7 +1400,7 @@ include('security.php');
                     <td><input type="text" class="learning-areas1" name="phase5_remedial_learning_areas_1"></td>
                     <td><input type="number" id="grade" class="final_rating1" name="phase5_remedial_final_rating_1"></td>
                     <td><input type="text" name="phase5_remedial_class_mark_1" id=""></td>
-                    <td><input type="number" id="grade" name="phase1_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" id="grade" name="phase5_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
                     <td><input type="text" name="phase5_remedial_remarks_1" id=""></td>
                 </tr>
                 <tr>
@@ -1487,7 +1487,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td>Passed</td>
                 </tr>
                 <tr>
@@ -1496,7 +1496,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_filipino" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1505,7 +1505,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                     <td class="text-start fw-bold">Mathematics</td>
@@ -1513,16 +1513,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">Science</td>
-                    <td><input type="number" name="term1_phase2_science" id="grade"  title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" name="term2_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" name="term3_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" name="term4_phase2_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term1_phase6_science" id="grade"  title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term2_phase6_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term3_phase6_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" name="term4_phase6_science" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1531,7 +1531,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1540,7 +1540,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1558,7 +1558,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_music" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1567,7 +1567,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_arts"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_arts" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_arts"id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1576,7 +1576,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_pe"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_pe" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_pe" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1585,7 +1585,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_health" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1594,7 +1594,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_esp" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1603,7 +1603,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1612,16 +1612,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase6_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase6_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">General Average</td>
-                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -1663,7 +1663,7 @@ include('security.php');
                     <td><input type="text" class="learning_areas2" name="phase6_remedial_learning_areas_2"></td>
                     <td><input type="number" id="grade" class="final_rating2" name="phase6_remedial_final_rating_2"></td>
                     <td><input type="text" name="phase6_remedial_class_mark_2" id=""> </td>
-                    <td><input type="number" id="grade" name="phase2_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" id="grade" name="phase6_recomputed_final_grade_2" title="Please input 2 Numbers only"></td>
                     <td><input type="text" name="phase6_remedial_remarks_2" id=""></td>
                 </tr>
             </tbody>
@@ -1705,7 +1705,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>Section:</label>
-                    <input type="text" class="w-50" name="phas71_section"> 
+                    <input type="text" class="w-50" name="phase7_section"> 
                 </span>
                 <span>
                     <label>School Year:</label>
@@ -1746,7 +1746,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td>Passed</td>
                 </tr>
                 <tr>
@@ -1755,7 +1755,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_filipino" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1764,7 +1764,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                     <td class="text-start fw-bold">Mathematics</td>
@@ -1772,7 +1772,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1781,7 +1781,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1790,7 +1790,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1799,7 +1799,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1817,7 +1817,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_music" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1826,7 +1826,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_arts"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_arts" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_arts"id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1835,7 +1835,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_pe"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_pe" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_pe" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1844,7 +1844,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_health" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1853,7 +1853,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_esp" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1862,7 +1862,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -1871,16 +1871,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase7_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase7_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">General Average</td>
-                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -2002,7 +2002,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td>Passed</td>
                 </tr>
                 <tr>
@@ -2011,7 +2011,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_filipino" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_filipino" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2020,7 +2020,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_english" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_english" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                     <td class="text-start fw-bold">Mathematics</td>
@@ -2028,7 +2028,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_mathematics" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2037,7 +2037,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_science" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_science" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2046,7 +2046,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_araling_panlipunan" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2055,7 +2055,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_epp_tle" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2073,7 +2073,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_music" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_music" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2082,7 +2082,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_arts"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_arts" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_arts"id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2091,7 +2091,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_pe"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_pe" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_pe" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2100,7 +2100,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_health" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_health" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2109,7 +2109,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_esp" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_esp" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2118,7 +2118,7 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_arabic_language"id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_arabic_language" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -2127,16 +2127,16 @@ include('security.php');
                     <td><input type="number" name="term2_phase8_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term3_phase8_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_islamic_values" id="grade" title="Please input 2 Numbers only" ></td>
-                    <td><input type="number" id="grade" title="Please input 2 Numbers only" ></td>
+                    <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">General Average</td>
-                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"></td>
-                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" name="general_average1" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average2" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average3" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average4" id="grade" title="Please input 2 Numbers only"readonly></td>
+                    <td><input type="number" name="general_average5" id="grade" title="Please input 2 Numbers only"readonly></td>
                 </tr>
             </tbody>
         </table>
@@ -2171,7 +2171,7 @@ include('security.php');
                     <td><input type="text" class="learning-areas1" name="phase8_remedial_learning_areas_1"></td>
                     <td><input type="number" id="grade" class="final_rating1" name="phase8_remedial_final_rating_1"></td>
                     <td><input type="text" name="phase8_remedial_class_mark_1" id=""></td>
-                    <td><input type="number" id="grade" name="phase2_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
+                    <td><input type="number" id="grade" name="phase8_recomputed_final_grade_1" title="Please input 2 Numbers only"></td>
                     <td><input type="text" name="phase8_remedial_remarks_1" id=""></td>
                 </tr>
                 <tr>
@@ -2389,21 +2389,38 @@ if(isset($_POST['add'])){
 
 
     //eligibility 
-    $credential = $_POST['credential_presented'];
-    $new_credential = implode("," ,$credential);
     $eligibility_name_of_school = strtoupper($_POST['eligibility_name_of_school']);
     $school_id = strtoupper($_POST['school_id']);
     $address_of_school = strtoupper($_POST['address_of_school']);
-    $pept_passer = $_POST['pept_passer'];
     $dateCreated = date("y-m-d h:i:s");
     $dateUpdated = date("y-m-d h:i:s");
     $remarks = 'none';
     $rating = $_POST['rating'];
     $date_of_assessment =   date("M-d-Y", strtotime($_POST['date_of_assessment']));
-    $others_checkbox = $_POST['others'];
-    $others = $_POST['others_please_specify'];
     $name_and_address_testing_center = strtoupper($_POST['name_and_address_testing_center']);
     $eligibility_remarks = $_POST['eligibility_remarks'];
+
+
+
+    if(isset($_POST['credential_presented'])){
+        $new_credential = implode(',', $_POST['credential_presented']);
+    }else{
+        $new_credential = " ";
+    }
+
+
+    if(isset($_POST['pept_passer'])){
+    $pept_passer = $_POST['pept_passer'];
+    }else{
+    $pept_passer = " ";
+    }
+
+    if(isset($_POST['others'])){
+    $others_checkbox  = $_POST['others_please_specify'];
+    }else{
+        $others  = " ";
+        $others_checkbox = " ";
+    }
 
     
     //scholastic records
@@ -3550,7 +3567,7 @@ if(isset($_POST['add'])){
     $term3_phase5_health = intval($_POST['term3_phase5_health']);
     $term3_phase5_esp = intval($_POST['term3_phase5_esp']);
     $term3_phase5_arabic_language = intval($_POST['term3_phase5_arabic_language']);
-    $term3_phase5_islamic_values = intval($_POST['term3_phase5_islamic_value']);
+    $term3_phase5_islamic_values = intval($_POST['term3_phase5_islamic_values']);
     $term3_phase5_remarks = 'none'; 
 
     //term4_phase5
@@ -5799,7 +5816,7 @@ if(isset($_POST['add'])){
 
 //Phase2 Insert Scholastic Records
 
-$phase2_insert_scholastic_records = "INSERT INTO scholastic_records (lrn,school,school_id,district,division,region,classified_as_grade,section,school_year,name_of_teacher,signature,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn' ,'$phase2_name_of_school', '$phase2_school_id' , '$phase2_district', '$phase2_division', '$phase2_region', '$phase2_classified_as_grade', '$phase2_section', '$phase2_school_year', '$phase2_name_of_school', '$phase2_signature', '$phase2','$phase2_remarks', '$dateCreated', '$dateUpdated')";
+$phase2_insert_scholastic_records = "INSERT INTO scholastic_records (lrn,school,school_id,district,division,region,classified_as_grade,section,school_year,name_of_teacher,signature,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn' ,'$phase2_name_of_school', '$phase2_school_id' , '$phase2_district', '$phase2_division', '$phase2_region', '$phase2_classified_as_grade', '$phase2_section', '$phase2_school_year', '$phase2_name_of_teacher', '$phase2_signature', '$phase2','$phase2_remarks', '$dateCreated', '$dateUpdated')";
 
 $phase2_run_scholastic_records = mysqli_query($conn,$phase2_insert_scholastic_records);
 if($phase2_run_scholastic_records){
@@ -11680,7 +11697,6 @@ if($phase6_run_scholastic_records){
 //Phase7 Insert Scholastic Records
 
 $phase7_insert_scholastic_records = "INSERT INTO scholastic_records (lrn,school,school_id,district,division,region,classified_as_grade,section,school_year,name_of_teacher,signature,phase,remarks,date_time_created,date_time_updated) VALUES ('$lrn' ,'$phase7_name_of_school', '$phase7_school_id' , '$phase7_district', '$phase7_division', '$phase7_region', '$phase7_classified_as_grade', '$phase7_section', '$phase7_school_year', '$phase7_name_of_school', '$phase7_signature', '$phase7','$phase7_remarks', '$dateCreated', '$dateUpdated')";
-
 $phase7_run_scholastic_records = mysqli_query($conn,$phase7_insert_scholastic_records);
 if($phase7_run_scholastic_records){
 

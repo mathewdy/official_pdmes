@@ -20,7 +20,13 @@
 <?php
 
 include('../connection.php');
-echo $dateCreated = date("M-d-Y h:i:a") . '<br>';
+echo $dateCreated = date("m-d-Y h:i:a") . '<br>';
 echo $dateUpdated = date("Y-m-d h:i:a");
 
+$grade = 74;
+$answer = "PASSED";
+
+if( $grade  < 1){
+    echo $answer;
+}
 ?>
