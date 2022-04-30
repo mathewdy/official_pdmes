@@ -166,15 +166,15 @@ table {
 
 .container-phase-3{
     position:absolute;
-    top:2.1cm;
-    right:14.40cm;
+    top:25.5cm;
+    right:14.53cm;
     font-size:10pt;
 }
 
 .container-phase-4{
     
     position:absolute;
-    top:2.09cm;
+    top:25.5cm;
     left:10cm;
     font-size:10pt;
 }
@@ -183,16 +183,14 @@ table {
    
    
     position:absolute;
-    top:4.1cm;
+    top:3.6cm;
     right:14.45cm;
     font-size:10pt;
 }
 
 .container-phase-6{
-   
-    margin-right:auto;
     position:absolute;
-    top:4.1cm;
+    top:3.6cm;
     left:10cm;
 }
 
@@ -200,7 +198,7 @@ table {
     margin-right:auto;
    
     position:absolute;
-    top:1.7cm;
+    top:14.1cm;
     right:14.45cm;
    
 }
@@ -209,7 +207,7 @@ table {
    
     margin-right:auto;
     position:absolute;
-    top:1.7cm;
+    top:14.1cm;
     left:10cm;
 }
 
@@ -237,7 +235,8 @@ table {
 .learners-information-2{
     width:376px;
     position:absolute;
-    right:9.74cm;
+    top:23.39cm;
+    right:9.88cm;
     border:1px solid black;
     
 }
@@ -248,6 +247,7 @@ table {
 .learners-information-3{
     width:376px;
     position:absolute;
+    top:23.39cm;
     right:9.80cm;
     border:1px solid black;
     
@@ -259,7 +259,7 @@ table {
 .learners-information-7{
     width:376px;
     position:absolute;
-    top:-0.4cm;
+    top:12cm;
     right:9.80cm;
     border:1px solid black;
     
@@ -269,7 +269,7 @@ table {
     width:20cm;
     border:1px solid black;
     position:absolute;
-    top:19cm;
+    top:23.3cm;
     left:-0.5cm;
     right:2cm;
 
@@ -281,7 +281,7 @@ table {
     
     border:1px solid black;
     position:absolute;
-    top:24.5cm;
+    top:27cm;
     left:-0.5cm;
     right:2cm;
 }
@@ -291,7 +291,7 @@ table {
     
     border:1px solid black;
     position:absolute;
-    top:30cm;
+    top:30.70cm;
     left:-0.5cm;
     right:2cm;
 }
@@ -302,7 +302,7 @@ table {
     width:100%;
     right:0.4cm;
     position:absolute;
-    top:18cm;
+    top:22.3cm;
 }
 
 .certification-top{
@@ -479,7 +479,7 @@ table {
     width:376px;
     position:absolute;
     right:9.80cm;
-    top:2cm;
+    top:1.5cm;
     border:1px solid black;
     
 }
@@ -508,6 +508,7 @@ table {
     width:376px;
     position:absolute;
     left:10cm;
+    top:23.39cm;
     border:1px solid black;
     
 }
@@ -519,7 +520,7 @@ table {
 .left-container-2{
     width:376px;
     position:absolute;
-    top:2cm;
+    top:1.5cm;
     left:10cm;
     border:1px solid black;
     
@@ -528,7 +529,7 @@ table {
 .left-container-3{
     width:376px;
     position:absolute;
-    top:-0.4cm;
+    top:12cm;
     left:10cm;
     border:1px solid black;
     
@@ -576,9 +577,9 @@ table {page-break-before:auto;}
 .learners{
     text-align:center;
     background:grey;
-   
-
 }
+
+
 .first{
   margin:0.5rem 0 ;
 }
@@ -5303,10 +5304,7 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
     
 }// end of remedial phase 2 
 
-$html.='
-<div class="page_break">
 
-';
 
     
 //start of phase 3 
@@ -14385,11 +14383,6 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
 
 
 
-   
-$html.='
-<div class="page_break">
-
-';
 
 
 
@@ -18966,7 +18959,6 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
   ';
         
 }
-
 
 
 
