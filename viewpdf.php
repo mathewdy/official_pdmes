@@ -39,7 +39,7 @@ $html='
 table, thead, tr ,th, tbody ,td{
     border:1px solid black;
     border-collapse:collapse;
-    font-size:11px;
+    font-size:12px;
 
 }
 
@@ -5195,6 +5195,9 @@ if( $phase2_subject_id == 16){
         $rows5 = mysqli_fetch_array($run_phase2_term1_general_average);
         $html.='
         <td>'.$rows5['general_average'].'</td>
+        <td></td>
+        </tr>
+        </tbody>
             ';
     
     
