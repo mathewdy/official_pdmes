@@ -37,7 +37,7 @@ include('connection.php');
 //             exit();
 //     } 
     // echo $decrypted_lrn . '<br>';
-    // inalis ko muna palatandaan mo lang naman to jd
+    // inalis ko muna palatandaan mo lang naman to jd k
 
 
 ?>
