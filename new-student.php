@@ -4579,7 +4579,9 @@ if(isset($_POST['add'])){
     if(mysqli_num_rows($run_validation) > 0){
         echo "<script>alert('This student is already added')</script>";
         echo "<script>window.location.href='home.php' </script>";
-    }
+    }else{
+
+    
 
 
     $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,first_name,middle_name,suffix,birth_date,sex,remarks,date_time_created,date_time_updated)
@@ -14045,7 +14047,7 @@ if($phase7_run_scholastic_records){
  }
 
 
-
+ }
 
  }
 
