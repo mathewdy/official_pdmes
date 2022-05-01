@@ -84,7 +84,7 @@ include('security.php');
             </span>
             <span class="hstack d-flex align-items-center justify-content-start">
                 <label for="">School ID:</label>
-                <input type="text" name="school_id" required>
+                <input type="text" name="school_id" id="dash" required>
             </span>
             <span class="hstack d-flex align-items-center">
                 <label for="">Address of School:</label>
@@ -132,7 +132,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase1_school_id" class="school_id">
+                    <input type="text" name="phase1_school_id" id="dash" class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -146,7 +146,7 @@ include('security.php');
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase1_region" class="region">
+                    <input type="text" class="w-50" name="phase1_region" id="dash" class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -160,7 +160,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase1_school_year">
+                    <input type="text" class="w-50" id="dash" name="phase1_school_year">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -389,7 +389,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase2_school_id" class="school_id">
+                    <input type="text" name="phase2_school_id" id="dash" class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -403,7 +403,7 @@ include('security.php');
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase2_region" class="region">
+                    <input type="text" class="w-50" name="phase2_region" id="dash" class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -417,7 +417,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase2_school_year">
+                    <input type="text" class="w-50" id="dash" name="phase2_school_year">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -647,7 +647,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase3_school_id" class="school_id">
+                    <input type="text" name="phase3_school_id" id="dash" class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -661,7 +661,7 @@ include('security.php');
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase3_region" class="region">
+                    <input type="text" class="w-50" name="phase3_region" id="dash" class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -675,7 +675,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase3_school_year">
+                    <input type="text" class="w-50" id="dash" name="phase3_school_year">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -904,7 +904,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase4_school_id" class="school_id">
+                    <input type="text" name="phase4_school_id" id="dash" class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -918,7 +918,7 @@ include('security.php');
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase4_region" class="region">
+                    <input type="text" class="w-50" name="phase4_region" id="dash" class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -932,7 +932,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase4_school_year">
+                    <input type="text" class="w-50" id="dash" name="phase4_school_year">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1166,7 +1166,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase5_school_id" class="school_id">
+                    <input type="text" name="phase5_school_id" id="dash"class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1180,7 +1180,7 @@ include('security.php');
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase5_region" class="region">
+                    <input type="text" class="w-50" name="phase5_region" id="dash"class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1194,7 +1194,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase5_school_year">
+                    <input type="text" class="w-50" name="phase5_school_year" id="dash">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1423,7 +1423,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase6_school_id" class="school_id">
+                    <input type="text" name="phase6_school_id" id="dash"class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1437,7 +1437,7 @@ include('security.php');
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase6_region" class="region">
+                    <input type="text" class="w-50" name="phase6_region" id="dash"class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1451,7 +1451,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase6_school_year">
+                    <input type="text" class="w-50" name="phase6_school_year" id="dash">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1681,7 +1681,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase7_school_id" class="school_id">
+                    <input type="text" name="phase7_school_id" id="dash"class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1695,7 +1695,7 @@ include('security.php');
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase7_region" class="region">
+                    <input type="text" class="w-50" name="phase7_region" id="dash"class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1709,7 +1709,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase7_school_year">
+                    <input type="text" class="w-50" name="phase7_school_year" id="dash">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1938,7 +1938,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School ID:</label>
-                    <input type="text" name="phase8_school_id" class="school_id">
+                    <input type="text" name="phase8_school_id" id="dash"class="school_id">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1952,7 +1952,7 @@ include('security.php');
                 </span>
                 <span class="text-end">
                     <label>Region:</label>
-                    <input type="text" class="w-50" name="phase8_region" class="region">
+                    <input type="text" class="w-50" name="phase8_region" id="dash"class="region">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -1966,7 +1966,7 @@ include('security.php');
                 </span>
                 <span>
                     <label>School Year:</label>
-                    <input type="text" class="w-50" name="phase8_school_year">
+                    <input type="text" class="w-50" name="phase8_school_year" id="dash">
                 </span>
             </span>
             <span class="d-flex justify-content-between">
@@ -2211,7 +2211,7 @@ include('security.php');
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
@@ -2219,7 +2219,7 @@ include('security.php');
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -2268,7 +2268,7 @@ include('security.php');
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
@@ -2276,7 +2276,7 @@ include('security.php');
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -2325,7 +2325,7 @@ include('security.php');
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
@@ -2333,7 +2333,7 @@ include('security.php');
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
