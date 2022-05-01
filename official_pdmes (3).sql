@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2022 at 08:49 PM
+-- Generation Time: May 01, 2022 at 10:15 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -75,7 +75,7 @@ CREATE TABLE `cetifications` (
   `division` varchar(50) NOT NULL,
   `last_school_year_attended` date NOT NULL,
   `date` date NOT NULL,
-  `Name_of_Principal` varchar(100) DEFAULT NULL,
+  `name_of_principal` varchar(100) DEFAULT NULL,
   `phase` varchar(50) NOT NULL,
   `remarks` varchar(50) NOT NULL,
   `date_time_created` datetime NOT NULL,
