@@ -2383,8 +2383,8 @@ if(isset($_POST['add'])){
     $lrn = $_POST['lrn'];
     $birth_date = date('M-d-Y',strtotime($_POST['birth_date']));
     $sex = $_POST['sex'];
-    $dateCreated = date("y-m-d h:i:a");
-    $dateUpdated = date("y-m-d h:i:a");
+    $dateCreated = date("m-d-Y h:i:a");
+    $dateUpdated = date("m-d-Y h:i:a");
     $remarks = 'none';
 
 
@@ -2541,8 +2541,8 @@ if(isset($_POST['add'])){
 
     // remedial phase1
 
-    $phase1_remedial_from = date("m-d-y",strtotime($_POST['phase1_remedial_from']));
-    $phase1_remedial_to = date("m-d-y" ,strtotime($_POST['phase1_remedial_to']));
+    $phase1_remedial_from = date("m-d-Y",strtotime($_POST['phase1_remedial_from']));
+    $phase1_remedial_to = date("m-d-Y" ,strtotime($_POST['phase1_remedial_to']));
     $phase1_remedial_learning_areas_1 = $_POST['phase1_remedial_learning_areas_1'] ;
     $phase1_remedial_final_rating_1 =$_POST['phase1_remedial_final_rating_1'];
     $phase1_remedial_class_mark_1 = $_POST['phase1_remedial_class_mark_1'];
@@ -2651,8 +2651,8 @@ if(isset($_POST['add'])){
 
     //remedial phase 2
 
-    $phase2_remedial_from = date("m-d-y",strtotime($_POST['phase2_remedial_from']));
-    $phase2_remedial_to = date("m-d-y" ,strtotime($_POST['phase2_remedial_to']));
+    $phase2_remedial_from = date("m-d-Y",strtotime($_POST['phase2_remedial_from']));
+    $phase2_remedial_to = date("m-d-Y" ,strtotime($_POST['phase2_remedial_to']));
     $phase2_remedial_learning_areas_1 = $_POST['phase2_remedial_learning_areas_1'] ;
     $phase2_remedial_final_rating_1 =$_POST['phase2_remedial_final_rating_1'];
     $phase2_remedial_class_mark_1 = $_POST['phase2_remedial_class_mark_1'];
@@ -3065,8 +3065,8 @@ if(isset($_POST['add'])){
 
     // remedial phase 3 
 
-    $phase3_remedial_from = date("m-d-y",strtotime($_POST['phase3_remedial_from']));
-    $phase3_remedial_to = date("m-d-y" ,strtotime($_POST['phase3_remedial_to']));
+    $phase3_remedial_from = date("m-d-Y",strtotime($_POST['phase3_remedial_from']));
+    $phase3_remedial_to = date("m-d-Y" ,strtotime($_POST['phase3_remedial_to']));
     $phase3_remedial_learning_areas_1 = $_POST['phase3_remedial_learning_areas_1'] ;
     $phase3_remedial_final_rating_1 =$_POST['phase3_remedial_final_rating_1'];
     $phase3_remedial_class_mark_1 = $_POST['phase3_remedial_class_mark_1'];
@@ -3330,8 +3330,8 @@ if(isset($_POST['add'])){
 
     //remedial phase 4 
 
-    $phase4_remedial_from = date("m-d-y",strtotime($_POST['phase4_remedial_from']));
-    $phase4_remedial_to = date("m-d-y" ,strtotime($_POST['phase4_remedial_to']));
+    $phase4_remedial_from = date("m-d-Y",strtotime($_POST['phase4_remedial_from']));
+    $phase4_remedial_to = date("m-d-Y" ,strtotime($_POST['phase4_remedial_to']));
     $phase4_remedial_learning_areas_1 = $_POST['phase4_remedial_learning_areas_1'] ;
     $phase4_remedial_final_rating_1 =$_POST['phase4_remedial_final_rating_1'];
     $phase4_remedial_class_mark_1 = $_POST['phase4_remedial_class_mark_1'];
@@ -3592,8 +3592,8 @@ if(isset($_POST['add'])){
 
     //remedial phase 5 
 
-    $phase5_remedial_from = date("m-d-y",strtotime($_POST['phase5_remedial_from']));
-    $phase5_remedial_to = date("m-d-y" ,strtotime($_POST['phase5_remedial_to']));
+    $phase5_remedial_from = date("m-d-Y",strtotime($_POST['phase5_remedial_from']));
+    $phase5_remedial_to = date("m-d-Y" ,strtotime($_POST['phase5_remedial_to']));
     $phase5_remedial_learning_areas_1 = $_POST['phase5_remedial_learning_areas_1'] ;
     $phase5_remedial_final_rating_1 =$_POST['phase5_remedial_final_rating_1'];
     $phase5_remedial_class_mark_1 = $_POST['phase5_remedial_class_mark_1'];
@@ -3859,8 +3859,8 @@ if(isset($_POST['add'])){
 
     //phase 6 remedial
 
-    $phase6_remedial_from = date("m-d-y",strtotime($_POST['phase6_remedial_from']));
-    $phase6_remedial_to = date("m-d-y" ,strtotime($_POST['phase6_remedial_to']));
+    $phase6_remedial_from = date("m-d-Y",strtotime($_POST['phase6_remedial_from']));
+    $phase6_remedial_to = date("m-d-Y" ,strtotime($_POST['phase6_remedial_to']));
     $phase6_remedial_learning_areas_1 = $_POST['phase6_remedial_learning_areas_1'] ;
     $phase6_remedial_final_rating_1 =$_POST['phase6_remedial_final_rating_1'];
     $phase6_remedial_class_mark_1 = $_POST['phase6_remedial_class_mark_1'];
@@ -4122,8 +4122,8 @@ if(isset($_POST['add'])){
     //phase 7 remedial
 
 
-    $phase7_remedial_from = date("m-d-y",strtotime($_POST['phase7_remedial_from']));
-    $phase7_remedial_to = date("m-d-y" ,strtotime($_POST['phase7_remedial_to']));
+    $phase7_remedial_from = date("m-d-Y",strtotime($_POST['phase7_remedial_from']));
+    $phase7_remedial_to = date("m-d-Y" ,strtotime($_POST['phase7_remedial_to']));
     $phase7_remedial_learning_areas_1 = $_POST['phase7_remedial_learning_areas_1'] ;
     $phase7_remedial_final_rating_1 =$_POST['phase7_remedial_final_rating_1'];
     $phase7_remedial_class_mark_1 = $_POST['phase7_remedial_class_mark_1'];
@@ -4387,8 +4387,8 @@ if(isset($_POST['add'])){
 
         // phase 8 remedial
         
-    $phase8_remedial_from = date("m-d-y",strtotime($_POST['phase8_remedial_from']));
-    $phase8_remedial_to = date("m-d-y" ,strtotime($_POST['phase8_remedial_to']));
+    $phase8_remedial_from = date("m-d-Y",strtotime($_POST['phase8_remedial_from']));
+    $phase8_remedial_to = date("m-d-Y" ,strtotime($_POST['phase8_remedial_to']));
     $phase8_remedial_learning_areas_1 = $_POST['phase8_remedial_learning_areas_1'] ;
     $phase8_remedial_final_rating_1 =$_POST['phase8_remedial_final_rating_1'];
     $phase8_remedial_class_mark_1 = $_POST['phase8_remedial_class_mark_1'];
@@ -4562,23 +4562,25 @@ if(isset($_POST['add'])){
     //phase1 munaaaa
     //**query muna ako mula sa database*******//
 
-    // $select_student_final_ratings = "SELECT lrn, phase , remarks ,subject_id FROM `student_final_ratings` WHERE lrn = '$lrn';";
-    // $run_select_student_final_ratings = mysqli_query($conn,$select_student_final_ratings);
-
-    // if(mysqli_num_rows($run_select_student_final_ratings) > 0){
-    //     foreach ($run_select_student_final_ratings as $row_student_final_ratings){
-    //         $row_student_final_ratings['']
-    //     }
-    // }
 
 
 
-
-    //validation dito
 
 
 
     // insert of learners info  
+
+    //validation
+
+    $validation_learners = "SELECT lrn, last_name,first_name,middle_name,suffix,birth_date
+    FROM learners_personal_infos WHERE lrn = '$lrn'";
+    $run_validation = mysqli_query($conn,$validation_learners);
+
+    if(mysqli_num_rows($run_validation) > 0){
+        echo "<script>alert('This student is already added')</script>";
+        echo "<script>window.location.href='home.php' </script>";
+    }
+
 
     $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,first_name,middle_name,suffix,birth_date,sex,remarks,date_time_created,date_time_updated)
     VALUES ('$lrn' , '$last_name' , '$first_name' ,'$middle_name', '$suffix' , '$birth_date' , '$sex','$remarks', '$dateCreated', '$dateUpdated')
@@ -14067,6 +14069,8 @@ if($phase7_run_scholastic_records){
             }else if($row1['total_remarks'] <= 1){
                 echo "PROMOTED";
             }
+
+        
         }
     }
 
