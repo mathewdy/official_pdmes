@@ -2381,7 +2381,7 @@ if(isset($_POST['add'])){
     $suffix = $_POST['suffix'];
     $middle_name = ucfirst($_POST['middle_name']);
     $lrn = $_POST['lrn'];
-    $birth_date = date('M-d-Y',strtotime($_POST['birth_date']));
+    $birth_date = date('m-d-Y',strtotime($_POST['birth_date']));
     $sex = $_POST['sex'];
     $dateCreated = date("m-d-Y h:i:a");
     $dateUpdated = date("m-d-Y h:i:a");
