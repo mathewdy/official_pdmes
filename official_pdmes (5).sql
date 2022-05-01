@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2022 at 12:05 AM
+-- Generation Time: May 02, 2022 at 12:13 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -1830,12 +1830,6 @@ ALTER TABLE `subjects`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `certifications`
---
-ALTER TABLE `certifications`
-  ADD CONSTRAINT `certifications_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `learners_personal_infos` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `eligibility_for_elementary_school_enrollment`
