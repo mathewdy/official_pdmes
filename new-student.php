@@ -14054,7 +14054,7 @@ if($phase7_run_scholastic_records){
  ////////////////////////////////////////////////////END OF PHASE 8/////////////////////////////
 
  /////////////////////////////////// FOR PROMOTION , RETAINED OR RMEDIAL ///////////////
-
+/*
  //phase 1 
 
     $sql_total_remarks_phase1 = "SELECT COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings WHERE phase = '1' AND lrn = '$lrn' AND remarks= 'FAILED' ";
@@ -14209,7 +14209,7 @@ if($phase7_run_scholastic_records){
         }
     }
 
-
+*/
 ob_end_flush();
 
 }
