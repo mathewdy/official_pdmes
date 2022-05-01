@@ -102,7 +102,7 @@ include('security.php');
             <input type="number" class="w-30" name="rating" required>
         </span>
         <span>
-            <label for="">Date of Examination/Assessment (dd/mm/yyyy):</label>
+            <label for="">Date of Examination/Assessment (mm/dd/yyyy):</label>
             <input type="date" name="date_of_assessment" id=""> 
             <input type="checkbox" class="form-check-input" name="others" value="1" >
             <label for="">Others (Pls. Specify):</label>
@@ -2396,7 +2396,7 @@ if(isset($_POST['add'])){
     $dateUpdated = date("y-m-d h:i:s");
     $remarks = 'none';
     $rating = $_POST['rating'];
-    $date_of_assessment =   date("M-d-Y", strtotime($_POST['date_of_assessment']));
+    $date_of_assessment =   date("m-d-Y", strtotime($_POST['date_of_assessment']));
     $name_and_address_testing_center = strtoupper($_POST['name_and_address_testing_center']);
     $eligibility_remarks = $_POST['eligibility_remarks'];
 
