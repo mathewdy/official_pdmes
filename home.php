@@ -47,7 +47,7 @@ include 'includes/header.php';
                     <tr class="clickable-row" data-href="<?php echo $view_link ?>" style="cursor:pointer;">
                         <td><?php echo $count;?></td>
                         <td><?php echo $row ['lrn']?></td>
-                        <td><?php echo $row ['first_name'] . $row ['last_name']?></td>
+                        <td><?php echo $row ['first_name']. " " . $row ['last_name']?></td>
                         <td class="d-flex flex-row justify-content-evenly">
                             <a href="<?php echo $edit_link ?>"><i style="color:#56BBF1; font-size:25px;" class="fa-solid fa-pen-to-square"></i></a>
                             <a href="<?php echo $delete_link ?>"><i style="color:red; font-size:25px;" class="fa-solid fa-circle-minus"></i></a>
