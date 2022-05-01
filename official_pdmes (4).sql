@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2022 at 10:15 PM
+-- Generation Time: May 02, 2022 at 12:05 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -62,10 +62,10 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cetifications`
+-- Table structure for table `certifications`
 --
 
-CREATE TABLE `cetifications` (
+CREATE TABLE `certifications` (
   `id` int(11) NOT NULL,
   `lrn` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -81,6 +81,15 @@ CREATE TABLE `cetifications` (
   `date_time_created` datetime NOT NULL,
   `date_time_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `certifications`
+--
+
+INSERT INTO `certifications` (`id`, `lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `name_of_principal`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) VALUES
+(10, '109857060083', 'mathew dalisay', 9, 'pdmes', 'sample school id', '1', '2022-05-04', '0000-00-00', 'sample name of principal', '', '', '2022-05-01 23:59:45', '2022-05-01 23:59:45'),
+(11, '109857060083', '', 0, '', '', '', '0000-00-00', '0000-00-00', NULL, '', '', '2022-05-01 23:59:45', '2022-05-01 23:59:45'),
+(12, '109857060083', '', 0, '', '', '', '0000-00-00', '0000-00-00', NULL, '', '', '2022-05-01 23:59:45', '2022-05-01 23:59:45');
 
 -- --------------------------------------------------------
 
@@ -1671,9 +1680,9 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cetifications`
+-- Indexes for table `certifications`
 --
-ALTER TABLE `cetifications`
+ALTER TABLE `certifications`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lrn` (`lrn`);
 
@@ -1759,10 +1768,10 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `cetifications`
+-- AUTO_INCREMENT for table `certifications`
 --
-ALTER TABLE `cetifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `certifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `eligibility_for_elementary_school_enrollment`
@@ -1823,10 +1832,10 @@ ALTER TABLE `subjects`
 --
 
 --
--- Constraints for table `cetifications`
+-- Constraints for table `certifications`
 --
-ALTER TABLE `cetifications`
-  ADD CONSTRAINT `cetifications_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `learners_personal_infos` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `certifications`
+  ADD CONSTRAINT `certifications_ibfk_1` FOREIGN KEY (`lrn`) REFERENCES `learners_personal_infos` (`lrn`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `eligibility_for_elementary_school_enrollment`
