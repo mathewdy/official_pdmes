@@ -6228,12 +6228,19 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
     if($phase3_subject_id == 1){
 
-        //phase 1 final rating mother tongue 
+        //phase 3 final rating mother tongue 
 $phase3_mt = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
 $run_phase3_mt = mysqli_query($conn,$phase3_mt);
 if(mysqli_num_rows($run_phase3_mt) > 0){
     $rows5 = mysqli_fetch_array($run_phase3_mt);
     while(mysqli_fetch_array($run_phase3_mt));
+
+    if($rows5['final_rating'] == 0 ){
+        $rows5['final_rating'] = " ";
+        $rows5['remarks'] = " ";
+       }
+
+
 
         $html.=' 
         <td>'.$rows5['final_rating'].'</td>
@@ -8072,9 +8079,9 @@ if($phase3_subject_id == 12 ){
         $rows = mysqli_fetch_array($run_phase3_health);
         while(mysqli_fetch_array($run_phase3_health));
 
-        if($rows5['final_rating'] == 0 ){
-            $rows5['final_rating'] = " ";
-            $rows5['remarks'] = " ";
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
            }
 
         $html.='
@@ -8236,9 +8243,9 @@ if($phase3_subject_id == 13 ){
         $rows = mysqli_fetch_array($run_phase3_esp);
         while(mysqli_fetch_array($run_phase3_esp));
 
-        if($rows5['final_rating'] == 0 ){
-            $rows5['final_rating'] = " ";
-            $rows5['remarks'] = " ";
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
            }
 
         $html.='
@@ -8399,9 +8406,9 @@ if($phase3_subject_id == 14 ){
         $rows = mysqli_fetch_array($run_phase3_arabic);
         while(mysqli_fetch_array($run_phase3_arabic));
 
-        if($rows5['final_rating'] == 0 ){
-            $rows5['final_rating'] = " ";
-            $rows5['remarks'] = " ";
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
            }
 
         $html.='
@@ -8562,9 +8569,9 @@ if($phase3_subject_id == 15 ){
         $rows = mysqli_fetch_array($run_phase3_islamic);
         while(mysqli_fetch_array($run_phase3_islamic));
 
-        if($rows5['final_rating'] == 0 ){
-            $rows5['final_rating'] = " ";
-            $rows5['remarks'] = " ";
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
            }
 
         $html.='
@@ -9948,8 +9955,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase4_ep_tle);
                     while(mysqli_fetch_array($run_phase4_ep_tle));
 
-                    if($rows['grade'] == 0 ){
-                        $rows['grade'] = " ";
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
                         }
 
                     $html.='
@@ -14778,14 +14785,14 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         while(mysqli_fetch_array($run_phase6_science));
 
                         if($rows['grade'] == 0 ){
-                            $rows['grade'] = " ";
+                            $rows['grade'] = "";
                             }
             
     
                             $html.='
                             <tr>
                             <td>Science</td>
-                            <td> '.$rows['grade'].'</td>
+                            <td>'.$rows['grade'].'</td>
                         ';
                         
                         }
@@ -21781,7 +21788,7 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
 
 
 //certifications
-$cert_query = " SELECT * FROM `cetifications` WHERE lrn ='$lrn' ";
+$cert_query = " SELECT * FROM `certifications` WHERE lrn ='$lrn' AND phase = '$phase1' ";
 $run_cert_query = mysqli_query($conn,$cert_query);
 if(mysqli_num_rows($run_cert_query)> 0 ){
     $rows = mysqli_fetch_array($run_cert_query);
@@ -21801,7 +21808,6 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 <label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
 <label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
 </div>
-
 <div class="second-row">
 
 <label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
@@ -21814,7 +21820,7 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 <div class="third-row">
 <div class="bottom-col">
 <label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
-<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['name_of_principal'].'</span></label>
 </div>
 <div class="bottom-names">
 <label class="date">Date</label>
@@ -21826,91 +21832,107 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 
 
 </div>
+';}
+
+//phase 2 certification
 
 
-<div class="transfer-out">
-<h6>For Transfer Out/ Elementary School Completer Only</h6>
-</div> 
-<div class="bottom-container-1">
-<div class="certification-top">
-<h4 class="cert">Certification</h4>
-</div>
-
-<div class="Certify">
-<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].'</span>  </label> 
-<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
-<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
-</div>
-
-<div class="second-row">
-
-<label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
-<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
-<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
-<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
-</div>
-
-
-<div class="third-row">
-<div class="bottom-col">
-<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
-<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
-</div>
-<div class="bottom-names">
-<label class="date">Date</label>
-<label class="name-of-principal">Name of Principal/ School Head Over Printed Name</label>
-<label class="affix">(Affix School Seal Here)</label>
-</div>
-
-</div>
-
-
-</div>
-
-
-
-<div class="transfer-out">
-<h6>For Transfer Out/ Elementary School Completer Only</h6>
-</div> 
-<div class="bottom-container-2">
-<div class="certification-top">
-<h4 class="cert">Certification</h4>
-</div>
-
-<div class="Certify">
-<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].'</span>  </label> 
-<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
-<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
-</div>
-
-<div class="second-row">
-
-<label class="school-name" for="">School Name:<span class="school-name-underline"> '.$rows['name_of_school'].'</span> </label> 
-<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
-<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
-<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
-</div>
-
-
-<div class="third-row">
-<div class="bottom-col">
-<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
-<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
-</div>
-<div class="bottom-names">
-<label class="date">Date</label>
-<label class="name-of-principal">Name of Principal/ School Head Over Printed Name</label>
-<label class="affix">(Affix School Seal Here)</label>
-</div>
-
-</div>
-
-
-</div>
-  ';
+$cert_query = " SELECT * FROM `certifications` WHERE lrn ='$lrn' AND phase = '$phase2' ";
+$run_cert_query = mysqli_query($conn,$cert_query);
+if(mysqli_num_rows($run_cert_query)> 0 ){
+    $rows = mysqli_fetch_array($run_cert_query);
+    while(mysqli_fetch_array($run_cert_query));
         
-}
 
+  $html .='
+  <div class="transfer-out">
+<h6>For Transfer Out/ Elementary School Completer Only</h6>
+</div> 
+<div class="bottom-container">
+<div class="certification-top">
+<h4 class="cert">Certification</h4>
+</div>
+<div class="Certify">
+<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].' </span> </label> 
+<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
+<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
+</div>
+<div class="second-row">
+
+<label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
+<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
+<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
+<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
+</div>
+
+
+<div class="third-row">
+<div class="bottom-col">
+<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['name_of_principal'].'</span></label>
+</div>
+<div class="bottom-names">
+<label class="date">Date</label>
+<label class="name-of-principal">Name of Principal/ School Head Over Printed Name</label>
+<label class="affix">(Affix School Seal Here)</label>
+</div>
+
+</div>
+
+
+</div>
+';}
+
+
+
+//phase 3 certification
+
+
+$cert_query = " SELECT * FROM `certifications` WHERE lrn ='$lrn' AND phase = '$phase3' ";
+$run_cert_query = mysqli_query($conn,$cert_query);
+if(mysqli_num_rows($run_cert_query)> 0 ){
+    $rows = mysqli_fetch_array($run_cert_query);
+    while(mysqli_fetch_array($run_cert_query));
+        
+
+  $html .='
+  <div class="transfer-out">
+<h6>For Transfer Out/ Elementary School Completer Only</h6>
+</div> 
+<div class="bottom-container">
+<div class="certification-top">
+<h4 class="cert">Certification</h4>
+</div>
+<div class="Certify">
+<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].' </span> </label> 
+<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
+<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
+</div>
+<div class="second-row">
+
+<label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
+<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
+<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
+<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
+</div>
+
+
+<div class="third-row">
+<div class="bottom-col">
+<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['name_of_principal'].'</span></label>
+</div>
+<div class="bottom-names">
+<label class="date">Date</label>
+<label class="name-of-principal">Name of Principal/ School Head Over Printed Name</label>
+<label class="affix">(Affix School Seal Here)</label>
+</div>
+
+</div>
+
+
+</div>
+';}
 
 
 // end of remedial
