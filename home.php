@@ -37,11 +37,10 @@ include 'includes/header.php';
             $count = 0;
             foreach($run as $row){
               $lrn = $row['lrn'];
-              $parse_lrn = intval($lrn);
-              $int_lrn = (($parse_lrn * 123456789 * 5977)/ 859475);
-              $edit_link = "new-edit-students.php?sid=". urlencode(base64_encode($int_lrn));
-              $view_link = "view-student-profile.php?sid=" . urlencode(base64_encode($int_lrn));
-              $delete_link = "delete-student.php?sid=" . urlencode(base64_encode($int_lrn));
+              $encrypted_data = (($lrn*12345678911*56789)/987654);
+              $edit_link = "edit-student.php?sid=" . urlencode(base64_encode($encrypted_data));
+              $view_link = "student-profile.php?sid=" . urlencode(base64_encode($encrypted_data));
+              $delete_link = "delete-student.php?sid=" . urlencode(base64_encode($encrypted_data));
                 $count++;
                 ?>
 
