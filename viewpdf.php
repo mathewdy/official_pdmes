@@ -3430,6 +3430,13 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
                 $rows['recomputed_final_grade'] = " ";
                }
 
+               if($rows['date_from'] == "1970-01-01" || $rows['date_from'] == "0000-00-00"){
+                $rows['date_from'] = "";
+            }
+
+            if($rows['date_to'] == "1970-01-01" || $rows['date_to'] == "0000-00-00"){
+             $rows['date_to'] = "";
+            }
 
 
             $html.='
@@ -6160,6 +6167,16 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
                if($rows['recomputed_final_grade'] == 0 ){
                 $rows['recomputed_final_grade'] = " ";
                }
+
+
+               if($rows['date_from'] == "1970-01-01" || $rows['date_from'] == "0000-00-00"){
+                $rows['date_from'] = "";
+            }
+
+            if($rows['date_to'] == "1970-01-01" || $rows['date_to'] == "0000-00-00"){
+             $rows['date_to'] = "";
+            }
+
             $html.='
             <table>
             <thead>
@@ -8991,6 +9008,15 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
                 $rows['recomputed_final_grade'] = " ";
                }
 
+
+               if($rows['date_from'] == "1970-01-01" || $rows['date_from'] == "0000-00-00"){
+                $rows['date_from'] = "";
+            }
+
+            if($rows['date_to'] == "1970-01-01" || $rows['date_to'] == "0000-00-00"){
+             $rows['date_to'] = "";
+            }
+
             $html.='
             <table class="d">
             <thead>
@@ -11706,6 +11732,15 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
                if($rows['recomputed_final_grade'] == 0 ){
                 $rows['recomputed_final_grade'] = " ";
                }
+
+               if($rows['date_from'] == "1970-01-01" || $rows['date_from'] == "0000-00-00"){
+                $rows['date_from'] = "";
+            }
+
+            if($rows['date_to'] == "1970-01-01" || $rows['date_to'] == "0000-00-00"){
+             $rows['date_to'] = "";
+            }
+
             $html.='
             <table class="remedial-2">
             <thead>
@@ -14222,6 +14257,15 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
                if($rows['recomputed_final_grade'] == 0 ){
                 $rows['recomputed_final_grade'] = " ";
                }
+
+               if($rows['date_from'] == "1970-01-01" || $rows['date_from'] == "0000-00-00"){
+                $rows['date_from'] = "";
+            }
+
+            if($rows['date_to'] == "1970-01-01" || $rows['date_to'] == "0000-00-00"){
+             $rows['date_to'] = "";
+            }
+
             $html.='
             <table class="remedial-2">
             <thead>
@@ -16785,6 +16829,14 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
                if($rows['recomputed_final_grade'] == 0 ){
                 $rows['recomputed_final_grade'] = " ";
                }
+
+               if($rows['date_from'] == "1970-01-01" || $rows['date_from'] == "0000-00-00"){
+                $rows['date_from'] = "";
+            }
+
+            if($rows['date_to'] == "1970-01-01" || $rows['date_to'] == "0000-00-00"){
+             $rows['date_to'] = "";
+            }
             $html.='
             <table class="remedial-2">
             <thead>
@@ -19398,6 +19450,14 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
                if($rows['recomputed_final_grade'] == 0 ){
                 $rows['recomputed_final_grade'] = " ";
                }
+
+               if($rows['date_from'] == "1970-01-01" || $rows['date_from'] == "0000-00-00"){
+                $rows['date_from'] = "";
+            }
+
+            if($rows['date_to'] == "1970-01-01" || $rows['date_to'] == "0000-00-00"){
+             $rows['date_to'] = "";
+            }
             $html.='
             <table class="remedial-2">
             <thead>
@@ -21943,6 +22003,16 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
                if($rows['recomputed_final_grade'] == 0 ){
                 $rows['recomputed_final_grade'] = " ";
                }
+
+               if($rows['date_from'] == "1970-01-01" || $rows['date_from'] == "0000-00-00"){
+                   $rows['date_from'] = "";
+               }
+
+               if($rows['date_to'] == "1970-01-01" || $rows['date_to'] == "0000-00-00"){
+                $rows['date_to'] = "";
+            }
+
+
             $html.='
             <table class="remedial-2">
             <thead>
@@ -22028,6 +22098,19 @@ $run_cert_query = mysqli_query($conn,$cert_query);
 if(mysqli_num_rows($run_cert_query)> 0 ){
     $rows = mysqli_fetch_array($run_cert_query);
     while(mysqli_fetch_array($run_cert_query));
+
+    if($rows['grade'] == 0   ){
+        $rows['grade'] = "";
+    }
+
+    if($rows['last_school_year_attended'] == "0000-00-00" || $rows['last_school_year_attended'] == "1971-00-00" ){
+        $rows['last_school_year_attended'] = "";
+    }
+   
+    if($rows['date'] == "0000-00-00"  ){
+        $rows['date'] = "";
+    }
+
         
 
   $html .='
@@ -22077,6 +22160,19 @@ $run_cert_query = mysqli_query($conn,$cert_query);
 if(mysqli_num_rows($run_cert_query)> 0 ){
     $rows = mysqli_fetch_array($run_cert_query);
     while(mysqli_fetch_array($run_cert_query));
+
+    if($rows['grade'] == 0   ){
+        $rows['grade'] = "";
+    }
+
+    if($rows['last_school_year_attended'] == "0000-00-00" || $rows['last_school_year_attended'] == "1971-00-00" ){
+        $rows['last_school_year_attended'] = "";
+    }
+   
+    if($rows['date'] == "0000-00-00"  ){
+        $rows['date'] = "";
+    }
+
         
 
   $html .='
@@ -22128,6 +22224,19 @@ $run_cert_query = mysqli_query($conn,$cert_query);
 if(mysqli_num_rows($run_cert_query)> 0 ){
     $rows = mysqli_fetch_array($run_cert_query);
     while(mysqli_fetch_array($run_cert_query));
+
+    if($rows['grade'] == 0   ){
+        $rows['grade'] = "";
+    }
+
+    if($rows['last_school_year_attended'] == "0000-00-00" || $rows['last_school_year_attended'] == "1971-00-00" ){
+        $rows['last_school_year_attended'] = "";
+    }
+   
+    if($rows['date'] == "0000-00-00"  ){
+        $rows['date'] = "";
+    }
+
         
 
   $html .='
