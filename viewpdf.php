@@ -36,7 +36,11 @@ $html='
 *{
     font-family:Arial, sans-serif;
 }
-table, thead, tr ,th, tbody ,td{
+ tr,thead,  tbody, td ,th {
+    border-collapse:collapse;
+    border:0.5px solid black;
+}
+table  {
     border:1px solid black;
     border-collapse:collapse;
     font-size:12px;
@@ -60,14 +64,105 @@ th{
     text-align:center;
 }
 
+
 td{
     text-align:center;
  }
+
+.mother{
+    text-align:left;
+    font-style:bold;
+}
+
+.filipino{
+    text-align:left;
+    font-style:bold;
+}
+
+.english{
+    text-align:left;
+    font-style:bold;
+}
+.math{
+    text-align:left;
+    font-style:bold;
+}
+
+.science{
+    text-align:left;
+    font-style:bold;
+}
+
+.Ap{
+    text-align:left;
+    font-style:bold;
+}
+
+.epp{
+    text-align:left;
+    font-style:bold;
+}
+
+.mapeh{
+    text-align:left;
+    font-style:bold;
+}
+
+.music{
+    text-align:left;
+    font-style:italic;
+    font-size:6pt;
+
+}
+
+.arts{
+    text-align:left;
+    font-style:italic;
+    font-size:6pt;
+}
+
+.pe{
+    text-align:left;
+    font-style:italic;
+    font-size:6pt;
+}
+
+.health{
+    text-align:left;
+    font-style:italic;
+    font-size:6pt;
+}
+
+.eduk{
+    text-align:left;
+    font-style:bold;
+
+}
+
+.arabic{
+    text-align:left;
+    font-style:italic;
+    font-size:6pt;
+}
+
+.islamic{
+    text-align:left;
+    font-style:italic;
+    font-size:6pt;
+}
+
+.general{
+    text-align:left;
+   font-style:bold;
+}
+
 
 
 .container-1 label{
     font-size:10pt;
 }
+
+
 
 input type = [checkbox]{
     height: 15px;
@@ -145,11 +240,11 @@ table {
 
 
 .container-phase-1{
-    margin-right:auto;
+    
     margin:5rem 0;
     position:absolute;
-    top:12.5cm;
-    right:14.53cm;
+    top:10.84cm;
+    right:14.58cm;
     
 }
 
@@ -160,21 +255,21 @@ table {
     margin-right:auto;
     margin:5rem 0;
     position:absolute;
-    top:12.5cm;
+    top:10.84cm;
     left:10cm;
 }
 
 .container-phase-3{
     position:absolute;
-    top:25.5cm;
-    right:14.53cm;
+    top:24.2cm;
+    right:14.58cm;
     font-size:10pt;
 }
 
 .container-phase-4{
     
     position:absolute;
-    top:25.5cm;
+    top:24.2cm;
     left:10cm;
     font-size:10pt;
 }
@@ -183,14 +278,14 @@ table {
    
    
     position:absolute;
-    top:3.6cm;
-    right:14.45cm;
+    top:2.6cm;
+    right:14.5cm;
     font-size:10pt;
 }
 
 .container-phase-6{
     position:absolute;
-    top:3.6cm;
+    top:2.6cm;
     left:10cm;
 }
 
@@ -199,7 +294,7 @@ table {
    
     position:absolute;
     top:14.1cm;
-    right:14.45cm;
+    right:14.5cm;
    
 }
 
@@ -218,7 +313,7 @@ table {
     width:376px;
     position:absolute;
     right:9.88cm;
-    top:12.5cm;
+    top:10.85cm;
     border:1px solid black;
     
 
@@ -235,7 +330,7 @@ table {
 .learners-information-2{
     width:376px;
     position:absolute;
-    top:23.39cm;
+    top:22.1cm;
     right:9.88cm;
     border:1px solid black;
     
@@ -479,7 +574,7 @@ table {
     width:376px;
     position:absolute;
     right:9.80cm;
-    top:1.5cm;
+    top:0.5cm;
     border:1px solid black;
     
 }
@@ -498,7 +593,7 @@ table {
     margin:0 2rem;
     position:absolute;
     left:9.16cm;
-    top:12.5cm;
+    top:10.85cm;
     border:1px solid
 }
 
@@ -508,7 +603,7 @@ table {
     width:376px;
     position:absolute;
     left:10cm;
-    top:23.39cm;
+    top:22.1cm;
     border:1px solid black;
     
 }
@@ -520,7 +615,7 @@ table {
 .left-container-2{
     width:376px;
     position:absolute;
-    top:1.5cm;
+    top:0.5cm;
     left:10cm;
     border:1px solid black;
     
@@ -578,6 +673,20 @@ table {page-break-before:auto;}
     text-align:center;
     background:grey;
 }
+
+.learners-personal{
+    text-align:center;
+    background:grey;
+
+    margin-top:-2rem;
+}
+
+.learners-1{
+    text-align:center;
+    background:grey;
+    margin-top:-1.5rem;
+}
+
 
 
 .first{
@@ -695,11 +804,6 @@ table {page-break-before:auto;}
     margin:0 0.5rem;
 }
 
-.district{
-    width:4rem;
-    margin:0 0.2rem;
-   
-}
 
 .section{
     width:2rem;
@@ -801,7 +905,7 @@ while(mysqli_fetch_array($run_learners_query));
     
     $html.='
         <body>
-       
+        <input type="checkbox" checked="" value="input type checkbox">
     <div class="top-1">
         <label class="block ">Republic of The Philippines</label><br>
         <label class="block">Department of education</label>
@@ -825,7 +929,7 @@ while(mysqli_fetch_array($run_learners_query));
 <br>
 
 
-   <h2 class="learners ">LEARNER`S PERSONAL INFORMATION </h2>
+   <h4 class="learners-personal ">LEARNER`S PERSONAL INFORMATION </h4>
    <div class="container-1">
    <div class="first row">
    <label for="">LASTNAME: '.$rows['last_name'].' </label> 
@@ -843,7 +947,7 @@ while(mysqli_fetch_array($run_learners_query));
    </div>
    
 
-   <h2 class="learners "> ELIGIBITY FOR ELEMENTARY SCHOOL ENROLLMENT </h2>
+   <h4 class="learners "> ELIGIBITY FOR ELEMENTARY SCHOOL ENROLLMENT </h4>
    <div class="credential">
    
    <label for="">Credential Presented for grade 1: </label>
@@ -884,7 +988,7 @@ while(mysqli_fetch_array($run_learners_query));
         while(mysqli_fetch_array($run_phase1_scholastic));
 
     
-        $html.='<h2 class="learners"> Scholastic Record </h2>
+        $html.='<h4 class="learners"> Scholastic Record </h4>
         <div class="learners-information1">
             <div class="school1">
             <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
@@ -935,6 +1039,7 @@ while(mysqli_fetch_array($run_learners_query));
         <th>4</th>
         </tr>
         </thead>    
+        <tbody>
      
     ';
     
@@ -956,8 +1061,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         while(mysqli_fetch_array($run_phase1_mt));
 
             $html.=' 
-           
-            <td>Mother&#8216s Tongue</td>
+         
+            <td class="mother" class="mother">Mother&#8216s Tongue</td>
             <td>'.$rows['grade'].'</td>
             
       ';
@@ -1044,7 +1149,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     $html.='
                     <td>'.$rows5['final_rating'].'</td>
                     <td> '.$rows5['remarks'].'</td>
-                
+                </tr>
                     ';
                 
                 }
@@ -1071,7 +1176,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
                             $html.='
                           <tr>
-                          <td>Filipino</td>
+                          <td class="filipino">Filipino</td>
                             <td>'.$rows['grade'].'</td>
                          
                             
@@ -1195,7 +1300,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>English</td>
+                <td class="english">English</td>
                 <td>'.$rows['grade'].'</td>
                  ';
             }
@@ -1309,7 +1414,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Math</td>
+                <td class="math">Mathematics</td>
                 <td>'.$rows['grade'].'</td>
                 
                 ';
@@ -1419,7 +1524,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
                             $html.='
                             <tr>
-                            <td>Science</td>
+                            <td class="science">Science</td>
                             <td>'.$rows['grade'].' </td>
                            
                             ';
@@ -1532,7 +1637,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
             $html.='
             <tr>
-            <td>Araling Panlipunan</td>
+            <td class="Ap">Araling Panlipunan</td>
             <td>'.$rows['grade'].' </td>
               ';
         
@@ -1645,7 +1750,7 @@ if($phase1_subject_id == 7 ){
 
         $html.='
         <tr>
-        <td>EPP/TLE</td>
+        <td class="epp">EPP/TLE</td>
         <td>'.$rows['grade'].' </td>
           ';
     
@@ -1757,7 +1862,7 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                        <td>MAPEH</td>
+                        <td class="mapeh">MAPEH</td>
                         <td>'.$rows['grade'].' </td>
                          ';
                     
@@ -1875,7 +1980,7 @@ if($phase1_subject_id == 7 ){
     
                         $html.='
                         <tr>
-                        <td>Music</td>
+                        <td class="music">Music</td>
                         <td>'.$rows['grade'].' </td>
                          ';
                     
@@ -1999,7 +2104,7 @@ if($phase1_subject_id == 7 ){
         
                                 $html.='
                                 <tr>
-                                <td>Arts</td>
+                                <td class="arts">Arts</td>
                                 <td>'.$rows['grade'].' </td>
                                ';
                             
@@ -2122,7 +2227,7 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                            <td>Physical Education</td>
+                            <td class="pe">Physical Education</td>
                             <td>'.$rows['grade'].' </td>
                             ';
                     
@@ -2245,7 +2350,7 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                        <td>Health</td>
+                        <td class="health">Health</td>
                         <td>'.$rows['grade'].' </td>
                          ';
                     
@@ -2369,7 +2474,7 @@ if($phase1_subject_id == 7 ){
 
                     $html.='
                     <tr>
-                    <td>Eduk. sa Pagpapakatao  </td>
+                    <td class="eduk">Eduk. sa Pagpapakatao  </td>
                     <td>'.$rows['grade'].' </td>
                      ';
                 
@@ -2491,7 +2596,7 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                        <td>*Arabic Language</td>
+                        <td class="arabic">*Arabic Language</td>
                         <td>'.$rows['grade'].' </td>
                         ';
                     
@@ -2615,7 +2720,7 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                        <td>*Islamic Values Education</td>
+                        <td class="islamic">*Islamic Values Education</td>
                         <td>'.$rows['grade'].' </td>
                          ';
                     
@@ -2738,7 +2843,7 @@ if($phase1_subject_id == 7 ){
                         $rows = mysqli_fetch_array($run_phase1_term1_general_average);
                         $html.='
                         <tr>
-                        <td>General Average</td>
+                        <td class="general">General Average</td>
                         <td>'.$rows['general_average'].'</td>
                        
                         ';
@@ -2978,18 +3083,18 @@ $html.='
 $html.='
     <div class="container-phase-2">
     <table>
-        <thead>
-        <tr>
-        <th rowspan="2">Learnering Areas</th>
-<th class="quarterly" colspan="4">Quarterly Rating</th>
-<th class="final-raiting" rowspan="2" >Final Rating</th>
-<th rowspan="2">Remarks</th>
-        </tr>
-        <tr class="quarter">
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
+    <thead>
+    <tr>
+    <th rowspan="2">Learnering Areas</th>
+    <th class="quarterly" colspan="4">Quarterly Rating</th>
+    <th class="final-raiting" rowspan="2" >Final Rating</th>
+    <th rowspan="2">Remarks</th>
+    </tr>
+    <tr class="quarter">
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
 </tr>
         </thead>
         <tbody>
@@ -3017,7 +3122,7 @@ while(mysqli_fetch_array($run_phase2_mt));
 
 $html.=' 
 <tr>
-<td>Mother&#8216s Tongue</td>
+<td class="mother">Mother&#8216s Tongue</td>
 <td>'.$rows['grade'].'</td>
 
 
@@ -3136,7 +3241,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Filipino</td>
+                <td class="filipino">Filipino</td>
                 <td>'.$rows['grade'].' </td>
                   ';
             
@@ -3276,7 +3381,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>English</td>
+                <td class="english">English</td>
                 <td>'.$rows['grade'].'</td>
                     ';
             
@@ -3408,7 +3513,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Mathematics</td>
+                    <td class="math">Mathematics</td>
                     <td> '.$rows['grade'].'</td>
                     ';
                 
@@ -3553,7 +3658,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
                             $html.='
                             <tr>
-                            <td>Science</td>
+                            <td class="science">Science</td>
                             <td>'.$rows['grade'].'</td>
                             ';
                         
@@ -3693,7 +3798,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td>Aralin Panlipunan</td>
+                        <td class="Ap">Araling Panlipunan</td>
                         <td>'.$rows['grade'].'</td>
                         ';
                     
@@ -3832,7 +3937,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>EPP/TLE</td>
+                    <td class="epp">EPP/TLE</td>
                     <td>'.$rows['grade'].'</td>
                   
                     ';
@@ -3973,7 +4078,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>MAPEH</td>
+                    <td class="mapeh">MAPEH</td>
                     <td> '.$rows['grade'].'</td>
                     
                     ';
@@ -4113,7 +4218,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td>Music</td>
+                        <td class="music">Music</td>
                         <td>'.$rows['grade'].'</td>
                         ';
                     
@@ -4249,7 +4354,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         
                             $html.='
                             <tr>
-                            <td>Arts</td>
+                            <td class="arts">Arts</td>
                             <td> '.$rows['grade'].'</td>
                              ';
                         
@@ -4388,7 +4493,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
             $html.='
             <tr>
-            <td>Physical Education </td>
+            <td class="pe">Physical Education </td>
             <td>'.$rows['grade'].'</td>
             ';
         
@@ -4524,7 +4629,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Health</td>
+                <td class="health">Health</td>
                 <td>'.$rows['grade'].'</td>
                 ';
             
@@ -4664,7 +4769,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
             $html.='
             <tr>
-            <td>Eduk. Sa Pagpapakatao</td>
+            <td class="eduk">Eduk. Sa Pagpapakatao</td>
             <td>'.$rows['grade'].'</td>
                 ';
         
@@ -4804,7 +4909,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Arabic Language</td>
+                    <td class="arabic">*Arabic Language</td>
                     <td> '.$rows['grade'].' </td>
                    
 
@@ -4946,7 +5051,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
             $html.='
             <tr>
-            <td>*Islamic Values Education</td>
+            <td class="islamic">*Islamic Values Education</td>
             <td>'.$rows['grade'].'</td>
             
               ';
@@ -5084,7 +5189,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase2_term1_general_average);
                     $html.='
                     <tr>
-                    <td>General Average</td>
+                    <td class="general">General Average</td>
                     <td>'.$rows['general_average'].' </td>
                    
                     
@@ -5394,7 +5499,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                         $html.=' 
                         <tr>
-                        <td>Mother&#8216s Tongue</td>
+                        <td class="mother">Mother&#8216s Tongue</td>
                         
                         <td>'.$rows['grade'].'</td>';
                     
@@ -5509,7 +5614,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Filipino</td>
+                <td class="filipino">Filipino</td>
                 <td>'.$rows['grade'].'</td>
                 ';
             
@@ -5654,7 +5759,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>English</td>
+                        <td class="english">English</td>
                         <td>'.$rows['grade'].'</td>
                           ';
                     
@@ -5803,7 +5908,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Mathematic</td>
+                        <td class="math">Mathematics</td>
                         <td>'.$rows['grade'].' </td>
                         ';
                     
@@ -5951,7 +6056,7 @@ if($phase3_subject_id == 5 ){
 
             $html.='
             <tr>
-            <td>Science</td>
+            <td class="science">Science</td>
             <td> '.$rows['grade'].'</td>
             ';
         
@@ -6103,7 +6208,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
             $html.='
             <tr>
-            <td>Araling Panlipunan</td>
+            <td class="Ap">Araling Panlipunan</td>
             <td> '.$rows['grade'].'</td>            
           ';
         
@@ -6253,7 +6358,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>EPP/TLE</td>
+                    <td class="epp">EPP/TLE</td>
                     <td>'.$rows['grade'].'</td>
                    ';
                 
@@ -6403,7 +6508,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>MAPEH</td>
+                    <td class="mapeh">MAPEH</td>
                     <td>'.$rows['grade'].'</td>
 
                     ';
@@ -6548,7 +6653,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td>Music</td>
+                        <td class="music">Music</td>
                         <td> '.$rows['grade'].'</td>
                         ';
                     
@@ -6694,7 +6799,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
         
                             $html.='
                             <tr>
-                            <td>Arts</td>
+                            <td class="arts">Arts</td>
                             <td> '.$rows['grade'].'</td>
                             ';
                         
@@ -6843,7 +6948,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Physical Education</td>
+                    <td class="pe">Physical Education</td>
                     <td>'.$rows['grade'].'</td>
                         ';
                 
@@ -6987,7 +7092,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Health</td>
+                    <td class="health">Health</td>
                     <td>'.$rows['grade'].'</td>
                  ';
                 
@@ -7125,7 +7230,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Eduk. Sa Pagpapakatao</td>
+                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
                     <td>'.$rows['grade'].'</td>
                 ';
                 
@@ -7268,7 +7373,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Arabic Language</td>
+                    <td class="arabic">*Arabic Language</td>
                     <td>'.$rows['grade'].' </td>
                 ';
                 
@@ -7409,7 +7514,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Islamic Values Education </td>
+                    <td class="islamic">*Islamic Values Education </td>
                     <td>'.$rows['grade'].'</td>
                     ';
                 
@@ -7549,7 +7654,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_term1_general_average);
                     $html.='
                     <tr>
-                    <td>General average</td>
+                    <td class="general">General average</td>
                     <td>'.$rows['general_average'].'</td>
 
                    ';
@@ -7861,7 +7966,7 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
 
         $html.=' 
         <tr>
-        <td>Mother&#8216s Tongue</td>
+        <td class="mother">Mother&#8216s Tongue</td>
         <td> '.$rows['grade'].'</td>
         
         ';
@@ -7992,7 +8097,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Filipino</td>
+                <td class="filipino">Filipino</td>
                 <td> '.$rows['grade'].'</td>
                     ';
             
@@ -8132,7 +8237,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>English</td>
+                <td class="english">English</td>
                 <td>'.$rows['grade'].'</td>
                 
               
@@ -8272,7 +8377,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Mathematics</td>
+                        <td class="math">Mathematics</td>
                         <td>'.$rows['grade'].'</td>
                        ';
                     
@@ -8420,7 +8525,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Science</td>
+                    <td class="science">Science</td>
                     <td>'.$rows['grade'].'</td>
                     ';
                 
@@ -8560,7 +8665,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Araling Panlipunan</td>
+                <td class="Ap">Araling Panlipunan</td>
                 <td>'.$rows['grade'].' </td>
                 ';
             
@@ -8697,7 +8802,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>EPP/TLE</td>
+                    <td class="epp">EPP/TLE</td>
                     <td> '.$rows['grade'].'</td>
                      
                 
@@ -8831,7 +8936,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>MAPEH</td>
+                    <td class="mapeh">MAPEH</td>
                     <td>'.$rows['grade'].'</td>
                    ';
                 
@@ -8970,7 +9075,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td>Music</td>
+                        <td class="music">Music</td>
                         <td> '.$rows['grade'].'</td>
                        ';
                     
@@ -9105,7 +9210,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Arts</td>
+                <td class="arts">Arts</td>
                 <td> '.$rows['grade'].'</td>
                   ';
             
@@ -9240,7 +9345,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
             $html.='
             <tr>
-            <td>Physical Education </td>
+            <td class="pe">Physical Education </td>
             <td>'.$rows['grade'].'</td>
              ';
         
@@ -9377,7 +9482,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
             $html.='
             <tr>
-            <td>Health</td>
+            <td class="health">Health</td>
             <td>'.$rows['grade'].'</td>
             ';
         
@@ -9507,7 +9612,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Eduk. Sa Pagpapakatao</td>
+                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
                     <td>'.$rows['grade'].'</td>
                     ';
                 
@@ -9641,7 +9746,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
             $html.='
             <tr>
-            <td>*Arabic language</td>
+            <td class="arabic">*Arabic language</td>
             <td>'.$rows['grade'].'</td>
            ';
         
@@ -9776,7 +9881,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Islamic values Education</td>
+                    <td class="islamic">*Islamic values Education</td>
                     <td>'.$rows['grade'].'</td>
                     ';
                 
@@ -9910,7 +10015,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase4_term1_general_average);
                     $html.='
                     <tr>
-                    <td>General Average</td>
+                    <td class="general">General Average</td>
                     <td>'.$rows['general_average'].'</td>
                     
                     
@@ -10138,7 +10243,7 @@ if(mysqli_num_rows($run_phase5_scholastic) > 0){
     while(mysqli_fetch_array($run_phase5_scholastic));
 
 
-    $html.='<h2 class="learners"> Scholastic Record </h2>
+    $html.='<h4 class="learners-1"> Scholastic Record </h4>
     <div class="learners-information-5">
     <div class="school1">
     <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
@@ -10212,7 +10317,7 @@ if(mysqli_num_rows($run_phase5_mt) > 0){
 
         $html.=' 
         <tr>
-        <td>Mother&#8216s Tongue</td>
+        <td class="mother">Mother&#8216s Tongue</td>
         <td> '.$rows['grade'].'</td>
         
         ';
@@ -10341,7 +10446,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Filipino</td>
+                        <td class="filipino">Filipino</td>
                         <td>'.$rows['grade'].'</td>
                         ';
                     
@@ -10463,7 +10568,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>English</td>
+                <td class="english">English</td>
                 <td>'.$rows['grade'].'</td>
                 
                 ';
@@ -10591,7 +10696,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Mathematics</td>
+                        <td class="math">Mathematics</td>
                         <td> '.$rows['grade'].'</td>
                         ';
                     
@@ -10714,7 +10819,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Science</td>
+                    <td class="science">Science</td>
                     <td>'.$rows['grade'].'</td>
                     ';
                 
@@ -10837,7 +10942,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td>Araling Panlipunan</td>
+                        <td class="Ap">Araling Panlipunan</td>
                         <td> '.$rows['grade'].'</td>
                         ';
                     
@@ -10953,7 +11058,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>EPP/TLE</td>
+                    <td class="epp">EPP/TLE</td>
                     <td> '.$rows['grade'].'</td>
                  ';
                 
@@ -11074,7 +11179,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>MAPEH</td>
+                    <td class="mapeh">MAPEH</td>
                     <td>'.$rows['grade'].'</td>
                      ';
                 
@@ -11200,7 +11305,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td>Music</td>
+                        <td class="music">Music</td>
                         <td> '.$rows['grade'].'</td>
                        ';
                     
@@ -11319,7 +11424,7 @@ if(mysqli_num_rows($run_phase5_arts) > 0){
 
     $html.='
     <tr>
-    <td>Arts</td>
+    <td class="arts">Arts</td>
     <td>'.$rows['grade'].'</td>
     ';
 
@@ -11440,7 +11545,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Physical Education</td>
+                    <td class="pe">Physical Education</td>
                     <td>'.$rows['grade'].' </td>
                     ';
                 
@@ -11555,7 +11660,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
             $html.='
             <tr>
-            <td>Health</td>
+            <td class="health">Health</td>
             <td>'.$rows['grade'].'</td>
                 ';
         
@@ -11675,7 +11780,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Eduk. Sa Pagpapakatao</td>
+                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
                     <td>'.$rows['grade'].'</td>
                 ';
                 
@@ -11792,7 +11897,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Arabic language</td>
+                    <td class="arabic">*Arabic language</td>
                     <td>'.$rows['grade'].'</td>
                    ';
                 
@@ -11911,7 +12016,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Islamic values Education</td>
+                    <td class="islamic">*Islamic values Education</td>
                     <td>'.$rows['grade'].'</td>
                   ';
                 
@@ -12032,7 +12137,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_term1_general_average);
                     $html.='
                     <tr>
-                    <td>General average</td>
+                    <td class="general">General average</td>
                     <td> '.$rows['general_average'].'</td>
                     ';
                 
@@ -12304,7 +12409,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
             $html.=' 
             <tr>
-            <td>Mother&#8216s Tongue</td>
+            <td class="mother">Mother&#8216s Tongue</td>
             <td> '.$rows['grade'].'</td>
             
             ';
@@ -12434,7 +12539,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Filipino</td>
+                        <td class="filipino">Filipino</td>
                         <td>'.$rows['grade'].' </td>
                       ';
                     
@@ -12564,7 +12669,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>English</td>
+                    <td class="english">English</td>
                     <td> '.$rows['grade'].'</td>
                  ';
                 
@@ -12694,7 +12799,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Mathematics</td>
+                        <td class="math">Mathematics</td>
                         <td> '.$rows['grade'].'</td>
                     ';
                     
@@ -12826,7 +12931,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
                             $html.='
                             <tr>
-                            <td>Science</td>
+                            <td class="science">Science</td>
                             <td> '.$rows['grade'].'</td>
                         ';
                         
@@ -12954,7 +13059,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                 $html.='
                 <tr>
-                <td> Araling Panlipunan </td>
+                <td class="Ap"> Araling Panlipunan </td>
                 <td>  '.$rows['grade'].' </td>
                   ';
             
@@ -13077,7 +13182,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>EPP / TLE</td>
+                    <td class="epp">EPP/TLE</td>
                     <td> '.$rows['grade'].'</td>
                   ';
                 
@@ -13196,7 +13301,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>MAPEH</td>
+                    <td class="mapeh">MAPEH</td>
                     <td> '.$rows['grade'].'</td>
                      ';
                 
@@ -13316,7 +13421,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Music</td>
+                <td class="music">Music</td>
                 <td> '.$rows['grade'].'</td>
                 ';
             
@@ -13441,7 +13546,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         
                             $html.='
                             <tr>
-                            <td>Arts</td>
+                            <td class="arts">Arts</td>
                             <td>'.$rows['grade'].' </td>
                             ';
                         
@@ -13567,7 +13672,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $html.='
                     <tr>
                     
-                    <td>Physical Education</td>
+                    <td class="pe">Physical Education</td>
                     <td>'.$rows['grade'].'</td>
                     ';
                 
@@ -13687,7 +13792,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
             $html.='
             <tr>
-            <td>Health</td>
+            <td class="health">Health</td>
             <td>'.$rows['grade'].'</td>
             ';
         
@@ -13813,7 +13918,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Eduk. Sa Pagpapakatao</td>
+                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
                     <td> '.$rows['grade'].'</td>
                    ';
                 
@@ -13936,7 +14041,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Arabic language</td>
+                    <td class="arabic">*Arabic language</td>
                     <td>'.$rows['grade'].'</td>
                     ';
                 
@@ -14062,7 +14167,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Islamic values Education</td>
+                    <td class="islamic">*Islamic values Education</td>
                     <td>'.$rows['grade'].' </td>
                     ';
                 
@@ -14181,7 +14286,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_term1_general_average);
                     $html.='
                     <tr>
-                    <td>General average</td>
+                    <td class="general">General average</td>
                     <td> '.$rows['general_average'].'</td>
                  ';
                 
@@ -14471,7 +14576,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                         $html.=' 
                         <tr>
-                        <td>Mother&#8216s Tongue</td>
+                        <td class="mother">Mother&#8216s Tongue</td>
                         <td> '.$rows['grade'].'</td>                        
                        ';
                     
@@ -14593,7 +14698,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Filipino</td>
+                        <td class="filipino">Filipino</td>
                         <td>'.$rows['grade'].'</td>
                       ';
                     
@@ -14725,7 +14830,7 @@ if($phase7_subject_id == 3 ){
 
             $html.='
             <tr>
-            <td>English</td>
+            <td class="english">English</td>
             <td>'.$rows['grade'].'</td>
             ';
         
@@ -14858,7 +14963,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Mathematics</td>
+                        <td class="math">Mathematics</td>
                         <td>'.$rows['grade'].'</td>
                       ';
                     
@@ -14991,7 +15096,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
     
                             $html.='
                             <tr>
-                            <td>Science</td>
+                            <td class="science">Science</td>
                             <td>'.$rows['grade'].'</td>
                               ';
                         
@@ -15126,7 +15231,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
             $html.='
             <tr>
-            <td>Araling Panlipunan</td>
+            <td class="Ap">Araling Panlipunan</td>
             <td>'.$rows['grade'].'</td>
             ';
         
@@ -15255,7 +15360,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>EPP / TLE</td>
+                    <td class="epp">EPP/TLE</td>
                     <td>'.$rows['grade'].'</td>
                       ';
                 
@@ -15384,7 +15489,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>MAPEH</td>
+                    <td class="mapeh">MAPEH</td>
                     <td>'.$rows['grade'].'</td>
                      ';
                 
@@ -15515,7 +15620,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td>Music</td>
+                        <td class="music">Music</td>
                         <td>'.$rows['grade'].'</td>
                      ';
                     
@@ -15644,7 +15749,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         
                             $html.='
                             <tr>
-                            <td>Arts</td>
+                            <td class="arts">Arts</td>
                             <td> '.$rows['grade'].' </td>
                             ';
                         
@@ -15775,7 +15880,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Physical Education</td>
+                    <td class="pe">Physical Education</td>
                     <td>'.$rows['grade'].'</td>
                      ';
                 
@@ -15903,7 +16008,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Health</td>
+                    <td class="health">Health</td>
                     <td>'.$rows['grade'].'</td>
                       ';
                 
@@ -16033,7 +16138,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Eduk. Sa Pagpapakatao</td>
+                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
                     <td>'.$rows['grade'].'</td>
                    ';
                 
@@ -16174,7 +16279,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Arabic language</td>
+                    <td class="arabic">*Arabic language</td>
                     <td> '.$rows['grade'].'</td>
                      ';
                 
@@ -16301,7 +16406,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Islamic values Education</td>
+                    <td class="islamic">*Islamic values Education</td>
                     <td> '.$rows['grade'].'</td>
                    ';
                 
@@ -16431,7 +16536,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_term1_general_average);
                     $html.='
                     <tr>
-                    <td>General average</td>
+                    <td class="general">General average</td>
                     <td>'.$rows['general_average'].'</td>
                      ';
                 
@@ -16729,7 +16834,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                         $html.=' 
                         <tr>
-                        <td>Mother&#8216s Tongue</td>
+                        <td class="mother">Mother&#8216s Tongue</td>
                         <td>'.$rows['grade'].'</td>
                         ';
                     
@@ -16852,7 +16957,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Filipino</td>
+                        <td class="filipino">Filipino</td>
                         <td> '.$rows['grade'].'</td>
                         ';
                     
@@ -16981,7 +17086,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>English</td>
+                <td class="english">English</td>
                 <td> '.$rows['grade'].'</td>
                ';
             
@@ -17108,7 +17213,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td>Mathematics</td>
+                        <td class="math">Mathematics</td>
                         <td>'.$rows['grade'].'</td>
                         ';
                     
@@ -17239,7 +17344,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
     
                             $html.='
                             <tr>
-                            <td>Science</td>
+                            <td class="science">Science</td>
                             <td>'.$rows['grade'].'</td>
                           ';
                         
@@ -17371,7 +17476,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td>Araling Panlipunan</td>
+                        <td class="Ap">Araling Panlipunan</td>
                         <td> '.$rows['grade'].'</td>
                      ';
                     
@@ -17495,7 +17600,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>EPP / TLE</td>
+                    <td class="epp">EPP/TLE</td>
                     <td>'.$rows['grade'].'</td>
                   ';
                 
@@ -17623,7 +17728,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>MAPEH</td>
+                    <td class="mapeh">MAPEH</td>
                     <td> '.$rows['grade'].'</td>
                      ';
                 
@@ -17749,7 +17854,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                 $html.='
                 <tr>
-                <td>Music</td>
+                <td class="music">Music</td>
                 <td>'.$rows['grade'].'</td>
                   ';
             
@@ -17869,7 +17974,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Arts</td>
+                    <td class="arts">Arts</td>
                     <td>'.$rows['grade'].'</td>
                    ';
                 
@@ -17998,7 +18103,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Physical Education</td>
+                    <td class="pe">Physical Education</td>
                     <td>'.$rows['grade'].'</td>
                    ';
                 
@@ -18122,7 +18227,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Health</td>
+                    <td class="health">Health</td>
                     <td> '.$rows['grade'].'</td>
                 ';
                 
@@ -18250,7 +18355,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>Eduk. Sa Pagpapakatao</td>
+                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
                     <td>'.$rows['grade'].'</td>
                    ';
                 
@@ -18375,7 +18480,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Arabic language</td>
+                    <td class="arabic">*Arabic language</td>
                     <td> '.$rows['grade'].'</td>
                     ';
                 
@@ -18504,7 +18609,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td>*Islamic values Education</td>
+                    <td class="islamic">*Islamic values Education</td>
                     <td>'.$rows['grade'].'</td>
                    ';
                 
@@ -18631,7 +18736,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_term1_general_average);
                     $html.='
                     <tr>
-                    <td>General average</td>
+                    <td class="general">General average</td>
                     <td>'.$rows['general_average'].'</td>
                    ';
                 
