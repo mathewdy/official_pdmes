@@ -957,14 +957,14 @@ if(isset($_GET['sid'])){
                         <td>
                             <?php
                             $rows = mysqli_fetch_array($run_total_remarks_phase1);
-                            if($rows['final_rating'] == 0){
-                            echo "";
+                            if($rows['total_remarks'] == 15){
+                              echo "";
                             }else if($rows['total_remarks'] >= 3){
-                            echo "RETAINED";
+                              echo "RETAINED";
                             }else if ($rows['total_remarks'] == 2){
-                            echo "REMEDIAL";
+                                echo "REMEDIAL";
                             }else if($rows['total_remarks'] <= 1){
-                            echo "PROMOTED";
+                                echo "PROMOTED";
                             }?>
                         </td>
                     </tr>
@@ -1789,7 +1789,7 @@ if(isset($_GET['sid'])){
           WHERE phase = '2' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase2 = mysqli_query($conn,$sql_total_remarks_phase2);
           $rows = mysqli_fetch_array($run_total_remarks_phase2);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
@@ -2620,14 +2620,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '3' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase3 = mysqli_query($conn,$sql_total_remarks_phase3);
           $rows = mysqli_fetch_array($run_total_remarks_phase3);
-            if($rows['final_rating'] == 0){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
-              echo "RETAINED";
-            }else if ($rows['total_remarks'] == 2){
-                echo "REMEDIAL";
-            }else if($rows['total_remarks'] <= 1){
-                echo "PROMOTED";
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
+            echo "RETAINED";
+          }else if ($rows['total_remarks'] == 2){
+              echo "REMEDIAL";
+          }else if($rows['total_remarks'] <= 1){
+              echo "PROMOTED";
             }?></td>
           </tr>
         </tbody>
@@ -3449,14 +3449,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '4' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase4 = mysqli_query($conn,$sql_total_remarks_phase4);
           $rows = mysqli_fetch_array($run_total_remarks_phase4);
-            if($rows['final_rating'] == 0){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
-              echo "RETAINED";
-            }else if ($rows['total_remarks'] == 2){
-                echo "REMEDIAL";
-            }else if($rows['total_remarks'] <= 1){
-                echo "PROMOTED";
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
+            echo "RETAINED";
+          }else if ($rows['total_remarks'] == 2){
+              echo "REMEDIAL";
+          }else if($rows['total_remarks'] <= 1){
+              echo "PROMOTED";
             }?></td>
           </tr>
         </tbody>
@@ -4281,14 +4281,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '5' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase5 = mysqli_query($conn,$sql_total_remarks_phase5);
           $rows = mysqli_fetch_array($run_total_remarks_phase5);
-            if($rows['final_rating'] == 0){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
-              echo "RETAINED";
-            }else if ($rows['total_remarks'] == 2){
-                echo "REMEDIAL";
-            }else if($rows['total_remarks'] <= 1){
-                echo "PROMOTED";
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
+            echo "RETAINED";
+          }else if ($rows['total_remarks'] == 2){
+              echo "REMEDIAL";
+          }else if($rows['total_remarks'] <= 1){
+              echo "PROMOTED";
             }?></td>
         </tbody>
       </table>
@@ -5109,14 +5109,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '6' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase6 = mysqli_query($conn,$sql_total_remarks_phase6);
           $rows = mysqli_fetch_array($run_total_remarks_phase6);
-            if($rows['final_rating'] == 0){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
-              echo "RETAINED";
-            }else if ($rows['total_remarks'] == 2){
-                echo "REMEDIAL";
-            }else if($rows['total_remarks'] <= 1){
-                echo "PROMOTED";
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
+            echo "RETAINED";
+          }else if ($rows['total_remarks'] == 2){
+              echo "REMEDIAL";
+          }else if($rows['total_remarks'] <= 1){
+              echo "PROMOTED";
             }?></td>
           </tr>
         </tbody>
@@ -5940,14 +5940,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '7' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase7 = mysqli_query($conn,$sql_total_remarks_phase7);
           $rows = mysqli_fetch_array($run_total_remarks_phase7);
-            if($rows['final_rating'] == 0){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
-              echo "RETAINED";
-            }else if ($rows['total_remarks'] == 2){
-                echo "REMEDIAL";
-            }else if($rows['total_remarks'] <= 1){
-                echo "PROMOTED";
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
+            echo "RETAINED";
+          }else if ($rows['total_remarks'] == 2){
+              echo "REMEDIAL";
+          }else if($rows['total_remarks'] <= 1){
+              echo "PROMOTED";
             }?></td>
           </tr>
         </tbody>
@@ -6769,14 +6769,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '8' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase8 = mysqli_query($conn,$sql_total_remarks_phase8);
           $rows = mysqli_fetch_array($run_total_remarks_phase8);
-            if($rows['final_rating'] == 0){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
-              echo "RETAINED";
-            }else if ($rows['total_remarks'] == 2){
-                echo "REMEDIAL";
-            }else if($rows['total_remarks'] <= 1){
-                echo "PROMOTED";
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
+            echo "RETAINED";
+          }else if ($rows['total_remarks'] == 2){
+              echo "REMEDIAL";
+          }else if($rows['total_remarks'] <= 1){
+              echo "PROMOTED";
             }?></td>
           </tr>
         </tbody>

@@ -69,12 +69,12 @@ if(isset($_GET['sid'])){
                 <input class="" type="email" name="email" placeholder="Recipient" required>
             </span>
             <hr class="featurette-divider p-0 m-0">
-            <input class="" type="date" readonly name="subject" placeholder="Subject" required>
+            <input class="" type="text" readonly name="subject" placeholder="Subject" required>
             <hr class="featurette-divider p-0 m-0">
             <span class="row pt-3 px-2">
                 <span class="d-flex align-items-center col-lg-6">
                     <label for="">LRN</label>
-                    <input type="date" readonly name="lrn" required>    
+                    <input type="text" readonly name="lrn" required>    
                 </span>
                 <div class="d-flex flex-row align-items-center col-lg-6">
                 <label class="w-25" for="">Grade Level</label>
@@ -145,29 +145,29 @@ if(isset($_GET['sid'])){
             $efese_others = explode(',', $rows['others']);
             ?>
                     <label for="">LAST NAME:</label>
-                    <input type="date" readonly readonly  id="text-only" name="last_name" 
+                    <input type="text" readonly readonly  id="text-only" name="last_name" 
                     value="<?php if(empty($rows['last_name'])){ echo "";}else{ echo $rows['last_name'];}?>" required>    
             </span>
             <span class="hstack d-flex align-items-center">
                 <label for="">FIRST NAME:</label>
-                <input type="date" readonly readonly  id="text-only" name="first_name"
+                <input type="text" readonly readonly  id="text-only" name="first_name"
                 value="<?php if(empty($rows['first_name'])){ echo "";}else{ echo $rows['first_name'];}?>" required>   
             </span>
             <span class="hstack d-flex align-items-center" >
                 <label for="">NAME EXTN. (Jr,I,II): </label>
-                <input type="date" readonly readonly  id="text-only" name="suffix_name" 
+                <input type="text" readonly readonly  id="text-only" name="suffix_name" 
                 value="<?php if(empty($rows['suffix'])){ echo "";}else{ echo $rows['suffix'];}?>">
             </span>
             <span class="hstack d-flex justify-content-end align-items-center">
                 <label for="">MIDDLE NAME: </label>
-                <input type="date" readonly readonly  id="text-only" name="middle_name" 
+                <input type="text" readonly readonly  id="text-only" name="middle_name" 
                 value="<?php if(empty($rows['middle_name'])){ echo "";}else{ echo $rows['middle_name'];}?>" required>                    
             </span>
         </section>
         <section class="line-2 d-flex justify-content-between">
             <span class="hstack d-flex align-items-end w-75">
                 <label for="">Learner Reference Number (LRN):</label>
-                <input type="date" readonly readonly  style="margin: 0 1em 0 0; width:30%;" name="lrn" 
+                <input type="text" readonly readonly  style="margin: 0 1em 0 0; width:30%;" name="lrn" 
                 value="<?php echo $decrypted_lrn;?>" required>
 
                 <label for="">Birthdate (mm/dd/yyyy):&nbsp;</label>
@@ -217,17 +217,17 @@ if(isset($_GET['sid'])){
             <section class="cred-info d-flex flex-row justify-content-between">
                 <span class="hstack d-flex align-items-center">
                     <label for="">Name of School:</label>
-                    <input type="date" readonly readonly  name="efese_name_of_school" 
+                    <input type="text" readonly readonly  name="efese_name_of_school" 
                     value="<?php if(empty($rows['name_of_school'])){ echo "";}else{ echo $rows['name_of_school'];}?>" required>
                 </span>
                 <span class="hstack d-flex align-items-center justify-content-start">
                     <label for="">School ID:</label>
-                    <input type="date" readonly readonly  name="efese_school_id" 
+                    <input type="text" readonly readonly  name="efese_school_id" 
                     value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" required>
                 </span>
                 <span class="hstack d-flex align-items-center">
                 <label for="">Address of School:</label>
-                <input type="date" readonly readonly  name="efese_address_of_school" 
+                <input type="text" readonly readonly  name="efese_address_of_school" 
                 value="<?php if(empty($rows['address_of_school'])){ echo "";}else{ echo $rows['address_of_school'];}?>" required>
                 </span>
               </section>
@@ -252,20 +252,20 @@ if(isset($_GET['sid'])){
                   <input type = "checkbox" disabled class="form-check-input" name="efese_others" value="1"
                   <?php echo (in_array("1", $efese_others)? 'checked':'') ?>>
                   <label for="">Others (Pls. Specify):</label>
-                  <input type="date" readonly readonly  style="width:20%;" 
+                  <input type="text" readonly readonly  style="width:20%;" 
                   value="<?php if(empty($rows['specify'])){ echo "";}else{ echo $rows['specify'];}?>" name="efese_specify" id="">
               </span>
             </span>
             <section class="last-cred d-flex flex-row justify-content-evenly px-5">
                 <span class="hstack w-75">
                     <label for="">Name and Address of Testing Center:</label>
-                    <input type="date" readonly readonly  class="w-50" name="efese_testing_center" 
+                    <input type="text" readonly readonly  class="w-50" name="efese_testing_center" 
                     
                     value="<?php if(empty($rows['name_and_address_testing_center'])){ echo "";}else{ echo $rows['name_and_address_testing_center'];}?>" id="">
                 </span>
                 <span class="w-50">
                     <label for="">Remark:</label>
-                    <input type="date" readonly readonly  class="w-75" name="efese_remarks" 
+                    <input type="text" readonly readonly  class="w-75" name="efese_remarks" 
                     value="<?php if(empty($rows['remarks'])){ echo "";}else{ echo $rows['remarks'];}?>" id="">
                 </span>
             </section>
@@ -284,29 +284,29 @@ if(isset($_GET['sid'])){
           ?>
         <span>
           <label>School:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase1_sr_school" 
+          <input type="text" readonly readonly  id="text-only" name="phase1_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
           <label>School ID:</label>
-          <input type="date" readonly readonly  name="phase1_sr_school_id" 
+          <input type="text" readonly readonly  name="phase1_sr_school_id" 
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
           <label>District:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase1_sr_district" 
+          <input type="text" readonly readonly  class="w-50" name="phase1_sr_district" 
           value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
           <label>Division:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase1_sr_division" 
+          <input type="text" readonly readonly  class="w-50" name="phase1_sr_division" 
           value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase1_sr_region" 
+          <input type="text" readonly readonly  class="w-50" name="phase1_sr_region" 
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -318,24 +318,24 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>Section:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase1_sr_section" 
+          <input type="text" readonly readonly  class="w-50" name="phase1_sr_section" 
           value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
           <label>School Year:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase1_sr_school_year" 
+          <input type="text" readonly readonly  class="w-50" name="phase1_sr_school_year" 
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="date" readonly readonly  id="text-only" name="phase1_sr_name_of_adviser" 
+        <input type="text" readonly readonly  id="text-only" name="phase1_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase1_sr_signature" 
+          <input type="text" readonly readonly  id="text-only" name="phase1_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -967,14 +967,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase1);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
+                echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
+                echo "PROMOTED";
             }?>
           </td>
           </tr>
@@ -998,13 +998,13 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
               <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase1_date_from" 
+                  <input type="text" readonly disabled class="datefrom" name="phase1_date_from" 
                   value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase1_date_to" 
+                  <input type="text" readonly disabled class="dateto" name="phase1_date_to" 
                   value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
@@ -1027,15 +1027,15 @@ if(isset($_GET['sid'])){
         ?>
         <tbody>
         <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase1_learning_areas1" 
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase1_learning_areas1" 
             value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase1_final_rating1" 
             value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase1_remedial_class_mark1" 
+            <td><input type="text" readonly readonly  name="phase1_remedial_class_mark1" 
             value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" readonly id="grade" name="phase1_recomputed_final_grade1" 
             value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase1_remedial_remarks1" 
+            <td><input type="text" readonly readonly  name="phase1_remedial_remarks1" 
             value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
           <?php
@@ -1045,15 +1045,15 @@ if(isset($_GET['sid'])){
           $remedial_classes_term2 = mysqli_fetch_array($query_phase1_remedial_classes_term2);
         ?>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase1_learning_areas2"
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase1_learning_areas2"
             value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase1_final_rating2"
             value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase1_remedial_class_mark2" 
+            <td><input type="text" readonly readonly  name="phase1_remedial_class_mark2" 
             value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase1_recomputed_final_grade2" 
             value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase1_remedial_remarks2" 
+            <td><input type="text" readonly readonly name="phase1_remedial_remarks2" 
             value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
@@ -1067,11 +1067,11 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase1_date_from">
+                  <input type="text" readonly disabled class="datefrom" name="phase1_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase1_date_to">
+                  <input type="text" readonly disabled class="dateto" name="phase1_date_to">
                 </span>
               </span>
             </th>
@@ -1086,18 +1086,18 @@ if(isset($_GET['sid'])){
         </thead>
         <tbody>
           <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase1_learning_areas1"></td>
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase1_learning_areas1"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase1_final_rating1"></td>
-            <td><input type="date" readonly readonly  name="phase1_remedial_class_mark1" id=""></td>
+            <td><input type="text" readonly readonly  name="phase1_remedial_class_mark1" id=""></td>
             <td><input type="number" readonly id="grade" name="phase1_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase1_remedial_remarks1" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase1_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase1_learning_areas2"></td>
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase1_learning_areas2"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase1_final_rating2"></td>
-            <td><input type="date" readonly readonly  name="phase1_remedial_class_mark2" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase1_remedial_class_mark2" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase1_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase1_remedial_remarks2" id=""></td>
+            <td><input type="text" readonly readonly name="phase1_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -1117,29 +1117,29 @@ if(isset($_GET['sid'])){
           ?>
         <span>
           <label>School:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase2_sr_school" 
+          <input type="text" readonly readonly  id="text-only" name="phase2_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
           <label>School ID:</label>
-          <input type="date" readonly readonly  name="phase2_sr_school_id" 
+          <input type="text" readonly readonly  name="phase2_sr_school_id" 
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
           <label>District:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase2_sr_district" 
+          <input type="text" readonly readonly  class="w-50" name="phase2_sr_district" 
           value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
           <label>Division:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase2_sr_division" 
+          <input type="text" readonly readonly  class="w-50" name="phase2_sr_division" 
           value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase2_sr_region" 
+          <input type="text" readonly readonly  class="w-50" name="phase2_sr_region" 
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -1151,24 +1151,24 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>Section:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase2_sr_section" 
+          <input type="text" readonly readonly  class="w-50" name="phase2_sr_section" 
           value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
           <label>School Year:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase2_sr_school_year" 
+          <input type="text" readonly readonly  class="w-50" name="phase2_sr_school_year" 
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="date" readonly readonly  id="text-only" name="phase2_sr_name_of_adviser" 
+        <input type="text" readonly readonly  id="text-only" name="phase2_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase2_sr_signature" 
+          <input type="text" readonly readonly  id="text-only" name="phase2_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -1803,14 +1803,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase2);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
+                echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
+                echo "PROMOTED";
             }?>
           </td>
           </tr>
@@ -1834,13 +1834,13 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
               <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase2_date_from" 
+                  <input type="text" readonly disabled class="datefrom" name="phase2_date_from" 
                   value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase2_date_to" 
+                  <input type="text" readonly disabled class="dateto" name="phase2_date_to" 
                   value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
@@ -1863,15 +1863,15 @@ if(isset($_GET['sid'])){
         ?>
         <tbody>
         <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase2_learning_areas1" 
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase2_learning_areas1" 
             value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase2_final_rating1" 
             value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase2_remedial_class_mark1" 
+            <td><input type="text" readonly readonly  name="phase2_remedial_class_mark1" 
             value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" readonly id="grade" name="phase2_recomputed_final_grade1" 
             value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase2_remedial_remarks1" 
+            <td><input type="text" readonly readonly  name="phase2_remedial_remarks1" 
             value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
           <?php
@@ -1881,15 +1881,15 @@ if(isset($_GET['sid'])){
           $remedial_classes_term2 = mysqli_fetch_array($query_phase2_remedial_classes_term2);
         ?>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase2_learning_areas2"
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase2_learning_areas2"
             value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase2_final_rating2"
             value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase2_remedial_class_mark2" 
+            <td><input type="text" readonly readonly  name="phase2_remedial_class_mark2" 
             value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase2_recomputed_final_grade2" 
             value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase2_remedial_remarks2" 
+            <td><input type="text" readonly readonly name="phase2_remedial_remarks2" 
             value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
@@ -1903,11 +1903,11 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase2_date_from">
+                  <input type="text" readonly disabled class="datefrom" name="phase2_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase2_date_to">
+                  <input type="text" readonly disabled class="dateto" name="phase2_date_to">
                 </span>
               </span>
             </th>
@@ -1922,18 +1922,18 @@ if(isset($_GET['sid'])){
         </thead>
         <tbody>
           <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase2_learning_areas1"></td>
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase2_learning_areas1"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase2_final_rating1"></td>
-            <td><input type="date" readonly readonly  name="phase2_remedial_class_mark1" id=""></td>
+            <td><input type="text" readonly readonly  name="phase2_remedial_class_mark1" id=""></td>
             <td><input type="number" readonly id="grade" name="phase2_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase2_remedial_remarks1" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase2_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase2_learning_areas2"></td>
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase2_learning_areas2"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase2_final_rating2"></td>
-            <td><input type="date" readonly readonly  name="phase2_remedial_class_mark2" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase2_remedial_class_mark2" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase2_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase2_remedial_remarks2" id=""></td>
+            <td><input type="text" readonly readonly name="phase2_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -1953,29 +1953,29 @@ if(isset($_GET['sid'])){
           ?>
         <span>
           <label>School:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase3_sr_school" 
+          <input type="text" readonly readonly  id="text-only" name="phase3_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
           <label>School ID:</label>
-          <input type="date" readonly readonly  name="phase3_sr_school_id" 
+          <input type="text" readonly readonly  name="phase3_sr_school_id" 
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
           <label>District:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase3_sr_district" 
+          <input type="text" readonly readonly  class="w-50" name="phase3_sr_district" 
           value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
           <label>Division:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase3_sr_division" 
+          <input type="text" readonly readonly  class="w-50" name="phase3_sr_division" 
           value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase3_sr_region" 
+          <input type="text" readonly readonly  class="w-50" name="phase3_sr_region" 
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -1987,24 +1987,24 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>Section:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase3_sr_section" 
+          <input type="text" readonly readonly  class="w-50" name="phase3_sr_section" 
           value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
           <label>School Year:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase3_sr_school_year" 
+          <input type="text" readonly readonly  class="w-50" name="phase3_sr_school_year" 
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="date" readonly readonly  id="text-only" name="phase3_sr_name_of_adviser" 
+        <input type="text" readonly readonly  id="text-only" name="phase3_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase3_sr_signature" 
+          <input type="text" readonly readonly  id="text-only" name="phase3_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -2639,14 +2639,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase3);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
+                echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
+                echo "PROMOTED";
             }?>
           </td>
           </tr>
@@ -2670,13 +2670,13 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
               <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase3_date_from" 
+                  <input type="text" readonly disabled class="datefrom" name="phase3_date_from" 
                   value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase3_date_to" 
+                  <input type="text" readonly disabled class="dateto" name="phase3_date_to" 
                   value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
@@ -2699,15 +2699,15 @@ if(isset($_GET['sid'])){
         ?>
         <tbody>
         <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase3_learning_areas1" 
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase3_learning_areas1" 
             value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase3_final_rating1" 
             value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase3_remedial_class_mark1" 
+            <td><input type="text" readonly readonly  name="phase3_remedial_class_mark1" 
             value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" readonly id="grade" name="phase3_recomputed_final_grade1" 
             value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase3_remedial_remarks1" 
+            <td><input type="text" readonly readonly  name="phase3_remedial_remarks1" 
             value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
           <?php
@@ -2717,15 +2717,15 @@ if(isset($_GET['sid'])){
           $remedial_classes_term2 = mysqli_fetch_array($query_phase3_remedial_classes_term2);
         ?>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase3_learning_areas2"
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase3_learning_areas2"
             value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase3_final_rating2"
             value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase3_remedial_class_mark2" 
+            <td><input type="text" readonly readonly  name="phase3_remedial_class_mark2" 
             value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase3_recomputed_final_grade2" 
             value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase3_remedial_remarks2" 
+            <td><input type="text" readonly readonly name="phase3_remedial_remarks2" 
             value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
@@ -2739,11 +2739,11 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase3_date_from">
+                  <input type="text" readonly disabled class="datefrom" name="phase3_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase3_date_to">
+                  <input type="text" readonly disabled class="dateto" name="phase3_date_to">
                 </span>
               </span>
             </th>
@@ -2758,18 +2758,18 @@ if(isset($_GET['sid'])){
         </thead>
         <tbody>
           <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase3_learning_areas1"></td>
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase3_learning_areas1"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase3_final_rating1"></td>
-            <td><input type="date" readonly readonly  name="phase3_remedial_class_mark1" id=""></td>
+            <td><input type="text" readonly readonly  name="phase3_remedial_class_mark1" id=""></td>
             <td><input type="number" readonly id="grade" name="phase3_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase3_remedial_remarks1" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase3_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase3_learning_areas2"></td>
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase3_learning_areas2"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase3_final_rating2"></td>
-            <td><input type="date" readonly readonly  name="phase3_remedial_class_mark2" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase3_remedial_class_mark2" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase3_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase3_remedial_remarks2" id=""></td>
+            <td><input type="text" readonly readonly name="phase3_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -2787,29 +2787,29 @@ if(isset($_GET['sid'])){
           ?>
         <span>
           <label>School:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase4_sr_school" 
+          <input type="text" readonly readonly  id="text-only" name="phase4_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
           <label>School ID:</label>
-          <input type="date" readonly readonly  name="phase4_sr_school_id" 
+          <input type="text" readonly readonly  name="phase4_sr_school_id" 
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
           <label>District:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase4_sr_district" 
+          <input type="text" readonly readonly  class="w-50" name="phase4_sr_district" 
           value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
           <label>Division:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase4_sr_division" 
+          <input type="text" readonly readonly  class="w-50" name="phase4_sr_division" 
           value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase4_sr_region" 
+          <input type="text" readonly readonly  class="w-50" name="phase4_sr_region" 
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -2821,24 +2821,24 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>Section:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase4_sr_section" 
+          <input type="text" readonly readonly  class="w-50" name="phase4_sr_section" 
           value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
           <label>School Year:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase4_sr_school_year" 
+          <input type="text" readonly readonly  class="w-50" name="phase4_sr_school_year" 
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="date" readonly readonly  id="text-only" name="phase4_sr_name_of_adviser" 
+        <input type="text" readonly readonly  id="text-only" name="phase4_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase4_sr_signature" 
+          <input type="text" readonly readonly  id="text-only" name="phase4_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -3473,14 +3473,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase4);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
+                echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
+                echo "PROMOTED";
             }?>
           </td>
           </tr>
@@ -3504,13 +3504,13 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
               <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase4_date_from" 
+                  <input type="text" readonly disabled class="datefrom" name="phase4_date_from" 
                   value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase4_date_to" 
+                  <input type="text" readonly disabled class="dateto" name="phase4_date_to" 
                   value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
@@ -3533,15 +3533,15 @@ if(isset($_GET['sid'])){
         ?>
         <tbody>
         <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase4_learning_areas1" 
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase4_learning_areas1" 
             value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase4_final_rating1" 
             value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase4_remedial_class_mark1" 
+            <td><input type="text" readonly readonly  name="phase4_remedial_class_mark1" 
             value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" readonly id="grade" name="phase4_recomputed_final_grade1" 
             value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase4_remedial_remarks1" 
+            <td><input type="text" readonly readonly  name="phase4_remedial_remarks1" 
             value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
           <?php
@@ -3551,15 +3551,15 @@ if(isset($_GET['sid'])){
           $remedial_classes_term2 = mysqli_fetch_array($query_phase4_remedial_classes_term2);
         ?>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase4_learning_areas2"
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase4_learning_areas2"
             value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase4_final_rating2"
             value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase4_remedial_class_mark2" 
+            <td><input type="text" readonly readonly  name="phase4_remedial_class_mark2" 
             value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase4_recomputed_final_grade2" 
             value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase4_remedial_remarks2" 
+            <td><input type="text" readonly readonly name="phase4_remedial_remarks2" 
             value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
@@ -3573,11 +3573,11 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase4_date_from">
+                  <input type="text" readonly disabled class="datefrom" name="phase4_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase4_date_to">
+                  <input type="text" readonly disabled class="dateto" name="phase4_date_to">
                 </span>
               </span>
             </th>
@@ -3592,18 +3592,18 @@ if(isset($_GET['sid'])){
         </thead>
         <tbody>
           <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase4_learning_areas1"></td>
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase4_learning_areas1"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase4_final_rating1"></td>
-            <td><input type="date" readonly readonly  name="phase4_remedial_class_mark1" id=""></td>
+            <td><input type="text" readonly readonly  name="phase4_remedial_class_mark1" id=""></td>
             <td><input type="number" readonly id="grade" name="phase4_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase4_remedial_remarks1" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase4_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase4_learning_areas2"></td>
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase4_learning_areas2"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase4_final_rating2"></td>
-            <td><input type="date" readonly readonly  name="phase4_remedial_class_mark2" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase4_remedial_class_mark2" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase4_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase4_remedial_remarks2" id=""></td>
+            <td><input type="text" readonly readonly name="phase4_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -3626,29 +3626,29 @@ if(isset($_GET['sid'])){
           ?>
         <span>
           <label>School:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase5_sr_school" 
+          <input type="text" readonly readonly  id="text-only" name="phase5_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
           <label>School ID:</label>
-          <input type="date" readonly readonly  name="phase5_sr_school_id" 
+          <input type="text" readonly readonly  name="phase5_sr_school_id" 
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
           <label>District:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase5_sr_district" 
+          <input type="text" readonly readonly  class="w-50" name="phase5_sr_district" 
           value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
           <label>Division:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase5_sr_division" 
+          <input type="text" readonly readonly  class="w-50" name="phase5_sr_division" 
           value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase5_sr_region" 
+          <input type="text" readonly readonly  class="w-50" name="phase5_sr_region" 
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -3660,24 +3660,24 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>Section:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase5_sr_section" 
+          <input type="text" readonly readonly  class="w-50" name="phase5_sr_section" 
           value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
           <label>School Year:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase5_sr_school_year" 
+          <input type="text" readonly readonly  class="w-50" name="phase5_sr_school_year" 
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="date" readonly readonly  id="text-only" name="phase5_sr_name_of_adviser" 
+        <input type="text" readonly readonly  id="text-only" name="phase5_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase5_sr_signature" 
+          <input type="text" readonly readonly  id="text-only" name="phase5_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -4309,14 +4309,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase5);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
+                echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
+                echo "PROMOTED";
             }?>
           </td>
           </tr>
@@ -4340,13 +4340,13 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
               <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase5_date_from" 
+                  <input type="text" readonly disabled class="datefrom" name="phase5_date_from" 
                   value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase5_date_to" 
+                  <input type="text" readonly disabled class="dateto" name="phase5_date_to" 
                   value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
@@ -4369,15 +4369,15 @@ if(isset($_GET['sid'])){
         ?>
         <tbody>
         <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase5_learning_areas1" 
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase5_learning_areas1" 
             value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase5_final_rating1" 
             value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase5_remedial_class_mark1" 
+            <td><input type="text" readonly readonly  name="phase5_remedial_class_mark1" 
             value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" readonly id="grade" name="phase5_recomputed_final_grade1" 
             value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase5_remedial_remarks1" 
+            <td><input type="text" readonly readonly  name="phase5_remedial_remarks1" 
             value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
           <?php
@@ -4387,15 +4387,15 @@ if(isset($_GET['sid'])){
           $remedial_classes_term2 = mysqli_fetch_array($query_phase5_remedial_classes_term2);
         ?>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase5_learning_areas2"
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase5_learning_areas2"
             value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase5_final_rating2"
             value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase5_remedial_class_mark2" 
+            <td><input type="text" readonly readonly  name="phase5_remedial_class_mark2" 
             value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase5_recomputed_final_grade2" 
             value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase5_remedial_remarks2" 
+            <td><input type="text" readonly readonly name="phase5_remedial_remarks2" 
             value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
@@ -4409,11 +4409,11 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase5_date_from">
+                  <input type="text" readonly disabled class="datefrom" name="phase5_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase5_date_to">
+                  <input type="text" readonly disabled class="dateto" name="phase5_date_to">
                 </span>
               </span>
             </th>
@@ -4428,18 +4428,18 @@ if(isset($_GET['sid'])){
         </thead>
         <tbody>
           <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase5_learning_areas1"></td>
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase5_learning_areas1"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase5_final_rating1"></td>
-            <td><input type="date" readonly readonly  name="phase5_remedial_class_mark1" id=""></td>
+            <td><input type="text" readonly readonly  name="phase5_remedial_class_mark1" id=""></td>
             <td><input type="number" readonly id="grade" name="phase5_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase5_remedial_remarks1" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase5_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase5_learning_areas2"></td>
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase5_learning_areas2"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase5_final_rating2"></td>
-            <td><input type="date" readonly readonly  name="phase5_remedial_class_mark2" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase5_remedial_class_mark2" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase5_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase5_remedial_remarks2" id=""></td>
+            <td><input type="text" readonly readonly name="phase5_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -4457,29 +4457,29 @@ if(isset($_GET['sid'])){
           ?>
         <span>
           <label>School:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase6_sr_school" 
+          <input type="text" readonly readonly  id="text-only" name="phase6_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
           <label>School ID:</label>
-          <input type="date" readonly readonly  name="phase6_sr_school_id" 
+          <input type="text" readonly readonly  name="phase6_sr_school_id" 
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
           <label>District:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase6_sr_district" 
+          <input type="text" readonly readonly  class="w-50" name="phase6_sr_district" 
           value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
           <label>Division:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase6_sr_division" 
+          <input type="text" readonly readonly  class="w-50" name="phase6_sr_division" 
           value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase6_sr_region" 
+          <input type="text" readonly readonly  class="w-50" name="phase6_sr_region" 
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -4491,24 +4491,24 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>Section:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase6_sr_section" 
+          <input type="text" readonly readonly  class="w-50" name="phase6_sr_section" 
           value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
           <label>School Year:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase6_sr_school_year" 
+          <input type="text" readonly readonly  class="w-50" name="phase6_sr_school_year" 
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="date" readonly readonly  id="text-only" name="phase6_sr_name_of_adviser" 
+        <input type="text" readonly readonly  id="text-only" name="phase6_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase6_sr_signature" 
+          <input type="text" readonly readonly  id="text-only" name="phase6_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -5143,14 +5143,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase6);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
+                echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
+                echo "PROMOTED";
             }?>
           </td>
           </tr>
@@ -5174,13 +5174,13 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
               <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase6_date_from" 
+                  <input type="text" readonly disabled class="datefrom" name="phase6_date_from" 
                   value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase6_date_to" 
+                  <input type="text" readonly disabled class="dateto" name="phase6_date_to" 
                   value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
@@ -5203,15 +5203,15 @@ if(isset($_GET['sid'])){
         ?>
         <tbody>
         <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase6_learning_areas1" 
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase6_learning_areas1" 
             value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase6_final_rating1" 
             value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase6_remedial_class_mark1" 
+            <td><input type="text" readonly readonly  name="phase6_remedial_class_mark1" 
             value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" readonly id="grade" name="phase6_recomputed_final_grade1" 
             value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase6_remedial_remarks1" 
+            <td><input type="text" readonly readonly  name="phase6_remedial_remarks1" 
             value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
           <?php
@@ -5221,15 +5221,15 @@ if(isset($_GET['sid'])){
           $remedial_classes_term2 = mysqli_fetch_array($phase6_remedial_classes_term2);
         ?>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase6_learning_areas2"
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase6_learning_areas2"
             value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase6_final_rating2"
             value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase6_remedial_class_mark2" 
+            <td><input type="text" readonly readonly  name="phase6_remedial_class_mark2" 
             value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase6_recomputed_final_grade2" 
             value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase6_remedial_remarks2" 
+            <td><input type="text" readonly readonly name="phase6_remedial_remarks2" 
             value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
@@ -5243,11 +5243,11 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase6_date_from">
+                  <input type="text" readonly disabled class="datefrom" name="phase6_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase6_date_to">
+                  <input type="text" readonly disabled class="dateto" name="phase6_date_to">
                 </span>
               </span>
             </th>
@@ -5262,18 +5262,18 @@ if(isset($_GET['sid'])){
         </thead>
         <tbody>
           <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase6_learning_areas1"></td>
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase6_learning_areas1"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase6_final_rating1"></td>
-            <td><input type="date" readonly readonly  name="phase6_remedial_class_mark1" id=""></td>
+            <td><input type="text" readonly readonly  name="phase6_remedial_class_mark1" id=""></td>
             <td><input type="number" readonly id="grade" name="phase6_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase6_remedial_remarks1" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase6_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase6_learning_areas2"></td>
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase6_learning_areas2"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase6_final_rating2"></td>
-            <td><input type="date" readonly readonly  name="phase6_remedial_class_mark2" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase6_remedial_class_mark2" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase6_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase6_remedial_remarks2" id=""></td>
+            <td><input type="text" readonly readonly  name="phase6_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -5293,29 +5293,29 @@ if(isset($_GET['sid'])){
           ?>
         <span>
           <label>School:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase7_sr_school" 
+          <input type="text" readonly readonly  id="text-only" name="phase7_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
           <label>School ID:</label>
-          <input type="date" readonly readonly  name="phase7_sr_school_id" 
+          <input type="text" readonly readonly  name="phase7_sr_school_id" 
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
           <label>District:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase7_sr_district" 
+          <input type="text" readonly readonly  class="w-50" name="phase7_sr_district" 
           value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
           <label>Division:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase7_sr_division" 
+          <input type="text" readonly readonly  class="w-50" name="phase7_sr_division" 
           value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase7_sr_region" 
+          <input type="text" readonly readonly  class="w-50" name="phase7_sr_region" 
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -5327,24 +5327,24 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>Section:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase7_sr_section" 
+          <input type="text" readonly readonly  class="w-50" name="phase7_sr_section" 
           value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
           <label>School Year:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase7_sr_school_year" 
+          <input type="text" readonly readonly  class="w-50" name="phase7_sr_school_year" 
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="date" readonly readonly  id="text-only" name="phase7_sr_name_of_adviser" 
+        <input type="text" readonly readonly  id="text-only" name="phase7_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase7_sr_signature" 
+          <input type="text" readonly readonly  id="text-only" name="phase7_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -5979,14 +5979,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase7);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
+                echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
+                echo "PROMOTED";
             }?>
           </td>
           </tr>
@@ -6010,13 +6010,13 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
               <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase7_date_from" 
+                  <input type="text" readonly disabled class="datefrom" name="phase7_date_from" 
                   value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase7_date_to" 
+                  <input type="text" readonly disabled class="dateto" name="phase7_date_to" 
                   value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
@@ -6039,15 +6039,15 @@ if(isset($_GET['sid'])){
         ?>
         <tbody>
         <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase7_learning_areas1" 
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase7_learning_areas1" 
             value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase7_final_rating1" 
             value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase7_remedial_class_mark1" 
+            <td><input type="text" readonly readonly  name="phase7_remedial_class_mark1" 
             value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" readonly id="grade" name="phase7_recomputed_final_grade1" 
             value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase7_remedial_remarks1" 
+            <td><input type="text" readonly readonly  name="phase7_remedial_remarks1" 
             value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
           <?php
@@ -6057,15 +6057,15 @@ if(isset($_GET['sid'])){
           $remedial_classes_term2 = mysqli_fetch_array($phase7_remedial_classes_term2);
         ?>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase7_learning_areas2"
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase7_learning_areas2"
             value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase7_final_rating2"
             value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase7_remedial_class_mark2" 
+            <td><input type="text" readonly readonly  name="phase7_remedial_class_mark2" 
             value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase7_recomputed_final_grade2" 
             value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase7_remedial_remarks2" 
+            <td><input type="text" readonly readonly name="phase7_remedial_remarks2" 
             value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
@@ -6079,11 +6079,11 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase7_date_from">
+                  <input type="text" readonly disabled class="datefrom" name="phase7_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase7_date_to">
+                  <input type="text" readonly disabled class="dateto" name="phase7_date_to">
                 </span>
               </span>
             </th>
@@ -6098,18 +6098,18 @@ if(isset($_GET['sid'])){
         </thead>
         <tbody>
           <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase7_learning_areas1"></td>
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase7_learning_areas1"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase7_final_rating1"></td>
-            <td><input type="date" readonly readonly  name="phase7_remedial_class_mark1" id=""></td>
+            <td><input type="text" readonly readonly  name="phase7_remedial_class_mark1" id=""></td>
             <td><input type="number" readonly id="grade" name="phase7_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase7_remedial_remarks1" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase7_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase7_learning_areas2"></td>
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase7_learning_areas2"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase7_final_rating2"></td>
-            <td><input type="date" readonly readonly  name="phase7_remedial_class_mark2" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase7_remedial_class_mark2" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase7_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase7_remedial_remarks2" id=""></td>
+            <td><input type="text" readonly readonly name="phase7_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -6127,29 +6127,29 @@ if(isset($_GET['sid'])){
           ?>
         <span>
           <label>School:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase8_sr_school" 
+          <input type="text" readonly readonly  id="text-only" name="phase8_sr_school" 
           value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
         </span>
         <span>
           <label>School ID:</label>
-          <input type="date" readonly readonly  name="phase8_sr_school_id" 
+          <input type="text" readonly readonly  name="phase8_sr_school_id" 
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
           <label>District:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase8_sr_district" 
+          <input type="text" readonly readonly  class="w-50" name="phase8_sr_district" 
           value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
         </span>
         <span>
           <label>Division:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase8_sr_division" 
+          <input type="text" readonly readonly  class="w-50" name="phase8_sr_division" 
           value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase8_sr_region" 
+          <input type="text" readonly readonly  class="w-50" name="phase8_sr_region" 
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -6161,24 +6161,24 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>Section:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase8_sr_section" 
+          <input type="text" readonly readonly  class="w-50" name="phase8_sr_section" 
           value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
         </span>
         <span>
           <label>School Year:</label>
-          <input type="date" readonly readonly  class="w-50" name="phase8_sr_school_year" 
+          <input type="text" readonly readonly  class="w-50" name="phase8_sr_school_year" 
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
       <span class="d-flex justify-content-between">
         <span>
         <label for="">Name of Adviser:</label>
-        <input type="date" readonly readonly  id="text-only" name="phase8_sr_name_of_adviser" 
+        <input type="text" readonly readonly  id="text-only" name="phase8_sr_name_of_adviser" 
         value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
         </span>
         <span>
           <label>Signature:</label>
-          <input type="date" readonly readonly  id="text-only" name="phase8_sr_signature" 
+          <input type="text" readonly readonly  id="text-only" name="phase8_sr_signature" 
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
@@ -6813,14 +6813,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase8);
-            if($rows['final_rating'] == 0){
+            if($rows['total_remarks'] == 15){
               echo "";
             }else if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
+                echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
+                echo "PROMOTED";
             }?>
           </td>
           </tr>
@@ -6844,13 +6844,13 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
               <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase8_date_from" 
+                  <input type="text" readonly disabled class="datefrom" name="phase8_date_from" 
                   value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase8_date_to" 
+                  <input type="text" readonly disabled class="dateto" name="phase8_date_to" 
                   value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
                   }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
@@ -6873,15 +6873,15 @@ if(isset($_GET['sid'])){
         ?>
         <tbody>
         <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase8_learning_areas1" 
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase8_learning_areas1" 
             value="<?php if(empty($remedial_classes_term1['learning_areas'])){ echo "";}else {echo $remedial_classes_term1['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase8_final_rating1" 
             value="<?php if($remedial_classes_term1['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term1['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase8_remedial_class_mark1" 
+            <td><input type="text" readonly readonly  name="phase8_remedial_class_mark1" 
             value="<?php if(empty($remedial_classes_term1['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term1['remedial_class_mark'];}?>" id=""></td>
             <td><input type="number" readonly id="grade" name="phase8_recomputed_final_grade1" 
             value="<?php if($remedial_classes_term1['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term1['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase8_remedial_remarks1" 
+            <td><input type="text" readonly readonly  name="phase8_remedial_remarks1" 
             value="<?php if(empty($remedial_classes_term1['remarks'])){ echo "";}else{ echo $remedial_classes_term1['remarks'];}?>" id=""></td>
           </tr>
           <?php
@@ -6891,15 +6891,15 @@ if(isset($_GET['sid'])){
           $remedial_classes_term2 = mysqli_fetch_array($phase8_remedial_classes_term2);
         ?>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase8_learning_areas2"
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase8_learning_areas2"
             value="<?php if(empty($remedial_classes_term2['learning_areas'])){ echo "";}else {echo $remedial_classes_term2['learning_areas'];}?>"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase8_final_rating2"
             value="<?php if($remedial_classes_term2['final_rating'] == 0){ echo "";}else{ echo $remedial_classes_term2['final_rating'];}?>"></td>
-            <td><input type="date" readonly readonly  name="phase8_remedial_class_mark2" 
+            <td><input type="text" readonly readonly  name="phase8_remedial_class_mark2" 
             value="<?php if(empty($remedial_classes_term2['remedial_class_mark'])){ echo "";}else{ echo $remedial_classes_term2['remedial_class_mark'];}?>" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase8_recomputed_final_grade2" 
             value="<?php if($remedial_classes_term2['recomputed_final_grade'] == 0){ echo "";}else{echo $remedial_classes_term2['recomputed_final_grade'];}?>" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase8_remedial_remarks2" 
+            <td><input type="text" readonly readonly name="phase8_remedial_remarks2" 
             value="<?php if(empty($remedial_classes_term2['remarks'])){ echo "";}else{ echo $remedial_classes_term2['remarks'];}?>" id=""></td>
           </tr>
         </tbody>
@@ -6913,11 +6913,11 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" readonly disabled class="datefrom" name="phase8_date_from">
+                  <input type="text" readonly disabled class="datefrom" name="phase8_date_from">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" readonly disabled class="dateto" name="phase8_date_to">
+                  <input type="text" readonly disabled class="dateto" name="phase8_date_to">
                 </span>
               </span>
             </th>
@@ -6932,18 +6932,18 @@ if(isset($_GET['sid'])){
         </thead>
         <tbody>
           <tr>
-            <td><input type="date" readonly readonly  class="learning-areas1" name="phase8_learning_areas1"></td>
+            <td><input type="text" readonly readonly  class="learning-areas1" name="phase8_learning_areas1"></td>
             <td><input type="number" readonly id="grade" class="final_rating1" name="phase8_final_rating1"></td>
-            <td><input type="date" readonly readonly  name="phase8_remedial_class_mark1" id=""></td>
+            <td><input type="text" readonly readonly  name="phase8_remedial_class_mark1" id=""></td>
             <td><input type="number" readonly id="grade" name="phase8_recomputed_final_grade1" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly  name="phase8_remedial_remarks1" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase8_remedial_remarks1" id=""> </td>
           </tr>
           <tr>
-            <td><input type="date" readonly readonly  class="learning_areas2" name="phase8_learning_areas2"></td>
+            <td><input type="text" readonly readonly  class="learning_areas2" name="phase8_learning_areas2"></td>
             <td><input type="number" readonly id="grade" class="final_rating2" name="phase8_final_rating2"></td>
-            <td><input type="date" readonly readonly  name="phase8_remedial_class_mark2" id=""> </td>
+            <td><input type="text" readonly readonly  name="phase8_remedial_class_mark2" id=""> </td>
             <td><input type="number" readonly id="grade" name="phase8_recomputed_final_grade2" pattern="[0-9]{2}" title="Please input 2 Numbers only"></td>
-            <td><input type="date" readonly readonly name="phase8_remedial_remarks2" id=""></td>
+            <td><input type="text" readonly readonly name="phase8_remedial_remarks2" id=""></td>
           </tr>
         </tbody>
       </table>
@@ -6964,39 +6964,39 @@ if(isset($_GET['sid'])){
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="date" readonly name="phase1_c_name" 
+                        <input type="text" readonly name="phase1_c_name" 
                         value="<?php echo $rows['name'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="date" readonly name="phase1_c_lrn"
+                        <input type="text" readonly name="phase1_c_lrn"
                         value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="date" readonly name="phase1_c_grade"
+                        <input type="text" readonly name="phase1_c_grade"
                         value="<?php echo $rows['grade']; ?>" >
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name</label>
-                        <input type="date" readonly style="width: auto;" name="phase1_c_school_name"
+                        <input type="text" readonly style="width: auto;" name="phase1_c_school_name"
                         value="<?php  echo $rows['name_of_school'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="date" readonly name="phase1_c_school_id"
+                        <input type="text" readonly name="phase1_c_school_id"
                         value="<?php echo $rows['school_id']; ?>" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="date" readonly name="phase1_c_division"
+                        <input type="text" readonly name="phase1_c_division"
                         value="<?php echo $rows['division']; ?>" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="date" readonly name="phase1_c_last_school_year_attended"
+                        <input type="text" readonly name="phase1_c_last_school_year_attended"
                         value="<?php echo $rows['last_school_year_attended']; ?>" id="">
                     </span>
                 </span>
@@ -7005,15 +7005,15 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" readonly name="phase1_c_date"
-                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                <input type="text" readonly name="phase1_c_date"
+                                value="<?php if($rows['date'] == "pogi"){ echo "";
                                 }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="date" readonly name="phase1_c_name_of_principal"
+                                <input type="text" readonly name="phase1_c_name_of_principal"
                                 value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
                                   echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
@@ -7033,33 +7033,33 @@ if(isset($_GET['sid'])){
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="date" readonly name="phase1_c_name" id="">
+                        <input type="text" readonly name="phase1_c_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="date" readonly name="phase1_c_lrn" id="">
+                        <input type="text" readonly name="phase1_c_lrn" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="date" readonly name="phase1_c_grade">
+                        <input type="text" readonly name="phase1_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name</label>
-                        <input type="date" readonly style="width: auto;" name="phase1_c_school_name" id="">
+                        <input type="text" readonly style="width: auto;" name="phase1_c_school_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="date" readonly name="phase1_c_school_id" id="">
+                        <input type="text" readonly name="phase1_c_school_id" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="date" readonly name="phase1_c_division">
+                        <input type="text" readonly name="phase1_c_division">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="date" readonly name="phase1_c_last_school_year_attended" id="">
+                        <input type="text" readonly name="phase1_c_last_school_year_attended" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -7067,13 +7067,13 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" readonly name="phase1_c_date">
+                                <input type="text" readonly name="phase1_c_date">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="date" readonly name="phase1_c_name_of_principal">
+                                <input type="text" readonly name="phase1_c_name_of_principal">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -7097,39 +7097,39 @@ if(isset($_GET['sid'])){
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="date" readonly name="phase2_c_name" 
+                        <input type="text" readonly name="phase2_c_name" 
                         value="<?php echo $rows['name'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="date" readonly name="phase2_c_lrn"
+                        <input type="text" readonly name="phase2_c_lrn"
                         value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="date" readonly name="phase2_c_grade"
+                        <input type="text" readonly name="phase2_c_grade"
                         value="<?php echo $rows['grade']; ?>" >
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name</label>
-                        <input type="date" readonly style="width: auto;" name="phase2_c_school_name"
+                        <input type="text" readonly style="width: auto;" name="phase2_c_school_name"
                         value="<?php  echo $rows['name_of_school'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="date" readonly name="phase2_c_school_id"
+                        <input type="text" readonly name="phase2_c_school_id"
                         value="<?php echo $rows['school_id']; ?>" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="date" readonly name="phase2_c_division"
+                        <input type="text" readonly name="phase2_c_division"
                         value="<?php echo $rows['division']; ?>">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="date" readonly name="phase2_c_last_school_year_attended"
+                        <input type="text" readonly name="phase2_c_last_school_year_attended"
                         value="<?php echo $rows['last_school_year_attended']; ?>" id="">
                     </span>
                 </span>
@@ -7138,15 +7138,15 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" readonly name="phase2_c_date"
-                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                <input type="text" readonly name="phase2_c_date"
+                                value="<?php if($rows['date'] == "1970-01-01"){ echo "";
                                 }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="date" readonly name="phase2_c_name_of_principal"
+                                <input type="text" readonly name="phase2_c_name_of_principal"
                                 value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
                                   echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
@@ -7166,33 +7166,33 @@ if(isset($_GET['sid'])){
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="date" readonly name="phase2_c_name" id="">
+                        <input type="text" readonly name="phase2_c_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="date" readonly name="phase2_c_lrn" id="">
+                        <input type="text" readonly name="phase2_c_lrn" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="date" readonly name="phase2_c_grade">
+                        <input type="text" readonly name="phase2_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name</label>
-                        <input type="date" readonly style="width: auto;" name="phase2_c_school_name" id="">
+                        <input type="text" readonly style="width: auto;" name="phase2_c_school_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="date" readonly name="phase2_c_school_id" id="">
+                        <input type="text" readonly name="phase2_c_school_id" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="date" readonly name="phase2_c_division">
+                        <input type="text" readonly name="phase2_c_division">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="date" readonly name="phase2_c_last_school_year_attended" id="">
+                        <input type="text" readonly name="phase2_c_last_school_year_attended" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -7200,13 +7200,13 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" readonly name="phase2_c_date">
+                                <input type="text" readonly name="phase2_c_date">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="date" readonly name="phase2_c_name_of_principal">
+                                <input type="text" readonly name="phase2_c_name_of_principal">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -7230,39 +7230,39 @@ if(isset($_GET['sid'])){
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="date" readonly name="phase3_c_name" 
+                        <input type="text" readonly name="phase3_c_name" 
                         value="<?php echo $rows['name'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="date" readonly name="phase3_c_lrn"
+                        <input type="text" readonly name="phase3_c_lrn"
                         value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="date" readonly name="phase3_c_grade"
+                        <input type="text" readonly name="phase3_c_grade"
                         value="<?php echo $rows['grade']; ?>">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name</label>
-                        <input type="date" readonly style="width: auto;" name="phase3_c_school_name"
+                        <input type="text" readonly style="width: auto;" name="phase3_c_school_name"
                         value="<?php  echo $rows['name_of_school'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="date" readonly name="phase3_c_school_id"
+                        <input type="text" readonly name="phase3_c_school_id"
                         value="<?php echo $rows['school_id']; ?>" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="date" readonly name="phase3_c_division"
+                        <input type="text" readonly name="phase3_c_division"
                         value="<?php echo $rows['division']; ?>">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="date" readonly name="phase3_c_last_school_year_attended"
+                        <input type="text" readonly name="phase3_c_last_school_year_attended"
                         value="<?php echo $rows['last_school_year_attended']; ?>" id="">
                     </span>
                 </span>
@@ -7271,15 +7271,15 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" readonly name="phase3_c_date" class="text-center"
-                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                <input type="text" readonly name="phase3_c_date" class="text-center"
+                                value="<?php if($rows['date'] == "1970-01-01"){ echo "";
                                 }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="date" readonly name="phase3_c_name_of_principal" class="text-center"
+                                <input type="text" readonly name="phase3_c_name_of_principal" class="text-center"
                                 value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
                                   echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
@@ -7299,33 +7299,33 @@ if(isset($_GET['sid'])){
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="date" readonly name="phase3_c_name" id="">
+                        <input type="text" readonly name="phase3_c_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="date" readonly name="phase3_c_lrn" id="">
+                        <input type="text" readonly name="phase3_c_lrn" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="date" readonly name="phase3_c_grade">
+                        <input type="text" readonly name="phase3_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name</label>
-                        <input type="date" readonly style="width: auto;" name="phase3_c_school_name" id="">
+                        <input type="text" readonly style="width: auto;" name="phase3_c_school_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="date" readonly name="phase3_c_school_id" id="">
+                        <input type="text" readonly name="phase3_c_school_id" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="date" readonly name="phase3_c_division">
+                        <input type="text" readonly name="phase3_c_division">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="date" readonly name="phase3_c_last_school_year_attended" id="">
+                        <input type="text" readonly name="phase3_c_last_school_year_attended" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
