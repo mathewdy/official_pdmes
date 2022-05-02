@@ -2,6 +2,9 @@
     display: block;
     transition: 2s ease;
 }
+.pdf-toggler{
+    border-radius: 35px;
+}
 .toggler{
     border-radius: 35px;
 }

@@ -50,6 +50,7 @@ if(isset($_GET['sid'])){
 <?php include 'includes/pre-load.php'; ?>
 <div class="container-fluid text-end py-1" style="background:#c0c0c0;">
     <!-- Button trigger modal -->
+    <a href="" class="btn btn-small btn-danger pdf-toggler">Generate PDF</a>
     <button type="button" class="btn btn-small btn-primary text-white toggler" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Send via Email
     </button>
