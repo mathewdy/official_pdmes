@@ -174,7 +174,7 @@ if(isset($_GET['sid'])){
                   value="<?php if(empty($rows['rating'])){ echo "";}else{ echo $rows['rating'];}?>" required>
                 </span>
                 <span>
-                  <label for="">Date of Examination/Assessment (dd/mm/yyyy):</label>
+                  <label for="">Date of Examination/Assessment (mm/dd/yyyy):</label>
                   <input type="date" name="date_of_assessment" value="<?php echo strftime('%Y-%m-%d', strtotime($rows['date_of_assessment']));?>" id=""> 
                   
                   <input type="checkbox" class="form-check-input" name="efese_others" value="1"
@@ -925,11 +925,15 @@ if(isset($_GET['sid'])){
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase1_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase1_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase1_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase1_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -1751,13 +1755,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase2_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase2_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase2_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase2_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -2579,13 +2587,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase3_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase3_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase3_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase3_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -3405,13 +3417,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase4_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase4_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase4_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase4_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -4234,13 +4250,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase5_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase5_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase5_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase5_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -5060,13 +5080,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase6_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase6_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase6_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase6_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -5888,13 +5912,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase7_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase7_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase7_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase7_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -6714,13 +6742,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase8_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase8_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase8_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase8_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -6820,39 +6852,52 @@ if(isset($_GET['sid'])){
     </div>
     <div class="row pb-5" style="padding:0 14px;">
     <div class="col-lg-12 p-0">
+      <?php
+      $sql_phase1_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '1'";
+      $query_sql_phase1_certification = mysqli_query($conn, $sql_phase1_certification);
+      if(mysqli_num_rows($query_sql_phase1_certification) > 0){
+      $rows = mysqli_fetch_array($query_sql_phase1_certification);
+      ?>
         <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_name" 
+                        value="<?php echo $rows['name'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_lrn"
+                        value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;">
+                        <input type="text" name="phase1_c_grade"
+                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
-                        <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="" id="">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase1_c_school_name"
+                        value="<?php  echo $rows['name_of_school'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_school_id"
+                        value="<?php echo $rows['school_id']; ?>" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4">
+                        <input type="text" name="phase1_c_division"
+                        value="<?php echo $rows['division']; ?>" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
-                        <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase1_c_last_school_year_attended"
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -6860,13 +6905,17 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text">
+                                <input type="date" name="phase1_c_date"
+                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text">
+                                <input type="text" name="phase1_c_name_of_principal"
+                                value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
+                                  echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -6876,40 +6925,41 @@ if(isset($_GET['sid'])){
                 </div>
         </section>
     </div>
-    <div class="col-lg-12 p-0">
+    <?php }else{?>
+      <div class="col-lg-12 p-0">
         <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_lrn" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;">
+                        <input type="text" name="phase1_c_grade" size="4" style="width: auto;">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
-                        <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="" id="">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase1_c_school_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_school_id" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4">
+                        <input type="text" name="phase1_c_division" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
-                        <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase1_c_last_school_year_attended" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -6917,13 +6967,13 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text">
+                                <input type="date" name="phase1_c_date">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text">
+                                <input type="text" name="phase1_c_name_of_principal">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -6933,40 +6983,54 @@ if(isset($_GET['sid'])){
                 </div>
         </section>
     </div>
+    <?php }?>
     <div class="col-lg-12 p-0">
+      <?php
+      $sql_phase2_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '2'";
+      $query_sql_phase2_certification = mysqli_query($conn, $sql_phase2_certification);
+      if(mysqli_num_rows($query_sql_phase2_certification) > 0){
+      $rows = mysqli_fetch_array($query_sql_phase2_certification);
+      ?>
         <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase2_c_name" 
+                        value="<?php echo $rows['name'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase2_c_lrn"
+                        value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;">
+                        <input type="text" name="phase2_c_grade"
+                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
                     </span> 
                 </span>
-                <span class="d-flex flex-row justify-content-between align-items-center px-lg-4">
+                <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
-                        <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="" id="">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase2_c_school_name"
+                        value="<?php  echo $rows['name_of_school'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase2_c_school_id"
+                        value="<?php echo $rows['school_id']; ?>" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4">
+                        <input type="text" name="phase2_c_division"
+                        value="<?php echo $rows['division']; ?>" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
-                        <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase2_c_last_school_year_attended"
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -6974,13 +7038,17 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text">
+                                <input type="date" name="phase2_c_date"
+                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text">
+                                <input type="text" name="phase2_c_name_of_principal"
+                                value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
+                                  echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -6990,6 +7058,198 @@ if(isset($_GET['sid'])){
                 </div>
         </section>
     </div>
+    <?php }else{?>
+      <div class="col-lg-12 p-0">
+        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <section class="certification-box">
+            <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
+                <span class="cert-card px-lg-4 ">
+                    <span class="d-flex flex-row align-items-center">
+                        <label>I CERTIFY that this is a true record of</label>
+                        <input type="text" name="phase2_c_name" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-end align-items-end">
+                        <label>with LRN</label>
+                        <input type="text" name="phase2_c_lrn" id="">
+                    </span>
+                    <span>
+                        <label>and that he/she is eligible for admission to Grade </label>
+                        <input type="text" name="phase2_c_grade" size="4" style="width: auto;">
+                    </span> 
+                </span>
+                <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
+                    <span class="d-flex flex-row align-items-center justify-content-end">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase2_c_school_name" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>School ID</label>
+                        <input type="text" name="phase2_c_school_id" id="">
+                    </span>
+                    <span>
+                        <label>Division</label>
+                        <input type="text" name="phase2_c_division" size="4">
+                    </span> 
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase2_c_last_school_year_attended" id="">
+                    </span>
+                </span>
+                <div class="container pt-5">
+                    <div class="row ">
+                        <div class="col-3">
+                            <span class="vstack d-flex flex-column-reverse text-center">
+                                <label for="" class="">Date</label>
+                                <input type="date" name="phase2_c_date">
+                            </span>
+                        </div>
+                        <div class="col-5">
+                            <span class="vstack d-flex flex-column-reverse">
+                                <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
+                                <input type="text" name="phase2_c_name_of_principal">
+                            </span>
+                        </div>
+                        <div class="col-4" style="display:grid; place-items:end;">
+                            <p style="font-size: 14px; letter-spacing:1px; font-weight:500; padding:0; margin:0;">(Affix School Seal here)</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <?php }?>
+    <div class="col-lg-12 p-0">
+      <?php
+      $sql_phase3_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '3'";
+      $query_sql_phase3_certification = mysqli_query($conn, $sql_phase3_certification);
+      if(mysqli_num_rows($query_sql_phase3_certification) > 0){
+      $rows = mysqli_fetch_array($query_sql_phase3_certification);
+      ?>
+        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <section class="certification-box">
+            <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
+                <span class="cert-card px-lg-4 ">
+                    <span class="d-flex flex-row align-items-center">
+                        <label>I CERTIFY that this is a true record of</label>
+                        <input type="text" name="phase3_c_name" 
+                        value="<?php echo $rows['name'];?>" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-end align-items-end">
+                        <label>with LRN</label>
+                        <input type="text" name="phase3_c_lrn"
+                        value="<?php echo $rows['lrn']; ?>" id="">
+                    </span>
+                    <span>
+                        <label>and that he/she is eligible for admission to Grade </label>
+                        <input type="text" name="phase3_c_grade"
+                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
+                    </span> 
+                </span>
+                <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
+                    <span class="d-flex flex-row align-items-center justify-content-end">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase3_c_school_name"
+                        value="<?php  echo $rows['name_of_school'];?>" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>School ID</label>
+                        <input type="text" name="phase3_c_school_id"
+                        value="<?php echo $rows['school_id']; ?>" id="">
+                    </span>
+                    <span>
+                        <label>Division</label>
+                        <input type="text" name="phase3_c_division"
+                        value="<?php echo $rows['division']; ?>" size="4">
+                    </span> 
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase3_c_last_school_year_attended"
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
+                    </span>
+                </span>
+                <div class="container pt-5">
+                    <div class="row ">
+                        <div class="col-3">
+                            <span class="vstack d-flex flex-column-reverse text-center">
+                                <label for="" class="">Date</label>
+                                <input type="date" name="phase3_c_date"
+                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
+                            </span>
+                        </div>
+                        <div class="col-5">
+                            <span class="vstack d-flex flex-column-reverse">
+                                <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
+                                <input type="text" name="phase3_c_name_of_principal"
+                                value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
+                                  echo "";}else{ echo $rows['name_of_principal'];} ?>">
+                            </span>
+                        </div>
+                        <div class="col-4" style="display:grid; place-items:end;">
+                            <p style="font-size: 14px; letter-spacing:1px; font-weight:500; padding:0; margin:0;">(Affix School Seal here)</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <?php }else{?>
+      <div class="col-lg-12 p-0">
+        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <section class="certification-box">
+            <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
+                <span class="cert-card px-lg-4 ">
+                    <span class="d-flex flex-row align-items-center">
+                        <label>I CERTIFY that this is a true record of</label>
+                        <input type="text" name="phase3_c_name" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-end align-items-end">
+                        <label>with LRN</label>
+                        <input type="text" name="phase3_c_lrn" id="">
+                    </span>
+                    <span>
+                        <label>and that he/she is eligible for admission to Grade </label>
+                        <input type="text" name="phase3_c_grade" size="4" style="width: auto;">
+                    </span> 
+                </span>
+                <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
+                    <span class="d-flex flex-row align-items-center justify-content-end">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase3_c_school_name" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>School ID</label>
+                        <input type="text" name="phase3_c_school_id" id="">
+                    </span>
+                    <span>
+                        <label>Division</label>
+                        <input type="text" name="phase3_c_division" size="4">
+                    </span> 
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase3_c_last_school_year_attended" id="">
+                    </span>
+                </span>
+                <div class="container pt-5">
+                    <div class="row ">
+                        <div class="col-3">
+                            <span class="vstack d-flex flex-column-reverse text-center">
+                                <label for="" class="">Date</label>
+                                <input type="date" name="phase3_c_date">
+                            </span>
+                        </div>
+                        <div class="col-5">
+                            <span class="vstack d-flex flex-column-reverse">
+                                <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
+                                <input type="text" name="phase3_c_name_of_principal">
+                            </span>
+                        </div>
+                        <div class="col-4" style="display:grid; place-items:end;">
+                            <p style="font-size: 14px; letter-spacing:1px; font-weight:500; padding:0; margin:0;">(Affix School Seal here)</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <?php }?>
     </div>
       <input type="button" name="previous" style="float:left;" class="previous-form btn btn-danger" value="Previous" /> 
       <input type="submit" name="update" style="float:right;" class="submitbtn btn btn-success" value="Submit">
@@ -7017,7 +7277,7 @@ if(isset($_POST['update'])){
     $first_name = ucwords($_POST['first_name']);
     $suffix = ucwords($_POST['suffix_name']);
     $middle_name = ucwords($_POST['middle_name']);
-    $birthday = $_POST['birthday'];
+    $birthday = date("Y-m-d", strtotime($_POST['birthday']));
     $sex = ucwords($_POST['sex']);
 
     // Eligibility for Elem School Enrollment
@@ -7025,7 +7285,7 @@ if(isset($_POST['update'])){
     $efese_school_id = strtoupper($_POST['efese_school_id']);
     $efese_address_of_school = strtoupper($_POST['efese_address_of_school']);
     $efese_rating = $_POST['efese_rating'];
-    $date_of_assessment = $_POST['date_of_assessment'];
+    $date_of_assessment = date("Y-m-d", strtotime($_POST['date_of_assessment']));
     $efese_specify = $_POST['efese_specify'];
     $efese_testing_center = strtoupper($_POST['efese_testing_center']);
     $efese_remarks = $_POST['efese_remarks'];
@@ -7051,6 +7311,20 @@ if(isset($_POST['update'])){
 
     // ARRAY, TERM 1-5 OF SCHOLASTIC RECORDS
     $sg_term = $_POST['sg_term'];
+
+    // ARRAY, CERTIFICATION PHASES (1-3)
+    $certification_phases = array(1, 2, 3);
+
+    // CERTIFICATION
+    $c_name = $_POST['c_name'];
+    $c_lrn = $_POST['c_lrn'];
+    $c_grade = $_POST['c_grade'];
+    $c_school_name = $_POST['c_school_name'];
+    $c_school_id = $_POST['c_school_id'];
+    $c_division = $_POST['c_division'];
+    $c_last_school_year_attended = $_POST['c_last_school_year_attended'];
+    $c_date =  date("Y-m-d", strtotime($_POST['c_date']));
+    $c_name_of_principal = $_POST['c_name_of_principal'];
 
     // PHASE 1 OF SCHOLASTIC RECORDS
     $phase1_sr_school = strtoupper($_POST['phase1_sr_school']);
@@ -7081,8 +7355,8 @@ if(isset($_POST['update'])){
     $phase1_islamic_values_grades = $_POST['phase1_islamic_values_grades'];
 
     // PHASE 1 REMEDIAL CLASSES
-    $phase1_date_from = $_POST['phase1_date_from'];
-    $phase1_date_to = $_POST['phase1_date_to'];
+    $phase1_date_from = date("Y-m-d", strtotime($_POST['phase1_date_from']));
+    $phase1_date_to = date("Y-m-d", strtotime($_POST['phase1_date_to']));
 
     // PHASE 1 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase1_learning_areas1 = $_POST['phase1_learning_areas1'];
@@ -7172,8 +7446,8 @@ if(isset($_POST['update'])){
     $phase2_islamic_values_grades = $_POST['phase2_islamic_values_grades'];
 
     // PHASE 2 REMEDIAL CLASSES
-    $phase2_date_from = $_POST['phase2_date_from'];
-    $phase2_date_to = $_POST['phase2_date_to'];
+    $phase2_date_from = date("Y-m-d", strtotime($_POST['phase2_date_from']));
+    $phase2_date_to = date("Y-m-d", strtotime($_POST['phase2_date_to']));
 
     // PHASE 2 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase2_learning_areas1 = $_POST['phase2_learning_areas1'];
@@ -7263,8 +7537,8 @@ if(isset($_POST['update'])){
     $phase3_islamic_values_grades = $_POST['phase3_islamic_values_grades'];
 
     // PHASE 3 REMEDIAL CLASSES
-    $phase3_date_from = $_POST['phase3_date_from'];
-    $phase3_date_to = $_POST['phase3_date_to'];
+    $phase3_date_from = date("Y-m-d", strtotime($_POST['phase3_date_from']));
+    $phase3_date_to = date("Y-m-d", strtotime($_POST['phase3_date_to']));
 
     // PHASE 3 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase3_learning_areas1 = $_POST['phase3_learning_areas1'];
@@ -7354,8 +7628,8 @@ if(isset($_POST['update'])){
     $phase4_islamic_values_grades = $_POST['phase4_islamic_values_grades'];
 
     // PHASE 4 REMEDIAL CLASSES
-    $phase4_date_from = $_POST['phase4_date_from'];
-    $phase4_date_to = $_POST['phase4_date_to'];
+    $phase4_date_from = date("Y-m-d", strtotime($_POST['phase4_date_from']));
+    $phase4_date_to = date("Y-m-d", strtotime($_POST['phase4_date_to']));
 
     // PHASE 4 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase4_learning_areas1 = $_POST['phase4_learning_areas1'];
@@ -7445,8 +7719,8 @@ if(isset($_POST['update'])){
     $phase5_islamic_values_grades = $_POST['phase5_islamic_values_grades'];
 
     // PHASE 5 REMEDIAL CLASSES
-    $phase5_date_from = $_POST['phase5_date_from'];
-    $phase5_date_to = $_POST['phase5_date_to'];
+    $phase5_date_from = date("Y-m-d", strtotime($_POST['phase5_date_from']));
+    $phase5_date_to = date("Y-m-d", strtotime($_POST['phase5_date_to']));
 
     // PHASE 5 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase5_learning_areas1 = $_POST['phase5_learning_areas1'];
@@ -7536,8 +7810,8 @@ if(isset($_POST['update'])){
     $phase6_islamic_values_grades = $_POST['phase6_islamic_values_grades'];
 
     // PHASE 6 REMEDIAL CLASSES
-    $phase6_date_from = $_POST['phase6_date_from'];
-    $phase6_date_to = $_POST['phase6_date_to'];
+    $phase6_date_from = date("Y-m-d", strtotime($_POST['phase6_date_from']));
+    $phase6_date_to = date("Y-m-d", strtotime($_POST['phase6_date_to']));
 
     // PHASE 6 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase6_learning_areas1 = $_POST['phase6_learning_areas1'];
@@ -7627,8 +7901,8 @@ if(isset($_POST['update'])){
     $phase7_islamic_values_grades = $_POST['phase7_islamic_values_grades'];
 
     // PHASE 7 REMEDIAL CLASSES
-    $phase7_date_from = $_POST['phase7_date_from'];
-    $phase7_date_to = $_POST['phase7_date_to'];
+    $phase7_date_from = date("Y-m-d", strtotime($_POST['phase7_date_from']));
+    $phase7_date_to = date("Y-m-d", strtotime($_POST['phase7_date_to']));
 
     // PHASE 7 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase7_learning_areas1 = $_POST['phase7_learning_areas1'];
@@ -7718,8 +7992,8 @@ if(isset($_POST['update'])){
     $phase8_islamic_values_grades = $_POST['phase8_islamic_values_grades'];
 
     // PHASE 8 REMEDIAL CLASSES
-    $phase8_date_from = $_POST['phase8_date_from'];
-    $phase8_date_to = $_POST['phase8_date_to'];
+    $phase8_date_from = date("Y-m-d", strtotime($_POST['phase8_date_from']));
+    $phase8_date_to = date("Y-m-d", strtotime($_POST['phase8_date_to']));
 
     // PHASE 8 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase8_learning_areas1 = $_POST['phase8_learning_areas1'];
@@ -18944,9 +19218,130 @@ if(isset($_POST['update'])){
             echo $conn->error;
         }
     }
-    echo "<script>alert('Update Successfully');
-        window.location = 'home.php';</script>";
-        exit();
+    
+    // CERTIFICATION PHASE 1
+    $phase1_c_name = $_POST['phase1_c_name'];
+    $phase1_c_lrn = $_POST['phase1_c_lrn'];
+    $phase1_c_grade = $_POST['phase1_c_grade'];
+    $phase1_c_school_name = $_POST['phase1_c_school_name'];
+    $phase1_c_school_id = $_POST['phase1_c_school_id'];
+    $phase1_c_division = $_POST['phase1_c_division'];
+    $phase1_c_last_school_year_attended = $_POST['phase1_c_last_school_year_attended'];
+    $phase1_c_date = $_POST['phase1_c_date'];
+    $phase1_c_name_of_principal = $_POST['phase1_c_name_of_principal'];
+
+    $phase1_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '1'";
+    $phase1_query_check_certification = mysqli_query($conn, $phase1_check_certification);
+    if(mysqli_num_rows($phase1_query_check_certification) > 0){
+        $phase1_sql_update_certification = "UPDATE certifications SET name = '$phase1_c_name', grade = '$phase1_c_grade', name_of_school = '$phase1_c_school_name',
+        school_id = '$phase1_c_school_id', division = '$phase1_c_division', last_school_year_attended = '$phase1_c_last_school_year_attended',
+        `date` = '$phase1_c_date', name_of_principal = '$phase1_c_name_of_principal', date_time_updated = '$date_time_updated' 
+        WHERE lrn = '109857060084' AND phase = '1'";
+        $phase1_query_sql_update_certification = mysqli_query($conn, $phase1_sql_update_certification);
+        if($phase1_query_sql_update_certification == true){
+            echo $phase1_sql_update_certification;
+          echo "SUCCESS CERTIFICATION UPDATE <br>";
+        }else{
+          echo $conn->error;
+        }
+      }else{
+        $phase1_sql_insert_certification = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, 
+    `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, 
+    `name_of_principal`, `phase`, `date_time_created`) 
+    VALUES ('$phase1_c_lrn','$phase1_c_name','$phase1_c_grade','$phase1_c_school_name',
+    '$phase1_c_school_id','$phase1_c_division','$phase1_c_last_school_year_attended',
+    '$phase1_c_date','$phase1_c_name_of_principal','1','$date_time_created')";
+        $query_phase1_sql_insert_certification = mysqli_query($conn, $phase1_sql_insert_certification);
+        
+        if($query_phase1_sql_insert_certification == true){
+          echo "SUCCESS CERTIFICATION INSERT <br>";
+        }else{
+          echo $conn->error;
+        }
+    }
+
+    // CERTIFICATION PHASE 2
+    $phase2_c_name = $_POST['phase2_c_name'];
+    $phase2_c_lrn = $_POST['phase2_c_lrn'];
+    $phase2_c_grade = $_POST['phase2_c_grade'];
+    $phase2_c_school_name = $_POST['phase2_c_school_name'];
+    $phase2_c_school_id = $_POST['phase2_c_school_id'];
+    $phase2_c_division = $_POST['phase2_c_division'];
+    $phase2_c_last_school_year_attended = $_POST['phase2_c_last_school_year_attended'];
+    $phase2_c_date = $_POST['phase2_c_date'];
+    $phase2_c_name_of_principal = $_POST['phase2_c_name_of_principal'];
+
+    $phase2_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '2'";
+    $phase2_query_check_certification = mysqli_query($conn, $phase2_check_certification);
+    if(mysqli_num_rows($phase2_query_check_certification) > 0){
+        $phase2_sql_update_certification = "UPDATE certifications SET name = '$phase2_c_name', grade = '$phase2_c_grade', name_of_school = '$phase2_c_school_name',
+        school_id = '$phase2_c_school_id', division = '$phase2_c_division', last_school_year_attended = '$phase2_c_last_school_year_attended',
+        `date` = '$phase2_c_date', name_of_principal = '$phase2_c_name_of_principal', date_time_updated = '$date_time_updated' 
+        WHERE lrn = '109857060084' AND phase = '2'";
+        $phase2_query_sql_update_certification = mysqli_query($conn, $phase2_sql_update_certification);
+        if($phase2_query_sql_update_certification == true){
+            echo $phase2_sql_update_certification;
+          echo "SUCCESS CERTIFICATION UPDATE <br>";
+        }else{
+          echo $conn->error;
+        }
+      }else{
+        $phase2_sql_insert_certification = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, 
+    `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, 
+    `name_of_principal`, `phase`, `date_time_created`) 
+    VALUES ('$phase2_c_lrn','$phase2_c_name','$phase2_c_grade','$phase2_c_school_name',
+    '$phase2_c_school_id','$phase2_c_division','$phase2_c_last_school_year_attended',
+    '$phase2_c_date','$phase2_c_name_of_principal','2','$date_time_created')";
+        $query_phase2_sql_insert_certification = mysqli_query($conn, $phase2_sql_insert_certification);
+        if($query_phase2_sql_insert_certification == true){
+          echo "SUCCESS CERTIFICATION INSERT <br>";
+        }else{
+          echo $conn->error;
+        }
+    }
+
+        // CERTIFICATION PHASE 3
+    $phase3_c_name = $_POST['phase3_c_name'];
+    $phase3_c_lrn = $_POST['phase3_c_lrn'];
+    $phase3_c_grade = $_POST['phase3_c_grade'];
+    $phase3_c_school_name = $_POST['phase3_c_school_name'];
+    $phase3_c_school_id = $_POST['phase3_c_school_id'];
+    $phase3_c_division = $_POST['phase3_c_division'];
+    $phase3_c_last_school_year_attended = $_POST['phase3_c_last_school_year_attended'];
+    $phase3_c_date = $_POST['phase3_c_date'];
+    $phase3_c_name_of_principal = $_POST['phase3_c_name_of_principal'];
+
+    $phase3_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '3'";
+    $phase3_query_check_certification = mysqli_query($conn, $phase3_check_certification);
+    if(mysqli_num_rows($phase3_query_check_certification) > 0){
+        $phase3_sql_update_certification = "UPDATE certifications SET name = '$phase3_c_name', grade = '$phase3_c_grade', name_of_school = '$phase3_c_school_name',
+        school_id = '$phase3_c_school_id', division = '$phase3_c_division', last_school_year_attended = '$phase3_c_last_school_year_attended',
+        `date` = '$phase3_c_date', name_of_principal = '$phase3_c_name_of_principal', date_time_updated = '$date_time_updated' 
+        WHERE lrn = '109857060084' AND phase = '3'";
+        $phase3_query_sql_update_certification = mysqli_query($conn, $phase3_sql_update_certification);
+        if($phase3_query_sql_update_certification == true){
+          echo "SUCCESS CERTIFICATION UPDATE <br>";
+        }else{
+          echo $conn->error;
+        }
+      }else{
+        $phase3_sql_insert_certification = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, 
+    `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, 
+    `name_of_principal`, `phase`, `date_time_created`) 
+    VALUES ('$phase3_c_lrn','$phase3_c_name','$phase3_c_grade','$phase3_c_school_name',
+    '$phase3_c_school_id','$phase3_c_division','$phase3_c_last_school_year_attended',
+    '$phase3_c_date','$phase3_c_name_of_principal','3','$date_time_created')";
+        $query_phase3_sql_insert_certification = mysqli_query($conn, $phase3_sql_insert_certification);
+        
+        if($query_phase3_sql_insert_certification == true){
+          echo "SUCCESS CERTIFICATION INSERT <br>";
+        }else{
+          echo $conn->error;
+        }
+    }
+    // echo "<script>alert('Update Successfully');
+    //     window.location = 'home.php';</script>";
+    //     exit();
 
 
     
