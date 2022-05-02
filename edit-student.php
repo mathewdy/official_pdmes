@@ -77,7 +77,7 @@ if(isset($_GET['sid'])){
                 </span>
                 <div class="d-flex flex-row align-items-center col-lg-6">
                 <label class="w-25" for="">Grade Level</label>
-                <select name="grade_level" class="form-select" id="" required>
+                <select name="grade_level" class="form-select form-select-sm" id="" required>
                     <option value="">-Select-</option>
                     <option value="preparatory">Preparatory</option>
                     <option value="grade1">Grade 1</option>
@@ -89,7 +89,7 @@ if(isset($_GET['sid'])){
                 </select>
                 </div>
                 <span class="py-5" style="margin:5em 2px 1px 2px;">
-                    <input class="" type="file" name="file" accept= "application/pdf" required>
+                    <input class="custom-file-input" type="file" name="file" accept= "application/pdf" required>
                 </span>
             </span>
             
@@ -207,7 +207,7 @@ if(isset($_GET['sid'])){
                 </span>
                 <span class="hstack d-flex align-items-center justify-content-start">
                     <label for="">School ID:</label>
-                    <input type="text" name="efese_school_id" 
+                    <input type="text" name="efese_school_id"  id="dash"
                     value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" required>
                 </span>
                 <span class="hstack d-flex align-items-center">
@@ -272,7 +272,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase1_sr_school_id" 
+          <input type="text" name="phase1_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -289,7 +289,7 @@ if(isset($_GET['sid'])){
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase1_sr_region" 
+          <input type="text" class="w-50" name="phase1_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -306,7 +306,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase1_sr_school_year" 
+          <input type="text" class="w-50" name="phase1_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -1100,7 +1100,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase2_sr_school_id" 
+          <input type="text" name="phase2_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -1117,7 +1117,7 @@ if(isset($_GET['sid'])){
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase2_sr_region" 
+          <input type="text" class="w-50" name="phase2_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -1134,7 +1134,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase2_sr_school_year" 
+          <input type="text" class="w-50" name="phase2_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -1928,7 +1928,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase3_sr_school_id" 
+          <input type="text" name="phase3_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -1945,7 +1945,7 @@ if(isset($_GET['sid'])){
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase3_sr_region" 
+          <input type="text" class="w-50" name="phase3_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -1962,7 +1962,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase3_sr_school_year" 
+          <input type="text" class="w-50" name="phase3_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -2754,7 +2754,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase4_sr_school_id" 
+          <input type="text" name="phase4_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -2771,7 +2771,7 @@ if(isset($_GET['sid'])){
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase4_sr_region" 
+          <input type="text" class="w-50" name="phase4_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -2788,7 +2788,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase4_sr_school_year" 
+          <input type="text" class="w-50" name="phase4_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -3586,7 +3586,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase5_sr_school_id" 
+          <input type="text" name="phase5_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -3603,7 +3603,7 @@ if(isset($_GET['sid'])){
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase5_sr_region" 
+          <input type="text" class="w-50" name="phase5_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -3620,7 +3620,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase5_sr_school_year" 
+          <input type="text" class="w-50" name="phase5_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -4409,7 +4409,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase6_sr_school_id" 
+          <input type="text" name="phase6_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -4426,7 +4426,7 @@ if(isset($_GET['sid'])){
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase6_sr_region" 
+          <input type="text" class="w-50" name="phase6_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -4443,7 +4443,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase6_sr_school_year" 
+          <input type="text" class="w-50" name="phase6_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -5237,7 +5237,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase7_sr_school_id" 
+          <input type="text" name="phase7_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -5254,7 +5254,7 @@ if(isset($_GET['sid'])){
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase7_sr_region" 
+          <input type="text" class="w-50" name="phase7_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -5271,7 +5271,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase7_sr_school_year" 
+          <input type="text" class="w-50" name="phase7_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -6063,7 +6063,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase8_sr_school_id" 
+          <input type="text" name="phase8_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -6080,7 +6080,7 @@ if(isset($_GET['sid'])){
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase8_sr_region" 
+          <input type="text" class="w-50" name="phase8_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -6097,7 +6097,7 @@ if(isset($_GET['sid'])){
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase8_sr_school_year" 
+          <input type="text" class="w-50" name="phase8_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>

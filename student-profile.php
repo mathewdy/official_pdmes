@@ -35,8 +35,63 @@ if(isset($_GET['sid'])){
 
 <?php include 'includes/header.php';?>
 <link rel="stylesheet" href="src/css/phase-style.css">
+<link rel="stylesheet" href="src/css/modal-email.css">
 <?php include 'includes/topnav.php';?>
 <?php include 'includes/pre-load.php';?>
+<div class="container-fluid text-end py-1" style="background:#c0c0c0;">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-small btn-primary text-white toggler" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Send via Email
+    </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="sendemail.php" method="POST" enctype="multipart/form-data" >
+            <span class="d-flex">
+                <span class="input-group-text d-none" id="To">To</span>
+                <input class="" type="email" name="email" placeholder="Recipient" required>
+            </span>
+            <hr class="featurette-divider p-0 m-0">
+            <input class="" type="text" name="subject" placeholder="Subject" required>
+            <hr class="featurette-divider p-0 m-0">
+            <span class="row pt-3 px-2">
+                <span class="d-flex align-items-center col-lg-6">
+                    <label for="">LRN</label>
+                    <input type="text" name="lrn" required>    
+                </span>
+                <div class="d-flex flex-row align-items-center col-lg-6">
+                <label class="w-25" for="">Grade Level</label>
+                <select name="grade_level" class="form-select form-select-sm" id="" required>
+                    <option value="">-Select-</option>
+                    <option value="preparatory">Preparatory</option>
+                    <option value="grade1">Grade 1</option>
+                    <option value="grade2">Grade 2</option>
+                    <option value="grade3">Grade 3</option>
+                    <option value="grade4">Grade 4</option>
+                    <option value="grade5">Grade 5</option>
+                    <option value="grade6">Grade 6</option>
+                </select>
+                </div>
+                <span class="py-5" style="margin:5em 2px 1px 2px;">
+                    <input class="custom-file-input" type="file" name="file" accept= "application/pdf" required>
+                </span>
+            </span>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <input class="btn btn-success" type="submit" name="submit" value="Send">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-xl bg-white">
     <form novalidate action="new-edit-students.php" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
     <fieldset class="pb-5">
@@ -7021,6 +7076,8 @@ if(isset($_GET['sid'])){
 <!-- <script src="src/js/stepper.js"></script> -->
 <script src="src/js/loading_screen.js"></script>
 <script src="src/js/number_limitation.js"></script>
+<script src="src/js/bootstrap.js"></script>
+<script src="src/js/email.js"></script>
 <?php
 include 'includes/footer.php';
 ?>

@@ -5,15 +5,16 @@
 .toggler{
     border-radius: 35px;
 }
-input[type=text],
-[type=email]{
+input[name=subject],
+[name=lrn],
+[name=email]{
     border: none;
     width: 100%;
     border-radius: 0;
     padding: 10px 3px;
 }
-input[type=text]:focus,
-[type=email]:focus{
+input[name=subject]:focus,
+[name=email]:focus{
     outline: none;
 }
 #To{
