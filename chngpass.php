@@ -39,7 +39,7 @@ session_start();
    
 
     if(isset($_POST['change'])){
-       $new_password = $_POST['password'];
+       $new_password = $_POST['new-password'];
        $re_password = $_POST['Re_password']; 
       
 

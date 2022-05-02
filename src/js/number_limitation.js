@@ -96,6 +96,12 @@ $(document).ready(function(){
             return false;
         }
     });
-
+    $('span #dash').each(function(){
+        $('input[id=dash]').on('keyup', function(){
+            var key = $(this).val();
+            $(this).val(key.replace(/ /g, "-"));
+        });
+    });
+    
 });
 

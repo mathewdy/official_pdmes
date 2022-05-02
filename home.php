@@ -37,18 +37,17 @@ include 'includes/header.php';
             $count = 0;
             foreach($run as $row){
               $lrn = $row['lrn'];
-              $parse_lrn = intval($lrn);
-              $int_lrn = (($parse_lrn * 123456789 * 5977)/ 859475);
-              $edit_link = "new-edit-students.php?sid=". urlencode(base64_encode($int_lrn));
-              $view_link = "view-student-profile.php?sid=" . urlencode(base64_encode($int_lrn));
-              $delete_link = "delete-student.php?sid=" . urlencode(base64_encode($int_lrn));
+              $encrypted_data = (($lrn*12345678911*56789)/987654);
+              $edit_link = "edit-student.php?sid=" . urlencode(base64_encode($encrypted_data));
+              $view_link = "student-profile.php?sid=" . urlencode(base64_encode($encrypted_data));
+              $delete_link = "delete-student.php?sid=" . urlencode(base64_encode($encrypted_data));
                 $count++;
                 ?>
 
                     <tr class="clickable-row" data-href="<?php echo $view_link ?>" style="cursor:pointer;">
                         <td><?php echo $count;?></td>
                         <td><?php echo $row ['lrn']?></td>
-                        <td><?php echo $row ['first_name'] . $row ['last_name']?></td>
+                        <td><?php echo $row ['first_name']. " " . $row ['last_name']?></td>
                         <td class="d-flex flex-row justify-content-evenly">
                             <a href="<?php echo $edit_link ?>"><i style="color:#56BBF1; font-size:25px;" class="fa-solid fa-pen-to-square"></i></a>
                             <a href="<?php echo $delete_link ?>"><i style="color:red; font-size:25px;" class="fa-solid fa-circle-minus"></i></a>

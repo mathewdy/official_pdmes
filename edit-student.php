@@ -1,13 +1,12 @@
 <?php
 ob_start();
 include('connection.php');
-// session_start();
-// if(empty($_SESSION['username'])){
-//     echo "<script>window.location.href='login.php'</script>";
-// }
-
-// error_reporting(E_ERROR & E_WARNING);
+session_start();
+if(empty($_SESSION['username'])){
+    echo "<script>window.location.href='login.php'</script>";
+}
 // $lrn = $_SESSION['lrn'];
+// echo $lrn;
 // if(empty($_SESSION['lrn'])){
 //   echo "<script>window,location.href='addrecord.php' </script>";
 // }
@@ -16,38 +15,96 @@ include('connection.php');
 // $query_lrn = "SELECT * FROM learners_personal_infos WHERE lrn = '$lrn' ";
 // $run_query_lrn = mysqli_query($conn,$query_lrn);
 
-// if(isset($_GET['sid'])){
-//     foreach ($_GET as $encrypting_lrn => $encrypt_lrn){
-//         $decrypt_lrn = $_GET[$encrypting_lrn] = base64_decode(urldecode($encrypt_lrn));
-//         $decrypted_lrn = ((($decrypt_lrn*859475)/5977)/123456789);
-//         }
+error_reporting(E_ERROR & E_WARNING);
+
+
+if(isset($_GET['sid'])){
+  foreach ($_GET as $encrypting_lrn => $encrypt_lrn){
+    $decrypt_lrn = $_GET[$encrypting_lrn] = base64_decode(urldecode($encrypt_lrn));
+    $decrypted_lrn = ((($decrypt_lrn*987654)/56789)/12345678911);
+  }
     
-//     if(empty($_GET['sid'])){    //lrn verification starts here
-//         echo "<script>alert('LRN not found');
-//         window.location = 'index.php';</script>";
-//         exit();
-//     }
-//     $verify_lrn = "SELECT learners_personal_infos.lrn FROM `learners_personal_infos` WHERE lrn = '$decrypted_lrn'";
-//     $query_request = mysqli_query($conn, $verify_lrn) or die (mysqli_error($conn));
-//     if(mysqli_num_rows($query_request) == 0){
-//             echo "
-//             <script type = 'text/javascript'>
-//             window.location = 'index.php';
-//             </script>";
-//             exit();
-//     } 
-    // echo $decrypted_lrn . '<br>';
-    // inalis ko muna palatandaan mo lang naman to jd
+    if(empty($_GET['sid'])){    //lrn verification starts here
+        echo "<script>alert('LRN not found');
+        window.location = 'home.php';</script>";
+        exit();
+    }
+    $verify_lrn = "SELECT learners_personal_infos.lrn FROM `learners_personal_infos` WHERE lrn = '$decrypted_lrn'";
+    $query_request = mysqli_query($conn, $verify_lrn) or die (mysqli_error($conn));
+    if(mysqli_num_rows($query_request) == 0){
+            echo "
+            <script type = 'text/javascript'>
+            window.location = 'home.php';
+            </script>";
+            exit();
+    }
+  }
 
 
 ?>
 
 <?php include 'includes/header.php';?>
 <link rel="stylesheet" href="src/css/phase-style.css">
+<link rel="stylesheet" href="src/css/modal-email.css">
 <?php include 'includes/topnav.php';?>
 <?php include 'includes/pre-load.php'; ?>
+<div class="container-fluid text-end py-1" style="background:#c0c0c0;">
+    <!-- Button trigger modal -->
+    <a href="" class="btn btn-small btn-danger pdf-toggler">Generate PDF</a>
+    <button type="button" class="btn btn-small btn-primary text-white toggler" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Send via Email
+    </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="sendemail.php" method="POST" enctype="multipart/form-data" >
+            <span class="d-flex">
+                <span class="input-group-text d-none" id="To">To</span>
+                <input class="" type="email" name="email" placeholder="Recipient" required>
+            </span>
+            <hr class="featurette-divider p-0 m-0">
+            <input class="" type="text" name="subject" placeholder="Subject" required>
+            <hr class="featurette-divider p-0 m-0">
+            <span class="row pt-3 px-2">
+                <span class="d-flex align-items-center col-lg-6">
+                    <label for="">LRN</label>
+                    <input type="text" name="lrn" required>    
+                </span>
+                <div class="d-flex flex-row align-items-center col-lg-6">
+                <label class="w-25" for="">Grade Level</label>
+                <select name="grade_level" class="form-select form-select-sm" id="" required>
+                    <option value="">-Select-</option>
+                    <option value="preparatory">Preparatory</option>
+                    <option value="grade1">Grade 1</option>
+                    <option value="grade2">Grade 2</option>
+                    <option value="grade3">Grade 3</option>
+                    <option value="grade4">Grade 4</option>
+                    <option value="grade5">Grade 5</option>
+                    <option value="grade6">Grade 6</option>
+                </select>
+                </div>
+                <span class="py-5" style="margin:5em 2px 1px 2px;">
+                    <input class="custom-file-input" type="file" name="file" accept= "application/pdf" required>
+                </span>
+            </span>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <input class="btn btn-success" type="submit" name="submit" value="Send">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-xl bg-white">
-    <form novalidate action="new-edit-students.php" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
+    <form novalidate action="" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
     <fieldset class="pb-5">
         <section class="form-top d-flex flex-row justify-content-around align-items-center">
           <img src="src/images/DepEd.png" width="120" height="120" alt="">
@@ -66,7 +123,7 @@ include('connection.php');
             <?php
             $sql_student_info = "SELECT * FROM learners_personal_infos
             LEFT JOIN eligibility_for_elementary_school_enrollment on eligibility_for_elementary_school_enrollment.lrn = learners_personal_infos.lrn
-            WHERE learners_personal_infos.lrn = '109857060083'";
+            WHERE learners_personal_infos.lrn = '$decrypted_lrn'";
             $query_student_info = mysqli_query($conn, $sql_student_info);
             $rows = mysqli_fetch_array($query_student_info);
             $credentials = explode(',',$rows['credential_presented']);
@@ -151,7 +208,7 @@ include('connection.php');
                 </span>
                 <span class="hstack d-flex align-items-center justify-content-start">
                     <label for="">School ID:</label>
-                    <input type="text" name="efese_school_id" 
+                    <input type="text" name="efese_school_id"  id="dash"
                     value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" required>
                 </span>
                 <span class="hstack d-flex align-items-center">
@@ -173,7 +230,7 @@ include('connection.php');
                   value="<?php if(empty($rows['rating'])){ echo "";}else{ echo $rows['rating'];}?>" required>
                 </span>
                 <span>
-                  <label for="">Date of Examination/Assessment (dd/mm/yyyy):</label>
+                  <label for="">Date of Examination/Assessment (mm/dd/yyyy):</label>
                   <input type="date" name="date_of_assessment" value="<?php echo strftime('%Y-%m-%d', strtotime($rows['date_of_assessment']));?>" id=""> 
                   
                   <input type="checkbox" class="form-check-input" name="efese_others" value="1"
@@ -205,7 +262,7 @@ include('connection.php');
         <!-- PHASE 1 OF SCHOLASTIC RECORDS -->
         <?php
           $phase1_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '109857060083' AND phase = '1'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '1'";
           $query_phase1_scholastic_records = mysqli_query($conn, $phase1_scholastic_records) or die (mysqli_error($conn,));
           $rows = mysqli_fetch_array($query_phase1_scholastic_records);
           ?>
@@ -216,7 +273,7 @@ include('connection.php');
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase1_sr_school_id" 
+          <input type="text" name="phase1_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -233,7 +290,7 @@ include('connection.php');
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase1_sr_region" 
+          <input type="text" class="w-50" name="phase1_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -250,7 +307,7 @@ include('connection.php');
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase1_sr_school_year" 
+          <input type="text" class="w-50" name="phase1_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -288,7 +345,7 @@ include('connection.php');
           <tr>
             <?php
             $phase1_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '1'";
             $query_phase1_mother_tounge = mysqli_query($conn, $phase1_mother_tounge) or die (mysqli_error($conn));
             
@@ -310,13 +367,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '1'";
             $query_phase1_finalrating_mother_tounge = mysqli_query($conn, $phase1_finalrating_mother_tounge);
             if(mysqli_num_rows($query_phase1_finalrating_mother_tounge) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_mother_tounge);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -327,7 +384,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '2'";
             $query_phase1_filipino = mysqli_query($conn, $phase1_filipino) or die (mysqli_error($conn));
             
@@ -349,13 +406,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '1'";
             $query_phase1_finalrating_filipino = mysqli_query($conn, $phase1_finalrating_filipino);
             if(mysqli_num_rows($query_phase1_finalrating_filipino) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_filipino);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -364,7 +421,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '3'";
             $query_phase1_english = mysqli_query($conn, $phase1_english) or die (mysqli_error($conn));
             
@@ -386,13 +443,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '1'";
             $query_phase1_finalrating_english = mysqli_query($conn, $phase1_finalrating_english);
             if(mysqli_num_rows($query_phase1_finalrating_english) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -401,7 +458,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '4'";
             $query_phase1_math = mysqli_query($conn, $phase1_math) or die (mysqli_error($conn));
             
@@ -423,13 +480,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '1'";
             $query_phase1_finalrating_math = mysqli_query($conn, $phase1_finalrating_math);
             if(mysqli_num_rows($query_phase1_finalrating_math) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_math);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -440,7 +497,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '5'";
             $query_phase1_science = mysqli_query($conn, $phase1_science) or die (mysqli_error($conn));
             
@@ -462,13 +519,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '1'";
             $query_phase1_finalrating_science = mysqli_query($conn, $phase1_finalrating_science);
             if(mysqli_num_rows($query_phase1_finalrating_science) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_science);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -479,7 +536,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '6'";
             $query_phase1_araling_panlipunan= mysqli_query($conn, $phase1_araling_panlipunan) or die (mysqli_error($conn));
             
@@ -501,13 +558,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '1'";
             $query_phase1_finalrating_araling_panlipunan= mysqli_query($conn, $phase1_finalrating_araling_panlipunan);
             if(mysqli_num_rows($query_phase1_finalrating_araling_panlipunan) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_araling_panlipunan);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -518,7 +575,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '7'";
             $query_phase1_epp_tle= mysqli_query($conn, $phase1_epp_tle) or die (mysqli_error($conn));
             
@@ -540,13 +597,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '1'";
             $query_phase1_finalrating_epp_tle= mysqli_query($conn, $phase1_finalrating_epp_tle);
             if(mysqli_num_rows($query_phase1_finalrating_epp_tle) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_epp_tle);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -557,7 +614,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '8'";
             $query_phase1_mapeh= mysqli_query($conn, $phase1_mapeh) or die (mysqli_error($conn));
             
@@ -578,13 +635,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '1'";
             $query_phase1_finalrating_mapeh= mysqli_query($conn, $phase1_finalrating_mapeh);
             if(mysqli_num_rows($query_phase1_finalrating_mapeh) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_mapeh);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -595,7 +652,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '9'";
             $query_phase1_music= mysqli_query($conn, $phase1_music) or die (mysqli_error($conn));
             
@@ -617,13 +674,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '1'";
             $query_phase1_finalrating_music= mysqli_query($conn, $phase1_finalrating_music);
             if(mysqli_num_rows($query_phase1_finalrating_music) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_music);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -634,7 +691,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '10'";
             $query_phase1_art= mysqli_query($conn, $phase1_art) or die (mysqli_error($conn));
             
@@ -656,13 +713,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '1'";
             $query_phase1_finalrating_art= mysqli_query($conn, $phase1_finalrating_art);
             if(mysqli_num_rows($query_phase1_finalrating_art) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_art);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -673,7 +730,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '11'";
             $query_phase1_pe= mysqli_query($conn, $phase1_pe) or die (mysqli_error($conn));
             
@@ -695,13 +752,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '1'";
             $query_phase1_finalrating_pe= mysqli_query($conn, $phase1_finalrating_pe);
             if(mysqli_num_rows($query_phase1_finalrating_pe) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_pe);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -712,7 +769,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '12'";
             $query_phase1_health= mysqli_query($conn, $phase1_health) or die (mysqli_error($conn));
             
@@ -734,13 +791,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '1'";
             $query_phase1_finalrating_health= mysqli_query($conn, $phase1_finalrating_health);
             if(mysqli_num_rows($query_phase1_finalrating_health) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_health);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -751,7 +808,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '13'";
             $query_phase1_esp= mysqli_query($conn, $phase1_esp) or die (mysqli_error($conn));
             
@@ -773,13 +830,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '1'";
             $query_phase1_finalrating_esp= mysqli_query($conn, $phase1_finalrating_esp);
             if(mysqli_num_rows($query_phase1_finalrating_esp) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_esp);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -790,7 +847,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '14'";
             $query_phase1_arabic_lang= mysqli_query($conn, $phase1_arabic_lang) or die (mysqli_error($conn));
             
@@ -812,13 +869,13 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '1'";
             $query_phase1_finalrating_arabic_lang= mysqli_query($conn, $phase1_finalrating_arabic_lang);
             if(mysqli_num_rows($query_phase1_finalrating_arabic_lang) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_arabic_lang);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -829,7 +886,7 @@ include('connection.php');
           <tr>
           <?php
             $phase1_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '1' AND student_grades.subject_id = '15'";
             $query_phase1_islamic_values= mysqli_query($conn, $phase1_islamic_values) or die (mysqli_error($conn));
             
@@ -851,24 +908,23 @@ include('connection.php');
             ?>
             <?php
             $phase1_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '1'";
             $query_phase1_finalrating_islamic_values= mysqli_query($conn, $phase1_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase1_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase1_finalrating_islamic_values);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
           <?php } ?>
           </tr>
-
-          
+        
           <tr>
             <?php
             $phase1_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '109857060083' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND phase = '1'";
             $query_phase1_general_average = mysqli_query($conn, $phase1_general_average);
             ?>
             <td class="text-start fw-bold">General Average</td>
@@ -886,6 +942,24 @@ include('connection.php');
             <td></td>
             <td></td>
           <?php }?>
+          <?php
+          $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+          WHERE phase = '1' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+          $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+          ?>
+          <td>
+            <?php
+            $rows = mysqli_fetch_array($run_total_remarks_phase1);
+            if($rows['final_rating'] == 0){
+              echo "";
+            }else if($rows['total_remarks'] >= 3){
+              echo "RETAINED";
+            }else if ($rows['total_remarks'] == 2){
+              echo "REMEDIAL";
+            }else if($rows['total_remarks'] <= 1){
+              echo "PROMOTED";
+            }?>
+          </td>
           </tr>
         </tbody>
       </table>
@@ -894,7 +968,7 @@ include('connection.php');
   
         <?php
         $phase1_remedial_classes_dates = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '1'";
         $query_phase1_remedial_classes_dates = mysqli_query($conn, $phase1_remedial_classes_dates);
         if(mysqli_num_rows($query_phase1_remedial_classes_dates) > 0){
           $row = mysqli_fetch_array($query_phase1_remedial_classes_dates);
@@ -907,11 +981,15 @@ include('connection.php');
               <span class="d-flex flex-row justify-content-between">
                 <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase1_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase1_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase1_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase1_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -926,7 +1004,7 @@ include('connection.php');
         </thead>
         <?php
         $phase1_remedial_classes_term1 = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '1' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '1' AND term = '1'";
         $query_phase1_remedial_classes_term1 = mysqli_query($conn, $phase1_remedial_classes_term1) or die (mysqli_error($conn));
         $remedial_classes_term1 = mysqli_fetch_array($query_phase1_remedial_classes_term1);
         ?>
@@ -945,7 +1023,7 @@ include('connection.php');
           </tr>
           <?php
           $phase1_remedial_classes_term2 = "SELECT * FROM remedial_classes
-          WHERE lrn = '109857060083' AND phase = '1' AND term = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '1' AND term = '2'";
           $query_phase1_remedial_classes_term2 = mysqli_query($conn, $phase1_remedial_classes_term2) or die (mysqli_error($conn));
           $remedial_classes_term2 = mysqli_fetch_array($query_phase1_remedial_classes_term2);
         ?>
@@ -1016,7 +1094,7 @@ include('connection.php');
         <!-- PHASE 2 OF SCHOLASTIC RECORDS -->
           <?php
           $phase2_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '109857060083' AND phase = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '2'";
           $query_phase2_scholastic_records = mysqli_query($conn, $phase2_scholastic_records) or die (mysqli_error($conn,));
           $rows = mysqli_fetch_array($query_phase2_scholastic_records);
           ?>
@@ -1027,7 +1105,7 @@ include('connection.php');
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase2_sr_school_id" 
+          <input type="text" name="phase2_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -1044,7 +1122,7 @@ include('connection.php');
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase2_sr_region" 
+          <input type="text" class="w-50" name="phase2_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -1061,7 +1139,7 @@ include('connection.php');
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase2_sr_school_year" 
+          <input type="text" class="w-50" name="phase2_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -1099,7 +1177,7 @@ include('connection.php');
           <tr>
             <?php
             $phase2_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '1'";
             $query_phase2_mother_tounge = mysqli_query($conn, $phase2_mother_tounge) or die (mysqli_error($conn));
             
@@ -1121,13 +1199,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '2'";
             $query_phase2_finalrating_mother_tounge = mysqli_query($conn, $phase2_finalrating_mother_tounge);
             if(mysqli_num_rows($query_phase2_finalrating_mother_tounge) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_mother_tounge);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1138,7 +1216,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '2'";
             $query_phase2_filipino = mysqli_query($conn, $phase2_filipino) or die (mysqli_error($conn));
             
@@ -1160,13 +1238,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '2'";
             $query_phase2_finalrating_filipino = mysqli_query($conn, $phase2_finalrating_filipino);
             if(mysqli_num_rows($query_phase2_finalrating_filipino) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_filipino);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1175,7 +1253,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '3'";
             $query_phase2_english = mysqli_query($conn, $phase2_english) or die (mysqli_error($conn));
             
@@ -1197,13 +1275,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '2'";
             $query_phase2_finalrating_english = mysqli_query($conn, $phase2_finalrating_english);
             if(mysqli_num_rows($query_phase2_finalrating_english) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1214,7 +1292,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '4'";
             $query_phase2_math = mysqli_query($conn, $phase2_math) or die (mysqli_error($conn));
             
@@ -1236,13 +1314,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '2'";
             $query_phase2_finalrating_math = mysqli_query($conn, $phase2_finalrating_math);
             if(mysqli_num_rows($query_phase2_finalrating_math) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_math);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1253,7 +1331,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '5'";
             $query_phase2_science = mysqli_query($conn, $phase2_science) or die (mysqli_error($conn));
             
@@ -1275,13 +1353,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '2'";
             $query_phase2_finalrating_science = mysqli_query($conn, $phase2_finalrating_science);
             if(mysqli_num_rows($query_phase2_finalrating_science) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_science);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1292,7 +1370,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '6'";
             $query_phase2_araling_panlipunan= mysqli_query($conn, $phase2_araling_panlipunan) or die (mysqli_error($conn));
             
@@ -1314,13 +1392,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '2'";
             $query_phase2_finalrating_araling_panlipunan= mysqli_query($conn, $phase2_finalrating_araling_panlipunan);
             if(mysqli_num_rows($query_phase2_finalrating_araling_panlipunan) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_araling_panlipunan);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1331,7 +1409,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '7'";
             $query_phase2_epp_tle= mysqli_query($conn, $phase2_epp_tle) or die (mysqli_error($conn));
             
@@ -1353,13 +1431,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '2'";
             $query_phase2_finalrating_epp_tle= mysqli_query($conn, $phase2_finalrating_epp_tle);
             if(mysqli_num_rows($query_phase2_finalrating_epp_tle) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_epp_tle);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1370,7 +1448,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '8'";
             $query_phase2_mapeh= mysqli_query($conn, $phase2_mapeh) or die (mysqli_error($conn));
             
@@ -1391,13 +1469,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '2'";
             $query_phase2_finalrating_mapeh= mysqli_query($conn, $phase2_finalrating_mapeh);
             if(mysqli_num_rows($query_phase2_finalrating_mapeh) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_mapeh);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1408,7 +1486,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '9'";
             $query_phase2_music= mysqli_query($conn, $phase2_music) or die (mysqli_error($conn));
             
@@ -1430,13 +1508,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '2'";
             $query_phase2_finalrating_music= mysqli_query($conn, $phase2_finalrating_music);
             if(mysqli_num_rows($query_phase2_finalrating_music) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_music);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1447,7 +1525,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '10'";
             $query_phase2_art= mysqli_query($conn, $phase2_art) or die (mysqli_error($conn));
             
@@ -1469,13 +1547,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '2'";
             $query_phase2_finalrating_art= mysqli_query($conn, $phase2_finalrating_art);
             if(mysqli_num_rows($query_phase2_finalrating_art) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_art);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1486,7 +1564,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '11'";
             $query_phase2_pe= mysqli_query($conn, $phase2_pe) or die (mysqli_error($conn));
             
@@ -1508,13 +1586,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '2'";
             $query_phase2_finalrating_pe= mysqli_query($conn, $phase2_finalrating_pe);
             if(mysqli_num_rows($query_phase2_finalrating_pe) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_pe);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1525,7 +1603,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '12'";
             $query_phase2_health= mysqli_query($conn, $phase2_health) or die (mysqli_error($conn));
             
@@ -1547,13 +1625,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '2'";
             $query_phase2_finalrating_health= mysqli_query($conn, $phase2_finalrating_health);
             if(mysqli_num_rows($query_phase2_finalrating_health) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_health);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1564,7 +1642,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '13'";
             $query_phase2_esp= mysqli_query($conn, $phase2_esp) or die (mysqli_error($conn));
             
@@ -1586,13 +1664,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '2'";
             $query_phase2_finalrating_esp= mysqli_query($conn, $phase2_finalrating_esp);
             if(mysqli_num_rows($query_phase2_finalrating_esp) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_esp);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1603,7 +1681,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '14'";
             $query_phase2_arabic_lang= mysqli_query($conn, $phase2_arabic_lang) or die (mysqli_error($conn));
             
@@ -1625,13 +1703,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '2'";
             $query_phase2_finalrating_arabic_lang= mysqli_query($conn, $phase2_finalrating_arabic_lang);
             if(mysqli_num_rows($query_phase2_finalrating_arabic_lang) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_arabic_lang);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1642,7 +1720,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '2' AND student_grades.subject_id = '15'";
             $query_phase2_islamic_values= mysqli_query($conn, $phase2_islamic_values) or die (mysqli_error($conn));
             
@@ -1664,13 +1742,13 @@ include('connection.php');
             ?>
             <?php
             $phase2_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '2'";
             $query_phase2_finalrating_islamic_values= mysqli_query($conn, $phase2_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase2_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase2_finalrating_islamic_values);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1681,7 +1759,7 @@ include('connection.php');
           <tr>
           <?php
             $phase2_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '109857060083' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND phase = '2'";
             $query_phase2_general_average = mysqli_query($conn, $phase2_general_average);
             ?>
             <td class="text-start fw-bold">General Average</td>
@@ -1698,7 +1776,22 @@ include('connection.php');
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
           <?php }?>
+          <td><?php
+          $sql_total_remarks_phase2 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+          WHERE phase = '2' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+          $run_total_remarks_phase2 = mysqli_query($conn,$sql_total_remarks_phase2);
+          $rows = mysqli_fetch_array($run_total_remarks_phase2);
+            if($rows['final_rating'] == 0){
+              echo "";
+            }else if($rows['total_remarks'] >= 3){
+              echo "RETAINED";
+            }else if ($rows['total_remarks'] == 2){
+                echo "REMEDIAL";
+            }else if($rows['total_remarks'] <= 1){
+                echo "PROMOTED";
+            }?></td>
           </tr>
         </tbody>
       </table>
@@ -1707,7 +1800,7 @@ include('connection.php');
   
 <?php
         $phase2_remedial_classes_dates = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '2'";
         $query_phase2_remedial_classes_dates = mysqli_query($conn, $phase2_remedial_classes_dates);
         if(mysqli_num_rows($query_phase2_remedial_classes_dates) > 0){
           $row = mysqli_fetch_array($query_phase2_remedial_classes_dates);
@@ -1718,13 +1811,17 @@ include('connection.php');
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase2_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase2_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase2_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase2_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -1739,7 +1836,7 @@ include('connection.php');
         </thead>
         <?php
         $phase2_remedial_classes_term1 = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '2' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '2' AND term = '1'";
         $query_phase2_remedial_classes_term1 = mysqli_query($conn, $phase2_remedial_classes_term1) or die (mysqli_error($conn));
         $remedial_classes_term1 = mysqli_fetch_array($query_phase2_remedial_classes_term1);
         ?>
@@ -1758,7 +1855,7 @@ include('connection.php');
           </tr>
           <?php
           $phase2_remedial_classes_term2 = "SELECT * FROM remedial_classes
-          WHERE lrn = '109857060083' AND phase = '2' AND term = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '2' AND term = '2'";
           $query_phase2_remedial_classes_term2 = mysqli_query($conn, $phase2_remedial_classes_term2) or die (mysqli_error($conn));
           $remedial_classes_term2 = mysqli_fetch_array($query_phase2_remedial_classes_term2);
         ?>
@@ -1829,7 +1926,7 @@ include('connection.php');
         <!-- PHASE 3 OF SCHOLASTIC RECORDS -->
         <?php
           $phase3_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '109857060083' AND phase = '3'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '3'";
           $query_phase3_scholastic_records = mysqli_query($conn, $phase3_scholastic_records) or die (mysqli_error($conn,));
           $rows = mysqli_fetch_array($query_phase3_scholastic_records);
           ?>
@@ -1840,7 +1937,7 @@ include('connection.php');
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase3_sr_school_id" 
+          <input type="text" name="phase3_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -1857,7 +1954,7 @@ include('connection.php');
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase3_sr_region" 
+          <input type="text" class="w-50" name="phase3_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -1874,7 +1971,7 @@ include('connection.php');
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase3_sr_school_year" 
+          <input type="text" class="w-50" name="phase3_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -1912,7 +2009,7 @@ include('connection.php');
           <tr>
             <?php
             $phase3_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '1'";
             $query_phase3_mother_tounge = mysqli_query($conn, $phase3_mother_tounge) or die (mysqli_error($conn));
             
@@ -1934,13 +2031,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '3'";
             $query_phase3_finalrating_mother_tounge = mysqli_query($conn, $phase3_finalrating_mother_tounge);
             if(mysqli_num_rows($query_phase3_finalrating_mother_tounge) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_mother_tounge);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1951,7 +2048,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '2'";
             $query_phase3_filipino = mysqli_query($conn, $phase3_filipino) or die (mysqli_error($conn));
             
@@ -1973,13 +2070,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '3'";
             $query_phase3_finalrating_filipino = mysqli_query($conn, $phase3_finalrating_filipino);
             if(mysqli_num_rows($query_phase3_finalrating_filipino) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_filipino);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -1990,7 +2087,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '3'";
             $query_phase3_english = mysqli_query($conn, $phase3_english) or die (mysqli_error($conn));
             
@@ -2012,13 +2109,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '3'";
             $query_phase3_finalrating_english = mysqli_query($conn, $phase3_finalrating_english);
             if(mysqli_num_rows($query_phase3_finalrating_english) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2029,7 +2126,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '4'";
             $query_phase3_math = mysqli_query($conn, $phase3_math) or die (mysqli_error($conn));
             
@@ -2051,13 +2148,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '3'";
             $query_phase3_finalrating_math = mysqli_query($conn, $phase3_finalrating_math);
             if(mysqli_num_rows($query_phase3_finalrating_math) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_math);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2068,7 +2165,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '5'";
             $query_phase3_science = mysqli_query($conn, $phase3_science) or die (mysqli_error($conn));
             
@@ -2090,13 +2187,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '3'";
             $query_phase3_finalrating_science = mysqli_query($conn, $phase3_finalrating_science);
             if(mysqli_num_rows($query_phase3_finalrating_science) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_science);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2107,7 +2204,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '6'";
             $query_phase3_araling_panlipunan= mysqli_query($conn, $phase3_araling_panlipunan) or die (mysqli_error($conn));
             
@@ -2129,13 +2226,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '3'";
             $query_phase3_finalrating_araling_panlipunan= mysqli_query($conn, $phase3_finalrating_araling_panlipunan);
             if(mysqli_num_rows($query_phase3_finalrating_araling_panlipunan) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_araling_panlipunan);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2146,7 +2243,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '7'";
             $query_phase3_epp_tle= mysqli_query($conn, $phase3_epp_tle) or die (mysqli_error($conn));
             
@@ -2168,13 +2265,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '3'";
             $query_phase3_finalrating_epp_tle= mysqli_query($conn, $phase3_finalrating_epp_tle);
             if(mysqli_num_rows($query_phase3_finalrating_epp_tle) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_epp_tle);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2185,7 +2282,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '8'";
             $query_phase3_mapeh= mysqli_query($conn, $phase3_mapeh) or die (mysqli_error($conn));
             
@@ -2206,13 +2303,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '3'";
             $query_phase3_finalrating_mapeh= mysqli_query($conn, $phase3_finalrating_mapeh);
             if(mysqli_num_rows($query_phase3_finalrating_mapeh) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_mapeh);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2223,7 +2320,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '9'";
             $query_phase3_music= mysqli_query($conn, $phase3_music) or die (mysqli_error($conn));
             
@@ -2245,13 +2342,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '3'";
             $query_phase3_finalrating_music= mysqli_query($conn, $phase3_finalrating_music);
             if(mysqli_num_rows($query_phase3_finalrating_music) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_music);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2262,7 +2359,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '10'";
             $query_phase3_art= mysqli_query($conn, $phase3_art) or die (mysqli_error($conn));
             
@@ -2284,13 +2381,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '3'";
             $query_phase3_finalrating_art= mysqli_query($conn, $phase3_finalrating_art);
             if(mysqli_num_rows($query_phase3_finalrating_art) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_art);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2301,7 +2398,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '11'";
             $query_phase3_pe= mysqli_query($conn, $phase3_pe) or die (mysqli_error($conn));
             
@@ -2323,13 +2420,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '3'";
             $query_phase3_finalrating_pe= mysqli_query($conn, $phase3_finalrating_pe);
             if(mysqli_num_rows($query_phase3_finalrating_pe) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_pe);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2340,7 +2437,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '12'";
             $query_phase3_health= mysqli_query($conn, $phase3_health) or die (mysqli_error($conn));
             
@@ -2362,13 +2459,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '3'";
             $query_phase3_finalrating_health= mysqli_query($conn, $phase3_finalrating_health);
             if(mysqli_num_rows($query_phase3_finalrating_health) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_health);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2379,7 +2476,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '13'";
             $query_phase3_esp= mysqli_query($conn, $phase3_esp) or die (mysqli_error($conn));
             
@@ -2401,13 +2498,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '3'";
             $query_phase3_finalrating_esp= mysqli_query($conn, $phase3_finalrating_esp);
             if(mysqli_num_rows($query_phase3_finalrating_esp) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_esp);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2418,7 +2515,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '14'";
             $query_phase3_arabic_lang= mysqli_query($conn, $phase3_arabic_lang) or die (mysqli_error($conn));
             
@@ -2440,13 +2537,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '3'";
             $query_phase3_finalrating_arabic_lang= mysqli_query($conn, $phase3_finalrating_arabic_lang);
             if(mysqli_num_rows($query_phase3_finalrating_arabic_lang) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_arabic_lang);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2457,7 +2554,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '3' AND student_grades.subject_id = '15'";
             $query_phase3_islamic_values= mysqli_query($conn, $phase3_islamic_values) or die (mysqli_error($conn));
             
@@ -2479,13 +2576,13 @@ include('connection.php');
             ?>
             <?php
             $phase3_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '3'";
             $query_phase3_finalrating_islamic_values= mysqli_query($conn, $phase3_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase3_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase3_finalrating_islamic_values);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2494,7 +2591,7 @@ include('connection.php');
           <tr>
           <?php
             $phase3_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '109857060083' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND phase = '3'";
             $query_phase3_general_average = mysqli_query($conn, $phase3_general_average);
             ?>
             <td class="text-start fw-bold">General Average</td>
@@ -2511,7 +2608,22 @@ include('connection.php');
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
           <?php }?>
+          <td><?php
+          $sql_total_remarks_phase3 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+          WHERE phase = '3' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+          $run_total_remarks_phase3 = mysqli_query($conn,$sql_total_remarks_phase3);
+          $rows = mysqli_fetch_array($run_total_remarks_phase3);
+            if($rows['final_rating'] == 0){
+              echo "";
+            }else if($rows['total_remarks'] >= 3){
+              echo "RETAINED";
+            }else if ($rows['total_remarks'] == 2){
+                echo "REMEDIAL";
+            }else if($rows['total_remarks'] <= 1){
+                echo "PROMOTED";
+            }?></td>
           </tr>
         </tbody>
       </table>
@@ -2520,7 +2632,7 @@ include('connection.php');
   
         <?php
         $phase3_remedial_classes_dates = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '3'";
         $query_phase3_remedial_classes_dates = mysqli_query($conn, $phase3_remedial_classes_dates);
         if(mysqli_num_rows($query_phase3_remedial_classes_dates) > 0){
           $row = mysqli_fetch_array($query_phase3_remedial_classes_dates);
@@ -2531,13 +2643,17 @@ include('connection.php');
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase3_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase3_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase3_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase3_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -2552,7 +2668,7 @@ include('connection.php');
         </thead>
         <?php
         $phase3_remedial_classes_term1 = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '3' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '3' AND term = '1'";
         $query_phase3_remedial_classes_term1 = mysqli_query($conn, $phase3_remedial_classes_term1) or die (mysqli_error($conn));
         $remedial_classes_term1 = mysqli_fetch_array($query_phase3_remedial_classes_term1);
         ?>
@@ -2571,7 +2687,7 @@ include('connection.php');
           </tr>
           <?php
           $phase3_remedial_classes_term2 = "SELECT * FROM remedial_classes
-          WHERE lrn = '109857060083' AND phase = '3' AND term = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '3' AND term = '2'";
           $query_phase3_remedial_classes_term2 = mysqli_query($conn, $phase3_remedial_classes_term2) or die (mysqli_error($conn));
           $remedial_classes_term2 = mysqli_fetch_array($query_phase3_remedial_classes_term2);
         ?>
@@ -2640,7 +2756,7 @@ include('connection.php');
         <!-- PHASE 4 OF SCHOLASTIC RECORDS -->
         <?php
           $phase4_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '109857060083' AND phase = '4'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '4'";
           $query_phase4_scholastic_records = mysqli_query($conn, $phase4_scholastic_records) or die (mysqli_error($conn,));
           $rows = mysqli_fetch_array($query_phase4_scholastic_records);
           ?>
@@ -2651,7 +2767,7 @@ include('connection.php');
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase4_sr_school_id" 
+          <input type="text" name="phase4_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -2668,7 +2784,7 @@ include('connection.php');
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase4_sr_region" 
+          <input type="text" class="w-50" name="phase4_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -2685,7 +2801,7 @@ include('connection.php');
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase4_sr_school_year" 
+          <input type="text" class="w-50" name="phase4_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -2723,7 +2839,7 @@ include('connection.php');
           <tr>
             <?php
             $phase4_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '1'";
             $query_phase4_mother_tounge = mysqli_query($conn, $phase4_mother_tounge) or die (mysqli_error($conn));
             
@@ -2745,13 +2861,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '4'";
             $query_phase4_finalrating_mother_tounge = mysqli_query($conn, $phase4_finalrating_mother_tounge);
             if(mysqli_num_rows($query_phase4_finalrating_mother_tounge) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_mother_tounge);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2762,7 +2878,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '2'";
             $query_phase4_filipino = mysqli_query($conn, $phase4_filipino) or die (mysqli_error($conn));
             
@@ -2784,13 +2900,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '4'";
             $query_phase4_finalrating_filipino = mysqli_query($conn, $phase4_finalrating_filipino);
             if(mysqli_num_rows($query_phase4_finalrating_filipino) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_filipino);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2799,7 +2915,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '3'";
             $query_phase4_english = mysqli_query($conn, $phase4_english) or die (mysqli_error($conn));
             
@@ -2821,13 +2937,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '4'";
             $query_phase4_finalrating_english = mysqli_query($conn, $phase4_finalrating_english);
             if(mysqli_num_rows($query_phase4_finalrating_english) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2838,7 +2954,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '4'";
             $query_phase4_math = mysqli_query($conn, $phase4_math) or die (mysqli_error($conn));
             
@@ -2860,13 +2976,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '4'";
             $query_phase4_finalrating_math = mysqli_query($conn, $phase4_finalrating_math);
             if(mysqli_num_rows($query_phase4_finalrating_math) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_math);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2877,7 +2993,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '5'";
             $query_phase4_science = mysqli_query($conn, $phase4_science) or die (mysqli_error($conn));
             
@@ -2899,13 +3015,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '4'";
             $query_phase4_finalrating_science = mysqli_query($conn, $phase4_finalrating_science);
             if(mysqli_num_rows($query_phase4_finalrating_science) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_science);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2916,7 +3032,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '6'";
             $query_phase4_araling_panlipunan= mysqli_query($conn, $phase4_araling_panlipunan) or die (mysqli_error($conn));
             
@@ -2938,13 +3054,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '4'";
             $query_phase4_finalrating_araling_panlipunan= mysqli_query($conn, $phase4_finalrating_araling_panlipunan);
             if(mysqli_num_rows($query_phase4_finalrating_araling_panlipunan) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_araling_panlipunan);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2955,7 +3071,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '7'";
             $query_phase4_epp_tle= mysqli_query($conn, $phase4_epp_tle) or die (mysqli_error($conn));
             
@@ -2977,13 +3093,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '4'";
             $query_phase4_finalrating_epp_tle= mysqli_query($conn, $phase4_finalrating_epp_tle);
             if(mysqli_num_rows($query_phase4_finalrating_epp_tle) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_epp_tle);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -2994,7 +3110,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '8'";
             $query_phase4_mapeh= mysqli_query($conn, $phase4_mapeh) or die (mysqli_error($conn));
             
@@ -3015,13 +3131,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '4'";
             $query_phase4_finalrating_mapeh= mysqli_query($conn, $phase4_finalrating_mapeh);
             if(mysqli_num_rows($query_phase4_finalrating_mapeh) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_mapeh);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3032,7 +3148,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '9'";
             $query_phase4_music= mysqli_query($conn, $phase4_music) or die (mysqli_error($conn));
             
@@ -3054,13 +3170,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '4'";
             $query_phase4_finalrating_music= mysqli_query($conn, $phase4_finalrating_music);
             if(mysqli_num_rows($query_phase4_finalrating_music) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_music);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3071,7 +3187,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '10'";
             $query_phase4_art= mysqli_query($conn, $phase4_art) or die (mysqli_error($conn));
             
@@ -3093,13 +3209,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '4'";
             $query_phase4_finalrating_art= mysqli_query($conn, $phase4_finalrating_art);
             if(mysqli_num_rows($query_phase4_finalrating_art) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_art);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3110,7 +3226,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '11'";
             $query_phase4_pe= mysqli_query($conn, $phase4_pe) or die (mysqli_error($conn));
             
@@ -3132,13 +3248,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '4'";
             $query_phase4_finalrating_pe= mysqli_query($conn, $phase4_finalrating_pe);
             if(mysqli_num_rows($query_phase4_finalrating_pe) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_pe);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3149,7 +3265,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '12'";
             $query_phase4_health= mysqli_query($conn, $phase4_health) or die (mysqli_error($conn));
             
@@ -3171,13 +3287,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '4'";
             $query_phase4_finalrating_health= mysqli_query($conn, $phase4_finalrating_health);
             if(mysqli_num_rows($query_phase4_finalrating_health) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_health);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3188,7 +3304,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '13'";
             $query_phase4_esp= mysqli_query($conn, $phase4_esp) or die (mysqli_error($conn));
             
@@ -3210,13 +3326,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '4'";
             $query_phase4_finalrating_esp= mysqli_query($conn, $phase4_finalrating_esp);
             if(mysqli_num_rows($query_phase4_finalrating_esp) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_esp);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3227,7 +3343,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '14'";
             $query_phase4_arabic_lang= mysqli_query($conn, $phase4_arabic_lang) or die (mysqli_error($conn));
             
@@ -3249,13 +3365,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '4'";
             $query_phase4_finalrating_arabic_lang= mysqli_query($conn, $phase4_finalrating_arabic_lang);
             if(mysqli_num_rows($query_phase4_finalrating_arabic_lang) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_arabic_lang);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3266,7 +3382,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '4' AND student_grades.subject_id = '15'";
             $query_phase4_islamic_values= mysqli_query($conn, $phase4_islamic_values) or die (mysqli_error($conn));
             
@@ -3288,13 +3404,13 @@ include('connection.php');
             ?>
             <?php
             $phase4_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '4'";
             $query_phase4_finalrating_islamic_values= mysqli_query($conn, $phase4_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase4_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase4_finalrating_islamic_values);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3305,7 +3421,7 @@ include('connection.php');
           <tr>
           <?php
             $phase4_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '109857060083' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND phase = '4'";
             $query_phase4_general_average = mysqli_query($conn, $phase4_general_average);
             ?>
             <td class="text-start fw-bold">General Average</td>
@@ -3322,7 +3438,22 @@ include('connection.php');
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
           <?php }?>
+          <td><?php
+          $sql_total_remarks_phase4 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+          WHERE phase = '4' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+          $run_total_remarks_phase4 = mysqli_query($conn,$sql_total_remarks_phase4);
+          $rows = mysqli_fetch_array($run_total_remarks_phase4);
+            if($rows['final_rating'] == 0){
+              echo "";
+            }else if($rows['total_remarks'] >= 3){
+              echo "RETAINED";
+            }else if ($rows['total_remarks'] == 2){
+                echo "REMEDIAL";
+            }else if($rows['total_remarks'] <= 1){
+                echo "PROMOTED";
+            }?></td>
           </tr>
         </tbody>
       </table>
@@ -3331,7 +3462,7 @@ include('connection.php');
   
         <?php
         $phase4_remedial_classes_dates = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '4'";
         $query_phase4_remedial_classes_dates = mysqli_query($conn, $phase4_remedial_classes_dates);
         if(mysqli_num_rows($query_phase4_remedial_classes_dates) > 0){
           $row = mysqli_fetch_array($query_phase4_remedial_classes_dates);
@@ -3342,13 +3473,17 @@ include('connection.php');
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase4_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase4_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase4_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase4_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -3363,7 +3498,7 @@ include('connection.php');
         </thead>
         <?php
         $phase4_remedial_classes_term1 = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '4' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '4' AND term = '1'";
         $query_phase4_remedial_classes_term1 = mysqli_query($conn, $phase4_remedial_classes_term1) or die (mysqli_error($conn));
         $remedial_classes_term1 = mysqli_fetch_array($query_phase4_remedial_classes_term1);
         ?>
@@ -3382,7 +3517,7 @@ include('connection.php');
           </tr>
           <?php
           $phase4_remedial_classes_term2 = "SELECT * FROM remedial_classes
-          WHERE lrn = '109857060083' AND phase = '4' AND term = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '4' AND term = '2'";
           $query_phase4_remedial_classes_term2 = mysqli_query($conn, $phase4_remedial_classes_term2) or die (mysqli_error($conn));
           $remedial_classes_term2 = mysqli_fetch_array($query_phase4_remedial_classes_term2);
         ?>
@@ -3457,7 +3592,7 @@ include('connection.php');
         <!-- PHASE 5 OF SCHOLASTIC RECORDS -->
         <?php
           $phase5_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '109857060083' AND phase = '5'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '5'";
           $query_phase5_scholastic_records = mysqli_query($conn, $phase5_scholastic_records) or die (mysqli_error($conn,));
           $rows = mysqli_fetch_array($query_phase5_scholastic_records);
           ?>
@@ -3468,7 +3603,7 @@ include('connection.php');
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase5_sr_school_id" 
+          <input type="text" name="phase5_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -3485,7 +3620,7 @@ include('connection.php');
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase5_sr_region" 
+          <input type="text" class="w-50" name="phase5_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -3502,7 +3637,7 @@ include('connection.php');
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase5_sr_school_year" 
+          <input type="text" class="w-50" name="phase5_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -3540,7 +3675,7 @@ include('connection.php');
           <tr>
             <?php
             $phase5_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '1'";
             $query_phase5_mother_tounge = mysqli_query($conn, $phase5_mother_tounge) or die (mysqli_error($conn));
             
@@ -3562,13 +3697,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '5'";
             $query_phase5_finalrating_mother_tounge = mysqli_query($conn, $phase5_finalrating_mother_tounge);
             if(mysqli_num_rows($query_phase5_finalrating_mother_tounge) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_mother_tounge);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3579,7 +3714,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '2'";
             $query_phase5_filipino = mysqli_query($conn, $phase5_filipino) or die (mysqli_error($conn));
             
@@ -3601,13 +3736,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '5'";
             $query_phase5_finalrating_filipino = mysqli_query($conn, $phase5_finalrating_filipino);
             if(mysqli_num_rows($query_phase5_finalrating_filipino) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_filipino);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3616,7 +3751,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '3'";
             $query_phase5_english = mysqli_query($conn, $phase5_english) or die (mysqli_error($conn));
             
@@ -3638,13 +3773,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '5'";
             $query_phase5_finalrating_english = mysqli_query($conn, $phase5_finalrating_english);
             if(mysqli_num_rows($query_phase5_finalrating_english) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3655,7 +3790,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '4'";
             $query_phase5_math = mysqli_query($conn, $phase5_math) or die (mysqli_error($conn));
             
@@ -3677,13 +3812,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '5'";
             $query_phase5_finalrating_math = mysqli_query($conn, $phase5_finalrating_math);
             if(mysqli_num_rows($query_phase5_finalrating_math) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_math);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3694,7 +3829,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '5'";
             $query_phase5_science = mysqli_query($conn, $phase5_science) or die (mysqli_error($conn));
             
@@ -3716,13 +3851,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '5'";
             $query_phase5_finalrating_science = mysqli_query($conn, $phase5_finalrating_science);
             if(mysqli_num_rows($query_phase5_finalrating_science) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_science);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3733,7 +3868,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '6'";
             $query_phase5_araling_panlipunan= mysqli_query($conn, $phase5_araling_panlipunan) or die (mysqli_error($conn));
             
@@ -3755,13 +3890,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '5'";
             $query_phase5_finalrating_araling_panlipunan= mysqli_query($conn, $phase5_finalrating_araling_panlipunan);
             if(mysqli_num_rows($query_phase5_finalrating_araling_panlipunan) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_araling_panlipunan);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3772,7 +3907,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '7'";
             $query_phase5_epp_tle= mysqli_query($conn, $phase5_epp_tle) or die (mysqli_error($conn));
             
@@ -3794,13 +3929,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '5'";
             $query_phase5_finalrating_epp_tle= mysqli_query($conn, $phase5_finalrating_epp_tle);
             if(mysqli_num_rows($query_phase5_finalrating_epp_tle) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_epp_tle);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3811,7 +3946,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '8'";
             $query_phase5_mapeh= mysqli_query($conn, $phase5_mapeh) or die (mysqli_error($conn));
             
@@ -3832,13 +3967,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '5'";
             $query_phase5_finalrating_mapeh= mysqli_query($conn, $phase5_finalrating_mapeh);
             if(mysqli_num_rows($query_phase5_finalrating_mapeh) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_mapeh);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3847,7 +3982,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '9'";
             $query_phase5_music= mysqli_query($conn, $phase5_music) or die (mysqli_error($conn));
             
@@ -3869,13 +4004,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '5'";
             $query_phase5_finalrating_music= mysqli_query($conn, $phase5_finalrating_music);
             if(mysqli_num_rows($query_phase5_finalrating_music) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_music);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3886,7 +4021,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '10'";
             $query_phase5_art= mysqli_query($conn, $phase5_art) or die (mysqli_error($conn));
             
@@ -3908,13 +4043,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '5'";
             $query_phase5_finalrating_art= mysqli_query($conn, $phase5_finalrating_art);
             if(mysqli_num_rows($query_phase5_finalrating_art) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_art);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3925,7 +4060,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '11'";
             $query_phase5_pe= mysqli_query($conn, $phase5_pe) or die (mysqli_error($conn));
             
@@ -3947,13 +4082,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '5'";
             $query_phase5_finalrating_pe= mysqli_query($conn, $phase5_finalrating_pe);
             if(mysqli_num_rows($query_phase5_finalrating_pe) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_pe);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -3964,7 +4099,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '12'";
             $query_phase5_health= mysqli_query($conn, $phase5_health) or die (mysqli_error($conn));
             
@@ -3986,13 +4121,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '5'";
             $query_phase5_finalrating_health= mysqli_query($conn, $phase5_finalrating_health);
             if(mysqli_num_rows($query_phase5_finalrating_health) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_health);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4003,7 +4138,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '13'";
             $query_phase5_esp= mysqli_query($conn, $phase5_esp) or die (mysqli_error($conn));
             
@@ -4025,13 +4160,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '5'";
             $query_phase5_finalrating_esp= mysqli_query($conn, $phase5_finalrating_esp);
             if(mysqli_num_rows($query_phase5_finalrating_esp) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_esp);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4042,7 +4177,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '14'";
             $query_phase5_arabic_lang= mysqli_query($conn, $phase5_arabic_lang) or die (mysqli_error($conn));
             
@@ -4064,13 +4199,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '5'";
             $query_phase5_finalrating_arabic_lang= mysqli_query($conn, $phase5_finalrating_arabic_lang);
             if(mysqli_num_rows($query_phase5_finalrating_arabic_lang) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_arabic_lang);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4081,7 +4216,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '5' AND student_grades.subject_id = '15'";
             $query_phase5_islamic_values= mysqli_query($conn, $phase5_islamic_values) or die (mysqli_error($conn));
             
@@ -4103,13 +4238,13 @@ include('connection.php');
             ?>
             <?php
             $phase5_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '5'";
             $query_phase5_finalrating_islamic_values= mysqli_query($conn, $phase5_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase5_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase5_finalrating_islamic_values);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4120,7 +4255,7 @@ include('connection.php');
           <tr>
           <?php
             $phase5_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '109857060083' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND phase = '5'";
             $query_phase5_general_average = mysqli_query($conn, $phase5_general_average);
             ?>
             <td class="text-start fw-bold">General Average</td>
@@ -4137,8 +4272,22 @@ include('connection.php');
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
           <?php }?>
-          </tr>
+          <td><?php
+          $sql_total_remarks_phase5 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+          WHERE phase = '5' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+          $run_total_remarks_phase5 = mysqli_query($conn,$sql_total_remarks_phase5);
+          $rows = mysqli_fetch_array($run_total_remarks_phase5);
+            if($rows['final_rating'] == 0){
+              echo "";
+            }else if($rows['total_remarks'] >= 3){
+              echo "RETAINED";
+            }else if ($rows['total_remarks'] == 2){
+                echo "REMEDIAL";
+            }else if($rows['total_remarks'] <= 1){
+                echo "PROMOTED";
+            }?></td>
         </tbody>
       </table>
 
@@ -4146,7 +4295,7 @@ include('connection.php');
   
         <?php
         $phase5_remedial_classes_dates = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '5'";
         $query_phase5_remedial_classes_dates = mysqli_query($conn, $phase5_remedial_classes_dates);
         if(mysqli_num_rows($query_phase5_remedial_classes_dates) > 0){
           $row = mysqli_fetch_array($query_phase5_remedial_classes_dates);
@@ -4157,13 +4306,17 @@ include('connection.php');
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase5_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase5_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase5_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase5_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -4178,7 +4331,7 @@ include('connection.php');
         </thead>
         <?php
         $phase5_remedial_classes_term1 = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '5' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '5' AND term = '1'";
         $query_phase5_remedial_classes_term1 = mysqli_query($conn, $phase5_remedial_classes_term1) or die (mysqli_error($conn));
         $remedial_classes_term1 = mysqli_fetch_array($query_phase5_remedial_classes_term1);
         ?>
@@ -4197,7 +4350,7 @@ include('connection.php');
           </tr>
           <?php
           $phase5_remedial_classes_term2 = "SELECT * FROM remedial_classes
-          WHERE lrn = '109857060083' AND phase = '5' AND term = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '5' AND term = '2'";
           $query_phase5_remedial_classes_term2 = mysqli_query($conn, $phase5_remedial_classes_term2) or die (mysqli_error($conn));
           $remedial_classes_term2 = mysqli_fetch_array($query_phase5_remedial_classes_term2);
         ?>
@@ -4266,7 +4419,7 @@ include('connection.php');
         <!-- PHASE 6 OF SCHOLASTIC RECORDS -->
         <?php
           $phase6_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '109857060083' AND phase = '6'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '6'";
           $query_phase6_scholastic_records = mysqli_query($conn, $phase6_scholastic_records) or die (mysqli_error($conn,));
           $rows = mysqli_fetch_array($query_phase6_scholastic_records);
           ?>
@@ -4277,7 +4430,7 @@ include('connection.php');
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase6_sr_school_id" 
+          <input type="text" name="phase6_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -4294,7 +4447,7 @@ include('connection.php');
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase6_sr_region" 
+          <input type="text" class="w-50" name="phase6_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -4311,7 +4464,7 @@ include('connection.php');
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase6_sr_school_year" 
+          <input type="text" class="w-50" name="phase6_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -4349,7 +4502,7 @@ include('connection.php');
           <tr>
             <?php
             $phase6_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '1'";
             $query_phase6_mother_tounge = mysqli_query($conn, $phase6_mother_tounge) or die (mysqli_error($conn));
             
@@ -4371,13 +4524,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '6'";
             $query_phase6_finalrating_mother_tounge = mysqli_query($conn, $phase6_finalrating_mother_tounge);
             if(mysqli_num_rows($query_phase6_finalrating_mother_tounge) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_mother_tounge);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4388,7 +4541,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '2'";
             $query_phase6_filipino = mysqli_query($conn, $phase6_filipino) or die (mysqli_error($conn));
             
@@ -4410,13 +4563,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '6'";
             $query_phase6_finalrating_filipino = mysqli_query($conn, $phase6_finalrating_filipino);
             if(mysqli_num_rows($query_phase6_finalrating_filipino) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_filipino);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4425,7 +4578,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '3'";
             $query_phase6_english = mysqli_query($conn, $phase6_english) or die (mysqli_error($conn));
             
@@ -4447,13 +4600,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '6'";
             $query_phase6_finalrating_english = mysqli_query($conn, $phase6_finalrating_english);
             if(mysqli_num_rows($query_phase6_finalrating_english) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4464,7 +4617,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '4'";
             $query_phase6_math = mysqli_query($conn, $phase6_math) or die (mysqli_error($conn));
             
@@ -4486,13 +4639,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '6'";
             $query_phase6_finalrating_math = mysqli_query($conn, $phase6_finalrating_math);
             if(mysqli_num_rows($query_phase6_finalrating_math) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_math);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4503,7 +4656,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '5'";
             $query_phase6_science = mysqli_query($conn, $phase6_science) or die (mysqli_error($conn));
             
@@ -4525,13 +4678,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '6'";
             $query_phase6_finalrating_science = mysqli_query($conn, $phase6_finalrating_science);
             if(mysqli_num_rows($query_phase6_finalrating_science) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_science);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4542,7 +4695,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '6'";
             $query_phase6_araling_panlipunan= mysqli_query($conn, $phase6_araling_panlipunan) or die (mysqli_error($conn));
             
@@ -4564,13 +4717,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '6'";
             $query_phase6_finalrating_araling_panlipunan= mysqli_query($conn, $phase6_finalrating_araling_panlipunan);
             if(mysqli_num_rows($query_phase6_finalrating_araling_panlipunan) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_araling_panlipunan);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4581,7 +4734,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '7'";
             $query_phase6_epp_tle= mysqli_query($conn, $phase6_epp_tle) or die (mysqli_error($conn));
             
@@ -4603,13 +4756,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '6'";
             $query_phase6_finalrating_epp_tle= mysqli_query($conn, $phase6_finalrating_epp_tle);
             if(mysqli_num_rows($query_phase6_finalrating_epp_tle) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_epp_tle);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4620,7 +4773,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '8'";
             $query_phase6_mapeh= mysqli_query($conn, $phase6_mapeh) or die (mysqli_error($conn));
             
@@ -4641,13 +4794,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '6'";
             $query_phase6_finalrating_mapeh= mysqli_query($conn, $phase6_finalrating_mapeh);
             if(mysqli_num_rows($query_phase6_finalrating_mapeh) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_mapeh);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4658,7 +4811,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '9'";
             $query_phase6_music= mysqli_query($conn, $phase6_music) or die (mysqli_error($conn));
             
@@ -4680,13 +4833,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '6'";
             $query_phase6_finalrating_music= mysqli_query($conn, $phase6_finalrating_music);
             if(mysqli_num_rows($query_phase6_finalrating_music) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_music);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4697,7 +4850,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '10'";
             $query_phase6_art= mysqli_query($conn, $phase6_art) or die (mysqli_error($conn));
             
@@ -4719,13 +4872,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '6'";
             $query_phase6_finalrating_art= mysqli_query($conn, $phase6_finalrating_art);
             if(mysqli_num_rows($query_phase6_finalrating_art) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_art);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4736,7 +4889,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '11'";
             $query_phase6_pe= mysqli_query($conn, $phase6_pe) or die (mysqli_error($conn));
             
@@ -4758,13 +4911,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '6'";
             $query_phase6_finalrating_pe= mysqli_query($conn, $phase6_finalrating_pe);
             if(mysqli_num_rows($query_phase6_finalrating_pe) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_pe);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4775,7 +4928,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '12'";
             $query_phase6_health= mysqli_query($conn, $phase6_health) or die (mysqli_error($conn));
             
@@ -4797,13 +4950,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '6'";
             $query_phase6_finalrating_health= mysqli_query($conn, $phase6_finalrating_health);
             if(mysqli_num_rows($query_phase6_finalrating_health) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_health);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4814,7 +4967,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '13'";
             $query_phase6_esp= mysqli_query($conn, $phase6_esp) or die (mysqli_error($conn));
             
@@ -4836,13 +4989,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '6'";
             $query_phase6_finalrating_esp= mysqli_query($conn, $phase6_finalrating_esp);
             if(mysqli_num_rows($query_phase6_finalrating_esp) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_esp);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4853,7 +5006,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '14'";
             $query_phase6_arabic_lang= mysqli_query($conn, $phase6_arabic_lang) or die (mysqli_error($conn));
             
@@ -4875,13 +5028,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '6'";
             $query_phase6_finalrating_arabic_lang= mysqli_query($conn, $phase6_finalrating_arabic_lang);
             if(mysqli_num_rows($query_phase6_finalrating_arabic_lang) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_arabic_lang);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4892,7 +5045,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '6' AND student_grades.subject_id = '15'";
             $query_phase6_islamic_values= mysqli_query($conn, $phase6_islamic_values) or die (mysqli_error($conn));
             
@@ -4914,13 +5067,13 @@ include('connection.php');
             ?>
             <?php
             $phase6_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '6'";
             $query_phase6_finalrating_islamic_values= mysqli_query($conn, $phase6_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase6_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase6_finalrating_islamic_values);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -4931,7 +5084,7 @@ include('connection.php');
           <tr>
           <?php
             $phase6_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '109857060083' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND phase = '6'";
             $query_phase6_general_average = mysqli_query($conn, $phase6_general_average);
             ?>
             <td class="text-start fw-bold">General Average</td>
@@ -4948,7 +5101,22 @@ include('connection.php');
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
           <?php }?>
+          <td><?php
+          $sql_total_remarks_phase6 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+          WHERE phase = '6' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+          $run_total_remarks_phase6 = mysqli_query($conn,$sql_total_remarks_phase6);
+          $rows = mysqli_fetch_array($run_total_remarks_phase6);
+            if($rows['final_rating'] == 0){
+              echo "";
+            }else if($rows['total_remarks'] >= 3){
+              echo "RETAINED";
+            }else if ($rows['total_remarks'] == 2){
+                echo "REMEDIAL";
+            }else if($rows['total_remarks'] <= 1){
+                echo "PROMOTED";
+            }?></td>
           </tr>
         </tbody>
       </table>
@@ -4957,7 +5125,7 @@ include('connection.php');
   
         <?php
         $phase6_remedial_classes_dates = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '6'";
         $query_phase6_remedial_classes_dates = mysqli_query($conn, $phase6_remedial_classes_dates);
         if(mysqli_num_rows($query_phase6_remedial_classes_dates) > 0){
           $row = mysqli_fetch_array($query_phase6_remedial_classes_dates);
@@ -4968,13 +5136,17 @@ include('connection.php');
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase6_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase6_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase6_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase6_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -4989,7 +5161,7 @@ include('connection.php');
         </thead>
         <?php
         $phase6_remedial_classes_term1 = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '6' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '6' AND term = '1'";
         $phase6_remedial_classes_term1 = mysqli_query($conn, $phase6_remedial_classes_term1) or die (mysqli_error($conn));
         $remedial_classes_term1 = mysqli_fetch_array($phase6_remedial_classes_term1);
         ?>
@@ -5008,7 +5180,7 @@ include('connection.php');
           </tr>
           <?php
           $phase6_remedial_classes_term2 = "SELECT * FROM remedial_classes
-          WHERE lrn = '109857060083' AND phase = '6' AND term = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '6' AND term = '2'";
           $phase6_remedial_classes_term2 = mysqli_query($conn, $phase6_remedial_classes_term2) or die (mysqli_error($conn));
           $remedial_classes_term2 = mysqli_fetch_array($phase6_remedial_classes_term2);
         ?>
@@ -5079,7 +5251,7 @@ include('connection.php');
         <!-- PHASE 7 OF SCHOLASTIC RECORDS -->
         <?php
           $phase7_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '109857060083' AND phase = '7'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '7'";
           $query_phase7_scholastic_records = mysqli_query($conn, $phase7_scholastic_records) or die (mysqli_error($conn,));
           $rows = mysqli_fetch_array($query_phase7_scholastic_records);
           ?>
@@ -5090,7 +5262,7 @@ include('connection.php');
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase7_sr_school_id" 
+          <input type="text" name="phase7_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -5107,7 +5279,7 @@ include('connection.php');
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase7_sr_region" 
+          <input type="text" class="w-50" name="phase7_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -5124,7 +5296,7 @@ include('connection.php');
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase7_sr_school_year" 
+          <input type="text" class="w-50" name="phase7_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -5162,7 +5334,7 @@ include('connection.php');
           <tr>
             <?php
             $phase7_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '1'";
             $query_phase7_mother_tounge = mysqli_query($conn, $phase7_mother_tounge) or die (mysqli_error($conn));
             
@@ -5184,13 +5356,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '7'";
             $query_phase7_finalrating_mother_tounge = mysqli_query($conn, $phase7_finalrating_mother_tounge);
             if(mysqli_num_rows($query_phase7_finalrating_mother_tounge) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_mother_tounge);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5201,7 +5373,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '2'";
             $query_phase7_filipino = mysqli_query($conn, $phase7_filipino) or die (mysqli_error($conn));
             
@@ -5223,13 +5395,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '7'";
             $query_phase7_finalrating_filipino = mysqli_query($conn, $phase7_finalrating_filipino);
             if(mysqli_num_rows($query_phase7_finalrating_filipino) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_filipino);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5238,7 +5410,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '3'";
             $query_phase7_english = mysqli_query($conn, $phase7_english) or die (mysqli_error($conn));
             
@@ -5260,13 +5432,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '7'";
             $query_phase7_finalrating_english = mysqli_query($conn, $phase7_finalrating_english);
             if(mysqli_num_rows($query_phase7_finalrating_english) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5277,7 +5449,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '4'";
             $query_phase7_math = mysqli_query($conn, $phase7_math) or die (mysqli_error($conn));
             
@@ -5299,13 +5471,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '7'";
             $query_phase7_finalrating_math = mysqli_query($conn, $phase7_finalrating_math);
             if(mysqli_num_rows($query_phase7_finalrating_math) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_math);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5316,7 +5488,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '5'";
             $query_phase7_science = mysqli_query($conn, $phase7_science) or die (mysqli_error($conn));
             
@@ -5338,13 +5510,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '7'";
             $query_phase7_finalrating_science = mysqli_query($conn, $phase7_finalrating_science);
             if(mysqli_num_rows($query_phase7_finalrating_science) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_science);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5355,7 +5527,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '6'";
             $query_phase7_araling_panlipunan= mysqli_query($conn, $phase7_araling_panlipunan) or die (mysqli_error($conn));
             
@@ -5377,13 +5549,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '7'";
             $query_phase7_finalrating_araling_panlipunan= mysqli_query($conn, $phase7_finalrating_araling_panlipunan);
             if(mysqli_num_rows($query_phase7_finalrating_araling_panlipunan) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_araling_panlipunan);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5394,7 +5566,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '7'";
             $query_phase7_epp_tle= mysqli_query($conn, $phase7_epp_tle) or die (mysqli_error($conn));
             
@@ -5416,13 +5588,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '7'";
             $query_phase7_finalrating_epp_tle= mysqli_query($conn, $phase7_finalrating_epp_tle);
             if(mysqli_num_rows($query_phase7_finalrating_epp_tle) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_epp_tle);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5433,7 +5605,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '8'";
             $query_phase7_mapeh= mysqli_query($conn, $phase7_mapeh) or die (mysqli_error($conn));
             
@@ -5454,13 +5626,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '7'";
             $query_phase7_finalrating_mapeh= mysqli_query($conn, $phase7_finalrating_mapeh);
             if(mysqli_num_rows($query_phase7_finalrating_mapeh) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_mapeh);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5471,7 +5643,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '9'";
             $query_phase7_music= mysqli_query($conn, $phase7_music) or die (mysqli_error($conn));
             
@@ -5493,13 +5665,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '7'";
             $query_phase7_finalrating_music= mysqli_query($conn, $phase7_finalrating_music);
             if(mysqli_num_rows($query_phase7_finalrating_music) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_music);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5510,7 +5682,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '10'";
             $query_phase7_art= mysqli_query($conn, $phase7_art) or die (mysqli_error($conn));
             
@@ -5532,13 +5704,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '7'";
             $query_phase7_finalrating_art= mysqli_query($conn, $phase7_finalrating_art);
             if(mysqli_num_rows($query_phase7_finalrating_art) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_art);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5549,7 +5721,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '11'";
             $query_phase7_pe= mysqli_query($conn, $phase7_pe) or die (mysqli_error($conn));
             
@@ -5571,13 +5743,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '7'";
             $query_phase7_finalrating_pe= mysqli_query($conn, $phase7_finalrating_pe);
             if(mysqli_num_rows($query_phase7_finalrating_pe) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_pe);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5588,7 +5760,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '12'";
             $query_phase7_health= mysqli_query($conn, $phase7_health) or die (mysqli_error($conn));
             
@@ -5610,13 +5782,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '7'";
             $query_phase7_finalrating_health= mysqli_query($conn, $phase7_finalrating_health);
             if(mysqli_num_rows($query_phase7_finalrating_health) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_health);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5627,7 +5799,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '13'";
             $query_phase7_esp= mysqli_query($conn, $phase7_esp) or die (mysqli_error($conn));
             
@@ -5649,13 +5821,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '7'";
             $query_phase7_finalrating_esp= mysqli_query($conn, $phase7_finalrating_esp);
             if(mysqli_num_rows($query_phase7_finalrating_esp) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_esp);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5666,7 +5838,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '14'";
             $query_phase7_arabic_lang= mysqli_query($conn, $phase7_arabic_lang) or die (mysqli_error($conn));
             
@@ -5688,13 +5860,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '7'";
             $query_phase7_finalrating_arabic_lang= mysqli_query($conn, $phase7_finalrating_arabic_lang);
             if(mysqli_num_rows($query_phase7_finalrating_arabic_lang) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_arabic_lang);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5705,7 +5877,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '7' AND student_grades.subject_id = '15'";
             $query_phase7_islamic_values= mysqli_query($conn, $phase7_islamic_values) or die (mysqli_error($conn));
             
@@ -5727,13 +5899,13 @@ include('connection.php');
             ?>
             <?php
             $phase7_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '7'";
             $query_phase7_finalrating_islamic_values= mysqli_query($conn, $phase7_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase7_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase7_finalrating_islamic_values);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -5744,7 +5916,7 @@ include('connection.php');
           <tr>
           <?php
             $phase7_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '109857060083' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND phase = '7'";
             $query_phase7_general_average = mysqli_query($conn, $phase7_general_average);
             ?>
             <td class="text-start fw-bold">General Average</td>
@@ -5761,7 +5933,22 @@ include('connection.php');
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
           <?php }?>
+          <td><?php
+          $sql_total_remarks_phase7 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+          WHERE phase = '7' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+          $run_total_remarks_phase7 = mysqli_query($conn,$sql_total_remarks_phase7);
+          $rows = mysqli_fetch_array($run_total_remarks_phase7);
+            if($rows['final_rating'] == 0){
+              echo "";
+            }else if($rows['total_remarks'] >= 3){
+              echo "RETAINED";
+            }else if ($rows['total_remarks'] == 2){
+                echo "REMEDIAL";
+            }else if($rows['total_remarks'] <= 1){
+                echo "PROMOTED";
+            }?></td>
           </tr>
         </tbody>
       </table>
@@ -5770,7 +5957,7 @@ include('connection.php');
   
         <?php
         $phase7_remedial_classes_dates = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '7'";
         $query_phase7_remedial_classes_dates = mysqli_query($conn, $phase7_remedial_classes_dates);
         if(mysqli_num_rows($query_phase7_remedial_classes_dates) > 0){
           $row = mysqli_fetch_array($query_phase7_remedial_classes_dates);
@@ -5781,13 +5968,17 @@ include('connection.php');
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase7_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase7_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase7_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase7_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -5802,7 +5993,7 @@ include('connection.php');
         </thead>
         <?php
         $phase7_remedial_classes_term1 = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '7' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '7' AND term = '1'";
         $phase7_remedial_classes_term1 = mysqli_query($conn, $phase7_remedial_classes_term1) or die (mysqli_error($conn));
         $remedial_classes_term1 = mysqli_fetch_array($phase7_remedial_classes_term1);
         ?>
@@ -5821,7 +6012,7 @@ include('connection.php');
           </tr>
           <?php
           $phase7_remedial_classes_term2 = "SELECT * FROM remedial_classes
-          WHERE lrn = '109857060083' AND phase = '7' AND term = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '7' AND term = '2'";
           $phase7_remedial_classes_term2 = mysqli_query($conn, $phase7_remedial_classes_term2) or die (mysqli_error($conn));
           $remedial_classes_term2 = mysqli_fetch_array($phase7_remedial_classes_term2);
         ?>
@@ -5890,7 +6081,7 @@ include('connection.php');
         <!-- PHASE 8 OF SCHOLASTIC RECORDS -->
         <?php
           $phase8_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '109857060083' AND phase = '8'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '8'";
           $query_phase8_scholastic_records = mysqli_query($conn, $phase8_scholastic_records) or die (mysqli_error($conn,));
           $rows = mysqli_fetch_array($query_phase8_scholastic_records);
           ?>
@@ -5901,7 +6092,7 @@ include('connection.php');
         </span>
         <span>
           <label>School ID:</label>
-          <input type="text" name="phase8_sr_school_id" 
+          <input type="text" name="phase8_sr_school_id" id="dash"
           value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
         </span>
       </span>
@@ -5918,7 +6109,7 @@ include('connection.php');
         </span>
         <span class="text-end">
           <label>Region:</label>
-          <input type="text" class="w-50" name="phase8_sr_region" 
+          <input type="text" class="w-50" name="phase8_sr_region" id="dash"
           value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
         </span>
       </span>
@@ -5935,7 +6126,7 @@ include('connection.php');
         </span>
         <span>
           <label>School Year:</label>
-          <input type="text" class="w-50" name="phase8_sr_school_year" 
+          <input type="text" class="w-50" name="phase8_sr_school_year" id="dash"
           value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
         </span>
       </span>
@@ -5973,7 +6164,7 @@ include('connection.php');
           <tr>
             <?php
             $phase8_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '1'";
             $query_phase8_mother_tounge = mysqli_query($conn, $phase8_mother_tounge) or die (mysqli_error($conn));
             
@@ -5995,13 +6186,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '8'";
             $query_phase8_finalrating_mother_tounge = mysqli_query($conn, $phase8_finalrating_mother_tounge);
             if(mysqli_num_rows($query_phase8_finalrating_mother_tounge) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_mother_tounge);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6012,7 +6203,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '2'";
             $query_phase8_filipino = mysqli_query($conn, $phase8_filipino) or die (mysqli_error($conn));
             
@@ -6034,13 +6225,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '8'";
             $query_phase8_finalrating_filipino = mysqli_query($conn, $phase8_finalrating_filipino);
             if(mysqli_num_rows($query_phase8_finalrating_filipino) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_filipino);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6049,7 +6240,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '3'";
             $query_phase8_english = mysqli_query($conn, $phase8_english) or die (mysqli_error($conn));
             
@@ -6071,13 +6262,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '8'";
             $query_phase8_finalrating_english = mysqli_query($conn, $phase8_finalrating_english);
             if(mysqli_num_rows($query_phase8_finalrating_english) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_english);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6088,7 +6279,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '4'";
             $query_phase8_math = mysqli_query($conn, $phase8_math) or die (mysqli_error($conn));
             
@@ -6110,13 +6301,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '8'";
             $query_phase8_finalrating_math = mysqli_query($conn, $phase8_finalrating_math);
             if(mysqli_num_rows($query_phase8_finalrating_math) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_math);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6127,7 +6318,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '5'";
             $query_phase8_science = mysqli_query($conn, $phase8_science) or die (mysqli_error($conn));
             
@@ -6149,13 +6340,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '8'";
             $query_phase8_finalrating_science = mysqli_query($conn, $phase8_finalrating_science);
             if(mysqli_num_rows($query_phase8_finalrating_science) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_science);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6166,7 +6357,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '6'";
             $query_phase8_araling_panlipunan= mysqli_query($conn, $phase8_araling_panlipunan) or die (mysqli_error($conn));
             
@@ -6188,13 +6379,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '8'";
             $query_phase8_finalrating_araling_panlipunan= mysqli_query($conn, $phase8_finalrating_araling_panlipunan);
             if(mysqli_num_rows($query_phase8_finalrating_araling_panlipunan) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_araling_panlipunan);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6205,7 +6396,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '7'";
             $query_phase8_epp_tle= mysqli_query($conn, $phase8_epp_tle) or die (mysqli_error($conn));
             
@@ -6227,13 +6418,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '8'";
             $query_phase8_finalrating_epp_tle= mysqli_query($conn, $phase8_finalrating_epp_tle);
             if(mysqli_num_rows($query_phase8_finalrating_epp_tle) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_epp_tle);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6244,7 +6435,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '8'";
             $query_phase8_mapeh= mysqli_query($conn, $phase8_mapeh) or die (mysqli_error($conn));
             
@@ -6265,13 +6456,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '8'";
             $query_phase8_finalrating_mapeh= mysqli_query($conn, $phase8_finalrating_mapeh);
             if(mysqli_num_rows($query_phase8_finalrating_mapeh) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_mapeh);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6282,7 +6473,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '9'";
             $query_phase8_music= mysqli_query($conn, $phase8_music) or die (mysqli_error($conn));
             
@@ -6304,13 +6495,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '8'";
             $query_phase8_finalrating_music= mysqli_query($conn, $phase8_finalrating_music);
             if(mysqli_num_rows($query_phase8_finalrating_music) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_music);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6321,7 +6512,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '10'";
             $query_phase8_art= mysqli_query($conn, $phase8_art) or die (mysqli_error($conn));
             
@@ -6343,13 +6534,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '8'";
             $query_phase8_finalrating_art= mysqli_query($conn, $phase8_finalrating_art);
             if(mysqli_num_rows($query_phase8_finalrating_art) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_art);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6360,7 +6551,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '11'";
             $query_phase8_pe= mysqli_query($conn, $phase8_pe) or die (mysqli_error($conn));
             
@@ -6382,13 +6573,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '8'";
             $query_phase8_finalrating_pe= mysqli_query($conn, $phase8_finalrating_pe);
             if(mysqli_num_rows($query_phase8_finalrating_pe) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_pe);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6399,7 +6590,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '12'";
             $query_phase8_health= mysqli_query($conn, $phase8_health) or die (mysqli_error($conn));
             
@@ -6421,13 +6612,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '8'";
             $query_phase8_finalrating_health= mysqli_query($conn, $phase8_finalrating_health);
             if(mysqli_num_rows($query_phase8_finalrating_health) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_health);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6438,7 +6629,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '13'";
             $query_phase8_esp= mysqli_query($conn, $phase8_esp) or die (mysqli_error($conn));
             
@@ -6460,13 +6651,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '8'";
             $query_phase8_finalrating_esp= mysqli_query($conn, $phase8_finalrating_esp);
             if(mysqli_num_rows($query_phase8_finalrating_esp) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_esp);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6477,7 +6668,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '14'";
             $query_phase8_arabic_lang= mysqli_query($conn, $phase8_arabic_lang) or die (mysqli_error($conn));
             
@@ -6499,13 +6690,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '8'";
             $query_phase8_finalrating_arabic_lang= mysqli_query($conn, $phase8_finalrating_arabic_lang);
             if(mysqli_num_rows($query_phase8_finalrating_arabic_lang) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_arabic_lang);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6516,7 +6707,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '109857060083' 
+            WHERE student_grades.lrn = '$decrypted_lrn' 
             AND student_grades.phase = '8' AND student_grades.subject_id = '15'";
             $query_phase8_islamic_values= mysqli_query($conn, $phase8_islamic_values) or die (mysqli_error($conn));
             
@@ -6538,13 +6729,13 @@ include('connection.php');
             ?>
             <?php
             $phase8_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '8'";
             $query_phase8_finalrating_islamic_values= mysqli_query($conn, $phase8_finalrating_islamic_values);
             if(mysqli_num_rows($query_phase8_finalrating_islamic_values) > 0){
             $final_rating = mysqli_fetch_array($query_phase8_finalrating_islamic_values);
             ?>
             <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if(empty($final_rating['remarks'])){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
             <?php }else{?>
             <td></td>
             <td></td>
@@ -6555,7 +6746,7 @@ include('connection.php');
           <tr>
           <?php
             $phase8_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '109857060083' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND phase = '8'";
             $query_phase8_general_average = mysqli_query($conn, $phase8_general_average);
             ?>
             <td class="text-start fw-bold">General Average</td>
@@ -6572,7 +6763,22 @@ include('connection.php');
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
           <?php }?>
+          <td><?php
+          $sql_total_remarks_phase8 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+          WHERE phase = '8' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+          $run_total_remarks_phase8 = mysqli_query($conn,$sql_total_remarks_phase8);
+          $rows = mysqli_fetch_array($run_total_remarks_phase8);
+            if($rows['final_rating'] == 0){
+              echo "";
+            }else if($rows['total_remarks'] >= 3){
+              echo "RETAINED";
+            }else if ($rows['total_remarks'] == 2){
+                echo "REMEDIAL";
+            }else if($rows['total_remarks'] <= 1){
+                echo "PROMOTED";
+            }?></td>
           </tr>
         </tbody>
       </table>
@@ -6581,7 +6787,7 @@ include('connection.php');
   
         <?php
         $phase8_remedial_classes_dates = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '8'";
         $query_phase8_remedial_classes_dates = mysqli_query($conn, $phase8_remedial_classes_dates);
         if(mysqli_num_rows($query_phase8_remedial_classes_dates) > 0){
           $row = mysqli_fetch_array($query_phase8_remedial_classes_dates);
@@ -6592,13 +6798,17 @@ include('connection.php');
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="date" class="datefrom" name="phase8_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="date" class="datefrom" name="phase8_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_from']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="date" class="dateto" name="phase8_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="date" class="dateto" name="phase8_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date_to']));
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -6613,7 +6823,7 @@ include('connection.php');
         </thead>
         <?php
         $phase8_remedial_classes_term1 = "SELECT * FROM remedial_classes
-        WHERE lrn = '109857060083' AND phase = '8' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '8' AND term = '1'";
         $phase8_remedial_classes_term1 = mysqli_query($conn, $phase8_remedial_classes_term1) or die (mysqli_error($conn));
         $remedial_classes_term1 = mysqli_fetch_array($phase8_remedial_classes_term1);
         ?>
@@ -6632,7 +6842,7 @@ include('connection.php');
           </tr>
           <?php
           $phase8_remedial_classes_term2 = "SELECT * FROM remedial_classes
-          WHERE lrn = '109857060083' AND phase = '8' AND term = '2'";
+          WHERE lrn = '$decrypted_lrn' AND phase = '8' AND term = '2'";
           $phase8_remedial_classes_term2 = mysqli_query($conn, $phase8_remedial_classes_term2) or die (mysqli_error($conn));
           $remedial_classes_term2 = mysqli_fetch_array($phase8_remedial_classes_term2);
         ?>
@@ -6698,39 +6908,52 @@ include('connection.php');
     </div>
     <div class="row pb-5" style="padding:0 14px;">
     <div class="col-lg-12 p-0">
+      <?php
+      $sql_phase1_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '1'";
+      $query_sql_phase1_certification = mysqli_query($conn, $sql_phase1_certification);
+      if(mysqli_num_rows($query_sql_phase1_certification) > 0){
+      $rows = mysqli_fetch_array($query_sql_phase1_certification);
+      ?>
         <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_name" 
+                        value="<?php echo $rows['name'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_lrn"
+                        value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;">
+                        <input type="text" name="phase1_c_grade"
+                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
-                        <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="" id="">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase1_c_school_name"
+                        value="<?php  echo $rows['name_of_school'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_school_id"
+                        value="<?php echo $rows['school_id']; ?>" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4">
+                        <input type="text" name="phase1_c_division"
+                        value="<?php echo $rows['division']; ?>" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
-                        <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase1_c_last_school_year_attended"
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -6738,13 +6961,17 @@ include('connection.php');
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text">
+                                <input type="date" name="phase1_c_date"
+                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text">
+                                <input type="text" name="phase1_c_name_of_principal"
+                                value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
+                                  echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -6754,40 +6981,41 @@ include('connection.php');
                 </div>
         </section>
     </div>
-    <div class="col-lg-12 p-0">
+    <?php }else{?>
+      <div class="col-lg-12 p-0">
         <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_lrn" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;">
+                        <input type="text" name="phase1_c_grade" size="4" style="width: auto;">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
-                        <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="" id="">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase1_c_school_name" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase1_c_school_id" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4">
+                        <input type="text" name="phase1_c_division" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
-                        <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase1_c_last_school_year_attended" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -6795,13 +7023,13 @@ include('connection.php');
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text">
+                                <input type="date" name="phase1_c_date">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text">
+                                <input type="text" name="phase1_c_name_of_principal">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -6811,40 +7039,54 @@ include('connection.php');
                 </div>
         </section>
     </div>
+    <?php }?>
     <div class="col-lg-12 p-0">
+      <?php
+      $sql_phase2_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '2'";
+      $query_sql_phase2_certification = mysqli_query($conn, $sql_phase2_certification);
+      if(mysqli_num_rows($query_sql_phase2_certification) > 0){
+      $rows = mysqli_fetch_array($query_sql_phase2_certification);
+      ?>
         <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase2_c_name" 
+                        value="<?php echo $rows['name'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase2_c_lrn"
+                        value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;">
+                        <input type="text" name="phase2_c_grade"
+                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
                     </span> 
                 </span>
-                <span class="d-flex flex-row justify-content-between align-items-center px-lg-4">
+                <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
-                        <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="" id="">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase2_c_school_name"
+                        value="<?php  echo $rows['name_of_school'];?>" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="phase2_c_school_id"
+                        value="<?php echo $rows['school_id']; ?>" id="">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4">
+                        <input type="text" name="phase2_c_division"
+                        value="<?php echo $rows['division']; ?>" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
-                        <label>Last School Year Attended:</label>
-                        <input type="text" name="" id="">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase2_c_last_school_year_attended"
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -6852,13 +7094,17 @@ include('connection.php');
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text">
+                                <input type="date" name="phase2_c_date"
+                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text">
+                                <input type="text" name="phase2_c_name_of_principal"
+                                value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
+                                  echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -6868,6 +7114,198 @@ include('connection.php');
                 </div>
         </section>
     </div>
+    <?php }else{?>
+      <div class="col-lg-12 p-0">
+        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <section class="certification-box">
+            <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
+                <span class="cert-card px-lg-4 ">
+                    <span class="d-flex flex-row align-items-center">
+                        <label>I CERTIFY that this is a true record of</label>
+                        <input type="text" name="phase2_c_name" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-end align-items-end">
+                        <label>with LRN</label>
+                        <input type="text" name="phase2_c_lrn" id="">
+                    </span>
+                    <span>
+                        <label>and that he/she is eligible for admission to Grade </label>
+                        <input type="text" name="phase2_c_grade" size="4" style="width: auto;">
+                    </span> 
+                </span>
+                <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
+                    <span class="d-flex flex-row align-items-center justify-content-end">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase2_c_school_name" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>School ID</label>
+                        <input type="text" name="phase2_c_school_id" id="">
+                    </span>
+                    <span>
+                        <label>Division</label>
+                        <input type="text" name="phase2_c_division" size="4">
+                    </span> 
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase2_c_last_school_year_attended" id="">
+                    </span>
+                </span>
+                <div class="container pt-5">
+                    <div class="row ">
+                        <div class="col-3">
+                            <span class="vstack d-flex flex-column-reverse text-center">
+                                <label for="" class="">Date</label>
+                                <input type="date" name="phase2_c_date">
+                            </span>
+                        </div>
+                        <div class="col-5">
+                            <span class="vstack d-flex flex-column-reverse">
+                                <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
+                                <input type="text" name="phase2_c_name_of_principal">
+                            </span>
+                        </div>
+                        <div class="col-4" style="display:grid; place-items:end;">
+                            <p style="font-size: 14px; letter-spacing:1px; font-weight:500; padding:0; margin:0;">(Affix School Seal here)</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <?php }?>
+    <div class="col-lg-12 p-0">
+      <?php
+      $sql_phase3_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '3'";
+      $query_sql_phase3_certification = mysqli_query($conn, $sql_phase3_certification);
+      if(mysqli_num_rows($query_sql_phase3_certification) > 0){
+      $rows = mysqli_fetch_array($query_sql_phase3_certification);
+      ?>
+        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <section class="certification-box">
+            <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
+                <span class="cert-card px-lg-4 ">
+                    <span class="d-flex flex-row align-items-center">
+                        <label>I CERTIFY that this is a true record of</label>
+                        <input type="text" name="phase3_c_name" 
+                        value="<?php echo $rows['name'];?>" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-end align-items-end">
+                        <label>with LRN</label>
+                        <input type="text" name="phase3_c_lrn"
+                        value="<?php echo $rows['lrn']; ?>" id="">
+                    </span>
+                    <span>
+                        <label>and that he/she is eligible for admission to Grade </label>
+                        <input type="text" name="phase3_c_grade"
+                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
+                    </span> 
+                </span>
+                <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
+                    <span class="d-flex flex-row align-items-center justify-content-end">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase3_c_school_name"
+                        value="<?php  echo $rows['name_of_school'];?>" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>School ID</label>
+                        <input type="text" name="phase3_c_school_id"
+                        value="<?php echo $rows['school_id']; ?>" id="">
+                    </span>
+                    <span>
+                        <label>Division</label>
+                        <input type="text" name="phase3_c_division"
+                        value="<?php echo $rows['division']; ?>" size="4">
+                    </span> 
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase3_c_last_school_year_attended"
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
+                    </span>
+                </span>
+                <div class="container pt-5">
+                    <div class="row ">
+                        <div class="col-3">
+                            <span class="vstack d-flex flex-column-reverse text-center">
+                                <label for="" class="">Date</label>
+                                <input type="date" name="phase3_c_date"
+                                value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
+                                }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
+                            </span>
+                        </div>
+                        <div class="col-5">
+                            <span class="vstack d-flex flex-column-reverse">
+                                <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
+                                <input type="text" name="phase3_c_name_of_principal"
+                                value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
+                                  echo "";}else{ echo $rows['name_of_principal'];} ?>">
+                            </span>
+                        </div>
+                        <div class="col-4" style="display:grid; place-items:end;">
+                            <p style="font-size: 14px; letter-spacing:1px; font-weight:500; padding:0; margin:0;">(Affix School Seal here)</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <?php }else{?>
+      <div class="col-lg-12 p-0">
+        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <section class="certification-box">
+            <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
+                <span class="cert-card px-lg-4 ">
+                    <span class="d-flex flex-row align-items-center">
+                        <label>I CERTIFY that this is a true record of</label>
+                        <input type="text" name="phase3_c_name" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-end align-items-end">
+                        <label>with LRN</label>
+                        <input type="text" name="phase3_c_lrn" id="">
+                    </span>
+                    <span>
+                        <label>and that he/she is eligible for admission to Grade </label>
+                        <input type="text" name="phase3_c_grade" size="4" style="width: auto;">
+                    </span> 
+                </span>
+                <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
+                    <span class="d-flex flex-row align-items-center justify-content-end">
+                        <label>School Name</label>
+                        <input type="text" style="width: auto;" name="phase3_c_school_name" id="">
+                    </span>
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>School ID</label>
+                        <input type="text" name="phase3_c_school_id" id="">
+                    </span>
+                    <span>
+                        <label>Division</label>
+                        <input type="text" name="phase3_c_division" size="4">
+                    </span> 
+                    <span class="hstack d-flex justify-content-center align-items-end">
+                        <label>Last School Year Attended</label>
+                        <input type="text" name="phase3_c_last_school_year_attended" id="">
+                    </span>
+                </span>
+                <div class="container pt-5">
+                    <div class="row ">
+                        <div class="col-3">
+                            <span class="vstack d-flex flex-column-reverse text-center">
+                                <label for="" class="">Date</label>
+                                <input type="date" name="phase3_c_date">
+                            </span>
+                        </div>
+                        <div class="col-5">
+                            <span class="vstack d-flex flex-column-reverse">
+                                <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
+                                <input type="text" name="phase3_c_name_of_principal">
+                            </span>
+                        </div>
+                        <div class="col-4" style="display:grid; place-items:end;">
+                            <p style="font-size: 14px; letter-spacing:1px; font-weight:500; padding:0; margin:0;">(Affix School Seal here)</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+    <?php }?>
     </div>
       <input type="button" name="previous" style="float:left;" class="previous-form btn btn-danger" value="Previous" /> 
       <input type="submit" name="update" style="float:right;" class="submitbtn btn btn-success" value="Submit">
@@ -6879,6 +7317,8 @@ include('connection.php');
 <!-- <script src="src/js/stepper.js"></script> -->
 <script src="src/js/number_limitation.js"></script>
 <script src="src/js/loading_screen.js"></script>
+<script src="src/js/bootstrap.js"></script>
+<script src="src/js/email.js"></script>
 <?php
 include 'includes/footer.php';
 ?>
@@ -6895,7 +7335,7 @@ if(isset($_POST['update'])){
     $first_name = ucwords($_POST['first_name']);
     $suffix = ucwords($_POST['suffix_name']);
     $middle_name = ucwords($_POST['middle_name']);
-    $birthday = $_POST['birthday'];
+    $birthday = date("Y-m-d", strtotime($_POST['birthday']));
     $sex = ucwords($_POST['sex']);
 
     // Eligibility for Elem School Enrollment
@@ -6903,7 +7343,7 @@ if(isset($_POST['update'])){
     $efese_school_id = strtoupper($_POST['efese_school_id']);
     $efese_address_of_school = strtoupper($_POST['efese_address_of_school']);
     $efese_rating = $_POST['efese_rating'];
-    $date_of_assessment = $_POST['date_of_assessment'];
+    $date_of_assessment = date("Y-m-d", strtotime($_POST['date_of_assessment']));
     $efese_specify = $_POST['efese_specify'];
     $efese_testing_center = strtoupper($_POST['efese_testing_center']);
     $efese_remarks = $_POST['efese_remarks'];
@@ -6929,6 +7369,20 @@ if(isset($_POST['update'])){
 
     // ARRAY, TERM 1-5 OF SCHOLASTIC RECORDS
     $sg_term = $_POST['sg_term'];
+
+    // ARRAY, CERTIFICATION PHASES (1-3)
+    $certification_phases = array(1, 2, 3);
+
+    // CERTIFICATION
+    $c_name = $_POST['c_name'];
+    $c_lrn = $_POST['c_lrn'];
+    $c_grade = $_POST['c_grade'];
+    $c_school_name = $_POST['c_school_name'];
+    $c_school_id = $_POST['c_school_id'];
+    $c_division = $_POST['c_division'];
+    $c_last_school_year_attended = $_POST['c_last_school_year_attended'];
+    $c_date =  date("Y-m-d", strtotime($_POST['c_date']));
+    $c_name_of_principal = $_POST['c_name_of_principal'];
 
     // PHASE 1 OF SCHOLASTIC RECORDS
     $phase1_sr_school = strtoupper($_POST['phase1_sr_school']);
@@ -6959,8 +7413,8 @@ if(isset($_POST['update'])){
     $phase1_islamic_values_grades = $_POST['phase1_islamic_values_grades'];
 
     // PHASE 1 REMEDIAL CLASSES
-    $phase1_date_from = $_POST['phase1_date_from'];
-    $phase1_date_to = $_POST['phase1_date_to'];
+    $phase1_date_from = date("Y-m-d", strtotime($_POST['phase1_date_from']));
+    $phase1_date_to = date("Y-m-d", strtotime($_POST['phase1_date_to']));
 
     // PHASE 1 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase1_learning_areas1 = $_POST['phase1_learning_areas1'];
@@ -7050,8 +7504,8 @@ if(isset($_POST['update'])){
     $phase2_islamic_values_grades = $_POST['phase2_islamic_values_grades'];
 
     // PHASE 2 REMEDIAL CLASSES
-    $phase2_date_from = $_POST['phase2_date_from'];
-    $phase2_date_to = $_POST['phase2_date_to'];
+    $phase2_date_from = date("Y-m-d", strtotime($_POST['phase2_date_from']));
+    $phase2_date_to = date("Y-m-d", strtotime($_POST['phase2_date_to']));
 
     // PHASE 2 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase2_learning_areas1 = $_POST['phase2_learning_areas1'];
@@ -7141,8 +7595,8 @@ if(isset($_POST['update'])){
     $phase3_islamic_values_grades = $_POST['phase3_islamic_values_grades'];
 
     // PHASE 3 REMEDIAL CLASSES
-    $phase3_date_from = $_POST['phase3_date_from'];
-    $phase3_date_to = $_POST['phase3_date_to'];
+    $phase3_date_from = date("Y-m-d", strtotime($_POST['phase3_date_from']));
+    $phase3_date_to = date("Y-m-d", strtotime($_POST['phase3_date_to']));
 
     // PHASE 3 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase3_learning_areas1 = $_POST['phase3_learning_areas1'];
@@ -7232,8 +7686,8 @@ if(isset($_POST['update'])){
     $phase4_islamic_values_grades = $_POST['phase4_islamic_values_grades'];
 
     // PHASE 4 REMEDIAL CLASSES
-    $phase4_date_from = $_POST['phase4_date_from'];
-    $phase4_date_to = $_POST['phase4_date_to'];
+    $phase4_date_from = date("Y-m-d", strtotime($_POST['phase4_date_from']));
+    $phase4_date_to = date("Y-m-d", strtotime($_POST['phase4_date_to']));
 
     // PHASE 4 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase4_learning_areas1 = $_POST['phase4_learning_areas1'];
@@ -7323,8 +7777,8 @@ if(isset($_POST['update'])){
     $phase5_islamic_values_grades = $_POST['phase5_islamic_values_grades'];
 
     // PHASE 5 REMEDIAL CLASSES
-    $phase5_date_from = $_POST['phase5_date_from'];
-    $phase5_date_to = $_POST['phase5_date_to'];
+    $phase5_date_from = date("Y-m-d", strtotime($_POST['phase5_date_from']));
+    $phase5_date_to = date("Y-m-d", strtotime($_POST['phase5_date_to']));
 
     // PHASE 5 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase5_learning_areas1 = $_POST['phase5_learning_areas1'];
@@ -7414,8 +7868,8 @@ if(isset($_POST['update'])){
     $phase6_islamic_values_grades = $_POST['phase6_islamic_values_grades'];
 
     // PHASE 6 REMEDIAL CLASSES
-    $phase6_date_from = $_POST['phase6_date_from'];
-    $phase6_date_to = $_POST['phase6_date_to'];
+    $phase6_date_from = date("Y-m-d", strtotime($_POST['phase6_date_from']));
+    $phase6_date_to = date("Y-m-d", strtotime($_POST['phase6_date_to']));
 
     // PHASE 6 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase6_learning_areas1 = $_POST['phase6_learning_areas1'];
@@ -7505,8 +7959,8 @@ if(isset($_POST['update'])){
     $phase7_islamic_values_grades = $_POST['phase7_islamic_values_grades'];
 
     // PHASE 7 REMEDIAL CLASSES
-    $phase7_date_from = $_POST['phase7_date_from'];
-    $phase7_date_to = $_POST['phase7_date_to'];
+    $phase7_date_from = date("Y-m-d", strtotime($_POST['phase7_date_from']));
+    $phase7_date_to = date("Y-m-d", strtotime($_POST['phase7_date_to']));
 
     // PHASE 7 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase7_learning_areas1 = $_POST['phase7_learning_areas1'];
@@ -7596,8 +8050,8 @@ if(isset($_POST['update'])){
     $phase8_islamic_values_grades = $_POST['phase8_islamic_values_grades'];
 
     // PHASE 8 REMEDIAL CLASSES
-    $phase8_date_from = $_POST['phase8_date_from'];
-    $phase8_date_to = $_POST['phase8_date_to'];
+    $phase8_date_from = date("Y-m-d", strtotime($_POST['phase8_date_from']));
+    $phase8_date_to = date("Y-m-d", strtotime($_POST['phase8_date_to']));
 
     // PHASE 8 REMEDIAL CLASSES LEARNING AREAS LINE 1
     $phase8_learning_areas1 = $_POST['phase8_learning_areas1'];
@@ -7720,7 +8174,7 @@ if(isset($_POST['update'])){
 
 
     // UPDATE OF PHASE 1 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS    
-    $phase1_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '1'";
     $query_phase1_check_mother_tounge_grade = mysqli_query($conn, $phase1_check_mother_tounge_grade);
     if(mysqli_num_rows($query_phase1_check_mother_tounge_grade) > 0){
@@ -7748,7 +8202,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '2'";
     $query_phase1_check_filipino_grade = mysqli_query($conn, $phase1_check_filipino_grade);
     if(mysqli_num_rows($query_phase1_check_filipino_grade) > 0){
@@ -7776,7 +8230,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '3'";
     $query_phase1_check_english_grade = mysqli_query($conn, $phase1_check_english_grade);
     if(mysqli_num_rows($query_phase1_check_english_grade) > 0){
@@ -7804,7 +8258,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '4'";
     $query_phase1_check_math_grade = mysqli_query($conn, $phase1_check_math_grade);
     if(mysqli_num_rows($query_phase1_check_math_grade) > 0){
@@ -7832,7 +8286,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '5'";
     $query_phase1_check_science_grade = mysqli_query($conn, $phase1_check_science_grade);
     if(mysqli_num_rows($query_phase1_check_science_grade) > 0){
@@ -7860,7 +8314,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '6'";
     $query_phase1_check_araling_panlipunan_grade = mysqli_query($conn, $phase1_check_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase1_check_araling_panlipunan_grade) > 0){
@@ -7888,7 +8342,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '7'";
     $query_phase1_check_epp_tle_grade = mysqli_query($conn, $phase1_check_epp_tle_grade);
     if(mysqli_num_rows($query_phase1_check_epp_tle_grade) > 0){
@@ -7916,7 +8370,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '9'";
     $query_phase1_check_music_grade = mysqli_query($conn, $phase1_check_music_grade);
     if(mysqli_num_rows($query_phase1_check_music_grade) > 0){
@@ -7944,7 +8398,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '10'";
     $query_phase1_check_art_grade = mysqli_query($conn, $phase1_check_art_grade);
     if(mysqli_num_rows($query_phase1_check_art_grade) > 0){
@@ -7972,7 +8426,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '11'";
     $query_phase1_check_pe_grade = mysqli_query($conn, $phase1_check_pe_grade);
     if(mysqli_num_rows($query_phase1_check_pe_grade) > 0){
@@ -8000,7 +8454,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '12'";
     $query_phase1_check_health_grade = mysqli_query($conn, $phase1_check_health_grade);
     if(mysqli_num_rows($query_phase1_check_health_grade) > 0){
@@ -8028,7 +8482,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '13'";
     $query_phase1_check_esp_grade = mysqli_query($conn, $phase1_check_esp_grade);
     if(mysqli_num_rows($query_phase1_check_esp_grade) > 0){
@@ -8056,7 +8510,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '14'";
     $query_phase1_check_arabic_lang_grade = mysqli_query($conn, $phase1_check_arabic_lang_grade);
     if(mysqli_num_rows($query_phase1_check_arabic_lang_grade) > 0){
@@ -8084,7 +8538,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase1_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '1'
+    $phase1_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '1'
     AND subject_id = '15'";
     $query_phase1_check_islamic_values_grade = mysqli_query($conn, $phase1_check_islamic_values_grade);
     if(mysqli_num_rows($query_phase1_check_islamic_values_grade) > 0){
@@ -8147,7 +8601,7 @@ if(isset($_POST['update'])){
 
 
     // UPDATE OF PHASE 2 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS    
-    $phase2_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '1'";
     $query_phase2_check_mother_tounge_grade = mysqli_query($conn, $phase2_check_mother_tounge_grade);
     if(mysqli_num_rows($query_phase2_check_mother_tounge_grade) > 0){
@@ -8175,7 +8629,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '2'";
     $query_phase2_check_filipino_grade = mysqli_query($conn, $phase2_check_filipino_grade);
     if(mysqli_num_rows($query_phase2_check_filipino_grade) > 0){
@@ -8203,7 +8657,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '3'";
     $query_phase2_check_english_grade = mysqli_query($conn, $phase2_check_english_grade);
     if(mysqli_num_rows($query_phase2_check_english_grade) > 0){
@@ -8231,7 +8685,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '4'";
     $query_phase2_check_math_grade = mysqli_query($conn, $phase2_check_math_grade);
     if(mysqli_num_rows($query_phase2_check_math_grade) > 0){
@@ -8259,7 +8713,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '5'";
     $query_phase2_check_science_grade = mysqli_query($conn, $phase2_check_science_grade);
     if(mysqli_num_rows($query_phase2_check_science_grade) > 0){
@@ -8287,7 +8741,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '6'";
     $query_phase2_check_araling_panlipunan_grade = mysqli_query($conn, $phase2_check_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase2_check_araling_panlipunan_grade) > 0){
@@ -8315,7 +8769,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '7'";
     $query_phase2_check_epp_tle_grade = mysqli_query($conn, $phase2_check_epp_tle_grade);
     if(mysqli_num_rows($query_phase2_check_epp_tle_grade) > 0){
@@ -8343,7 +8797,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '9'";
     $query_phase2_check_music_grade = mysqli_query($conn, $phase2_check_music_grade);
     if(mysqli_num_rows($query_phase2_check_music_grade) > 0){
@@ -8371,7 +8825,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '10'";
     $query_phase2_check_art_grade = mysqli_query($conn, $phase2_check_art_grade);
     if(mysqli_num_rows($query_phase2_check_art_grade) > 0){
@@ -8399,7 +8853,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '11'";
     $query_phase2_check_pe_grade = mysqli_query($conn, $phase2_check_pe_grade);
     if(mysqli_num_rows($query_phase2_check_pe_grade) > 0){
@@ -8427,7 +8881,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '12'";
     $query_phase2_check_health_grade = mysqli_query($conn, $phase2_check_health_grade);
     if(mysqli_num_rows($query_phase2_check_health_grade) > 0){
@@ -8455,7 +8909,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '13'";
     $query_phase2_check_esp_grade = mysqli_query($conn, $phase2_check_esp_grade);
     if(mysqli_num_rows($query_phase2_check_esp_grade) > 0){
@@ -8483,7 +8937,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '14'";
     $query_phase2_check_arabic_lang_grade = mysqli_query($conn, $phase2_check_arabic_lang_grade);
     if(mysqli_num_rows($query_phase2_check_arabic_lang_grade) > 0){
@@ -8511,7 +8965,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase2_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '2'
+    $phase2_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '2'
     AND subject_id = '15'";
     $query_phase2_check_islamic_values_grade = mysqli_query($conn, $phase2_check_islamic_values_grade);
     if(mysqli_num_rows($query_phase2_check_islamic_values_grade) > 0){
@@ -8574,7 +9028,7 @@ if(isset($_POST['update'])){
 
 
     // // UPDATE OF PHASE 3 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS    
-    $phase3_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '1'";
     $query_phase3_check_mother_tounge_grade = mysqli_query($conn, $phase3_check_mother_tounge_grade);
     if(mysqli_num_rows($query_phase3_check_mother_tounge_grade) > 0){
@@ -8602,7 +9056,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '2'";
     $query_phase3_check_filipino_grade = mysqli_query($conn, $phase3_check_filipino_grade);
     if(mysqli_num_rows($query_phase3_check_filipino_grade) > 0){
@@ -8630,7 +9084,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '3'";
     $query_phase3_check_english_grade = mysqli_query($conn, $phase3_check_english_grade);
     if(mysqli_num_rows($query_phase3_check_english_grade) > 0){
@@ -8658,7 +9112,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '4'";
     $query_phase3_check_math_grade = mysqli_query($conn, $phase3_check_math_grade);
     if(mysqli_num_rows($query_phase3_check_math_grade) > 0){
@@ -8686,7 +9140,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '5'";
     $query_phase3_check_science_grade = mysqli_query($conn, $phase3_check_science_grade);
     if(mysqli_num_rows($query_phase3_check_science_grade) > 0){
@@ -8714,7 +9168,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '6'";
     $query_phase3_check_araling_panlipunan_grade = mysqli_query($conn, $phase3_check_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase3_check_araling_panlipunan_grade) > 0){
@@ -8742,7 +9196,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '7'";
     $query_phase3_check_epp_tle_grade = mysqli_query($conn, $phase3_check_epp_tle_grade);
     if(mysqli_num_rows($query_phase3_check_epp_tle_grade) > 0){
@@ -8770,7 +9224,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '9'";
     $query_phase3_check_music_grade = mysqli_query($conn, $phase3_check_music_grade);
     if(mysqli_num_rows($query_phase3_check_music_grade) > 0){
@@ -8798,7 +9252,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '10'";
     $query_phase3_check_art_grade = mysqli_query($conn, $phase3_check_art_grade);
     if(mysqli_num_rows($query_phase3_check_art_grade) > 0){
@@ -8826,7 +9280,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '11'";
     $query_phase3_check_pe_grade = mysqli_query($conn, $phase3_check_pe_grade);
     if(mysqli_num_rows($query_phase3_check_pe_grade) > 0){
@@ -8854,7 +9308,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '12'";
     $query_phase3_check_health_grade = mysqli_query($conn, $phase3_check_health_grade);
     if(mysqli_num_rows($query_phase3_check_health_grade) > 0){
@@ -8882,7 +9336,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '13'";
     $query_phase3_check_esp_grade = mysqli_query($conn, $phase3_check_esp_grade);
     if(mysqli_num_rows($query_phase3_check_esp_grade) > 0){
@@ -8910,7 +9364,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '14'";
     $query_phase3_check_arabic_lang_grade = mysqli_query($conn, $phase3_check_arabic_lang_grade);
     if(mysqli_num_rows($query_phase3_check_arabic_lang_grade) > 0){
@@ -8938,7 +9392,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase3_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '3'
+    $phase3_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '3'
     AND subject_id = '15'";
     $query_phase3_check_islamic_values_grade = mysqli_query($conn, $phase3_check_islamic_values_grade);
     if(mysqli_num_rows($query_phase3_check_islamic_values_grade) > 0){
@@ -9033,7 +9487,7 @@ if(isset($_POST['update'])){
 
 
     // UPDATE OF PHASE 4 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS    
-    $phase4_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '1'";
     $query_phase4_check_mother_tounge_grade = mysqli_query($conn, $phase4_check_mother_tounge_grade);
     if(mysqli_num_rows($query_phase4_check_mother_tounge_grade) > 0){
@@ -9061,7 +9515,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '2'";
     $query_phase4_check_filipino_grade = mysqli_query($conn, $phase4_check_filipino_grade);
     if(mysqli_num_rows($query_phase4_check_filipino_grade) > 0){
@@ -9089,7 +9543,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '3'";
     $query_phase4_check_english_grade = mysqli_query($conn, $phase4_check_english_grade);
     if(mysqli_num_rows($query_phase4_check_english_grade) > 0){
@@ -9117,7 +9571,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '4'";
     $query_phase4_check_math_grade = mysqli_query($conn, $phase4_check_math_grade);
     if(mysqli_num_rows($query_phase4_check_math_grade) > 0){
@@ -9145,7 +9599,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '5'";
     $query_phase4_check_science_grade = mysqli_query($conn, $phase4_check_science_grade);
     if(mysqli_num_rows($query_phase4_check_science_grade) > 0){
@@ -9173,7 +9627,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '6'";
     $query_phase4_check_araling_panlipunan_grade = mysqli_query($conn, $phase4_check_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase4_check_araling_panlipunan_grade) > 0){
@@ -9201,7 +9655,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '7'";
     $query_phase4_check_epp_tle_grade = mysqli_query($conn, $phase4_check_epp_tle_grade);
     if(mysqli_num_rows($query_phase4_check_epp_tle_grade) > 0){
@@ -9229,7 +9683,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '9'";
     $query_phase4_check_music_grade = mysqli_query($conn, $phase4_check_music_grade);
     if(mysqli_num_rows($query_phase4_check_music_grade) > 0){
@@ -9257,7 +9711,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '10'";
     $query_phase4_check_art_grade = mysqli_query($conn, $phase4_check_art_grade);
     if(mysqli_num_rows($query_phase4_check_art_grade) > 0){
@@ -9285,7 +9739,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '11'";
     $query_phase4_check_pe_grade = mysqli_query($conn, $phase4_check_pe_grade);
     if(mysqli_num_rows($query_phase4_check_pe_grade) > 0){
@@ -9313,7 +9767,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '12'";
     $query_phase4_check_health_grade = mysqli_query($conn, $phase4_check_health_grade);
     if(mysqli_num_rows($query_phase4_check_health_grade) > 0){
@@ -9341,7 +9795,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '13'";
     $query_phase4_check_esp_grade = mysqli_query($conn, $phase4_check_esp_grade);
     if(mysqli_num_rows($query_phase4_check_esp_grade) > 0){
@@ -9369,7 +9823,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '14'";
     $query_phase4_check_arabic_lang_grade = mysqli_query($conn, $phase4_check_arabic_lang_grade);
     if(mysqli_num_rows($query_phase4_check_arabic_lang_grade) > 0){
@@ -9397,7 +9851,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase4_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '4'
+    $phase4_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '4'
     AND subject_id = '15'";
     $query_phase4_check_islamic_values_grade = mysqli_query($conn, $phase4_check_islamic_values_grade);
     if(mysqli_num_rows($query_phase4_check_islamic_values_grade) > 0){
@@ -9463,7 +9917,7 @@ if(isset($_POST['update'])){
 
 
     // UPDATE OF PHASE 5 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS    
-    $phase5_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '1'";
     $query_phase5_check_mother_tounge_grade = mysqli_query($conn, $phase5_check_mother_tounge_grade);
     if(mysqli_num_rows($query_phase5_check_mother_tounge_grade) > 0){
@@ -9491,7 +9945,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '2'";
     $query_phase5_check_filipino_grade = mysqli_query($conn, $phase5_check_filipino_grade);
     if(mysqli_num_rows($query_phase5_check_filipino_grade) > 0){
@@ -9519,7 +9973,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '3'";
     $query_phase5_check_english_grade = mysqli_query($conn, $phase5_check_english_grade);
     if(mysqli_num_rows($query_phase5_check_english_grade) > 0){
@@ -9547,7 +10001,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '4'";
     $query_phase5_check_math_grade = mysqli_query($conn, $phase5_check_math_grade);
     if(mysqli_num_rows($query_phase5_check_math_grade) > 0){
@@ -9575,7 +10029,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '5'";
     $query_phase5_check_science_grade = mysqli_query($conn, $phase5_check_science_grade);
     if(mysqli_num_rows($query_phase5_check_science_grade) > 0){
@@ -9603,7 +10057,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '6'";
     $query_phase5_check_araling_panlipunan_grade = mysqli_query($conn, $phase5_check_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase5_check_araling_panlipunan_grade) > 0){
@@ -9631,7 +10085,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '7'";
     $query_phase5_check_epp_tle_grade = mysqli_query($conn, $phase5_check_epp_tle_grade);
     if(mysqli_num_rows($query_phase5_check_epp_tle_grade) > 0){
@@ -9659,7 +10113,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '9'";
     $query_phase5_check_music_grade = mysqli_query($conn, $phase5_check_music_grade);
     if(mysqli_num_rows($query_phase5_check_music_grade) > 0){
@@ -9687,7 +10141,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '10'";
     $query_phase5_check_art_grade = mysqli_query($conn, $phase5_check_art_grade);
     if(mysqli_num_rows($query_phase5_check_art_grade) > 0){
@@ -9715,7 +10169,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '11'";
     $query_phase5_check_pe_grade = mysqli_query($conn, $phase5_check_pe_grade);
     if(mysqli_num_rows($query_phase5_check_pe_grade) > 0){
@@ -9743,7 +10197,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '12'";
     $query_phase5_check_health_grade = mysqli_query($conn, $phase5_check_health_grade);
     if(mysqli_num_rows($query_phase5_check_health_grade) > 0){
@@ -9771,7 +10225,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '13'";
     $query_phase5_check_esp_grade = mysqli_query($conn, $phase5_check_esp_grade);
     if(mysqli_num_rows($query_phase5_check_esp_grade) > 0){
@@ -9799,7 +10253,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '14'";
     $query_phase5_check_arabic_lang_grade = mysqli_query($conn, $phase5_check_arabic_lang_grade);
     if(mysqli_num_rows($query_phase5_check_arabic_lang_grade) > 0){
@@ -9827,7 +10281,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase5_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '5'
+    $phase5_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '5'
     AND subject_id = '15'";
     $query_phase5_check_islamic_values_grade = mysqli_query($conn, $phase5_check_islamic_values_grade);
     if(mysqli_num_rows($query_phase5_check_islamic_values_grade) > 0){
@@ -9890,7 +10344,7 @@ if(isset($_POST['update'])){
 
 
     // UPDATE OF PHASE 6 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS    
-    $phase6_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '1'";
     $query_phase6_check_mother_tounge_grade = mysqli_query($conn, $phase6_check_mother_tounge_grade);
     if(mysqli_num_rows($query_phase6_check_mother_tounge_grade) > 0){
@@ -9918,7 +10372,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '2'";
     $query_phase6_check_filipino_grade = mysqli_query($conn, $phase6_check_filipino_grade);
     if(mysqli_num_rows($query_phase6_check_filipino_grade) > 0){
@@ -9946,7 +10400,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '3'";
     $query_phase6_check_english_grade = mysqli_query($conn, $phase6_check_english_grade);
     if(mysqli_num_rows($query_phase6_check_english_grade) > 0){
@@ -9974,7 +10428,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '4'";
     $query_phase6_check_math_grade = mysqli_query($conn, $phase6_check_math_grade);
     if(mysqli_num_rows($query_phase6_check_math_grade) > 0){
@@ -10002,7 +10456,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '5'";
     $query_phase6_check_science_grade = mysqli_query($conn, $phase6_check_science_grade);
     if(mysqli_num_rows($query_phase6_check_science_grade) > 0){
@@ -10030,7 +10484,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '6'";
     $query_phase6_check_araling_panlipunan_grade = mysqli_query($conn, $phase6_check_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase6_check_araling_panlipunan_grade) > 0){
@@ -10058,7 +10512,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '7'";
     $query_phase6_check_epp_tle_grade = mysqli_query($conn, $phase6_check_epp_tle_grade);
     if(mysqli_num_rows($query_phase6_check_epp_tle_grade) > 0){
@@ -10086,7 +10540,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '9'";
     $query_phase6_check_music_grade = mysqli_query($conn, $phase6_check_music_grade);
     if(mysqli_num_rows($query_phase6_check_music_grade) > 0){
@@ -10114,7 +10568,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '10'";
     $query_phase6_check_art_grade = mysqli_query($conn, $phase6_check_art_grade);
     if(mysqli_num_rows($query_phase6_check_art_grade) > 0){
@@ -10142,7 +10596,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '11'";
     $query_phase6_check_pe_grade = mysqli_query($conn, $phase6_check_pe_grade);
     if(mysqli_num_rows($query_phase6_check_pe_grade) > 0){
@@ -10170,7 +10624,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '12'";
     $query_phase6_check_health_grade = mysqli_query($conn, $phase6_check_health_grade);
     if(mysqli_num_rows($query_phase6_check_health_grade) > 0){
@@ -10198,7 +10652,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '13'";
     $query_phase6_check_esp_grade = mysqli_query($conn, $phase6_check_esp_grade);
     if(mysqli_num_rows($query_phase6_check_esp_grade) > 0){
@@ -10226,7 +10680,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '14'";
     $query_phase6_check_arabic_lang_grade = mysqli_query($conn, $phase6_check_arabic_lang_grade);
     if(mysqli_num_rows($query_phase6_check_arabic_lang_grade) > 0){
@@ -10254,7 +10708,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase6_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '6'
+    $phase6_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '6'
     AND subject_id = '15'";
     $query_phase6_check_islamic_values_grade = mysqli_query($conn, $phase6_check_islamic_values_grade);
     if(mysqli_num_rows($query_phase6_check_islamic_values_grade) > 0){
@@ -10317,7 +10771,7 @@ if(isset($_POST['update'])){
 
 
     // UPDATE OF PHASE 7 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS    
-    $phase7_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '1'";
     $query_phase7_check_mother_tounge_grade = mysqli_query($conn, $phase7_check_mother_tounge_grade);
     if(mysqli_num_rows($query_phase7_check_mother_tounge_grade) > 0){
@@ -10345,7 +10799,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '2'";
     $query_phase7_check_filipino_grade = mysqli_query($conn, $phase7_check_filipino_grade);
     if(mysqli_num_rows($query_phase7_check_filipino_grade) > 0){
@@ -10373,7 +10827,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '3'";
     $query_phase7_check_english_grade = mysqli_query($conn, $phase7_check_english_grade);
     if(mysqli_num_rows($query_phase7_check_english_grade) > 0){
@@ -10401,7 +10855,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '4'";
     $query_phase7_check_math_grade = mysqli_query($conn, $phase7_check_math_grade);
     if(mysqli_num_rows($query_phase7_check_math_grade) > 0){
@@ -10429,7 +10883,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '5'";
     $query_phase7_check_science_grade = mysqli_query($conn, $phase7_check_science_grade);
     if(mysqli_num_rows($query_phase7_check_science_grade) > 0){
@@ -10457,7 +10911,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '6'";
     $query_phase7_check_araling_panlipunan_grade = mysqli_query($conn, $phase7_check_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase7_check_araling_panlipunan_grade) > 0){
@@ -10485,7 +10939,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '7'";
     $query_phase7_check_epp_tle_grade = mysqli_query($conn, $phase7_check_epp_tle_grade);
     if(mysqli_num_rows($query_phase7_check_epp_tle_grade) > 0){
@@ -10513,7 +10967,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '9'";
     $query_phase7_check_music_grade = mysqli_query($conn, $phase7_check_music_grade);
     if(mysqli_num_rows($query_phase7_check_music_grade) > 0){
@@ -10541,7 +10995,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '10'";
     $query_phase7_check_art_grade = mysqli_query($conn, $phase7_check_art_grade);
     if(mysqli_num_rows($query_phase7_check_art_grade) > 0){
@@ -10569,7 +11023,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '11'";
     $query_phase7_check_pe_grade = mysqli_query($conn, $phase7_check_pe_grade);
     if(mysqli_num_rows($query_phase7_check_pe_grade) > 0){
@@ -10597,7 +11051,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '12'";
     $query_phase7_check_health_grade = mysqli_query($conn, $phase7_check_health_grade);
     if(mysqli_num_rows($query_phase7_check_health_grade) > 0){
@@ -10625,7 +11079,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '13'";
     $query_phase7_check_esp_grade = mysqli_query($conn, $phase7_check_esp_grade);
     if(mysqli_num_rows($query_phase7_check_esp_grade) > 0){
@@ -10653,7 +11107,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '14'";
     $query_phase7_check_arabic_lang_grade = mysqli_query($conn, $phase7_check_arabic_lang_grade);
     if(mysqli_num_rows($query_phase7_check_arabic_lang_grade) > 0){
@@ -10681,7 +11135,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase7_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '7'
+    $phase7_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '7'
     AND subject_id = '15'";
     $query_phase7_check_islamic_values_grade = mysqli_query($conn, $phase7_check_islamic_values_grade);
     if(mysqli_num_rows($query_phase7_check_islamic_values_grade) > 0){
@@ -10744,7 +11198,7 @@ if(isset($_POST['update'])){
 
 
     // UPDATE OF PHASE 8 TERM 1 - 4 STUDENT GRADES IN SCHOLASTIC RECORDS    
-    $phase8_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_mother_tounge_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '1'";
     $query_phase8_check_mother_tounge_grade = mysqli_query($conn, $phase8_check_mother_tounge_grade);
     if(mysqli_num_rows($query_phase8_check_mother_tounge_grade) > 0){
@@ -10772,7 +11226,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_filipino_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '2'";
     $query_phase8_check_filipino_grade = mysqli_query($conn, $phase8_check_filipino_grade);
     if(mysqli_num_rows($query_phase8_check_filipino_grade) > 0){
@@ -10800,7 +11254,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_english_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '3'";
     $query_phase8_check_english_grade = mysqli_query($conn, $phase8_check_english_grade);
     if(mysqli_num_rows($query_phase8_check_english_grade) > 0){
@@ -10828,7 +11282,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_math_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '4'";
     $query_phase8_check_math_grade = mysqli_query($conn, $phase8_check_math_grade);
     if(mysqli_num_rows($query_phase8_check_math_grade) > 0){
@@ -10856,7 +11310,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_science_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '5'";
     $query_phase8_check_science_grade = mysqli_query($conn, $phase8_check_science_grade);
     if(mysqli_num_rows($query_phase8_check_science_grade) > 0){
@@ -10884,7 +11338,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_araling_panlipunan_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '6'";
     $query_phase8_check_araling_panlipunan_grade = mysqli_query($conn, $phase8_check_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase8_check_araling_panlipunan_grade) > 0){
@@ -10912,7 +11366,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_epp_tle_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '7'";
     $query_phase8_check_epp_tle_grade = mysqli_query($conn, $phase8_check_epp_tle_grade);
     if(mysqli_num_rows($query_phase8_check_epp_tle_grade) > 0){
@@ -10940,7 +11394,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_music_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '9'";
     $query_phase8_check_music_grade = mysqli_query($conn, $phase8_check_music_grade);
     if(mysqli_num_rows($query_phase8_check_music_grade) > 0){
@@ -10968,7 +11422,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_art_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '10'";
     $query_phase8_check_art_grade = mysqli_query($conn, $phase8_check_art_grade);
     if(mysqli_num_rows($query_phase8_check_art_grade) > 0){
@@ -10996,7 +11450,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_pe_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '11'";
     $query_phase8_check_pe_grade = mysqli_query($conn, $phase8_check_pe_grade);
     if(mysqli_num_rows($query_phase8_check_pe_grade) > 0){
@@ -11024,7 +11478,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_health_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '12'";
     $query_phase8_check_health_grade = mysqli_query($conn, $phase8_check_health_grade);
     if(mysqli_num_rows($query_phase8_check_health_grade) > 0){
@@ -11052,7 +11506,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_esp_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '13'";
     $query_phase8_check_esp_grade = mysqli_query($conn, $phase8_check_esp_grade);
     if(mysqli_num_rows($query_phase8_check_esp_grade) > 0){
@@ -11080,7 +11534,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_arabic_lang_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '14'";
     $query_phase8_check_arabic_lang_grade = mysqli_query($conn, $phase8_check_arabic_lang_grade);
     if(mysqli_num_rows($query_phase8_check_arabic_lang_grade) > 0){
@@ -11108,7 +11562,7 @@ if(isset($_POST['update'])){
     }
 
 
-    $phase8_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '109857060083' AND phase = '8'
+    $phase8_check_islamic_values_grade = "SELECT * FROM student_grades WHERE lrn = '$decrypted_lrn' AND phase = '8'
     AND subject_id = '15'";
     $query_phase8_check_islamic_values_grade = mysqli_query($conn, $phase8_check_islamic_values_grade);
     if(mysqli_num_rows($query_phase8_check_islamic_values_grade) > 0){
@@ -11141,18 +11595,18 @@ if(isset($_POST['update'])){
     // PHASE 1 OF AVERAGE OF MAPEH TERM 1 - 4 OF STUDENT SCHOLASTIC RECORD
     $phase1_term_1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '1'
-    AND student_grades.phase = '1' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '1' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase1_term_1_get_mapeh = mysqli_query($conn, $phase1_term_1_get_mapeh);
     $rows = mysqli_fetch_array($query_phase1_term_1_get_mapeh);
     $phase1_term_1_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase1_term_1_get_mapeh == true){
         $check_phase1_average_mapeh_term_1 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '1' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '1' AND term = '1'";
         $query_check_phase1_average_mapeh_term_1 = mysqli_query($conn, $check_phase1_average_mapeh_term_1);
         if(mysqli_num_rows($query_check_phase1_average_mapeh_term_1) > 0){
             $update_phase1_average_mapeh_term_1 = "UPDATE `student_grades` SET `grade`='$phase1_term_1_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '1' AND term = '1'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '1' AND term = '1'";
             $query_update_phase1_average_mapeh_term_1 = mysqli_query($conn, $update_phase1_average_mapeh_term_1);
             if($query_update_phase1_average_mapeh_term_1 == true){
                 echo "Phase 1 Average of term 1 of mapeh updated <br>";
@@ -11162,7 +11616,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase1_average_mapeh_term_1 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase1_term_1_average_mapeh','1',
+            ('$decrypted_lrn','8','$phase1_term_1_average_mapeh','1',
             '1','none','$date_time_created')";
             $query_phase1_average_mapeh_term_1 = mysqli_query($conn, $insert_phase1_average_mapeh_term_1);
             if($query_phase1_average_mapeh_term_1 == true){
@@ -11178,18 +11632,18 @@ if(isset($_POST['update'])){
 
     $phase1_term_2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '2'
-    AND student_grades.phase = '1' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '1' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase1_term_2_get_mapeh = mysqli_query($conn, $phase1_term_2_get_mapeh);
     $rows = mysqli_fetch_array($query_phase1_term_2_get_mapeh);
     $phase1_term_2_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase1_term_2_get_mapeh == true){
         $check_phase1_average_mapeh_term_2 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '1' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '1' AND term = '2'";
         $query_check_phase1_average_mapeh_term_2 = mysqli_query($conn, $check_phase1_average_mapeh_term_2);
         if(mysqli_num_rows($query_check_phase1_average_mapeh_term_2) > 0){
             $update_phase1_average_mapeh_term_2 = "UPDATE `student_grades` SET `grade`='$phase1_term_2_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '1' AND term = '2'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '1' AND term = '2'";
             $query_update_phase1_average_mapeh_term_2 = mysqli_query($conn, $update_phase1_average_mapeh_term_2);
             if($query_update_phase1_average_mapeh_term_2 == true){
                 echo "Phase 1 Average of term 2 of mapeh updated <br>";
@@ -11199,7 +11653,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase1_average_mapeh_term_2 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase1_term_2_average_mapeh','2',
+            ('$decrypted_lrn','8','$phase1_term_2_average_mapeh','2',
             '1','none','$date_time_created')";
             $query_phase1_average_mapeh_term_2 = mysqli_query($conn, $insert_phase1_average_mapeh_term_2);
             if($query_phase1_average_mapeh_term_2 == true){
@@ -11215,18 +11669,18 @@ if(isset($_POST['update'])){
 
     $phase1_term_3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '3'
-    AND student_grades.phase = '1' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '1' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase1_term_3_get_mapeh = mysqli_query($conn, $phase1_term_3_get_mapeh);
     $rows = mysqli_fetch_array($query_phase1_term_3_get_mapeh);
     $phase1_term_3_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase1_term_3_get_mapeh == true){
         $check_phase1_average_mapeh_term_3 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '1' AND term = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '1' AND term = '3'";
         $query_check_phase1_average_mapeh_term_3 = mysqli_query($conn, $check_phase1_average_mapeh_term_3);
         if(mysqli_num_rows($query_check_phase1_average_mapeh_term_3) > 0){
             $update_phase1_average_mapeh_term_3 = "UPDATE `student_grades` SET `grade`='$phase1_term_3_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '1' AND term = '3'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '1' AND term = '3'";
             $query_update_phase1_average_mapeh_term_3 = mysqli_query($conn, $update_phase1_average_mapeh_term_3);
             if($query_update_phase1_average_mapeh_term_3 == true){
                 echo "Phase 1 Average of term 3 of mapeh updated <br>";
@@ -11236,7 +11690,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase1_average_mapeh_term_3 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase1_term_3_average_mapeh','3',
+            ('$decrypted_lrn','8','$phase1_term_3_average_mapeh','3',
             '1','none','$date_time_created')";
             $query_phase1_average_mapeh_term_3 = mysqli_query($conn, $insert_phase1_average_mapeh_term_3);
             if($query_phase1_average_mapeh_term_3 == true){
@@ -11252,18 +11706,18 @@ if(isset($_POST['update'])){
     
     $phase1_term_4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '4'
-    AND student_grades.phase = '1' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '1' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase1_term_4_get_mapeh = mysqli_query($conn, $phase1_term_4_get_mapeh);
     $rows = mysqli_fetch_array($query_phase1_term_4_get_mapeh);
     $phase1_term_4_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase1_term_4_get_mapeh == true){
         $check_phase1_average_mapeh_term_4 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '1' AND term = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '1' AND term = '4'";
         $query_check_phase1_average_mapeh_term_4 = mysqli_query($conn, $check_phase1_average_mapeh_term_4);
         if(mysqli_num_rows($query_check_phase1_average_mapeh_term_4) > 0){
             $update_phase1_average_mapeh_term_4 = "UPDATE `student_grades` SET `grade`='$phase1_term_4_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '1' AND term = '4'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '1' AND term = '4'";
             $query_update_phase1_average_mapeh_term_4 = mysqli_query($conn, $update_phase1_average_mapeh_term_4);
             if($query_update_phase1_average_mapeh_term_4 == true){
                 echo "Phase 1 Average of term 4 of mapeh updated <br>";
@@ -11273,7 +11727,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase1_average_mapeh_term_4 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase1_term_4_average_mapeh','4',
+            ('$decrypted_lrn','8','$phase1_term_4_average_mapeh','4',
             '1','none','$date_time_created')";
             $query_phase1_average_mapeh_term_4 = mysqli_query($conn, $insert_phase1_average_mapeh_term_4);
             if($query_phase1_average_mapeh_term_4 == true){
@@ -11292,18 +11746,18 @@ if(isset($_POST['update'])){
     // PHASE 2 OF AVERAGE OF MAPEH TERM 1 - 4 OF STUDENT SCHOLASTIC RECORD
     $phase2_term_1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '1'
-    AND student_grades.phase = '2' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '2' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase2_term_1_get_mapeh = mysqli_query($conn, $phase2_term_1_get_mapeh);
     $rows = mysqli_fetch_array($query_phase2_term_1_get_mapeh);
     $phase2_term_1_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase2_term_1_get_mapeh == true){
         $check_phase2_average_mapeh_term_1 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '2' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '2' AND term = '1'";
         $query_check_phase2_average_mapeh_term_1 = mysqli_query($conn, $check_phase2_average_mapeh_term_1);
         if(mysqli_num_rows($query_check_phase2_average_mapeh_term_1) > 0){
             $update_phase2_average_mapeh_term_1 = "UPDATE `student_grades` SET `grade`='$phase2_term_1_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '2' AND term = '1'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '2' AND term = '1'";
             $query_update_phase2_average_mapeh_term_1 = mysqli_query($conn, $update_phase2_average_mapeh_term_1);
             if($query_update_phase2_average_mapeh_term_1 == true){
                 echo "Phase 2 Average of term 1 of mapeh updated <br>";
@@ -11313,7 +11767,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase2_average_mapeh_term_1 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase2_term_1_average_mapeh','1',
+            ('$decrypted_lrn','8','$phase2_term_1_average_mapeh','1',
             '2','none','$date_time_created')";
             $query_phase2_average_mapeh_term_1 = mysqli_query($conn, $insert_phase2_average_mapeh_term_1);
             if($query_phase2_average_mapeh_term_1 == true){
@@ -11329,18 +11783,18 @@ if(isset($_POST['update'])){
 
     $phase2_term_2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '2'
-    AND student_grades.phase = '2' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '2' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase2_term_2_get_mapeh = mysqli_query($conn, $phase2_term_2_get_mapeh);
     $rows = mysqli_fetch_array($query_phase2_term_2_get_mapeh);
     $phase2_term_2_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase2_term_2_get_mapeh == true){
         $check_phase2_average_mapeh_term_2 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '2' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '2' AND term = '2'";
         $query_check_phase2_average_mapeh_term_2 = mysqli_query($conn, $check_phase2_average_mapeh_term_2);
         if(mysqli_num_rows($query_check_phase2_average_mapeh_term_2) > 0){
             $update_phase2_average_mapeh_term_2 = "UPDATE `student_grades` SET `grade`='$phase2_term_2_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '2' AND term = '2'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '2' AND term = '2'";
             $query_update_phase2_average_mapeh_term_2 = mysqli_query($conn, $update_phase2_average_mapeh_term_2);
             if($query_update_phase2_average_mapeh_term_2 == true){
                 echo "Phase 2 Average of term 2 of mapeh updated <br>";
@@ -11350,7 +11804,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase2_average_mapeh_term_2 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase2_term_2_average_mapeh','2',
+            ('$decrypted_lrn','8','$phase2_term_2_average_mapeh','2',
             '2','none','$date_time_created')";
             $query_phase2_average_mapeh_term_2 = mysqli_query($conn, $insert_phase2_average_mapeh_term_2);
             if($query_phase2_average_mapeh_term_2 == true){
@@ -11366,18 +11820,18 @@ if(isset($_POST['update'])){
 
     $phase2_term_3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '3'
-    AND student_grades.phase = '2' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '2' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase2_term_3_get_mapeh = mysqli_query($conn, $phase2_term_3_get_mapeh);
     $rows = mysqli_fetch_array($query_phase2_term_3_get_mapeh);
     $phase2_term_3_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase2_term_3_get_mapeh == true){
         $check_phase2_average_mapeh_term_3 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '2' AND term = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '2' AND term = '3'";
         $query_check_phase2_average_mapeh_term_3 = mysqli_query($conn, $check_phase2_average_mapeh_term_3);
         if(mysqli_num_rows($query_check_phase2_average_mapeh_term_3) > 0){
             $update_phase2_average_mapeh_term_3 = "UPDATE `student_grades` SET `grade`='$phase2_term_3_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '2' AND term = '3'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '2' AND term = '3'";
             $query_update_phase2_average_mapeh_term_3 = mysqli_query($conn, $update_phase2_average_mapeh_term_3);
             if($query_update_phase2_average_mapeh_term_3 == true){
                 echo "Phase 2 Average of term 3 of mapeh updated <br>";
@@ -11387,7 +11841,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase2_average_mapeh_term_3 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase2_term_3_average_mapeh','3',
+            ('$decrypted_lrn','8','$phase2_term_3_average_mapeh','3',
             '2','none','$date_time_created')";
             $query_phase2_average_mapeh_term_3 = mysqli_query($conn, $insert_phase2_average_mapeh_term_3);
             if($query_phase2_average_mapeh_term_3 == true){
@@ -11403,18 +11857,18 @@ if(isset($_POST['update'])){
     
     $phase2_term_4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '4'
-    AND student_grades.phase = '2' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '2' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase2_term_4_get_mapeh = mysqli_query($conn, $phase2_term_4_get_mapeh);
     $rows = mysqli_fetch_array($query_phase2_term_4_get_mapeh);
     $phase2_term_4_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase2_term_4_get_mapeh == true){
         $check_phase2_average_mapeh_term_4 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '2' AND term = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '2' AND term = '4'";
         $query_check_phase2_average_mapeh_term_4 = mysqli_query($conn, $check_phase2_average_mapeh_term_4);
         if(mysqli_num_rows($query_check_phase2_average_mapeh_term_4) > 0){
             $update_phase2_average_mapeh_term_4 = "UPDATE `student_grades` SET `grade`='$phase2_term_4_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '2' AND term = '4'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '2' AND term = '4'";
             $query_update_phase2_average_mapeh_term_4 = mysqli_query($conn, $update_phase2_average_mapeh_term_4);
             if($query_update_phase2_average_mapeh_term_4 == true){
                 echo "Phase 2 Average of term 4 of mapeh updated <br>";
@@ -11424,7 +11878,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase2_average_mapeh_term_4 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase2_term_4_average_mapeh','4',
+            ('$decrypted_lrn','8','$phase2_term_4_average_mapeh','4',
             '2','none','$date_time_created')";
             $query_phase2_average_mapeh_term_4 = mysqli_query($conn, $insert_phase2_average_mapeh_term_4);
             if($query_phase2_average_mapeh_term_4 == true){
@@ -11443,18 +11897,18 @@ if(isset($_POST['update'])){
     // PHASE 3 OF AVERAGE OF MAPEH TERM 1 - 4 OF STUDENT SCHOLASTIC RECORD
     $phase3_term_1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '1'
-    AND student_grades.phase = '3' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '3' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase3_term_1_get_mapeh = mysqli_query($conn, $phase3_term_1_get_mapeh);
     $rows = mysqli_fetch_array($query_phase3_term_1_get_mapeh);
     $phase3_term_1_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase3_term_1_get_mapeh == true){
         $check_phase3_average_mapeh_term_1 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '3' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '3' AND term = '1'";
         $query_check_phase3_average_mapeh_term_1 = mysqli_query($conn, $check_phase3_average_mapeh_term_1);
         if(mysqli_num_rows($query_check_phase3_average_mapeh_term_1) > 0){
             $update_phase3_average_mapeh_term_1 = "UPDATE `student_grades` SET `grade`='$phase3_term_1_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '3' AND term = '1'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '3' AND term = '1'";
             $query_update_phase3_average_mapeh_term_1 = mysqli_query($conn, $update_phase3_average_mapeh_term_1);
             if($query_update_phase3_average_mapeh_term_1 == true){
                 echo "Phase 3 Average of term 1 of mapeh updated <br>";
@@ -11464,7 +11918,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase3_average_mapeh_term_1 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase3_term_1_average_mapeh','1',
+            ('$decrypted_lrn','8','$phase3_term_1_average_mapeh','1',
             '3','none','$date_time_created')";
             $query_phase3_average_mapeh_term_1 = mysqli_query($conn, $insert_phase3_average_mapeh_term_1);
             if($query_phase3_average_mapeh_term_1 == true){
@@ -11480,18 +11934,18 @@ if(isset($_POST['update'])){
 
     $phase3_term_2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '2'
-    AND student_grades.phase = '3' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '3' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase3_term_2_get_mapeh = mysqli_query($conn, $phase3_term_2_get_mapeh);
     $rows = mysqli_fetch_array($query_phase3_term_2_get_mapeh);
     $phase3_term_2_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase3_term_2_get_mapeh == true){
         $check_phase3_average_mapeh_term_2 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '3' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '3' AND term = '2'";
         $query_check_phase3_average_mapeh_term_2 = mysqli_query($conn, $check_phase3_average_mapeh_term_2);
         if(mysqli_num_rows($query_check_phase3_average_mapeh_term_2) > 0){
             $update_phase3_average_mapeh_term_2 = "UPDATE `student_grades` SET `grade`='$phase3_term_2_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '3' AND term = '2'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '3' AND term = '2'";
             $query_update_phase3_average_mapeh_term_2 = mysqli_query($conn, $update_phase3_average_mapeh_term_2);
             if($query_update_phase3_average_mapeh_term_2 == true){
                 echo "Phase 3 Average of term 2 of mapeh updated <br>";
@@ -11501,7 +11955,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase3_average_mapeh_term_2 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase3_term_2_average_mapeh','2',
+            ('$decrypted_lrn','8','$phase3_term_2_average_mapeh','2',
             '3','none','$date_time_created')";
             $query_phase3_average_mapeh_term_2 = mysqli_query($conn, $insert_phase3_average_mapeh_term_2);
             if($query_phase3_average_mapeh_term_2 == true){
@@ -11517,18 +11971,18 @@ if(isset($_POST['update'])){
 
     $phase3_term_3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '3'
-    AND student_grades.phase = '3' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '3' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase3_term_3_get_mapeh = mysqli_query($conn, $phase3_term_3_get_mapeh);
     $rows = mysqli_fetch_array($query_phase3_term_3_get_mapeh);
     $phase3_term_3_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase3_term_3_get_mapeh == true){
         $check_phase3_average_mapeh_term_3 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '3' AND term = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '3' AND term = '3'";
         $query_check_phase3_average_mapeh_term_3 = mysqli_query($conn, $check_phase3_average_mapeh_term_3);
         if(mysqli_num_rows($query_check_phase3_average_mapeh_term_3) > 0){
             $update_phase3_average_mapeh_term_3 = "UPDATE `student_grades` SET `grade`='$phase3_term_3_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '3' AND term = '3'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '3' AND term = '3'";
             $query_update_phase3_average_mapeh_term_3 = mysqli_query($conn, $update_phase3_average_mapeh_term_3);
             if($query_update_phase3_average_mapeh_term_3 == true){
                 echo "Phase 3 Average of term 3 of mapeh updated <br>";
@@ -11538,7 +11992,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase3_average_mapeh_term_3 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase3_term_3_average_mapeh','3',
+            ('$decrypted_lrn','8','$phase3_term_3_average_mapeh','3',
             '3','none','$date_time_created')";
             $query_phase3_average_mapeh_term_3 = mysqli_query($conn, $insert_phase3_average_mapeh_term_3);
             if($query_phase3_average_mapeh_term_3 == true){
@@ -11554,18 +12008,18 @@ if(isset($_POST['update'])){
     
     $phase3_term_4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '4'
-    AND student_grades.phase = '3' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '3' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase3_term_4_get_mapeh = mysqli_query($conn, $phase3_term_4_get_mapeh);
     $rows = mysqli_fetch_array($query_phase3_term_4_get_mapeh);
     $phase3_term_4_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase3_term_4_get_mapeh == true){
         $check_phase3_average_mapeh_term_4 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '3' AND term = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '3' AND term = '4'";
         $query_check_phase3_average_mapeh_term_4 = mysqli_query($conn, $check_phase3_average_mapeh_term_4);
         if(mysqli_num_rows($query_check_phase3_average_mapeh_term_4) > 0){
             $update_phase3_average_mapeh_term_4 = "UPDATE `student_grades` SET `grade`='$phase3_term_4_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '3' AND term = '4'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '3' AND term = '4'";
             $query_update_phase3_average_mapeh_term_4 = mysqli_query($conn, $update_phase3_average_mapeh_term_4);
             if($query_update_phase3_average_mapeh_term_4 == true){
                 echo "Phase 3 Average of term 4 of mapeh updated <br>";
@@ -11575,7 +12029,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase3_average_mapeh_term_4 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase3_term_4_average_mapeh','4',
+            ('$decrypted_lrn','8','$phase3_term_4_average_mapeh','4',
             '3','none','$date_time_created')";
             $query_phase3_average_mapeh_term_4 = mysqli_query($conn, $insert_phase3_average_mapeh_term_4);
             if($query_phase3_average_mapeh_term_4 == true){
@@ -11594,18 +12048,18 @@ if(isset($_POST['update'])){
     // PHASE 4 OF AVERAGE OF MAPEH TERM 1 - 4 OF STUDENT SCHOLASTIC RECORD
     $phase4_term_1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '1'
-    AND student_grades.phase = '4' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '4' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase4_term_1_get_mapeh = mysqli_query($conn, $phase4_term_1_get_mapeh);
     $rows = mysqli_fetch_array($query_phase4_term_1_get_mapeh);
     $phase4_term_1_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase4_term_1_get_mapeh == true){
         $check_phase4_average_mapeh_term_1 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '4' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '4' AND term = '1'";
         $query_check_phase4_average_mapeh_term_1 = mysqli_query($conn, $check_phase4_average_mapeh_term_1);
         if(mysqli_num_rows($query_check_phase4_average_mapeh_term_1) > 0){
             $update_phase4_average_mapeh_term_1 = "UPDATE `student_grades` SET `grade`='$phase4_term_1_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '4' AND term = '1'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '4' AND term = '1'";
             $query_update_phase4_average_mapeh_term_1 = mysqli_query($conn, $update_phase4_average_mapeh_term_1);
             if($query_update_phase4_average_mapeh_term_1 == true){
                 echo "Phase 4 Average of term 1 of mapeh updated <br>";
@@ -11615,7 +12069,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase4_average_mapeh_term_1 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase4_term_1_average_mapeh','1',
+            ('$decrypted_lrn','8','$phase4_term_1_average_mapeh','1',
             '4','none','$date_time_created')";
             $query_phase4_average_mapeh_term_1 = mysqli_query($conn, $insert_phase4_average_mapeh_term_1);
             if($query_phase4_average_mapeh_term_1 == true){
@@ -11631,18 +12085,18 @@ if(isset($_POST['update'])){
 
     $phase4_term_2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '2'
-    AND student_grades.phase = '4' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '4' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase4_term_2_get_mapeh = mysqli_query($conn, $phase4_term_2_get_mapeh);
     $rows = mysqli_fetch_array($query_phase4_term_2_get_mapeh);
     $phase4_term_2_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase4_term_2_get_mapeh == true){
         $check_phase4_average_mapeh_term_2 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '4' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '4' AND term = '2'";
         $query_check_phase4_average_mapeh_term_2 = mysqli_query($conn, $check_phase4_average_mapeh_term_2);
         if(mysqli_num_rows($query_check_phase4_average_mapeh_term_2) > 0){
             $update_phase4_average_mapeh_term_2 = "UPDATE `student_grades` SET `grade`='$phase4_term_2_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '4' AND term = '2'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '4' AND term = '2'";
             $query_update_phase4_average_mapeh_term_2 = mysqli_query($conn, $update_phase4_average_mapeh_term_2);
             if($query_update_phase4_average_mapeh_term_2 == true){
                 echo "Phase 4 Average of term 2 of mapeh updated <br>";
@@ -11652,7 +12106,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase4_average_mapeh_term_2 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase4_term_2_average_mapeh','2',
+            ('$decrypted_lrn','8','$phase4_term_2_average_mapeh','2',
             '4','none','$date_time_created')";
             $query_phase4_average_mapeh_term_2 = mysqli_query($conn, $insert_phase4_average_mapeh_term_2);
             if($query_phase4_average_mapeh_term_2 == true){
@@ -11668,18 +12122,18 @@ if(isset($_POST['update'])){
 
     $phase4_term_3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '3'
-    AND student_grades.phase = '4' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '4' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase4_term_3_get_mapeh = mysqli_query($conn, $phase4_term_3_get_mapeh);
     $rows = mysqli_fetch_array($query_phase4_term_3_get_mapeh);
     $phase4_term_3_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase4_term_3_get_mapeh == true){
         $check_phase4_average_mapeh_term_3 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '4' AND term = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '4' AND term = '3'";
         $query_check_phase4_average_mapeh_term_3 = mysqli_query($conn, $check_phase4_average_mapeh_term_3);
         if(mysqli_num_rows($query_check_phase4_average_mapeh_term_3) > 0){
             $update_phase4_average_mapeh_term_3 = "UPDATE `student_grades` SET `grade`='$phase4_term_3_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '4' AND term = '3'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '4' AND term = '3'";
             $query_update_phase4_average_mapeh_term_3 = mysqli_query($conn, $update_phase4_average_mapeh_term_3);
             if($query_update_phase4_average_mapeh_term_3 == true){
                 echo "Phase 4 Average of term 3 of mapeh updated <br>";
@@ -11689,7 +12143,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase4_average_mapeh_term_3 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase4_term_3_average_mapeh','3',
+            ('$decrypted_lrn','8','$phase4_term_3_average_mapeh','3',
             '4','none','$date_time_created')";
             $query_phase4_average_mapeh_term_3 = mysqli_query($conn, $insert_phase4_average_mapeh_term_3);
             if($query_phase4_average_mapeh_term_3 == true){
@@ -11705,18 +12159,18 @@ if(isset($_POST['update'])){
     
     $phase4_term_4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '4'
-    AND student_grades.phase = '4' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '4' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase4_term_4_get_mapeh = mysqli_query($conn, $phase4_term_4_get_mapeh);
     $rows = mysqli_fetch_array($query_phase4_term_4_get_mapeh);
     $phase4_term_4_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase4_term_4_get_mapeh == true){
         $check_phase4_average_mapeh_term_4 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '4' AND term = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '4' AND term = '4'";
         $query_check_phase4_average_mapeh_term_4 = mysqli_query($conn, $check_phase4_average_mapeh_term_4);
         if(mysqli_num_rows($query_check_phase4_average_mapeh_term_4) > 0){
             $update_phase4_average_mapeh_term_4 = "UPDATE `student_grades` SET `grade`='$phase4_term_4_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '4' AND term = '4'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '4' AND term = '4'";
             $query_update_phase4_average_mapeh_term_4 = mysqli_query($conn, $update_phase4_average_mapeh_term_4);
             if($query_update_phase4_average_mapeh_term_4 == true){
                 echo "Phase 4 Average of term 4 of mapeh updated <br>";
@@ -11726,7 +12180,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase4_average_mapeh_term_4 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase4_term_4_average_mapeh','4',
+            ('$decrypted_lrn','8','$phase4_term_4_average_mapeh','4',
             '4','none','$date_time_created')";
             $query_phase4_average_mapeh_term_4 = mysqli_query($conn, $insert_phase4_average_mapeh_term_4);
             if($query_phase4_average_mapeh_term_4 == true){
@@ -11745,18 +12199,18 @@ if(isset($_POST['update'])){
     // PHASE 5 OF AVERAGE OF MAPEH TERM 1 - 4 OF STUDENT SCHOLASTIC RECORD
     $phase5_term_1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '1'
-    AND student_grades.phase = '5' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '5' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase5_term_1_get_mapeh = mysqli_query($conn, $phase5_term_1_get_mapeh);
     $rows = mysqli_fetch_array($query_phase5_term_1_get_mapeh);
     $phase5_term_1_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase5_term_1_get_mapeh == true){
         $check_phase5_average_mapeh_term_1 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '5' AND term = '1'";
         $query_check_phase5_average_mapeh_term_1 = mysqli_query($conn, $check_phase5_average_mapeh_term_1);
         if(mysqli_num_rows($query_check_phase5_average_mapeh_term_1) > 0){
             $update_phase5_average_mapeh_term_1 = "UPDATE `student_grades` SET `grade`='$phase5_term_1_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '5' AND term = '1'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '5' AND term = '1'";
             $query_update_phase5_average_mapeh_term_1 = mysqli_query($conn, $update_phase5_average_mapeh_term_1);
             if($query_update_phase5_average_mapeh_term_1 == true){
                 echo "Phase 5 Average of term 1 of mapeh updated <br>";
@@ -11766,7 +12220,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase5_average_mapeh_term_1 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase5_term_1_average_mapeh','1',
+            ('$decrypted_lrn','8','$phase5_term_1_average_mapeh','1',
             '5','none','$date_time_created')";
             $query_phase5_average_mapeh_term_1 = mysqli_query($conn, $insert_phase5_average_mapeh_term_1);
             if($query_phase5_average_mapeh_term_1 == true){
@@ -11782,18 +12236,18 @@ if(isset($_POST['update'])){
 
     $phase5_term_2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '2'
-    AND student_grades.phase = '5' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '5' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase5_term_2_get_mapeh = mysqli_query($conn, $phase5_term_2_get_mapeh);
     $rows = mysqli_fetch_array($query_phase5_term_2_get_mapeh);
     $phase5_term_2_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase5_term_2_get_mapeh == true){
         $check_phase5_average_mapeh_term_2 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '5' AND term = '2'";
         $query_check_phase5_average_mapeh_term_2 = mysqli_query($conn, $check_phase5_average_mapeh_term_2);
         if(mysqli_num_rows($query_check_phase5_average_mapeh_term_2) > 0){
             $update_phase5_average_mapeh_term_2 = "UPDATE `student_grades` SET `grade`='$phase5_term_2_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '5' AND term = '2'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '5' AND term = '2'";
             $query_update_phase5_average_mapeh_term_2 = mysqli_query($conn, $update_phase5_average_mapeh_term_2);
             if($query_update_phase5_average_mapeh_term_2 == true){
                 echo "Phase 5 Average of term 2 of mapeh updated <br>";
@@ -11803,7 +12257,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase5_average_mapeh_term_2 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase5_term_2_average_mapeh','2',
+            ('$decrypted_lrn','8','$phase5_term_2_average_mapeh','2',
             '5','none','$date_time_created')";
             $query_phase5_average_mapeh_term_2 = mysqli_query($conn, $insert_phase5_average_mapeh_term_2);
             if($query_phase5_average_mapeh_term_2 == true){
@@ -11819,18 +12273,18 @@ if(isset($_POST['update'])){
 
     $phase5_term_3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '3'
-    AND student_grades.phase = '5' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '5' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase5_term_3_get_mapeh = mysqli_query($conn, $phase5_term_3_get_mapeh);
     $rows = mysqli_fetch_array($query_phase5_term_3_get_mapeh);
     $phase5_term_3_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase5_term_3_get_mapeh == true){
         $check_phase5_average_mapeh_term_3 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5' AND term = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '5' AND term = '3'";
         $query_check_phase5_average_mapeh_term_3 = mysqli_query($conn, $check_phase5_average_mapeh_term_3);
         if(mysqli_num_rows($query_check_phase5_average_mapeh_term_3) > 0){
             $update_phase5_average_mapeh_term_3 = "UPDATE `student_grades` SET `grade`='$phase5_term_3_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '5' AND term = '3'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '5' AND term = '3'";
             $query_update_phase5_average_mapeh_term_3 = mysqli_query($conn, $update_phase5_average_mapeh_term_3);
             if($query_update_phase5_average_mapeh_term_3 == true){
                 echo "Phase 5 Average of term 3 of mapeh updated <br>";
@@ -11840,7 +12294,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase5_average_mapeh_term_3 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase5_term_3_average_mapeh','3',
+            ('$decrypted_lrn','8','$phase5_term_3_average_mapeh','3',
             '5','none','$date_time_created')";
             $query_phase5_average_mapeh_term_3 = mysqli_query($conn, $insert_phase5_average_mapeh_term_3);
             if($query_phase5_average_mapeh_term_3 == true){
@@ -11856,18 +12310,18 @@ if(isset($_POST['update'])){
     
     $phase5_term_4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '4'
-    AND student_grades.phase = '5' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '5' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase5_term_4_get_mapeh = mysqli_query($conn, $phase5_term_4_get_mapeh);
     $rows = mysqli_fetch_array($query_phase5_term_4_get_mapeh);
     $phase5_term_4_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase5_term_4_get_mapeh == true){
         $check_phase5_average_mapeh_term_4 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5' AND term = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '5' AND term = '4'";
         $query_check_phase5_average_mapeh_term_4 = mysqli_query($conn, $check_phase5_average_mapeh_term_4);
         if(mysqli_num_rows($query_check_phase5_average_mapeh_term_4) > 0){
             $update_phase5_average_mapeh_term_4 = "UPDATE `student_grades` SET `grade`='$phase5_term_4_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '5' AND term = '4'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '5' AND term = '4'";
             $query_update_phase5_average_mapeh_term_4 = mysqli_query($conn, $update_phase5_average_mapeh_term_4);
             if($query_update_phase5_average_mapeh_term_4 == true){
                 echo "Phase 5 Average of term 4 of mapeh updated <br>";
@@ -11877,7 +12331,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase5_average_mapeh_term_4 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase5_term_4_average_mapeh','4',
+            ('$decrypted_lrn','8','$phase5_term_4_average_mapeh','4',
             '5','none','$date_time_created')";
             $query_phase5_average_mapeh_term_4 = mysqli_query($conn, $insert_phase5_average_mapeh_term_4);
             if($query_phase5_average_mapeh_term_4 == true){
@@ -11896,18 +12350,18 @@ if(isset($_POST['update'])){
     // PHASE 6 OF AVERAGE OF MAPEH TERM 1 - 4 OF STUDENT SCHOLASTIC RECORD
     $phase6_term_1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '1'
-    AND student_grades.phase = '6' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '6' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase6_term_1_get_mapeh = mysqli_query($conn, $phase6_term_1_get_mapeh);
     $rows = mysqli_fetch_array($query_phase6_term_1_get_mapeh);
     $phase6_term_1_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase6_term_1_get_mapeh == true){
         $check_phase6_average_mapeh_term_1 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '6' AND term = '1'";
         $query_check_phase6_average_mapeh_term_1 = mysqli_query($conn, $check_phase6_average_mapeh_term_1);
         if(mysqli_num_rows($query_check_phase6_average_mapeh_term_1) > 0){
             $update_phase6_average_mapeh_term_1 = "UPDATE `student_grades` SET `grade`='$phase6_term_1_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '6' AND term = '1'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '6' AND term = '1'";
             $query_update_phase6_average_mapeh_term_1 = mysqli_query($conn, $update_phase6_average_mapeh_term_1);
             if($query_update_phase6_average_mapeh_term_1 == true){
                 echo "Phase 6 Average of term 1 of mapeh updated <br>";
@@ -11917,7 +12371,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase6_average_mapeh_term_1 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase6_term_1_average_mapeh','1',
+            ('$decrypted_lrn','8','$phase6_term_1_average_mapeh','1',
             '6','none','$date_time_created')";
             $query_phase6_average_mapeh_term_1 = mysqli_query($conn, $insert_phase6_average_mapeh_term_1);
             if($query_phase6_average_mapeh_term_1 == true){
@@ -11933,18 +12387,18 @@ if(isset($_POST['update'])){
 
     $phase6_term_2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '2'
-    AND student_grades.phase = '6' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '6' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase6_term_2_get_mapeh = mysqli_query($conn, $phase6_term_2_get_mapeh);
     $rows = mysqli_fetch_array($query_phase6_term_2_get_mapeh);
     $phase6_term_2_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase6_term_2_get_mapeh == true){
         $check_phase6_average_mapeh_term_2 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '6' AND term = '2'";
         $query_check_phase6_average_mapeh_term_2 = mysqli_query($conn, $check_phase6_average_mapeh_term_2);
         if(mysqli_num_rows($query_check_phase6_average_mapeh_term_2) > 0){
             $update_phase6_average_mapeh_term_2 = "UPDATE `student_grades` SET `grade`='$phase6_term_2_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '6' AND term = '2'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '6' AND term = '2'";
             $query_update_phase6_average_mapeh_term_2 = mysqli_query($conn, $update_phase6_average_mapeh_term_2);
             if($query_update_phase6_average_mapeh_term_2 == true){
                 echo "Phase 6 Average of term 2 of mapeh updated <br>";
@@ -11954,7 +12408,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase6_average_mapeh_term_2 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase6_term_2_average_mapeh','2',
+            ('$decrypted_lrn','8','$phase6_term_2_average_mapeh','2',
             '6','none','$date_time_created')";
             $query_phase6_average_mapeh_term_2 = mysqli_query($conn, $insert_phase6_average_mapeh_term_2);
             if($query_phase6_average_mapeh_term_2 == true){
@@ -11970,18 +12424,18 @@ if(isset($_POST['update'])){
 
     $phase6_term_3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '3'
-    AND student_grades.phase = '6' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '6' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase6_term_3_get_mapeh = mysqli_query($conn, $phase6_term_3_get_mapeh);
     $rows = mysqli_fetch_array($query_phase6_term_3_get_mapeh);
     $phase6_term_3_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase6_term_3_get_mapeh == true){
         $check_phase6_average_mapeh_term_3 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6' AND term = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '6' AND term = '3'";
         $query_check_phase6_average_mapeh_term_3 = mysqli_query($conn, $check_phase6_average_mapeh_term_3);
         if(mysqli_num_rows($query_check_phase6_average_mapeh_term_3) > 0){
             $update_phase6_average_mapeh_term_3 = "UPDATE `student_grades` SET `grade`='$phase6_term_3_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '6' AND term = '3'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '6' AND term = '3'";
             $query_update_phase6_average_mapeh_term_3 = mysqli_query($conn, $update_phase6_average_mapeh_term_3);
             if($query_update_phase6_average_mapeh_term_3 == true){
                 echo "Phase 6 Average of term 3 of mapeh updated <br>";
@@ -11991,7 +12445,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase6_average_mapeh_term_3 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase6_term_3_average_mapeh','3',
+            ('$decrypted_lrn','8','$phase6_term_3_average_mapeh','3',
             '6','none','$date_time_created')";
             $query_phase6_average_mapeh_term_3 = mysqli_query($conn, $insert_phase6_average_mapeh_term_3);
             if($query_phase6_average_mapeh_term_3 == true){
@@ -12007,18 +12461,18 @@ if(isset($_POST['update'])){
     
     $phase6_term_4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '4'
-    AND student_grades.phase = '6' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '6' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase6_term_4_get_mapeh = mysqli_query($conn, $phase6_term_4_get_mapeh);
     $rows = mysqli_fetch_array($query_phase6_term_4_get_mapeh);
     $phase6_term_4_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase6_term_4_get_mapeh == true){
         $check_phase6_average_mapeh_term_4 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6' AND term = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '6' AND term = '4'";
         $query_check_phase6_average_mapeh_term_4 = mysqli_query($conn, $check_phase6_average_mapeh_term_4);
         if(mysqli_num_rows($query_check_phase6_average_mapeh_term_4) > 0){
             $update_phase6_average_mapeh_term_4 = "UPDATE `student_grades` SET `grade`='$phase6_term_4_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '6' AND term = '4'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '6' AND term = '4'";
             $query_update_phase6_average_mapeh_term_4 = mysqli_query($conn, $update_phase6_average_mapeh_term_4);
             if($query_update_phase6_average_mapeh_term_4 == true){
                 echo "Phase 6 Average of term 4 of mapeh updated <br>";
@@ -12028,7 +12482,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase6_average_mapeh_term_4 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase6_term_4_average_mapeh','4',
+            ('$decrypted_lrn','8','$phase6_term_4_average_mapeh','4',
             '6','none','$date_time_created')";
             $query_phase6_average_mapeh_term_4 = mysqli_query($conn, $insert_phase6_average_mapeh_term_4);
             if($query_phase6_average_mapeh_term_4 == true){
@@ -12047,18 +12501,18 @@ if(isset($_POST['update'])){
     // PHASE 7 OF AVERAGE OF MAPEH TERM 1 - 4 OF STUDENT SCHOLASTIC RECORD
     $phase7_term_1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '1'
-    AND student_grades.phase = '7' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '7' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase7_term_1_get_mapeh = mysqli_query($conn, $phase7_term_1_get_mapeh);
     $rows = mysqli_fetch_array($query_phase7_term_1_get_mapeh);
     $phase7_term_1_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase7_term_1_get_mapeh == true){
         $check_phase7_average_mapeh_term_1 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '7' AND term = '1'";
         $query_check_phase7_average_mapeh_term_1 = mysqli_query($conn, $check_phase7_average_mapeh_term_1);
         if(mysqli_num_rows($query_check_phase7_average_mapeh_term_1) > 0){
             $update_phase7_average_mapeh_term_1 = "UPDATE `student_grades` SET `grade`='$phase7_term_1_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '7' AND term = '1'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '7' AND term = '1'";
             $query_update_phase7_average_mapeh_term_1 = mysqli_query($conn, $update_phase7_average_mapeh_term_1);
             if($query_update_phase7_average_mapeh_term_1 == true){
                 echo "Phase 7 Average of term 1 of mapeh updated <br>";
@@ -12068,7 +12522,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase7_average_mapeh_term_1 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase7_term_1_average_mapeh','1',
+            ('$decrypted_lrn','8','$phase7_term_1_average_mapeh','1',
             '7','none','$date_time_created')";
             $query_phase7_average_mapeh_term_1 = mysqli_query($conn, $insert_phase7_average_mapeh_term_1);
             if($query_phase7_average_mapeh_term_1 == true){
@@ -12084,18 +12538,18 @@ if(isset($_POST['update'])){
 
     $phase7_term_2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '2'
-    AND student_grades.phase = '7' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '7' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase7_term_2_get_mapeh = mysqli_query($conn, $phase7_term_2_get_mapeh);
     $rows = mysqli_fetch_array($query_phase7_term_2_get_mapeh);
     $phase7_term_2_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase7_term_2_get_mapeh == true){
         $check_phase7_average_mapeh_term_2 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '7' AND term = '2'";
         $query_check_phase7_average_mapeh_term_2 = mysqli_query($conn, $check_phase7_average_mapeh_term_2);
         if(mysqli_num_rows($query_check_phase7_average_mapeh_term_2) > 0){
             $update_phase7_average_mapeh_term_2 = "UPDATE `student_grades` SET `grade`='$phase7_term_2_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '7' AND term = '2'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '7' AND term = '2'";
             $query_update_phase7_average_mapeh_term_2 = mysqli_query($conn, $update_phase7_average_mapeh_term_2);
             if($query_update_phase7_average_mapeh_term_2 == true){
                 echo "Phase 7 Average of term 2 of mapeh updated <br>";
@@ -12105,7 +12559,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase7_average_mapeh_term_2 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase7_term_2_average_mapeh','2',
+            ('$decrypted_lrn','8','$phase7_term_2_average_mapeh','2',
             '7','none','$date_time_created')";
             $query_phase7_average_mapeh_term_2 = mysqli_query($conn, $insert_phase7_average_mapeh_term_2);
             if($query_phase7_average_mapeh_term_2 == true){
@@ -12121,18 +12575,18 @@ if(isset($_POST['update'])){
 
     $phase7_term_3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '3'
-    AND student_grades.phase = '7' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '7' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase7_term_3_get_mapeh = mysqli_query($conn, $phase7_term_3_get_mapeh);
     $rows = mysqli_fetch_array($query_phase7_term_3_get_mapeh);
     $phase7_term_3_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase7_term_3_get_mapeh == true){
         $check_phase7_average_mapeh_term_3 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7' AND term = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '7' AND term = '3'";
         $query_check_phase7_average_mapeh_term_3 = mysqli_query($conn, $check_phase7_average_mapeh_term_3);
         if(mysqli_num_rows($query_check_phase7_average_mapeh_term_3) > 0){
             $update_phase7_average_mapeh_term_3 = "UPDATE `student_grades` SET `grade`='$phase7_term_3_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '7' AND term = '3'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '7' AND term = '3'";
             $query_update_phase7_average_mapeh_term_3 = mysqli_query($conn, $update_phase7_average_mapeh_term_3);
             if($query_update_phase7_average_mapeh_term_3 == true){
                 echo "Phase 7 Average of term 3 of mapeh updated <br>";
@@ -12142,7 +12596,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase7_average_mapeh_term_3 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase7_term_3_average_mapeh','3',
+            ('$decrypted_lrn','8','$phase7_term_3_average_mapeh','3',
             '7','none','$date_time_created')";
             $query_phase7_average_mapeh_term_3 = mysqli_query($conn, $insert_phase7_average_mapeh_term_3);
             if($query_phase7_average_mapeh_term_3 == true){
@@ -12158,18 +12612,18 @@ if(isset($_POST['update'])){
     
     $phase7_term_4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '4'
-    AND student_grades.phase = '7' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '7' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase7_term_4_get_mapeh = mysqli_query($conn, $phase7_term_4_get_mapeh);
     $rows = mysqli_fetch_array($query_phase7_term_4_get_mapeh);
     $phase7_term_4_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase7_term_4_get_mapeh == true){
         $check_phase7_average_mapeh_term_4 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7' AND term = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '7' AND term = '4'";
         $query_check_phase7_average_mapeh_term_4 = mysqli_query($conn, $check_phase7_average_mapeh_term_4);
         if(mysqli_num_rows($query_check_phase7_average_mapeh_term_4) > 0){
             $update_phase7_average_mapeh_term_4 = "UPDATE `student_grades` SET `grade`='$phase7_term_4_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '7' AND term = '4'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '7' AND term = '4'";
             $query_update_phase7_average_mapeh_term_4 = mysqli_query($conn, $update_phase7_average_mapeh_term_4);
             if($query_update_phase7_average_mapeh_term_4 == true){
                 echo "Phase 7 Average of term 4 of mapeh updated <br>";
@@ -12179,7 +12633,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase7_average_mapeh_term_4 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase7_term_4_average_mapeh','4',
+            ('$decrypted_lrn','8','$phase7_term_4_average_mapeh','4',
             '7','none','$date_time_created')";
             $query_phase7_average_mapeh_term_4 = mysqli_query($conn, $insert_phase7_average_mapeh_term_4);
             if($query_phase7_average_mapeh_term_4 == true){
@@ -12198,18 +12652,18 @@ if(isset($_POST['update'])){
     // PHASE 8 OF AVERAGE OF MAPEH TERM 1 - 4 OF STUDENT SCHOLASTIC RECORD
     $phase8_term_1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '1'
-    AND student_grades.phase = '8' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '8' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase8_term_1_get_mapeh = mysqli_query($conn, $phase8_term_1_get_mapeh);
     $rows = mysqli_fetch_array($query_phase8_term_1_get_mapeh);
     $phase8_term_1_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase8_term_1_get_mapeh == true){
         $check_phase8_average_mapeh_term_1 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '8' AND term = '1'";
         $query_check_phase8_average_mapeh_term_1 = mysqli_query($conn, $check_phase8_average_mapeh_term_1);
         if(mysqli_num_rows($query_check_phase8_average_mapeh_term_1) > 0){
             $update_phase8_average_mapeh_term_1 = "UPDATE `student_grades` SET `grade`='$phase8_term_1_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '8' AND term = '1'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '8' AND term = '1'";
             $query_update_phase8_average_mapeh_term_1 = mysqli_query($conn, $update_phase8_average_mapeh_term_1);
             if($query_update_phase8_average_mapeh_term_1 == true){
                 echo "Phase 8 Average of term 1 of mapeh updated <br>";
@@ -12219,7 +12673,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase8_average_mapeh_term_1 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase8_term_1_average_mapeh','1',
+            ('$decrypted_lrn','8','$phase8_term_1_average_mapeh','1',
             '8','none','$date_time_created')";
             $query_phase8_average_mapeh_term_1 = mysqli_query($conn, $insert_phase8_average_mapeh_term_1);
             if($query_phase8_average_mapeh_term_1 == true){
@@ -12235,18 +12689,18 @@ if(isset($_POST['update'])){
 
     $phase8_term_2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '2'
-    AND student_grades.phase = '8' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '8' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase8_term_2_get_mapeh = mysqli_query($conn, $phase8_term_2_get_mapeh);
     $rows = mysqli_fetch_array($query_phase8_term_2_get_mapeh);
     $phase8_term_2_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase8_term_2_get_mapeh == true){
         $check_phase8_average_mapeh_term_2 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '8' AND term = '2'";
         $query_check_phase8_average_mapeh_term_2 = mysqli_query($conn, $check_phase8_average_mapeh_term_2);
         if(mysqli_num_rows($query_check_phase8_average_mapeh_term_2) > 0){
             $update_phase8_average_mapeh_term_2 = "UPDATE `student_grades` SET `grade`='$phase8_term_2_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '8' AND term = '2'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '8' AND term = '2'";
             $query_update_phase8_average_mapeh_term_2 = mysqli_query($conn, $update_phase8_average_mapeh_term_2);
             if($query_update_phase8_average_mapeh_term_2 == true){
                 echo "Phase 8 Average of term 2 of mapeh updated <br>";
@@ -12256,7 +12710,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase8_average_mapeh_term_2 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase8_term_2_average_mapeh','2',
+            ('$decrypted_lrn','8','$phase8_term_2_average_mapeh','2',
             '8','none','$date_time_created')";
             $query_phase8_average_mapeh_term_2 = mysqli_query($conn, $insert_phase8_average_mapeh_term_2);
             if($query_phase8_average_mapeh_term_2 == true){
@@ -12272,18 +12726,18 @@ if(isset($_POST['update'])){
 
     $phase8_term_3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '3'
-    AND student_grades.phase = '8' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '8' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase8_term_3_get_mapeh = mysqli_query($conn, $phase8_term_3_get_mapeh);
     $rows = mysqli_fetch_array($query_phase8_term_3_get_mapeh);
     $phase8_term_3_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase8_term_3_get_mapeh == true){
         $check_phase8_average_mapeh_term_3 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8' AND term = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '8' AND term = '3'";
         $query_check_phase8_average_mapeh_term_3 = mysqli_query($conn, $check_phase8_average_mapeh_term_3);
         if(mysqli_num_rows($query_check_phase8_average_mapeh_term_3) > 0){
             $update_phase8_average_mapeh_term_3 = "UPDATE `student_grades` SET `grade`='$phase8_term_3_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '8' AND term = '3'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '8' AND term = '3'";
             $query_update_phase8_average_mapeh_term_3 = mysqli_query($conn, $update_phase8_average_mapeh_term_3);
             if($query_update_phase8_average_mapeh_term_3 == true){
                 echo "Phase 8 Average of term 3 of mapeh updated <br>";
@@ -12293,7 +12747,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase8_average_mapeh_term_3 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase8_term_3_average_mapeh','3',
+            ('$decrypted_lrn','8','$phase8_term_3_average_mapeh','3',
             '8','none','$date_time_created')";
             $query_phase8_average_mapeh_term_3 = mysqli_query($conn, $insert_phase8_average_mapeh_term_3);
             if($query_phase8_average_mapeh_term_3 == true){
@@ -12309,18 +12763,18 @@ if(isset($_POST['update'])){
     
     $phase8_term_4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('9', '10', '11', '12') AND student_grades.term = '4'
-    AND student_grades.phase = '8' AND student_grades.lrn = '109857060083'";
+    AND student_grades.phase = '8' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase8_term_4_get_mapeh = mysqli_query($conn, $phase8_term_4_get_mapeh);
     $rows = mysqli_fetch_array($query_phase8_term_4_get_mapeh);
     $phase8_term_4_average_mapeh = round($rows['AVG(student_grades.grade)']);
     if($query_phase8_term_4_get_mapeh == true){
         $check_phase8_average_mapeh_term_4 = "SELECT * FROM student_grades
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8' AND term = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '8' AND term = '4'";
         $query_check_phase8_average_mapeh_term_4 = mysqli_query($conn, $check_phase8_average_mapeh_term_4);
         if(mysqli_num_rows($query_check_phase8_average_mapeh_term_4) > 0){
             $update_phase8_average_mapeh_term_4 = "UPDATE `student_grades` SET `grade`='$phase8_term_4_average_mapeh',
             `remarks`='none',`date_time_updated`='$date_time_updated' 
-            WHERE `lrn` = '109857060083' AND subject_id = '8' AND phase = '8' AND term = '4'";
+            WHERE `lrn` = '$decrypted_lrn' AND subject_id = '8' AND phase = '8' AND term = '4'";
             $query_update_phase8_average_mapeh_term_4 = mysqli_query($conn, $update_phase8_average_mapeh_term_4);
             if($query_update_phase8_average_mapeh_term_4 == true){
                 echo "Phase 8 Average of term 4 of mapeh updated <br>";
@@ -12330,7 +12784,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase8_average_mapeh_term_4 = "INSERT INTO `student_grades`( `lrn`, `subject_id`, `grade`, 
             `term`, `phase`, `remarks`,  `date_time_updated`) VALUES 
-            ('109857060083','8','$phase8_term_4_average_mapeh','4',
+            ('$decrypted_lrn','8','$phase8_term_4_average_mapeh','4',
             '8','none','$date_time_created')";
             $query_phase8_average_mapeh_term_4 = mysqli_query($conn, $insert_phase8_average_mapeh_term_4);
             if($query_phase8_average_mapeh_term_4 == true){
@@ -12354,12 +12808,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '1'";
     $query_phase1_check_finalrating_mother_tounge_grade = mysqli_query($conn, $phase1_check_finalrating_mother_tounge_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_mother_tounge_grade) > 0){
         $phase1_update_finalrating_mother_tounge_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_mother_tounge_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '1'";
         $query_phase1_update_finalrating_mother_tounge_grade = mysqli_query($conn, $phase1_update_finalrating_mother_tounge_grade);
         if($query_phase1_update_finalrating_mother_tounge_grade == true){
             echo "Phase 1 Student Final Rating Mother Tounge Updated <br>";
@@ -12369,7 +12823,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_mother_tounge_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','1','$phase1_round_off_ave_of_mother_tounge_grades',
+        VALUES ('$decrypted_lrn','1','$phase1_round_off_ave_of_mother_tounge_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase1_insert_finalrating_mother_tounge_grade);
         if($query_phase1_insert_finalrating_mother_tounge_grade == true){
@@ -12389,12 +12843,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '1'";
     $query_phase1_check_finalrating_filipino_grade = mysqli_query($conn, $phase1_check_finalrating_filipino_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_filipino_grade) > 0){
         $phase1_update_finalrating_filipino_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_filipino_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '1'";
         $query_phase1_update_finalrating_filipino_grade = mysqli_query($conn, $phase1_update_finalrating_filipino_grade);
         if($query_phase1_update_finalrating_filipino_grade == true){
             echo "Phase 1 Student Final Rating Filipino Updated <br>";
@@ -12404,7 +12858,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_filipino_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','2','$phase1_round_off_ave_of_filipino_grades',
+        VALUES ('$decrypted_lrn','2','$phase1_round_off_ave_of_filipino_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_filipino_grade = mysqli_query($conn, $phase1_insert_finalrating_filipino_grade);
         if($query_phase1_insert_finalrating_filipino_grade == true){
@@ -12424,12 +12878,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '1'";
     $query_phase1_check_finalrating_english_grade = mysqli_query($conn, $phase1_check_finalrating_english_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_english_grade) > 0){
         $phase1_update_finalrating_english_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_english_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '1'";
         $query_phase1_update_finalrating_english_grade = mysqli_query($conn, $phase1_update_finalrating_english_grade);
         if($query_phase1_update_finalrating_english_grade == true){
             echo "Phase 1 Student Final Rating English Updated <br>";
@@ -12439,7 +12893,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_english_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','3','$phase1_round_off_ave_of_english_grades',
+        VALUES ('$decrypted_lrn','3','$phase1_round_off_ave_of_english_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_english_grade = mysqli_query($conn, $phase1_insert_finalrating_english_grade);
         if($query_phase1_insert_finalrating_english_grade == true){
@@ -12459,12 +12913,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '1'";
     $query_phase1_check_finalrating_math_grade = mysqli_query($conn, $phase1_check_finalrating_math_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_math_grade) > 0){
         $phase1_update_finalrating_math_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_math_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '1'";
         $query_phase1_update_finalrating_math_grade = mysqli_query($conn, $phase1_update_finalrating_math_grade);
         if($query_phase1_update_finalrating_math_grade == true){
             echo "Phase 1 Student Final Rating Mathematics Updated <br>";
@@ -12474,7 +12928,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_math_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','4','$phase1_round_off_ave_of_math_grades',
+        VALUES ('$decrypted_lrn','4','$phase1_round_off_ave_of_math_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_math_grade = mysqli_query($conn, $phase1_insert_finalrating_math_grade);
         if($query_phase1_insert_finalrating_math_grade == true){
@@ -12494,12 +12948,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '1'";
     $query_phase1_check_finalrating_science_grade = mysqli_query($conn, $phase1_check_finalrating_science_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_science_grade) > 0){
         $phase1_update_finalrating_science_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_science_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '1'";
         $query_phase1_update_finalrating_science_grade = mysqli_query($conn, $phase1_update_finalrating_science_grade);
         if($query_phase1_update_finalrating_science_grade == true){
             echo "Phase 1 Student Final Rating Science Updated <br>";
@@ -12509,7 +12963,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_science_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','5','$phase1_round_off_ave_of_science_grades',
+        VALUES ('$decrypted_lrn','5','$phase1_round_off_ave_of_science_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_science_grade = mysqli_query($conn, $phase1_insert_finalrating_science_grade);
         if($query_phase1_insert_finalrating_science_grade == true){
@@ -12529,12 +12983,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '1'";
     $query_phase1_check_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase1_check_finalrating_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_araling_panlipunan_grade) > 0){
         $phase1_update_finalrating_araling_panlipunan_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_araling_panlipunan_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '1'";
         $query_phase1_update_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase1_update_finalrating_araling_panlipunan_grade);
         if($query_phase1_update_finalrating_araling_panlipunan_grade == true){
             echo "Phase 1 Student Final Rating Araling Panlipunan Updated <br>";
@@ -12544,7 +12998,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_araling_panlipunan_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','6','$phase1_round_off_ave_of_araling_panlipunan_grades',
+        VALUES ('$decrypted_lrn','6','$phase1_round_off_ave_of_araling_panlipunan_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase1_insert_finalrating_araling_panlipunan_grade);
         if($query_phase1_insert_finalrating_araling_panlipunan_grade == true){
@@ -12564,12 +13018,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '1'";
     $query_phase1_check_finalrating_epp_tle_grade = mysqli_query($conn, $phase1_check_finalrating_epp_tle_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_epp_tle_grade) > 0){
         $phase1_update_finalrating_epp_tle_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_epp_tle_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '1'";
         $query_phase1_update_finalrating_epp_tle_grade = mysqli_query($conn, $phase1_update_finalrating_epp_tle_grade);
         if($query_phase1_update_finalrating_epp_tle_grade == true){
             echo "Phase 1 Student Final Rating EPP/TLE Updated <br>";
@@ -12579,7 +13033,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_epp_tle_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','7','$phase1_round_off_ave_of_epp_tle_grades',
+        VALUES ('$decrypted_lrn','7','$phase1_round_off_ave_of_epp_tle_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_epp_tle_grade = mysqli_query($conn, $phase1_insert_finalrating_epp_tle_grade);
         if($query_phase1_insert_finalrating_epp_tle_grade == true){
@@ -12595,7 +13049,7 @@ if(isset($_POST['update'])){
     $phase1_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id = '8' AND student_grades.term IN ('1', '2', '3', '4')
     AND student_grades.phase = '1'
-    AND student_grades.lrn = '109857060083'";
+    AND student_grades.lrn = '$decrypted_lrn'";
     $query_mapeh = mysqli_query($conn, $phase1_get_mapeh);
     if($query_mapeh == true){
         $rows = mysqli_fetch_array($query_mapeh);
@@ -12606,12 +13060,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $phase1_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '1'";
         $query_phase1_check_finalrating_mapeh_grade = mysqli_query($conn, $phase1_check_finalrating_mapeh_grade);
         if(mysqli_num_rows($query_phase1_check_finalrating_mapeh_grade) > 0){
             $update_phase1_finalrating_mapeh_grade = "UPDATE `student_final_ratings` SET `final_rating`='$phase1_finalrating_mapeh_grade',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE phase = '1' AND subject_id = '8' AND `lrn` = '109857060083'";
+            WHERE phase = '1' AND subject_id = '8' AND `lrn` = '$decrypted_lrn'";
             $query_update_phase1_finalrating_mapeh_grade = mysqli_query($conn, $update_phase1_finalrating_mapeh_grade);
             if($query_update_phase1_finalrating_mapeh_grade == true){
                 echo "Phase 1 Student Final Rating MAPEH Updated <br>";
@@ -12621,7 +13075,7 @@ if(isset($_POST['update'])){
         }else{
             $phase1_insert_finalrating_mapeh_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
             `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','8','$phase1_finalrating_mapeh_grade',
+            VALUES ('$decrypted_lrn','8','$phase1_finalrating_mapeh_grade',
             'Final Rating','1','$remarks','$date_time_created')";
             $query_phase1_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase1_insert_finalrating_mapeh_grade);
             if($query_phase1_insert_finalrating_mother_tounge_grade == true){
@@ -12644,12 +13098,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '1'";
     $query_phase1_check_finalrating_music_grade = mysqli_query($conn, $phase1_check_finalrating_music_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_music_grade) > 0){
         $phase1_update_finalrating_music_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_music_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '1'";
         $query_phase1_update_finalrating_music_grade = mysqli_query($conn, $phase1_update_finalrating_music_grade);
         if($query_phase1_update_finalrating_music_grade == true){
             echo "Phase 1 Student Final Rating Music Updated <br>";
@@ -12659,7 +13113,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_music_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','9','$phase1_round_off_ave_of_music_grades',
+        VALUES ('$decrypted_lrn','9','$phase1_round_off_ave_of_music_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_music_grade = mysqli_query($conn, $phase1_insert_finalrating_music_grade);
         if($query_phase1_insert_finalrating_music_grade == true){
@@ -12679,12 +13133,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '1'";
     $query_phase1_check_finalrating_art_grade = mysqli_query($conn, $phase1_check_finalrating_art_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_art_grade) > 0){
         $phase1_update_finalrating_art_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_art_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '1'";
         $query_phase1_update_finalrating_art_grade = mysqli_query($conn, $phase1_update_finalrating_art_grade);
         if($query_phase1_update_finalrating_art_grade == true){
             echo "Phase 1 Student Final Rating Art Updated <br>";
@@ -12694,7 +13148,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_art_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','10','$phase1_round_off_ave_of_art_grades',
+        VALUES ('$decrypted_lrn','10','$phase1_round_off_ave_of_art_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_art_grade = mysqli_query($conn, $phase1_insert_finalrating_art_grade);
         if($query_phase1_insert_finalrating_art_grade == true){
@@ -12714,12 +13168,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '1'";
     $query_phase1_check_finalrating_pe_grade = mysqli_query($conn, $phase1_check_finalrating_pe_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_pe_grade) > 0){
         $phase1_update_finalrating_pe_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_pe_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '1'";
         $query_phase1_update_finalrating_pe_grade = mysqli_query($conn, $phase1_update_finalrating_pe_grade);
         if($query_phase1_update_finalrating_pe_grade == true){
             echo "Phase 1 Student Final Rating PE Updated <br>";
@@ -12729,7 +13183,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_pe_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','11','$phase1_round_off_ave_of_pe_grades',
+        VALUES ('$decrypted_lrn','11','$phase1_round_off_ave_of_pe_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_pe_grade = mysqli_query($conn, $phase1_insert_finalrating_pe_grade);
         if($query_phase1_insert_finalrating_pe_grade == true){
@@ -12749,12 +13203,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '1'";
     $query_phase1_check_finalrating_health_grade = mysqli_query($conn, $phase1_check_finalrating_health_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_health_grade) > 0){
         $phase1_update_finalrating_health_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_health_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '1'";
         $query_phase1_update_finalrating_health_grade = mysqli_query($conn, $phase1_update_finalrating_health_grade);
         if($query_phase1_update_finalrating_health_grade == true){
             echo "Phase 1 Student Final Rating Health Updated <br>";
@@ -12764,7 +13218,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_health_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','12','$phase1_round_off_ave_of_health_grades',
+        VALUES ('$decrypted_lrn','12','$phase1_round_off_ave_of_health_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_health_grade = mysqli_query($conn, $phase1_insert_finalrating_health_grade);
         if($query_phase1_insert_finalrating_health_grade == true){
@@ -12784,12 +13238,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '1'";
     $query_phase1_check_finalrating_esp_grade = mysqli_query($conn, $phase1_check_finalrating_esp_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_esp_grade) > 0){
         $phase1_update_finalrating_esp_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_esp_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '1'";
         $query_phase1_update_finalrating_esp_grade = mysqli_query($conn, $phase1_update_finalrating_esp_grade);
         if($query_phase1_update_finalrating_esp_grade == true){
             echo "Phase 1 Student Final Rating ESP Updated <br>";
@@ -12799,7 +13253,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_esp_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','13','$phase1_round_off_ave_of_esp_grades',
+        VALUES ('$decrypted_lrn','13','$phase1_round_off_ave_of_esp_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_esp_grade = mysqli_query($conn, $phase1_insert_finalrating_esp_grade);
         if($query_phase1_insert_finalrating_esp_grade == true){
@@ -12819,12 +13273,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '1'";
     $query_phase1_check_finalrating_arabic_lang_grade = mysqli_query($conn, $phase1_check_finalrating_arabic_lang_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_arabic_lang_grade) > 0){
         $phase1_update_finalrating_arabic_lang_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_arabic_lang_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '1'";
         $query_phase1_update_finalrating_arabic_lang_grade = mysqli_query($conn, $phase1_update_finalrating_arabic_lang_grade);
         if($query_phase1_update_finalrating_arabic_lang_grade == true){
             echo "Phase 1 Student Final Rating Arabic Language Updated <br>";
@@ -12834,7 +13288,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_arabic_lang_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','14','$phase1_round_off_ave_of_arabic_lang_grades',
+        VALUES ('$decrypted_lrn','14','$phase1_round_off_ave_of_arabic_lang_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_arabic_lang_grade = mysqli_query($conn, $phase1_insert_finalrating_arabic_lang_grade);
         if($query_phase1_insert_finalrating_arabic_lang_grade == true){
@@ -12854,12 +13308,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase1_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '1'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '1'";
     $query_phase1_check_finalrating_islamic_values_grade = mysqli_query($conn, $phase1_check_finalrating_islamic_values_grade);
     if(mysqli_num_rows($query_phase1_check_finalrating_islamic_values_grade) > 0){
         $phase1_update_finalrating_islamic_values_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase1_round_off_ave_of_islamic_values_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '1'";
         $query_phase1_update_finalrating_islamic_values_grade = mysqli_query($conn, $phase1_update_finalrating_islamic_values_grade);
         if($query_phase1_update_finalrating_islamic_values_grade == true){
             echo "Phase 1 Student Final Rating Islamic Values Updated <br>";
@@ -12869,7 +13323,7 @@ if(isset($_POST['update'])){
     }else{
         $phase1_insert_finalrating_islamic_values_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','15','$phase1_round_off_ave_of_islamic_values_grades',
+        VALUES ('$decrypted_lrn','15','$phase1_round_off_ave_of_islamic_values_grades',
         'Final Rating','1','$remarks','$date_time_created')";
         $query_phase1_insert_finalrating_islamic_values_grade = mysqli_query($conn, $phase1_insert_finalrating_islamic_values_grade);
         if($query_phase1_insert_finalrating_islamic_values_grade == true){
@@ -12890,12 +13344,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '2'";
     $query_phase2_check_finalrating_mother_tounge_grade = mysqli_query($conn, $phase2_check_finalrating_mother_tounge_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_mother_tounge_grade) > 0){
         $phase2_update_finalrating_mother_tounge_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_mother_tounge_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '2'";
         $query_phase2_update_finalrating_mother_tounge_grade = mysqli_query($conn, $phase2_update_finalrating_mother_tounge_grade);
         if($query_phase2_update_finalrating_mother_tounge_grade == true){
             echo "Phase 2 Student Final Rating Mother Tounge Updated <br>";
@@ -12905,7 +13359,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_mother_tounge_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','1','$phase2_round_off_ave_of_mother_tounge_grades',
+        VALUES ('$decrypted_lrn','1','$phase2_round_off_ave_of_mother_tounge_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase2_insert_finalrating_mother_tounge_grade);
         if($query_phase2_insert_finalrating_mother_tounge_grade == true){
@@ -12925,12 +13379,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '2'";
     $query_phase2_check_finalrating_filipino_grade = mysqli_query($conn, $phase2_check_finalrating_filipino_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_filipino_grade) > 0){
         $phase2_update_finalrating_filipino_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_filipino_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '2'";
         $query_phase2_update_finalrating_filipino_grade = mysqli_query($conn, $phase2_update_finalrating_filipino_grade);
         if($query_phase2_update_finalrating_filipino_grade == true){
             echo "Phase 2 Student Final Rating Filipino Updated <br>";
@@ -12940,7 +13394,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_filipino_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','2','$phase2_round_off_ave_of_filipino_grades',
+        VALUES ('$decrypted_lrn','2','$phase2_round_off_ave_of_filipino_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_filipino_grade = mysqli_query($conn, $phase2_insert_finalrating_filipino_grade);
         if($query_phase2_insert_finalrating_filipino_grade == true){
@@ -12960,12 +13414,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '2'";
     $query_phase2_check_finalrating_english_grade = mysqli_query($conn, $phase2_check_finalrating_english_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_english_grade) > 0){
         $phase2_update_finalrating_english_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_english_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '2'";
         $query_phase2_update_finalrating_english_grade = mysqli_query($conn, $phase2_update_finalrating_english_grade);
         if($query_phase2_update_finalrating_english_grade == true){
             echo "Phase 2 Student Final Rating English Updated <br>";
@@ -12975,7 +13429,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_english_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','3','$phase2_round_off_ave_of_english_grades',
+        VALUES ('$decrypted_lrn','3','$phase2_round_off_ave_of_english_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_english_grade = mysqli_query($conn, $phase2_insert_finalrating_english_grade);
         if($query_phase2_insert_finalrating_english_grade == true){
@@ -12995,12 +13449,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '2'";
     $query_phase2_check_finalrating_math_grade = mysqli_query($conn, $phase2_check_finalrating_math_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_math_grade) > 0){
         $phase2_update_finalrating_math_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_math_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '2'";
         $query_phase2_update_finalrating_math_grade = mysqli_query($conn, $phase2_update_finalrating_math_grade);
         if($query_phase2_update_finalrating_math_grade == true){
             echo "Phase 2 Student Final Rating Mathematics Updated <br>";
@@ -13010,7 +13464,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_math_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','4','$phase2_round_off_ave_of_math_grades',
+        VALUES ('$decrypted_lrn','4','$phase2_round_off_ave_of_math_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_math_grade = mysqli_query($conn, $phase2_insert_finalrating_math_grade);
         if($query_phase2_insert_finalrating_math_grade == true){
@@ -13030,12 +13484,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '2'";
     $query_phase2_check_finalrating_science_grade = mysqli_query($conn, $phase2_check_finalrating_science_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_science_grade) > 0){
         $phase2_update_finalrating_science_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_science_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '2'";
         $query_phase2_update_finalrating_science_grade = mysqli_query($conn, $phase2_update_finalrating_science_grade);
         if($query_phase2_update_finalrating_science_grade == true){
             echo "Phase 2 Student Final Rating Science Updated <br>";
@@ -13045,7 +13499,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_science_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','5','$phase2_round_off_ave_of_science_grades',
+        VALUES ('$decrypted_lrn','5','$phase2_round_off_ave_of_science_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_science_grade = mysqli_query($conn, $phase2_insert_finalrating_science_grade);
         if($query_phase2_insert_finalrating_science_grade == true){
@@ -13065,12 +13519,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '2'";
     $query_phase2_check_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase2_check_finalrating_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_araling_panlipunan_grade) > 0){
         $phase2_update_finalrating_araling_panlipunan_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_araling_panlipunan_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '2'";
         $query_phase2_update_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase2_update_finalrating_araling_panlipunan_grade);
         if($query_phase2_update_finalrating_araling_panlipunan_grade == true){
             echo "Phase 2 Student Final Rating Araling Panlipunan Updated <br>";
@@ -13080,7 +13534,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_araling_panlipunan_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','6','$phase2_round_off_ave_of_araling_panlipunan_grades',
+        VALUES ('$decrypted_lrn','6','$phase2_round_off_ave_of_araling_panlipunan_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase2_insert_finalrating_araling_panlipunan_grade);
         if($query_phase2_insert_finalrating_araling_panlipunan_grade == true){
@@ -13100,12 +13554,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '2'";
     $query_phase2_check_finalrating_epp_tle_grade = mysqli_query($conn, $phase2_check_finalrating_epp_tle_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_epp_tle_grade) > 0){
         $phase2_update_finalrating_epp_tle_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_epp_tle_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '2'";
         $query_phase2_update_finalrating_epp_tle_grade = mysqli_query($conn, $phase2_update_finalrating_epp_tle_grade);
         if($query_phase2_update_finalrating_epp_tle_grade == true){
             echo "Phase 2 Student Final Rating EPP/TLE Updated <br>";
@@ -13115,7 +13569,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_epp_tle_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','7','$phase2_round_off_ave_of_epp_tle_grades',
+        VALUES ('$decrypted_lrn','7','$phase2_round_off_ave_of_epp_tle_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_epp_tle_grade = mysqli_query($conn, $phase2_insert_finalrating_epp_tle_grade);
         if($query_phase2_insert_finalrating_epp_tle_grade == true){
@@ -13131,7 +13585,7 @@ if(isset($_POST['update'])){
     $phase2_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id = '8' AND student_grades.term IN ('1', '2', '3', '4')
     AND student_grades.phase = '2'
-    AND student_grades.lrn = '109857060083'";
+    AND student_grades.lrn = '$decrypted_lrn'";
     $query_mapeh = mysqli_query($conn, $phase2_get_mapeh);
     if($query_mapeh == true){
         $rows = mysqli_fetch_array($query_mapeh);
@@ -13142,12 +13596,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $phase2_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '2'";
         $query_phase2_check_finalrating_mapeh_grade = mysqli_query($conn, $phase2_check_finalrating_mapeh_grade);
         if(mysqli_num_rows($query_phase2_check_finalrating_mapeh_grade) > 0){
             $update_phase2_finalrating_mapeh_grade = "UPDATE `student_final_ratings` SET `final_rating`='$phase2_finalrating_mapeh_grade',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE phase = '2' AND subject_id = '8' AND `lrn` = '109857060083'";
+            WHERE phase = '2' AND subject_id = '8' AND `lrn` = '$decrypted_lrn'";
             $query_update_phase2_finalrating_mapeh_grade = mysqli_query($conn, $update_phase2_finalrating_mapeh_grade);
             if($query_update_phase2_finalrating_mapeh_grade == true){
                 echo "Phase 2 Student Final Rating MAPEH Updated <br>";
@@ -13157,7 +13611,7 @@ if(isset($_POST['update'])){
         }else{
             $phase2_insert_finalrating_mapeh_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
             `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','8','$phase2_finalrating_mapeh_grade',
+            VALUES ('$decrypted_lrn','8','$phase2_finalrating_mapeh_grade',
             'Final Rating','2','$remarks','$date_time_created')";
             $query_phase2_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase2_insert_finalrating_mapeh_grade);
             if($query_phase2_insert_finalrating_mother_tounge_grade == true){
@@ -13180,12 +13634,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '2'";
     $query_phase2_check_finalrating_music_grade = mysqli_query($conn, $phase2_check_finalrating_music_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_music_grade) > 0){
         $phase2_update_finalrating_music_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_music_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '2'";
         $query_phase2_update_finalrating_music_grade = mysqli_query($conn, $phase2_update_finalrating_music_grade);
         if($query_phase2_update_finalrating_music_grade == true){
             echo "Phase 2 Student Final Rating Music Updated <br>";
@@ -13195,7 +13649,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_music_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','9','$phase2_round_off_ave_of_music_grades',
+        VALUES ('$decrypted_lrn','9','$phase2_round_off_ave_of_music_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_music_grade = mysqli_query($conn, $phase2_insert_finalrating_music_grade);
         if($query_phase2_insert_finalrating_music_grade == true){
@@ -13215,12 +13669,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '2'";
     $query_phase2_check_finalrating_art_grade = mysqli_query($conn, $phase2_check_finalrating_art_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_art_grade) > 0){
         $phase2_update_finalrating_art_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_art_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '2'";
         $query_phase2_update_finalrating_art_grade = mysqli_query($conn, $phase2_update_finalrating_art_grade);
         if($query_phase2_update_finalrating_art_grade == true){
             echo "Phase 2 Student Final Rating Art Updated <br>";
@@ -13230,7 +13684,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_art_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','10','$phase2_round_off_ave_of_art_grades',
+        VALUES ('$decrypted_lrn','10','$phase2_round_off_ave_of_art_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_art_grade = mysqli_query($conn, $phase2_insert_finalrating_art_grade);
         if($query_phase2_insert_finalrating_art_grade == true){
@@ -13250,12 +13704,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '2'";
     $query_phase2_check_finalrating_pe_grade = mysqli_query($conn, $phase2_check_finalrating_pe_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_pe_grade) > 0){
         $phase2_update_finalrating_pe_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_pe_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '2'";
         $query_phase2_update_finalrating_pe_grade = mysqli_query($conn, $phase2_update_finalrating_pe_grade);
         if($query_phase2_update_finalrating_pe_grade == true){
             echo "Phase 2 Student Final Rating PE Updated <br>";
@@ -13265,7 +13719,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_pe_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','11','$phase2_round_off_ave_of_pe_grades',
+        VALUES ('$decrypted_lrn','11','$phase2_round_off_ave_of_pe_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_pe_grade = mysqli_query($conn, $phase2_insert_finalrating_pe_grade);
         if($query_phase2_insert_finalrating_pe_grade == true){
@@ -13285,12 +13739,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '2'";
     $query_phase2_check_finalrating_health_grade = mysqli_query($conn, $phase2_check_finalrating_health_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_health_grade) > 0){
         $phase2_update_finalrating_health_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_health_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '2'";
         $query_phase2_update_finalrating_health_grade = mysqli_query($conn, $phase2_update_finalrating_health_grade);
         if($query_phase2_update_finalrating_health_grade == true){
             echo "Phase 2 Student Final Rating Health Updated <br>";
@@ -13300,7 +13754,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_health_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','12','$phase2_round_off_ave_of_health_grades',
+        VALUES ('$decrypted_lrn','12','$phase2_round_off_ave_of_health_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_health_grade = mysqli_query($conn, $phase2_insert_finalrating_health_grade);
         if($query_phase2_insert_finalrating_health_grade == true){
@@ -13320,12 +13774,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '2'";
     $query_phase2_check_finalrating_esp_grade = mysqli_query($conn, $phase2_check_finalrating_esp_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_esp_grade) > 0){
         $phase2_update_finalrating_esp_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_esp_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '2'";
         $query_phase2_update_finalrating_esp_grade = mysqli_query($conn, $phase2_update_finalrating_esp_grade);
         if($query_phase2_update_finalrating_esp_grade == true){
             echo "Phase 2 Student Final Rating ESP Updated <br>";
@@ -13335,7 +13789,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_esp_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','13','$phase2_round_off_ave_of_esp_grades',
+        VALUES ('$decrypted_lrn','13','$phase2_round_off_ave_of_esp_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_esp_grade = mysqli_query($conn, $phase2_insert_finalrating_esp_grade);
         if($query_phase2_insert_finalrating_esp_grade == true){
@@ -13355,12 +13809,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '2'";
     $query_phase2_check_finalrating_arabic_lang_grade = mysqli_query($conn, $phase2_check_finalrating_arabic_lang_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_arabic_lang_grade) > 0){
         $phase2_update_finalrating_arabic_lang_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_arabic_lang_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '2'";
         $query_phase2_update_finalrating_arabic_lang_grade = mysqli_query($conn, $phase2_update_finalrating_arabic_lang_grade);
         if($query_phase2_update_finalrating_arabic_lang_grade == true){
             echo "Phase 2 Student Final Rating Arabic Language Updated <br>";
@@ -13370,7 +13824,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_arabic_lang_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','14','$phase2_round_off_ave_of_arabic_lang_grades',
+        VALUES ('$decrypted_lrn','14','$phase2_round_off_ave_of_arabic_lang_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_arabic_lang_grade = mysqli_query($conn, $phase2_insert_finalrating_arabic_lang_grade);
         if($query_phase2_insert_finalrating_arabic_lang_grade == true){
@@ -13390,12 +13844,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase2_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '2'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '2'";
     $query_phase2_check_finalrating_islamic_values_grade = mysqli_query($conn, $phase2_check_finalrating_islamic_values_grade);
     if(mysqli_num_rows($query_phase2_check_finalrating_islamic_values_grade) > 0){
         $phase2_update_finalrating_islamic_values_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase2_round_off_ave_of_islamic_values_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '2'";
         $query_phase2_update_finalrating_islamic_values_grade = mysqli_query($conn, $phase2_update_finalrating_islamic_values_grade);
         if($query_phase2_update_finalrating_islamic_values_grade == true){
             echo "Phase 2 Student Final Rating Islamic Values Updated <br>";
@@ -13405,7 +13859,7 @@ if(isset($_POST['update'])){
     }else{
         $phase2_insert_finalrating_islamic_values_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','15','$phase2_round_off_ave_of_islamic_values_grades',
+        VALUES ('$decrypted_lrn','15','$phase2_round_off_ave_of_islamic_values_grades',
         'Final Rating','2','$remarks','$date_time_created')";
         $query_phase2_insert_finalrating_islamic_values_grade = mysqli_query($conn, $phase2_insert_finalrating_islamic_values_grade);
         if($query_phase2_insert_finalrating_islamic_values_grade == true){
@@ -13426,12 +13880,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '3'";
     $query_phase3_check_finalrating_mother_tounge_grade = mysqli_query($conn, $phase3_check_finalrating_mother_tounge_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_mother_tounge_grade) > 0){
         $phase3_update_finalrating_mother_tounge_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_mother_tounge_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '3'";
         $query_phase3_update_finalrating_mother_tounge_grade = mysqli_query($conn, $phase3_update_finalrating_mother_tounge_grade);
         if($query_phase3_update_finalrating_mother_tounge_grade == true){
             echo "Phase 3 Student Final Rating Mother Tounge Updated <br>";
@@ -13441,7 +13895,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_mother_tounge_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','1','$phase3_round_off_ave_of_mother_tounge_grades',
+        VALUES ('$decrypted_lrn','1','$phase3_round_off_ave_of_mother_tounge_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase3_insert_finalrating_mother_tounge_grade);
         if($query_phase3_insert_finalrating_mother_tounge_grade == true){
@@ -13461,12 +13915,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '3'";
     $query_phase3_check_finalrating_filipino_grade = mysqli_query($conn, $phase3_check_finalrating_filipino_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_filipino_grade) > 0){
         $phase3_update_finalrating_filipino_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_filipino_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '3'";
         $query_phase3_update_finalrating_filipino_grade = mysqli_query($conn, $phase3_update_finalrating_filipino_grade);
         if($query_phase3_update_finalrating_filipino_grade == true){
             echo "Phase 3 Student Final Rating Filipino Updated <br>";
@@ -13476,7 +13930,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_filipino_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','2','$phase3_round_off_ave_of_filipino_grades',
+        VALUES ('$decrypted_lrn','2','$phase3_round_off_ave_of_filipino_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_filipino_grade = mysqli_query($conn, $phase3_insert_finalrating_filipino_grade);
         if($query_phase3_insert_finalrating_filipino_grade == true){
@@ -13496,12 +13950,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '3'";
     $query_phase3_check_finalrating_english_grade = mysqli_query($conn, $phase3_check_finalrating_english_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_english_grade) > 0){
         $phase3_update_finalrating_english_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_english_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '3'";
         $query_phase3_update_finalrating_english_grade = mysqli_query($conn, $phase3_update_finalrating_english_grade);
         if($query_phase3_update_finalrating_english_grade == true){
             echo "Phase 3 Student Final Rating English Updated <br>";
@@ -13511,7 +13965,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_english_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','3','$phase3_round_off_ave_of_english_grades',
+        VALUES ('$decrypted_lrn','3','$phase3_round_off_ave_of_english_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_english_grade = mysqli_query($conn, $phase3_insert_finalrating_english_grade);
         if($query_phase3_insert_finalrating_english_grade == true){
@@ -13531,12 +13985,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '3'";
     $query_phase3_check_finalrating_math_grade = mysqli_query($conn, $phase3_check_finalrating_math_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_math_grade) > 0){
         $phase3_update_finalrating_math_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_math_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '3'";
         $query_phase3_update_finalrating_math_grade = mysqli_query($conn, $phase3_update_finalrating_math_grade);
         if($query_phase3_update_finalrating_math_grade == true){
             echo "Phase 3 Student Final Rating Mathematics Updated <br>";
@@ -13546,7 +14000,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_math_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','4','$phase3_round_off_ave_of_math_grades',
+        VALUES ('$decrypted_lrn','4','$phase3_round_off_ave_of_math_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_math_grade = mysqli_query($conn, $phase3_insert_finalrating_math_grade);
         if($query_phase3_insert_finalrating_math_grade == true){
@@ -13566,12 +14020,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '3'";
     $query_phase3_check_finalrating_science_grade = mysqli_query($conn, $phase3_check_finalrating_science_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_science_grade) > 0){
         $phase3_update_finalrating_science_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_science_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '3'";
         $query_phase3_update_finalrating_science_grade = mysqli_query($conn, $phase3_update_finalrating_science_grade);
         if($query_phase3_update_finalrating_science_grade == true){
             echo "Phase 3 Student Final Rating Science Updated <br>";
@@ -13581,7 +14035,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_science_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','5','$phase3_round_off_ave_of_science_grades',
+        VALUES ('$decrypted_lrn','5','$phase3_round_off_ave_of_science_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_science_grade = mysqli_query($conn, $phase3_insert_finalrating_science_grade);
         if($query_phase3_insert_finalrating_science_grade == true){
@@ -13601,12 +14055,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '3'";
     $query_phase3_check_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase3_check_finalrating_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_araling_panlipunan_grade) > 0){
         $phase3_update_finalrating_araling_panlipunan_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_araling_panlipunan_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '3'";
         $query_phase3_update_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase3_update_finalrating_araling_panlipunan_grade);
         if($query_phase3_update_finalrating_araling_panlipunan_grade == true){
             echo "Phase 3 Student Final Rating Araling Panlipunan Updated <br>";
@@ -13616,7 +14070,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_araling_panlipunan_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','6','$phase3_round_off_ave_of_araling_panlipunan_grades',
+        VALUES ('$decrypted_lrn','6','$phase3_round_off_ave_of_araling_panlipunan_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase3_insert_finalrating_araling_panlipunan_grade);
         if($query_phase3_insert_finalrating_araling_panlipunan_grade == true){
@@ -13636,12 +14090,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '3'";
     $query_phase3_check_finalrating_epp_tle_grade = mysqli_query($conn, $phase3_check_finalrating_epp_tle_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_epp_tle_grade) > 0){
         $phase3_update_finalrating_epp_tle_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_epp_tle_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '3'";
         $query_phase3_update_finalrating_epp_tle_grade = mysqli_query($conn, $phase3_update_finalrating_epp_tle_grade);
         if($query_phase3_update_finalrating_epp_tle_grade == true){
             echo "Phase 3 Student Final Rating EPP/TLE Updated <br>";
@@ -13651,7 +14105,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_epp_tle_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','7','$phase3_round_off_ave_of_epp_tle_grades',
+        VALUES ('$decrypted_lrn','7','$phase3_round_off_ave_of_epp_tle_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_epp_tle_grade = mysqli_query($conn, $phase3_insert_finalrating_epp_tle_grade);
         if($query_phase3_insert_finalrating_epp_tle_grade == true){
@@ -13667,7 +14121,7 @@ if(isset($_POST['update'])){
     $phase3_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id = '8' AND student_grades.term IN ('1', '2', '3', '4')
     AND student_grades.phase = '3'
-    AND student_grades.lrn = '109857060083'";
+    AND student_grades.lrn = '$decrypted_lrn'";
     $query_mapeh = mysqli_query($conn, $phase3_get_mapeh);
     if($query_mapeh == true){
         $rows = mysqli_fetch_array($query_mapeh);
@@ -13678,12 +14132,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $phase3_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '3'";
         $query_phase3_check_finalrating_mapeh_grade = mysqli_query($conn, $phase3_check_finalrating_mapeh_grade);
         if(mysqli_num_rows($query_phase3_check_finalrating_mapeh_grade) > 0){
             $update_phase3_finalrating_mapeh_grade = "UPDATE `student_final_ratings` SET `final_rating`='$phase3_finalrating_mapeh_grade',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE phase = '3' AND subject_id = '8' AND `lrn` = '109857060083'";
+            WHERE phase = '3' AND subject_id = '8' AND `lrn` = '$decrypted_lrn'";
             $query_update_phase3_finalrating_mapeh_grade = mysqli_query($conn, $update_phase3_finalrating_mapeh_grade);
             if($query_update_phase3_finalrating_mapeh_grade == true){
                 echo "Phase 3 Student Final Rating MAPEH Updated <br>";
@@ -13693,7 +14147,7 @@ if(isset($_POST['update'])){
         }else{
             $phase3_insert_finalrating_mapeh_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
             `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','8','$phase3_finalrating_mapeh_grade',
+            VALUES ('$decrypted_lrn','8','$phase3_finalrating_mapeh_grade',
             'Final Rating','3','$remarks','$date_time_created')";
             $query_phase3_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase3_insert_finalrating_mapeh_grade);
             if($query_phase3_insert_finalrating_mother_tounge_grade == true){
@@ -13716,12 +14170,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '3'";
     $query_phase3_check_finalrating_music_grade = mysqli_query($conn, $phase3_check_finalrating_music_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_music_grade) > 0){
         $phase3_update_finalrating_music_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_music_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '3'";
         $query_phase3_update_finalrating_music_grade = mysqli_query($conn, $phase3_update_finalrating_music_grade);
         if($query_phase3_update_finalrating_music_grade == true){
             echo "Phase 3 Student Final Rating Music Updated <br>";
@@ -13731,7 +14185,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_music_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','9','$phase3_round_off_ave_of_music_grades',
+        VALUES ('$decrypted_lrn','9','$phase3_round_off_ave_of_music_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_music_grade = mysqli_query($conn, $phase3_insert_finalrating_music_grade);
         if($query_phase3_insert_finalrating_music_grade == true){
@@ -13751,12 +14205,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '3'";
     $query_phase3_check_finalrating_art_grade = mysqli_query($conn, $phase3_check_finalrating_art_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_art_grade) > 0){
         $phase3_update_finalrating_art_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_art_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '3'";
         $query_phase3_update_finalrating_art_grade = mysqli_query($conn, $phase3_update_finalrating_art_grade);
         if($query_phase3_update_finalrating_art_grade == true){
             echo "Phase 3 Student Final Rating Art Updated <br>";
@@ -13766,7 +14220,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_art_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','10','$phase3_round_off_ave_of_art_grades',
+        VALUES ('$decrypted_lrn','10','$phase3_round_off_ave_of_art_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_art_grade = mysqli_query($conn, $phase3_insert_finalrating_art_grade);
         if($query_phase3_insert_finalrating_art_grade == true){
@@ -13786,12 +14240,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '3'";
     $query_phase3_check_finalrating_pe_grade = mysqli_query($conn, $phase3_check_finalrating_pe_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_pe_grade) > 0){
         $phase3_update_finalrating_pe_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_pe_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '3'";
         $query_phase3_update_finalrating_pe_grade = mysqli_query($conn, $phase3_update_finalrating_pe_grade);
         if($query_phase3_update_finalrating_pe_grade == true){
             echo "Phase 3 Student Final Rating PE Updated <br>";
@@ -13801,7 +14255,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_pe_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','11','$phase3_round_off_ave_of_pe_grades',
+        VALUES ('$decrypted_lrn','11','$phase3_round_off_ave_of_pe_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_pe_grade = mysqli_query($conn, $phase3_insert_finalrating_pe_grade);
         if($query_phase3_insert_finalrating_pe_grade == true){
@@ -13821,12 +14275,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '3'";
     $query_phase3_check_finalrating_health_grade = mysqli_query($conn, $phase3_check_finalrating_health_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_health_grade) > 0){
         $phase3_update_finalrating_health_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_health_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '3'";
         $query_phase3_update_finalrating_health_grade = mysqli_query($conn, $phase3_update_finalrating_health_grade);
         if($query_phase3_update_finalrating_health_grade == true){
             echo "Phase 3 Student Final Rating Health Updated <br>";
@@ -13836,7 +14290,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_health_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','12','$phase3_round_off_ave_of_health_grades',
+        VALUES ('$decrypted_lrn','12','$phase3_round_off_ave_of_health_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_health_grade = mysqli_query($conn, $phase3_insert_finalrating_health_grade);
         if($query_phase3_insert_finalrating_health_grade == true){
@@ -13856,12 +14310,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '3'";
     $query_phase3_check_finalrating_esp_grade = mysqli_query($conn, $phase3_check_finalrating_esp_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_esp_grade) > 0){
         $phase3_update_finalrating_esp_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_esp_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '3'";
         $query_phase3_update_finalrating_esp_grade = mysqli_query($conn, $phase3_update_finalrating_esp_grade);
         if($query_phase3_update_finalrating_esp_grade == true){
             echo "Phase 3 Student Final Rating ESP Updated <br>";
@@ -13871,7 +14325,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_esp_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','13','$phase3_round_off_ave_of_esp_grades',
+        VALUES ('$decrypted_lrn','13','$phase3_round_off_ave_of_esp_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_esp_grade = mysqli_query($conn, $phase3_insert_finalrating_esp_grade);
         if($query_phase3_insert_finalrating_esp_grade == true){
@@ -13891,12 +14345,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '3'";
     $query_phase3_check_finalrating_arabic_lang_grade = mysqli_query($conn, $phase3_check_finalrating_arabic_lang_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_arabic_lang_grade) > 0){
         $phase3_update_finalrating_arabic_lang_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_arabic_lang_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '3'";
         $query_phase3_update_finalrating_arabic_lang_grade = mysqli_query($conn, $phase3_update_finalrating_arabic_lang_grade);
         if($query_phase3_update_finalrating_arabic_lang_grade == true){
             echo "Phase 3 Student Final Rating Arabic Language Updated <br>";
@@ -13906,7 +14360,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_arabic_lang_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','14','$phase3_round_off_ave_of_arabic_lang_grades',
+        VALUES ('$decrypted_lrn','14','$phase3_round_off_ave_of_arabic_lang_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_arabic_lang_grade = mysqli_query($conn, $phase3_insert_finalrating_arabic_lang_grade);
         if($query_phase3_insert_finalrating_arabic_lang_grade == true){
@@ -13926,12 +14380,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase3_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '3'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '3'";
     $query_phase3_check_finalrating_islamic_values_grade = mysqli_query($conn, $phase3_check_finalrating_islamic_values_grade);
     if(mysqli_num_rows($query_phase3_check_finalrating_islamic_values_grade) > 0){
         $phase3_update_finalrating_islamic_values_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase3_round_off_ave_of_islamic_values_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '3'";
         $query_phase3_update_finalrating_islamic_values_grade = mysqli_query($conn, $phase3_update_finalrating_islamic_values_grade);
         if($query_phase3_update_finalrating_islamic_values_grade == true){
             echo "Phase 3 Student Final Rating Islamic Values Updated <br>";
@@ -13941,7 +14395,7 @@ if(isset($_POST['update'])){
     }else{
         $phase3_insert_finalrating_islamic_values_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','15','$phase3_round_off_ave_of_islamic_values_grades',
+        VALUES ('$decrypted_lrn','15','$phase3_round_off_ave_of_islamic_values_grades',
         'Final Rating','3','$remarks','$date_time_created')";
         $query_phase3_insert_finalrating_islamic_values_grade = mysqli_query($conn, $phase3_insert_finalrating_islamic_values_grade);
         if($query_phase3_insert_finalrating_islamic_values_grade == true){
@@ -13962,12 +14416,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '4'";
     $query_phase4_check_finalrating_mother_tounge_grade = mysqli_query($conn, $phase4_check_finalrating_mother_tounge_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_mother_tounge_grade) > 0){
         $phase4_update_finalrating_mother_tounge_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_mother_tounge_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '4'";
         $query_phase4_update_finalrating_mother_tounge_grade = mysqli_query($conn, $phase4_update_finalrating_mother_tounge_grade);
         if($query_phase4_update_finalrating_mother_tounge_grade == true){
             echo "Phase 4 Student Final Rating Mother Tounge Updated <br>";
@@ -13977,7 +14431,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_mother_tounge_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','1','$phase4_round_off_ave_of_mother_tounge_grades',
+        VALUES ('$decrypted_lrn','1','$phase4_round_off_ave_of_mother_tounge_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase4_insert_finalrating_mother_tounge_grade);
         if($query_phase4_insert_finalrating_mother_tounge_grade == true){
@@ -13997,12 +14451,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '4'";
     $query_phase4_check_finalrating_filipino_grade = mysqli_query($conn, $phase4_check_finalrating_filipino_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_filipino_grade) > 0){
         $phase4_update_finalrating_filipino_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_filipino_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '4'";
         $query_phase4_update_finalrating_filipino_grade = mysqli_query($conn, $phase4_update_finalrating_filipino_grade);
         if($query_phase4_update_finalrating_filipino_grade == true){
             echo "Phase 4 Student Final Rating Filipino Updated <br>";
@@ -14012,7 +14466,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_filipino_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','2','$phase4_round_off_ave_of_filipino_grades',
+        VALUES ('$decrypted_lrn','2','$phase4_round_off_ave_of_filipino_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_filipino_grade = mysqli_query($conn, $phase4_insert_finalrating_filipino_grade);
         if($query_phase4_insert_finalrating_filipino_grade == true){
@@ -14032,12 +14486,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '4'";
     $query_phase4_check_finalrating_english_grade = mysqli_query($conn, $phase4_check_finalrating_english_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_english_grade) > 0){
         $phase4_update_finalrating_english_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_english_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '4'";
         $query_phase4_update_finalrating_english_grade = mysqli_query($conn, $phase4_update_finalrating_english_grade);
         if($query_phase4_update_finalrating_english_grade == true){
             echo "Phase 4 Student Final Rating English Updated <br>";
@@ -14047,7 +14501,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_english_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','3','$phase4_round_off_ave_of_english_grades',
+        VALUES ('$decrypted_lrn','3','$phase4_round_off_ave_of_english_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_english_grade = mysqli_query($conn, $phase4_insert_finalrating_english_grade);
         if($query_phase4_insert_finalrating_english_grade == true){
@@ -14067,12 +14521,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '4'";
     $query_phase4_check_finalrating_math_grade = mysqli_query($conn, $phase4_check_finalrating_math_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_math_grade) > 0){
         $phase4_update_finalrating_math_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_math_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '4'";
         $query_phase4_update_finalrating_math_grade = mysqli_query($conn, $phase4_update_finalrating_math_grade);
         if($query_phase4_update_finalrating_math_grade == true){
             echo "Phase 4 Student Final Rating Mathematics Updated <br>";
@@ -14082,7 +14536,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_math_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','4','$phase4_round_off_ave_of_math_grades',
+        VALUES ('$decrypted_lrn','4','$phase4_round_off_ave_of_math_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_math_grade = mysqli_query($conn, $phase4_insert_finalrating_math_grade);
         if($query_phase4_insert_finalrating_math_grade == true){
@@ -14102,12 +14556,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '4'";
     $query_phase4_check_finalrating_science_grade = mysqli_query($conn, $phase4_check_finalrating_science_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_science_grade) > 0){
         $phase4_update_finalrating_science_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_science_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '4'";
         $query_phase4_update_finalrating_science_grade = mysqli_query($conn, $phase4_update_finalrating_science_grade);
         if($query_phase4_update_finalrating_science_grade == true){
             echo "Phase 4 Student Final Rating Science Updated <br>";
@@ -14117,7 +14571,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_science_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','5','$phase4_round_off_ave_of_science_grades',
+        VALUES ('$decrypted_lrn','5','$phase4_round_off_ave_of_science_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_science_grade = mysqli_query($conn, $phase4_insert_finalrating_science_grade);
         if($query_phase4_insert_finalrating_science_grade == true){
@@ -14137,12 +14591,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '4'";
     $query_phase4_check_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase4_check_finalrating_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_araling_panlipunan_grade) > 0){
         $phase4_update_finalrating_araling_panlipunan_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_araling_panlipunan_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '4'";
         $query_phase4_update_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase4_update_finalrating_araling_panlipunan_grade);
         if($query_phase4_update_finalrating_araling_panlipunan_grade == true){
             echo "Phase 4 Student Final Rating Araling Panlipunan Updated <br>";
@@ -14152,7 +14606,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_araling_panlipunan_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','6','$phase4_round_off_ave_of_araling_panlipunan_grades',
+        VALUES ('$decrypted_lrn','6','$phase4_round_off_ave_of_araling_panlipunan_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase4_insert_finalrating_araling_panlipunan_grade);
         if($query_phase4_insert_finalrating_araling_panlipunan_grade == true){
@@ -14172,12 +14626,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '4'";
     $query_phase4_check_finalrating_epp_tle_grade = mysqli_query($conn, $phase4_check_finalrating_epp_tle_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_epp_tle_grade) > 0){
         $phase4_update_finalrating_epp_tle_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_epp_tle_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '4'";
         $query_phase4_update_finalrating_epp_tle_grade = mysqli_query($conn, $phase4_update_finalrating_epp_tle_grade);
         if($query_phase4_update_finalrating_epp_tle_grade == true){
             echo "Phase 4 Student Final Rating EPP/TLE Updated <br>";
@@ -14187,7 +14641,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_epp_tle_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','7','$phase4_round_off_ave_of_epp_tle_grades',
+        VALUES ('$decrypted_lrn','7','$phase4_round_off_ave_of_epp_tle_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_epp_tle_grade = mysqli_query($conn, $phase4_insert_finalrating_epp_tle_grade);
         if($query_phase4_insert_finalrating_epp_tle_grade == true){
@@ -14203,7 +14657,7 @@ if(isset($_POST['update'])){
     $phase4_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id = '8' AND student_grades.term IN ('1', '2', '3', '4')
     AND student_grades.phase = '4'
-    AND student_grades.lrn = '109857060083'";
+    AND student_grades.lrn = '$decrypted_lrn'";
     $query_mapeh = mysqli_query($conn, $phase4_get_mapeh);
     if($query_mapeh == true){
         $rows = mysqli_fetch_array($query_mapeh);
@@ -14214,12 +14668,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $phase4_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '4'";
         $query_phase4_check_finalrating_mapeh_grade = mysqli_query($conn, $phase4_check_finalrating_mapeh_grade);
         if(mysqli_num_rows($query_phase4_check_finalrating_mapeh_grade) > 0){
             $update_phase4_finalrating_mapeh_grade = "UPDATE `student_final_ratings` SET `final_rating`='$phase4_finalrating_mapeh_grade',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE phase = '4' AND subject_id = '8' AND `lrn` = '109857060083'";
+            WHERE phase = '4' AND subject_id = '8' AND `lrn` = '$decrypted_lrn'";
             $query_update_phase4_finalrating_mapeh_grade = mysqli_query($conn, $update_phase4_finalrating_mapeh_grade);
             if($query_update_phase4_finalrating_mapeh_grade == true){
                 echo "Phase 4 Student Final Rating MAPEH Updated <br>";
@@ -14229,7 +14683,7 @@ if(isset($_POST['update'])){
         }else{
             $phase4_insert_finalrating_mapeh_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
             `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','8','$phase4_finalrating_mapeh_grade',
+            VALUES ('$decrypted_lrn','8','$phase4_finalrating_mapeh_grade',
             'Final Rating','4','$remarks','$date_time_created')";
             $query_phase4_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase4_insert_finalrating_mapeh_grade);
             if($query_phase4_insert_finalrating_mother_tounge_grade == true){
@@ -14252,12 +14706,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '4'";
     $query_phase4_check_finalrating_music_grade = mysqli_query($conn, $phase4_check_finalrating_music_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_music_grade) > 0){
         $phase4_update_finalrating_music_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_music_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '4'";
         $query_phase4_update_finalrating_music_grade = mysqli_query($conn, $phase4_update_finalrating_music_grade);
         if($query_phase4_update_finalrating_music_grade == true){
             echo "Phase 4 Student Final Rating Music Updated <br>";
@@ -14267,7 +14721,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_music_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','9','$phase4_round_off_ave_of_music_grades',
+        VALUES ('$decrypted_lrn','9','$phase4_round_off_ave_of_music_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_music_grade = mysqli_query($conn, $phase4_insert_finalrating_music_grade);
         if($query_phase4_insert_finalrating_music_grade == true){
@@ -14287,12 +14741,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '4'";
     $query_phase4_check_finalrating_art_grade = mysqli_query($conn, $phase4_check_finalrating_art_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_art_grade) > 0){
         $phase4_update_finalrating_art_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_art_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '4'";
         $query_phase4_update_finalrating_art_grade = mysqli_query($conn, $phase4_update_finalrating_art_grade);
         if($query_phase4_update_finalrating_art_grade == true){
             echo "Phase 4 Student Final Rating Art Updated <br>";
@@ -14302,7 +14756,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_art_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','10','$phase4_round_off_ave_of_art_grades',
+        VALUES ('$decrypted_lrn','10','$phase4_round_off_ave_of_art_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_art_grade = mysqli_query($conn, $phase4_insert_finalrating_art_grade);
         if($query_phase4_insert_finalrating_art_grade == true){
@@ -14322,12 +14776,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '4'";
     $query_phase4_check_finalrating_pe_grade = mysqli_query($conn, $phase4_check_finalrating_pe_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_pe_grade) > 0){
         $phase4_update_finalrating_pe_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_pe_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '4'";
         $query_phase4_update_finalrating_pe_grade = mysqli_query($conn, $phase4_update_finalrating_pe_grade);
         if($query_phase4_update_finalrating_pe_grade == true){
             echo "Phase 4 Student Final Rating PE Updated <br>";
@@ -14337,7 +14791,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_pe_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','11','$phase4_round_off_ave_of_pe_grades',
+        VALUES ('$decrypted_lrn','11','$phase4_round_off_ave_of_pe_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_pe_grade = mysqli_query($conn, $phase4_insert_finalrating_pe_grade);
         if($query_phase4_insert_finalrating_pe_grade == true){
@@ -14357,12 +14811,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '4'";
     $query_phase4_check_finalrating_health_grade = mysqli_query($conn, $phase4_check_finalrating_health_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_health_grade) > 0){
         $phase4_update_finalrating_health_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_health_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '4'";
         $query_phase4_update_finalrating_health_grade = mysqli_query($conn, $phase4_update_finalrating_health_grade);
         if($query_phase4_update_finalrating_health_grade == true){
             echo "Phase 4 Student Final Rating Health Updated <br>";
@@ -14372,7 +14826,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_health_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','12','$phase4_round_off_ave_of_health_grades',
+        VALUES ('$decrypted_lrn','12','$phase4_round_off_ave_of_health_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_health_grade = mysqli_query($conn, $phase4_insert_finalrating_health_grade);
         if($query_phase4_insert_finalrating_health_grade == true){
@@ -14392,12 +14846,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '4'";
     $query_phase4_check_finalrating_esp_grade = mysqli_query($conn, $phase4_check_finalrating_esp_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_esp_grade) > 0){
         $phase4_update_finalrating_esp_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_esp_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '4'";
         $query_phase4_update_finalrating_esp_grade = mysqli_query($conn, $phase4_update_finalrating_esp_grade);
         if($query_phase4_update_finalrating_esp_grade == true){
             echo "Phase 4 Student Final Rating ESP Updated <br>";
@@ -14407,7 +14861,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_esp_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','13','$phase4_round_off_ave_of_esp_grades',
+        VALUES ('$decrypted_lrn','13','$phase4_round_off_ave_of_esp_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_esp_grade = mysqli_query($conn, $phase4_insert_finalrating_esp_grade);
         if($query_phase4_insert_finalrating_esp_grade == true){
@@ -14427,12 +14881,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '4'";
     $query_phase4_check_finalrating_arabic_lang_grade = mysqli_query($conn, $phase4_check_finalrating_arabic_lang_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_arabic_lang_grade) > 0){
         $phase4_update_finalrating_arabic_lang_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_arabic_lang_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '4'";
         $query_phase4_update_finalrating_arabic_lang_grade = mysqli_query($conn, $phase4_update_finalrating_arabic_lang_grade);
         if($query_phase4_update_finalrating_arabic_lang_grade == true){
             echo "Phase 4 Student Final Rating Arabic Language Updated <br>";
@@ -14442,7 +14896,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_arabic_lang_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','14','$phase4_round_off_ave_of_arabic_lang_grades',
+        VALUES ('$decrypted_lrn','14','$phase4_round_off_ave_of_arabic_lang_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_arabic_lang_grade = mysqli_query($conn, $phase4_insert_finalrating_arabic_lang_grade);
         if($query_phase4_insert_finalrating_arabic_lang_grade == true){
@@ -14462,12 +14916,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase4_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '4'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '4'";
     $query_phase4_check_finalrating_islamic_values_grade = mysqli_query($conn, $phase4_check_finalrating_islamic_values_grade);
     if(mysqli_num_rows($query_phase4_check_finalrating_islamic_values_grade) > 0){
         $phase4_update_finalrating_islamic_values_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase4_round_off_ave_of_islamic_values_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '4'";
         $query_phase4_update_finalrating_islamic_values_grade = mysqli_query($conn, $phase4_update_finalrating_islamic_values_grade);
         if($query_phase4_update_finalrating_islamic_values_grade == true){
             echo "Phase 4 Student Final Rating Islamic Values Updated <br>";
@@ -14477,7 +14931,7 @@ if(isset($_POST['update'])){
     }else{
         $phase4_insert_finalrating_islamic_values_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','15','$phase4_round_off_ave_of_islamic_values_grades',
+        VALUES ('$decrypted_lrn','15','$phase4_round_off_ave_of_islamic_values_grades',
         'Final Rating','4','$remarks','$date_time_created')";
         $query_phase4_insert_finalrating_islamic_values_grade = mysqli_query($conn, $phase4_insert_finalrating_islamic_values_grade);
         if($query_phase4_insert_finalrating_islamic_values_grade == true){
@@ -14498,12 +14952,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '5'";
     $query_phase5_check_finalrating_mother_tounge_grade = mysqli_query($conn, $phase5_check_finalrating_mother_tounge_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_mother_tounge_grade) > 0){
         $phase5_update_finalrating_mother_tounge_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_mother_tounge_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '5'";
         $query_phase5_update_finalrating_mother_tounge_grade = mysqli_query($conn, $phase5_update_finalrating_mother_tounge_grade);
         if($query_phase5_update_finalrating_mother_tounge_grade == true){
             echo "Phase 5 Student Final Rating Mother Tounge Updated <br>";
@@ -14513,7 +14967,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_mother_tounge_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','1','$phase5_round_off_ave_of_mother_tounge_grades',
+        VALUES ('$decrypted_lrn','1','$phase5_round_off_ave_of_mother_tounge_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase5_insert_finalrating_mother_tounge_grade);
         if($query_phase5_insert_finalrating_mother_tounge_grade == true){
@@ -14533,12 +14987,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '5'";
     $query_phase5_check_finalrating_filipino_grade = mysqli_query($conn, $phase5_check_finalrating_filipino_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_filipino_grade) > 0){
         $phase5_update_finalrating_filipino_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_filipino_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '5'";
         $query_phase5_update_finalrating_filipino_grade = mysqli_query($conn, $phase5_update_finalrating_filipino_grade);
         if($query_phase5_update_finalrating_filipino_grade == true){
             echo "Phase 5 Student Final Rating Filipino Updated <br>";
@@ -14548,7 +15002,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_filipino_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','2','$phase5_round_off_ave_of_filipino_grades',
+        VALUES ('$decrypted_lrn','2','$phase5_round_off_ave_of_filipino_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_filipino_grade = mysqli_query($conn, $phase5_insert_finalrating_filipino_grade);
         if($query_phase5_insert_finalrating_filipino_grade == true){
@@ -14568,12 +15022,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '5'";
     $query_phase5_check_finalrating_english_grade = mysqli_query($conn, $phase5_check_finalrating_english_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_english_grade) > 0){
         $phase5_update_finalrating_english_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_english_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '5'";
         $query_phase5_update_finalrating_english_grade = mysqli_query($conn, $phase5_update_finalrating_english_grade);
         if($query_phase5_update_finalrating_english_grade == true){
             echo "Phase 5 Student Final Rating English Updated <br>";
@@ -14583,7 +15037,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_english_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','3','$phase5_round_off_ave_of_english_grades',
+        VALUES ('$decrypted_lrn','3','$phase5_round_off_ave_of_english_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_english_grade = mysqli_query($conn, $phase5_insert_finalrating_english_grade);
         if($query_phase5_insert_finalrating_english_grade == true){
@@ -14603,12 +15057,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '5'";
     $query_phase5_check_finalrating_math_grade = mysqli_query($conn, $phase5_check_finalrating_math_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_math_grade) > 0){
         $phase5_update_finalrating_math_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_math_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '5'";
         $query_phase5_update_finalrating_math_grade = mysqli_query($conn, $phase5_update_finalrating_math_grade);
         if($query_phase5_update_finalrating_math_grade == true){
             echo "Phase 5 Student Final Rating Mathematics Updated <br>";
@@ -14618,7 +15072,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_math_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','4','$phase5_round_off_ave_of_math_grades',
+        VALUES ('$decrypted_lrn','4','$phase5_round_off_ave_of_math_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_math_grade = mysqli_query($conn, $phase5_insert_finalrating_math_grade);
         if($query_phase5_insert_finalrating_math_grade == true){
@@ -14638,12 +15092,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '5'";
     $query_phase5_check_finalrating_science_grade = mysqli_query($conn, $phase5_check_finalrating_science_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_science_grade) > 0){
         $phase5_update_finalrating_science_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_science_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '5'";
         $query_phase5_update_finalrating_science_grade = mysqli_query($conn, $phase5_update_finalrating_science_grade);
         if($query_phase5_update_finalrating_science_grade == true){
             echo "Phase 5 Student Final Rating Science Updated <br>";
@@ -14653,7 +15107,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_science_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','5','$phase5_round_off_ave_of_science_grades',
+        VALUES ('$decrypted_lrn','5','$phase5_round_off_ave_of_science_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_science_grade = mysqli_query($conn, $phase5_insert_finalrating_science_grade);
         if($query_phase5_insert_finalrating_science_grade == true){
@@ -14673,12 +15127,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '5'";
     $query_phase5_check_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase5_check_finalrating_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_araling_panlipunan_grade) > 0){
         $phase5_update_finalrating_araling_panlipunan_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_araling_panlipunan_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '5'";
         $query_phase5_update_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase5_update_finalrating_araling_panlipunan_grade);
         if($query_phase5_update_finalrating_araling_panlipunan_grade == true){
             echo "Phase 5 Student Final Rating Araling Panlipunan Updated <br>";
@@ -14688,7 +15142,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_araling_panlipunan_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','6','$phase5_round_off_ave_of_araling_panlipunan_grades',
+        VALUES ('$decrypted_lrn','6','$phase5_round_off_ave_of_araling_panlipunan_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase5_insert_finalrating_araling_panlipunan_grade);
         if($query_phase5_insert_finalrating_araling_panlipunan_grade == true){
@@ -14708,12 +15162,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '5'";
     $query_phase5_check_finalrating_epp_tle_grade = mysqli_query($conn, $phase5_check_finalrating_epp_tle_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_epp_tle_grade) > 0){
         $phase5_update_finalrating_epp_tle_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_epp_tle_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '5'";
         $query_phase5_update_finalrating_epp_tle_grade = mysqli_query($conn, $phase5_update_finalrating_epp_tle_grade);
         if($query_phase5_update_finalrating_epp_tle_grade == true){
             echo "Phase 5 Student Final Rating EPP/TLE Updated <br>";
@@ -14723,7 +15177,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_epp_tle_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','7','$phase5_round_off_ave_of_epp_tle_grades',
+        VALUES ('$decrypted_lrn','7','$phase5_round_off_ave_of_epp_tle_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_epp_tle_grade = mysqli_query($conn, $phase5_insert_finalrating_epp_tle_grade);
         if($query_phase5_insert_finalrating_epp_tle_grade == true){
@@ -14739,7 +15193,7 @@ if(isset($_POST['update'])){
     $phase5_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id = '8' AND student_grades.term IN ('1', '2', '3', '4')
     AND student_grades.phase = '5'
-    AND student_grades.lrn = '109857060083'";
+    AND student_grades.lrn = '$decrypted_lrn'";
     $query_mapeh = mysqli_query($conn, $phase5_get_mapeh);
     if($query_mapeh == true){
         $rows = mysqli_fetch_array($query_mapeh);
@@ -14750,12 +15204,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $phase5_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '5'";
         $query_phase5_check_finalrating_mapeh_grade = mysqli_query($conn, $phase5_check_finalrating_mapeh_grade);
         if(mysqli_num_rows($query_phase5_check_finalrating_mapeh_grade) > 0){
             $update_phase5_finalrating_mapeh_grade = "UPDATE `student_final_ratings` SET `final_rating`='$phase5_finalrating_mapeh_grade',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE phase = '5' AND subject_id = '8' AND `lrn` = '109857060083'";
+            WHERE phase = '5' AND subject_id = '8' AND `lrn` = '$decrypted_lrn'";
             $query_update_phase5_finalrating_mapeh_grade = mysqli_query($conn, $update_phase5_finalrating_mapeh_grade);
             if($query_update_phase5_finalrating_mapeh_grade == true){
                 echo "Phase 5 Student Final Rating MAPEH Updated <br>";
@@ -14765,7 +15219,7 @@ if(isset($_POST['update'])){
         }else{
             $phase5_insert_finalrating_mapeh_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
             `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','8','$phase5_finalrating_mapeh_grade',
+            VALUES ('$decrypted_lrn','8','$phase5_finalrating_mapeh_grade',
             'Final Rating','5','$remarks','$date_time_created')";
             $query_phase5_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase5_insert_finalrating_mapeh_grade);
             if($query_phase5_insert_finalrating_mother_tounge_grade == true){
@@ -14788,12 +15242,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '5'";
     $query_phase5_check_finalrating_music_grade = mysqli_query($conn, $phase5_check_finalrating_music_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_music_grade) > 0){
         $phase5_update_finalrating_music_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_music_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '5'";
         $query_phase5_update_finalrating_music_grade = mysqli_query($conn, $phase5_update_finalrating_music_grade);
         if($query_phase5_update_finalrating_music_grade == true){
             echo "Phase 5 Student Final Rating Music Updated <br>";
@@ -14803,7 +15257,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_music_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','9','$phase5_round_off_ave_of_music_grades',
+        VALUES ('$decrypted_lrn','9','$phase5_round_off_ave_of_music_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_music_grade = mysqli_query($conn, $phase5_insert_finalrating_music_grade);
         if($query_phase5_insert_finalrating_music_grade == true){
@@ -14823,12 +15277,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '5'";
     $query_phase5_check_finalrating_art_grade = mysqli_query($conn, $phase5_check_finalrating_art_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_art_grade) > 0){
         $phase5_update_finalrating_art_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_art_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '5'";
         $query_phase5_update_finalrating_art_grade = mysqli_query($conn, $phase5_update_finalrating_art_grade);
         if($query_phase5_update_finalrating_art_grade == true){
             echo "Phase 5 Student Final Rating Art Updated <br>";
@@ -14838,7 +15292,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_art_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','10','$phase5_round_off_ave_of_art_grades',
+        VALUES ('$decrypted_lrn','10','$phase5_round_off_ave_of_art_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_art_grade = mysqli_query($conn, $phase5_insert_finalrating_art_grade);
         if($query_phase5_insert_finalrating_art_grade == true){
@@ -14858,12 +15312,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '5'";
     $query_phase5_check_finalrating_pe_grade = mysqli_query($conn, $phase5_check_finalrating_pe_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_pe_grade) > 0){
         $phase5_update_finalrating_pe_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_pe_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '5'";
         $query_phase5_update_finalrating_pe_grade = mysqli_query($conn, $phase5_update_finalrating_pe_grade);
         if($query_phase5_update_finalrating_pe_grade == true){
             echo "Phase 5 Student Final Rating PE Updated <br>";
@@ -14873,7 +15327,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_pe_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','11','$phase5_round_off_ave_of_pe_grades',
+        VALUES ('$decrypted_lrn','11','$phase5_round_off_ave_of_pe_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_pe_grade = mysqli_query($conn, $phase5_insert_finalrating_pe_grade);
         if($query_phase5_insert_finalrating_pe_grade == true){
@@ -14893,12 +15347,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '5'";
     $query_phase5_check_finalrating_health_grade = mysqli_query($conn, $phase5_check_finalrating_health_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_health_grade) > 0){
         $phase5_update_finalrating_health_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_health_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '5'";
         $query_phase5_update_finalrating_health_grade = mysqli_query($conn, $phase5_update_finalrating_health_grade);
         if($query_phase5_update_finalrating_health_grade == true){
             echo "Phase 5 Student Final Rating Health Updated <br>";
@@ -14908,7 +15362,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_health_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','12','$phase5_round_off_ave_of_health_grades',
+        VALUES ('$decrypted_lrn','12','$phase5_round_off_ave_of_health_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_health_grade = mysqli_query($conn, $phase5_insert_finalrating_health_grade);
         if($query_phase5_insert_finalrating_health_grade == true){
@@ -14928,12 +15382,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '5'";
     $query_phase5_check_finalrating_esp_grade = mysqli_query($conn, $phase5_check_finalrating_esp_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_esp_grade) > 0){
         $phase5_update_finalrating_esp_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_esp_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '5'";
         $query_phase5_update_finalrating_esp_grade = mysqli_query($conn, $phase5_update_finalrating_esp_grade);
         if($query_phase5_update_finalrating_esp_grade == true){
             echo "Phase 5 Student Final Rating ESP Updated <br>";
@@ -14943,7 +15397,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_esp_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','13','$phase5_round_off_ave_of_esp_grades',
+        VALUES ('$decrypted_lrn','13','$phase5_round_off_ave_of_esp_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_esp_grade = mysqli_query($conn, $phase5_insert_finalrating_esp_grade);
         if($query_phase5_insert_finalrating_esp_grade == true){
@@ -14963,12 +15417,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '5'";
     $query_phase5_check_finalrating_arabic_lang_grade = mysqli_query($conn, $phase5_check_finalrating_arabic_lang_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_arabic_lang_grade) > 0){
         $phase5_update_finalrating_arabic_lang_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_arabic_lang_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '5'";
         $query_phase5_update_finalrating_arabic_lang_grade = mysqli_query($conn, $phase5_update_finalrating_arabic_lang_grade);
         if($query_phase5_update_finalrating_arabic_lang_grade == true){
             echo "Phase 5 Student Final Rating Arabic Language Updated <br>";
@@ -14978,7 +15432,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_arabic_lang_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','14','$phase5_round_off_ave_of_arabic_lang_grades',
+        VALUES ('$decrypted_lrn','14','$phase5_round_off_ave_of_arabic_lang_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_arabic_lang_grade = mysqli_query($conn, $phase5_insert_finalrating_arabic_lang_grade);
         if($query_phase5_insert_finalrating_arabic_lang_grade == true){
@@ -14998,12 +15452,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase5_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '5'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '5'";
     $query_phase5_check_finalrating_islamic_values_grade = mysqli_query($conn, $phase5_check_finalrating_islamic_values_grade);
     if(mysqli_num_rows($query_phase5_check_finalrating_islamic_values_grade) > 0){
         $phase5_update_finalrating_islamic_values_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase5_round_off_ave_of_islamic_values_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '5'";
         $query_phase5_update_finalrating_islamic_values_grade = mysqli_query($conn, $phase5_update_finalrating_islamic_values_grade);
         if($query_phase5_update_finalrating_islamic_values_grade == true){
             echo "Phase 5 Student Final Rating Islamic Values Updated <br>";
@@ -15013,7 +15467,7 @@ if(isset($_POST['update'])){
     }else{
         $phase5_insert_finalrating_islamic_values_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','15','$phase5_round_off_ave_of_islamic_values_grades',
+        VALUES ('$decrypted_lrn','15','$phase5_round_off_ave_of_islamic_values_grades',
         'Final Rating','5','$remarks','$date_time_created')";
         $query_phase5_insert_finalrating_islamic_values_grade = mysqli_query($conn, $phase5_insert_finalrating_islamic_values_grade);
         if($query_phase5_insert_finalrating_islamic_values_grade == true){
@@ -15034,12 +15488,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '6'";
     $query_phase6_check_finalrating_mother_tounge_grade = mysqli_query($conn, $phase6_check_finalrating_mother_tounge_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_mother_tounge_grade) > 0){
         $phase6_update_finalrating_mother_tounge_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_mother_tounge_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '6'";
         $query_phase6_update_finalrating_mother_tounge_grade = mysqli_query($conn, $phase6_update_finalrating_mother_tounge_grade);
         if($query_phase6_update_finalrating_mother_tounge_grade == true){
             echo "Phase 6 Student Final Rating Mother Tounge Updated <br>";
@@ -15049,7 +15503,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_mother_tounge_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','1','$phase6_round_off_ave_of_mother_tounge_grades',
+        VALUES ('$decrypted_lrn','1','$phase6_round_off_ave_of_mother_tounge_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase6_insert_finalrating_mother_tounge_grade);
         if($query_phase6_insert_finalrating_mother_tounge_grade == true){
@@ -15069,12 +15523,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '6'";
     $query_phase6_check_finalrating_filipino_grade = mysqli_query($conn, $phase6_check_finalrating_filipino_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_filipino_grade) > 0){
         $phase6_update_finalrating_filipino_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_filipino_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '6'";
         $query_phase6_update_finalrating_filipino_grade = mysqli_query($conn, $phase6_update_finalrating_filipino_grade);
         if($query_phase6_update_finalrating_filipino_grade == true){
             echo "Phase 6 Student Final Rating Filipino Updated <br>";
@@ -15084,7 +15538,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_filipino_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','2','$phase6_round_off_ave_of_filipino_grades',
+        VALUES ('$decrypted_lrn','2','$phase6_round_off_ave_of_filipino_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_filipino_grade = mysqli_query($conn, $phase6_insert_finalrating_filipino_grade);
         if($query_phase6_insert_finalrating_filipino_grade == true){
@@ -15104,12 +15558,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '6'";
     $query_phase6_check_finalrating_english_grade = mysqli_query($conn, $phase6_check_finalrating_english_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_english_grade) > 0){
         $phase6_update_finalrating_english_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_english_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '6'";
         $query_phase6_update_finalrating_english_grade = mysqli_query($conn, $phase6_update_finalrating_english_grade);
         if($query_phase6_update_finalrating_english_grade == true){
             echo "Phase 6 Student Final Rating English Updated <br>";
@@ -15119,7 +15573,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_english_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','3','$phase6_round_off_ave_of_english_grades',
+        VALUES ('$decrypted_lrn','3','$phase6_round_off_ave_of_english_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_english_grade = mysqli_query($conn, $phase6_insert_finalrating_english_grade);
         if($query_phase6_insert_finalrating_english_grade == true){
@@ -15139,12 +15593,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '6'";
     $query_phase6_check_finalrating_math_grade = mysqli_query($conn, $phase6_check_finalrating_math_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_math_grade) > 0){
         $phase6_update_finalrating_math_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_math_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '6'";
         $query_phase6_update_finalrating_math_grade = mysqli_query($conn, $phase6_update_finalrating_math_grade);
         if($query_phase6_update_finalrating_math_grade == true){
             echo "Phase 6 Student Final Rating Mathematics Updated <br>";
@@ -15154,7 +15608,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_math_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','4','$phase6_round_off_ave_of_math_grades',
+        VALUES ('$decrypted_lrn','4','$phase6_round_off_ave_of_math_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_math_grade = mysqli_query($conn, $phase6_insert_finalrating_math_grade);
         if($query_phase6_insert_finalrating_math_grade == true){
@@ -15174,12 +15628,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '6'";
     $query_phase6_check_finalrating_science_grade = mysqli_query($conn, $phase6_check_finalrating_science_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_science_grade) > 0){
         $phase6_update_finalrating_science_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_science_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '6'";
         $query_phase6_update_finalrating_science_grade = mysqli_query($conn, $phase6_update_finalrating_science_grade);
         if($query_phase6_update_finalrating_science_grade == true){
             echo "Phase 6 Student Final Rating Science Updated <br>";
@@ -15189,7 +15643,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_science_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','5','$phase6_round_off_ave_of_science_grades',
+        VALUES ('$decrypted_lrn','5','$phase6_round_off_ave_of_science_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_science_grade = mysqli_query($conn, $phase6_insert_finalrating_science_grade);
         if($query_phase6_insert_finalrating_science_grade == true){
@@ -15209,12 +15663,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '6'";
     $query_phase6_check_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase6_check_finalrating_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_araling_panlipunan_grade) > 0){
         $phase6_update_finalrating_araling_panlipunan_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_araling_panlipunan_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '6'";
         $query_phase6_update_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase6_update_finalrating_araling_panlipunan_grade);
         if($query_phase6_update_finalrating_araling_panlipunan_grade == true){
             echo "Phase 6 Student Final Rating Araling Panlipunan Updated <br>";
@@ -15224,7 +15678,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_araling_panlipunan_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','6','$phase6_round_off_ave_of_araling_panlipunan_grades',
+        VALUES ('$decrypted_lrn','6','$phase6_round_off_ave_of_araling_panlipunan_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase6_insert_finalrating_araling_panlipunan_grade);
         if($query_phase6_insert_finalrating_araling_panlipunan_grade == true){
@@ -15244,12 +15698,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '6'";
     $query_phase6_check_finalrating_epp_tle_grade = mysqli_query($conn, $phase6_check_finalrating_epp_tle_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_epp_tle_grade) > 0){
         $phase6_update_finalrating_epp_tle_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_epp_tle_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '6'";
         $query_phase6_update_finalrating_epp_tle_grade = mysqli_query($conn, $phase6_update_finalrating_epp_tle_grade);
         if($query_phase6_update_finalrating_epp_tle_grade == true){
             echo "Phase 6 Student Final Rating EPP/TLE Updated <br>";
@@ -15259,7 +15713,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_epp_tle_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','7','$phase6_round_off_ave_of_epp_tle_grades',
+        VALUES ('$decrypted_lrn','7','$phase6_round_off_ave_of_epp_tle_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_epp_tle_grade = mysqli_query($conn, $phase6_insert_finalrating_epp_tle_grade);
         if($query_phase6_insert_finalrating_epp_tle_grade == true){
@@ -15275,7 +15729,7 @@ if(isset($_POST['update'])){
     $phase6_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id = '8' AND student_grades.term IN ('1', '2', '3', '4')
     AND student_grades.phase = '6'
-    AND student_grades.lrn = '109857060083'";
+    AND student_grades.lrn = '$decrypted_lrn'";
     $query_mapeh = mysqli_query($conn, $phase6_get_mapeh);
     if($query_mapeh == true){
         $rows = mysqli_fetch_array($query_mapeh);
@@ -15286,12 +15740,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $phase6_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '6'";
         $query_phase6_check_finalrating_mapeh_grade = mysqli_query($conn, $phase6_check_finalrating_mapeh_grade);
         if(mysqli_num_rows($query_phase6_check_finalrating_mapeh_grade) > 0){
             $update_phase6_finalrating_mapeh_grade = "UPDATE `student_final_ratings` SET `final_rating`='$phase6_finalrating_mapeh_grade',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE phase = '6' AND subject_id = '8' AND `lrn` = '109857060083'";
+            WHERE phase = '6' AND subject_id = '8' AND `lrn` = '$decrypted_lrn'";
             $query_update_phase6_finalrating_mapeh_grade = mysqli_query($conn, $update_phase6_finalrating_mapeh_grade);
             if($query_update_phase6_finalrating_mapeh_grade == true){
                 echo "Phase 6 Student Final Rating MAPEH Updated <br>";
@@ -15301,7 +15755,7 @@ if(isset($_POST['update'])){
         }else{
             $phase6_insert_finalrating_mapeh_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
             `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','8','$phase6_finalrating_mapeh_grade',
+            VALUES ('$decrypted_lrn','8','$phase6_finalrating_mapeh_grade',
             'Final Rating','6','$remarks','$date_time_created')";
             $query_phase6_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase6_insert_finalrating_mapeh_grade);
             if($query_phase6_insert_finalrating_mother_tounge_grade == true){
@@ -15324,12 +15778,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '6'";
     $query_phase6_check_finalrating_music_grade = mysqli_query($conn, $phase6_check_finalrating_music_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_music_grade) > 0){
         $phase6_update_finalrating_music_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_music_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '6'";
         $query_phase6_update_finalrating_music_grade = mysqli_query($conn, $phase6_update_finalrating_music_grade);
         if($query_phase6_update_finalrating_music_grade == true){
             echo "Phase 6 Student Final Rating Music Updated <br>";
@@ -15339,7 +15793,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_music_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','9','$phase6_round_off_ave_of_music_grades',
+        VALUES ('$decrypted_lrn','9','$phase6_round_off_ave_of_music_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_music_grade = mysqli_query($conn, $phase6_insert_finalrating_music_grade);
         if($query_phase6_insert_finalrating_music_grade == true){
@@ -15359,12 +15813,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '6'";
     $query_phase6_check_finalrating_art_grade = mysqli_query($conn, $phase6_check_finalrating_art_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_art_grade) > 0){
         $phase6_update_finalrating_art_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_art_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '6'";
         $query_phase6_update_finalrating_art_grade = mysqli_query($conn, $phase6_update_finalrating_art_grade);
         if($query_phase6_update_finalrating_art_grade == true){
             echo "Phase 6 Student Final Rating Art Updated <br>";
@@ -15374,7 +15828,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_art_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','10','$phase6_round_off_ave_of_art_grades',
+        VALUES ('$decrypted_lrn','10','$phase6_round_off_ave_of_art_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_art_grade = mysqli_query($conn, $phase6_insert_finalrating_art_grade);
         if($query_phase6_insert_finalrating_art_grade == true){
@@ -15394,12 +15848,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '6'";
     $query_phase6_check_finalrating_pe_grade = mysqli_query($conn, $phase6_check_finalrating_pe_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_pe_grade) > 0){
         $phase6_update_finalrating_pe_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_pe_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '6'";
         $query_phase6_update_finalrating_pe_grade = mysqli_query($conn, $phase6_update_finalrating_pe_grade);
         if($query_phase6_update_finalrating_pe_grade == true){
             echo "Phase 6 Student Final Rating PE Updated <br>";
@@ -15409,7 +15863,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_pe_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','11','$phase6_round_off_ave_of_pe_grades',
+        VALUES ('$decrypted_lrn','11','$phase6_round_off_ave_of_pe_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_pe_grade = mysqli_query($conn, $phase6_insert_finalrating_pe_grade);
         if($query_phase6_insert_finalrating_pe_grade == true){
@@ -15429,12 +15883,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '6'";
     $query_phase6_check_finalrating_health_grade = mysqli_query($conn, $phase6_check_finalrating_health_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_health_grade) > 0){
         $phase6_update_finalrating_health_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_health_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '6'";
         $query_phase6_update_finalrating_health_grade = mysqli_query($conn, $phase6_update_finalrating_health_grade);
         if($query_phase6_update_finalrating_health_grade == true){
             echo "Phase 6 Student Final Rating Health Updated <br>";
@@ -15444,7 +15898,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_health_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','12','$phase6_round_off_ave_of_health_grades',
+        VALUES ('$decrypted_lrn','12','$phase6_round_off_ave_of_health_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_health_grade = mysqli_query($conn, $phase6_insert_finalrating_health_grade);
         if($query_phase6_insert_finalrating_health_grade == true){
@@ -15464,12 +15918,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '6'";
     $query_phase6_check_finalrating_esp_grade = mysqli_query($conn, $phase6_check_finalrating_esp_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_esp_grade) > 0){
         $phase6_update_finalrating_esp_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_esp_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '6'";
         $query_phase6_update_finalrating_esp_grade = mysqli_query($conn, $phase6_update_finalrating_esp_grade);
         if($query_phase6_update_finalrating_esp_grade == true){
             echo "Phase 6 Student Final Rating ESP Updated <br>";
@@ -15479,7 +15933,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_esp_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','13','$phase6_round_off_ave_of_esp_grades',
+        VALUES ('$decrypted_lrn','13','$phase6_round_off_ave_of_esp_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_esp_grade = mysqli_query($conn, $phase6_insert_finalrating_esp_grade);
         if($query_phase6_insert_finalrating_esp_grade == true){
@@ -15499,12 +15953,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '6'";
     $query_phase6_check_finalrating_arabic_lang_grade = mysqli_query($conn, $phase6_check_finalrating_arabic_lang_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_arabic_lang_grade) > 0){
         $phase6_update_finalrating_arabic_lang_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_arabic_lang_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '6'";
         $query_phase6_update_finalrating_arabic_lang_grade = mysqli_query($conn, $phase6_update_finalrating_arabic_lang_grade);
         if($query_phase6_update_finalrating_arabic_lang_grade == true){
             echo "Phase 6 Student Final Rating Arabic Language Updated <br>";
@@ -15514,7 +15968,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_arabic_lang_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','14','$phase6_round_off_ave_of_arabic_lang_grades',
+        VALUES ('$decrypted_lrn','14','$phase6_round_off_ave_of_arabic_lang_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_arabic_lang_grade = mysqli_query($conn, $phase6_insert_finalrating_arabic_lang_grade);
         if($query_phase6_insert_finalrating_arabic_lang_grade == true){
@@ -15534,12 +15988,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase6_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '6'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '6'";
     $query_phase6_check_finalrating_islamic_values_grade = mysqli_query($conn, $phase6_check_finalrating_islamic_values_grade);
     if(mysqli_num_rows($query_phase6_check_finalrating_islamic_values_grade) > 0){
         $phase6_update_finalrating_islamic_values_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase6_round_off_ave_of_islamic_values_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '6'";
         $query_phase6_update_finalrating_islamic_values_grade = mysqli_query($conn, $phase6_update_finalrating_islamic_values_grade);
         if($query_phase6_update_finalrating_islamic_values_grade == true){
             echo "Phase 6 Student Final Rating Islamic Values Updated <br>";
@@ -15549,7 +16003,7 @@ if(isset($_POST['update'])){
     }else{
         $phase6_insert_finalrating_islamic_values_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','15','$phase6_round_off_ave_of_islamic_values_grades',
+        VALUES ('$decrypted_lrn','15','$phase6_round_off_ave_of_islamic_values_grades',
         'Final Rating','6','$remarks','$date_time_created')";
         $query_phase6_insert_finalrating_islamic_values_grade = mysqli_query($conn, $phase6_insert_finalrating_islamic_values_grade);
         if($query_phase6_insert_finalrating_islamic_values_grade == true){
@@ -15570,12 +16024,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '7'";
     $query_phase7_check_finalrating_mother_tounge_grade = mysqli_query($conn, $phase7_check_finalrating_mother_tounge_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_mother_tounge_grade) > 0){
         $phase7_update_finalrating_mother_tounge_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_mother_tounge_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '7'";
         $query_phase7_update_finalrating_mother_tounge_grade = mysqli_query($conn, $phase7_update_finalrating_mother_tounge_grade);
         if($query_phase7_update_finalrating_mother_tounge_grade == true){
             echo "Phase 7 Student Final Rating Mother Tounge Updated <br>";
@@ -15585,7 +16039,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_mother_tounge_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','1','$phase7_round_off_ave_of_mother_tounge_grades',
+        VALUES ('$decrypted_lrn','1','$phase7_round_off_ave_of_mother_tounge_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase7_insert_finalrating_mother_tounge_grade);
         if($query_phase7_insert_finalrating_mother_tounge_grade == true){
@@ -15605,12 +16059,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '7'";
     $query_phase7_check_finalrating_filipino_grade = mysqli_query($conn, $phase7_check_finalrating_filipino_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_filipino_grade) > 0){
         $phase7_update_finalrating_filipino_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_filipino_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '7'";
         $query_phase7_update_finalrating_filipino_grade = mysqli_query($conn, $phase7_update_finalrating_filipino_grade);
         if($query_phase7_update_finalrating_filipino_grade == true){
             echo "Phase 7 Student Final Rating Filipino Updated <br>";
@@ -15620,7 +16074,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_filipino_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','2','$phase7_round_off_ave_of_filipino_grades',
+        VALUES ('$decrypted_lrn','2','$phase7_round_off_ave_of_filipino_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_filipino_grade = mysqli_query($conn, $phase7_insert_finalrating_filipino_grade);
         if($query_phase7_insert_finalrating_filipino_grade == true){
@@ -15640,12 +16094,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '7'";
     $query_phase7_check_finalrating_english_grade = mysqli_query($conn, $phase7_check_finalrating_english_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_english_grade) > 0){
         $phase7_update_finalrating_english_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_english_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '7'";
         $query_phase7_update_finalrating_english_grade = mysqli_query($conn, $phase7_update_finalrating_english_grade);
         if($query_phase7_update_finalrating_english_grade == true){
             echo "Phase 7 Student Final Rating English Updated <br>";
@@ -15655,7 +16109,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_english_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','3','$phase7_round_off_ave_of_english_grades',
+        VALUES ('$decrypted_lrn','3','$phase7_round_off_ave_of_english_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_english_grade = mysqli_query($conn, $phase7_insert_finalrating_english_grade);
         if($query_phase7_insert_finalrating_english_grade == true){
@@ -15675,12 +16129,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '7'";
     $query_phase7_check_finalrating_math_grade = mysqli_query($conn, $phase7_check_finalrating_math_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_math_grade) > 0){
         $phase7_update_finalrating_math_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_math_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '7'";
         $query_phase7_update_finalrating_math_grade = mysqli_query($conn, $phase7_update_finalrating_math_grade);
         if($query_phase7_update_finalrating_math_grade == true){
             echo "Phase 7 Student Final Rating Mathematics Updated <br>";
@@ -15690,7 +16144,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_math_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','4','$phase7_round_off_ave_of_math_grades',
+        VALUES ('$decrypted_lrn','4','$phase7_round_off_ave_of_math_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_math_grade = mysqli_query($conn, $phase7_insert_finalrating_math_grade);
         if($query_phase7_insert_finalrating_math_grade == true){
@@ -15710,12 +16164,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '7'";
     $query_phase7_check_finalrating_science_grade = mysqli_query($conn, $phase7_check_finalrating_science_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_science_grade) > 0){
         $phase7_update_finalrating_science_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_science_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '7'";
         $query_phase7_update_finalrating_science_grade = mysqli_query($conn, $phase7_update_finalrating_science_grade);
         if($query_phase7_update_finalrating_science_grade == true){
             echo "Phase 7 Student Final Rating Science Updated <br>";
@@ -15725,7 +16179,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_science_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','5','$phase7_round_off_ave_of_science_grades',
+        VALUES ('$decrypted_lrn','5','$phase7_round_off_ave_of_science_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_science_grade = mysqli_query($conn, $phase7_insert_finalrating_science_grade);
         if($query_phase7_insert_finalrating_science_grade == true){
@@ -15745,12 +16199,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '7'";
     $query_phase7_check_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase7_check_finalrating_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_araling_panlipunan_grade) > 0){
         $phase7_update_finalrating_araling_panlipunan_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_araling_panlipunan_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '7'";
         $query_phase7_update_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase7_update_finalrating_araling_panlipunan_grade);
         if($query_phase7_update_finalrating_araling_panlipunan_grade == true){
             echo "Phase 7 Student Final Rating Araling Panlipunan Updated <br>";
@@ -15760,7 +16214,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_araling_panlipunan_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','6','$phase7_round_off_ave_of_araling_panlipunan_grades',
+        VALUES ('$decrypted_lrn','6','$phase7_round_off_ave_of_araling_panlipunan_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase7_insert_finalrating_araling_panlipunan_grade);
         if($query_phase7_insert_finalrating_araling_panlipunan_grade == true){
@@ -15780,12 +16234,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '7'";
     $query_phase7_check_finalrating_epp_tle_grade = mysqli_query($conn, $phase7_check_finalrating_epp_tle_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_epp_tle_grade) > 0){
         $phase7_update_finalrating_epp_tle_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_epp_tle_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '7'";
         $query_phase7_update_finalrating_epp_tle_grade = mysqli_query($conn, $phase7_update_finalrating_epp_tle_grade);
         if($query_phase7_update_finalrating_epp_tle_grade == true){
             echo "Phase 7 Student Final Rating EPP/TLE Updated <br>";
@@ -15795,7 +16249,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_epp_tle_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','7','$phase7_round_off_ave_of_epp_tle_grades',
+        VALUES ('$decrypted_lrn','7','$phase7_round_off_ave_of_epp_tle_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_epp_tle_grade = mysqli_query($conn, $phase7_insert_finalrating_epp_tle_grade);
         if($query_phase7_insert_finalrating_epp_tle_grade == true){
@@ -15811,7 +16265,7 @@ if(isset($_POST['update'])){
     $phase7_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id = '8' AND student_grades.term IN ('1', '2', '3', '4')
     AND student_grades.phase = '7'
-    AND student_grades.lrn = '109857060083'";
+    AND student_grades.lrn = '$decrypted_lrn'";
     $query_mapeh = mysqli_query($conn, $phase7_get_mapeh);
     if($query_mapeh == true){
         $rows = mysqli_fetch_array($query_mapeh);
@@ -15822,12 +16276,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $phase7_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '7'";
         $query_phase7_check_finalrating_mapeh_grade = mysqli_query($conn, $phase7_check_finalrating_mapeh_grade);
         if(mysqli_num_rows($query_phase7_check_finalrating_mapeh_grade) > 0){
             $update_phase7_finalrating_mapeh_grade = "UPDATE `student_final_ratings` SET `final_rating`='$phase7_finalrating_mapeh_grade',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE phase = '7' AND subject_id = '8' AND `lrn` = '109857060083'";
+            WHERE phase = '7' AND subject_id = '8' AND `lrn` = '$decrypted_lrn'";
             $query_update_phase7_finalrating_mapeh_grade = mysqli_query($conn, $update_phase7_finalrating_mapeh_grade);
             if($query_update_phase7_finalrating_mapeh_grade == true){
                 echo "Phase 7 Student Final Rating MAPEH Updated <br>";
@@ -15837,7 +16291,7 @@ if(isset($_POST['update'])){
         }else{
             $phase7_insert_finalrating_mapeh_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
             `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','8','$phase7_finalrating_mapeh_grade',
+            VALUES ('$decrypted_lrn','8','$phase7_finalrating_mapeh_grade',
             'Final Rating','7','$remarks','$date_time_created')";
             $query_phase7_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase7_insert_finalrating_mapeh_grade);
             if($query_phase7_insert_finalrating_mother_tounge_grade == true){
@@ -15860,12 +16314,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '7'";
     $query_phase7_check_finalrating_music_grade = mysqli_query($conn, $phase7_check_finalrating_music_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_music_grade) > 0){
         $phase7_update_finalrating_music_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_music_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '7'";
         $query_phase7_update_finalrating_music_grade = mysqli_query($conn, $phase7_update_finalrating_music_grade);
         if($query_phase7_update_finalrating_music_grade == true){
             echo "Phase 7 Student Final Rating Music Updated <br>";
@@ -15875,7 +16329,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_music_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','9','$phase7_round_off_ave_of_music_grades',
+        VALUES ('$decrypted_lrn','9','$phase7_round_off_ave_of_music_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_music_grade = mysqli_query($conn, $phase7_insert_finalrating_music_grade);
         if($query_phase7_insert_finalrating_music_grade == true){
@@ -15895,12 +16349,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '7'";
     $query_phase7_check_finalrating_art_grade = mysqli_query($conn, $phase7_check_finalrating_art_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_art_grade) > 0){
         $phase7_update_finalrating_art_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_art_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '7'";
         $query_phase7_update_finalrating_art_grade = mysqli_query($conn, $phase7_update_finalrating_art_grade);
         if($query_phase7_update_finalrating_art_grade == true){
             echo "Phase 7 Student Final Rating Art Updated <br>";
@@ -15910,7 +16364,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_art_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','10','$phase7_round_off_ave_of_art_grades',
+        VALUES ('$decrypted_lrn','10','$phase7_round_off_ave_of_art_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_art_grade = mysqli_query($conn, $phase7_insert_finalrating_art_grade);
         if($query_phase7_insert_finalrating_art_grade == true){
@@ -15930,12 +16384,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '7'";
     $query_phase7_check_finalrating_pe_grade = mysqli_query($conn, $phase7_check_finalrating_pe_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_pe_grade) > 0){
         $phase7_update_finalrating_pe_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_pe_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '7'";
         $query_phase7_update_finalrating_pe_grade = mysqli_query($conn, $phase7_update_finalrating_pe_grade);
         if($query_phase7_update_finalrating_pe_grade == true){
             echo "Phase 7 Student Final Rating PE Updated <br>";
@@ -15945,7 +16399,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_pe_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','11','$phase7_round_off_ave_of_pe_grades',
+        VALUES ('$decrypted_lrn','11','$phase7_round_off_ave_of_pe_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_pe_grade = mysqli_query($conn, $phase7_insert_finalrating_pe_grade);
         if($query_phase7_insert_finalrating_pe_grade == true){
@@ -15965,12 +16419,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '7'";
     $query_phase7_check_finalrating_health_grade = mysqli_query($conn, $phase7_check_finalrating_health_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_health_grade) > 0){
         $phase7_update_finalrating_health_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_health_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '7'";
         $query_phase7_update_finalrating_health_grade = mysqli_query($conn, $phase7_update_finalrating_health_grade);
         if($query_phase7_update_finalrating_health_grade == true){
             echo "Phase 7 Student Final Rating Health Updated <br>";
@@ -15980,7 +16434,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_health_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','12','$phase7_round_off_ave_of_health_grades',
+        VALUES ('$decrypted_lrn','12','$phase7_round_off_ave_of_health_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_health_grade = mysqli_query($conn, $phase7_insert_finalrating_health_grade);
         if($query_phase7_insert_finalrating_health_grade == true){
@@ -16000,12 +16454,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '7'";
     $query_phase7_check_finalrating_esp_grade = mysqli_query($conn, $phase7_check_finalrating_esp_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_esp_grade) > 0){
         $phase7_update_finalrating_esp_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_esp_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '7'";
         $query_phase7_update_finalrating_esp_grade = mysqli_query($conn, $phase7_update_finalrating_esp_grade);
         if($query_phase7_update_finalrating_esp_grade == true){
             echo "Phase 7 Student Final Rating ESP Updated <br>";
@@ -16015,7 +16469,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_esp_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','13','$phase7_round_off_ave_of_esp_grades',
+        VALUES ('$decrypted_lrn','13','$phase7_round_off_ave_of_esp_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_esp_grade = mysqli_query($conn, $phase7_insert_finalrating_esp_grade);
         if($query_phase7_insert_finalrating_esp_grade == true){
@@ -16035,12 +16489,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '7'";
     $query_phase7_check_finalrating_arabic_lang_grade = mysqli_query($conn, $phase7_check_finalrating_arabic_lang_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_arabic_lang_grade) > 0){
         $phase7_update_finalrating_arabic_lang_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_arabic_lang_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '7'";
         $query_phase7_update_finalrating_arabic_lang_grade = mysqli_query($conn, $phase7_update_finalrating_arabic_lang_grade);
         if($query_phase7_update_finalrating_arabic_lang_grade == true){
             echo "Phase 7 Student Final Rating Arabic Language Updated <br>";
@@ -16050,7 +16504,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_arabic_lang_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','14','$phase7_round_off_ave_of_arabic_lang_grades',
+        VALUES ('$decrypted_lrn','14','$phase7_round_off_ave_of_arabic_lang_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_arabic_lang_grade = mysqli_query($conn, $phase7_insert_finalrating_arabic_lang_grade);
         if($query_phase7_insert_finalrating_arabic_lang_grade == true){
@@ -16070,12 +16524,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase7_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '7'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '7'";
     $query_phase7_check_finalrating_islamic_values_grade = mysqli_query($conn, $phase7_check_finalrating_islamic_values_grade);
     if(mysqli_num_rows($query_phase7_check_finalrating_islamic_values_grade) > 0){
         $phase7_update_finalrating_islamic_values_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase7_round_off_ave_of_islamic_values_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '7'";
         $query_phase7_update_finalrating_islamic_values_grade = mysqli_query($conn, $phase7_update_finalrating_islamic_values_grade);
         if($query_phase7_update_finalrating_islamic_values_grade == true){
             echo "Phase 7 Student Final Rating Islamic Values Updated <br>";
@@ -16085,7 +16539,7 @@ if(isset($_POST['update'])){
     }else{
         $phase7_insert_finalrating_islamic_values_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','15','$phase7_round_off_ave_of_islamic_values_grades',
+        VALUES ('$decrypted_lrn','15','$phase7_round_off_ave_of_islamic_values_grades',
         'Final Rating','7','$remarks','$date_time_created')";
         $query_phase7_insert_finalrating_islamic_values_grade = mysqli_query($conn, $phase7_insert_finalrating_islamic_values_grade);
         if($query_phase7_insert_finalrating_islamic_values_grade == true){
@@ -16106,12 +16560,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_mother_tounge_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '8'";
     $query_phase8_check_finalrating_mother_tounge_grade = mysqli_query($conn, $phase8_check_finalrating_mother_tounge_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_mother_tounge_grade) > 0){
         $phase8_update_finalrating_mother_tounge_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_mother_tounge_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '1' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '8'";
         $query_phase8_update_finalrating_mother_tounge_grade = mysqli_query($conn, $phase8_update_finalrating_mother_tounge_grade);
         if($query_phase8_update_finalrating_mother_tounge_grade == true){
             echo "Phase 8 Student Final Rating Mother Tounge Updated <br>";
@@ -16121,7 +16575,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_mother_tounge_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','1','$phase8_round_off_ave_of_mother_tounge_grades',
+        VALUES ('$decrypted_lrn','1','$phase8_round_off_ave_of_mother_tounge_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase8_insert_finalrating_mother_tounge_grade);
         if($query_phase8_insert_finalrating_mother_tounge_grade == true){
@@ -16141,12 +16595,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_filipino_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '8'";
     $query_phase8_check_finalrating_filipino_grade = mysqli_query($conn, $phase8_check_finalrating_filipino_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_filipino_grade) > 0){
         $phase8_update_finalrating_filipino_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_filipino_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '2' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '8'";
         $query_phase8_update_finalrating_filipino_grade = mysqli_query($conn, $phase8_update_finalrating_filipino_grade);
         if($query_phase8_update_finalrating_filipino_grade == true){
             echo "Phase 8 Student Final Rating Filipino Updated <br>";
@@ -16156,7 +16610,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_filipino_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','2','$phase8_round_off_ave_of_filipino_grades',
+        VALUES ('$decrypted_lrn','2','$phase8_round_off_ave_of_filipino_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_filipino_grade = mysqli_query($conn, $phase8_insert_finalrating_filipino_grade);
         if($query_phase8_insert_finalrating_filipino_grade == true){
@@ -16176,12 +16630,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_english_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '8'";
     $query_phase8_check_finalrating_english_grade = mysqli_query($conn, $phase8_check_finalrating_english_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_english_grade) > 0){
         $phase8_update_finalrating_english_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_english_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '3' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '8'";
         $query_phase8_update_finalrating_english_grade = mysqli_query($conn, $phase8_update_finalrating_english_grade);
         if($query_phase8_update_finalrating_english_grade == true){
             echo "Phase 8 Student Final Rating English Updated <br>";
@@ -16191,7 +16645,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_english_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','3','$phase8_round_off_ave_of_english_grades',
+        VALUES ('$decrypted_lrn','3','$phase8_round_off_ave_of_english_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_english_grade = mysqli_query($conn, $phase8_insert_finalrating_english_grade);
         if($query_phase8_insert_finalrating_english_grade == true){
@@ -16211,12 +16665,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_math_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '8'";
     $query_phase8_check_finalrating_math_grade = mysqli_query($conn, $phase8_check_finalrating_math_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_math_grade) > 0){
         $phase8_update_finalrating_math_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_math_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '4' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '8'";
         $query_phase8_update_finalrating_math_grade = mysqli_query($conn, $phase8_update_finalrating_math_grade);
         if($query_phase8_update_finalrating_math_grade == true){
             echo "Phase 8 Student Final Rating Mathematics Updated <br>";
@@ -16226,7 +16680,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_math_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','4','$phase8_round_off_ave_of_math_grades',
+        VALUES ('$decrypted_lrn','4','$phase8_round_off_ave_of_math_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_math_grade = mysqli_query($conn, $phase8_insert_finalrating_math_grade);
         if($query_phase8_insert_finalrating_math_grade == true){
@@ -16246,12 +16700,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_science_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '8'";
     $query_phase8_check_finalrating_science_grade = mysqli_query($conn, $phase8_check_finalrating_science_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_science_grade) > 0){
         $phase8_update_finalrating_science_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_science_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '5' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '8'";
         $query_phase8_update_finalrating_science_grade = mysqli_query($conn, $phase8_update_finalrating_science_grade);
         if($query_phase8_update_finalrating_science_grade == true){
             echo "Phase 8 Student Final Rating Science Updated <br>";
@@ -16261,7 +16715,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_science_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','5','$phase8_round_off_ave_of_science_grades',
+        VALUES ('$decrypted_lrn','5','$phase8_round_off_ave_of_science_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_science_grade = mysqli_query($conn, $phase8_insert_finalrating_science_grade);
         if($query_phase8_insert_finalrating_science_grade == true){
@@ -16281,12 +16735,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_araling_panlipunan_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '8'";
     $query_phase8_check_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase8_check_finalrating_araling_panlipunan_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_araling_panlipunan_grade) > 0){
         $phase8_update_finalrating_araling_panlipunan_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_araling_panlipunan_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '6' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '8'";
         $query_phase8_update_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase8_update_finalrating_araling_panlipunan_grade);
         if($query_phase8_update_finalrating_araling_panlipunan_grade == true){
             echo "Phase 8 Student Final Rating Araling Panlipunan Updated <br>";
@@ -16296,7 +16750,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_araling_panlipunan_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','6','$phase8_round_off_ave_of_araling_panlipunan_grades',
+        VALUES ('$decrypted_lrn','6','$phase8_round_off_ave_of_araling_panlipunan_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_araling_panlipunan_grade = mysqli_query($conn, $phase8_insert_finalrating_araling_panlipunan_grade);
         if($query_phase8_insert_finalrating_araling_panlipunan_grade == true){
@@ -16316,12 +16770,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_epp_tle_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '8'";
     $query_phase8_check_finalrating_epp_tle_grade = mysqli_query($conn, $phase8_check_finalrating_epp_tle_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_epp_tle_grade) > 0){
         $phase8_update_finalrating_epp_tle_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_epp_tle_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '7' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '8'";
         $query_phase8_update_finalrating_epp_tle_grade = mysqli_query($conn, $phase8_update_finalrating_epp_tle_grade);
         if($query_phase8_update_finalrating_epp_tle_grade == true){
             echo "Phase 8 Student Final Rating EPP/TLE Updated <br>";
@@ -16331,7 +16785,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_epp_tle_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','7','$phase8_round_off_ave_of_epp_tle_grades',
+        VALUES ('$decrypted_lrn','7','$phase8_round_off_ave_of_epp_tle_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_epp_tle_grade = mysqli_query($conn, $phase8_insert_finalrating_epp_tle_grade);
         if($query_phase8_insert_finalrating_epp_tle_grade == true){
@@ -16347,7 +16801,7 @@ if(isset($_POST['update'])){
     $phase8_get_mapeh = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id = '8' AND student_grades.term IN ('1', '2', '3', '4')
     AND student_grades.phase = '8'
-    AND student_grades.lrn = '109857060083'";
+    AND student_grades.lrn = '$decrypted_lrn'";
     $query_mapeh = mysqli_query($conn, $phase8_get_mapeh);
     if($query_mapeh == true){
         $rows = mysqli_fetch_array($query_mapeh);
@@ -16358,12 +16812,12 @@ if(isset($_POST['update'])){
             $remarks = "FAILED";
         }
         $phase8_check_finalrating_mapeh_grade = "SELECT * FROM student_final_ratings
-        WHERE lrn = '109857060083' AND subject_id = '8' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '8'";
         $query_phase8_check_finalrating_mapeh_grade = mysqli_query($conn, $phase8_check_finalrating_mapeh_grade);
         if(mysqli_num_rows($query_phase8_check_finalrating_mapeh_grade) > 0){
             $update_phase8_finalrating_mapeh_grade = "UPDATE `student_final_ratings` SET `final_rating`='$phase8_finalrating_mapeh_grade',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE phase = '8' AND subject_id = '8' AND `lrn` = '109857060083'";
+            WHERE phase = '8' AND subject_id = '8' AND `lrn` = '$decrypted_lrn'";
             $query_update_phase8_finalrating_mapeh_grade = mysqli_query($conn, $update_phase8_finalrating_mapeh_grade);
             if($query_update_phase8_finalrating_mapeh_grade == true){
                 echo "Phase 8 Student Final Rating MAPEH Updated <br>";
@@ -16373,7 +16827,7 @@ if(isset($_POST['update'])){
         }else{
             $phase8_insert_finalrating_mapeh_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
             `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','8','$phase8_finalrating_mapeh_grade',
+            VALUES ('$decrypted_lrn','8','$phase8_finalrating_mapeh_grade',
             'Final Rating','8','$remarks','$date_time_created')";
             $query_phase8_insert_finalrating_mother_tounge_grade = mysqli_query($conn, $phase8_insert_finalrating_mapeh_grade);
             if($query_phase8_insert_finalrating_mother_tounge_grade == true){
@@ -16396,12 +16850,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_music_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '8'";
     $query_phase8_check_finalrating_music_grade = mysqli_query($conn, $phase8_check_finalrating_music_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_music_grade) > 0){
         $phase8_update_finalrating_music_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_music_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '9' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '8'";
         $query_phase8_update_finalrating_music_grade = mysqli_query($conn, $phase8_update_finalrating_music_grade);
         if($query_phase8_update_finalrating_music_grade == true){
             echo "Phase 8 Student Final Rating Music Updated <br>";
@@ -16411,7 +16865,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_music_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','9','$phase8_round_off_ave_of_music_grades',
+        VALUES ('$decrypted_lrn','9','$phase8_round_off_ave_of_music_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_music_grade = mysqli_query($conn, $phase8_insert_finalrating_music_grade);
         if($query_phase8_insert_finalrating_music_grade == true){
@@ -16431,12 +16885,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_art_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '8'";
     $query_phase8_check_finalrating_art_grade = mysqli_query($conn, $phase8_check_finalrating_art_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_art_grade) > 0){
         $phase8_update_finalrating_art_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_art_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '10' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '8'";
         $query_phase8_update_finalrating_art_grade = mysqli_query($conn, $phase8_update_finalrating_art_grade);
         if($query_phase8_update_finalrating_art_grade == true){
             echo "Phase 8 Student Final Rating Art Updated <br>";
@@ -16446,7 +16900,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_art_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','10','$phase8_round_off_ave_of_art_grades',
+        VALUES ('$decrypted_lrn','10','$phase8_round_off_ave_of_art_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_art_grade = mysqli_query($conn, $phase8_insert_finalrating_art_grade);
         if($query_phase8_insert_finalrating_art_grade == true){
@@ -16466,12 +16920,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_pe_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '8'";
     $query_phase8_check_finalrating_pe_grade = mysqli_query($conn, $phase8_check_finalrating_pe_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_pe_grade) > 0){
         $phase8_update_finalrating_pe_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_pe_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '11' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '8'";
         $query_phase8_update_finalrating_pe_grade = mysqli_query($conn, $phase8_update_finalrating_pe_grade);
         if($query_phase8_update_finalrating_pe_grade == true){
             echo "Phase 8 Student Final Rating PE Updated <br>";
@@ -16481,7 +16935,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_pe_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','11','$phase8_round_off_ave_of_pe_grades',
+        VALUES ('$decrypted_lrn','11','$phase8_round_off_ave_of_pe_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_pe_grade = mysqli_query($conn, $phase8_insert_finalrating_pe_grade);
         if($query_phase8_insert_finalrating_pe_grade == true){
@@ -16501,12 +16955,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_health_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '8'";
     $query_phase8_check_finalrating_health_grade = mysqli_query($conn, $phase8_check_finalrating_health_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_health_grade) > 0){
         $phase8_update_finalrating_health_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_health_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '12' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '8'";
         $query_phase8_update_finalrating_health_grade = mysqli_query($conn, $phase8_update_finalrating_health_grade);
         if($query_phase8_update_finalrating_health_grade == true){
             echo "Phase 8 Student Final Rating Health Updated <br>";
@@ -16516,7 +16970,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_health_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','12','$phase8_round_off_ave_of_health_grades',
+        VALUES ('$decrypted_lrn','12','$phase8_round_off_ave_of_health_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_health_grade = mysqli_query($conn, $phase8_insert_finalrating_health_grade);
         if($query_phase8_insert_finalrating_health_grade == true){
@@ -16536,12 +16990,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_esp_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '8'";
     $query_phase8_check_finalrating_esp_grade = mysqli_query($conn, $phase8_check_finalrating_esp_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_esp_grade) > 0){
         $phase8_update_finalrating_esp_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_esp_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '13' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '8'";
         $query_phase8_update_finalrating_esp_grade = mysqli_query($conn, $phase8_update_finalrating_esp_grade);
         if($query_phase8_update_finalrating_esp_grade == true){
             echo "Phase 8 Student Final Rating ESP Updated <br>";
@@ -16551,7 +17005,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_esp_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','13','$phase8_round_off_ave_of_esp_grades',
+        VALUES ('$decrypted_lrn','13','$phase8_round_off_ave_of_esp_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_esp_grade = mysqli_query($conn, $phase8_insert_finalrating_esp_grade);
         if($query_phase8_insert_finalrating_esp_grade == true){
@@ -16571,12 +17025,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_arabic_lang_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '8'";
     $query_phase8_check_finalrating_arabic_lang_grade = mysqli_query($conn, $phase8_check_finalrating_arabic_lang_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_arabic_lang_grade) > 0){
         $phase8_update_finalrating_arabic_lang_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_arabic_lang_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '14' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '8'";
         $query_phase8_update_finalrating_arabic_lang_grade = mysqli_query($conn, $phase8_update_finalrating_arabic_lang_grade);
         if($query_phase8_update_finalrating_arabic_lang_grade == true){
             echo "Phase 8 Student Final Rating Arabic Language Updated <br>";
@@ -16586,7 +17040,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_arabic_lang_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','14','$phase8_round_off_ave_of_arabic_lang_grades',
+        VALUES ('$decrypted_lrn','14','$phase8_round_off_ave_of_arabic_lang_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_arabic_lang_grade = mysqli_query($conn, $phase8_insert_finalrating_arabic_lang_grade);
         if($query_phase8_insert_finalrating_arabic_lang_grade == true){
@@ -16606,12 +17060,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
     }
     $phase8_check_finalrating_islamic_values_grade = "SELECT * FROM student_final_ratings
-    WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '8'";
+    WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '8'";
     $query_phase8_check_finalrating_islamic_values_grade = mysqli_query($conn, $phase8_check_finalrating_islamic_values_grade);
     if(mysqli_num_rows($query_phase8_check_finalrating_islamic_values_grade) > 0){
         $phase8_update_finalrating_islamic_values_grade = "UPDATE student_final_ratings SET 
         final_rating = '$phase8_round_off_ave_of_islamic_values_grades', remarks = '$remarks', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND subject_id = '15' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '8'";
         $query_phase8_update_finalrating_islamic_values_grade = mysqli_query($conn, $phase8_update_finalrating_islamic_values_grade);
         if($query_phase8_update_finalrating_islamic_values_grade == true){
             echo "Phase 8 Student Final Rating Islamic Values Updated <br>";
@@ -16621,7 +17075,7 @@ if(isset($_POST['update'])){
     }else{
         $phase8_insert_finalrating_islamic_values_grade = "INSERT INTO `student_final_ratings`(`lrn`, `subject_id`, 
         `final_rating`, `term`, `phase`, `remarks`, `date_time_created`) 
-        VALUES ('109857060083','15','$phase8_round_off_ave_of_islamic_values_grades',
+        VALUES ('$decrypted_lrn','15','$phase8_round_off_ave_of_islamic_values_grades',
         'Final Rating','8','$remarks','$date_time_created')";
         $query_phase8_insert_finalrating_islamic_values_grade = mysqli_query($conn, $phase8_insert_finalrating_islamic_values_grade);
         if($query_phase8_insert_finalrating_islamic_values_grade == true){
@@ -16639,7 +17093,7 @@ if(isset($_POST['update'])){
     // PHASE 1 GENERAL AVERAGE OF TERM 1-4 OF STUDENT SCHOLASTIC RECORD
     $phase1_average_of_term_1 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '1' AND student_grades.phase = '1' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '1' AND student_grades.phase = '1' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase1_average_of_term_1 = mysqli_query($conn, $phase1_average_of_term_1);
     if($query_phase1_average_of_term_1 == true){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_1);
@@ -16650,12 +17104,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase1_gen_ave_term_1 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '1' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '1'";
         $query_check_phase1_gen_ave_term_1 = mysqli_query($conn, $check_phase1_gen_ave_term_1);
         if(mysqli_num_rows($query_check_phase1_gen_ave_term_1) > 0){
             $update_phase1_gen_ave_term_1 = "UPDATE `student_general_averages` SET `general_average`='$phase1_gen_ave_term_1 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '1' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '1'";
             $query_update_phase1_gen_ave_term_1 = mysqli_query($conn, $update_phase1_gen_ave_term_1);
             if($query_update_phase1_gen_ave_term_1 == true){
                 echo "Phase 1 General Average of Term 1 Update Successfully <br>";
@@ -16665,7 +17119,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase1_gen_ave_term_1 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase1_gen_ave_term_1','1','1','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase1_gen_ave_term_1','1','1','$remarks','$date_time_created')";
             $query_insert_phase1_gen_ave_term_1 = mysqli_query($conn, $insert_phase1_gen_ave_term_1);
             if($query_insert_phase1_gen_ave_term_1 == true){
                 echo "Phase 1 General Average of Term 1 Inserted Successfully <br>";
@@ -16682,7 +17136,7 @@ if(isset($_POST['update'])){
 
     $phase1_average_of_term_2 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '2' AND student_grades.phase = '1' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '2' AND student_grades.phase = '1' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase1_average_of_term_2 = mysqli_query($conn, $phase1_average_of_term_2);
     if($query_phase1_average_of_term_2 == true){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_2);
@@ -16693,12 +17147,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase1_gen_ave_term_2 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '2' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '1'";
         $query_check_phase1_gen_ave_term_2 = mysqli_query($conn, $check_phase1_gen_ave_term_2);
         if(mysqli_num_rows($query_check_phase1_gen_ave_term_2) > 0){
             $update_phase1_gen_ave_term_2 = "UPDATE `student_general_averages` SET `general_average`='$phase1_gen_ave_term_2 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '2' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '1'";
             $query_update_phase1_gen_ave_term_2 = mysqli_query($conn, $update_phase1_gen_ave_term_2);
             if($query_update_phase1_gen_ave_term_2 == true){
                 echo "Phase 1 General Average of Term 2 Update Successfully <br>";
@@ -16708,7 +17162,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase1_gen_ave_term_2 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase1_gen_ave_term_2','2','1','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase1_gen_ave_term_2','2','1','$remarks','$date_time_created')";
             $query_insert_phase1_gen_ave_term_2 = mysqli_query($conn, $insert_phase1_gen_ave_term_2);
             if($query_insert_phase1_gen_ave_term_2 == true){
                 echo "Phase 1 General Average of Term 2 Inserted Successfully <br>";
@@ -16725,7 +17179,7 @@ if(isset($_POST['update'])){
 
     $phase1_average_of_term_3 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '3' AND student_grades.phase = '1' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '3' AND student_grades.phase = '1' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase1_average_of_term_3 = mysqli_query($conn, $phase1_average_of_term_3);
     if($query_phase1_average_of_term_3 == true){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_3);
@@ -16736,12 +17190,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase1_gen_ave_term_3 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '3' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '1'";
         $query_check_phase1_gen_ave_term_3 = mysqli_query($conn, $check_phase1_gen_ave_term_3);
         if(mysqli_num_rows($query_check_phase1_gen_ave_term_3) > 0){
             $update_phase1_gen_ave_term_3 = "UPDATE `student_general_averages` SET `general_average`='$phase1_gen_ave_term_3 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '3' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '1'";
             $query_update_phase1_gen_ave_term_3 = mysqli_query($conn, $update_phase1_gen_ave_term_3);
             if($query_update_phase1_gen_ave_term_3 == true){
                 echo "Phase 1 General Average of Term 3 Update Successfully <br>";
@@ -16751,7 +17205,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase1_gen_ave_term_3 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase1_gen_ave_term_3','3','1','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase1_gen_ave_term_3','3','1','$remarks','$date_time_created')";
             $query_insert_phase1_gen_ave_term_3 = mysqli_query($conn, $insert_phase1_gen_ave_term_3);
             if($query_insert_phase1_gen_ave_term_3 == true){
                 echo "Phase 1 General Average of Term 3 Inserted Successfully <br>";
@@ -16768,7 +17222,7 @@ if(isset($_POST['update'])){
 
     $phase1_average_of_term_4 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '4' AND student_grades.phase = '1' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '4' AND student_grades.phase = '1' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase1_average_of_term_4 = mysqli_query($conn, $phase1_average_of_term_4);
     if($query_phase1_average_of_term_4 == true){
         $rows = mysqli_fetch_array($query_phase1_average_of_term_4);
@@ -16779,12 +17233,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase1_gen_ave_term_4 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '4' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '1'";
         $query_check_phase1_gen_ave_term_4 = mysqli_query($conn, $check_phase1_gen_ave_term_4);
         if(mysqli_num_rows($query_check_phase1_gen_ave_term_4) > 0){
             $update_phase1_gen_ave_term_4 = "UPDATE `student_general_averages` SET `general_average`='$phase1_gen_ave_term_4 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '4' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '1'";
             $query_update_phase1_gen_ave_term_4 = mysqli_query($conn, $update_phase1_gen_ave_term_4);
             if($query_update_phase1_gen_ave_term_4 == true){
                 echo "Phase 1 General Average of Term 4 Update Successfully <br>";
@@ -16794,7 +17248,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase1_gen_ave_term_4 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase1_gen_ave_term_4','4','1','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase1_gen_ave_term_4','4','1','$remarks','$date_time_created')";
             $query_insert_phase1_gen_ave_term_4 = mysqli_query($conn, $insert_phase1_gen_ave_term_4);
             if($query_insert_phase1_gen_ave_term_4 == true){
                 echo "Phase 1 General Average of Term 4 Inserted Successfully <br>";
@@ -16811,7 +17265,7 @@ if(isset($_POST['update'])){
     // PHASE 2 GENERAL AVERAGE OF TERM 1-4 OF STUDENT SCHOLASTIC RECORD
     $phase2_average_of_term_1 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '1' AND student_grades.phase = '2' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '1' AND student_grades.phase = '2' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase2_average_of_term_1 = mysqli_query($conn, $phase2_average_of_term_1);
     if($query_phase2_average_of_term_1 == true){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_1);
@@ -16822,12 +17276,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase2_gen_ave_term_1 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '1' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '2'";
         $query_check_phase2_gen_ave_term_1 = mysqli_query($conn, $check_phase2_gen_ave_term_1);
         if(mysqli_num_rows($query_check_phase2_gen_ave_term_1) > 0){
             $update_phase2_gen_ave_term_1 = "UPDATE `student_general_averages` SET `general_average`='$phase2_gen_ave_term_1 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '1' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '2'";
             $query_update_phase2_gen_ave_term_1 = mysqli_query($conn, $update_phase2_gen_ave_term_1);
             if($query_update_phase2_gen_ave_term_1 == true){
                 echo "Phase 2 General Average of Term 1 Update Successfully <br>";
@@ -16837,7 +17291,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase2_gen_ave_term_1 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase2_gen_ave_term_1','1','2','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase2_gen_ave_term_1','1','2','$remarks','$date_time_created')";
             $query_insert_phase2_gen_ave_term_1 = mysqli_query($conn, $insert_phase2_gen_ave_term_1);
             if($query_insert_phase2_gen_ave_term_1 == true){
                 echo "Phase 2 General Average of Term 1 Inserted Successfully <br>";
@@ -16854,7 +17308,7 @@ if(isset($_POST['update'])){
 
     $phase2_average_of_term_2 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '2' AND student_grades.phase = '2' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '2' AND student_grades.phase = '2' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase2_average_of_term_2 = mysqli_query($conn, $phase2_average_of_term_2);
     if($query_phase2_average_of_term_2 == true){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_2);
@@ -16865,12 +17319,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase2_gen_ave_term_2 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '2' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '2'";
         $query_check_phase2_gen_ave_term_2 = mysqli_query($conn, $check_phase2_gen_ave_term_2);
         if(mysqli_num_rows($query_check_phase2_gen_ave_term_2) > 0){
             $update_phase2_gen_ave_term_2 = "UPDATE `student_general_averages` SET `general_average`='$phase2_gen_ave_term_2 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '2' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '2'";
             $query_update_phase2_gen_ave_term_2 = mysqli_query($conn, $update_phase2_gen_ave_term_2);
             if($query_update_phase2_gen_ave_term_2 == true){
                 echo "Phase 2 General Average of Term 2 Update Successfully <br>";
@@ -16880,7 +17334,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase2_gen_ave_term_2 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase2_gen_ave_term_2','2','2','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase2_gen_ave_term_2','2','2','$remarks','$date_time_created')";
             $query_insert_phase2_gen_ave_term_2 = mysqli_query($conn, $insert_phase2_gen_ave_term_2);
             if($query_insert_phase2_gen_ave_term_2 == true){
                 echo "Phase 2 General Average of Term 2 Inserted Successfully <br>";
@@ -16897,7 +17351,7 @@ if(isset($_POST['update'])){
 
     $phase2_average_of_term_3 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '3' AND student_grades.phase = '2' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '3' AND student_grades.phase = '2' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase2_average_of_term_3 = mysqli_query($conn, $phase2_average_of_term_3);
     if($query_phase2_average_of_term_3 == true){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_3);
@@ -16908,12 +17362,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase2_gen_ave_term_3 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '3' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '2'";
         $query_check_phase2_gen_ave_term_3 = mysqli_query($conn, $check_phase2_gen_ave_term_3);
         if(mysqli_num_rows($query_check_phase2_gen_ave_term_3) > 0){
             $update_phase2_gen_ave_term_3 = "UPDATE `student_general_averages` SET `general_average`='$phase2_gen_ave_term_3 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '3' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '2'";
             $query_update_phase2_gen_ave_term_3 = mysqli_query($conn, $update_phase2_gen_ave_term_3);
             if($query_update_phase2_gen_ave_term_3 == true){
                 echo "Phase 2 General Average of Term 3 Update Successfully <br>";
@@ -16923,7 +17377,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase2_gen_ave_term_3 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase2_gen_ave_term_3','3','2','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase2_gen_ave_term_3','3','2','$remarks','$date_time_created')";
             $query_insert_phase2_gen_ave_term_3 = mysqli_query($conn, $insert_phase2_gen_ave_term_3);
             if($query_insert_phase2_gen_ave_term_3 == true){
                 echo "Phase 2 General Average of Term 3 Inserted Successfully <br>";
@@ -16940,7 +17394,7 @@ if(isset($_POST['update'])){
 
     $phase2_average_of_term_4 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '4' AND student_grades.phase = '2' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '4' AND student_grades.phase = '2' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase2_average_of_term_4 = mysqli_query($conn, $phase2_average_of_term_4);
     if($query_phase2_average_of_term_4 == true){
         $rows = mysqli_fetch_array($query_phase2_average_of_term_4);
@@ -16951,12 +17405,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase2_gen_ave_term_4 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '4' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '2'";
         $query_check_phase2_gen_ave_term_4 = mysqli_query($conn, $check_phase2_gen_ave_term_4);
         if(mysqli_num_rows($query_check_phase2_gen_ave_term_4) > 0){
             $update_phase2_gen_ave_term_4 = "UPDATE `student_general_averages` SET `general_average`='$phase2_gen_ave_term_4 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '4' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '2'";
             $query_update_phase2_gen_ave_term_4 = mysqli_query($conn, $update_phase2_gen_ave_term_4);
             if($query_update_phase2_gen_ave_term_4 == true){
                 echo "Phase 2 General Average of Term 4 Update Successfully <br>";
@@ -16966,7 +17420,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase2_gen_ave_term_4 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase2_gen_ave_term_4','4','2','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase2_gen_ave_term_4','4','2','$remarks','$date_time_created')";
             $query_insert_phase2_gen_ave_term_4 = mysqli_query($conn, $insert_phase2_gen_ave_term_4);
             if($query_insert_phase2_gen_ave_term_4 == true){
                 echo "Phase 2 General Average of Term 4 Inserted Successfully <br>";
@@ -16983,7 +17437,7 @@ if(isset($_POST['update'])){
     // PHASE 3 GENERAL AVERAGE OF TERM 1-4 OF STUDENT SCHOLASTIC RECORD
     $phase3_average_of_term_1 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '1' AND student_grades.phase = '3' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '1' AND student_grades.phase = '3' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase3_average_of_term_1 = mysqli_query($conn, $phase3_average_of_term_1);
     if($query_phase3_average_of_term_1 == true){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_1);
@@ -16994,12 +17448,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase3_gen_ave_term_1 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '1' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '3'";
         $query_check_phase3_gen_ave_term_1 = mysqli_query($conn, $check_phase3_gen_ave_term_1);
         if(mysqli_num_rows($query_check_phase3_gen_ave_term_1) > 0){
             $update_phase3_gen_ave_term_1 = "UPDATE `student_general_averages` SET `general_average`='$phase3_gen_ave_term_1 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '1' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '3'";
             $query_update_phase3_gen_ave_term_1 = mysqli_query($conn, $update_phase3_gen_ave_term_1);
             if($query_update_phase3_gen_ave_term_1 == true){
                 echo "Phase 3 General Average of Term 1 Update Successfully <br>";
@@ -17009,7 +17463,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase3_gen_ave_term_1 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase3_gen_ave_term_1','1','3','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase3_gen_ave_term_1','1','3','$remarks','$date_time_created')";
             $query_insert_phase3_gen_ave_term_1 = mysqli_query($conn, $insert_phase3_gen_ave_term_1);
             if($query_insert_phase3_gen_ave_term_1 == true){
                 echo "Phase 3 General Average of Term 1 Inserted Successfully <br>";
@@ -17026,7 +17480,7 @@ if(isset($_POST['update'])){
 
     $phase3_average_of_term_2 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '2' AND student_grades.phase = '3' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '2' AND student_grades.phase = '3' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase3_average_of_term_2 = mysqli_query($conn, $phase3_average_of_term_2);
     if($query_phase3_average_of_term_2 == true){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_2);
@@ -17037,12 +17491,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase3_gen_ave_term_2 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '2' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '3'";
         $query_check_phase3_gen_ave_term_2 = mysqli_query($conn, $check_phase3_gen_ave_term_2);
         if(mysqli_num_rows($query_check_phase3_gen_ave_term_2) > 0){
             $update_phase3_gen_ave_term_2 = "UPDATE `student_general_averages` SET `general_average`='$phase3_gen_ave_term_2 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '2' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '3'";
             $query_update_phase3_gen_ave_term_2 = mysqli_query($conn, $update_phase3_gen_ave_term_2);
             if($query_update_phase3_gen_ave_term_2 == true){
                 echo "Phase 3 General Average of Term 2 Update Successfully <br>";
@@ -17052,7 +17506,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase3_gen_ave_term_2 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase3_gen_ave_term_2','2','3','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase3_gen_ave_term_2','2','3','$remarks','$date_time_created')";
             $query_insert_phase3_gen_ave_term_2 = mysqli_query($conn, $insert_phase3_gen_ave_term_2);
             if($query_insert_phase3_gen_ave_term_2 == true){
                 echo "Phase 3 General Average of Term 2 Inserted Successfully <br>";
@@ -17069,7 +17523,7 @@ if(isset($_POST['update'])){
 
     $phase3_average_of_term_3 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '3' AND student_grades.phase = '3' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '3' AND student_grades.phase = '3' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase3_average_of_term_3 = mysqli_query($conn, $phase3_average_of_term_3);
     if($query_phase3_average_of_term_3 == true){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_3);
@@ -17080,12 +17534,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase3_gen_ave_term_3 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '3' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '3'";
         $query_check_phase3_gen_ave_term_3 = mysqli_query($conn, $check_phase3_gen_ave_term_3);
         if(mysqli_num_rows($query_check_phase3_gen_ave_term_3) > 0){
             $update_phase3_gen_ave_term_3 = "UPDATE `student_general_averages` SET `general_average`='$phase3_gen_ave_term_3 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '3' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '3'";
             $query_update_phase3_gen_ave_term_3 = mysqli_query($conn, $update_phase3_gen_ave_term_3);
             if($query_update_phase3_gen_ave_term_3 == true){
                 echo "Phase 3 General Average of Term 3 Update Successfully <br>";
@@ -17095,7 +17549,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase3_gen_ave_term_3 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase3_gen_ave_term_3','3','3','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase3_gen_ave_term_3','3','3','$remarks','$date_time_created')";
             $query_insert_phase3_gen_ave_term_3 = mysqli_query($conn, $insert_phase3_gen_ave_term_3);
             if($query_insert_phase3_gen_ave_term_3 == true){
                 echo "Phase 3 General Average of Term 3 Inserted Successfully <br>";
@@ -17112,7 +17566,7 @@ if(isset($_POST['update'])){
 
     $phase3_average_of_term_4 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '4' AND student_grades.phase = '3' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '4' AND student_grades.phase = '3' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase3_average_of_term_4 = mysqli_query($conn, $phase3_average_of_term_4);
     if($query_phase3_average_of_term_4 == true){
         $rows = mysqli_fetch_array($query_phase3_average_of_term_4);
@@ -17123,12 +17577,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase3_gen_ave_term_4 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '4' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '3'";
         $query_check_phase3_gen_ave_term_4 = mysqli_query($conn, $check_phase3_gen_ave_term_4);
         if(mysqli_num_rows($query_check_phase3_gen_ave_term_4) > 0){
             $update_phase3_gen_ave_term_4 = "UPDATE `student_general_averages` SET `general_average`='$phase3_gen_ave_term_4 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '4' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '3'";
             $query_update_phase3_gen_ave_term_4 = mysqli_query($conn, $update_phase3_gen_ave_term_4);
             if($query_update_phase3_gen_ave_term_4 == true){
                 echo "Phase 3 General Average of Term 4 Update Successfully <br>";
@@ -17138,7 +17592,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase3_gen_ave_term_4 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase3_gen_ave_term_4','4','3','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase3_gen_ave_term_4','4','3','$remarks','$date_time_created')";
             $query_insert_phase3_gen_ave_term_4 = mysqli_query($conn, $insert_phase3_gen_ave_term_4);
             if($query_insert_phase3_gen_ave_term_4 == true){
                 echo "Phase 3 General Average of Term 4 Inserted Successfully <br>";
@@ -17155,7 +17609,7 @@ if(isset($_POST['update'])){
     // PHASE 4 GENERAL AVERAGE OF TERM 1-4 OF STUDENT SCHOLASTIC RECORD
     $phase4_average_of_term_1 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '1' AND student_grades.phase = '4' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '1' AND student_grades.phase = '4' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase4_average_of_term_1 = mysqli_query($conn, $phase4_average_of_term_1);
     if($query_phase4_average_of_term_1 == true){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_1);
@@ -17166,12 +17620,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase4_gen_ave_term_1 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '1' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '4'";
         $query_check_phase4_gen_ave_term_1 = mysqli_query($conn, $check_phase4_gen_ave_term_1);
         if(mysqli_num_rows($query_check_phase4_gen_ave_term_1) > 0){
             $update_phase4_gen_ave_term_1 = "UPDATE `student_general_averages` SET `general_average`='$phase4_gen_ave_term_1 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '1' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '4'";
             $query_update_phase4_gen_ave_term_1 = mysqli_query($conn, $update_phase4_gen_ave_term_1);
             if($query_update_phase4_gen_ave_term_1 == true){
                 echo "Phase 4 General Average of Term 1 Update Successfully <br>";
@@ -17181,7 +17635,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase4_gen_ave_term_1 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase4_gen_ave_term_1','1','4','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase4_gen_ave_term_1','1','4','$remarks','$date_time_created')";
             $query_insert_phase4_gen_ave_term_1 = mysqli_query($conn, $insert_phase4_gen_ave_term_1);
             if($query_insert_phase4_gen_ave_term_1 == true){
                 echo "Phase 4 General Average of Term 1 Inserted Successfully <br>";
@@ -17198,7 +17652,7 @@ if(isset($_POST['update'])){
 
     $phase4_average_of_term_2 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '2' AND student_grades.phase = '4' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '2' AND student_grades.phase = '4' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase4_average_of_term_2 = mysqli_query($conn, $phase4_average_of_term_2);
     if($query_phase4_average_of_term_2 == true){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_2);
@@ -17209,12 +17663,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase4_gen_ave_term_2 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '2' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '4'";
         $query_check_phase4_gen_ave_term_2 = mysqli_query($conn, $check_phase4_gen_ave_term_2);
         if(mysqli_num_rows($query_check_phase4_gen_ave_term_2) > 0){
             $update_phase4_gen_ave_term_2 = "UPDATE `student_general_averages` SET `general_average`='$phase4_gen_ave_term_2 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '2' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '4'";
             $query_update_phase4_gen_ave_term_2 = mysqli_query($conn, $update_phase4_gen_ave_term_2);
             if($query_update_phase4_gen_ave_term_2 == true){
                 echo "Phase 4 General Average of Term 2 Update Successfully <br>";
@@ -17224,7 +17678,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase4_gen_ave_term_2 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase4_gen_ave_term_2','2','4','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase4_gen_ave_term_2','2','4','$remarks','$date_time_created')";
             $query_insert_phase4_gen_ave_term_2 = mysqli_query($conn, $insert_phase4_gen_ave_term_2);
             if($query_insert_phase4_gen_ave_term_2 == true){
                 echo "Phase 4 General Average of Term 2 Inserted Successfully <br>";
@@ -17241,7 +17695,7 @@ if(isset($_POST['update'])){
 
     $phase4_average_of_term_3 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '3' AND student_grades.phase = '4' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '3' AND student_grades.phase = '4' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase4_average_of_term_3 = mysqli_query($conn, $phase4_average_of_term_3);
     if($query_phase4_average_of_term_3 == true){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_3);
@@ -17252,12 +17706,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase4_gen_ave_term_3 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '3' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '4'";
         $query_check_phase4_gen_ave_term_3 = mysqli_query($conn, $check_phase4_gen_ave_term_3);
         if(mysqli_num_rows($query_check_phase4_gen_ave_term_3) > 0){
             $update_phase4_gen_ave_term_3 = "UPDATE `student_general_averages` SET `general_average`='$phase4_gen_ave_term_3 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '3' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '4'";
             $query_update_phase4_gen_ave_term_3 = mysqli_query($conn, $update_phase4_gen_ave_term_3);
             if($query_update_phase4_gen_ave_term_3 == true){
                 echo "Phase 4 General Average of Term 3 Update Successfully <br>";
@@ -17267,7 +17721,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase4_gen_ave_term_3 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase4_gen_ave_term_3','3','4','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase4_gen_ave_term_3','3','4','$remarks','$date_time_created')";
             $query_insert_phase4_gen_ave_term_3 = mysqli_query($conn, $insert_phase4_gen_ave_term_3);
             if($query_insert_phase4_gen_ave_term_3 == true){
                 echo "Phase 4 General Average of Term 3 Inserted Successfully <br>";
@@ -17284,7 +17738,7 @@ if(isset($_POST['update'])){
 
     $phase4_average_of_term_4 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '4' AND student_grades.phase = '4' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '4' AND student_grades.phase = '4' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase4_average_of_term_4 = mysqli_query($conn, $phase4_average_of_term_4);
     if($query_phase4_average_of_term_4 == true){
         $rows = mysqli_fetch_array($query_phase4_average_of_term_4);
@@ -17295,12 +17749,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase4_gen_ave_term_4 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '4' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '4'";
         $query_check_phase4_gen_ave_term_4 = mysqli_query($conn, $check_phase4_gen_ave_term_4);
         if(mysqli_num_rows($query_check_phase4_gen_ave_term_4) > 0){
             $update_phase4_gen_ave_term_4 = "UPDATE `student_general_averages` SET `general_average`='$phase4_gen_ave_term_4 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '4' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '4'";
             $query_update_phase4_gen_ave_term_4 = mysqli_query($conn, $update_phase4_gen_ave_term_4);
             if($query_update_phase4_gen_ave_term_4 == true){
                 echo "Phase 4 General Average of Term 4 Update Successfully <br>";
@@ -17310,7 +17764,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase4_gen_ave_term_4 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase4_gen_ave_term_4','4','4','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase4_gen_ave_term_4','4','4','$remarks','$date_time_created')";
             $query_insert_phase4_gen_ave_term_4 = mysqli_query($conn, $insert_phase4_gen_ave_term_4);
             if($query_insert_phase4_gen_ave_term_4 == true){
                 echo "Phase 4 General Average of Term 4 Inserted Successfully <br>";
@@ -17327,7 +17781,7 @@ if(isset($_POST['update'])){
     // PHASE 5 GENERAL AVERAGE OF TERM 1-4 OF STUDENT SCHOLASTIC RECORD
     $phase5_average_of_term_1 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '1' AND student_grades.phase = '5' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '1' AND student_grades.phase = '5' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase5_average_of_term_1 = mysqli_query($conn, $phase5_average_of_term_1);
     if($query_phase5_average_of_term_1 == true){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_1);
@@ -17338,12 +17792,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase5_gen_ave_term_1 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '1' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '5'";
         $query_check_phase5_gen_ave_term_1 = mysqli_query($conn, $check_phase5_gen_ave_term_1);
         if(mysqli_num_rows($query_check_phase5_gen_ave_term_1) > 0){
             $update_phase5_gen_ave_term_1 = "UPDATE `student_general_averages` SET `general_average`='$phase5_gen_ave_term_1 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '1' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '5'";
             $query_update_phase5_gen_ave_term_1 = mysqli_query($conn, $update_phase5_gen_ave_term_1);
             if($query_update_phase5_gen_ave_term_1 == true){
                 echo "Phase 5 General Average of Term 1 Update Successfully <br>";
@@ -17353,7 +17807,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase5_gen_ave_term_1 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase5_gen_ave_term_1','1','5','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase5_gen_ave_term_1','1','5','$remarks','$date_time_created')";
             $query_insert_phase5_gen_ave_term_1 = mysqli_query($conn, $insert_phase5_gen_ave_term_1);
             if($query_insert_phase5_gen_ave_term_1 == true){
                 echo "Phase 5 General Average of Term 1 Inserted Successfully <br>";
@@ -17370,7 +17824,7 @@ if(isset($_POST['update'])){
 
     $phase5_average_of_term_2 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '2' AND student_grades.phase = '5' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '2' AND student_grades.phase = '5' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase5_average_of_term_2 = mysqli_query($conn, $phase5_average_of_term_2);
     if($query_phase5_average_of_term_2 == true){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_2);
@@ -17381,12 +17835,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase5_gen_ave_term_2 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '2' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '5'";
         $query_check_phase5_gen_ave_term_2 = mysqli_query($conn, $check_phase5_gen_ave_term_2);
         if(mysqli_num_rows($query_check_phase5_gen_ave_term_2) > 0){
             $update_phase5_gen_ave_term_2 = "UPDATE `student_general_averages` SET `general_average`='$phase5_gen_ave_term_2 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '2' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '5'";
             $query_update_phase5_gen_ave_term_2 = mysqli_query($conn, $update_phase5_gen_ave_term_2);
             if($query_update_phase5_gen_ave_term_2 == true){
                 echo "Phase 5 General Average of Term 2 Update Successfully <br>";
@@ -17396,7 +17850,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase5_gen_ave_term_2 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase5_gen_ave_term_2','2','5','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase5_gen_ave_term_2','2','5','$remarks','$date_time_created')";
             $query_insert_phase5_gen_ave_term_2 = mysqli_query($conn, $insert_phase5_gen_ave_term_2);
             if($query_insert_phase5_gen_ave_term_2 == true){
                 echo "Phase 5 General Average of Term 2 Inserted Successfully <br>";
@@ -17413,7 +17867,7 @@ if(isset($_POST['update'])){
 
     $phase5_average_of_term_3 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '3' AND student_grades.phase = '5' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '3' AND student_grades.phase = '5' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase5_average_of_term_3 = mysqli_query($conn, $phase5_average_of_term_3);
     if($query_phase5_average_of_term_3 == true){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_3);
@@ -17424,12 +17878,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase5_gen_ave_term_3 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '3' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '5'";
         $query_check_phase5_gen_ave_term_3 = mysqli_query($conn, $check_phase5_gen_ave_term_3);
         if(mysqli_num_rows($query_check_phase5_gen_ave_term_3) > 0){
             $update_phase5_gen_ave_term_3 = "UPDATE `student_general_averages` SET `general_average`='$phase5_gen_ave_term_3 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '3' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '5'";
             $query_update_phase5_gen_ave_term_3 = mysqli_query($conn, $update_phase5_gen_ave_term_3);
             if($query_update_phase5_gen_ave_term_3 == true){
                 echo "Phase 5 General Average of Term 3 Update Successfully <br>";
@@ -17439,7 +17893,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase5_gen_ave_term_3 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase5_gen_ave_term_3','3','5','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase5_gen_ave_term_3','3','5','$remarks','$date_time_created')";
             $query_insert_phase5_gen_ave_term_3 = mysqli_query($conn, $insert_phase5_gen_ave_term_3);
             if($query_insert_phase5_gen_ave_term_3 == true){
                 echo "Phase 5 General Average of Term 3 Inserted Successfully <br>";
@@ -17456,7 +17910,7 @@ if(isset($_POST['update'])){
 
     $phase5_average_of_term_4 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '4' AND student_grades.phase = '5' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '4' AND student_grades.phase = '5' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase5_average_of_term_4 = mysqli_query($conn, $phase5_average_of_term_4);
     if($query_phase5_average_of_term_4 == true){
         $rows = mysqli_fetch_array($query_phase5_average_of_term_4);
@@ -17467,12 +17921,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase5_gen_ave_term_4 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '4' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '5'";
         $query_check_phase5_gen_ave_term_4 = mysqli_query($conn, $check_phase5_gen_ave_term_4);
         if(mysqli_num_rows($query_check_phase5_gen_ave_term_4) > 0){
             $update_phase5_gen_ave_term_4 = "UPDATE `student_general_averages` SET `general_average`='$phase5_gen_ave_term_4 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '4' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '5'";
             $query_update_phase5_gen_ave_term_4 = mysqli_query($conn, $update_phase5_gen_ave_term_4);
             if($query_update_phase5_gen_ave_term_4 == true){
                 echo "Phase 5 General Average of Term 4 Update Successfully <br>";
@@ -17482,7 +17936,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase5_gen_ave_term_4 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase5_gen_ave_term_4','4','5','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase5_gen_ave_term_4','4','5','$remarks','$date_time_created')";
             $query_insert_phase5_gen_ave_term_4 = mysqli_query($conn, $insert_phase5_gen_ave_term_4);
             if($query_insert_phase5_gen_ave_term_4 == true){
                 echo "Phase 5 General Average of Term 4 Inserted Successfully <br>";
@@ -17499,7 +17953,7 @@ if(isset($_POST['update'])){
     // PHASE 6 GENERAL AVERAGE OF TERM 1-4 OF STUDENT SCHOLASTIC RECORD
     $phase6_average_of_term_1 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '1' AND student_grades.phase = '6' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '1' AND student_grades.phase = '6' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase6_average_of_term_1 = mysqli_query($conn, $phase6_average_of_term_1);
     if($query_phase6_average_of_term_1 == true){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_1);
@@ -17510,12 +17964,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase6_gen_ave_term_1 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '1' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '6'";
         $query_check_phase6_gen_ave_term_1 = mysqli_query($conn, $check_phase6_gen_ave_term_1);
         if(mysqli_num_rows($query_check_phase6_gen_ave_term_1) > 0){
             $update_phase6_gen_ave_term_1 = "UPDATE `student_general_averages` SET `general_average`='$phase6_gen_ave_term_1 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '1' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '6'";
             $query_update_phase6_gen_ave_term_1 = mysqli_query($conn, $update_phase6_gen_ave_term_1);
             if($query_update_phase6_gen_ave_term_1 == true){
                 echo "Phase 6 General Average of Term 1 Update Successfully <br>";
@@ -17525,7 +17979,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase6_gen_ave_term_1 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase6_gen_ave_term_1','1','6','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase6_gen_ave_term_1','1','6','$remarks','$date_time_created')";
             $query_insert_phase6_gen_ave_term_1 = mysqli_query($conn, $insert_phase6_gen_ave_term_1);
             if($query_insert_phase6_gen_ave_term_1 == true){
                 echo "Phase 6 General Average of Term 1 Inserted Successfully <br>";
@@ -17542,7 +17996,7 @@ if(isset($_POST['update'])){
 
     $phase6_average_of_term_2 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '2' AND student_grades.phase = '6' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '2' AND student_grades.phase = '6' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase6_average_of_term_2 = mysqli_query($conn, $phase6_average_of_term_2);
     if($query_phase6_average_of_term_2 == true){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_2);
@@ -17553,12 +18007,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase6_gen_ave_term_2 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '2' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '6'";
         $query_check_phase6_gen_ave_term_2 = mysqli_query($conn, $check_phase6_gen_ave_term_2);
         if(mysqli_num_rows($query_check_phase6_gen_ave_term_2) > 0){
             $update_phase6_gen_ave_term_2 = "UPDATE `student_general_averages` SET `general_average`='$phase6_gen_ave_term_2 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '2' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '6'";
             $query_update_phase6_gen_ave_term_2 = mysqli_query($conn, $update_phase6_gen_ave_term_2);
             if($query_update_phase6_gen_ave_term_2 == true){
                 echo "Phase 6 General Average of Term 2 Update Successfully <br>";
@@ -17568,7 +18022,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase6_gen_ave_term_2 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase6_gen_ave_term_2','2','6','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase6_gen_ave_term_2','2','6','$remarks','$date_time_created')";
             $query_insert_phase6_gen_ave_term_2 = mysqli_query($conn, $insert_phase6_gen_ave_term_2);
             if($query_insert_phase6_gen_ave_term_2 == true){
                 echo "Phase 6 General Average of Term 2 Inserted Successfully <br>";
@@ -17585,7 +18039,7 @@ if(isset($_POST['update'])){
 
     $phase6_average_of_term_3 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '3' AND student_grades.phase = '6' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '3' AND student_grades.phase = '6' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase6_average_of_term_3 = mysqli_query($conn, $phase6_average_of_term_3);
     if($query_phase6_average_of_term_3 == true){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_3);
@@ -17596,12 +18050,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase6_gen_ave_term_3 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '3' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '6'";
         $query_check_phase6_gen_ave_term_3 = mysqli_query($conn, $check_phase6_gen_ave_term_3);
         if(mysqli_num_rows($query_check_phase6_gen_ave_term_3) > 0){
             $update_phase6_gen_ave_term_3 = "UPDATE `student_general_averages` SET `general_average`='$phase6_gen_ave_term_3 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '3' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '6'";
             $query_update_phase6_gen_ave_term_3 = mysqli_query($conn, $update_phase6_gen_ave_term_3);
             if($query_update_phase6_gen_ave_term_3 == true){
                 echo "Phase 6 General Average of Term 3 Update Successfully <br>";
@@ -17611,7 +18065,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase6_gen_ave_term_3 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase6_gen_ave_term_3','3','6','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase6_gen_ave_term_3','3','6','$remarks','$date_time_created')";
             $query_insert_phase6_gen_ave_term_3 = mysqli_query($conn, $insert_phase6_gen_ave_term_3);
             if($query_insert_phase6_gen_ave_term_3 == true){
                 echo "Phase 6 General Average of Term 3 Inserted Successfully <br>";
@@ -17628,7 +18082,7 @@ if(isset($_POST['update'])){
 
     $phase6_average_of_term_4 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '4' AND student_grades.phase = '6' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '4' AND student_grades.phase = '6' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase6_average_of_term_4 = mysqli_query($conn, $phase6_average_of_term_4);
     if($query_phase6_average_of_term_4 == true){
         $rows = mysqli_fetch_array($query_phase6_average_of_term_4);
@@ -17639,12 +18093,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase6_gen_ave_term_4 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '4' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '6'";
         $query_check_phase6_gen_ave_term_4 = mysqli_query($conn, $check_phase6_gen_ave_term_4);
         if(mysqli_num_rows($query_check_phase6_gen_ave_term_4) > 0){
             $update_phase6_gen_ave_term_4 = "UPDATE `student_general_averages` SET `general_average`='$phase6_gen_ave_term_4 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '4' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '6'";
             $query_update_phase6_gen_ave_term_4 = mysqli_query($conn, $update_phase6_gen_ave_term_4);
             if($query_update_phase6_gen_ave_term_4 == true){
                 echo "Phase 6 General Average of Term 4 Update Successfully <br>";
@@ -17654,7 +18108,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase6_gen_ave_term_4 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase6_gen_ave_term_4','4','6','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase6_gen_ave_term_4','4','6','$remarks','$date_time_created')";
             $query_insert_phase6_gen_ave_term_4 = mysqli_query($conn, $insert_phase6_gen_ave_term_4);
             if($query_insert_phase6_gen_ave_term_4 == true){
                 echo "Phase 6 General Average of Term 4 Inserted Successfully <br>";
@@ -17671,7 +18125,7 @@ if(isset($_POST['update'])){
     // PHASE 7 GENERAL AVERAGE OF TERM 1-4 OF STUDENT SCHOLASTIC RECORD
     $phase7_average_of_term_1 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '1' AND student_grades.phase = '7' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '1' AND student_grades.phase = '7' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase7_average_of_term_1 = mysqli_query($conn, $phase7_average_of_term_1);
     if($query_phase7_average_of_term_1 == true){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_1);
@@ -17682,12 +18136,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase7_gen_ave_term_1 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '1' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '7'";
         $query_check_phase7_gen_ave_term_1 = mysqli_query($conn, $check_phase7_gen_ave_term_1);
         if(mysqli_num_rows($query_check_phase7_gen_ave_term_1) > 0){
             $update_phase7_gen_ave_term_1 = "UPDATE `student_general_averages` SET `general_average`='$phase7_gen_ave_term_1 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '1' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '7'";
             $query_update_phase7_gen_ave_term_1 = mysqli_query($conn, $update_phase7_gen_ave_term_1);
             if($query_update_phase7_gen_ave_term_1 == true){
                 echo "Phase 7 General Average of Term 1 Update Successfully <br>";
@@ -17697,7 +18151,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase7_gen_ave_term_1 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase7_gen_ave_term_1','1','7','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase7_gen_ave_term_1','1','7','$remarks','$date_time_created')";
             $query_insert_phase7_gen_ave_term_1 = mysqli_query($conn, $insert_phase7_gen_ave_term_1);
             if($query_insert_phase7_gen_ave_term_1 == true){
                 echo "Phase 7 General Average of Term 1 Inserted Successfully <br>";
@@ -17714,7 +18168,7 @@ if(isset($_POST['update'])){
 
     $phase7_average_of_term_2 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '2' AND student_grades.phase = '7' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '2' AND student_grades.phase = '7' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase7_average_of_term_2 = mysqli_query($conn, $phase7_average_of_term_2);
     if($query_phase7_average_of_term_2 == true){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_2);
@@ -17725,12 +18179,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase7_gen_ave_term_2 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '2' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '7'";
         $query_check_phase7_gen_ave_term_2 = mysqli_query($conn, $check_phase7_gen_ave_term_2);
         if(mysqli_num_rows($query_check_phase7_gen_ave_term_2) > 0){
             $update_phase7_gen_ave_term_2 = "UPDATE `student_general_averages` SET `general_average`='$phase7_gen_ave_term_2 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '2' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '7'";
             $query_update_phase7_gen_ave_term_2 = mysqli_query($conn, $update_phase7_gen_ave_term_2);
             if($query_update_phase7_gen_ave_term_2 == true){
                 echo "Phase 7 General Average of Term 2 Update Successfully <br>";
@@ -17740,7 +18194,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase7_gen_ave_term_2 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase7_gen_ave_term_2','2','7','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase7_gen_ave_term_2','2','7','$remarks','$date_time_created')";
             $query_insert_phase7_gen_ave_term_2 = mysqli_query($conn, $insert_phase7_gen_ave_term_2);
             if($query_insert_phase7_gen_ave_term_2 == true){
                 echo "Phase 7 General Average of Term 2 Inserted Successfully <br>";
@@ -17757,7 +18211,7 @@ if(isset($_POST['update'])){
 
     $phase7_average_of_term_3 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '3' AND student_grades.phase = '7' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '3' AND student_grades.phase = '7' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase7_average_of_term_3 = mysqli_query($conn, $phase7_average_of_term_3);
     if($query_phase7_average_of_term_3 == true){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_3);
@@ -17768,12 +18222,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase7_gen_ave_term_3 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '3' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '7'";
         $query_check_phase7_gen_ave_term_3 = mysqli_query($conn, $check_phase7_gen_ave_term_3);
         if(mysqli_num_rows($query_check_phase7_gen_ave_term_3) > 0){
             $update_phase7_gen_ave_term_3 = "UPDATE `student_general_averages` SET `general_average`='$phase7_gen_ave_term_3 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '3' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '7'";
             $query_update_phase7_gen_ave_term_3 = mysqli_query($conn, $update_phase7_gen_ave_term_3);
             if($query_update_phase7_gen_ave_term_3 == true){
                 echo "Phase 7 General Average of Term 3 Update Successfully <br>";
@@ -17783,7 +18237,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase7_gen_ave_term_3 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase7_gen_ave_term_3','3','7','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase7_gen_ave_term_3','3','7','$remarks','$date_time_created')";
             $query_insert_phase7_gen_ave_term_3 = mysqli_query($conn, $insert_phase7_gen_ave_term_3);
             if($query_insert_phase7_gen_ave_term_3 == true){
                 echo "Phase 7 General Average of Term 3 Inserted Successfully <br>";
@@ -17800,7 +18254,7 @@ if(isset($_POST['update'])){
 
     $phase7_average_of_term_4 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '4' AND student_grades.phase = '7' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '4' AND student_grades.phase = '7' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase7_average_of_term_4 = mysqli_query($conn, $phase7_average_of_term_4);
     if($query_phase7_average_of_term_4 == true){
         $rows = mysqli_fetch_array($query_phase7_average_of_term_4);
@@ -17811,12 +18265,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase7_gen_ave_term_4 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '4' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '7'";
         $query_check_phase7_gen_ave_term_4 = mysqli_query($conn, $check_phase7_gen_ave_term_4);
         if(mysqli_num_rows($query_check_phase7_gen_ave_term_4) > 0){
             $update_phase7_gen_ave_term_4 = "UPDATE `student_general_averages` SET `general_average`='$phase7_gen_ave_term_4 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '4' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '7'";
             $query_update_phase7_gen_ave_term_4 = mysqli_query($conn, $update_phase7_gen_ave_term_4);
             if($query_update_phase7_gen_ave_term_4 == true){
                 echo "Phase 7 General Average of Term 4 Update Successfully <br>";
@@ -17826,7 +18280,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase7_gen_ave_term_4 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase7_gen_ave_term_4','4','7','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase7_gen_ave_term_4','4','7','$remarks','$date_time_created')";
             $query_insert_phase7_gen_ave_term_4 = mysqli_query($conn, $insert_phase7_gen_ave_term_4);
             if($query_insert_phase7_gen_ave_term_4 == true){
                 echo "Phase 7 General Average of Term 4 Inserted Successfully <br>";
@@ -17843,7 +18297,7 @@ if(isset($_POST['update'])){
     // PHASE 8 GENERAL AVERAGE OF TERM 1-4 OF STUDENT SCHOLASTIC RECORD
     $phase8_average_of_term_1 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '1' AND student_grades.phase = '8' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '1' AND student_grades.phase = '8' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase8_average_of_term_1 = mysqli_query($conn, $phase8_average_of_term_1);
     if($query_phase8_average_of_term_1 == true){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_1);
@@ -17854,12 +18308,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase8_gen_ave_term_1 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '1' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '8'";
         $query_check_phase8_gen_ave_term_1 = mysqli_query($conn, $check_phase8_gen_ave_term_1);
         if(mysqli_num_rows($query_check_phase8_gen_ave_term_1) > 0){
             $update_phase8_gen_ave_term_1 = "UPDATE `student_general_averages` SET `general_average`='$phase8_gen_ave_term_1 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '1' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND term = '1' AND phase = '8'";
             $query_update_phase8_gen_ave_term_1 = mysqli_query($conn, $update_phase8_gen_ave_term_1);
             if($query_update_phase8_gen_ave_term_1 == true){
                 echo "Phase 8 General Average of Term 1 Update Successfully <br>";
@@ -17869,7 +18323,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase8_gen_ave_term_1 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase8_gen_ave_term_1','1','8','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase8_gen_ave_term_1','1','8','$remarks','$date_time_created')";
             $query_insert_phase8_gen_ave_term_1 = mysqli_query($conn, $insert_phase8_gen_ave_term_1);
             if($query_insert_phase8_gen_ave_term_1 == true){
                 echo "Phase 8 General Average of Term 1 Inserted Successfully <br>";
@@ -17886,7 +18340,7 @@ if(isset($_POST['update'])){
 
     $phase8_average_of_term_2 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '2' AND student_grades.phase = '8' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '2' AND student_grades.phase = '8' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase8_average_of_term_2 = mysqli_query($conn, $phase8_average_of_term_2);
     if($query_phase8_average_of_term_2 == true){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_2);
@@ -17897,12 +18351,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase8_gen_ave_term_2 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '2' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '8'";
         $query_check_phase8_gen_ave_term_2 = mysqli_query($conn, $check_phase8_gen_ave_term_2);
         if(mysqli_num_rows($query_check_phase8_gen_ave_term_2) > 0){
             $update_phase8_gen_ave_term_2 = "UPDATE `student_general_averages` SET `general_average`='$phase8_gen_ave_term_2 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '2' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND term = '2' AND phase = '8'";
             $query_update_phase8_gen_ave_term_2 = mysqli_query($conn, $update_phase8_gen_ave_term_2);
             if($query_update_phase8_gen_ave_term_2 == true){
                 echo "Phase 8 General Average of Term 2 Update Successfully <br>";
@@ -17912,7 +18366,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase8_gen_ave_term_2 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase8_gen_ave_term_2','2','8','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase8_gen_ave_term_2','2','8','$remarks','$date_time_created')";
             $query_insert_phase8_gen_ave_term_2 = mysqli_query($conn, $insert_phase8_gen_ave_term_2);
             if($query_insert_phase8_gen_ave_term_2 == true){
                 echo "Phase 8 General Average of Term 2 Inserted Successfully <br>";
@@ -17929,7 +18383,7 @@ if(isset($_POST['update'])){
 
     $phase8_average_of_term_3 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '3' AND student_grades.phase = '8' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '3' AND student_grades.phase = '8' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase8_average_of_term_3 = mysqli_query($conn, $phase8_average_of_term_3);
     if($query_phase8_average_of_term_3 == true){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_3);
@@ -17940,12 +18394,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase8_gen_ave_term_3 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '3' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '8'";
         $query_check_phase8_gen_ave_term_3 = mysqli_query($conn, $check_phase8_gen_ave_term_3);
         if(mysqli_num_rows($query_check_phase8_gen_ave_term_3) > 0){
             $update_phase8_gen_ave_term_3 = "UPDATE `student_general_averages` SET `general_average`='$phase8_gen_ave_term_3 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '3' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND term = '3' AND phase = '8'";
             $query_update_phase8_gen_ave_term_3 = mysqli_query($conn, $update_phase8_gen_ave_term_3);
             if($query_update_phase8_gen_ave_term_3 == true){
                 echo "Phase 8 General Average of Term 3 Update Successfully <br>";
@@ -17955,7 +18409,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase8_gen_ave_term_3 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase8_gen_ave_term_3','3','8','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase8_gen_ave_term_3','3','8','$remarks','$date_time_created')";
             $query_insert_phase8_gen_ave_term_3 = mysqli_query($conn, $insert_phase8_gen_ave_term_3);
             if($query_insert_phase8_gen_ave_term_3 == true){
                 echo "Phase 8 General Average of Term 3 Inserted Successfully <br>";
@@ -17972,7 +18426,7 @@ if(isset($_POST['update'])){
 
     $phase8_average_of_term_4 = "SELECT AVG(student_grades.grade) FROM student_grades
     WHERE student_grades.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
-    AND student_grades.term = '4' AND student_grades.phase = '8' AND student_grades.lrn = '109857060083'";
+    AND student_grades.term = '4' AND student_grades.phase = '8' AND student_grades.lrn = '$decrypted_lrn'";
     $query_phase8_average_of_term_4 = mysqli_query($conn, $phase8_average_of_term_4);
     if($query_phase8_average_of_term_4 == true){
         $rows = mysqli_fetch_array($query_phase8_average_of_term_4);
@@ -17983,12 +18437,12 @@ if(isset($_POST['update'])){
         $remarks = "FAILED";
         }
         $check_phase8_gen_ave_term_4 = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = '4' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '8'";
         $query_check_phase8_gen_ave_term_4 = mysqli_query($conn, $check_phase8_gen_ave_term_4);
         if(mysqli_num_rows($query_check_phase8_gen_ave_term_4) > 0){
             $update_phase8_gen_ave_term_4 = "UPDATE `student_general_averages` SET `general_average`='$phase8_gen_ave_term_4 ',
             `remarks`='$remarks',`date_time_updated`='$date_time_updated' 
-            WHERE lrn = '109857060083' AND term = '4' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND term = '4' AND phase = '8'";
             $query_update_phase8_gen_ave_term_4 = mysqli_query($conn, $update_phase8_gen_ave_term_4);
             if($query_update_phase8_gen_ave_term_4 == true){
                 echo "Phase 8 General Average of Term 4 Update Successfully <br>";
@@ -17998,7 +18452,7 @@ if(isset($_POST['update'])){
         }else{
             $insert_phase8_gen_ave_term_4 = "INSERT INTO `student_general_averages`(`lrn`, `general_average`, 
             `term`, `phase`, `remarks`, `date_time_created`) 
-            VALUES ('109857060083','$phase8_gen_ave_term_4','4','8','$remarks','$date_time_created')";
+            VALUES ('$decrypted_lrn','$phase8_gen_ave_term_4','4','8','$remarks','$date_time_created')";
             $query_insert_phase8_gen_ave_term_4 = mysqli_query($conn, $insert_phase8_gen_ave_term_4);
             if($query_insert_phase8_gen_ave_term_4 == true){
                 echo "Phase 8 General Average of Term 4 Inserted Successfully <br>";
@@ -18017,18 +18471,18 @@ if(isset($_POST['update'])){
     $phase1_gen_ave_of_final_rating = "SELECT AVG(student_final_ratings.final_rating) FROM student_final_ratings
     WHERE student_final_ratings.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
     AND student_final_ratings.term = 'Final Rating' 
-    AND student_final_ratings.phase = '1' AND student_final_ratings.lrn = '109857060083'";
+    AND student_final_ratings.phase = '1' AND student_final_ratings.lrn = '$decrypted_lrn'";
     $query_phase1_gen_ave_of_final_rating = mysqli_query($conn, $phase1_gen_ave_of_final_rating);
     if($query_phase1_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase1_gen_ave_of_final_rating);
         $phase1_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
-        $phase1_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '1'";
+        $phase1_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '1'";
         $query_phase1_check_gen_ave_of_final_rating = mysqli_query($conn, $phase1_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase1_check_gen_ave_of_final_rating) > 0){
             $phase1_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
             SET general_average = '$phase1_gen_ave_final_rating', remarks = 'none',
             date_time_updated = '$date_time_updated'
-            WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '1'";
+            WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '1'";
             $query_phase1_update_gen_ave_final_rating = mysqli_query($conn, $phase1_update_gen_ave_of_final_rating);
             if($query_phase1_update_gen_ave_final_rating == true){
                 echo "Phase 1 Gen Average of Final Rating Updated <br>";
@@ -18038,7 +18492,7 @@ if(isset($_POST['update'])){
         }else{
             $phase1_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase1_gen_ave_final_rating','Final Rating', '1','none','$date_time_created')";
+            ('$decrypted_lrn','$phase1_gen_ave_final_rating','Final Rating', '1','none','$date_time_created')";
             $query_phase1_insert_gen_ave_final_rating = mysqli_query($conn, $phase1_insert_gen_ave_final_rating);
             if($query_phase1_insert_gen_ave_final_rating == true){
                 echo "Phase 1 Gen Average of Final Rating Inserted <br>";
@@ -18055,19 +18509,19 @@ if(isset($_POST['update'])){
     $phase2_gen_ave_of_final_rating = "SELECT AVG(student_final_ratings.final_rating) FROM student_final_ratings 
     WHERE student_final_ratings.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
     AND student_final_ratings.term = 'Final Rating' 
-    AND student_final_ratings.phase = '2' AND student_final_ratings.lrn = '109857060083'";
+    AND student_final_ratings.phase = '2' AND student_final_ratings.lrn = '$decrypted_lrn'";
     $query_phase2_gen_ave_of_final_rating = mysqli_query($conn, $phase2_gen_ave_of_final_rating);
     if($query_phase2_gen_ave_of_final_rating == true){
       $rows = mysqli_fetch_array($query_phase2_gen_ave_of_final_rating);
         $phase2_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
         $phase2_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '2'";
         $query_phase2_check_gen_ave_of_final_rating = mysqli_query($conn, $phase2_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase2_check_gen_ave_of_final_rating) > 0){
             $phase2_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
             SET general_average = '$phase2_gen_ave_final_rating', remarks = 'none',
             date_time_updated = '$date_time_updated'
-            WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '2'";
+            WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '2'";
             $query_phase2_update_gen_ave_final_rating = mysqli_query($conn, $phase2_update_gen_ave_of_final_rating);
             if($query_phase2_update_gen_ave_final_rating == true){
                 echo "Phase 2 Gen Average of Final Rating Updated <br>";
@@ -18077,7 +18531,7 @@ if(isset($_POST['update'])){
         }else{
             $phase2_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase2_gen_ave_final_rating','Final Rating', '2','none','$date_time_created')";
+            ('$decrypted_lrn','$phase2_gen_ave_final_rating','Final Rating', '2','none','$date_time_created')";
             $query_phase2_insert_gen_ave_final_rating = mysqli_query($conn, $phase2_insert_gen_ave_final_rating);
             if($query_phase2_insert_gen_ave_final_rating == true){
                 echo "Phase 2 Gen Average of Final Rating Inserted <br>";
@@ -18094,19 +18548,19 @@ if(isset($_POST['update'])){
     $phase3_gen_ave_of_final_rating = "SELECT AVG(student_final_ratings.final_rating) FROM student_final_ratings
     WHERE student_final_ratings.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
     AND student_final_ratings.term = 'Final Rating' 
-    AND student_final_ratings.phase = '3' AND student_final_ratings.lrn = '109857060083'";
+    AND student_final_ratings.phase = '3' AND student_final_ratings.lrn = '$decrypted_lrn'";
     $query_phase3_gen_ave_of_final_rating = mysqli_query($conn, $phase3_gen_ave_of_final_rating);
     if($query_phase3_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase3_gen_ave_of_final_rating);
         $phase3_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
         $phase3_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '3'";
         $query_phase3_check_gen_ave_of_final_rating = mysqli_query($conn, $phase3_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase3_check_gen_ave_of_final_rating) > 0){
             $phase3_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
             SET general_average = '$phase3_gen_ave_final_rating', remarks = 'none',
             date_time_updated = '$date_time_updated'
-            WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '3'";
+            WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '3'";
             $query_phase3_update_gen_ave_final_rating = mysqli_query($conn, $phase3_update_gen_ave_of_final_rating);
             if($query_phase3_update_gen_ave_final_rating == true){
                 echo "Phase 3 Gen Average of Final Rating Updated <br>";
@@ -18116,7 +18570,7 @@ if(isset($_POST['update'])){
         }else{
             $phase3_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase3_gen_ave_final_rating','Final Rating', '3','none','$date_time_created')";
+            ('$decrypted_lrn','$phase3_gen_ave_final_rating','Final Rating', '3','none','$date_time_created')";
             $query_phase3_insert_gen_ave_final_rating = mysqli_query($conn, $phase3_insert_gen_ave_final_rating);
             if($query_phase3_insert_gen_ave_final_rating == true){
                 echo "Phase 3 Gen Average of Final Rating Inserted <br>";
@@ -18133,19 +18587,19 @@ if(isset($_POST['update'])){
     $phase4_gen_ave_of_final_rating = "SELECT AVG(student_final_ratings.final_rating) FROM student_final_ratings 
     WHERE student_final_ratings.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
     AND student_final_ratings.term = 'Final Rating' 
-    AND student_final_ratings.phase = '4' AND student_final_ratings.lrn = '109857060083'";
+    AND student_final_ratings.phase = '4' AND student_final_ratings.lrn = '$decrypted_lrn'";
     $query_phase4_gen_ave_of_final_rating = mysqli_query($conn, $phase4_gen_ave_of_final_rating);
     if($query_phase4_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase4_gen_ave_of_final_rating);
         $phase4_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
         $phase4_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '4'";
+        WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '4'";
         $query_phase4_check_gen_ave_of_final_rating = mysqli_query($conn, $phase4_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase4_check_gen_ave_of_final_rating) > 0){
             $phase4_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
             SET general_average = '$phase4_gen_ave_final_rating', remarks = 'none',
             date_time_updated = '$date_time_updated'
-            WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '4'";
+            WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '4'";
             $query_phase4_update_gen_ave_final_rating = mysqli_query($conn, $phase4_update_gen_ave_of_final_rating);
             if($query_phase4_update_gen_ave_final_rating == true){
                 echo "Phase 4 Gen Average of Final Rating Updated <br>";
@@ -18155,7 +18609,7 @@ if(isset($_POST['update'])){
         }else{
             $phase4_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase4_gen_ave_final_rating','Final Rating', '4','none','$date_time_created')";
+            ('$decrypted_lrn','$phase4_gen_ave_final_rating','Final Rating', '4','none','$date_time_created')";
             $query_phase4_insert_gen_ave_final_rating = mysqli_query($conn, $phase4_insert_gen_ave_final_rating);
             if($query_phase4_insert_gen_ave_final_rating == true){
                 echo "Phase 4 Gen Average of Final Rating Inserted <br>";
@@ -18172,19 +18626,19 @@ if(isset($_POST['update'])){
     $phase5_gen_ave_of_final_rating = "SELECT AVG(student_final_ratings.final_rating) FROM student_final_ratings 
     WHERE student_final_ratings.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
     AND student_final_ratings.term = 'Final Rating' 
-    AND student_final_ratings.phase = '5' AND student_final_ratings.lrn = '109857060083'";
+    AND student_final_ratings.phase = '5' AND student_final_ratings.lrn = '$decrypted_lrn'";
     $query_phase5_gen_ave_of_final_rating = mysqli_query($conn, $phase5_gen_ave_of_final_rating);
     if($query_phase5_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase5_gen_ave_of_final_rating);
         $phase5_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
         $phase5_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '5'";
+        WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '5'";
         $query_phase5_check_gen_ave_of_final_rating = mysqli_query($conn, $phase5_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase5_check_gen_ave_of_final_rating) > 0){
             $phase5_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
             SET general_average = '$phase5_gen_ave_final_rating', remarks = 'none',
             date_time_updated = '$date_time_updated'
-            WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '5'";
+            WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '5'";
             $query_phase5_update_gen_ave_final_rating = mysqli_query($conn, $phase5_update_gen_ave_of_final_rating);
             if($query_phase5_update_gen_ave_final_rating == true){
                 echo "Phase 5 Gen Average of Final Rating Updated <br>";
@@ -18194,7 +18648,7 @@ if(isset($_POST['update'])){
         }else{
             $phase5_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase5_gen_ave_final_rating','Final Rating', '5','none','$date_time_created')";
+            ('$decrypted_lrn','$phase5_gen_ave_final_rating','Final Rating', '5','none','$date_time_created')";
             $query_phase5_insert_gen_ave_final_rating = mysqli_query($conn, $phase5_insert_gen_ave_final_rating);
             if($query_phase5_insert_gen_ave_final_rating == true){
                 echo "Phase 5 Gen Average of Final Rating Inserted <br>";
@@ -18211,19 +18665,19 @@ if(isset($_POST['update'])){
     $phase6_gen_ave_of_final_rating = "SELECT AVG(student_final_ratings.final_rating) FROM student_final_ratings 
     WHERE student_final_ratings.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
     AND student_final_ratings.term = 'Final Rating' 
-    AND student_final_ratings.phase = '6' AND student_final_ratings.lrn = '109857060083'";
+    AND student_final_ratings.phase = '6' AND student_final_ratings.lrn = '$decrypted_lrn'";
     $query_phase6_gen_ave_of_final_rating = mysqli_query($conn, $phase6_gen_ave_of_final_rating);
     if($query_phase6_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase6_gen_ave_of_final_rating);
         $phase6_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
         $phase6_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '6'";
+        WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '6'";
         $query_phase6_check_gen_ave_of_final_rating = mysqli_query($conn, $phase6_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase6_check_gen_ave_of_final_rating) > 0){
             $phase6_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
             SET general_average = '$phase6_gen_ave_final_rating', remarks = 'none',
             date_time_updated = '$date_time_updated'
-            WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '6'";
+            WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '6'";
             $query_phase6_update_gen_ave_final_rating = mysqli_query($conn, $phase6_update_gen_ave_of_final_rating);
             if($query_phase6_update_gen_ave_final_rating == true){
                 echo "Phase 6 Gen Average of Final Rating Updated <br>";
@@ -18233,7 +18687,7 @@ if(isset($_POST['update'])){
         }else{
             $phase6_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase6_gen_ave_final_rating','Final Rating', '6','none','$date_time_created')";
+            ('$decrypted_lrn','$phase6_gen_ave_final_rating','Final Rating', '6','none','$date_time_created')";
             $query_phase6_insert_gen_ave_final_rating = mysqli_query($conn, $phase6_insert_gen_ave_final_rating);
             if($query_phase6_insert_gen_ave_final_rating == true){
                 echo "Phase 6 Gen Average of Final Rating Inserted <br>";
@@ -18250,19 +18704,19 @@ if(isset($_POST['update'])){
     $phase7_gen_ave_of_final_rating = "SELECT AVG(student_final_ratings.final_rating) FROM student_final_ratings 
     WHERE student_final_ratings.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
     AND student_final_ratings.term = 'Final Rating' 
-    AND student_final_ratings.phase = '7' AND student_final_ratings.lrn = '109857060083'";
+    AND student_final_ratings.phase = '7' AND student_final_ratings.lrn = '$decrypted_lrn'";
     $query_phase7_gen_ave_of_final_rating = mysqli_query($conn, $phase7_gen_ave_of_final_rating);
     if($query_phase7_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase7_gen_ave_of_final_rating);
         $phase7_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
         $phase7_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '7'";
+        WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '7'";
         $query_phase7_check_gen_ave_of_final_rating = mysqli_query($conn, $phase7_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase7_check_gen_ave_of_final_rating) > 0){
             $phase7_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
             SET general_average = '$phase7_gen_ave_final_rating', remarks = 'none',
             date_time_updated = '$date_time_updated'
-            WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '7'";
+            WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '7'";
             $query_phase7_update_gen_ave_final_rating = mysqli_query($conn, $phase7_update_gen_ave_of_final_rating);
             if($query_phase7_update_gen_ave_final_rating == true){
                 echo "Phase 7 Gen Average of Final Rating Updated <br>";
@@ -18272,7 +18726,7 @@ if(isset($_POST['update'])){
         }else{
             $phase7_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase7_gen_ave_final_rating','Final Rating', '7','none','$date_time_created')";
+            ('$decrypted_lrn','$phase7_gen_ave_final_rating','Final Rating', '7','none','$date_time_created')";
             $query_phase7_insert_gen_ave_final_rating = mysqli_query($conn, $phase7_insert_gen_ave_final_rating);
             if($query_phase7_insert_gen_ave_final_rating == true){
                 echo "Phase 7 Gen Average of Final Rating Inserted <br>";
@@ -18289,19 +18743,19 @@ if(isset($_POST['update'])){
     $phase8_gen_ave_of_final_rating = "SELECT AVG(student_final_ratings.final_rating) FROM student_final_ratings 
     WHERE student_final_ratings.subject_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15') 
     AND student_final_ratings.term = 'Final Rating' 
-    AND student_final_ratings.phase = '8' AND student_final_ratings.lrn = '109857060083'";
+    AND student_final_ratings.phase = '8' AND student_final_ratings.lrn = '$decrypted_lrn'";
     $query_phase8_gen_ave_of_final_rating = mysqli_query($conn, $phase8_gen_ave_of_final_rating);
     if($query_phase8_gen_ave_of_final_rating == true){
         $rows = mysqli_fetch_array($query_phase8_gen_ave_of_final_rating);
         $phase8_gen_ave_final_rating = round($rows['AVG(student_final_ratings.final_rating)']);
         $phase8_check_gen_ave_of_final_rating = "SELECT * FROM student_general_averages
-        WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '8'";
+        WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '8'";
         $query_phase8_check_gen_ave_of_final_rating = mysqli_query($conn, $phase8_check_gen_ave_of_final_rating);
         if(mysqli_num_rows($query_phase8_check_gen_ave_of_final_rating) > 0){
             $phase8_update_gen_ave_of_final_rating = "UPDATE student_general_averages 
             SET general_average = '$phase8_gen_ave_final_rating', remarks = 'none',
             date_time_updated = '$date_time_updated'
-            WHERE lrn = '109857060083' AND term = 'Final Rating' AND phase = '8'";
+            WHERE lrn = '$decrypted_lrn' AND term = 'Final Rating' AND phase = '8'";
             $query_phase8_update_gen_ave_final_rating = mysqli_query($conn, $phase8_update_gen_ave_of_final_rating);
             if($query_phase8_update_gen_ave_final_rating == true){
                 echo "Phase 8 Gen Average of Final Rating Updated <br>";
@@ -18311,7 +18765,7 @@ if(isset($_POST['update'])){
         }else{
             $phase8_insert_gen_ave_final_rating = "INSERT INTO `student_general_averages`(`lrn`, `general_average`,
             `term`, `phase`, `remarks`, `date_time_created`) VALUES 
-            ('109857060083','$phase8_gen_ave_final_rating','Final Rating', '8','none','$date_time_created')";
+            ('$decrypted_lrn','$phase8_gen_ave_final_rating','Final Rating', '8','none','$date_time_created')";
             $query_phase8_insert_gen_ave_final_rating = mysqli_query($conn, $phase8_insert_gen_ave_final_rating);
             if($query_phase8_insert_gen_ave_final_rating == true){
                 echo "Phase 8 Gen Average of Final Rating Inserted <br>";
@@ -18324,14 +18778,14 @@ if(isset($_POST['update'])){
 
     // PHASE 1 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
     $check_phase1_remedial_classes_line1 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '1' AND term = '1'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '1' AND term = '1'";
     $query_check_phase1_remedial_classes_line1 = mysqli_query($conn, $check_phase1_remedial_classes_line1);
     if(mysqli_num_rows($query_check_phase1_remedial_classes_line1) > 0){
         $update_phase1_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase1_date_from', 
         date_to = '$phase1_date_to', learning_areas = '$phase1_learning_areas1', final_rating = '$phase1_final_rating1', 
         remedial_class_mark = '$phase1_remedial_class_mark1', recomputed_final_grade = '$phase1_recomputed_final_grade1', 
         remarks = '$phase1_remedial_remarks1', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '1' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '1' AND term = '1'";
         $query_update_phase1_remedial_classes_line1 = mysqli_query($conn, $update_phase1_remedial_classes_line1);
         if($query_update_phase1_remedial_classes_line1 == true){
             echo "Phase 1 Line 1 of Remedial Classes Updated";
@@ -18342,7 +18796,7 @@ if(isset($_POST['update'])){
         $insert_phase1_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase1_date_from','$phase1_date_to', '$phase1_learning_areas1','$phase1_final_rating1',
+        ('$decrypted_lrn','$phase1_date_from','$phase1_date_to', '$phase1_learning_areas1','$phase1_final_rating1',
         '$phase1_remedial_class_mark1', '$phase1_recomputed_final_grade1','1','1','$phase1_remedial_remarks1','$date_time_created')";
         $query_insert_phase1_remedial_classes_line1 = mysqli_query($conn, $insert_phase1_remedial_classes_line1);
         if($query_insert_phase1_remedial_classes_line1 == true){
@@ -18354,14 +18808,14 @@ if(isset($_POST['update'])){
 
 
     $check_phase1_remedial_classes_line2 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '1' AND term = '2'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '1' AND term = '2'";
     $query_check_phase1_remedial_classes_line2 = mysqli_query($conn, $check_phase1_remedial_classes_line2);
     if(mysqli_num_rows($query_check_phase1_remedial_classes_line2) > 0){
         $update_phase1_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase1_date_from', 
         date_to = '$phase1_date_to', learning_areas = '$phase1_learning_areas2', final_rating = '$phase1_final_rating2', 
         remedial_class_mark = '$phase1_remedial_class_mark2', recomputed_final_grade = '$phase1_recomputed_final_grade2', 
         remarks = '$phase1_remedial_remarks2', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '1' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '1' AND term = '2'";
         $query_update_phase1_remedial_classes_line2 = mysqli_query($conn, $update_phase1_remedial_classes_line2);
         if($query_update_phase1_remedial_classes_line2 == true){
             echo "Phase 1 Line 2 of Remedial Classes Updated";
@@ -18372,7 +18826,7 @@ if(isset($_POST['update'])){
         $insert_phase1_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase1_date_from','$phase1_date_to', '$phase1_learning_areas2','$phase1_final_rating2',
+        ('$decrypted_lrn','$phase1_date_from','$phase1_date_to', '$phase1_learning_areas2','$phase1_final_rating2',
         '$phase1_remedial_class_mark2', '$phase1_recomputed_final_grade2','1','2','$phase1_remedial_remarks2','$date_time_created')";
         $query_insert_phase1_remedial_classes_line2 = mysqli_query($conn, $insert_phase1_remedial_classes_line2);
         if($query_insert_phase1_remedial_classes_line2 == true){
@@ -18387,14 +18841,14 @@ if(isset($_POST['update'])){
 
     // PHASE 2 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
     $check_phase2_remedial_classes_line1 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '2' AND term = '1'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '2' AND term = '1'";
     $query_check_phase2_remedial_classes_line1 = mysqli_query($conn, $check_phase2_remedial_classes_line1);
     if(mysqli_num_rows($query_check_phase2_remedial_classes_line1) > 0){
         $update_phase2_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase2_date_from', 
         date_to = '$phase2_date_to', learning_areas = '$phase2_learning_areas1', final_rating = '$phase2_final_rating1', 
         remedial_class_mark = '$phase2_remedial_class_mark1', recomputed_final_grade = '$phase2_recomputed_final_grade1', 
         remarks = '$phase2_remedial_remarks1', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '2' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '2' AND term = '1'";
         $query_update_phase2_remedial_classes_line1 = mysqli_query($conn, $update_phase2_remedial_classes_line1);
         if($query_update_phase2_remedial_classes_line1 == true){
             echo "Phase 2 Line 1 of Remedial Classes Updated";
@@ -18405,7 +18859,7 @@ if(isset($_POST['update'])){
         $insert_phase2_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase2_date_from','$phase2_date_to', '$phase2_learning_areas1','$phase2_final_rating1',
+        ('$decrypted_lrn','$phase2_date_from','$phase2_date_to', '$phase2_learning_areas1','$phase2_final_rating1',
         '$phase2_remedial_class_mark1', '$phase2_recomputed_final_grade1','2','1','$phase2_remedial_remarks1','$date_time_created')";
         $query_insert_phase2_remedial_classes_line1 = mysqli_query($conn, $insert_phase2_remedial_classes_line1);
         if($query_insert_phase2_remedial_classes_line1 == true){
@@ -18417,14 +18871,14 @@ if(isset($_POST['update'])){
 
 
     $check_phase2_remedial_classes_line2 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '2' AND term = '2'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '2' AND term = '2'";
     $query_check_phase2_remedial_classes_line2 = mysqli_query($conn, $check_phase2_remedial_classes_line2);
     if(mysqli_num_rows($query_check_phase2_remedial_classes_line2) > 0){
         $update_phase2_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase2_date_from', 
         date_to = '$phase2_date_to', learning_areas = '$phase2_learning_areas2', final_rating = '$phase2_final_rating2', 
         remedial_class_mark = '$phase2_remedial_class_mark2', recomputed_final_grade = '$phase2_recomputed_final_grade2', 
         remarks = '$phase2_remedial_remarks2', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '2' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '2' AND term = '2'";
         $query_update_phase2_remedial_classes_line2 = mysqli_query($conn, $update_phase2_remedial_classes_line2);
         if($query_update_phase2_remedial_classes_line2 == true){
             echo "Phase 2 Line 2 of Remedial Classes Updated";
@@ -18435,7 +18889,7 @@ if(isset($_POST['update'])){
         $insert_phase2_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase2_date_from','$phase2_date_to', '$phase2_learning_areas2','$phase2_final_rating2',
+        ('$decrypted_lrn','$phase2_date_from','$phase2_date_to', '$phase2_learning_areas2','$phase2_final_rating2',
         '$phase2_remedial_class_mark2', '$phase2_recomputed_final_grade2','2','2','$phase2_remedial_remarks2','$date_time_created')";
         $query_insert_phase2_remedial_classes_line2 = mysqli_query($conn, $insert_phase2_remedial_classes_line2);
         if($query_insert_phase2_remedial_classes_line2 == true){
@@ -18450,14 +18904,14 @@ if(isset($_POST['update'])){
 
     // PHASE 3 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
     $check_phase3_remedial_classes_line1 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '3' AND term = '1'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '3' AND term = '1'";
     $query_check_phase3_remedial_classes_line1 = mysqli_query($conn, $check_phase3_remedial_classes_line1);
     if(mysqli_num_rows($query_check_phase3_remedial_classes_line1) > 0){
         $update_phase3_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase3_date_from', 
         date_to = '$phase3_date_to', learning_areas = '$phase3_learning_areas1', final_rating = '$phase3_final_rating1', 
         remedial_class_mark = '$phase3_remedial_class_mark1', recomputed_final_grade = '$phase3_recomputed_final_grade1', 
         remarks = '$phase3_remedial_remarks1', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '3' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '3' AND term = '1'";
         $query_update_phase3_remedial_classes_line1 = mysqli_query($conn, $update_phase3_remedial_classes_line1);
         if($query_update_phase3_remedial_classes_line1 == true){
             echo "Phase 3 Line 1 of Remedial Classes Updated";
@@ -18468,7 +18922,7 @@ if(isset($_POST['update'])){
         $insert_phase3_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase3_date_from','$phase3_date_to', '$phase3_learning_areas1','$phase3_final_rating1',
+        ('$decrypted_lrn','$phase3_date_from','$phase3_date_to', '$phase3_learning_areas1','$phase3_final_rating1',
         '$phase3_remedial_class_mark1', '$phase3_recomputed_final_grade1','3','1','$phase3_remedial_remarks1','$date_time_created')";
         $query_insert_phase3_remedial_classes_line1 = mysqli_query($conn, $insert_phase3_remedial_classes_line1);
         if($query_insert_phase3_remedial_classes_line1 == true){
@@ -18480,14 +18934,14 @@ if(isset($_POST['update'])){
 
 
     $check_phase3_remedial_classes_line2 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '3' AND term = '2'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '3' AND term = '2'";
     $query_check_phase3_remedial_classes_line2 = mysqli_query($conn, $check_phase3_remedial_classes_line2);
     if(mysqli_num_rows($query_check_phase3_remedial_classes_line2) > 0){
         $update_phase3_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase3_date_from', 
         date_to = '$phase3_date_to', learning_areas = '$phase3_learning_areas2', final_rating = '$phase3_final_rating2', 
         remedial_class_mark = '$phase3_remedial_class_mark2', recomputed_final_grade = '$phase3_recomputed_final_grade2', 
         remarks = '$phase3_remedial_remarks2', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '3' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '3' AND term = '2'";
         $query_update_phase3_remedial_classes_line2 = mysqli_query($conn, $update_phase3_remedial_classes_line2);
         if($query_update_phase3_remedial_classes_line2 == true){
             echo "Phase 3 Line 2 of Remedial Classes Updated";
@@ -18498,7 +18952,7 @@ if(isset($_POST['update'])){
         $insert_phase3_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase3_date_from','$phase3_date_to', '$phase3_learning_areas2','$phase3_final_rating2',
+        ('$decrypted_lrn','$phase3_date_from','$phase3_date_to', '$phase3_learning_areas2','$phase3_final_rating2',
         '$phase3_remedial_class_mark2', '$phase3_recomputed_final_grade2','3','2','$phase3_remedial_remarks2','$date_time_created')";
         $query_insert_phase3_remedial_classes_line2 = mysqli_query($conn, $insert_phase3_remedial_classes_line2);
         if($query_insert_phase3_remedial_classes_line2 == true){
@@ -18513,14 +18967,14 @@ if(isset($_POST['update'])){
 
     // PHASE 4 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
     $check_phase4_remedial_classes_line1 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '4' AND term = '1'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '4' AND term = '1'";
     $query_check_phase4_remedial_classes_line1 = mysqli_query($conn, $check_phase4_remedial_classes_line1);
     if(mysqli_num_rows($query_check_phase4_remedial_classes_line1) > 0){
         $update_phase4_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase4_date_from', 
         date_to = '$phase4_date_to', learning_areas = '$phase4_learning_areas1', final_rating = '$phase4_final_rating1', 
         remedial_class_mark = '$phase4_remedial_class_mark1', recomputed_final_grade = '$phase4_recomputed_final_grade1', 
         remarks = '$phase4_remedial_remarks1', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '4' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '4' AND term = '1'";
         $query_update_phase4_remedial_classes_line1 = mysqli_query($conn, $update_phase4_remedial_classes_line1);
         if($query_update_phase4_remedial_classes_line1 == true){
             echo "Phase 4 Line 1 of Remedial Classes Updated";
@@ -18531,7 +18985,7 @@ if(isset($_POST['update'])){
         $insert_phase4_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase4_date_from','$phase4_date_to', '$phase4_learning_areas1','$phase4_final_rating1',
+        ('$decrypted_lrn','$phase4_date_from','$phase4_date_to', '$phase4_learning_areas1','$phase4_final_rating1',
         '$phase4_remedial_class_mark1', '$phase4_recomputed_final_grade1','4','1','$phase4_remedial_remarks1','$date_time_created')";
         $query_insert_phase4_remedial_classes_line1 = mysqli_query($conn, $insert_phase4_remedial_classes_line1);
         if($query_insert_phase4_remedial_classes_line1 == true){
@@ -18543,14 +18997,14 @@ if(isset($_POST['update'])){
 
 
     $check_phase4_remedial_classes_line2 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '4' AND term = '2'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '4' AND term = '2'";
     $query_check_phase4_remedial_classes_line2 = mysqli_query($conn, $check_phase4_remedial_classes_line2);
     if(mysqli_num_rows($query_check_phase4_remedial_classes_line2) > 0){
         $update_phase4_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase4_date_from', 
         date_to = '$phase4_date_to', learning_areas = '$phase4_learning_areas2', final_rating = '$phase4_final_rating2', 
         remedial_class_mark = '$phase4_remedial_class_mark2', recomputed_final_grade = '$phase4_recomputed_final_grade2', 
         remarks = '$phase4_remedial_remarks2', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '4' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '4' AND term = '2'";
         $query_update_phase4_remedial_classes_line2 = mysqli_query($conn, $update_phase4_remedial_classes_line2);
         if($query_update_phase4_remedial_classes_line2 == true){
             echo "Phase 4 Line 2 of Remedial Classes Updated";
@@ -18561,7 +19015,7 @@ if(isset($_POST['update'])){
         $insert_phase4_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase4_date_from','$phase4_date_to', '$phase4_learning_areas2','$phase4_final_rating2',
+        ('$decrypted_lrn','$phase4_date_from','$phase4_date_to', '$phase4_learning_areas2','$phase4_final_rating2',
         '$phase4_remedial_class_mark2', '$phase4_recomputed_final_grade2','4','2','$phase4_remedial_remarks2','$date_time_created')";
         $query_insert_phase4_remedial_classes_line2 = mysqli_query($conn, $insert_phase4_remedial_classes_line2);
         if($query_insert_phase4_remedial_classes_line2 == true){
@@ -18576,14 +19030,14 @@ if(isset($_POST['update'])){
 
     // PHASE 5 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
     $check_phase5_remedial_classes_line1 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '5' AND term = '1'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '5' AND term = '1'";
     $query_check_phase5_remedial_classes_line1 = mysqli_query($conn, $check_phase5_remedial_classes_line1);
     if(mysqli_num_rows($query_check_phase5_remedial_classes_line1) > 0){
         $update_phase5_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase5_date_from', 
         date_to = '$phase5_date_to', learning_areas = '$phase5_learning_areas1', final_rating = '$phase5_final_rating1', 
         remedial_class_mark = '$phase5_remedial_class_mark1', recomputed_final_grade = '$phase5_recomputed_final_grade1', 
         remarks = '$phase5_remedial_remarks1', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '5' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '5' AND term = '1'";
         $query_update_phase5_remedial_classes_line1 = mysqli_query($conn, $update_phase5_remedial_classes_line1);
         if($query_update_phase5_remedial_classes_line1 == true){
             echo "Phase 5 Line 1 of Remedial Classes Updated";
@@ -18594,7 +19048,7 @@ if(isset($_POST['update'])){
         $insert_phase5_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase5_date_from','$phase5_date_to', '$phase5_learning_areas1','$phase5_final_rating1',
+        ('$decrypted_lrn','$phase5_date_from','$phase5_date_to', '$phase5_learning_areas1','$phase5_final_rating1',
         '$phase5_remedial_class_mark1', '$phase5_recomputed_final_grade1','5','1','$phase5_remedial_remarks1','$date_time_created')";
         $query_insert_phase5_remedial_classes_line1 = mysqli_query($conn, $insert_phase5_remedial_classes_line1);
         if($query_insert_phase5_remedial_classes_line1 == true){
@@ -18606,14 +19060,14 @@ if(isset($_POST['update'])){
 
 
     $check_phase5_remedial_classes_line2 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '5' AND term = '2'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '5' AND term = '2'";
     $query_check_phase5_remedial_classes_line2 = mysqli_query($conn, $check_phase5_remedial_classes_line2);
     if(mysqli_num_rows($query_check_phase5_remedial_classes_line2) > 0){
         $update_phase5_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase5_date_from', 
         date_to = '$phase5_date_to', learning_areas = '$phase5_learning_areas2', final_rating = '$phase5_final_rating2', 
         remedial_class_mark = '$phase5_remedial_class_mark2', recomputed_final_grade = '$phase5_recomputed_final_grade2', 
         remarks = '$phase5_remedial_remarks2', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '5' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '5' AND term = '2'";
         $query_update_phase5_remedial_classes_line2 = mysqli_query($conn, $update_phase5_remedial_classes_line2);
         if($query_update_phase5_remedial_classes_line2 == true){
             echo "Phase 5 Line 2 of Remedial Classes Updated";
@@ -18624,7 +19078,7 @@ if(isset($_POST['update'])){
         $insert_phase5_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase5_date_from','$phase5_date_to', '$phase5_learning_areas2','$phase5_final_rating2',
+        ('$decrypted_lrn','$phase5_date_from','$phase5_date_to', '$phase5_learning_areas2','$phase5_final_rating2',
         '$phase5_remedial_class_mark2', '$phase5_recomputed_final_grade2','5','2','$phase5_remedial_remarks2','$date_time_created')";
         $query_insert_phase5_remedial_classes_line2 = mysqli_query($conn, $insert_phase5_remedial_classes_line2);
         if($query_insert_phase5_remedial_classes_line2 == true){
@@ -18639,14 +19093,14 @@ if(isset($_POST['update'])){
 
     // PHASE 6 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
     $check_phase6_remedial_classes_line1 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '6' AND term = '1'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '6' AND term = '1'";
     $query_check_phase6_remedial_classes_line1 = mysqli_query($conn, $check_phase6_remedial_classes_line1);
     if(mysqli_num_rows($query_check_phase6_remedial_classes_line1) > 0){
         $update_phase6_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase6_date_from', 
         date_to = '$phase6_date_to', learning_areas = '$phase6_learning_areas1', final_rating = '$phase6_final_rating1', 
         remedial_class_mark = '$phase6_remedial_class_mark1', recomputed_final_grade = '$phase6_recomputed_final_grade1', 
         remarks = '$phase6_remedial_remarks1', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '6' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '6' AND term = '1'";
         $query_update_phase6_remedial_classes_line1 = mysqli_query($conn, $update_phase6_remedial_classes_line1);
         if($query_update_phase6_remedial_classes_line1 == true){
             echo "Phase 6 Line 1 of Remedial Classes Updated";
@@ -18657,7 +19111,7 @@ if(isset($_POST['update'])){
         $insert_phase6_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase6_date_from','$phase6_date_to', '$phase6_learning_areas1','$phase6_final_rating1',
+        ('$decrypted_lrn','$phase6_date_from','$phase6_date_to', '$phase6_learning_areas1','$phase6_final_rating1',
         '$phase6_remedial_class_mark1', '$phase6_recomputed_final_grade1','6','1','$phase6_remedial_remarks1','$date_time_created')";
         $query_insert_phase6_remedial_classes_line1 = mysqli_query($conn, $insert_phase6_remedial_classes_line1);
         if($query_insert_phase6_remedial_classes_line1 == true){
@@ -18669,14 +19123,14 @@ if(isset($_POST['update'])){
 
 
     $check_phase6_remedial_classes_line2 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '6' AND term = '2'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '6' AND term = '2'";
     $query_check_phase6_remedial_classes_line2 = mysqli_query($conn, $check_phase6_remedial_classes_line2);
     if(mysqli_num_rows($query_check_phase6_remedial_classes_line2) > 0){
         $update_phase6_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase6_date_from', 
         date_to = '$phase6_date_to', learning_areas = '$phase6_learning_areas2', final_rating = '$phase6_final_rating2', 
         remedial_class_mark = '$phase6_remedial_class_mark2', recomputed_final_grade = '$phase6_recomputed_final_grade2', 
         remarks = '$phase6_remedial_remarks2', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '6' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '6' AND term = '2'";
         $query_update_phase6_remedial_classes_line2 = mysqli_query($conn, $update_phase6_remedial_classes_line2);
         if($query_update_phase6_remedial_classes_line2 == true){
             echo "Phase 6 Line 2 of Remedial Classes Updated";
@@ -18687,7 +19141,7 @@ if(isset($_POST['update'])){
         $insert_phase6_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase6_date_from','$phase6_date_to', '$phase6_learning_areas2','$phase6_final_rating2',
+        ('$decrypted_lrn','$phase6_date_from','$phase6_date_to', '$phase6_learning_areas2','$phase6_final_rating2',
         '$phase6_remedial_class_mark2', '$phase6_recomputed_final_grade2','6','2','$phase6_remedial_remarks2','$date_time_created')";
         $query_insert_phase6_remedial_classes_line2 = mysqli_query($conn, $insert_phase6_remedial_classes_line2);
         if($query_insert_phase6_remedial_classes_line2 == true){
@@ -18702,14 +19156,14 @@ if(isset($_POST['update'])){
 
     // PHASE 7 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
     $check_phase7_remedial_classes_line1 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '7' AND term = '1'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '7' AND term = '1'";
     $query_check_phase7_remedial_classes_line1 = mysqli_query($conn, $check_phase7_remedial_classes_line1);
     if(mysqli_num_rows($query_check_phase7_remedial_classes_line1) > 0){
         $update_phase7_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase7_date_from', 
         date_to = '$phase7_date_to', learning_areas = '$phase7_learning_areas1', final_rating = '$phase7_final_rating1', 
         remedial_class_mark = '$phase7_remedial_class_mark1', recomputed_final_grade = '$phase7_recomputed_final_grade1', 
         remarks = '$phase7_remedial_remarks1', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '7' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '7' AND term = '1'";
         $query_update_phase7_remedial_classes_line1 = mysqli_query($conn, $update_phase7_remedial_classes_line1);
         if($query_update_phase7_remedial_classes_line1 == true){
             echo "Phase 7 Line 1 of Remedial Classes Updated";
@@ -18720,7 +19174,7 @@ if(isset($_POST['update'])){
         $insert_phase7_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase7_date_from','$phase7_date_to', '$phase7_learning_areas1','$phase7_final_rating1',
+        ('$decrypted_lrn','$phase7_date_from','$phase7_date_to', '$phase7_learning_areas1','$phase7_final_rating1',
         '$phase7_remedial_class_mark1', '$phase7_recomputed_final_grade1','7','1','$phase7_remedial_remarks1','$date_time_created')";
         $query_insert_phase7_remedial_classes_line1 = mysqli_query($conn, $insert_phase7_remedial_classes_line1);
         if($query_insert_phase7_remedial_classes_line1 == true){
@@ -18732,14 +19186,14 @@ if(isset($_POST['update'])){
 
 
     $check_phase7_remedial_classes_line2 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '7' AND term = '2'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '7' AND term = '2'";
     $query_check_phase7_remedial_classes_line2 = mysqli_query($conn, $check_phase7_remedial_classes_line2);
     if(mysqli_num_rows($query_check_phase7_remedial_classes_line2) > 0){
         $update_phase7_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase7_date_from', 
         date_to = '$phase7_date_to', learning_areas = '$phase7_learning_areas2', final_rating = '$phase7_final_rating2', 
         remedial_class_mark = '$phase7_remedial_class_mark2', recomputed_final_grade = '$phase7_recomputed_final_grade2', 
         remarks = '$phase7_remedial_remarks2', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '7' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '7' AND term = '2'";
         $query_update_phase7_remedial_classes_line2 = mysqli_query($conn, $update_phase7_remedial_classes_line2);
         if($query_update_phase7_remedial_classes_line2 == true){
             echo "Phase 7 Line 2 of Remedial Classes Updated";
@@ -18750,7 +19204,7 @@ if(isset($_POST['update'])){
         $insert_phase7_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase7_date_from','$phase7_date_to', '$phase7_learning_areas2','$phase7_final_rating2',
+        ('$decrypted_lrn','$phase7_date_from','$phase7_date_to', '$phase7_learning_areas2','$phase7_final_rating2',
         '$phase7_remedial_class_mark2', '$phase7_recomputed_final_grade2','7','2','$phase7_remedial_remarks2','$date_time_created')";
         $query_insert_phase7_remedial_classes_line2 = mysqli_query($conn, $insert_phase7_remedial_classes_line2);
         if($query_insert_phase7_remedial_classes_line2 == true){
@@ -18765,14 +19219,14 @@ if(isset($_POST['update'])){
 
     // PHASE 8 REMEDIAL CLASS LINE 1 - 2 (SELECT, UPDATE, INSERT QUERIES)
     $check_phase8_remedial_classes_line1 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '8' AND term = '1'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '8' AND term = '1'";
     $query_check_phase8_remedial_classes_line1 = mysqli_query($conn, $check_phase8_remedial_classes_line1);
     if(mysqli_num_rows($query_check_phase8_remedial_classes_line1) > 0){
         $update_phase8_remedial_classes_line1 = "UPDATE remedial_classes SET date_from = '$phase8_date_from', 
         date_to = '$phase8_date_to', learning_areas = '$phase8_learning_areas1', final_rating = '$phase8_final_rating1', 
         remedial_class_mark = '$phase8_remedial_class_mark1', recomputed_final_grade = '$phase8_recomputed_final_grade1', 
         remarks = '$phase8_remedial_remarks1', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '8' AND term = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '8' AND term = '1'";
         $query_update_phase8_remedial_classes_line1 = mysqli_query($conn, $update_phase8_remedial_classes_line1);
         if($query_update_phase8_remedial_classes_line1 == true){
             echo "Phase 8 Line 1 of Remedial Classes Updated";
@@ -18783,7 +19237,7 @@ if(isset($_POST['update'])){
         $insert_phase8_remedial_classes_line1 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase8_date_from','$phase8_date_to', '$phase8_learning_areas1','$phase8_final_rating1',
+        ('$decrypted_lrn','$phase8_date_from','$phase8_date_to', '$phase8_learning_areas1','$phase8_final_rating1',
         '$phase8_remedial_class_mark1', '$phase8_recomputed_final_grade1','8','1','$phase8_remedial_remarks1','$date_time_created')";
         $query_insert_phase8_remedial_classes_line1 = mysqli_query($conn, $insert_phase8_remedial_classes_line1);
         if($query_insert_phase8_remedial_classes_line1 == true){
@@ -18795,14 +19249,14 @@ if(isset($_POST['update'])){
 
 
     $check_phase8_remedial_classes_line2 = "SELECT * FROM remedial_classes
-    WHERE lrn = '109857060083' AND phase = '8' AND term = '2'";
+    WHERE lrn = '$decrypted_lrn' AND phase = '8' AND term = '2'";
     $query_check_phase8_remedial_classes_line2 = mysqli_query($conn, $check_phase8_remedial_classes_line2);
     if(mysqli_num_rows($query_check_phase8_remedial_classes_line2) > 0){
         $update_phase8_remedial_classes_line2 = "UPDATE remedial_classes SET date_from = '$phase8_date_from', 
         date_to = '$phase8_date_to', learning_areas = '$phase8_learning_areas2', final_rating = '$phase8_final_rating2', 
         remedial_class_mark = '$phase8_remedial_class_mark2', recomputed_final_grade = '$phase8_recomputed_final_grade2', 
         remarks = '$phase8_remedial_remarks2', date_time_updated = '$date_time_updated'
-        WHERE lrn = '109857060083' AND phase = '8' AND term = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '8' AND term = '2'";
         $query_update_phase8_remedial_classes_line2 = mysqli_query($conn, $update_phase8_remedial_classes_line2);
         if($query_update_phase8_remedial_classes_line2 == true){
             echo "Phase 8 Line 2 of Remedial Classes Updated";
@@ -18813,7 +19267,7 @@ if(isset($_POST['update'])){
         $insert_phase8_remedial_classes_line2 = "INSERT INTO `remedial_classes`(`lrn`, `date_from`, `date_to`,
         `learning_areas`, `final_rating`, `remedial_class_mark`, `recomputed_final_grade`, `phase`, 
         `term`, `remarks`, `date_time_created`) VALUES 
-        ('109857060083','$phase8_date_from','$phase8_date_to', '$phase8_learning_areas2','$phase8_final_rating2',
+        ('$decrypted_lrn','$phase8_date_from','$phase8_date_to', '$phase8_learning_areas2','$phase8_final_rating2',
         '$phase8_remedial_class_mark2', '$phase8_recomputed_final_grade2','8','2','$phase8_remedial_remarks2','$date_time_created')";
         $query_insert_phase8_remedial_classes_line2 = mysqli_query($conn, $insert_phase8_remedial_classes_line2);
         if($query_insert_phase8_remedial_classes_line2 == true){
@@ -18822,183 +19276,131 @@ if(isset($_POST['update'])){
             echo $conn->error;
         }
     }
-
-
-
-
-
-
-
-
-    // for($i=0;$i<count($sg_term);$i++){
-    // $sql_update_phase1_student_mother_tounge_grade = "UPDATE `student_grades` SET `grade`=".$phase1_mother_tounge_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '1' AND phase = '1'";
-    // $query_update_phase1_student_mother_tounge_grade = mysqli_query($conn, $sql_update_phase1_student_mother_tounge_grade) or die (mysqli_error($conn));
     
-    
-    // $sql_update_phase1_student_filipino_grade = "UPDATE `student_grades` SET `grade`=".$phase1_filipino_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '2' AND phase = '1'";
-    // $query_update_phase1_student_filipino_grade = mysqli_query($conn, $sql_update_phase1_student_filipino_grade) or die (mysqli_error($conn));
+    // CERTIFICATION PHASE 1
+    $phase1_c_name = $_POST['phase1_c_name'];
+    $phase1_c_lrn = $_POST['phase1_c_lrn'];
+    $phase1_c_grade = $_POST['phase1_c_grade'];
+    $phase1_c_school_name = $_POST['phase1_c_school_name'];
+    $phase1_c_school_id = $_POST['phase1_c_school_id'];
+    $phase1_c_division = $_POST['phase1_c_division'];
+    $phase1_c_last_school_year_attended = $_POST['phase1_c_last_school_year_attended'];
+    $phase1_c_date = $_POST['phase1_c_date'];
+    $phase1_c_name_of_principal = $_POST['phase1_c_name_of_principal'];
 
-    
-    // $sql_update_phase1_student_english_grade = "UPDATE `student_grades` SET `grade`=".$phase1_english_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '3' AND phase = '1'";
-    // $query_update_phase1_student_english_grade = mysqli_query($conn, $sql_update_phase1_student_english_grade) or die (mysqli_error($conn));
+    $phase1_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '1'";
+    $phase1_query_check_certification = mysqli_query($conn, $phase1_check_certification);
+    if(mysqli_num_rows($phase1_query_check_certification) > 0){
+        $phase1_sql_update_certification = "UPDATE certifications SET name = '$phase1_c_name', grade = '$phase1_c_grade', name_of_school = '$phase1_c_school_name',
+        school_id = '$phase1_c_school_id', division = '$phase1_c_division', last_school_year_attended = '$phase1_c_last_school_year_attended',
+        `date` = '$phase1_c_date', name_of_principal = '$phase1_c_name_of_principal', date_time_updated = '$date_time_updated' 
+        WHERE lrn = '109857060084' AND phase = '1'";
+        $phase1_query_sql_update_certification = mysqli_query($conn, $phase1_sql_update_certification);
+        if($phase1_query_sql_update_certification == true){
+            echo $phase1_sql_update_certification;
+          echo "SUCCESS CERTIFICATION UPDATE <br>";
+        }else{
+          echo $conn->error;
+        }
+      }else{
+        $phase1_sql_insert_certification = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, 
+    `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, 
+    `name_of_principal`, `phase`, `date_time_created`) 
+    VALUES ('$phase1_c_lrn','$phase1_c_name','$phase1_c_grade','$phase1_c_school_name',
+    '$phase1_c_school_id','$phase1_c_division','$phase1_c_last_school_year_attended',
+    '$phase1_c_date','$phase1_c_name_of_principal','1','$date_time_created')";
+        $query_phase1_sql_insert_certification = mysqli_query($conn, $phase1_sql_insert_certification);
+        
+        if($query_phase1_sql_insert_certification == true){
+          echo "SUCCESS CERTIFICATION INSERT <br>";
+        }else{
+          echo $conn->error;
+        }
+    }
 
+    // CERTIFICATION PHASE 2
+    $phase2_c_name = $_POST['phase2_c_name'];
+    $phase2_c_lrn = $_POST['phase2_c_lrn'];
+    $phase2_c_grade = $_POST['phase2_c_grade'];
+    $phase2_c_school_name = $_POST['phase2_c_school_name'];
+    $phase2_c_school_id = $_POST['phase2_c_school_id'];
+    $phase2_c_division = $_POST['phase2_c_division'];
+    $phase2_c_last_school_year_attended = $_POST['phase2_c_last_school_year_attended'];
+    $phase2_c_date = $_POST['phase2_c_date'];
+    $phase2_c_name_of_principal = $_POST['phase2_c_name_of_principal'];
 
-    // $sql_update_phase1_student_math_grade = "UPDATE `student_grades` SET `grade`=".$phase1_math_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '4' AND phase = '1'";
-    // $query_update_phase1_student_math_grade = mysqli_query($conn, $sql_update_phase1_student_math_grade) or die (mysqli_error($conn));
+    $phase2_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '2'";
+    $phase2_query_check_certification = mysqli_query($conn, $phase2_check_certification);
+    if(mysqli_num_rows($phase2_query_check_certification) > 0){
+        $phase2_sql_update_certification = "UPDATE certifications SET name = '$phase2_c_name', grade = '$phase2_c_grade', name_of_school = '$phase2_c_school_name',
+        school_id = '$phase2_c_school_id', division = '$phase2_c_division', last_school_year_attended = '$phase2_c_last_school_year_attended',
+        `date` = '$phase2_c_date', name_of_principal = '$phase2_c_name_of_principal', date_time_updated = '$date_time_updated' 
+        WHERE lrn = '109857060084' AND phase = '2'";
+        $phase2_query_sql_update_certification = mysqli_query($conn, $phase2_sql_update_certification);
+        if($phase2_query_sql_update_certification == true){
+            echo $phase2_sql_update_certification;
+          echo "SUCCESS CERTIFICATION UPDATE <br>";
+        }else{
+          echo $conn->error;
+        }
+      }else{
+        $phase2_sql_insert_certification = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, 
+    `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, 
+    `name_of_principal`, `phase`, `date_time_created`) 
+    VALUES ('$phase2_c_lrn','$phase2_c_name','$phase2_c_grade','$phase2_c_school_name',
+    '$phase2_c_school_id','$phase2_c_division','$phase2_c_last_school_year_attended',
+    '$phase2_c_date','$phase2_c_name_of_principal','2','$date_time_created')";
+        $query_phase2_sql_insert_certification = mysqli_query($conn, $phase2_sql_insert_certification);
+        if($query_phase2_sql_insert_certification == true){
+          echo "SUCCESS CERTIFICATION INSERT <br>";
+        }else{
+          echo $conn->error;
+        }
+    }
 
+        // CERTIFICATION PHASE 3
+    $phase3_c_name = $_POST['phase3_c_name'];
+    $phase3_c_lrn = $_POST['phase3_c_lrn'];
+    $phase3_c_grade = $_POST['phase3_c_grade'];
+    $phase3_c_school_name = $_POST['phase3_c_school_name'];
+    $phase3_c_school_id = $_POST['phase3_c_school_id'];
+    $phase3_c_division = $_POST['phase3_c_division'];
+    $phase3_c_last_school_year_attended = $_POST['phase3_c_last_school_year_attended'];
+    $phase3_c_date = $_POST['phase3_c_date'];
+    $phase3_c_name_of_principal = $_POST['phase3_c_name_of_principal'];
 
-    // $sql_update_phase1_student_science_grade = "UPDATE `student_grades` SET `grade`=".$phase1_science_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '5' AND phase = '1'";
-    // $query_update_phase1_student_science_grade = mysqli_query($conn, $sql_update_phase1_student_science_grade) or die (mysqli_error($conn));
-    
-    
-    // $sql_update_phase1_student_araling_panlipunan_grade = "UPDATE `student_grades` SET `grade`=".$phase1_araling_panlipunan_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '6' AND phase = '1'";
-    // $query_update_phase1_student_araling_panlipunan_grade = mysqli_query($conn, $sql_update_phase1_student_araling_panlipunan_grade) or die (mysqli_error($conn));
+    $phase3_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '3'";
+    $phase3_query_check_certification = mysqli_query($conn, $phase3_check_certification);
+    if(mysqli_num_rows($phase3_query_check_certification) > 0){
+        $phase3_sql_update_certification = "UPDATE certifications SET name = '$phase3_c_name', grade = '$phase3_c_grade', name_of_school = '$phase3_c_school_name',
+        school_id = '$phase3_c_school_id', division = '$phase3_c_division', last_school_year_attended = '$phase3_c_last_school_year_attended',
+        `date` = '$phase3_c_date', name_of_principal = '$phase3_c_name_of_principal', date_time_updated = '$date_time_updated' 
+        WHERE lrn = '109857060084' AND phase = '3'";
+        $phase3_query_sql_update_certification = mysqli_query($conn, $phase3_sql_update_certification);
+        if($phase3_query_sql_update_certification == true){
+          echo "SUCCESS CERTIFICATION UPDATE <br>";
+        }else{
+          echo $conn->error;
+        }
+      }else{
+        $phase3_sql_insert_certification = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, 
+    `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, 
+    `name_of_principal`, `phase`, `date_time_created`) 
+    VALUES ('$phase3_c_lrn','$phase3_c_name','$phase3_c_grade','$phase3_c_school_name',
+    '$phase3_c_school_id','$phase3_c_division','$phase3_c_last_school_year_attended',
+    '$phase3_c_date','$phase3_c_name_of_principal','3','$date_time_created')";
+        $query_phase3_sql_insert_certification = mysqli_query($conn, $phase3_sql_insert_certification);
+        
+        if($query_phase3_sql_insert_certification == true){
+          echo "SUCCESS CERTIFICATION INSERT <br>";
+        }else{
+          echo $conn->error;
+        }
+    }
+    // echo "<script>alert('Update Successfully');
+    //     window.location = 'home.php';</script>";
+    //     exit();
 
-
-    // $sql_update_phase1_student_epp_tle_grade = "UPDATE `student_grades` SET `grade`=".$phase1_epp_tle_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '7' AND phase = '1'";
-    // $query_update_phase1_student_epp_tle_grade = mysqli_query($conn, $sql_update_phase1_student_epp_tle_grade) or die (mysqli_error($conn));
-
-
-    // $sql_update_phase1_student_music_grade = "UPDATE `student_grades` SET `grade`=".$phase1_music_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '9' AND phase = '1'";
-    // $query_update_phase1_student_music_grade = mysqli_query($conn, $sql_update_phase1_student_music_grade) or die (mysqli_error($conn));
-
-
-    // $sql_update_phase1_student_art_grade = "UPDATE `student_grades` SET `grade`=".$phase1_art_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '10' AND phase = '1'";
-    // $query_update_phase1_student_art_grade = mysqli_query($conn, $sql_update_phase1_student_art_grade) or die (mysqli_error($conn));
-
-
-    // $sql_update_phase1_student_pe_grade = "UPDATE `student_grades` SET `grade`=".$phase1_pe_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '11' AND phase = '1'";
-    // $query_update_phase1_student_pe_grade = mysqli_query($conn, $sql_update_phase1_student_pe_grade) or die (mysqli_error($conn));
-
-
-    // $sql_update_phase1_student_health_grade = "UPDATE `student_grades` SET `grade`=".$phase1_health_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '12' AND phase = '1'";
-    // $query_update_phase1_student_health_grade = mysqli_query($conn, $sql_update_phase1_student_health_grade) or die (mysqli_error($conn));
-
-
-    // $sql_update_phase1_student_esp_grade = "UPDATE `student_grades` SET `grade`=".$phase1_esp_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '13' AND phase = '1'";
-    // $query_update_phase1_student_esp_grade = mysqli_query($conn, $sql_update_phase1_student_esp_grade) or die (mysqli_error($conn));
-
-
-    // $sql_update_phase1_student_arabic_lang_grade = "UPDATE `student_grades` SET `grade`=".$phase1_arabic_lang_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '14' AND phase = '1'";
-    // $query_update_phase1_student_arabic_lang_grade = mysqli_query($conn, $sql_update_phase1_student_arabic_lang_grade) or die (mysqli_error($conn));
-
-
-    // $sql_update_phase1_student_islamic_values_grade = "UPDATE `student_grades` SET `grade`=".$phase1_islamic_values_grades[$i].",
-    // `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '15' AND phase = '1'";
-    // $query_update_phase1_student_islamic_values_grade = mysqli_query($conn, $sql_update_phase1_student_islamic_values_grade) or die (mysqli_error($conn));
-    // }
-    // if($query_update_phase1_student_mother_tounge_grade == true){
-    //   echo "Update Phase 1 mother tounge Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_filipino_grade == true){
-    //   echo "Update Phase 1 filipino Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_english_grade == true){
-    //   echo "Update Phase 1 english Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_math_grade == true){
-    //   echo "Update Phase 1 math Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_science_grade == true){
-    //   echo "Update Phase 1 science Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_araling_panlipunan_grade == true){
-    //   echo "Update Phase 1 araling_panlipunan Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_epp_tle_grade == true){
-    //   echo "Update Phase 1 epp_tle Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_music_grade == true){
-    //   echo "Update Phase 1 music Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_art_grade == true){
-    //   echo "Update Phase 1 art Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_pe_grade == true){
-    //   echo "Update Phase 1 pe Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_health_grade == true){
-    //   echo "Update Phase 1 health Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_esp_grade == true){
-    //   echo "Update Phase 1 esp Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_arabic_lang_grade == true){
-    //   echo "Update Phase 1 arabic_lang Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-    // if($query_update_phase1_student_islamic_values_grade == true){
-    //   echo "Update Phase 1 islamic_values Student Grade Successfully <br>";
-    // }else{
-    //   echo $conn->error;
-    // }
-
-
-    
-
-
-    // for($i=0;$i<count($sg_term);$i++){
-    //   $sql_update_phase1_student_filipino_grade = "UPDATE `student_grades` SET `grade`=".$phase1_filipino_grades[$i].",
-    //   `date_time_updated`='$date_time_updated' WHERE `term`= ".$sg_term[$i]." AND `lrn` = '$lrn' AND `subject_id` = '2' AND phase = '1'";
-    //   $query_update_phase1_student_filipino_grade = mysqli_query($conn, $sql_update_phase1_student_filipino_grade) or die (mysqli_error($conn));
-    //   }
-    //   echo count($sg_term);
-    //   if($query_update_phase1_student_filipino_grade == true){
-    //     echo "Update Phase 1 Filipino Student Grade Successfully";
-    //   }else{
-    //     echo $conn->error;
-    //   }
 
     
 

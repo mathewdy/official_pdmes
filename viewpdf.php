@@ -1059,6 +1059,9 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     if(mysqli_num_rows($run_phase1_mt) > 0){
         $rows = mysqli_fetch_array($run_phase1_mt);
         while(mysqli_fetch_array($run_phase1_mt));
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
 
             $html.=' 
          
@@ -1083,6 +1086,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         $rows2 = mysqli_fetch_array($run_phase1_mt);
         while(mysqli_fetch_array($run_phase1_mt));
 
+        if($rows2['grade'] == 0 ){
+            $rows2['grade'] = " ";
+            }
+
+
             $html.='
             <td>'.$rows2['grade'].'</td>
             
@@ -1106,6 +1114,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         if(mysqli_num_rows($run_phase1_mt) > 0){
             $rows3 = mysqli_fetch_array($run_phase1_mt);
             while(mysqli_fetch_array($run_phase1_mt));
+
+            if($rows3['grade'] == 0 ){
+                $rows3['grade'] = " ";
+                }
             $html.='
             <td>'.$rows3['grade'].'</td>
            
@@ -1129,6 +1141,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     $rows4 = mysqli_fetch_array($run_phase1_mt);
                     while(mysqli_fetch_array($run_phase1_mt));
 
+                    if($rows4['grade'] == 0 ){
+                        $rows4['grade'] = " ";
+                        }
+
                         $html.='  <td>'.$rows4['grade'].'</td>
                          ';
                     
@@ -1145,6 +1161,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                         if(mysqli_num_rows($run_phase1_mt) > 0){
                             $rows5 = mysqli_fetch_array($run_phase1_mt);
                             while(mysqli_fetch_array($run_phase1_mt));
+
+                            if($rows5['final_rating'] == 0 ){
+                                $rows5['final_rating'] = " ";
+                                $rows5['remarks'] = " ";
+                               }
         
                     $html.='
                     <td>'.$rows5['final_rating'].'</td>
@@ -1173,6 +1194,9 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     if(mysqli_num_rows($run_phase1_filipino) > 0){
                         $rows = mysqli_fetch_array($run_phase1_filipino);
                         while(mysqli_fetch_array($run_phase1_filipino));
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
 
                             $html.='
                           <tr>
@@ -1197,6 +1221,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     if(mysqli_num_rows($run_phase1_filipino) > 0){
                         $row2 = mysqli_fetch_array($run_phase1_filipino);
                         while(mysqli_fetch_array($run_phase1_filipino));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
+            
     
                             $html.='
 
@@ -1223,6 +1252,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         if(mysqli_num_rows($run_phase1_filipino) > 0){
             $rows3 = mysqli_fetch_array($run_phase1_filipino);
             while(mysqli_fetch_array($run_phase1_filipino));
+
+            if($rows3['grade'] == 0 ){
+                $rows3['grade'] = " ";
+                }
 
                 $html.='
                 <td>'.$rows3['grade'].'</td>
@@ -1251,6 +1284,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             $rows4 = mysqli_fetch_array($run_phase1_filipino);
             while(mysqli_fetch_array($run_phase1_filipino));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>';
             
@@ -1273,6 +1310,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     if(mysqli_num_rows($run_phase1_filipino) > 0){
         $rows5 = mysqli_fetch_array($run_phase1_filipino);
         while(mysqli_fetch_array($run_phase1_filipino));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows5['final_rating'].'</td>
@@ -1298,6 +1340,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase1_english);
                 while(mysqli_fetch_array($run_phase1_english));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <tr>
                 <td class="english">English</td>
@@ -1317,6 +1363,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             if(mysqli_num_rows($run_phase1_english) > 0){
                 $rows2 = mysqli_fetch_array($run_phase1_english);
                 while(mysqli_fetch_array($run_phase1_english));
+
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+    
 
                     $html.='
                     <td>'.$rows2['grade'].'</td>
@@ -1340,6 +1391,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             if(mysqli_num_rows($run_phase1_english) > 0){
                 $rows3 = mysqli_fetch_array($run_phase1_english);
                 while(mysqli_fetch_array($run_phase1_english));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows3['grade'].' </td>
@@ -1365,6 +1420,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase1_english);
                 while(mysqli_fetch_array($run_phase1_english));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows4['grade'].' </td>
                     ';
@@ -1383,6 +1442,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             if(mysqli_num_rows($run_phase1_english) > 0){
                 $rows = mysqli_fetch_array($run_phase1_english);
                 while(mysqli_fetch_array($run_phase1_english));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
     
                     $html.='
                     <td>'.$rows['final_rating'].'</td>
@@ -1412,6 +1476,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             $rows = mysqli_fetch_array($run_phase1_math);
             while(mysqli_fetch_array($run_phase1_math));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
                 $html.='
                 <tr>
                 <td class="math">Mathematics</td>
@@ -1438,6 +1506,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase1_math);
                 while(mysqli_fetch_array($run_phase1_math));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+    
+
                     $html.='
                     <td> '.$rows2['grade'].'</td>
                     ';
@@ -1460,6 +1533,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase1_math);
                 while(mysqli_fetch_array($run_phase1_math));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows3['grade'].'</td> ';
                 
@@ -1480,6 +1557,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 $row4 = mysqli_fetch_array($run_phase1_math);
                 while(mysqli_fetch_array($run_phase1_math));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows4['grade'].'</td>  ';
                 
@@ -1498,6 +1579,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         if(mysqli_num_rows($run_phase1_math) > 0){
             $rows = mysqli_fetch_array($run_phase1_math);
             while(mysqli_fetch_array($run_phase1_math));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
 
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
@@ -1522,6 +1608,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                         $rows = mysqli_fetch_array($run_phase1_science);
                         while(mysqli_fetch_array($run_phase1_science));
 
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+
                             $html.='
                             <tr>
                             <td class="science">Science</td>
@@ -1545,6 +1635,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             if(mysqli_num_rows($run_phase1_science) > 0){
                 $rows2 = mysqli_fetch_array($run_phase1_science);
                 while(mysqli_fetch_array($run_phase1_science));
+
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+    
     
                     $html.='
                     <td>'.$rows2['grade'].'</td>
@@ -1566,6 +1661,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             if(mysqli_num_rows($run_phase1_science) > 0){
                 $rows3 = mysqli_fetch_array($run_phase1_science);
                 while(mysqli_fetch_array($run_phase1_science));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows3['grade'].'</td>
@@ -1590,6 +1689,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase1_science);
                 while(mysqli_fetch_array($run_phase1_science));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows4['grade'].'</td>
                     ';
@@ -1610,6 +1713,12 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             if(mysqli_num_rows($run_phase1_science) > 0){
                 $rows = mysqli_fetch_array($run_phase1_science);
                 while(mysqli_fetch_array($run_phase1_science));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
+                
     
                     $html.='
                     <td> '.$rows['final_rating'].'</td>
@@ -1634,6 +1743,12 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         if(mysqli_num_rows($run_phase1_AP) > 0){
             $rows = mysqli_fetch_array($run_phase1_AP);
             while(mysqli_fetch_array($run_phase1_AP));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
+
 
             $html.='
             <tr>
@@ -1660,6 +1775,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase1_AP);
                     while(mysqli_fetch_array($run_phase1_AP));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>
                      ';
@@ -1682,6 +1802,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     $rows3 = mysqli_fetch_array($run_phase1_AP);
                     while(mysqli_fetch_array($run_phase1_AP));
 
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows3['grade'].' </td>
                     ';
@@ -1703,6 +1827,10 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase1_AP);
                 while(mysqli_fetch_array($run_phase1_AP));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>
                 >  ';
@@ -1722,6 +1850,11 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         if(mysqli_num_rows($run_phase1_AP) > 0){
             $rows = mysqli_fetch_array($run_phase1_AP);
             while(mysqli_fetch_array($run_phase1_AP));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -1748,6 +1881,10 @@ if($phase1_subject_id == 7 ){
         $rows = mysqli_fetch_array($run_phase1_ep_tle);
         while(mysqli_fetch_array($run_phase1_ep_tle));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
         $html.='
         <tr>
         <td class="epp">EPP/TLE</td>
@@ -1772,6 +1909,11 @@ if($phase1_subject_id == 7 ){
                 $rows2 = mysqli_fetch_array($run_phase1_ep_tle);
                 while(mysqli_fetch_array($run_phase1_ep_tle));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td> '.$rows2['grade'].'</td>
                     ';
@@ -1792,6 +1934,10 @@ if($phase1_subject_id == 7 ){
             if(mysqli_num_rows($run_phase1_ep_tle) > 0){
                 $rows3 = mysqli_fetch_array($run_phase1_ep_tle);
                 while(mysqli_fetch_array($run_phase1_ep_tle));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows3['grade'].'</td>
@@ -1814,6 +1960,10 @@ if($phase1_subject_id == 7 ){
                 $rows4 = mysqli_fetch_array($run_phase1_ep_tle);
                 while(mysqli_fetch_array($run_phase1_ep_tle));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                 $html.='
                <td>'.$rows4['grade'].'</td>  ';
             
@@ -1832,6 +1982,11 @@ if($phase1_subject_id == 7 ){
             if(mysqli_num_rows($run_phase1_ep_tle) > 0){
                 $rows = mysqli_fetch_array($run_phase1_ep_tle);
                 while(mysqli_fetch_array($run_phase1_ep_tle));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
     
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
@@ -1860,6 +2015,10 @@ if($phase1_subject_id == 7 ){
                         $rows = mysqli_fetch_array($run_phase1_mapeh);
                         while(mysqli_fetch_array($run_phase1_mapeh));
 
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+
                         $html.='
                         <tr>
                         <td class="mapeh">MAPEH</td>
@@ -1887,6 +2046,11 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_mapeh) > 0){
                         $rows2 = mysqli_fetch_array($run_phase1_mapeh);
                         while(mysqli_fetch_array($run_phase1_mapeh));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
+            
     
                         $html.='
                         <td> '.$rows2['grade'].'</td>
@@ -1908,6 +2072,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_mapeh) > 0){
                         $rows3 = mysqli_fetch_array($run_phase1_mapeh);
                         while(mysqli_fetch_array($run_phase1_mapeh));
+
+                        if($rows3['grade'] == 0 ){
+                            $rows3['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows3['grade'].'</td> ';
@@ -1932,6 +2100,10 @@ if($phase1_subject_id == 7 ){
                     $rows4 = mysqli_fetch_array($run_phase1_mapeh);
                     while(mysqli_fetch_array($run_phase1_mapeh));
 
+                    if($rows4['grade'] == 0 ){
+                        $rows4['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows4['grade'].'</td>  ';
                 
@@ -1950,6 +2122,11 @@ if($phase1_subject_id == 7 ){
             if(mysqli_num_rows($run_phase1_mapeh) > 0){
                 $rows = mysqli_fetch_array($run_phase1_mapeh);
                 while(mysqli_fetch_array($run_phase1_mapeh));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
 
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
@@ -1977,6 +2154,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_music) > 0){
                         $rows = mysqli_fetch_array($run_phase1_music);
                         while(mysqli_fetch_array($run_phase1_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <tr>
@@ -2005,6 +2186,10 @@ if($phase1_subject_id == 7 ){
                         if(mysqli_num_rows($run_phase1_music) > 0){
                             $rows2 = mysqli_fetch_array($run_phase1_music);
                             while(mysqli_fetch_array($run_phase1_music));
+
+                            if($rows2['grade'] == 0 ){
+                                $rows2['grade'] = " ";
+                                }
         
                             $html.='
                             <td> '.$rows2['grade'].'</td>
@@ -2029,6 +2214,10 @@ if($phase1_subject_id == 7 ){
                     $rows3 = mysqli_fetch_array($run_phase1_music);
                     while(mysqli_fetch_array($run_phase1_music));
 
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows3['grade'].'</td>
                     ';
@@ -2051,6 +2240,10 @@ if($phase1_subject_id == 7 ){
                         if(mysqli_num_rows($run_phase1_music) > 0){
                             $rows4 = mysqli_fetch_array($run_phase1_music);
                             while(mysqli_fetch_array($run_phase1_music));
+
+                            if($rows4['grade'] == 0 ){
+                                $rows4['grade'] = " ";
+                                }
         
                             $html.='
                             <td>'.$rows4['grade'].'</td>
@@ -2072,6 +2265,11 @@ if($phase1_subject_id == 7 ){
         if(mysqli_num_rows($run_phase1_music) > 0){
             $rows = mysqli_fetch_array($run_phase1_music);
             while(mysqli_fetch_array($run_phase1_music));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -2101,6 +2299,10 @@ if($phase1_subject_id == 7 ){
                             if(mysqli_num_rows($run_phase1_arts) > 0){
                                 $rows = mysqli_fetch_array($run_phase1_arts);
                                 while(mysqli_fetch_array($run_phase1_arts));
+
+                                if($rows['grade'] == 0 ){
+                                    $rows['grade'] = " ";
+                                    }
         
                                 $html.='
                                 <tr>
@@ -2129,6 +2331,10 @@ if($phase1_subject_id == 7 ){
                             if(mysqli_num_rows($run_phase1_arts) > 0){
                                 $rows2 = mysqli_fetch_array($run_phase1_arts);
                                 while(mysqli_fetch_array($run_phase1_arts));
+
+                                if($rows2['grade'] == 0 ){
+                                    $rows2['grade'] = " ";
+                                    }
             
                                 $html.='
                                 <td>'.$rows2['grade'].'</td>
@@ -2154,6 +2360,10 @@ if($phase1_subject_id == 7 ){
                     $rows3 = mysqli_fetch_array($run_phase1_arts);
                     while(mysqli_fetch_array($run_phase1_arts));
 
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows3['grade'].'</td>
                     ';
@@ -2177,6 +2387,10 @@ if($phase1_subject_id == 7 ){
                         if(mysqli_num_rows($run_phase1_arts) > 0){
                             $rows4 = mysqli_fetch_array($run_phase1_arts);
                             while(mysqli_fetch_array($run_phase1_arts));
+
+                            if($rows4['grade'] == 0 ){
+                                $rows4['grade'] = " ";
+                                }
         
                             $html.='
                             <td> '.$rows4['grade'].'</td>
@@ -2197,6 +2411,11 @@ if($phase1_subject_id == 7 ){
             if(mysqli_num_rows($run_phase1_arts) > 0){
                 $rows = mysqli_fetch_array($run_phase1_arts);
                 while(mysqli_fetch_array($run_phase1_arts));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
 
                 $html.='
                 <td> '.$rows['final_rating'].'</td>
@@ -2225,6 +2444,10 @@ if($phase1_subject_id == 7 ){
                         $rows = mysqli_fetch_array($run_phase1_pe);
                         while(mysqli_fetch_array($run_phase1_pe));
 
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+
                         $html.='
                         <tr>
                             <td class="pe">Physical Education</td>
@@ -2249,6 +2472,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_pe) > 0){
                         $rows2 = mysqli_fetch_array($run_phase1_pe);
                         while(mysqli_fetch_array($run_phase1_pe));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
     
                         $html.='
                         <td>'.$rows2['grade'].'</td>
@@ -2272,6 +2499,10 @@ if($phase1_subject_id == 7 ){
                 if(mysqli_num_rows($run_phase1_pe) > 0){
                     $rows3 = mysqli_fetch_array($run_phase1_pe);
                     while(mysqli_fetch_array($run_phase1_pe));
+
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
 
                     $html.='
                     <td> '.$rows3['grade'].'</td>
@@ -2298,6 +2529,10 @@ if($phase1_subject_id == 7 ){
                     $rows4 = mysqli_fetch_array($run_phase1_pe);
                     while(mysqli_fetch_array($run_phase1_pe));
 
+                    if($rows4['grade'] == 0 ){
+                        $rows4['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows4['grade'].'</td>
                 ';
@@ -2320,6 +2555,11 @@ if($phase1_subject_id == 7 ){
         if(mysqli_num_rows($run_phase1_pe) > 0){
             $rows = mysqli_fetch_array($run_phase1_pe);
             while(mysqli_fetch_array($run_phase1_pe));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -2348,6 +2588,10 @@ if($phase1_subject_id == 7 ){
                         $rows = mysqli_fetch_array($run_phase1_health);
                         while(mysqli_fetch_array($run_phase1_health));
 
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+
                         $html.='
                         <tr>
                         <td class="health">Health</td>
@@ -2373,6 +2617,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_health) > 0){
                         $rows2 = mysqli_fetch_array($run_phase1_health);
                         while(mysqli_fetch_array($run_phase1_health));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
     
                         $html.='
                         <td>'.$rows2['grade'].'</td>
@@ -2395,6 +2643,10 @@ if($phase1_subject_id == 7 ){
                 if(mysqli_num_rows($run_phase1_health) > 0){
                     $rows3 = mysqli_fetch_array($run_phase1_health);
                     while(mysqli_fetch_array($run_phase1_health));
+
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
 
                     $html.='
                     <td>'.$rows3['grade'].'</td>
@@ -2423,6 +2675,10 @@ if($phase1_subject_id == 7 ){
                     $rows4 = mysqli_fetch_array($run_phase1_health);
                     while(mysqli_fetch_array($run_phase1_health));
 
+                    if($rows4['grade'] == 0 ){
+                        $rows4['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows4['grade'].' </td>
                     ';
@@ -2443,6 +2699,11 @@ if($phase1_subject_id == 7 ){
         if(mysqli_num_rows($run_phase1_health) > 0){
             $rows = mysqli_fetch_array($run_phase1_health);
             while(mysqli_fetch_array($run_phase1_health));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -2472,6 +2733,10 @@ if($phase1_subject_id == 7 ){
                     $rows = mysqli_fetch_array($run_phase1_esp);
                     while(mysqli_fetch_array($run_phase1_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="eduk">Eduk. sa Pagpapakatao  </td>
@@ -2498,6 +2763,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_esp) > 0){
                         $rows2 = mysqli_fetch_array($run_phase1_esp);
                         while(mysqli_fetch_array($run_phase1_esp));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows2['grade'].'</td>
@@ -2522,6 +2791,10 @@ if($phase1_subject_id == 7 ){
                     $rows3 = mysqli_fetch_array($run_phase1_esp);
                     while(mysqli_fetch_array($run_phase1_esp));
 
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows3['grade'].'</td>
                     ';
@@ -2545,6 +2818,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_esp) > 0){
                         $rows4 = mysqli_fetch_array($run_phase1_esp);
                         while(mysqli_fetch_array($run_phase1_esp));
+
+                        if($rows4['grade'] == 0 ){
+                            $rows4['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows4['grade'].'</td>
@@ -2566,6 +2843,11 @@ if($phase1_subject_id == 7 ){
         if(mysqli_num_rows($run_phase1_esp) > 0){
             $rows = mysqli_fetch_array($run_phase1_esp);
             while(mysqli_fetch_array($run_phase1_esp));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -2594,6 +2876,10 @@ if($phase1_subject_id == 7 ){
                         $rows = mysqli_fetch_array($run_phase1_arabic);
                         while(mysqli_fetch_array($run_phase1_arabic));
 
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+
                         $html.='
                         <tr>
                         <td class="arabic">*Arabic Language</td>
@@ -2619,6 +2905,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_arabic) > 0){
                         $rows2 = mysqli_fetch_array($run_phase1_arabic);
                         while(mysqli_fetch_array($run_phase1_arabic));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows2['grade'].'</td>
@@ -2644,6 +2934,10 @@ if($phase1_subject_id == 7 ){
                     $rows3 = mysqli_fetch_array($run_phase1_arabic);
                     while(mysqli_fetch_array($run_phase1_arabic));
 
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows3['grade'].'</td>
                     ';
@@ -2667,6 +2961,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_arabic) > 0){
                         $rows4 = mysqli_fetch_array($run_phase1_arabic);
                         while(mysqli_fetch_array($run_phase1_arabic));
+
+                        if($rows4['grade'] == 0 ){
+                            $rows4['grade'] = " ";
+                            }
     
                         $html.='
                         <td>'.$rows4['grade'].'</td>
@@ -2689,6 +2987,11 @@ if($phase1_subject_id == 7 ){
         if(mysqli_num_rows($run_phase1_arabic) > 0){
             $rows = mysqli_fetch_array($run_phase1_arabic);
             while(mysqli_fetch_array($run_phase1_arabic));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -2718,6 +3021,10 @@ if($phase1_subject_id == 7 ){
                         $rows = mysqli_fetch_array($run_phase1_islamic);
                         while(mysqli_fetch_array($run_phase1_islamic));
 
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+
                         $html.='
                         <tr>
                         <td class="islamic">*Islamic Values Education</td>
@@ -2745,6 +3052,10 @@ if($phase1_subject_id == 7 ){
                     if(mysqli_num_rows($run_phase1_islamic) > 0){
                         $rows2 = mysqli_fetch_array($run_phase1_islamic);
                         while(mysqli_fetch_array($run_phase1_islamic));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>
@@ -2770,6 +3081,10 @@ if($phase1_subject_id == 7 ){
                 if(mysqli_num_rows($run_phase1_islamic) > 0){
                     $rows3 = mysqli_fetch_array($run_phase1_islamic);
                     while(mysqli_fetch_array($run_phase1_islamic));
+
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
 
                     $html.='
                     <td>'.$rows3['grade'].'</td>
@@ -2798,6 +3113,10 @@ if($phase1_subject_id == 7 ){
                     $rows4 = mysqli_fetch_array($run_phase1_islamic);
                     while(mysqli_fetch_array($run_phase1_islamic));
 
+                    if($rows4['grade'] == 0 ){
+                        $rows4['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows4['grade'].'</td>
                      ';
@@ -2818,6 +3137,11 @@ if($phase1_subject_id == 7 ){
         if(mysqli_num_rows($run_phase1_islamic) > 0){
             $rows = mysqli_fetch_array($run_phase1_islamic);
             while(mysqli_fetch_array($run_phase1_islamic));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
 
             $html.='
             <td> '.$rows['final_rating'].'</td>
@@ -2841,6 +3165,10 @@ if($phase1_subject_id == 7 ){
                     $run_phase1_term1_general_average = mysqli_query($conn,$phase1_term1_general_average_query);
                     if(mysqli_num_rows($run_phase1_term1_general_average)> 0 ){
                         $rows = mysqli_fetch_array($run_phase1_term1_general_average);
+
+                        if($rows['general_average'] == 0 ){
+                            $rows['general_average'] = " ";
+                            }
                         $html.='
                         <tr>
                         <td class="general">General Average</td>
@@ -2869,6 +3197,11 @@ if($phase1_subject_id == 7 ){
                         $run_phase1_term1_general_average = mysqli_query($conn,$phase1_term1_general_average_query);
                         if(mysqli_num_rows($run_phase1_term1_general_average)> 0 ){
                             $rows2 = mysqli_fetch_array($run_phase1_term1_general_average);
+
+                            if($rows2['general_average'] == 0 ){
+                                $rows2['general_average'] = " ";
+                                }
+
                             $html.='
                             <td>'.$rows2['general_average'].'</td>
                              ';
@@ -2894,6 +3227,10 @@ if($phase1_subject_id == 7 ){
                 $run_phase1_term1_general_average = mysqli_query($conn,$phase1_term1_general_average_query);
                 if(mysqli_num_rows($run_phase1_term1_general_average)> 0 ){
                     $rows3 = mysqli_fetch_array($run_phase1_term1_general_average);
+
+                    if($rows3['general_average'] == 0 ){
+                        $rows3['general_average'] = " ";
+                        }
                     $html.='
                     <td>'.$rows3['general_average'].'</td>
                       ';
@@ -2923,6 +3260,10 @@ if($phase1_subject_id == 7 ){
                 $run_phase1_term1_general_average = mysqli_query($conn,$phase1_term1_general_average_query);
                 if(mysqli_num_rows($run_phase1_term1_general_average)> 0 ){
                     $rows4 = mysqli_fetch_array($run_phase1_term1_general_average);
+
+                    if($rows4['general_average'] == 0 ){
+                        $rows4['general_average'] = " ";
+                        }
                     $html.='
                     <td>'.$rows4['general_average'].'</td>
                       ';
@@ -2943,6 +3284,12 @@ if($phase1_subject_id == 7 ){
         $run_phase1_term1_general_average = mysqli_query($conn,$phase1_term1_general_average_query);
         if(mysqli_num_rows($run_phase1_term1_general_average)> 0 ){
             $rows = mysqli_fetch_array($run_phase1_term1_general_average);
+
+            if($rows['general_average'] == 0 ){
+                $rows['general_average'] = " ";
+                }
+
+            
             $html.='
             <td>'.$rows['general_average'].'</td>
             <td></td>  
@@ -2951,6 +3298,8 @@ if($phase1_subject_id == 7 ){
             
 
             ';
+
+            //count
 
         }
         
@@ -2976,6 +3325,17 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
         if(mysqli_num_rows($phase1_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase1_run_query);
             while(mysqli_fetch_array($phase1_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
+
+
+
             $html.='
             <table class="remedial-2">
             <thead>
@@ -3014,6 +3374,14 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
             if(mysqli_num_rows($phase1_run_query)> 0 ){
                 $rows = mysqli_fetch_array($phase1_run_query);
                 while(mysqli_fetch_array($phase1_run_query));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                   }
+    
+                   if($rows['recomputed_final_grade'] == 0 ){
+                    $rows['recomputed_final_grade'] = " ";
+                   }
 
                 $html.='
             <tr>
@@ -3120,6 +3488,10 @@ if(mysqli_num_rows($run_phase2_mt) > 0){
 $rows = mysqli_fetch_array($run_phase2_mt);
 while(mysqli_fetch_array($run_phase2_mt));
 
+if($rows['grade'] == 0 ){
+    $rows['grade'] = " ";
+    }
+
 $html.=' 
 <tr>
 <td class="mother">Mother&#8216s Tongue</td>
@@ -3149,6 +3521,10 @@ if(mysqli_num_rows($run_phase2_mt) > 0){
 $rows2 = mysqli_fetch_array($run_phase2_mt);
 while(mysqli_fetch_array($run_phase2_mt));
 
+if($rows2['grade'] == 0 ){
+    $rows2['grade'] = " ";
+    }
+
 $html.=' <td>'.$rows2['grade'].'</td>';
 
 }
@@ -3168,6 +3544,10 @@ $run_phase2_mt = mysqli_query($conn,$phase2_mt);
 if(mysqli_num_rows($run_phase2_mt) > 0){
 $rows3 = mysqli_fetch_array($run_phase2_mt);
 while(mysqli_fetch_array($run_phase2_mt));
+
+if($rows3['grade'] == 0 ){
+    $rows3['grade'] = " ";
+    }
 
 $html.='<td> '.$rows3['grade'].'</td>
  ';
@@ -3191,6 +3571,11 @@ if($phase2_subject_id == 1){
         $rows4 = mysqli_fetch_array($run_phase2_mt);
         while(mysqli_fetch_array($run_phase2_mt));
 
+        if($rows4['grade'] == 0 ){
+            $rows4['grade'] = " ";
+            }
+
+
             $html.='<td>'.$rows4['grade'].'</td>
           ';
         
@@ -3212,6 +3597,11 @@ if($phase2_subject_id == 1){
             if(mysqli_num_rows($run_phase2_mt) > 0){
                 $rows = mysqli_fetch_array($run_phase2_mt);
                 while(mysqli_fetch_array($run_phase2_mt));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
         
                     $html.=' 
                     <td>'.$rows['final_rating'].'</td>
@@ -3238,6 +3628,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         if(mysqli_num_rows($run_phase2_filipino) > 0){
             $rows = mysqli_fetch_array($run_phase2_filipino);
             while(mysqli_fetch_array($run_phase2_filipino));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='
                 <tr>
@@ -3269,6 +3663,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase2_filipino);
                 while(mysqli_fetch_array($run_phase2_filipino));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows2['grade'].'</td>
                     ';
@@ -3298,6 +3696,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_filipino);
                 while(mysqli_fetch_array($run_phase2_filipino));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows3['grade'].'</td>
                     ';
@@ -3326,6 +3728,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_filipino);
                 while(mysqli_fetch_array($run_phase2_filipino));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                     $html.='
                     <td> '.$rows4['grade'].'</td>
                     ';
@@ -3348,6 +3755,11 @@ if($phase2_subject_id == 2 ){
     if(mysqli_num_rows($run_phase2_filipino) > 0){
         $rows = mysqli_fetch_array($run_phase2_filipino);
         while(mysqli_fetch_array($run_phase2_filipino));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -3378,6 +3790,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         if(mysqli_num_rows($run_phase2_english) > 0){
             $rows = mysqli_fetch_array($run_phase2_english);
             while(mysqli_fetch_array($run_phase2_english));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='
                 <tr>
@@ -3410,6 +3826,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows2 = mysqli_fetch_array($run_phase2_english);
             while(mysqli_fetch_array($run_phase2_english));
 
+            if($rows2['grade'] == 0 ){
+                $rows2['grade'] = " ";
+                }
+
                 $html.='
                 <td>'.$rows2['grade'].'</td>
                 ';
@@ -3438,6 +3858,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows3 = mysqli_fetch_array($run_phase2_english);
             while(mysqli_fetch_array($run_phase2_english));
 
+            if($rows3['grade'] == 0 ){
+                $rows3['grade'] = " ";
+                }
+
                 $html.='
                 <td>'.$rows3['grade'].'</td>
                     ';
@@ -3465,6 +3889,11 @@ if($phase2_subject_id == 3 ){
         $rows4 = mysqli_fetch_array($run_phase2_english);
         while(mysqli_fetch_array($run_phase2_english));
 
+        if($rows4['grade'] == 0 ){
+            $rows4['grade'] = " ";
+            }
+
+
             $html.='
             <td>'.$rows4['grade'].'</td>
             ';
@@ -3483,6 +3912,11 @@ if($phase2_subject_id == 3 ){
     if(mysqli_num_rows($run_phase2_english) > 0){
         $rows = mysqli_fetch_array($run_phase2_english);
         while(mysqli_fetch_array($run_phase2_english));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -3510,6 +3944,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             if(mysqli_num_rows($run_phase2_math) > 0){
                 $rows = mysqli_fetch_array($run_phase2_math);
                 while(mysqli_fetch_array($run_phase2_math));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <tr>
@@ -3544,6 +3982,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase2_math);
                     while(mysqli_fetch_array($run_phase2_math));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                         $html.='
                         <td>'.$rows2['grade'].'</td>
                          ';
@@ -3574,6 +4016,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_math);
                 while(mysqli_fetch_array($run_phase2_math));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows3['grade'].'</td>
                     ';
@@ -3602,6 +4048,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows4 = mysqli_fetch_array($run_phase2_math);
             while(mysqli_fetch_array($run_phase2_math));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
+
                 $html.='
                 <td> '.$rows4['grade'].'</td>
                     ';
@@ -3621,6 +4072,11 @@ if($phase2_subject_id == 4 ){
     if(mysqli_num_rows($run_phase2_math) > 0){
         $rows = mysqli_fetch_array($run_phase2_math);
         while(mysqli_fetch_array($run_phase2_math));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -3655,6 +4111,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     if(mysqli_num_rows($run_phase2_science) > 0){
                         $rows = mysqli_fetch_array($run_phase2_science);
                         while(mysqli_fetch_array($run_phase2_science));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                             $html.='
                             <tr>
@@ -3687,6 +4147,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase2_science);
                 while(mysqli_fetch_array($run_phase2_science));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>
                     ';
@@ -3715,6 +4179,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 if(mysqli_num_rows($run_phase2_science) > 0){
                     $rows3 = mysqli_fetch_array($run_phase2_science);
                     while(mysqli_fetch_array($run_phase2_science));
+
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
     
                         $html.='
                         <td>'.$rows3['grade'].'</td>
@@ -3743,6 +4211,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_science);
                 while(mysqli_fetch_array($run_phase2_science));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                     $html.='
                     <td>'.$rows4['grade'].'</td>
                         ';
@@ -3763,6 +4236,11 @@ if($phase2_subject_id == 5 ){
     if(mysqli_num_rows($run_phase2_science) > 0){
         $rows = mysqli_fetch_array($run_phase2_science);
         while(mysqli_fetch_array($run_phase2_science));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td> '.$rows['final_rating'].'</td>
@@ -3795,6 +4273,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     if(mysqli_num_rows($run_phase2_AP) > 0){
                         $rows = mysqli_fetch_array($run_phase2_AP);
                         while(mysqli_fetch_array($run_phase2_AP));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <tr>
@@ -3826,6 +4308,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase2_AP);
                 while(mysqli_fetch_array($run_phase2_AP));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows2['grade'].'</td>
                     ';
@@ -3855,6 +4341,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_AP);
                 while(mysqli_fetch_array($run_phase2_AP));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows3['grade'].'</td>
                 ';
@@ -3881,6 +4371,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 if(mysqli_num_rows($run_phase2_AP) > 0){
                     $rows5 = mysqli_fetch_array($run_phase2_AP);
                     while(mysqli_fetch_array($run_phase2_AP));
+
+                    if($rows4['grade'] == 0 ){
+                        $rows4['grade'] = " ";
+                        }
+        
     
                     $html.='
                     <td>'.$rows4['grade'].'</td>
@@ -3900,6 +4395,11 @@ if($phase2_subject_id == 6 ){
     if(mysqli_num_rows($run_phase2_AP) > 0){
         $rows = mysqli_fetch_array($run_phase2_AP);
         while(mysqli_fetch_array($run_phase2_AP));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -3935,6 +4435,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase2_ep_tle);
                     while(mysqli_fetch_array($run_phase2_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="epp">EPP/TLE</td>
@@ -3966,6 +4470,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase2_ep_tle);
                     while(mysqli_fetch_array($run_phase2_ep_tle));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>
                         ';
@@ -3995,6 +4503,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_ep_tle);
                 while(mysqli_fetch_array($run_phase2_ep_tle));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows3['grade'].'</td>
                 ';
@@ -4023,6 +4535,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_ep_tle);
                 while(mysqli_fetch_array($run_phase2_ep_tle));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>
                 ';
@@ -4041,6 +4558,11 @@ if($phase2_subject_id == 7 ){
     if(mysqli_num_rows($run_phase2_ep_tle) > 0){
         $rows = mysqli_fetch_array($run_phase2_ep_tle);
         while(mysqli_fetch_array($run_phase2_ep_tle));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -4076,6 +4598,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase2_mapeh);
                     while(mysqli_fetch_array($run_phase2_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="mapeh">MAPEH</td>
@@ -4106,6 +4632,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase2_mapeh);
                 while(mysqli_fetch_array($run_phase2_mapeh));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows2['grade'].'</td>
                 ';
@@ -4135,6 +4665,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_mapeh);
                 while(mysqli_fetch_array($run_phase2_mapeh));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows3['grade'].'</td>
                 ';
@@ -4163,6 +4697,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_mapeh);
                 while(mysqli_fetch_array($run_phase2_mapeh));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                 $html.='
                <td>'.$rows4['grade'].'</td>  ';
             
@@ -4180,6 +4719,11 @@ if($phase2_subject_id == 8 ){
     if(mysqli_num_rows($run_phase2_mapeh) > 0){
         $rows = mysqli_fetch_array($run_phase2_mapeh);
         while(mysqli_fetch_array($run_phase2_mapeh));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -4215,6 +4759,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     if(mysqli_num_rows($run_phase2_music) > 0){
                         $rows = mysqli_fetch_array($run_phase2_music);
                         while(mysqli_fetch_array($run_phase2_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <tr>
@@ -4243,6 +4791,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             if(mysqli_num_rows($run_phase2_music) > 0){
                 $rows2 = mysqli_fetch_array($run_phase2_music);
                 while(mysqli_fetch_array($run_phase2_music));
+
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
 
                 $html.='
                 <td> '.$rows2['grade'].'</td>
@@ -4274,6 +4826,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_music);
                 while(mysqli_fetch_array($run_phase2_music));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows3['grade'].'</td>
                 ';
@@ -4300,6 +4856,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_music);
                 while(mysqli_fetch_array($run_phase2_music));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>
                 ';
@@ -4319,6 +4880,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     if(mysqli_num_rows($run_phase2_music) > 0){
         $rows = mysqli_fetch_array($run_phase2_music);
         while(mysqli_fetch_array($run_phase2_music));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -4351,6 +4917,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         if(mysqli_num_rows($run_phase2_arts) > 0){
                             $rows = mysqli_fetch_array($run_phase2_arts);
                             while(mysqli_fetch_array($run_phase2_arts));
+
+                            if($rows['grade'] == 0 ){
+                                $rows['grade'] = " ";
+                                }
         
                             $html.='
                             <tr>
@@ -4382,6 +4952,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         $rows2 = mysqli_fetch_array($run_phase2_arts);
         while(mysqli_fetch_array($run_phase2_arts));
 
+        if($rows2['grade'] == 0 ){
+            $rows2['grade'] = " ";
+            }
+
         $html.='
         <td> '.$rows2['grade'].'</td>
         ';
@@ -4408,6 +4982,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         if(mysqli_num_rows($run_phase2_arts) > 0){
             $rows3 = mysqli_fetch_array($run_phase2_arts);
             while(mysqli_fetch_array($run_phase2_arts));
+
+            if($rows3['grade'] == 0 ){
+                $rows3['grade'] = " ";
+                }
 
             $html.='
             <td>'.$rows3['grade'].'</td>
@@ -4436,6 +5014,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows4 = mysqli_fetch_array($run_phase2_arts);
             while(mysqli_fetch_array($run_phase2_arts));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
+
             $html.='
             <td>'.$rows4['grade'].'</td>
             ';
@@ -4455,6 +5038,11 @@ if($phase2_subject_id == 10 ){
     if(mysqli_num_rows($run_phase2_arts) > 0){
         $rows = mysqli_fetch_array($run_phase2_arts);
         while(mysqli_fetch_array($run_phase2_arts));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -4491,6 +5079,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows = mysqli_fetch_array($run_phase2_pe);
             while(mysqli_fetch_array($run_phase2_pe));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <tr>
             <td class="pe">Physical Education </td>
@@ -4521,6 +5113,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase2_pe);
                     while(mysqli_fetch_array($run_phase2_pe));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['grade'].' </td>
                     ';
@@ -4550,6 +5146,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_pe);
                 while(mysqli_fetch_array($run_phase2_pe));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows3['grade'].'</td>
                 ';
@@ -4576,6 +5176,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_pe);
                 while(mysqli_fetch_array($run_phase2_pe));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>
                 ';
@@ -4595,6 +5200,11 @@ if($phase2_subject_id == 11 ){
     if(mysqli_num_rows($run_phase2_pe) > 0){
         $rows = mysqli_fetch_array($run_phase2_pe);
         while(mysqli_fetch_array($run_phase2_pe));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -4627,6 +5237,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase2_health);
                 while(mysqli_fetch_array($run_phase2_health));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <tr>
                 <td class="health">Health</td>
@@ -4656,6 +5270,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 if(mysqli_num_rows($run_phase2_health) > 0){
                     $rows2 = mysqli_fetch_array($run_phase2_health);
                     while(mysqli_fetch_array($run_phase2_health));
+
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
 
                     $html.='
                     <td>'.$rows2['grade'].'</td>
@@ -4687,6 +5305,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_health);
                 while(mysqli_fetch_array($run_phase2_health));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows3['grade'].'</td>
                 ';
@@ -4715,6 +5337,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_health);
                 while(mysqli_fetch_array($run_phase2_health));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>
                 ';
@@ -4734,6 +5361,11 @@ if($phase2_subject_id == 12 ){
     if(mysqli_num_rows($run_phase2_health) > 0){
         $rows = mysqli_fetch_array($run_phase2_health);
         while(mysqli_fetch_array($run_phase2_health));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].' </td>
@@ -4767,6 +5399,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows = mysqli_fetch_array($run_phase2_esp);
             while(mysqli_fetch_array($run_phase2_esp));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <tr>
             <td class="eduk">Eduk. Sa Pagpapakatao</td>
@@ -4795,6 +5431,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 if(mysqli_num_rows($run_phase2_esp) > 0){
                     $rows2 = mysqli_fetch_array($run_phase2_esp);
                     while(mysqli_fetch_array($run_phase2_esp));
+
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
 
                     $html.='
                     <td> '.$rows2['grade'].'</td>
@@ -4825,6 +5465,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase2_esp);
                 while(mysqli_fetch_array($run_phase2_esp));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].' </td>
                 ';
@@ -4853,6 +5497,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_esp);
                 while(mysqli_fetch_array($run_phase2_esp));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows4['grade'].' </td>
                 ';
@@ -4872,6 +5521,11 @@ if($phase2_subject_id == 13 ){
     if(mysqli_num_rows($run_phase2_esp) > 0){
         $rows = mysqli_fetch_array($run_phase2_esp);
         while(mysqli_fetch_array($run_phase2_esp));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -4907,6 +5561,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase2_arabic);
                     while(mysqli_fetch_array($run_phase2_arabic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="arabic">*Arabic Language</td>
@@ -4939,6 +5597,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase2_arabic);
                 while(mysqli_fetch_array($run_phase2_arabic));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows2['grade'].'</td>
                ';
@@ -4968,6 +5630,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase2_arabic);
                 while(mysqli_fetch_array($run_phase2_arabic));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows3['grade'].'</td>
                 ';
@@ -4995,6 +5661,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows4 = mysqli_fetch_array($run_phase2_arabic);
             while(mysqli_fetch_array($run_phase2_arabic));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
+
             $html.='
             <td> '.$rows4['grade'].'</td>
             ';
@@ -5013,6 +5684,11 @@ if($phase2_subject_id == 14 ){
     if(mysqli_num_rows($run_phase2_arabic) > 0){
         $rows = mysqli_fetch_array($run_phase2_arabic);
         while(mysqli_fetch_array($run_phase2_arabic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -5049,6 +5725,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows = mysqli_fetch_array($run_phase2_islamic);
             while(mysqli_fetch_array($run_phase2_islamic));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <tr>
             <td class="islamic">*Islamic Values Education</td>
@@ -5079,6 +5759,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase2_islamic);
                     while(mysqli_fetch_array($run_phase2_islamic));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['grade'].' </td>
                     ';
@@ -5108,6 +5792,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $rows3 = mysqli_fetch_array($run_phase2_islamic);
             while(mysqli_fetch_array($run_phase2_islamic));
 
+            if($rows3['grade'] == 0 ){
+                $rows3['grade'] = " ";
+                }
+
             $html.='
             <td> '.$rows3['grade'].'</td>
             ';
@@ -5135,6 +5823,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase2_islamic);
                 while(mysqli_fetch_array($run_phase2_islamic));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>
                 ';
@@ -5153,6 +5846,11 @@ if($phase2_subject_id == 15 ){
     if(mysqli_num_rows($run_phase2_islamic) > 0){
         $rows = mysqli_fetch_array($run_phase2_islamic);
         while(mysqli_fetch_array($run_phase2_islamic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -5187,6 +5885,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $run_phase2_term1_general_average = mysqli_query($conn,$phase2_term1_general_average_query);
                 if(mysqli_num_rows($run_phase2_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase2_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="general">General Average</td>
@@ -5219,6 +5922,11 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $run_phase2_term1_general_average = mysqli_query($conn,$phase2_term1_general_average_query);
                 if(mysqli_num_rows($run_phase2_term1_general_average)> 0 ){
                     $rows2 = mysqli_fetch_array($run_phase2_term1_general_average);
+
+                    if($rows2['general_average'] == 0 ){
+                        $rows2['general_average'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['general_average'].'</td>
                     ';
@@ -5249,6 +5957,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             $run_phase2_term1_general_average = mysqli_query($conn,$phase2_term1_general_average_query);
             if(mysqli_num_rows($run_phase2_term1_general_average)> 0 ){
                 $rows3 = mysqli_fetch_array($run_phase2_term1_general_average);
+
+                if($rows3['general_average'] == 0 ){
+                    $rows3['general_average'] = " ";
+                    }
                 $html.='
                 <td>'.$rows3['general_average'].'</td>
                 ';
@@ -5277,6 +5989,10 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         $run_phase2_term1_general_average = mysqli_query($conn,$phase2_term1_general_average_query);
         if(mysqli_num_rows($run_phase2_term1_general_average)> 0 ){
             $rows4 = mysqli_fetch_array($run_phase2_term1_general_average);
+
+            if($rows4['general_average'] == 0 ){
+                $rows4['general_average'] = " ";
+                }
             $html.='
             <td>'.$rows4['general_average'].'</td>
            
@@ -5299,6 +6015,10 @@ if( $phase2_subject_id == 16){
     $run_phase2_term1_general_average = mysqli_query($conn,$phase2_term1_general_average_query);
     if(mysqli_num_rows($run_phase2_term1_general_average)> 0 ){
         $rows5 = mysqli_fetch_array($run_phase2_term1_general_average);
+
+        if($rows5['general_average'] == 0 ){
+            $rows5['general_average'] = " ";
+            }
         $html.='
         <td>'.$rows5['general_average'].'</td>
         <td></td>
@@ -5306,7 +6026,7 @@ if( $phase2_subject_id == 16){
         </tbody>
             ';
     
-    
+    //count
 
 
     }
@@ -5336,6 +6056,14 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
         if(mysqli_num_rows($phase2_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase2_run_query);
             while(mysqli_fetch_array($phase2_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <table>
             <thead>
@@ -5383,6 +6111,14 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
     if(mysqli_num_rows($phase2_run_query)> 0 ){
         $rows = mysqli_fetch_array($phase2_run_query);
         while(mysqli_fetch_array($phase2_run_query));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+           }
+
+           if($rows['recomputed_final_grade'] == 0 ){
+            $rows['recomputed_final_grade'] = " ";
+           }
 
 
       $html.='
@@ -5497,6 +6233,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_mt);
                     while(mysqli_fetch_array($run_phase3_mt));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.=' 
                         <tr>
                         <td class="mother">Mother&#8216s Tongue</td>
@@ -5521,6 +6261,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
             $rows2 = mysqli_fetch_array($run_phase3_mt);
             while(mysqli_fetch_array($run_phase3_mt));
 
+            if($rows2['grade'] == 0 ){
+                $rows2['grade'] = " ";
+                }
+
                 $html.=' 
                 <td>'.$rows2['grade'].'</td>
                 ';
@@ -5542,6 +6286,12 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
     if(mysqli_num_rows($run_phase3_mt) > 0){
         $rows3 = mysqli_fetch_array($run_phase3_mt);
         while(mysqli_fetch_array($run_phase3_mt));
+
+        if($rows3['grade'] == 0 ){
+            $rows3['grade'] = " ";
+            }
+
+
 
             $html.='  <td>'.$rows3['grade'].'</td>  ';
         
@@ -5567,6 +6317,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
         $rows4 = mysqli_fetch_array($run_phase3_mt);
         while(mysqli_fetch_array($run_phase3_mt));
 
+        if($rows4['grade'] == 0 ){
+            $rows4['grade'] = " ";
+            }
+
             $html.=' <td>'.$rows4['grade'].'</td> ';
         
         }
@@ -5579,12 +6333,19 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
     if($phase3_subject_id == 1){
 
-        //phase 1 final rating mother tongue 
+        //phase 3 final rating mother tongue 
 $phase3_mt = "SELECT * FROM `student_final_ratings` WHERE lrn = '$lrn' AND subject_id = '$phase3_subject_id' AND phase = '$phase3'";
 $run_phase3_mt = mysqli_query($conn,$phase3_mt);
 if(mysqli_num_rows($run_phase3_mt) > 0){
     $rows5 = mysqli_fetch_array($run_phase3_mt);
     while(mysqli_fetch_array($run_phase3_mt));
+
+    if($rows5['final_rating'] == 0 ){
+        $rows5['final_rating'] = " ";
+        $rows5['remarks'] = " ";
+       }
+
+
 
         $html.=' 
         <td>'.$rows5['final_rating'].'</td>
@@ -5611,6 +6372,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
         if(mysqli_num_rows($run_phase3_filipino) > 0){
             $rows = mysqli_fetch_array($run_phase3_filipino);
             while(mysqli_fetch_array($run_phase3_filipino));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='
                 <tr>
@@ -5643,6 +6408,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase3_filipino);
                 while(mysqli_fetch_array($run_phase3_filipino));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>
                     ';
@@ -5672,6 +6441,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
             if(mysqli_num_rows($run_phase3_filipino) > 0){
                 $rows3 = mysqli_fetch_array($run_phase3_filipino);
                 while(mysqli_fetch_array($run_phase3_filipino));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows3['grade'].'</td>
@@ -5704,6 +6477,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase3_filipino);
                 while(mysqli_fetch_array($run_phase3_filipino));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows4['grade'].'</td>
                     ';
@@ -5727,6 +6504,11 @@ if($phase3_subject_id == 2 ){
     if(mysqli_num_rows($run_phase3_filipino) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_filipino);
         while(mysqli_fetch_array($run_phase3_filipino));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows5['final_rating'].'</td>
@@ -5756,6 +6538,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 if(mysqli_num_rows($run_phase3_english) > 0){
                     $rows = mysqli_fetch_array($run_phase3_english);
                     while(mysqli_fetch_array($run_phase3_english));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                         $html.='
                         <tr>
@@ -5787,6 +6573,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase3_english);
                     while(mysqli_fetch_array($run_phase3_english));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                         $html.='
                         <td> '.$rows2['grade'].'</td>
                        ';
@@ -5816,6 +6606,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
             if(mysqli_num_rows($run_phase3_english) > 0){
                 $rows3 = mysqli_fetch_array($run_phase3_english);
                 while(mysqli_fetch_array($run_phase3_english));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows3['grade'].'</td>
@@ -5850,6 +6644,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase3_english);
                 while(mysqli_fetch_array($run_phase3_english));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows4['grade'].'</td>
                    ';
@@ -5873,6 +6671,11 @@ if($phase3_subject_id == 3 ){
     if(mysqli_num_rows($run_phase3_english) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_english);
         while(mysqli_fetch_array($run_phase3_english));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows5['final_rating'].'</td>
@@ -5906,6 +6709,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_math);
                     while(mysqli_fetch_array($run_phase3_math));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <tr>
                         <td class="math">Mathematics</td>
@@ -5936,6 +6743,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase3_math);
                 while(mysqli_fetch_array($run_phase3_math));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>
                     ';
@@ -5963,6 +6774,10 @@ $term = 3;
     if(mysqli_num_rows($run_phase3_math) > 0){
         $rows3 = mysqli_fetch_array($run_phase3_math);
         while(mysqli_fetch_array($run_phase3_math));
+
+        if($rows3['grade'] == 0 ){
+            $rows3['grade'] = " ";
+            }
 
             $html.='
             <td> '.$rows3['grade'].'</td>
@@ -5997,6 +6812,10 @@ $term = 4;
         $rows4 = mysqli_fetch_array($run_phase3_math);
         while(mysqli_fetch_array($run_phase3_math));
 
+        if($rows4['grade'] == 0 ){
+            $rows4['grade'] = " ";
+            }
+
             $html.='
             <td> '.$rows4['grade'].'</td>
             ';
@@ -6020,6 +6839,11 @@ if($phase3_subject_id == 4 ){
     if(mysqli_num_rows($run_phase3_math) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_math);
         while(mysqli_fetch_array($run_phase3_math));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows5['final_rating'].'</td>
@@ -6054,6 +6878,10 @@ if($phase3_subject_id == 5 ){
         $rows = mysqli_fetch_array($run_phase3_science);
         while(mysqli_fetch_array($run_phase3_science));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
             $html.='
             <tr>
             <td class="science">Science</td>
@@ -6085,6 +6913,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
             $rows2 = mysqli_fetch_array($run_phase3_science);
             while(mysqli_fetch_array($run_phase3_science));
 
+            if($rows2['grade'] == 0 ){
+                $rows2['grade'] = " ";
+                }
+
                 $html.='
                 <td>'.$rows2['grade'].'</td>
                   ';
@@ -6113,6 +6945,10 @@ $term = 3;
         if(mysqli_num_rows($run_phase3_science) > 0){
             $rows3 = mysqli_fetch_array($run_phase3_science);
             while(mysqli_fetch_array($run_phase3_science));
+
+            if($rows3['grade'] == 0 ){
+                $rows3['grade'] = " ";
+                }
 
                 $html.='
                 <td>'.$rows3['grade'].'</td>
@@ -6147,6 +6983,10 @@ if($phase3_subject_id == 5 ){
         $rows4 = mysqli_fetch_array($run_phase3_science);
         while(mysqli_fetch_array($run_phase3_science));
 
+        if($rows4['grade'] == 0 ){
+            $rows4['grade'] = " ";
+            }
+
             $html.='
             <td>'.$rows4['grade'].'</td>
             ';
@@ -6172,6 +7012,11 @@ $run_phase3_science = mysqli_query($conn,$phase3_science);
 if(mysqli_num_rows($run_phase3_science) > 0){
 $rows5 = mysqli_fetch_array($run_phase3_science);
 while(mysqli_fetch_array($run_phase3_science));
+
+if($rows5['final_rating'] == 0 ){
+    $rows5['final_rating'] = " ";
+    $rows5['remarks'] = " ";
+   }
 
     $html.='
     <td>'.$rows5['final_rating'].'</td>
@@ -6206,6 +7051,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
             $rows = mysqli_fetch_array($run_phase3_AP);
             while(mysqli_fetch_array($run_phase3_AP));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <tr>
             <td class="Ap">Araling Panlipunan</td>
@@ -6235,6 +7084,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     if(mysqli_num_rows($run_phase3_AP) > 0){
                         $rows2 = mysqli_fetch_array($run_phase3_AP);
                         while(mysqli_fetch_array($run_phase3_AP));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows2['grade'].' </td>
@@ -6264,6 +7117,10 @@ $term = 3;
                 if(mysqli_num_rows($run_phase3_AP) > 0){
                     $rows3 = mysqli_fetch_array($run_phase3_AP);
                     while(mysqli_fetch_array($run_phase3_AP));
+
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
     
                     $html.='
                     <td> '.$rows3['grade'].'</td>
@@ -6296,6 +7153,10 @@ $term = 4;
                 if(mysqli_num_rows($run_phase3_AP) > 0){
                     $rows4 = mysqli_fetch_array($run_phase3_AP);
                     while(mysqli_fetch_array($run_phase3_AP));
+
+                    if($rows4['grade'] == 0 ){
+                        $rows4['grade'] = " ";
+                        }
     
                     $html.='
                     <td>'.$rows4['grade'].'</td>
@@ -6322,6 +7183,11 @@ if($phase3_subject_id == 6 ){
     if(mysqli_num_rows($run_phase3_AP) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_AP);
         while(mysqli_fetch_array($run_phase3_AP));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows5['final_rating'].'</td>
@@ -6356,6 +7222,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_ep_tle);
                     while(mysqli_fetch_array($run_phase3_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="epp">EPP/TLE</td>
@@ -6386,6 +7256,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase3_ep_tle);
                     while(mysqli_fetch_array($run_phase3_ep_tle));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>
                    ';
@@ -6413,6 +7287,10 @@ $term = 3;
     if(mysqli_num_rows($run_phase3_ep_tle) > 0){
         $rows3 = mysqli_fetch_array($run_phase3_ep_tle);
         while(mysqli_fetch_array($run_phase3_ep_tle));
+
+        if($rows3['grade'] == 0 ){
+            $rows3['grade'] = " ";
+            }
 
         $html.='
         <td>'.$rows3['grade'].'</td>
@@ -6445,6 +7323,10 @@ $term = 4;
         $rows4 = mysqli_fetch_array($run_phase3_ep_tle);
         while(mysqli_fetch_array($run_phase3_ep_tle));
 
+        if($rows4['grade'] == 0 ){
+            $rows4['grade'] = " ";
+            }
+
         $html.='
         <td>'.$rows4['grade'].'</td>
          ';
@@ -6469,6 +7351,11 @@ if($phase3_subject_id == 7 ){
     if(mysqli_num_rows($run_phase3_ep_tle) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_ep_tle);
         while(mysqli_fetch_array($run_phase3_ep_tle));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows5['final_rating'].'</td>
@@ -6506,6 +7393,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_mapeh);
                     while(mysqli_fetch_array($run_phase3_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="mapeh">MAPEH</td>
@@ -6536,6 +7427,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase3_mapeh);
                     while(mysqli_fetch_array($run_phase3_mapeh));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>
                     ';
@@ -6561,6 +7456,10 @@ $term = 3;
             if(mysqli_num_rows($run_phase3_mapeh) > 0){
                 $rows3 = mysqli_fetch_array($run_phase3_mapeh);
                 while(mysqli_fetch_array($run_phase3_mapeh));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows3['grade'].'</td>
@@ -6593,6 +7492,10 @@ $term = 4;
             $rows4 = mysqli_fetch_array($run_phase3_mapeh);
             while(mysqli_fetch_array($run_phase3_mapeh));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
             $html.='
             <td> '.$rows4['grade'].' </td>
             ';
@@ -6615,6 +7518,11 @@ if($phase3_subject_id == 8 ){
     if(mysqli_num_rows($run_phase3_mapeh) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_mapeh);
         while(mysqli_fetch_array($run_phase3_mapeh));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows5['final_rating'].' </td>
@@ -6650,6 +7558,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     if(mysqli_num_rows($run_phase3_music) > 0){
                         $rows = mysqli_fetch_array($run_phase3_music);
                         while(mysqli_fetch_array($run_phase3_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <tr>
@@ -6682,6 +7594,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     if(mysqli_num_rows($run_phase3_music) > 0){
                         $rows2 = mysqli_fetch_array($run_phase3_music);
                         while(mysqli_fetch_array($run_phase3_music));
+
+                        if($rows2['grade'] == 0 ){
+                            $rows2['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows2['grade'].'</td>
@@ -6710,6 +7626,10 @@ $term = 3;
                 if(mysqli_num_rows($run_phase3_music) > 0){
                     $rows3 = mysqli_fetch_array($run_phase3_music);
                     while(mysqli_fetch_array($run_phase3_music));
+
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
     
                     $html.='
                     <td> '.$rows3['grade'].'</td>
@@ -6742,6 +7662,10 @@ $term = 4;
                 if(mysqli_num_rows($run_phase3_music) > 0){
                     $rows4 = mysqli_fetch_array($run_phase3_music);
                     while(mysqli_fetch_array($run_phase3_music));
+
+                    if($rows4['grade'] == 0 ){
+                        $rows4['grade'] = " ";
+                        }
     
                     $html.='
                     <td>'.$rows4['grade'].'</td>
@@ -6766,6 +7690,11 @@ if($phase3_subject_id == 9 ){
     if(mysqli_num_rows($run_phase3_music) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_music);
         while(mysqli_fetch_array($run_phase3_music));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows5['final_rating'].'</td>
@@ -6796,6 +7725,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         if(mysqli_num_rows($run_phase3_arts) > 0){
                             $rows = mysqli_fetch_array($run_phase3_arts);
                             while(mysqli_fetch_array($run_phase3_arts));
+
+                            if($rows['grade'] == 0 ){
+                                $rows['grade'] = " ";
+                                }
         
                             $html.='
                             <tr>
@@ -6828,6 +7761,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
             $rows2 = mysqli_fetch_array($run_phase3_arts);
             while(mysqli_fetch_array($run_phase3_arts));
 
+            if($rows2['grade'] == 0 ){
+                $rows2['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows2['grade'].' </td>
              ';
@@ -6855,6 +7792,10 @@ $term = 3;
             if(mysqli_num_rows($run_phase3_arts) > 0){
                 $rows3 = mysqli_fetch_array($run_phase3_arts);
                 while(mysqli_fetch_array($run_phase3_arts));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows3['grade'].' </td>
@@ -6888,6 +7829,10 @@ $term = 4;
                 $rows4 = mysqli_fetch_array($run_phase3_arts);
                 while(mysqli_fetch_array($run_phase3_arts));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>
                 ';
@@ -6911,6 +7856,11 @@ if($phase3_subject_id == 10 ){
     if(mysqli_num_rows($run_phase3_arts) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_arts);
         while(mysqli_fetch_array($run_phase3_arts));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows5['final_rating'].'</td>
@@ -6946,6 +7896,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_pe);
                     while(mysqli_fetch_array($run_phase3_pe));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="pe">Physical Education</td>
@@ -6976,6 +7930,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase3_pe);
                     while(mysqli_fetch_array($run_phase3_pe));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>
                         ';
@@ -7003,6 +7961,10 @@ $term = 3;
             if(mysqli_num_rows($run_phase3_pe) > 0){
                 $rows3 = mysqli_fetch_array($run_phase3_pe);
                 while(mysqli_fetch_array($run_phase3_pe));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows3['grade'].'</td>
@@ -7035,6 +7997,10 @@ $term = 4;
         $rows4 = mysqli_fetch_array($run_phase3_pe);
         while(mysqli_fetch_array($run_phase3_pe));
 
+        if($rows4['grade'] == 0 ){
+            $rows4['grade'] = " ";
+            }
+
         $html.='
         <td>'.$rows4['grade'].'</td>
     ';
@@ -7060,6 +8026,11 @@ if($phase3_subject_id == 11 ){
     if(mysqli_num_rows($run_phase3_pe) > 0){
         $rows5 = mysqli_fetch_array($run_phase3_pe);
         while(mysqli_fetch_array($run_phase3_pe));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows5['final_rating'].' </td>
@@ -7090,6 +8061,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_health);
                     while(mysqli_fetch_array($run_phase3_health));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="health">Health</td>
@@ -7118,6 +8093,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase3_health);
                 while(mysqli_fetch_array($run_phase3_health));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows2['grade'].'</td>  ';
             
@@ -7143,6 +8122,10 @@ $term = 3;
     if(mysqli_num_rows($run_phase3_health) > 0){
         $rows3 = mysqli_fetch_array($run_phase3_health);
         while(mysqli_fetch_array($run_phase3_health));
+
+        if($rows3['grade'] == 0 ){
+            $rows3['grade'] = " ";
+            }
 
         $html.='
         <td>'.$rows3['grade'].'</td>';
@@ -7175,6 +8158,10 @@ $term = 4;
             $rows4 = mysqli_fetch_array($run_phase3_health);
             while(mysqli_fetch_array($run_phase3_health));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows4['grade'].'</td> ';
         
@@ -7196,6 +8183,11 @@ if($phase3_subject_id == 12 ){
     if(mysqli_num_rows($run_phase3_health) > 0){
         $rows = mysqli_fetch_array($run_phase3_health);
         while(mysqli_fetch_array($run_phase3_health));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -7228,6 +8220,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_esp);
                     while(mysqli_fetch_array($run_phase3_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="eduk">Eduk. Sa Pagpapakatao</td>
@@ -7259,6 +8255,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase3_esp);
                     while(mysqli_fetch_array($run_phase3_esp));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>';
                 
@@ -7285,6 +8285,10 @@ $term = 3;
             if(mysqli_num_rows($run_phase3_esp) > 0){
                 $rows3 = mysqli_fetch_array($run_phase3_esp);
                 while(mysqli_fetch_array($run_phase3_esp));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows3['grade'].'</td> ';
@@ -7317,6 +8321,10 @@ $term = 4;
                 $rows4 = mysqli_fetch_array($run_phase3_esp);
                 while(mysqli_fetch_array($run_phase3_esp));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>';
             
@@ -7339,6 +8347,11 @@ if($phase3_subject_id == 13 ){
     if(mysqli_num_rows($run_phase3_esp) > 0){
         $rows = mysqli_fetch_array($run_phase3_esp);
         while(mysqli_fetch_array($run_phase3_esp));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -7371,6 +8384,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase3_arabic);
                     while(mysqli_fetch_array($run_phase3_arabic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="arabic">*Arabic Language</td>
@@ -7400,6 +8417,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 $rows2 = mysqli_fetch_array($run_phase3_arabic);
                 while(mysqli_fetch_array($run_phase3_arabic));
 
+                if($rows2['grade'] == 0 ){
+                    $rows2['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows2['grade'].' </td> ';
             
@@ -7427,6 +8448,10 @@ $term = 3;
             if(mysqli_num_rows($run_phase3_arabic) > 0){
                 $rows3 = mysqli_fetch_array($run_phase3_arabic);
                 while(mysqli_fetch_array($run_phase3_arabic));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows3['grade'].' </td>  ';
@@ -7460,6 +8485,10 @@ $term = 4;
                 $rows4 = mysqli_fetch_array($run_phase3_arabic);
                 while(mysqli_fetch_array($run_phase3_arabic));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows4['grade'].' </td>  ';
             
@@ -7481,6 +8510,11 @@ if($phase3_subject_id == 14 ){
     if(mysqli_num_rows($run_phase3_arabic) > 0){
         $rows = mysqli_fetch_array($run_phase3_arabic);
         while(mysqli_fetch_array($run_phase3_arabic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -7511,6 +8545,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 if(mysqli_num_rows($run_phase3_islamic) > 0){
                     $rows = mysqli_fetch_array($run_phase3_islamic);
                     while(mysqli_fetch_array($run_phase3_islamic));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <tr>
@@ -7543,6 +8581,10 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase3_islamic);
                     while(mysqli_fetch_array($run_phase3_islamic));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows2['grade'].'</td>  ';
                 
@@ -7568,6 +8610,10 @@ $term = 3;
             if(mysqli_num_rows($run_phase3_islamic) > 0){
                 $rows3 = mysqli_fetch_array($run_phase3_islamic);
                 while(mysqli_fetch_array($run_phase3_islamic));
+
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows3['grade'].'</td> ';
@@ -7601,6 +8647,10 @@ $term = 4;
         $rows4 = mysqli_fetch_array($run_phase3_islamic);
         while(mysqli_fetch_array($run_phase3_islamic));
 
+        if($rows4['grade'] == 0 ){
+            $rows4['grade'] = " ";
+            }
+
         $html.='
         <td>'.$rows4['grade'].'</td>  ';
     
@@ -7623,6 +8673,11 @@ if($phase3_subject_id == 15 ){
     if(mysqli_num_rows($run_phase3_islamic) > 0){
         $rows = mysqli_fetch_array($run_phase3_islamic);
         while(mysqli_fetch_array($run_phase3_islamic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -7652,6 +8707,11 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
                 if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase3_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="general">General average</td>
@@ -7684,6 +8744,11 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
                 if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
                     $rows2 = mysqli_fetch_array($run_phase3_term1_general_average);
+
+                    if($rows2['general_average'] == 0 ){
+                        $rows2['general_average'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows2['general_average'].'</td>
                     ';
@@ -7714,6 +8779,11 @@ $term = 3;
             $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
             if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
                 $rows3 = mysqli_fetch_array($run_phase3_term1_general_average);
+
+                if($rows3['general_average'] == 0 ){
+                    $rows3['general_average'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows3['general_average'].'</td>
                 ';
@@ -7747,6 +8817,10 @@ $term = 4;
         $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
         if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
             $rows4 = mysqli_fetch_array($run_phase3_term1_general_average);
+
+            if($rows4['general_average'] == 0 ){
+                $rows4['general_average'] = " ";
+                }
             $html.='
             <td> '.$rows4['general_average'].'</td>
            \
@@ -7772,11 +8846,17 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
         $run_phase3_term1_general_average = mysqli_query($conn,$phase3_term1_general_average_query);
         if(mysqli_num_rows($run_phase3_term1_general_average)> 0 ){
             $rows = mysqli_fetch_array($run_phase3_term1_general_average);
+
+            if($rows['general_average'] == 0 ){
+                $rows['general_average'] = " ";
+                }
             $html.='
             <td>'.$rows['general_average'].'</td>
             <td></td>
             </tr>
             ';
+
+            //count
         
     
     
@@ -7806,6 +8886,15 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
         if(mysqli_num_rows($phase3_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase3_run_query);
             while(mysqli_fetch_array($phase3_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
+
             $html.='
             <table class="d">
             <thead>
@@ -7847,6 +8936,14 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
         if(mysqli_num_rows($phase3_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase3_run_query);
             while(mysqli_fetch_array($phase3_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
           
       $html.='
       <tr>
@@ -7964,6 +9061,10 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
     $rows = mysqli_fetch_array($run_phase4_mt);
     while(mysqli_fetch_array($run_phase4_mt));
 
+    if($rows['grade'] == 0 ){
+        $rows['grade'] = " ";
+        }
+
         $html.=' 
         <tr>
         <td class="mother">Mother&#8216s Tongue</td>
@@ -7996,6 +9097,10 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
     $rows2 = mysqli_fetch_array($run_phase4_mt);
     while(mysqli_fetch_array($run_phase4_mt));
 
+    if($rows2['grade'] == 0 ){
+        $rows2['grade'] = " ";
+        }
+
         $html.=' 
         <td> '.$rows2['grade'].' </td>
         ';
@@ -8022,6 +9127,10 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
     $rows3 = mysqli_fetch_array($run_phase4_mt);
     while(mysqli_fetch_array($run_phase4_mt));
 
+    if($rows3['grade'] == 0 ){
+        $rows3['grade'] = " ";
+        }
+
         $html.='
         <td>'.$rows3['grade'].'</td>
             ';
@@ -8047,6 +9156,10 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
     $rows4 = mysqli_fetch_array($run_phase4_mt);
     while(mysqli_fetch_array($run_phase4_mt));
 
+    if($rows4['grade'] == 0 ){
+        $rows4['grade'] = " ";
+        }
+
         $html.=' <td>'.$rows4['grade'].'</td>';
     
     }
@@ -8065,6 +9178,11 @@ $run_phase4_mt = mysqli_query($conn,$phase4_mt);
 if(mysqli_num_rows($run_phase4_mt) > 0){
     $rows5 = mysqli_fetch_array($run_phase4_mt);
     while(mysqli_fetch_array($run_phase4_mt));
+
+    if($rows5['final_rating'] == 0 ){
+        $rows5['final_rating'] = " ";
+        $rows5['remarks'] = " ";
+       }
 
         $html.=' 
         <td>'.$rows5['final_rating'].'</td>
@@ -8094,6 +9212,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
         if(mysqli_num_rows($run_phase4_filipino) > 0){
             $rows = mysqli_fetch_array($run_phase4_filipino);
             while(mysqli_fetch_array($run_phase4_filipino));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='
                 <tr>
@@ -8128,6 +9250,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase4_filipino);
                     while(mysqli_fetch_array($run_phase4_filipino));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                         $html.='
                         <td> '.$rows2['grade'].'</td>
                         ';
@@ -8157,6 +9283,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase4_filipino);
                 while(mysqli_fetch_array($run_phase4_filipino));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows3['grade'].'</td>
                     ';
@@ -8183,6 +9313,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase4_filipino);
                 while(mysqli_fetch_array($run_phase4_filipino));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows4['grade'].'</td>
                      ';
@@ -8205,6 +9339,11 @@ if($phase4_subject_id == 2 ){
     if(mysqli_num_rows($run_phase4_filipino) > 0){
         $rows5 = mysqli_fetch_array($run_phase4_filipino);
         while(mysqli_fetch_array($run_phase4_filipino));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
             $html.='
             <td> '.$rows5['final_rating'].' </td>
@@ -8234,6 +9373,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
         if(mysqli_num_rows($run_phase4_english) > 0){
             $rows = mysqli_fetch_array($run_phase4_english);
             while(mysqli_fetch_array($run_phase4_english));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='
                 <tr>
@@ -8268,6 +9411,11 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
         if(mysqli_num_rows($run_phase4_english) > 0){
             $rows2 = mysqli_fetch_array($run_phase4_english);
             while(mysqli_fetch_array($run_phase4_english));
+            
+
+            if($rows2['grade'] == 0 ){
+                $rows2['grade'] = " ";
+                }
 
                 $html.='
                 <td>'.$rows2['grade'].'</td>
@@ -8297,6 +9445,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase4_english);
                 while(mysqli_fetch_array($run_phase4_english));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows3['grade'].'</td>  ';
                 
@@ -8322,6 +9474,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows4 = mysqli_fetch_array($run_phase4_english);
             while(mysqli_fetch_array($run_phase4_english));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
                 $html.='
                 <td>'.$rows4['grade'].'</td> ';
             
@@ -8343,6 +9499,11 @@ if($phase4_subject_id == 3 ){
     if(mysqli_num_rows($run_phase4_english) > 0){
         $rows5 = mysqli_fetch_array($run_phase4_english);
         while(mysqli_fetch_array($run_phase4_english));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
             $html.='
             <td> '.$rows5['final_rating'].'</td>
@@ -8374,6 +9535,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 if(mysqli_num_rows($run_phase4_math) > 0){
                     $rows = mysqli_fetch_array($run_phase4_math);
                     while(mysqli_fetch_array($run_phase4_math));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                         $html.='
                         <tr>
@@ -8407,6 +9572,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase4_math);
                     while(mysqli_fetch_array($run_phase4_math));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                         $html.='
                         <td>'.$rows2['grade'].'</td>
                         ';
@@ -8437,6 +9606,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase4_math);
                 while(mysqli_fetch_array($run_phase4_math));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows3['grade'].'</td>
                     ';
@@ -8466,6 +9639,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_math);
                 while(mysqli_fetch_array($run_phase4_math));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows4['grade'].'</td>
                     ';
@@ -8489,6 +9666,11 @@ if($phase4_subject_id == 4 ){
     if(mysqli_num_rows($run_phase4_math) > 0){
         $rows = mysqli_fetch_array($run_phase4_math);
         while(mysqli_fetch_array($run_phase4_math));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows5['final_rating'].' </td>
@@ -8523,6 +9705,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_science);
                 while(mysqli_fetch_array($run_phase4_science));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <tr>
                     <td class="science">Science</td>
@@ -8555,6 +9741,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows2 = mysqli_fetch_array($run_phase4_science);
             while(mysqli_fetch_array($run_phase4_science));
 
+            if($rows2['grade'] == 0 ){
+                $rows2['grade'] = " ";
+                }
+
                 $html.='
                 <td>'.$rows2['grade'].'</td>
                 ';
@@ -8581,6 +9771,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
         if(mysqli_num_rows($run_phase4_science) > 0){
             $rows3 = mysqli_fetch_array($run_phase4_science);
             while(mysqli_fetch_array($run_phase4_science));
+
+            if($rows3['grade'] == 0 ){
+                $rows3['grade'] = " ";
+                }
 
                 $html.='
                 <td>'.$rows3['grade'].'</td>
@@ -8609,6 +9803,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows4 = mysqli_fetch_array($run_phase4_science);
             while(mysqli_fetch_array($run_phase4_science));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
                 $html.='
                 <td>'.$rows4['grade'].'</td>
                 ';
@@ -8631,6 +9829,11 @@ if($phase4_subject_id == 5 ){
     if(mysqli_num_rows($run_phase4_science) > 0){
         $rows5 = mysqli_fetch_array($run_phase4_science);
         while(mysqli_fetch_array($run_phase4_science));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
             $html.='
             <td> '.$rows5['final_rating'].'</td>
@@ -8663,6 +9866,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_AP);
                 while(mysqli_fetch_array($run_phase4_AP));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <tr>
                 <td class="Ap">Araling Panlipunan</td>
@@ -8692,6 +9899,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows2 = mysqli_fetch_array($run_phase4_AP);
             while(mysqli_fetch_array($run_phase4_AP));
 
+            if($rows2['grade'] == 0 ){
+                $rows2['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows2['grade'].' </td>
              ';
@@ -8719,6 +9930,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 if(mysqli_num_rows($run_phase4_AP) > 0){
                     $rows3 = mysqli_fetch_array($run_phase4_AP);
                     while(mysqli_fetch_array($run_phase4_AP));
+
+                    if($rows3['grade'] == 0 ){
+                        $rows3['grade'] = " ";
+                        }
     
                     $html.='
                     <td>'.$rows3['grade'].' </td>
@@ -8745,6 +9960,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows4 = mysqli_fetch_array($run_phase4_AP);
                 while(mysqli_fetch_array($run_phase4_AP));
 
+                if($rows4['grade'] == 0 ){
+                    $rows4['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows4['grade'].' </td>
                   ';
@@ -8766,6 +9985,11 @@ if($phase4_subject_id == 6 ){
     if(mysqli_num_rows($run_phase4_AP) > 0){
         $rows5 = mysqli_fetch_array($run_phase4_AP);
         while(mysqli_fetch_array($run_phase4_AP));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows5['final_rating'].'</td>
@@ -8800,6 +10024,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase4_ep_tle);
                     while(mysqli_fetch_array($run_phase4_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="epp">EPP/TLE</td>
@@ -8832,6 +10060,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows2 = mysqli_fetch_array($run_phase4_ep_tle);
                     while(mysqli_fetch_array($run_phase4_ep_tle));
 
+                    if($rows2['grade'] == 0 ){
+                        $rows2['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows2['grade'].'</td> ';
                 
@@ -8858,6 +10090,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows3 = mysqli_fetch_array($run_phase4_ep_tle);
                 while(mysqli_fetch_array($run_phase4_ep_tle));
 
+                if($rows3['grade'] == 0 ){
+                    $rows3['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows3['grade'].'</td>  ';
             
@@ -8882,6 +10118,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows4 = mysqli_fetch_array($run_phase4_ep_tle);
             while(mysqli_fetch_array($run_phase4_ep_tle));
 
+            if($rows4['grade'] == 0 ){
+                $rows4['grade'] = " ";
+                }
+
             $html.='
             <td> '.$rows4['grade'].'</td>  ';
         
@@ -8903,6 +10143,11 @@ if($phase4_subject_id == 7 ){
     if(mysqli_num_rows($run_phase4_ep_tle) > 0){
         $rows5 = mysqli_fetch_array($run_phase4_ep_tle);
         while(mysqli_fetch_array($run_phase4_ep_tle));
+
+        if($rows5['final_rating'] == 0 ){
+            $rows5['final_rating'] = " ";
+            $rows5['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows5['final_rating'].'</td>
@@ -8933,6 +10178,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 if(mysqli_num_rows($run_phase4_mapeh) > 0){
                     $rows = mysqli_fetch_array($run_phase4_mapeh);
                     while(mysqli_fetch_array($run_phase4_mapeh));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <tr>
@@ -8968,6 +10217,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase4_mapeh);
                     while(mysqli_fetch_array($run_phase4_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>
                       ';
@@ -8994,6 +10247,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows = mysqli_fetch_array($run_phase4_mapeh);
             while(mysqli_fetch_array($run_phase4_mapeh));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows['grade'].'</td>';
         
@@ -9017,6 +10274,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows = mysqli_fetch_array($run_phase4_mapeh);
             while(mysqli_fetch_array($run_phase4_mapeh));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows['grade'].'</td> ';
         
@@ -9037,6 +10298,13 @@ if($phase4_subject_id == 8 ){
     if(mysqli_num_rows($run_phase4_mapeh) > 0){
         $rows = mysqli_fetch_array($run_phase4_mapeh);
         while(mysqli_fetch_array($run_phase4_mapeh));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
+
+
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -9072,6 +10340,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     if(mysqli_num_rows($run_phase4_music) > 0){
                         $rows = mysqli_fetch_array($run_phase4_music);
                         while(mysqli_fetch_array($run_phase4_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <tr>
@@ -9104,6 +10376,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     if(mysqli_num_rows($run_phase4_music) > 0){
                         $rows = mysqli_fetch_array($run_phase4_music);
                         while(mysqli_fetch_array($run_phase4_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows['grade'].'</td>  ';
@@ -9130,6 +10406,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 if(mysqli_num_rows($run_phase4_music) > 0){
                     $rows = mysqli_fetch_array($run_phase4_music);
                     while(mysqli_fetch_array($run_phase4_music));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td> '.$rows['grade'].'</td>';
@@ -9154,6 +10434,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_music);
                 while(mysqli_fetch_array($run_phase4_music));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td>';
             
@@ -9173,6 +10457,11 @@ if($phase4_subject_id == 9 ){
     if(mysqli_num_rows($run_phase4_music) > 0){
         $rows = mysqli_fetch_array($run_phase4_music);
         while(mysqli_fetch_array($run_phase4_music));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -9208,6 +10497,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_arts);
                 while(mysqli_fetch_array($run_phase4_arts));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <tr>
                 <td class="arts">Arts</td>
@@ -9238,6 +10531,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_arts);
                 while(mysqli_fetch_array($run_phase4_arts));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td> ';
             
@@ -9264,6 +10561,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_arts);
                 while(mysqli_fetch_array($run_phase4_arts));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td> ';
             
@@ -9288,6 +10589,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows = mysqli_fetch_array($run_phase4_arts);
             while(mysqli_fetch_array($run_phase4_arts));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <td> '.$rows['grade'].'</td>  ';
         
@@ -9309,6 +10614,11 @@ if($phase4_subject_id == 10 ){
     if(mysqli_num_rows($run_phase4_arts) > 0){
         $rows = mysqli_fetch_array($run_phase4_arts);
         while(mysqli_fetch_array($run_phase4_arts));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -9343,6 +10653,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows = mysqli_fetch_array($run_phase4_pe);
             while(mysqli_fetch_array($run_phase4_pe));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <tr>
             <td class="pe">Physical Education </td>
@@ -9373,6 +10687,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase4_pe);
                     while(mysqli_fetch_array($run_phase4_pe));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -9398,6 +10716,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
         if(mysqli_num_rows($run_phase4_pe) > 0){
             $rows = mysqli_fetch_array($run_phase4_pe);
             while(mysqli_fetch_array($run_phase4_pe));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
             $html.='
             <td>'.$rows['grade'].'</td>  ';
@@ -9425,6 +10747,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_pe);
                 while(mysqli_fetch_array($run_phase4_pe));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -9446,6 +10772,11 @@ if($phase4_subject_id == 11 ){
     if(mysqli_num_rows($run_phase4_pe) > 0){
         $rows = mysqli_fetch_array($run_phase4_pe);
         while(mysqli_fetch_array($run_phase4_pe));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -9480,6 +10811,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows = mysqli_fetch_array($run_phase4_health);
             while(mysqli_fetch_array($run_phase4_health));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <tr>
             <td class="health">Health</td>
@@ -9512,6 +10847,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase4_health);
                     while(mysqli_fetch_array($run_phase4_health));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -9537,6 +10876,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows = mysqli_fetch_array($run_phase4_health);
             while(mysqli_fetch_array($run_phase4_health));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows['grade'].'</td>  ';
         
@@ -9560,6 +10903,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows = mysqli_fetch_array($run_phase4_health);
             while(mysqli_fetch_array($run_phase4_health));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows['grade'].'</td>  ';
         
@@ -9580,6 +10927,11 @@ if($phase4_subject_id == 12 ){
     if(mysqli_num_rows($run_phase4_health) > 0){
         $rows = mysqli_fetch_array($run_phase4_health);
         while(mysqli_fetch_array($run_phase4_health));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -9609,6 +10961,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 if(mysqli_num_rows($run_phase4_esp) > 0){
                     $rows = mysqli_fetch_array($run_phase4_esp);
                     while(mysqli_fetch_array($run_phase4_esp));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <tr>
@@ -9641,6 +10997,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase4_esp);
                     while(mysqli_fetch_array($run_phase4_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -9670,6 +11030,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_esp);
                 while(mysqli_fetch_array($run_phase4_esp));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -9694,6 +11058,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_esp);
                 while(mysqli_fetch_array($run_phase4_esp));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -9714,6 +11082,11 @@ if($phase4_subject_id == 13 ){
     if(mysqli_num_rows($run_phase4_esp) > 0){
         $rows = mysqli_fetch_array($run_phase4_esp);
         while(mysqli_fetch_array($run_phase4_esp));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -9743,6 +11116,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
         if(mysqli_num_rows($run_phase4_arabic) > 0){
             $rows = mysqli_fetch_array($run_phase4_arabic);
             while(mysqli_fetch_array($run_phase4_arabic));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
             $html.='
             <tr>
@@ -9774,6 +11151,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $rows = mysqli_fetch_array($run_phase4_arabic);
             while(mysqli_fetch_array($run_phase4_arabic));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows['grade'].'</td> ';
         
@@ -9801,6 +11182,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_arabic);
                 while(mysqli_fetch_array($run_phase4_arabic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -9827,6 +11212,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_arabic);
                 while(mysqli_fetch_array($run_phase4_arabic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -9846,6 +11235,11 @@ if($phase4_subject_id == 14 ){
     if(mysqli_num_rows($run_phase4_arabic) > 0){
         $rows = mysqli_fetch_array($run_phase4_arabic);
         while(mysqli_fetch_array($run_phase4_arabic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -9879,6 +11273,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase4_islamic);
                     while(mysqli_fetch_array($run_phase4_islamic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="islamic">*Islamic values Education</td>
@@ -9910,6 +11308,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase4_islamic);
                     while(mysqli_fetch_array($run_phase4_islamic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
                 
@@ -9937,6 +11339,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_islamic);
                 while(mysqli_fetch_array($run_phase4_islamic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
                 
@@ -9962,6 +11368,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase4_islamic);
                 while(mysqli_fetch_array($run_phase4_islamic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -9982,6 +11392,11 @@ if($phase4_subject_id == 15 ){
     if(mysqli_num_rows($run_phase4_islamic) > 0){
         $rows = mysqli_fetch_array($run_phase4_islamic);
         while(mysqli_fetch_array($run_phase4_islamic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -10013,6 +11428,11 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
                 if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="general">General Average</td>
@@ -10049,6 +11469,12 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
                 if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['general_average'].'</td>  ';
                 
@@ -10078,6 +11504,10 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
             if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
                 $html.='
                 <td>'.$rows['general_average'].'</td> ';
             
@@ -10104,6 +11534,11 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
             $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
             if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['general_average'].'</td> ';
             
@@ -10128,11 +11563,17 @@ if( $phase4_subject_id == 16){
     $run_phase4_term1_general_average = mysqli_query($conn,$phase4_term1_general_average_query);
     if(mysqli_num_rows($run_phase4_term1_general_average)> 0 ){
         $rows = mysqli_fetch_array($run_phase4_term1_general_average);
+
+        if($rows['general_average'] == 0 ){
+            $rows['general_average'] = " ";
+            }
         $html.='
         <td>'.$rows['general_average'].'</td>
         <td></td> 
         </tr>
         </tbody> ';
+
+        //count
     
 
 
@@ -10161,6 +11602,14 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
         if(mysqli_num_rows($phase4_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase4_run_query);
             while(mysqli_fetch_array($phase4_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <table class="remedial-2">
             <thead>
@@ -10202,6 +11651,14 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
         if(mysqli_num_rows($phase4_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase4_run_query);
             while(mysqli_fetch_array($phase4_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <tr>
            <td>'.$rows['learning_areas'].'</td>
@@ -10315,6 +11772,11 @@ if(mysqli_num_rows($run_phase5_mt) > 0){
     $rows = mysqli_fetch_array($run_phase5_mt);
     while(mysqli_fetch_array($run_phase5_mt));
 
+    if($rows['grade'] == 0 ){
+        $rows['grade'] = " ";
+        }
+
+
         $html.=' 
         <tr>
         <td class="mother">Mother&#8216s Tongue</td>
@@ -10345,6 +11807,12 @@ if(mysqli_num_rows($run_phase5_mt) > 0){
 $rows = mysqli_fetch_array($run_phase5_mt);
 while(mysqli_fetch_array($run_phase5_mt));
 
+if($rows['grade'] == 0 ){
+    $rows['grade'] = " ";
+    }
+
+
+
     $html.=' 
     <td> '.$rows['grade'].'</td> ';
 
@@ -10369,6 +11837,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         if(mysqli_num_rows($run_phase5_mt) > 0){
             $rows = mysqli_fetch_array($run_phase5_mt);
             while(mysqli_fetch_array($run_phase5_mt));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='  <td> '.$rows['grade'].'</td>  ';
             
@@ -10397,6 +11869,11 @@ if(mysqli_num_rows($run_phase5_mt) > 0){
 $rows = mysqli_fetch_array($run_phase5_mt);
 while(mysqli_fetch_array($run_phase5_mt));
 
+if($rows['grade'] == 0 ){
+    $rows['grade'] = " ";
+    }
+
+
     $html.=' <td> '.$rows['grade'].'</td>';
 
 }
@@ -10415,6 +11892,11 @@ $run_phase5_mt = mysqli_query($conn,$phase5_mt);
 if(mysqli_num_rows($run_phase5_mt) > 0){
 $rows = mysqli_fetch_array($run_phase5_mt);
 while(mysqli_fetch_array($run_phase5_mt));
+
+if($rows['final_rating'] == 0 ){
+    $rows['final_rating'] = " ";
+    $rows['remarks'] = " ";
+   }
 
     $html.=' 
     <td>'.$rows['final_rating'].'</td>
@@ -10444,6 +11926,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_filipino);
                     while(mysqli_fetch_array($run_phase5_filipino));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                         $html.='
                         <tr>
                         <td class="filipino">Filipino</td>
@@ -10469,6 +11956,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $rows = mysqli_fetch_array($run_phase5_filipino);
             while(mysqli_fetch_array($run_phase5_filipino));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
+
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -10491,6 +11984,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             if(mysqli_num_rows($run_phase5_filipino) > 0){
                 $rows = mysqli_fetch_array($run_phase5_filipino);
                 while(mysqli_fetch_array($run_phase5_filipino));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
@@ -10516,6 +12013,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_filipino);
                 while(mysqli_fetch_array($run_phase5_filipino));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -10538,6 +12040,11 @@ if($phase5_subject_id == 2 ){
     if(mysqli_num_rows($run_phase5_filipino) > 0){
         $rows = mysqli_fetch_array($run_phase5_filipino);
         while(mysqli_fetch_array($run_phase5_filipino));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td> '.$rows['final_rating'].'</td>
@@ -10566,6 +12073,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $rows = mysqli_fetch_array($run_phase5_english);
             while(mysqli_fetch_array($run_phase5_english));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
+
                 $html.='
                 <tr>
                 <td class="english">English</td>
@@ -10592,6 +12104,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_english);
                 while(mysqli_fetch_array($run_phase5_english));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+    
+
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
                 
@@ -10614,6 +12132,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             if(mysqli_num_rows($run_phase5_english) > 0){
                 $rows = mysqli_fetch_array($run_phase5_english);
                 while(mysqli_fetch_array($run_phase5_english));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
@@ -10640,6 +12162,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $rows = mysqli_fetch_array($run_phase5_english);
             while(mysqli_fetch_array($run_phase5_english));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -10662,6 +12189,11 @@ if($phase5_subject_id == 3 ){
     if(mysqli_num_rows($run_phase5_english) > 0){
         $rows = mysqli_fetch_array($run_phase5_english);
         while(mysqli_fetch_array($run_phase5_english));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -10694,6 +12226,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_math);
                     while(mysqli_fetch_array($run_phase5_math));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                         $html.='
                         <tr>
                         <td class="math">Mathematics</td>
@@ -10719,6 +12256,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $rows = mysqli_fetch_array($run_phase5_math);
             while(mysqli_fetch_array($run_phase5_math));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
+
+
                 $html.='
                 <td> '.$rows['grade'].'</td> ';
             
@@ -10741,6 +12284,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             if(mysqli_num_rows($run_phase5_math) > 0){
                 $rows = mysqli_fetch_array($run_phase5_math);
                 while(mysqli_fetch_array($run_phase5_math));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td> '.$rows['grade'].'</td>';
@@ -10767,6 +12314,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_math);
                 while(mysqli_fetch_array($run_phase5_math));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                     $html.='
                     <td> '.$rows['grade'].'</td>';
                 
@@ -10788,6 +12340,11 @@ if($phase5_subject_id == 4 ){
     if(mysqli_num_rows($run_phase5_math) > 0){
         $rows = mysqli_fetch_array($run_phase5_math);
         while(mysqli_fetch_array($run_phase5_math));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td> '.$rows['final_rating'].'</td>
@@ -10817,6 +12374,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_science);
                 while(mysqli_fetch_array($run_phase5_science));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                     $html.='
                     <tr>
                     <td class="science">Science</td>
@@ -10842,6 +12404,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_science);
                 while(mysqli_fetch_array($run_phase5_science));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+    
+
                     $html.='
 
                    <td>'.$rows['grade'].'</td> ';
@@ -10865,6 +12433,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 if(mysqli_num_rows($run_phase5_science) > 0){
                     $rows = mysqli_fetch_array($run_phase5_science);
                     while(mysqli_fetch_array($run_phase5_science));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -10890,6 +12462,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 if(mysqli_num_rows($run_phase5_science) > 0){
                     $rows = mysqli_fetch_array($run_phase5_science);
                     while(mysqli_fetch_array($run_phase5_science));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
     
                         $html.='
                         <td>'.$rows['grade'].'</td> ';
@@ -10913,6 +12490,11 @@ if($phase5_subject_id == 5 ){
         $rows = mysqli_fetch_array($run_phase5_science);
         while(mysqli_fetch_array($run_phase5_science));
 
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
             $html.='
             <td> '.$rows['final_rating'].'</td>
             <td>'.$rows['remarks'].'</td>
@@ -10939,6 +12521,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     if(mysqli_num_rows($run_phase5_AP) > 0){
                         $rows = mysqli_fetch_array($run_phase5_AP);
                         while(mysqli_fetch_array($run_phase5_AP));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+            
     
                         $html.='
                         <tr>
@@ -10964,6 +12551,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     if(mysqli_num_rows($run_phase5_AP) > 0){
                         $rows = mysqli_fetch_array($run_phase5_AP);
                         while(mysqli_fetch_array($run_phase5_AP));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+            
+            
     
                         $html.='
                         <td> '.$rows['grade'].'</td> ';
@@ -10987,6 +12580,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 if(mysqli_num_rows($run_phase5_AP) > 0){
                     $rows = mysqli_fetch_array($run_phase5_AP);
                     while(mysqli_fetch_array($run_phase5_AP));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td> '.$rows['grade'].'</td> ';
@@ -11011,6 +12608,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $rows = mysqli_fetch_array($run_phase5_AP);
             while(mysqli_fetch_array($run_phase5_AP));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
+
             $html.='
             <td> '.$rows['grade'].'</td> ';
         
@@ -11030,6 +12632,11 @@ if($phase5_subject_id == 6 ){
     if(mysqli_num_rows($run_phase5_AP) > 0){
         $rows = mysqli_fetch_array($run_phase5_AP);
         while(mysqli_fetch_array($run_phase5_AP));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -11055,6 +12662,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 if(mysqli_num_rows($run_phase5_ep_tle) > 0){
                     $rows = mysqli_fetch_array($run_phase5_ep_tle);
                     while(mysqli_fetch_array($run_phase5_ep_tle));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
 
                     $html.='
                     <tr>
@@ -11082,6 +12694,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_ep_tle);
                     while(mysqli_fetch_array($run_phase5_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+        
+
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
                 
@@ -11102,6 +12720,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         if(mysqli_num_rows($run_phase5_ep_tle) > 0){
             $rows = mysqli_fetch_array($run_phase5_ep_tle);
             while(mysqli_fetch_array($run_phase5_ep_tle));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
             $html.='
             <td> '.$rows['grade'].'</td> ';
@@ -11127,6 +12749,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $rows = mysqli_fetch_array($run_phase5_ep_tle);
             while(mysqli_fetch_array($run_phase5_ep_tle));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
+
             $html.='
             <td> '.$rows['grade'].'</td> ';
         
@@ -11147,6 +12774,11 @@ if($phase5_subject_id == 7 ){
     if(mysqli_num_rows($run_phase5_ep_tle) > 0){
         $rows = mysqli_fetch_array($run_phase5_ep_tle);
         while(mysqli_fetch_array($run_phase5_ep_tle));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -11177,6 +12809,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_mapeh);
                     while(mysqli_fetch_array($run_phase5_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     <td class="mapeh">MAPEH</td>
@@ -11203,6 +12840,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_mapeh);
                     while(mysqli_fetch_array($run_phase5_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+        
+
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
                 
@@ -11225,6 +12868,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             if(mysqli_num_rows($run_phase5_mapeh) > 0){
                 $rows = mysqli_fetch_array($run_phase5_mapeh);
                 while(mysqli_fetch_array($run_phase5_mapeh));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
@@ -11251,6 +12898,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_mapeh);
                 while(mysqli_fetch_array($run_phase5_mapeh));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -11273,6 +12925,11 @@ if($phase5_subject_id == 8 ){
     if(mysqli_num_rows($run_phase5_mapeh) > 0){
         $rows = mysqli_fetch_array($run_phase5_mapeh);
         while(mysqli_fetch_array($run_phase5_mapeh));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -11302,6 +12959,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     if(mysqli_num_rows($run_phase5_music) > 0){
                         $rows = mysqli_fetch_array($run_phase5_music);
                         while(mysqli_fetch_array($run_phase5_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+            
     
                         $html.='
                         <tr>
@@ -11329,6 +12991,12 @@ if($phase5_subject_id == 9 ){
         $rows = mysqli_fetch_array($run_phase5_music);
         while(mysqli_fetch_array($run_phase5_music));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
+
+
         $html.='
         <td> '.$rows['grade'].'</td>';
     
@@ -11349,6 +13017,10 @@ if($phase5_subject_id == 9 ){
     if(mysqli_num_rows($run_phase5_music) > 0){
         $rows = mysqli_fetch_array($run_phase5_music);
         while(mysqli_fetch_array($run_phase5_music));
+
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
 
         $html.='
         <td> '.$rows['grade'].'</td>';
@@ -11374,6 +13046,11 @@ if($phase5_subject_id == 9 ){
         $rows = mysqli_fetch_array($run_phase5_music);
         while(mysqli_fetch_array($run_phase5_music));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
+
         $html.='
         <td> '.$rows['grade'].'</td>';
     
@@ -11395,6 +13072,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         if(mysqli_num_rows($run_phase5_music) > 0){
             $rows = mysqli_fetch_array($run_phase5_music);
             while(mysqli_fetch_array($run_phase5_music));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -11422,6 +13104,11 @@ if(mysqli_num_rows($run_phase5_arts) > 0){
     $rows = mysqli_fetch_array($run_phase5_arts);
     while(mysqli_fetch_array($run_phase5_arts));
 
+    if($rows['grade'] == 0 ){
+        $rows['grade'] = " ";
+        }
+
+
     $html.='
     <tr>
     <td class="arts">Arts</td>
@@ -11447,6 +13134,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_arts);
                     while(mysqli_fetch_array($run_phase5_arts));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+        
+
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
                 
@@ -11467,6 +13160,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     if(mysqli_num_rows($run_phase5_arts) > 0){
                         $rows = mysqli_fetch_array($run_phase5_arts);
                         while(mysqli_fetch_array($run_phase5_arts));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
         
                         $html.='
                         <td>'.$rows['grade'].'</td> ';
@@ -11492,6 +13189,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     if(mysqli_num_rows($run_phase5_arts) > 0){
                         $rows = mysqli_fetch_array($run_phase5_arts);
                         while(mysqli_fetch_array($run_phase5_arts));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
+            
         
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -11515,6 +13217,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             if(mysqli_num_rows($run_phase5_arts) > 0){
                 $rows = mysqli_fetch_array($run_phase5_arts);
                 while(mysqli_fetch_array($run_phase5_arts));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
         
                 $html.='<td>'.$rows['final_rating'].' </td>
                 <td>'.$rows['remarks'].'</td>
@@ -11543,6 +13250,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_pe);
                     while(mysqli_fetch_array($run_phase5_pe));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     <td class="pe">Physical Education</td>
@@ -11567,6 +13279,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $rows = mysqli_fetch_array($run_phase5_pe);
             while(mysqli_fetch_array($run_phase5_pe));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
+
+
             $html.='
             <td>'.$rows['grade'].' </td> ';
         
@@ -11587,6 +13305,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         if(mysqli_num_rows($run_phase5_pe) > 0){
             $rows = mysqli_fetch_array($run_phase5_pe);
             while(mysqli_fetch_array($run_phase5_pe));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
             $html.='
             <td>'.$rows['grade'].' </td>  ';
@@ -11612,6 +13334,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_pe);
                 while(mysqli_fetch_array($run_phase5_pe));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows['grade'].' </td>  ';
             
@@ -11632,6 +13359,11 @@ if($phase5_subject_id == 11 ){
     if(mysqli_num_rows($run_phase5_pe) > 0){
         $rows = mysqli_fetch_array($run_phase5_pe);
         while(mysqli_fetch_array($run_phase5_pe));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -11657,6 +13389,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         if(mysqli_num_rows($run_phase5_health) > 0){
             $rows = mysqli_fetch_array($run_phase5_health);
             while(mysqli_fetch_array($run_phase5_health));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
 
             $html.='
             <tr>
@@ -11684,6 +13421,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_health);
                     while(mysqli_fetch_array($run_phase5_health));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+        
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -11707,6 +13450,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_health);
                 while(mysqli_fetch_array($run_phase5_health));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -11729,6 +13476,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         $rows = mysqli_fetch_array($run_phase5_health);
         while(mysqli_fetch_array($run_phase5_health));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
+
         $html.='
         <td>'.$rows['grade'].'</td>  ';
     
@@ -11749,6 +13501,11 @@ if($phase5_subject_id == 12 ){
     if(mysqli_num_rows($run_phase5_health) > 0){
         $rows = mysqli_fetch_array($run_phase5_health);
         while(mysqli_fetch_array($run_phase5_health));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -11778,6 +13535,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_esp);
                     while(mysqli_fetch_array($run_phase5_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     <td class="eduk">Eduk. Sa Pagpapakatao</td>
@@ -11806,6 +13568,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_esp);
                     while(mysqli_fetch_array($run_phase5_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+        
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -11827,6 +13595,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             if(mysqli_num_rows($run_phase5_esp) > 0){
                 $rows = mysqli_fetch_array($run_phase5_esp);
                 while(mysqli_fetch_array($run_phase5_esp));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
@@ -11851,6 +13623,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_esp);
                 while(mysqli_fetch_array($run_phase5_esp));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -11870,6 +13647,11 @@ if($phase5_subject_id == 13 ){
     if(mysqli_num_rows($run_phase5_esp) > 0){
         $rows = mysqli_fetch_array($run_phase5_esp);
         while(mysqli_fetch_array($run_phase5_esp));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -11894,6 +13676,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 if(mysqli_num_rows($run_phase5_arabic) > 0){
                     $rows = mysqli_fetch_array($run_phase5_arabic);
                     while(mysqli_fetch_array($run_phase5_arabic));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
 
                     $html.='
                     <tr>
@@ -11921,6 +13708,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_arabic);
                     while(mysqli_fetch_array($run_phase5_arabic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+        
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -11943,6 +13736,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             if(mysqli_num_rows($run_phase5_arabic) > 0){
                 $rows = mysqli_fetch_array($run_phase5_arabic);
                 while(mysqli_fetch_array($run_phase5_arabic));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
@@ -11967,6 +13764,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_arabic);
                 while(mysqli_fetch_array($run_phase5_arabic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -11987,6 +13789,11 @@ if($phase5_subject_id == 14 ){
     if(mysqli_num_rows($run_phase5_arabic) > 0){
         $rows = mysqli_fetch_array($run_phase5_arabic);
         while(mysqli_fetch_array($run_phase5_arabic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -12013,6 +13820,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 if(mysqli_num_rows($run_phase5_islamic) > 0){
                     $rows = mysqli_fetch_array($run_phase5_islamic);
                     while(mysqli_fetch_array($run_phase5_islamic));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
 
                     $html.='
                     <tr>
@@ -12041,6 +13853,12 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase5_islamic);
                     while(mysqli_fetch_array($run_phase5_islamic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+        
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -12063,6 +13881,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             if(mysqli_num_rows($run_phase5_islamic) > 0){
                 $rows = mysqli_fetch_array($run_phase5_islamic);
                 while(mysqli_fetch_array($run_phase5_islamic));
+
+                if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
@@ -12087,6 +13909,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase5_islamic);
                 while(mysqli_fetch_array($run_phase5_islamic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -12108,6 +13935,11 @@ if($phase5_subject_id == 15 ){
     if(mysqli_num_rows($run_phase5_islamic) > 0){
         $rows = mysqli_fetch_array($run_phase5_islamic);
         while(mysqli_fetch_array($run_phase5_islamic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -12135,6 +13967,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
                 if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="general">General average</td>
@@ -12162,6 +13999,11 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
                 if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows['general_average'].'</td> ';
                 
@@ -12185,6 +14027,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
             if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
                 $html.='
                 <td> '.$rows['general_average'].'</td>';
             
@@ -12209,6 +14055,10 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
             if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
                 $html.='
                 <td> '.$rows['general_average'].'</td>  ';
             
@@ -12230,12 +14080,17 @@ if( $phase5_subject_id == 16){
     $run_phase5_term1_general_average = mysqli_query($conn,$phase5_term1_general_average_query);
     if(mysqli_num_rows($run_phase5_term1_general_average)> 0 ){
         $rows = mysqli_fetch_array($run_phase5_term1_general_average);
+
+        if($rows['general_average'] == 0 ){
+            $rows['general_average'] = " ";
+            }
         $html.='
         <td> '.$rows['general_average'].'</td>
         <td></td>
         </tr>
         ';
     
+        //count
 
 
     }
@@ -12263,6 +14118,14 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
         if(mysqli_num_rows($phase5_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase5_run_query);
             while(mysqli_fetch_array($phase5_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <table class="remedial-2">
             <thead>
@@ -12301,6 +14164,14 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
         if(mysqli_num_rows($phase5_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase5_run_query);
             while(mysqli_fetch_array($phase5_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <tr>
             <td>'.$rows['learning_areas'].'</td>
@@ -12407,6 +14278,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         $rows = mysqli_fetch_array($run_phase6_mt);
         while(mysqli_fetch_array($run_phase6_mt));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
+
             $html.=' 
             <tr>
             <td class="mother">Mother&#8216s Tongue</td>
@@ -12437,6 +14313,10 @@ if(mysqli_num_rows($run_phase6_mt) > 0){
     $rows = mysqli_fetch_array($run_phase6_mt);
     while(mysqli_fetch_array($run_phase6_mt));
 
+    if($rows['grade'] == 0 ){
+        $rows['grade'] = " ";
+        }
+
         $html.=' 
         <td> '.$rows['grade'].'</td> ';
     
@@ -12461,6 +14341,11 @@ $run_phase6_mt = mysqli_query($conn,$phase6_mt);
 if(mysqli_num_rows($run_phase6_mt) > 0){
     $rows = mysqli_fetch_array($run_phase6_mt);
     while(mysqli_fetch_array($run_phase6_mt));
+    
+
+    if($rows['grade'] == 0 ){
+        $rows['grade'] = " ";
+        }
 
         $html.=' 
         <td> '.$rows['grade'].'</td>  ';
@@ -12488,6 +14373,10 @@ if(mysqli_num_rows($run_phase6_mt) > 0){
     $rows = mysqli_fetch_array($run_phase6_mt);
     while(mysqli_fetch_array($run_phase6_mt));
 
+    if($rows['grade'] == 0 ){
+        $rows['grade'] = " ";
+        }
+
         $html.=' 
         <td> '.$rows['grade'].'</td>  ';
     
@@ -12507,6 +14396,11 @@ $run_phase6_mt = mysqli_query($conn,$phase6_mt);
 if(mysqli_num_rows($run_phase6_mt) > 0){
 $rows = mysqli_fetch_array($run_phase6_mt);
 while(mysqli_fetch_array($run_phase6_mt));
+
+if($rows['final_rating'] == 0 ){
+    $rows['final_rating'] = " ";
+    $rows['remarks'] = " ";
+   }
 
     $html.='
     <td> '.$rows['final_rating'].'</td>
@@ -12536,6 +14430,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 if(mysqli_num_rows($run_phase6_filipino) > 0){
                     $rows = mysqli_fetch_array($run_phase6_filipino);
                     while(mysqli_fetch_array($run_phase6_filipino));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
 
                         $html.='
                         <tr>
@@ -12568,6 +14467,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_filipino);
                     while(mysqli_fetch_array($run_phase6_filipino));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <td>'.$rows['grade'].' </td>  ';
                     
@@ -12593,6 +14496,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_filipino);
                 while(mysqli_fetch_array($run_phase6_filipino));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows['grade'].' </td>  ';
                 
@@ -12616,6 +14523,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_filipino);
                 while(mysqli_fetch_array($run_phase6_filipino));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows['grade'].' </td>  ';
                 
@@ -12636,6 +14547,11 @@ if($phase6_subject_id == 2 ){
     if(mysqli_num_rows($run_phase6_filipino) > 0){
         $rows = mysqli_fetch_array($run_phase6_filipino);
         while(mysqli_fetch_array($run_phase6_filipino));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td> '.$rows['final_rating'].'</td>
@@ -12666,6 +14582,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_english) > 0){
                 $rows = mysqli_fetch_array($run_phase6_english);
                 while(mysqli_fetch_array($run_phase6_english));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
 
                     $html.='
                     <tr>
@@ -12698,6 +14619,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_english);
                     while(mysqli_fetch_array($run_phase6_english));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <td> '.$rows['grade'].'</td>  ';
                     
@@ -12723,6 +14648,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_english);
                 while(mysqli_fetch_array($run_phase6_english));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
                 
@@ -12745,6 +14674,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_english);
                 while(mysqli_fetch_array($run_phase6_english));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
                 
@@ -12765,6 +14698,11 @@ if($phase6_subject_id == 3 ){
         $rows = mysqli_fetch_array($run_phase6_english);
         while(mysqli_fetch_array($run_phase6_english));
 
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
             $html.='
             <td> '.$rows['final_rating'].'</td>
             <td>'.$rows['remarks'].'</td>
@@ -12797,6 +14735,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_math);
                     while(mysqli_fetch_array($run_phase6_math));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                         $html.='
                         <tr>
                         <td class="math">Mathematics</td>
@@ -12828,6 +14771,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_math);
                     while(mysqli_fetch_array($run_phase6_math));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
 
                         <td> '.$rows['grade'].'</td>  ';
@@ -12852,6 +14799,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_math) > 0){
                 $rows = mysqli_fetch_array($run_phase6_math);
                 while(mysqli_fetch_array($run_phase6_math));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
@@ -12878,6 +14829,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_math);
                 while(mysqli_fetch_array($run_phase6_math));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows['grade'].'</td> ';
                 
@@ -12897,6 +14852,11 @@ if($phase6_subject_id == 4 ){
     if(mysqli_num_rows($run_phase6_math) > 0){
         $rows = mysqli_fetch_array($run_phase6_math);
         while(mysqli_fetch_array($run_phase6_math));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -12928,11 +14888,21 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     if(mysqli_num_rows($run_phase6_science) > 0){
                         $rows = mysqli_fetch_array($run_phase6_science);
                         while(mysqli_fetch_array($run_phase6_science));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = "";
+                            }
+            
     
                             $html.='
                             <tr>
+<<<<<<< HEAD
                             <td class="science">Science</td>
                             <td> '.$rows['grade'].'</td>
+=======
+                            <td>Science</td>
+                            <td>'.$rows['grade'].'</td>
+>>>>>>> 107d4dbb1cc19e64a1095976e847de9e9885b21d
                         ';
                         
                         }
@@ -12958,6 +14928,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     if(mysqli_num_rows($run_phase6_science) > 0){
                         $rows = mysqli_fetch_array($run_phase6_science);
                         while(mysqli_fetch_array($run_phase6_science));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                             $html.='
                             <td> '.$rows['grade'].'</td>  ';
@@ -12982,6 +14956,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 if(mysqli_num_rows($run_phase6_science) > 0){
                     $rows = mysqli_fetch_array($run_phase6_science);
                     while(mysqli_fetch_array($run_phase6_science));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                         $html.='
                         <td> '.$rows['grade'].'</td>  ';
@@ -13003,6 +14981,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_science) > 0){
                 $rows = mysqli_fetch_array($run_phase6_science);
                 while(mysqli_fetch_array($run_phase6_science));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
@@ -13027,6 +15009,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         if(mysqli_num_rows($run_phase6_science) > 0){
             $rows = mysqli_fetch_array($run_phase6_science);
             while(mysqli_fetch_array($run_phase6_science));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
@@ -13057,6 +15044,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_AP);
                 while(mysqli_fetch_array($run_phase6_AP));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
+
                 $html.='
                 <tr>
                 <td class="Ap"> Araling Panlipunan </td>
@@ -13085,6 +15077,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     if(mysqli_num_rows($run_phase6_AP) > 0){
                         $rows = mysqli_fetch_array($run_phase6_AP);
                         while(mysqli_fetch_array($run_phase6_AP));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <td>  '.$rows['grade'].' </td>  ';
@@ -13107,6 +15103,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 if(mysqli_num_rows($run_phase6_AP) > 0){
                     $rows = mysqli_fetch_array($run_phase6_AP);
                     while(mysqli_fetch_array($run_phase6_AP));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td>  '.$rows['grade'].' </td>  ';
@@ -13127,6 +15127,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 if(mysqli_num_rows($run_phase6_AP) > 0){
                     $rows = mysqli_fetch_array($run_phase6_AP);
                     while(mysqli_fetch_array($run_phase6_AP));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td>  '.$rows['grade'].' </td>  ';
@@ -13148,6 +15152,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         if(mysqli_num_rows($run_phase6_AP) > 0){
             $rows = mysqli_fetch_array($run_phase6_AP);
             while(mysqli_fetch_array($run_phase6_AP));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -13180,6 +15189,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_ep_tle);
                     while(mysqli_fetch_array($run_phase6_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     <td class="epp">EPP/TLE</td>
@@ -13208,6 +15222,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_ep_tle);
                     while(mysqli_fetch_array($run_phase6_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
                 
@@ -13229,6 +15247,10 @@ if($phase6_subject_id == 7 ){
         $rows = mysqli_fetch_array($run_phase6_ep_tle);
         while(mysqli_fetch_array($run_phase6_ep_tle));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
         $html.='
         <td> '.$rows['grade'].'</td> ';
     
@@ -13249,6 +15271,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_ep_tle);
                 while(mysqli_fetch_array($run_phase6_ep_tle));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td>';
             
@@ -13267,6 +15293,11 @@ if($phase6_subject_id == 7 ){
     if(mysqli_num_rows($run_phase6_ep_tle) > 0){
         $rows = mysqli_fetch_array($run_phase6_ep_tle);
         while(mysqli_fetch_array($run_phase6_ep_tle));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -13299,6 +15330,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_mapeh);
                     while(mysqli_fetch_array($run_phase6_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     <td class="mapeh">MAPEH</td>
@@ -13327,6 +15363,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         $rows = mysqli_fetch_array($run_phase6_mapeh);
         while(mysqli_fetch_array($run_phase6_mapeh));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
         $html.='
         <td> '.$rows['grade'].'</td>  ';
     
@@ -13349,6 +15389,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_mapeh);
                 while(mysqli_fetch_array($run_phase6_mapeh));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td>  ';
             
@@ -13370,6 +15414,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_mapeh);
                 while(mysqli_fetch_array($run_phase6_mapeh));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td>  ';
             
@@ -13390,6 +15438,11 @@ if($phase6_subject_id == 8 ){
     if(mysqli_num_rows($run_phase6_mapeh) > 0){
         $rows = mysqli_fetch_array($run_phase6_mapeh);
         while(mysqli_fetch_array($run_phase6_mapeh));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -13418,6 +15471,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_music) > 0){
                 $rows = mysqli_fetch_array($run_phase6_music);
                 while(mysqli_fetch_array($run_phase6_music));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+    
 
                 $html.='
                 <tr>
@@ -13448,6 +15506,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     if(mysqli_num_rows($run_phase6_music) > 0){
                         $rows = mysqli_fetch_array($run_phase6_music);
                         while(mysqli_fetch_array($run_phase6_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows['grade'].'</td>  ';
@@ -13471,6 +15533,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 if(mysqli_num_rows($run_phase6_music) > 0){
                     $rows = mysqli_fetch_array($run_phase6_music);
                     while(mysqli_fetch_array($run_phase6_music));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
@@ -13492,6 +15558,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 if(mysqli_num_rows($run_phase6_music) > 0){
                     $rows = mysqli_fetch_array($run_phase6_music);
                     while(mysqli_fetch_array($run_phase6_music));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td> '.$rows['grade'].'</td> ';
@@ -13512,6 +15582,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         if(mysqli_num_rows($run_phase6_music) > 0){
             $rows = mysqli_fetch_array($run_phase6_music);
             while(mysqli_fetch_array($run_phase6_music));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -13543,6 +15618,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         if(mysqli_num_rows($run_phase6_arts) > 0){
                             $rows = mysqli_fetch_array($run_phase6_arts);
                             while(mysqli_fetch_array($run_phase6_arts));
+
+                            if($rows['grade'] == 0 ){
+                                $rows['grade'] = " ";
+                                }
+                
         
                             $html.='
                             <tr>
@@ -13572,6 +15652,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         if(mysqli_num_rows($run_phase6_arts) > 0){
                             $rows = mysqli_fetch_array($run_phase6_arts);
                             while(mysqli_fetch_array($run_phase6_arts));
+
+                            if($rows['grade'] == 0 ){
+                                $rows['grade'] = " ";
+                                }
         
                             $html.='
                             <td>'.$rows['grade'].' </td>  ';
@@ -13595,6 +15679,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     if(mysqli_num_rows($run_phase6_arts) > 0){
                         $rows = mysqli_fetch_array($run_phase6_arts);
                         while(mysqli_fetch_array($run_phase6_arts));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
         
                         $html.='
                         <td>'.$rows['grade'].' </td> ';
@@ -13618,6 +15706,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     if(mysqli_num_rows($run_phase6_arts) > 0){
                         $rows = mysqli_fetch_array($run_phase6_arts);
                         while(mysqli_fetch_array($run_phase6_arts));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
         
                         $html.='
                         <td>'.$rows['grade'].' </td> ';
@@ -13638,6 +15730,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_arts) > 0){
                 $rows = mysqli_fetch_array($run_phase6_arts);
                 while(mysqli_fetch_array($run_phase6_arts));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
         
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
@@ -13669,6 +15766,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_pe);
                     while(mysqli_fetch_array($run_phase6_pe));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     
@@ -13699,6 +15801,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_pe);
                     while(mysqli_fetch_array($run_phase6_pe));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -13721,6 +15827,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         $rows = mysqli_fetch_array($run_phase6_pe);
         while(mysqli_fetch_array($run_phase6_pe));
 
+
+         if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
         $html.='
         <td>'.$rows['grade'].'</td>  ';
     
@@ -13740,6 +15850,14 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_pe) > 0){
                 $rows = mysqli_fetch_array($run_phase6_pe);
                 while(mysqli_fetch_array($run_phase6_pe));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
@@ -13762,6 +15880,11 @@ if($phase6_subject_id == 11 ){
     if(mysqli_num_rows($run_phase6_pe) > 0){
         $rows = mysqli_fetch_array($run_phase6_pe);
         while(mysqli_fetch_array($run_phase6_pe));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -13789,6 +15912,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         if(mysqli_num_rows($run_phase6_health) > 0){
             $rows = mysqli_fetch_array($run_phase6_health);
             while(mysqli_fetch_array($run_phase6_health));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
 
             $html.='
             <tr>
@@ -13820,6 +15948,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_health);
                     while(mysqli_fetch_array($run_phase6_health));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -13843,6 +15975,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             $rows = mysqli_fetch_array($run_phase6_health);
             while(mysqli_fetch_array($run_phase6_health));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <td>'.$rows['grade'].'</td>  ';
         
@@ -13863,6 +15999,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_health) > 0){
                 $rows = mysqli_fetch_array($run_phase6_health);
                 while(mysqli_fetch_array($run_phase6_health));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
@@ -13885,6 +16025,11 @@ if($phase6_subject_id == 12 ){
     if(mysqli_num_rows($run_phase6_health) > 0){
         $rows = mysqli_fetch_array($run_phase6_health);
         while(mysqli_fetch_array($run_phase6_health));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -13916,6 +16061,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_esp);
                     while(mysqli_fetch_array($run_phase6_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     <td class="eduk">Eduk. Sa Pagpapakatao</td>
@@ -13945,6 +16095,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_esp);
                     while(mysqli_fetch_array($run_phase6_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
                 
@@ -13968,6 +16122,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_esp);
                 while(mysqli_fetch_array($run_phase6_esp));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td> ';
             
@@ -13989,6 +16147,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_esp);
                 while(mysqli_fetch_array($run_phase6_esp));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td> ';
             
@@ -14008,6 +16170,11 @@ if($phase6_subject_id == 13 ){
     if(mysqli_num_rows($run_phase6_esp) > 0){
         $rows = mysqli_fetch_array($run_phase6_esp);
         while(mysqli_fetch_array($run_phase6_esp));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -14039,6 +16206,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_arabic);
                     while(mysqli_fetch_array($run_phase6_arabic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     <td class="arabic">*Arabic language</td>
@@ -14069,6 +16241,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_arabic);
                     while(mysqli_fetch_array($run_phase6_arabic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -14090,6 +16266,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_arabic) > 0){
                 $rows = mysqli_fetch_array($run_phase6_arabic);
                 while(mysqli_fetch_array($run_phase6_arabic));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
@@ -14114,6 +16294,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_arabic);
                 while(mysqli_fetch_array($run_phase6_arabic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -14134,6 +16318,11 @@ if($phase6_subject_id == 14 ){
     if(mysqli_num_rows($run_phase6_arabic) > 0){
         $rows = mysqli_fetch_array($run_phase6_arabic);
         while(mysqli_fetch_array($run_phase6_arabic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -14165,6 +16354,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_islamic);
                     while(mysqli_fetch_array($run_phase6_islamic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+        
+
                     $html.='
                     <tr>
                     <td class="islamic">*Islamic values Education</td>
@@ -14193,6 +16387,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase6_islamic);
                     while(mysqli_fetch_array($run_phase6_islamic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].' </td>  ';
                 
@@ -14214,6 +16412,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             if(mysqli_num_rows($run_phase6_islamic) > 0){
                 $rows = mysqli_fetch_array($run_phase6_islamic);
                 while(mysqli_fetch_array($run_phase6_islamic));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].' </td>  ';
@@ -14237,6 +16439,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase6_islamic);
                 while(mysqli_fetch_array($run_phase6_islamic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].' </td>  ';
             
@@ -14256,6 +16462,11 @@ if($phase6_subject_id == 15 ){
     if(mysqli_num_rows($run_phase6_islamic) > 0){
         $rows = mysqli_fetch_array($run_phase6_islamic);
         while(mysqli_fetch_array($run_phase6_islamic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -14284,6 +16495,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
                 if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="general">General average</td>
@@ -14318,6 +16534,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
                 if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows['general_average'].'</td> ';
                 
@@ -14344,6 +16565,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
             if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
                 $html.='
                 <td> '.$rows['general_average'].'</td>  ';
             
@@ -14366,6 +16591,10 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
             if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
                 $html.='
                 <td> '.$rows['general_average'].'</td> ';
             
@@ -14387,11 +16616,17 @@ if( $phase6_subject_id == 16){
     $run_phase6_term1_general_average = mysqli_query($conn,$phase6_term1_general_average_query);
     if(mysqli_num_rows($run_phase6_term1_general_average)> 0 ){
         $rows = mysqli_fetch_array($run_phase6_term1_general_average);
+
+        if($rows['general_average'] == 0 ){
+            $rows['general_average'] = " ";
+            }
         $html.='
         <td> '.$rows['general_average'].'</td>  
         <td></td>
         </tr>
         ';
+
+        //count
 
 
     }
@@ -14420,6 +16655,14 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
         if(mysqli_num_rows($phase6_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase6_run_query);
             while(mysqli_fetch_array($phase6_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <table class="remedial-2">
             <thead>
@@ -14459,6 +16702,14 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
         if(mysqli_num_rows($phase6_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase6_run_query);
             while(mysqli_fetch_array($phase6_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <tr>
             <td>'.$rows['learning_areas'].'</td>
@@ -14574,6 +16825,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_mt);
                     while(mysqli_fetch_array($run_phase7_mt));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.=' 
                         <tr>
                         <td class="mother">Mother&#8216s Tongue</td>
@@ -14602,6 +16857,10 @@ if(mysqli_num_rows($run_phase7_mt) > 0){
 $rows = mysqli_fetch_array($run_phase7_mt);
 while(mysqli_fetch_array($run_phase7_mt));
 
+if($rows['grade'] == 0 ){
+    $rows['grade'] = " ";
+    }
+
     $html.='    <td> '.$rows['grade'].'</td>   ';
 
 }
@@ -14622,6 +16881,10 @@ while(mysqli_fetch_array($run_phase7_mt));
     if(mysqli_num_rows($run_phase7_mt) > 0){
         $rows = mysqli_fetch_array($run_phase7_mt);
         while(mysqli_fetch_array($run_phase7_mt));
+
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
 
             $html.='    <td> '.$rows['grade'].'</td>    ';
         
@@ -14646,6 +16909,10 @@ while(mysqli_fetch_array($run_phase7_mt));
         $rows = mysqli_fetch_array($run_phase7_mt);
         while(mysqli_fetch_array($run_phase7_mt));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
             $html.='   <td> '.$rows['grade'].'</td>   ';
         
         }
@@ -14666,6 +16933,11 @@ $run_phase7_mt = mysqli_query($conn,$phase7_mt);
 if(mysqli_num_rows($run_phase7_mt) > 0){
 $rows = mysqli_fetch_array($run_phase7_mt);
 while(mysqli_fetch_array($run_phase7_mt));
+
+if($rows['final_rating'] == 0 ){
+    $rows['final_rating'] = " ";
+    $rows['remarks'] = " ";
+   }
 
     $html.=' 
     <td>'.$rows['final_rating'].'</td>
@@ -14696,6 +16968,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_filipino);
                     while(mysqli_fetch_array($run_phase7_filipino));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <tr>
                         <td class="filipino">Filipino</td>
@@ -14722,6 +16998,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_filipino);
                     while(mysqli_fetch_array($run_phase7_filipino));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <td>'.$rows['grade'].'</td> ';
                     
@@ -14746,6 +17026,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
             if(mysqli_num_rows($run_phase7_filipino) > 0){
                 $rows = mysqli_fetch_array($run_phase7_filipino);
                 while(mysqli_fetch_array($run_phase7_filipino));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
@@ -14774,6 +17058,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_filipino);
                 while(mysqli_fetch_array($run_phase7_filipino));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
                 
@@ -14797,6 +17085,11 @@ if($phase7_subject_id == 2 ){
     if(mysqli_num_rows($run_phase7_filipino) > 0){
         $rows = mysqli_fetch_array($run_phase7_filipino);
         while(mysqli_fetch_array($run_phase7_filipino));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td> '.$rows['final_rating'].'</td>
@@ -14828,6 +17121,10 @@ if($phase7_subject_id == 3 ){
         $rows = mysqli_fetch_array($run_phase7_english);
         while(mysqli_fetch_array($run_phase7_english));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
             $html.='
             <tr>
             <td class="english">English</td>
@@ -14856,6 +17153,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_english);
                     while(mysqli_fetch_array($run_phase7_english));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
                     
@@ -14879,6 +17180,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
             if(mysqli_num_rows($run_phase7_english) > 0){
                 $rows = mysqli_fetch_array($run_phase7_english);
                 while(mysqli_fetch_array($run_phase7_english));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
@@ -14906,6 +17211,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_english);
                 while(mysqli_fetch_array($run_phase7_english));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
                 
@@ -14928,6 +17237,11 @@ if($phase7_subject_id == 3 ){
     if(mysqli_num_rows($run_phase7_english) > 0){
         $rows = mysqli_fetch_array($run_phase7_english);
         while(mysqli_fetch_array($run_phase7_english));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -14961,6 +17275,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_math);
                     while(mysqli_fetch_array($run_phase7_math));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <tr>
                         <td class="math">Mathematics</td>
@@ -14987,6 +17305,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_math);
                     while(mysqli_fetch_array($run_phase7_math));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
                     
@@ -15010,6 +17332,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         if(mysqli_num_rows($run_phase7_math) > 0){
             $rows = mysqli_fetch_array($run_phase7_math);
             while(mysqli_fetch_array($run_phase7_math));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
@@ -15037,6 +17363,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_math);
                 while(mysqli_fetch_array($run_phase7_math));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -15059,6 +17389,11 @@ if($phase7_subject_id == 4 ){
     if(mysqli_num_rows($run_phase7_math) > 0){
         $rows = mysqli_fetch_array($run_phase7_math);
         while(mysqli_fetch_array($run_phase7_math));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -15093,6 +17428,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     if(mysqli_num_rows($run_phase7_science) > 0){
                         $rows = mysqli_fetch_array($run_phase7_science);
                         while(mysqli_fetch_array($run_phase7_science));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                             $html.='
                             <tr>
@@ -15119,6 +17458,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     if(mysqli_num_rows($run_phase7_science) > 0){
                         $rows = mysqli_fetch_array($run_phase7_science);
                         while(mysqli_fetch_array($run_phase7_science));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                             $html.='
                             <td>'.$rows['grade'].'</td> ';
@@ -15145,6 +17488,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 if(mysqli_num_rows($run_phase7_science) > 0){
                     $rows = mysqli_fetch_array($run_phase7_science);
                     while(mysqli_fetch_array($run_phase7_science));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -15174,6 +17521,10 @@ $term = 4;
                 if(mysqli_num_rows($run_phase7_science) > 0){
                     $rows = mysqli_fetch_array($run_phase7_science);
                     while(mysqli_fetch_array($run_phase7_science));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -15198,6 +17549,11 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         if(mysqli_num_rows($run_phase7_science) > 0){
             $rows = mysqli_fetch_array($run_phase7_science);
             while(mysqli_fetch_array($run_phase7_science));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
@@ -15229,6 +17585,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
             $rows = mysqli_fetch_array($run_phase7_AP);
             while(mysqli_fetch_array($run_phase7_AP));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <tr>
             <td class="Ap">Araling Panlipunan</td>
@@ -15255,6 +17615,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     if(mysqli_num_rows($run_phase7_AP) > 0){
                         $rows = mysqli_fetch_array($run_phase7_AP);
                         while(mysqli_fetch_array($run_phase7_AP));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -15279,6 +17643,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 if(mysqli_num_rows($run_phase7_AP) > 0){
                     $rows = mysqli_fetch_array($run_phase7_AP);
                     while(mysqli_fetch_array($run_phase7_AP));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
@@ -15305,6 +17673,10 @@ $term = 4;
                 if(mysqli_num_rows($run_phase7_AP) > 0){
                     $rows = mysqli_fetch_array($run_phase7_AP);
                     while(mysqli_fetch_array($run_phase7_AP));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
@@ -15327,6 +17699,11 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         if(mysqli_num_rows($run_phase7_AP) > 0){
             $rows = mysqli_fetch_array($run_phase7_AP);
             while(mysqli_fetch_array($run_phase7_AP));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -15358,6 +17735,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_ep_tle);
                     while(mysqli_fetch_array($run_phase7_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="epp">EPP/TLE</td>
@@ -15383,6 +17764,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_ep_tle);
                     while(mysqli_fetch_array($run_phase7_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -15405,6 +17790,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
             if(mysqli_num_rows($run_phase7_ep_tle) > 0){
                 $rows = mysqli_fetch_array($run_phase7_ep_tle);
                 while(mysqli_fetch_array($run_phase7_ep_tle));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
@@ -15434,6 +17823,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_ep_tle);
                 while(mysqli_fetch_array($run_phase7_ep_tle));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -15455,6 +17848,11 @@ if($phase7_subject_id == 7 ){
     if(mysqli_num_rows($run_phase7_ep_tle) > 0){
         $rows = mysqli_fetch_array($run_phase7_ep_tle);
         while(mysqli_fetch_array($run_phase7_ep_tle));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -15487,6 +17885,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_mapeh);
                     while(mysqli_fetch_array($run_phase7_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="mapeh">MAPEH</td>
@@ -15514,6 +17916,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_mapeh);
                     while(mysqli_fetch_array($run_phase7_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
                 
@@ -15537,6 +17943,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
             if(mysqli_num_rows($run_phase7_mapeh) > 0){
                 $rows = mysqli_fetch_array($run_phase7_mapeh);
                 while(mysqli_fetch_array($run_phase7_mapeh));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
@@ -15563,6 +17973,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_mapeh);
                 while(mysqli_fetch_array($run_phase7_mapeh));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -15585,6 +17999,11 @@ if($phase7_subject_id == 8 ){
     if(mysqli_num_rows($run_phase7_mapeh) > 0){
         $rows = mysqli_fetch_array($run_phase7_mapeh);
         while(mysqli_fetch_array($run_phase7_mapeh));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].' </td>
@@ -15617,6 +18036,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     if(mysqli_num_rows($run_phase7_music) > 0){
                         $rows = mysqli_fetch_array($run_phase7_music);
                         while(mysqli_fetch_array($run_phase7_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <tr>
@@ -15643,6 +18066,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     if(mysqli_num_rows($run_phase7_music) > 0){
                         $rows = mysqli_fetch_array($run_phase7_music);
                         while(mysqli_fetch_array($run_phase7_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -15667,6 +18094,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 if(mysqli_num_rows($run_phase7_music) > 0){
                     $rows = mysqli_fetch_array($run_phase7_music);
                     while(mysqli_fetch_array($run_phase7_music));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
@@ -15693,6 +18124,10 @@ $term = 4;
                 if(mysqli_num_rows($run_phase7_music) > 0){
                     $rows = mysqli_fetch_array($run_phase7_music);
                     while(mysqli_fetch_array($run_phase7_music));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
@@ -15716,6 +18151,11 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         if(mysqli_num_rows($run_phase7_music) > 0){
             $rows = mysqli_fetch_array($run_phase7_music);
             while(mysqli_fetch_array($run_phase7_music));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -15746,6 +18186,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         if(mysqli_num_rows($run_phase7_arts) > 0){
                             $rows = mysqli_fetch_array($run_phase7_arts);
                             while(mysqli_fetch_array($run_phase7_arts));
+
+                            if($rows['grade'] == 0 ){
+                                $rows['grade'] = " ";
+                                }
         
                             $html.='
                             <tr>
@@ -15772,6 +18216,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         if(mysqli_num_rows($run_phase7_arts) > 0){
                             $rows = mysqli_fetch_array($run_phase7_arts);
                             while(mysqli_fetch_array($run_phase7_arts));
+
+                            if($rows['grade'] == 0 ){
+                                $rows['grade'] = " ";
+                                }
         
                             $html.='
                             <td> '.$rows['grade'].' </td>  ';
@@ -15795,6 +18243,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     if(mysqli_num_rows($run_phase7_arts) > 0){
                         $rows = mysqli_fetch_array($run_phase7_arts);
                         while(mysqli_fetch_array($run_phase7_arts));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
         
                         $html.='
                         <td> '.$rows['grade'].' </td>  ';
@@ -15821,6 +18273,10 @@ $term = 4;
                     if(mysqli_num_rows($run_phase7_arts) > 0){
                         $rows = mysqli_fetch_array($run_phase7_arts);
                         while(mysqli_fetch_array($run_phase7_arts));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
         
                         $html.='
                         <td> '.$rows['grade'].' </td>  ';
@@ -15842,6 +18298,11 @@ if($phase7_subject_id == 10 ){
     if(mysqli_num_rows($run_phase7_arts) > 0){
         $rows = mysqli_fetch_array($run_phase7_arts);
         while(mysqli_fetch_array($run_phase7_arts));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -15878,6 +18339,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_pe);
                     while(mysqli_fetch_array($run_phase7_pe));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="pe">Physical Education</td>
@@ -15902,6 +18367,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 if(mysqli_num_rows($run_phase7_pe) > 0){
                     $rows = mysqli_fetch_array($run_phase7_pe);
                     while(mysqli_fetch_array($run_phase7_pe));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
@@ -15929,6 +18398,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase7_pe);
                 while(mysqli_fetch_array($run_phase7_pe));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -15954,6 +18427,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_pe);
                 while(mysqli_fetch_array($run_phase7_pe));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -15974,6 +18451,11 @@ if($phase7_subject_id == 11 ){
     if(mysqli_num_rows($run_phase7_pe) > 0){
         $rows = mysqli_fetch_array($run_phase7_pe);
         while(mysqli_fetch_array($run_phase7_pe));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -16006,6 +18488,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_health);
                     while(mysqli_fetch_array($run_phase7_health));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="health">Health</td>
@@ -16031,6 +18517,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         $rows = mysqli_fetch_array($run_phase7_health);
         while(mysqli_fetch_array($run_phase7_health));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
         $html.='
         <td>'.$rows['grade'].'</td>  ';
     
@@ -16052,6 +18542,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         if(mysqli_num_rows($run_phase7_health) > 0){
             $rows = mysqli_fetch_array($run_phase7_health);
             while(mysqli_fetch_array($run_phase7_health));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
             $html.='
             <td>'.$rows['grade'].'</td>  ';
@@ -16080,6 +18574,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_health);
                 while(mysqli_fetch_array($run_phase7_health));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -16101,6 +18599,11 @@ if($phase7_subject_id == 12 ){
     if(mysqli_num_rows($run_phase7_health) > 0){
         $rows = mysqli_fetch_array($run_phase7_health);
         while(mysqli_fetch_array($run_phase7_health));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -16136,6 +18639,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_esp);
                     while(mysqli_fetch_array($run_phase7_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="eduk">Eduk. Sa Pagpapakatao</td>
@@ -16161,6 +18668,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_esp);
                     while(mysqli_fetch_array($run_phase7_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -16183,6 +18694,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
             if(mysqli_num_rows($run_phase7_esp) > 0){
                 $rows = mysqli_fetch_array($run_phase7_esp);
                 while(mysqli_fetch_array($run_phase7_esp));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
@@ -16210,6 +18725,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_esp);
                 while(mysqli_fetch_array($run_phase7_esp));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -16233,6 +18752,11 @@ if($phase7_subject_id == 13 ){
     if(mysqli_num_rows($run_phase7_esp) > 0){
         $rows = mysqli_fetch_array($run_phase7_esp);
         while(mysqli_fetch_array($run_phase7_esp));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -16277,6 +18801,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_arabic);
                     while(mysqli_fetch_array($run_phase7_arabic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="arabic">*Arabic language</td>
@@ -16301,6 +18829,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 if(mysqli_num_rows($run_phase7_arabic) > 0){
                     $rows = mysqli_fetch_array($run_phase7_arabic);
                     while(mysqli_fetch_array($run_phase7_arabic));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
@@ -16327,6 +18859,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase7_arabic);
                 while(mysqli_fetch_array($run_phase7_arabic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td>  ';
             
@@ -16351,6 +18887,10 @@ $term = 4;
         $rows = mysqli_fetch_array($run_phase7_arabic);
         while(mysqli_fetch_array($run_phase7_arabic));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
         $html.='
         <td> '.$rows['grade'].'</td>  ';
     
@@ -16373,6 +18913,11 @@ if($phase7_subject_id == 14 ){
     if(mysqli_num_rows($run_phase7_arabic) > 0){
         $rows = mysqli_fetch_array($run_phase7_arabic);
         while(mysqli_fetch_array($run_phase7_arabic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -16404,6 +18949,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase7_islamic);
                     while(mysqli_fetch_array($run_phase7_islamic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="islamic">*Islamic values Education</td>
@@ -16428,6 +18977,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 if(mysqli_num_rows($run_phase7_islamic) > 0){
                     $rows = mysqli_fetch_array($run_phase7_islamic);
                     while(mysqli_fetch_array($run_phase7_islamic));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
@@ -16455,6 +19008,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase7_islamic);
                 while(mysqli_fetch_array($run_phase7_islamic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td>  ';
                 
@@ -16481,6 +19038,10 @@ $term = 4;
                 $rows = mysqli_fetch_array($run_phase7_islamic);
                 while(mysqli_fetch_array($run_phase7_islamic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td>  ';
             
@@ -16503,6 +19064,11 @@ if($phase7_subject_id == 15 ){
     if(mysqli_num_rows($run_phase7_islamic) > 0){
         $rows = mysqli_fetch_array($run_phase7_islamic);
         while(mysqli_fetch_array($run_phase7_islamic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -16534,6 +19100,11 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
                 if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="general">General average</td>
@@ -16560,6 +19131,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
         if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
             $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+
+            if($rows['general_average'] == 0 ){
+                $rows['general_average'] = " ";
+                }
             $html.='
             <td>'.$rows['general_average'].'</td>  ';
         
@@ -16585,6 +19160,10 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
             $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
             if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
                 $html.='
                 <td>'.$rows['general_average'].'</td>  ';
             
@@ -16613,6 +19192,11 @@ $term = 4;
             $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
             if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
+
                 $html.='
                   <td>'.$rows['general_average'].'</td>  ';
             
@@ -16639,12 +19223,20 @@ if( $phase7_subject_id == 16){
     $run_phase7_term1_general_average = mysqli_query($conn,$phase7_term1_general_average_query);
     if(mysqli_num_rows($run_phase7_term1_general_average)> 0 ){
         $rows = mysqli_fetch_array($run_phase7_term1_general_average);
+
+        if($rows['general_average'] == 0 ){
+            $rows['general_average'] = " ";
+            }
         $html.='
         <td>'.$rows['general_average'].'</td> 
         <td></td>
         </tbody>
         </tr>
         ';
+
+        //count
+
+        
     
 
 
@@ -16676,6 +19268,14 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
         if(mysqli_num_rows($phase7_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase7_run_query);
             while(mysqli_fetch_array($phase7_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <table class="remedial-2">
             <thead>
@@ -16720,6 +19320,14 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
         if(mysqli_num_rows($phase7_run_query)> 0 ){
             $rows = mysqli_fetch_array($phase7_run_query);
             while(mysqli_fetch_array($phase7_run_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <tr>
             <td>'.$rows['learning_areas'].'</td>
@@ -16832,6 +19440,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_mt);
                     while(mysqli_fetch_array($run_phase8_mt));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.=' 
                         <tr>
                         <td class="mother">Mother&#8216s Tongue</td>
@@ -16859,6 +19471,10 @@ if(mysqli_num_rows($run_phase8_mt) > 0){
     $rows = mysqli_fetch_array($run_phase8_mt);
     while(mysqli_fetch_array($run_phase8_mt));
 
+    if($rows['grade'] == 0 ){
+        $rows['grade'] = " ";
+        }
+
         $html.='   <td>'.$rows['grade'].'</td>  ';
     
     }
@@ -16880,6 +19496,10 @@ $run_phase8_mt = mysqli_query($conn,$phase8_mt);
 if(mysqli_num_rows($run_phase8_mt) > 0){
     $rows = mysqli_fetch_array($run_phase8_mt);
     while(mysqli_fetch_array($run_phase8_mt));
+
+    if($rows['grade'] == 0 ){
+        $rows['grade'] = " ";
+        }
 
         $html.='  <td>'.$rows['grade'].'</td> ';
     
@@ -16907,6 +19527,10 @@ if(mysqli_num_rows($run_phase8_mt) > 0){
 $rows = mysqli_fetch_array($run_phase8_mt);
 while(mysqli_fetch_array($run_phase8_mt));
 
+if($rows['grade'] == 0 ){
+    $rows['grade'] = " ";
+    }
+
     $html.='  <td>'.$rows['grade'].'</td>  ';
 
 }
@@ -16927,6 +19551,11 @@ $run_phase8_mt = mysqli_query($conn,$phase8_mt);
 if(mysqli_num_rows($run_phase8_mt) > 0){
     $rows = mysqli_fetch_array($run_phase8_mt);
     while(mysqli_fetch_array($run_phase8_mt));
+
+    if($rows['final_rating'] == 0 ){
+        $rows['final_rating'] = " ";
+        $rows['remarks'] = " ";
+       }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -16954,6 +19583,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_filipino) > 0){
                     $rows = mysqli_fetch_array($run_phase8_filipino);
                     while(mysqli_fetch_array($run_phase8_filipino));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                         $html.='
                         <tr>
@@ -16983,6 +19616,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_filipino);
                     while(mysqli_fetch_array($run_phase8_filipino));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <td> '.$rows['grade'].'</td>  ';
                     
@@ -17007,6 +19644,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_filipino) > 0){
                 $rows = mysqli_fetch_array($run_phase8_filipino);
                 while(mysqli_fetch_array($run_phase8_filipino));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
@@ -17035,6 +19676,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_filipino);
                 while(mysqli_fetch_array($run_phase8_filipino));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows['grade'].'</td> ';
                 
@@ -17057,6 +19702,11 @@ if($phase8_subject_id == 2 ){
     if(mysqli_num_rows($run_phase8_filipino) > 0){
         $rows = mysqli_fetch_array($run_phase8_filipino);
         while(mysqli_fetch_array($run_phase8_filipino));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -17083,6 +19733,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
         if(mysqli_num_rows($run_phase8_english) > 0){
             $rows = mysqli_fetch_array($run_phase8_english);
             while(mysqli_fetch_array($run_phase8_english));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
                 $html.='
                 <tr>
@@ -17112,6 +19766,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_english);
                     while(mysqli_fetch_array($run_phase8_english));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <td> '.$rows['grade'].'</td> ';
                     
@@ -17135,6 +19793,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_english) > 0){
                 $rows = mysqli_fetch_array($run_phase8_english);
                 while(mysqli_fetch_array($run_phase8_english));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td> '.$rows['grade'].'</td> ';
@@ -17161,6 +19823,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_english);
                 while(mysqli_fetch_array($run_phase8_english));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
                 
@@ -17183,6 +19849,11 @@ if($phase8_subject_id == 3 ){
     if(mysqli_num_rows($run_phase8_english) > 0){
         $rows = mysqli_fetch_array($run_phase8_english);
         while(mysqli_fetch_array($run_phase8_english));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].' </td>
@@ -17210,6 +19881,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_math) > 0){
                     $rows = mysqli_fetch_array($run_phase8_math);
                     while(mysqli_fetch_array($run_phase8_math));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                         $html.='
                         <tr>
@@ -17242,6 +19917,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_math);
                     while(mysqli_fetch_array($run_phase8_math));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                         $html.='
                         <td>'.$rows['grade'].'</td> ';
                     
@@ -17265,6 +19944,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_math) > 0){
                 $rows = mysqli_fetch_array($run_phase8_math);
                 while(mysqli_fetch_array($run_phase8_math));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                     $html.='
                     <td>'.$rows['grade'].'</td> ';
@@ -17292,6 +19975,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_math);
                 while(mysqli_fetch_array($run_phase8_math));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -17314,6 +20001,11 @@ if($phase8_subject_id == 4 ){
     if(mysqli_num_rows($run_phase8_math) > 0){
         $rows = mysqli_fetch_array($run_phase8_math);
         while(mysqli_fetch_array($run_phase8_math));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -17341,6 +20033,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     if(mysqli_num_rows($run_phase8_science) > 0){
                         $rows = mysqli_fetch_array($run_phase8_science);
                         while(mysqli_fetch_array($run_phase8_science));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                             $html.='
                             <tr>
@@ -17371,6 +20067,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     if(mysqli_num_rows($run_phase8_science) > 0){
                         $rows = mysqli_fetch_array($run_phase8_science);
                         while(mysqli_fetch_array($run_phase8_science));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                             $html.='
                             <td>'.$rows['grade'].'</td>  ';
@@ -17397,6 +20097,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_science) > 0){
                     $rows = mysqli_fetch_array($run_phase8_science);
                     while(mysqli_fetch_array($run_phase8_science));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -17423,6 +20127,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_science) > 0){
                     $rows = mysqli_fetch_array($run_phase8_science);
                     while(mysqli_fetch_array($run_phase8_science));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -17446,6 +20154,11 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
         if(mysqli_num_rows($run_phase8_science) > 0){
             $rows = mysqli_fetch_array($run_phase8_science);
             while(mysqli_fetch_array($run_phase8_science));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
@@ -17473,6 +20186,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     if(mysqli_num_rows($run_phase8_AP) > 0){
                         $rows = mysqli_fetch_array($run_phase8_AP);
                         while(mysqli_fetch_array($run_phase8_AP));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <tr>
@@ -17500,6 +20217,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     if(mysqli_num_rows($run_phase8_AP) > 0){
                         $rows = mysqli_fetch_array($run_phase8_AP);
                         while(mysqli_fetch_array($run_phase8_AP));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <td> '.$rows['grade'].'</td>  ';
@@ -17523,6 +20244,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_AP) > 0){
                     $rows = mysqli_fetch_array($run_phase8_AP);
                     while(mysqli_fetch_array($run_phase8_AP));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
     
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
@@ -17548,6 +20273,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_AP);
                 while(mysqli_fetch_array($run_phase8_AP));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                   <td> '.$rows['grade'].'</td> ';
             
@@ -17569,6 +20298,11 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
         if(mysqli_num_rows($run_phase8_AP) > 0){
             $rows = mysqli_fetch_array($run_phase8_AP);
             while(mysqli_fetch_array($run_phase8_AP));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
             $html.='
             <td>'.$rows['final_rating'].'</td>
@@ -17598,6 +20332,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_ep_tle);
                     while(mysqli_fetch_array($run_phase8_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="epp">EPP/TLE</td>
@@ -17626,6 +20364,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_ep_tle);
                     while(mysqli_fetch_array($run_phase8_ep_tle));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -17649,6 +20391,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_ep_tle) > 0){
                 $rows = mysqli_fetch_array($run_phase8_ep_tle);
                 while(mysqli_fetch_array($run_phase8_ep_tle));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
@@ -17674,6 +20420,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_ep_tle);
                 while(mysqli_fetch_array($run_phase8_ep_tle));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td> ';
             
@@ -17697,6 +20447,11 @@ if($phase8_subject_id == 7 ){
     if(mysqli_num_rows($run_phase8_ep_tle) > 0){
         $rows = mysqli_fetch_array($run_phase8_ep_tle);
         while(mysqli_fetch_array($run_phase8_ep_tle));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -17725,6 +20480,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_mapeh) > 0){
                     $rows = mysqli_fetch_array($run_phase8_mapeh);
                     while(mysqli_fetch_array($run_phase8_mapeh));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <tr>
@@ -17756,6 +20515,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_mapeh);
                     while(mysqli_fetch_array($run_phase8_mapeh));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
                 
@@ -17778,6 +20541,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_mapeh) > 0){
                 $rows = mysqli_fetch_array($run_phase8_mapeh);
                 while(mysqli_fetch_array($run_phase8_mapeh));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td> '.$rows['grade'].'</td>  ';
@@ -17804,6 +20571,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             $rows = mysqli_fetch_array($run_phase8_mapeh);
             while(mysqli_fetch_array($run_phase8_mapeh));
 
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
+
             $html.='
             <td> '.$rows['grade'].'</td>  ';
         
@@ -17825,6 +20596,11 @@ if($phase8_subject_id == 8 ){
     if(mysqli_num_rows($run_phase8_mapeh) > 0){
         $rows = mysqli_fetch_array($run_phase8_mapeh);
         while(mysqli_fetch_array($run_phase8_mapeh));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -17852,6 +20628,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_music);
                 while(mysqli_fetch_array($run_phase8_music));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <tr>
                 <td class="music">Music</td>
@@ -17878,6 +20658,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     if(mysqli_num_rows($run_phase8_music) > 0){
                         $rows = mysqli_fetch_array($run_phase8_music);
                         while(mysqli_fetch_array($run_phase8_music));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
     
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -17900,6 +20684,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
         if(mysqli_num_rows($run_phase8_music) > 0){
             $rows = mysqli_fetch_array($run_phase8_music);
             while(mysqli_fetch_array($run_phase8_music));
+
+            if($rows['grade'] == 0 ){
+                $rows['grade'] = " ";
+                }
 
             $html.='
             <td>'.$rows['grade'].'</td>  ';
@@ -17925,6 +20713,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
         $rows = mysqli_fetch_array($run_phase8_music);
         while(mysqli_fetch_array($run_phase8_music));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
         $html.='
         <td>'.$rows['grade'].'</td> ';
     
@@ -17945,6 +20737,11 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
         if(mysqli_num_rows($run_phase8_music) > 0){
             $rows = mysqli_fetch_array($run_phase8_music);
             while(mysqli_fetch_array($run_phase8_music));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
     
             $html.='
             <td> '.$rows['final_rating'].'</td>
@@ -17971,6 +20768,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_arts) > 0){
                     $rows = mysqli_fetch_array($run_phase8_arts);
                     while(mysqli_fetch_array($run_phase8_arts));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <tr>
@@ -17999,6 +20800,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         if(mysqli_num_rows($run_phase8_arts) > 0){
                             $rows = mysqli_fetch_array($run_phase8_arts);
                             while(mysqli_fetch_array($run_phase8_arts));
+
+                            if($rows['grade'] == 0 ){
+                                $rows['grade'] = " ";
+                                }
         
                             $html.='
                             <td>'.$rows['grade'].'</td>  ';
@@ -18024,6 +20829,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     if(mysqli_num_rows($run_phase8_arts) > 0){
                         $rows = mysqli_fetch_array($run_phase8_arts);
                         while(mysqli_fetch_array($run_phase8_arts));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
         
                         $html.='
                         <td>'.$rows['grade'].'</td> ';
@@ -18049,6 +20858,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     if(mysqli_num_rows($run_phase8_arts) > 0){
                         $rows = mysqli_fetch_array($run_phase8_arts);
                         while(mysqli_fetch_array($run_phase8_arts));
+
+                        if($rows['grade'] == 0 ){
+                            $rows['grade'] = " ";
+                            }
         
                         $html.='
                         <td>'.$rows['grade'].'</td>  ';
@@ -18073,6 +20886,11 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_arts) > 0){
                 $rows = mysqli_fetch_array($run_phase8_arts);
                 while(mysqli_fetch_array($run_phase8_arts));
+
+                if($rows['final_rating'] == 0 ){
+                    $rows['final_rating'] = " ";
+                    $rows['remarks'] = " ";
+                   }
         
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
@@ -18101,6 +20919,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_pe);
                     while(mysqli_fetch_array($run_phase8_pe));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="pe">Physical Education</td>
@@ -18128,6 +20950,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_pe);
                     while(mysqli_fetch_array($run_phase8_pe));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -18153,6 +20979,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_pe);
                 while(mysqli_fetch_array($run_phase8_pe));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -18176,6 +21006,10 @@ if($phase8_subject_id == 11 ){
         $rows = mysqli_fetch_array($run_phase8_pe);
         while(mysqli_fetch_array($run_phase8_pe));
 
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
+
         $html.='
         <td>'.$rows['grade'].'</td>  ';
     
@@ -18196,6 +21030,11 @@ if($phase8_subject_id == 11 ){
     if(mysqli_num_rows($run_phase8_pe) > 0){
         $rows = mysqli_fetch_array($run_phase8_pe);
         while(mysqli_fetch_array($run_phase8_pe));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -18225,6 +21064,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_health);
                     while(mysqli_fetch_array($run_phase8_health));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="health">Health</td>
@@ -18253,6 +21096,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_health);
                     while(mysqli_fetch_array($run_phase8_health));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows['grade'].'</td> ';
                 
@@ -18277,6 +21124,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_health) > 0){
                 $rows = mysqli_fetch_array($run_phase8_health);
                 while(mysqli_fetch_array($run_phase8_health));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td> '.$rows['grade'].'</td> ';
@@ -18304,6 +21155,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_health);
                 while(mysqli_fetch_array($run_phase8_health));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td> ';
             
@@ -18325,6 +21180,11 @@ if($phase8_subject_id == 12 ){
     if(mysqli_num_rows($run_phase8_health) > 0){
         $rows = mysqli_fetch_array($run_phase8_health);
         while(mysqli_fetch_array($run_phase8_health));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -18352,6 +21212,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_esp) > 0){
                     $rows = mysqli_fetch_array($run_phase8_esp);
                     while(mysqli_fetch_array($run_phase8_esp));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <tr>
@@ -18382,6 +21246,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_esp);
                     while(mysqli_fetch_array($run_phase8_esp));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -18403,6 +21271,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
     if(mysqli_num_rows($run_phase8_esp) > 0){
         $rows = mysqli_fetch_array($run_phase8_esp);
         while(mysqli_fetch_array($run_phase8_esp));
+
+        if($rows['grade'] == 0 ){
+            $rows['grade'] = " ";
+            }
 
         $html.='
         <td>'.$rows['grade'].'</td>  ';
@@ -18429,6 +21301,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_esp);
                 while(mysqli_fetch_array($run_phase8_esp));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -18449,6 +21325,11 @@ if($phase8_subject_id == 13 ){
     if(mysqli_num_rows($run_phase8_esp) > 0){
         $rows = mysqli_fetch_array($run_phase8_esp);
         while(mysqli_fetch_array($run_phase8_esp));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
@@ -18478,6 +21359,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_arabic);
                     while(mysqli_fetch_array($run_phase8_arabic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="arabic">*Arabic language</td>
@@ -18506,6 +21391,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_arabic);
                     while(mysqli_fetch_array($run_phase8_arabic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td> '.$rows['grade'].'</td>  ';
                 
@@ -18530,6 +21419,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_arabic) > 0){
                 $rows = mysqli_fetch_array($run_phase8_arabic);
                 while(mysqli_fetch_array($run_phase8_arabic));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td> '.$rows['grade'].'</td>  ';
@@ -18557,6 +21450,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_arabic);
                 while(mysqli_fetch_array($run_phase8_arabic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td> '.$rows['grade'].'</td>  ';
             
@@ -18579,6 +21476,11 @@ if($phase8_subject_id == 14 ){
     if(mysqli_num_rows($run_phase8_arabic) > 0){
         $rows = mysqli_fetch_array($run_phase8_arabic);
         while(mysqli_fetch_array($run_phase8_arabic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -18606,6 +21508,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 if(mysqli_num_rows($run_phase8_islamic) > 0){
                     $rows = mysqli_fetch_array($run_phase8_islamic);
                     while(mysqli_fetch_array($run_phase8_islamic));
+
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
 
                     $html.='
                     <tr>
@@ -18636,6 +21542,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows = mysqli_fetch_array($run_phase8_islamic);
                     while(mysqli_fetch_array($run_phase8_islamic));
 
+                    if($rows['grade'] == 0 ){
+                        $rows['grade'] = " ";
+                        }
+
                     $html.='
                     <td>'.$rows['grade'].'</td>  ';
                 
@@ -18658,6 +21568,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             if(mysqli_num_rows($run_phase8_islamic) > 0){
                 $rows = mysqli_fetch_array($run_phase8_islamic);
                 while(mysqli_fetch_array($run_phase8_islamic));
+
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
 
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
@@ -18685,6 +21599,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $rows = mysqli_fetch_array($run_phase8_islamic);
                 while(mysqli_fetch_array($run_phase8_islamic));
 
+                if($rows['grade'] == 0 ){
+                    $rows['grade'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['grade'].'</td>  ';
             
@@ -18707,6 +21625,11 @@ if($phase8_subject_id == 15 ){
     if(mysqli_num_rows($run_phase8_islamic) > 0){
         $rows = mysqli_fetch_array($run_phase8_islamic);
         while(mysqli_fetch_array($run_phase8_islamic));
+
+        if($rows['final_rating'] == 0 ){
+            $rows['final_rating'] = " ";
+            $rows['remarks'] = " ";
+           }
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
@@ -18734,6 +21657,11 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
                 if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
                     $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+
+                    if($rows['general_average'] == 0 ){
+                        $rows['general_average'] = " ";
+                        }
+
                     $html.='
                     <tr>
                     <td class="general">General average</td>
@@ -18762,6 +21690,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
             if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
                 $html.='
                 <td>'.$rows['general_average'].'</td>  ';
             
@@ -18788,6 +21720,11 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
             if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
+
                 $html.='
                 <td>'.$rows['general_average'].'</td>  ';
             
@@ -18813,6 +21750,10 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
             if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
                 $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+
+                if($rows['general_average'] == 0 ){
+                    $rows['general_average'] = " ";
+                    }
                 $html.='
                 <td>'.$rows['general_average'].'</td> ';
             
@@ -18836,6 +21777,10 @@ if( $phase8_subject_id == 16){
     $run_phase8_term1_general_average = mysqli_query($conn,$phase8_term1_general_average_query);
     if(mysqli_num_rows($run_phase8_term1_general_average)> 0 ){
         $rows = mysqli_fetch_array($run_phase8_term1_general_average);
+
+        if($rows['general_average'] == 0 ){
+            $rows['general_average'] = " ";
+            }
         $html.='
         <td>'.$rows['general_average'].'</td>
         <td></td>
@@ -18843,6 +21788,8 @@ if( $phase8_subject_id == 16){
         </tbody>
 
         ';
+
+        // count 
     
 
 
@@ -18866,6 +21813,14 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
         if(mysqli_num_rows($run_cert_query)> 0 ){
             $rows = mysqli_fetch_array($run_cert_query);
             while(mysqli_fetch_array($run_cert_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <table class="remedial-2">
             <thead>
@@ -18906,6 +21861,14 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
         if(mysqli_num_rows($run_cert_query)> 0 ){
             $rows = mysqli_fetch_array($run_cert_query);
             while(mysqli_fetch_array($run_cert_query));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+               }
+
+               if($rows['recomputed_final_grade'] == 0 ){
+                $rows['recomputed_final_grade'] = " ";
+               }
             $html.='
             <tr>
             <td>'.$rows['learning_areas'].'</td>
@@ -18935,7 +21898,7 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
 
 
 //certifications
-$cert_query = " SELECT * FROM `cetifications` WHERE lrn ='$lrn' ";
+$cert_query = " SELECT * FROM `certifications` WHERE lrn ='$lrn' AND phase = '$phase1' ";
 $run_cert_query = mysqli_query($conn,$cert_query);
 if(mysqli_num_rows($run_cert_query)> 0 ){
     $rows = mysqli_fetch_array($run_cert_query);
@@ -18955,7 +21918,6 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 <label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
 <label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
 </div>
-
 <div class="second-row">
 
 <label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
@@ -18968,7 +21930,7 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 <div class="third-row">
 <div class="bottom-col">
 <label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
-<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['name_of_principal'].'</span></label>
 </div>
 <div class="bottom-names">
 <label class="date">Date</label>
@@ -18980,91 +21942,107 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
 
 
 </div>
+';}
+
+//phase 2 certification
 
 
-<div class="transfer-out">
-<h6>For Transfer Out/ Elementary School Completer Only</h6>
-</div> 
-<div class="bottom-container-1">
-<div class="certification-top">
-<h4 class="cert">Certification</h4>
-</div>
-
-<div class="Certify">
-<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].'</span>  </label> 
-<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
-<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
-</div>
-
-<div class="second-row">
-
-<label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
-<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
-<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
-<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
-</div>
-
-
-<div class="third-row">
-<div class="bottom-col">
-<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
-<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
-</div>
-<div class="bottom-names">
-<label class="date">Date</label>
-<label class="name-of-principal">Name of Principal/ School Head Over Printed Name</label>
-<label class="affix">(Affix School Seal Here)</label>
-</div>
-
-</div>
-
-
-</div>
-
-
-
-<div class="transfer-out">
-<h6>For Transfer Out/ Elementary School Completer Only</h6>
-</div> 
-<div class="bottom-container-2">
-<div class="certification-top">
-<h4 class="cert">Certification</h4>
-</div>
-
-<div class="Certify">
-<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].'</span>  </label> 
-<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
-<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
-</div>
-
-<div class="second-row">
-
-<label class="school-name" for="">School Name:<span class="school-name-underline"> '.$rows['name_of_school'].'</span> </label> 
-<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
-<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
-<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
-</div>
-
-
-<div class="third-row">
-<div class="bottom-col">
-<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
-<label class="data-name"> <span class="name-underline">'.$rows['Name_of_Principal'].'</span></label>
-</div>
-<div class="bottom-names">
-<label class="date">Date</label>
-<label class="name-of-principal">Name of Principal/ School Head Over Printed Name</label>
-<label class="affix">(Affix School Seal Here)</label>
-</div>
-
-</div>
-
-
-</div>
-  ';
+$cert_query = " SELECT * FROM `certifications` WHERE lrn ='$lrn' AND phase = '$phase2' ";
+$run_cert_query = mysqli_query($conn,$cert_query);
+if(mysqli_num_rows($run_cert_query)> 0 ){
+    $rows = mysqli_fetch_array($run_cert_query);
+    while(mysqli_fetch_array($run_cert_query));
         
-}
 
+  $html .='
+  <div class="transfer-out">
+<h6>For Transfer Out/ Elementary School Completer Only</h6>
+</div> 
+<div class="bottom-container">
+<div class="certification-top">
+<h4 class="cert">Certification</h4>
+</div>
+<div class="Certify">
+<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].' </span> </label> 
+<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
+<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
+</div>
+<div class="second-row">
+
+<label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
+<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
+<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
+<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
+</div>
+
+
+<div class="third-row">
+<div class="bottom-col">
+<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['name_of_principal'].'</span></label>
+</div>
+<div class="bottom-names">
+<label class="date">Date</label>
+<label class="name-of-principal">Name of Principal/ School Head Over Printed Name</label>
+<label class="affix">(Affix School Seal Here)</label>
+</div>
+
+</div>
+
+
+</div>
+';}
+
+
+
+//phase 3 certification
+
+
+$cert_query = " SELECT * FROM `certifications` WHERE lrn ='$lrn' AND phase = '$phase3' ";
+$run_cert_query = mysqli_query($conn,$cert_query);
+if(mysqli_num_rows($run_cert_query)> 0 ){
+    $rows = mysqli_fetch_array($run_cert_query);
+    while(mysqli_fetch_array($run_cert_query));
+        
+
+  $html .='
+  <div class="transfer-out">
+<h6>For Transfer Out/ Elementary School Completer Only</h6>
+</div> 
+<div class="bottom-container">
+<div class="certification-top">
+<h4 class="cert">Certification</h4>
+</div>
+<div class="Certify">
+<label class="certify" for="">CERTIFY that this is a true record of <span class="certify_underline">'.$rows['name'].' </span> </label> 
+<label class="LRN" for="">with LRN <span class="LRN_underline">'.$rows['lrn'].'</span> </label> 
+<label class="admission" for="">and that he/she is eligible for admission to Grade<span class="admission_underline"> '.$rows['grade'].'</span> </label> 
+</div>
+<div class="second-row">
+
+<label class="school-name" for="">School Name:<span class="school-name-underline">'.$rows['name_of_school'].'</span>  </label> 
+<label class="school-id" for="">School ID<span class="school-id-underline">'.$rows['school_id'].'</span>  </label> 
+<label class="Division" for="">Division <span class="Division-underline">'.$rows['division'].'</span>  </label> 
+<label class="last-school" for="">Last School Year Attended <span class="last-school-underline"> '.$rows['last_school_year_attended'].'</span> </label>
+</div>
+
+
+<div class="third-row">
+<div class="bottom-col">
+<label class="data-date"> <span class="date-underline">'.$rows['date'].'</span></label>
+<label class="data-name"> <span class="name-underline">'.$rows['name_of_principal'].'</span></label>
+</div>
+<div class="bottom-names">
+<label class="date">Date</label>
+<label class="name-of-principal">Name of Principal/ School Head Over Printed Name</label>
+<label class="affix">(Affix School Seal Here)</label>
+</div>
+
+</div>
+
+
+</div>
+';}
 
 
 // end of remedial
