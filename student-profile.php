@@ -36,6 +36,7 @@ if(isset($_GET['sid'])){
 <?php include 'includes/header.php';?>
 <link rel="stylesheet" href="src/css/phase-style.css">
 <link rel="stylesheet" href="src/css/modal-email.css">
+<link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 <?php include 'includes/topnav.php';?>
 <?php include 'includes/pre-load.php';?>
 <div class="container-fluid text-end py-1" style="background:#c0c0c0;">
@@ -93,9 +94,23 @@ if(isset($_GET['sid'])){
     </div>
   </div>
 </div>
-<div class="container-xl bg-white">
-    <form novalidate action="new-edit-students.php" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
-    <fieldset class="pb-5">
+<div class="container-xl bg-white" id="smartwizard">
+    <ul class="nav">
+       <li>
+           <a class="nav-link" href="#step-1">
+              Front 
+           </a>
+       </li>
+       <li>
+           <a class="nav-link" href="#step-2">
+              Back
+           </a>
+       </li>
+    </ul>
+
+    <div class="tab-content">
+       <div id="step-1" class="tab-pane" role="tabpanel">
+       <form novalidate action="new-edit-students.php" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
         <section class="form-top d-flex flex-row justify-content-around align-items-center">
           <img src="src/images/DepEd.png" width="120" height="120" alt="">
           <span class="text-center">
@@ -3570,10 +3585,9 @@ if(isset($_GET['sid'])){
         <?php }?>
       </div>
     </div>
-      <input type="button" class="next-form text-end btn btn-success" style="float: right;" value="Next" />
-    </fieldset>
-    <fieldset class="pb-5">
-      <!-- BACK PHASES -->
+       </div>
+       <div id="step-2" class="tab-pane" role="tabpanel">
+           <!-- BACK PHASES -->
       <div class="gen-container d-flex flex-row">
       <div class="form-container" style="padding: 0 7px 7px 0;">
       <section class="header">
@@ -3642,7 +3656,6 @@ if(isset($_GET['sid'])){
           value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
         </span>
       </span>
-    
     </section>
       <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
         <thead>
@@ -7297,9 +7310,9 @@ if(isset($_GET['sid'])){
     </div>
     <?php }?>
     </div>
-      <input type="button" name="previous" style="float:left;" class="previous-form btn btn-danger" value="Previous" /> 
-    </fieldset>
-      <!-- -->
+       </div>
+    </div>
+  
   </form>
 </div>
 <!-- <script src="src/js/stepper.js"></script> -->
@@ -7307,6 +7320,6 @@ if(isset($_GET['sid'])){
 <script src="src/js/number_limitation.js"></script>
 <script src="src/js/bootstrap.js"></script>
 <script src="src/js/email.js"></script>
-<?php
-include 'includes/footer.php';
-?>
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+<script src="src/js/smartwizard-settings.js"></script>
+<script src="src/js/smartwizard_init.js"></script>

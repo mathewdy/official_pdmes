@@ -49,7 +49,7 @@ $(document).ready(function(){
 
 
     //limit for lrn 
-    $('input[name=lrn]').keyup(function(){
+    $('input[name=lrn] [name=phase_1_lrn').keyup(function(){
         var maxLRN = 12;
         if($(this).val().length >= maxLRN){
             $(this).val($(this).val().substr(0, maxLRN));

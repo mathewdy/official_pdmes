@@ -46,6 +46,7 @@ if(isset($_GET['sid'])){
 <?php include 'includes/header.php';?>
 <link rel="stylesheet" href="src/css/phase-style.css">
 <link rel="stylesheet" href="src/css/modal-email.css">
+<link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
 <?php include 'includes/topnav.php';?>
 <?php include 'includes/pre-load.php'; ?>
 <div class="container-fluid text-end py-1" style="background:#c0c0c0;">
@@ -103,866 +104,870 @@ if(isset($_GET['sid'])){
     </div>
   </div>
 </div>
-<div class="container-xl bg-white">
-    <form novalidate action="" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
-    <fieldset class="pb-5">
-        <section class="form-top d-flex flex-row justify-content-around align-items-center">
-          <img src="src/images/DepEd.png" width="120" height="120" alt="">
-          <span class="text-center">
-              <p class="p-0 m-0">Republic of the Philippines</p>
-              <p class="p-0 m-0">Department of Education	</p> 
-              <h4 class="fw-bold">Learner's Permanent Academic Record for Elementary School</h4>
-              <h4 class="p-0 m-0">(SF10-ES)</h4>
-              <p class="p-0 m-0"><i>(Formerly Form 137)</i></p>
-          </span>
-          <img src="src/images/DepEd_2.png" width="150" height="100" alt="">
-        </section>
-        <p style="background:#808080; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">LEARNER'S PERSONAL INFORMATION</p>
-          <section class="line-1 pt-2 pb-2 d-flex justify-content-between">
-            <span class="hstack d-flex align-items-center">
-            <?php
-            $sql_student_info = "SELECT * FROM learners_personal_infos
-            LEFT JOIN eligibility_for_elementary_school_enrollment on eligibility_for_elementary_school_enrollment.lrn = learners_personal_infos.lrn
-            WHERE learners_personal_infos.lrn = '$decrypted_lrn'";
-            $query_student_info = mysqli_query($conn, $sql_student_info);
-            $rows = mysqli_fetch_array($query_student_info);
-            $credentials = explode(',',$rows['credential_presented']);
-            $pept_passer = explode(',', $rows['pept_passer']);
-            $efese_others = explode(',', $rows['others']);
-            ?>
-                    <label for="">LAST NAME:</label>
-                    <input type="text" id="text-only" name="last_name" 
-                    value="<?php if(empty($rows['last_name'])){ echo "";}else{ echo $rows['last_name'];}?>" required>    
+<!-- stepper -->
+<div class="container-xl bg-white" id="smartwizard">
+    <!-- stepper nav -->
+    <ul class="nav">
+       <li>
+           <a class="nav-link" href="#step-1">
+              Front 
+           </a>
+       </li>
+       <li>
+           <a class="nav-link" href="#step-2">
+              Back
+           </a>
+       </li>
+    </ul>
+  <!-- stepper content -->
+    <div class="tab-content">
+        <!-- content 1 -->
+       <div id="step-1" class="tab-pane" role="tabpanel">
+        <form novalidate action="" id="up_form" class="pb-3 pt-2 mx-0" method="POST">
+            <section class="form-top d-flex flex-row justify-content-around align-items-center">
+            <img src="src/images/DepEd.png" width="120" height="120" alt="">
+            <span class="text-center">
+                <p class="p-0 m-0">Republic of the Philippines</p>
+                <p class="p-0 m-0">Department of Education	</p> 
+                <h4 class="fw-bold">Learner's Permanent Academic Record for Elementary School</h4>
+                <h4 class="p-0 m-0">(SF10-ES)</h4>
+                <p class="p-0 m-0"><i>(Formerly Form 137)</i></p>
             </span>
-            <span class="hstack d-flex align-items-center">
-                <label for="">FIRST NAME:</label>
-                <input type="text" id="text-only" name="first_name"
-                value="<?php if(empty($rows['first_name'])){ echo "";}else{ echo $rows['first_name'];}?>" required>   
-            </span>
-            <span class="hstack d-flex align-items-center" >
-                <label for="">NAME EXTN. (Jr,I,II): </label>
-                <input type="text" id="text-only" name="suffix_name" 
-                value="<?php if(empty($rows['suffix'])){ echo "";}else{ echo $rows['suffix'];}?>">
-            </span>
-            <span class="hstack d-flex justify-content-end align-items-center">
-                <label for="">MIDDLE NAME: </label>
-                <input type="text" id="text-only" name="middle_name" 
-                value="<?php if(empty($rows['middle_name'])){ echo "";}else{ echo $rows['middle_name'];}?>" required>                    
-            </span>
-        </section>
-        <section class="line-2 d-flex justify-content-between">
-            <span class="hstack d-flex align-items-end w-75">
-                <label for="">Learner Reference Number (LRN):</label>
-                <input type="text" style="margin: 0 1em 0 0; width:30%;" name="lrn" 
-                value="<?php if(empty($rows['lrn'])){ echo "";}else{ echo $rows['lrn'];}?>" required>
-
-                <label for="">Birthdate (mm/dd/yyyy):</label>
-                <input type="date" name="birthday" value="<?php echo strftime('%Y-%m-%d', strtotime($rows['birth_date']));?>" required>  
-            </span>
-            <span class="hstack d-flex align-items-center w-25">
-            <label for="">Sex:</label>
-                <select class=" w-100" name="sex" id="" required>
-                <option value="">-Gender-</option>
-                <option value="Male"
+            <img src="src/images/DepEd_2.png" width="150" height="100" alt="">
+            </section>
+            <p style="background:#808080; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">LEARNER'S PERSONAL INFORMATION</p>
+            <section class="line-1 pt-2 pb-2 d-flex justify-content-between">
+                <span class="hstack d-flex align-items-center">
                 <?php
-                    if ($rows['sex'] == "Male"){
-                        echo "Selected";
-                    }
-                    ?>
-                >Male</option>
-                <option value="Female"
-                <?php
-                    if ($rows['sex'] == "Female"){
-                        echo "Selected";
-                    }
+                $sql_student_info = "SELECT * FROM learners_personal_infos
+                LEFT JOIN eligibility_for_elementary_school_enrollment on eligibility_for_elementary_school_enrollment.lrn = learners_personal_infos.lrn
+                WHERE learners_personal_infos.lrn = '$decrypted_lrn'";
+                $query_student_info = mysqli_query($conn, $sql_student_info);
+                $rows = mysqli_fetch_array($query_student_info);
+                $credentials = explode(',',$rows['credential_presented']);
+                $pept_passer = explode(',', $rows['pept_passer']);
+                $efese_others = explode(',', $rows['others']);
                 ?>
-                >Female</option>
-                </select>
-            </span>
-        </section>
-        <p style="background:#d3d3d3; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">ELIGIBILITY FOR ELEMENTARY SCHOOL ENROLLMENT</p>
-          <div class="credentials-row border border-dark px-2">
-            <div class="d-flex flex-row justify-content-between">
-                <i>Credential Presented for Grade 1</i>
-                <span class="form-check form-check-inline">
-                    <label class="form-check-label">Kinder Progress Report </label>
-                    <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kinder Progress Report"
-                    <?php echo (in_array("Kinder Progress Report", $credentials)? 'checked':'') ?>>
-                </span>
-                <span class="form-check form-check-inline">
-                    <label class="form-check-label">ECCD Checklist </label>
-                    <input type="checkbox" class="form-check-input" name="credential_presented[]" value="ECCD Checklist"
-                    <?php echo (in_array("ECCD Checklist", $credentials)? 'checked':'') ?>>
-                </span>
-                <span class="form-check form-check-inline">
-                    <label class="form-check-label">Kindergarden Certificate of Completion </label>
-                    <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kindergarden Certificate of Completion"
-                    <?php echo (in_array("Kindergarden Certificate of Completion", $credentials)? 'checked':'') ?>>
-                </span>
-            </div>
-            <section class="cred-info d-flex flex-row justify-content-between">
-                <span class="hstack d-flex align-items-center">
-                    <label for="">Name of School:</label>
-                    <input type="text" name="efese_name_of_school" 
-                    value="<?php if(empty($rows['name_of_school'])){ echo "";}else{ echo $rows['name_of_school'];}?>" required>
-                </span>
-                <span class="hstack d-flex align-items-center justify-content-start">
-                    <label for="">School ID:</label>
-                    <input type="text" name="efese_school_id"  id="dash"
-                    value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" required>
+                        <label for="">LAST NAME:</label>
+                        <input type="text" id="text-only" name="last_name" 
+                        value="<?php if(empty($rows['last_name'])){ echo "";}else{ echo $rows['last_name'];}?>" required>    
                 </span>
                 <span class="hstack d-flex align-items-center">
-                <label for="">Address of School:</label>
-                <input type="text" name="efese_address_of_school" 
-                value="<?php if(empty($rows['address_of_school'])){ echo "";}else{ echo $rows['address_of_school'];}?>" required>
+                    <label for="">FIRST NAME:</label>
+                    <input type="text" id="text-only" name="first_name"
+                    value="<?php if(empty($rows['first_name'])){ echo "";}else{ echo $rows['first_name'];}?>" required>   
                 </span>
-              </section>
-          </div>
-        <div class="other-cred">
-            <p>Other Credential Presented</p>
-            <span class="wrapper d-flex flex-row justify-content-evenly">
-                <span>
-                <input type="checkbox" class="form-check-input" name="pept_passer" value="1"
-                <?php echo (in_array("1", $pept_passer)? 'checked':'') ?>>
-                  <label class="form-check-label" style="padding: 0 2px 0 0;">PEPT Passer</label>
-                  <label for="">Rating:</label>
-                  <input type="number" class="w-30" name="efese_rating" 
-                  value="<?php if(empty($rows['rating'])){ echo "";}else{ echo $rows['rating'];}?>" required>
+                <span class="hstack d-flex align-items-center" >
+                    <label for="">NAME EXTN. (Jr,I,II): </label>
+                    <input type="text" id="text-only" name="suffix_name" 
+                    value="<?php if(empty($rows['suffix'])){ echo "";}else{ echo $rows['suffix'];}?>">
                 </span>
-                <span>
-                  <label for="">Date of Examination/Assessment (mm/dd/yyyy):</label>
-                  <input type="date" name="date_of_assessment" value="<?php echo strftime('%Y-%m-%d', strtotime($rows['date_of_assessment']));?>" id=""> 
-                  
-                  <input type="checkbox" class="form-check-input" name="efese_others" value="1"
-                  <?php echo (in_array("1", $efese_others)? 'checked':'') ?>>
-                  <label for="">Others (Pls. Specify):</label>
-                  <input type="text" style="width:20%;" 
-                  value="<?php if(empty($rows['specify'])){ echo "";}else{ echo $rows['specify'];}?>" name="efese_specify" id="">
-              </span>
-            </span>
-            <section class="last-cred d-flex flex-row justify-content-evenly px-5">
-                <span class="hstack w-75">
-                    <label for="">Name and Address of Testing Center:</label>
-                    <input type="text" class="w-50" name="efese_testing_center" 
-                    
-                    value="<?php if(empty($rows['name_and_address_testing_center'])){ echo "";}else{ echo $rows['name_and_address_testing_center'];}?>" id="">
-                </span>
-                <span class="w-50">
-                    <label for="">Remark:</label>
-                    <input type="text" class="w-75" name="efese_remarks" 
-                    value="<?php if(empty($rows['remarks'])){ echo "";}else{ echo $rows['remarks'];}?>" id="">
+                <span class="hstack d-flex justify-content-end align-items-center">
+                    <label for="">MIDDLE NAME: </label>
+                    <input type="text" id="text-only" name="middle_name" 
+                    value="<?php if(empty($rows['middle_name'])){ echo "";}else{ echo $rows['middle_name'];}?>" required>                    
                 </span>
             </section>
-        </div>
-      <p style="background:#c0c0c0; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">SCHOLASTIC RECORDS</p>
-      <div class="gen-container d-flex flex-row mt-0 pt-0">
-      <div class="form-container" style="padding: 0 7px 7px 0 ;">
-      <section class="header">
-      <span class="d-flex justify-content-between">
-        <!-- PHASE 1 OF SCHOLASTIC RECORDS -->
-        <?php
-          $phase1_scholastic_records = "SELECT * FROM scholastic_records
-          WHERE lrn = '$decrypted_lrn' AND phase = '1'";
-          $query_phase1_scholastic_records = mysqli_query($conn, $phase1_scholastic_records) or die (mysqli_error($conn,));
-          $rows = mysqli_fetch_array($query_phase1_scholastic_records);
-          ?>
-        <span>
-          <label>School:</label>
-          <input type="text" id="text-only" name="phase1_sr_school" 
-          value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
-        </span>
-        <span>
-          <label>School ID:</label>
-          <input type="text" name="phase1_sr_school_id" id="dash"
-          value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
-        </span>
-      </span>
-      <span class="d-flex justify-content-between">
-        <span>
-          <label>District:</label>
-          <input type="text" class="w-50" name="phase1_sr_district" 
-          value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
-        </span>
-        <span>
-          <label>Division:</label>
-          <input type="text" class="w-50" name="phase1_sr_division" 
-          value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
-        </span>
-        <span class="text-end">
-          <label>Region:</label>
-          <input type="text" class="w-50" name="phase1_sr_region" id="dash"
-          value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
-        </span>
-      </span>
-      <span class="d-flex justify-content-between">
-        <span>
-          <label>Classified as Grade:</label>
-          <input type="number" id="number-only" style="width: 20%;" name="phase1_sr_classified_as_grade" 
-          value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
-        </span>
-        <span>
-          <label>Section:</label>
-          <input type="text" class="w-50" name="phase1_sr_section" 
-          value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
-        </span>
-        <span>
-          <label>School Year:</label>
-          <input type="text" class="w-50" name="phase1_sr_school_year" id="dash"
-          value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
-        </span>
-      </span>
-      <span class="d-flex justify-content-between">
-        <span>
-        <label for="">Name of Adviser:</label>
-        <input type="text" id="text-only" name="phase1_sr_name_of_adviser" 
-        value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
-        </span>
-        <span>
-          <label>Signature:</label>
-          <input type="text" id="text-only" name="phase1_sr_signature" 
-          value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
-        </span>
-      </span>
-    
-    </section>
-      <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
-        <thead>
-          <tr>
-            <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
-            <th colspan="4">Quarterly Rating</th>
-            <th rowspan="2">Final Rating</th>
-            <th rowspan="2" style="width:14%;">Remarks</th>
-          </tr>
-          <tr style="width: 5%;">
-          
-                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
-                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
-                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
-                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <?php
-            $phase1_mother_tounge = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '1'";
-            $query_phase1_mother_tounge = mysqli_query($conn, $phase1_mother_tounge) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">Mother Tongue</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_mother_tounge) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_mother_tounge)){
-            ?>
-            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '1'";
-            $query_phase1_finalrating_mother_tounge = mysqli_query($conn, $phase1_finalrating_mother_tounge);
-            if(mysqli_num_rows($query_phase1_finalrating_mother_tounge) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_mother_tounge);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
+            <section class="line-2 d-flex justify-content-between">
+                <span class="hstack d-flex align-items-end w-75">
+                    <label for="">Learner Reference Number (LRN):</label>
+                    <input type="text" style="margin: 0 1em 0 0; width:30%;" name="lrn" 
+                    value="<?php if(empty($rows['lrn'])){ echo "";}else{ echo $rows['lrn'];}?>" required>
+
+                    <label for="">Birthdate (mm/dd/yyyy):</label>
+                    <input type="date" name="birthday" value="<?php echo strftime('%Y-%m-%d', strtotime($rows['birth_date']));?>" required>  
+                </span>
+                <span class="hstack d-flex align-items-center w-25">
+                <label for="">Sex:</label>
+                    <select class=" w-100" name="sex" id="" required>
+                    <option value="">-Gender-</option>
+                    <option value="Male"
+                    <?php
+                        if ($rows['sex'] == "Male"){
+                            echo "Selected";
+                        }
+                        ?>
+                    >Male</option>
+                    <option value="Female"
+                    <?php
+                        if ($rows['sex'] == "Female"){
+                            echo "Selected";
+                        }
+                    ?>
+                    >Female</option>
+                    </select>
+                </span>
+            </section>
+            <p style="background:#d3d3d3; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">ELIGIBILITY FOR ELEMENTARY SCHOOL ENROLLMENT</p>
+            <div class="credentials-row border border-dark px-2">
+                <div class="d-flex flex-row justify-content-between">
+                    <i>Credential Presented for Grade 1</i>
+                    <span class="form-check form-check-inline">
+                        <label class="form-check-label">Kinder Progress Report </label>
+                        <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kinder Progress Report"
+                        <?php echo (in_array("Kinder Progress Report", $credentials)? 'checked':'') ?>>
+                    </span>
+                    <span class="form-check form-check-inline">
+                        <label class="form-check-label">ECCD Checklist </label>
+                        <input type="checkbox" class="form-check-input" name="credential_presented[]" value="ECCD Checklist"
+                        <?php echo (in_array("ECCD Checklist", $credentials)? 'checked':'') ?>>
+                    </span>
+                    <span class="form-check form-check-inline">
+                        <label class="form-check-label">Kindergarden Certificate of Completion </label>
+                        <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kindergarden Certificate of Completion"
+                        <?php echo (in_array("Kindergarden Certificate of Completion", $credentials)? 'checked':'') ?>>
+                    </span>
+                </div>
+                <section class="cred-info d-flex flex-row justify-content-between">
+                    <span class="hstack d-flex align-items-center">
+                        <label for="">Name of School:</label>
+                        <input type="text" name="efese_name_of_school" 
+                        value="<?php if(empty($rows['name_of_school'])){ echo "";}else{ echo $rows['name_of_school'];}?>" required>
+                    </span>
+                    <span class="hstack d-flex align-items-center justify-content-start">
+                        <label for="">School ID:</label>
+                        <input type="text" name="efese_school_id"  id="dash"
+                        value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" required>
+                    </span>
+                    <span class="hstack d-flex align-items-center">
+                    <label for="">Address of School:</label>
+                    <input type="text" name="efese_address_of_school" 
+                    value="<?php if(empty($rows['address_of_school'])){ echo "";}else{ echo $rows['address_of_school'];}?>" required>
+                    </span>
+                </section>
+            </div>
+            <div class="other-cred">
+                <p>Other Credential Presented</p>
+                <span class="wrapper d-flex flex-row justify-content-evenly">
+                    <span>
+                    <input type="checkbox" class="form-check-input" name="pept_passer" value="1"
+                    <?php echo (in_array("1", $pept_passer)? 'checked':'') ?>>
+                    <label class="form-check-label" style="padding: 0 2px 0 0;">PEPT Passer</label>
+                    <label for="">Rating:</label>
+                    <input type="number" class="w-30" name="efese_rating" 
+                    value="<?php if(empty($rows['rating'])){ echo "";}else{ echo $rows['rating'];}?>" required>
+                    </span>
+                    <span>
+                    <label for="">Date of Examination/Assessment (mm/dd/yyyy):</label>
+                    <input type="date" name="date_of_assessment" value="<?php echo strftime('%Y-%m-%d', strtotime($rows['date_of_assessment']));?>" id=""> 
+                    
+                    <input type="checkbox" class="form-check-input" name="efese_others" value="1"
+                    <?php echo (in_array("1", $efese_others)? 'checked':'') ?>>
+                    <label for="">Others (Pls. Specify):</label>
+                    <input type="text" style="width:20%;" 
+                    value="<?php if(empty($rows['specify'])){ echo "";}else{ echo $rows['specify'];}?>" name="efese_specify" id="">
+                </span>
+                </span>
+                <section class="last-cred d-flex flex-row justify-content-evenly px-5">
+                    <span class="hstack w-75">
+                        <label for="">Name and Address of Testing Center:</label>
+                        <input type="text" class="w-50" name="efese_testing_center" 
+                        
+                        value="<?php if(empty($rows['name_and_address_testing_center'])){ echo "";}else{ echo $rows['name_and_address_testing_center'];}?>" id="">
+                    </span>
+                    <span class="w-50">
+                        <label for="">Remark:</label>
+                        <input type="text" class="w-75" name="efese_remarks" 
+                        value="<?php if(empty($rows['remarks'])){ echo "";}else{ echo $rows['remarks'];}?>" id="">
+                    </span>
+                </section>
+            </div>
+        <p style="background:#c0c0c0; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">SCHOLASTIC RECORDS</p>
+        <div class="gen-container d-flex flex-row mt-0 pt-0">
+            <div class="form-container" style="padding: 0 7px 7px 0 ;">
+                <section class="header">
+                    <span class="d-flex justify-content-between">
+                        <!-- PHASE 1 OF SCHOLASTIC RECORDS -->
+                        <?php
+                        $phase1_scholastic_records = "SELECT * FROM scholastic_records
+                        WHERE lrn = '$decrypted_lrn' AND phase = '1'";
+                        $query_phase1_scholastic_records = mysqli_query($conn, $phase1_scholastic_records) or die (mysqli_error($conn,));
+                        $rows = mysqli_fetch_array($query_phase1_scholastic_records);
+                        ?>
+                        <span>
+                            <label>School:</label>
+                            <input type="text" id="text-only" name="phase1_sr_school" 
+                            value="<?php if(empty($rows['school'])){ echo "";}else{ echo $rows['school'];}?>" class="school">
+                            </span>
+                        <span>
+                            <label>School ID:</label>
+                            <input type="text" name="phase1_sr_school_id" id="dash"
+                            value="<?php if(empty($rows['school_id'])){ echo "";}else{ echo $rows['school_id'];}?>" class="school_id">
+                        </span>
+                    </span>
+                    <span class="d-flex justify-content-between">
+                        <span>
+                            <label>District:</label>
+                            <input type="text" class="w-50" name="phase1_sr_district" 
+                            value="<?php if(empty($rows['district'])){ echo "";}else{ echo $rows['district'];}?>" class="district">
+                        </span>
+                        <span>
+                            <label>Division:</label>
+                            <input type="text" class="w-50" name="phase1_sr_division" 
+                            value="<?php if(empty($rows['division'])){ echo "";}else{ echo $rows['division'];}?>" class="division">
+                        </span>
+                        <span class="text-end">
+                            <label>Region:</label>
+                            <input type="text" class="w-50" name="phase1_sr_region" id="dash"
+                            value="<?php if(empty($rows['region'])){ echo "";}else{ echo $rows['region'];}?>" class="region">
+                        </span>
+                    </span>
+                    <span class="d-flex justify-content-between">
+                        <span>
+                            <label>Classified as Grade:</label>
+                            <input type="number" id="number-only" style="width: 20%;" name="phase1_sr_classified_as_grade" 
+                            value="<?php if(empty($rows['classified_as_grade'])){ echo "";}else{ echo $rows['classified_as_grade'];}?>" >
+                        </span>
+                        <span>
+                            <label>Section:</label>
+                            <input type="text" class="w-50" name="phase1_sr_section" 
+                            value="<?php if(empty($rows['section'])){ echo "";}else{ echo $rows['section'];}?>"> 
+                        </span>
+                        <span>
+                            <label>School Year:</label>
+                            <input type="text" class="w-50" name="phase1_sr_school_year" id="dash"
+                            value="<?php if(empty($rows['school_year'])){ echo "";}else{ echo $rows['school_year'];}?>">
+                        </span>
+                    </span>
+                    <span class="d-flex justify-content-between">
+                        <span>
+                            <label for="">Name of Adviser:</label>
+                            <input type="text" id="text-only" name="phase1_sr_name_of_adviser" 
+                            value="<?php if(empty($rows['name_of_teacher'])){ echo "";}else{ echo $rows['name_of_teacher'];}?>">
+                        </span>
+                        <span>
+                            <label>Signature:</label>
+                            <input type="text" id="text-only" name="phase1_sr_signature" 
+                            value="<?php if(empty($rows['signature'])){ echo "";}else{ echo $rows['signature'];}?>" class="school_id">
+                        </span>
+                    </span>
+                </section>
+                <table class="table table-condensed text-center" style="margin:0 0 5px 0;">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="width:40%;"><h6>Learner's Area</h6></th>
+                            <th colspan="4">Quarterly Rating</th>
+                            <th rowspan="2">Final Rating</th>
+                            <th rowspan="2" style="width:14%;">Remarks</th>
+                        </tr>
+                        <tr style="width: 5%;">
+                        
+                                <th><input type="hidden" name="sg_term[]" value="1" readonly>1</th>
+                                <th><input type="hidden" name="sg_term[]" value="2" readonly>2</th>
+                                <th><input type="hidden" name="sg_term[]" value="3" readonly>3</th>
+                                <th><input type="hidden" name="sg_term[]" value="4" readonly>4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php
+                            $phase1_mother_tounge = "SELECT * FROM student_grades
+                            WHERE student_grades.lrn = '$decrypted_lrn' 
+                            AND student_grades.phase = '1' AND student_grades.subject_id = '1'";
+                            $query_phase1_mother_tounge = mysqli_query($conn, $phase1_mother_tounge) or die (mysqli_error($conn));
+                            
+                            ?>
+                            <td class="text-start fw-bold">Mother Tongue</td>
+                            <?php 
+                            if(mysqli_num_rows($query_phase1_mother_tounge) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_mother_tounge)){
+                            ?>
+                            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" 
+                            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                            <?php }}else{?>
+                            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_mother_tounge_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            $phase1_finalrating_mother_tounge = "SELECT * FROM student_final_ratings
+                            WHERE lrn = '$decrypted_lrn' AND subject_id = '1' AND phase = '1'";
+                            $query_phase1_finalrating_mother_tounge = mysqli_query($conn, $phase1_finalrating_mother_tounge);
+                            if(mysqli_num_rows($query_phase1_finalrating_mother_tounge) > 0){
+                            $final_rating = mysqli_fetch_array($query_phase1_finalrating_mother_tounge);
+                            ?>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                            <?php }else{?>
+                            <td></td>
+                            <td></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <?php
+                                $phase1_filipino = "SELECT * FROM student_grades
+                                WHERE student_grades.lrn = '$decrypted_lrn' 
+                                AND student_grades.phase = '1' AND student_grades.subject_id = '2'";
+                                $query_phase1_filipino = mysqli_query($conn, $phase1_filipino) or die (mysqli_error($conn));
+                                
+                                ?>
+                                <td class="text-start fw-bold">Filipino</td>
+                                <?php 
+                                if(mysqli_num_rows($query_phase1_filipino) > 0){
+                                while($rows = mysqli_fetch_array($query_phase1_filipino)){
+                                ?>
+                                <td><input type="number" name="phase1_filipino_grades[]" id="grade" 
+                                value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                                <?php }}else{?>
+                                <td><input type="number" name="phase1_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                $phase1_finalrating_filipino = "SELECT * FROM student_final_ratings
+                                WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '1'";
+                                $query_phase1_finalrating_filipino = mysqli_query($conn, $phase1_finalrating_filipino);
+                                if(mysqli_num_rows($query_phase1_finalrating_filipino) > 0){
+                                $final_rating = mysqli_fetch_array($query_phase1_finalrating_filipino);
+                                ?>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                                <?php }else{?>
+                                <td></td>
+                                <td></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <?php
+                                $phase1_english = "SELECT * FROM student_grades
+                                WHERE student_grades.lrn = '$decrypted_lrn' 
+                                AND student_grades.phase = '1' AND student_grades.subject_id = '3'";
+                                $query_phase1_english = mysqli_query($conn, $phase1_english) or die (mysqli_error($conn));
+                                
+                                ?>
+                                <td class="text-start fw-bold">English</td>
+                                <?php 
+                                if(mysqli_num_rows($query_phase1_english) > 0){
+                                while($rows = mysqli_fetch_array($query_phase1_english)){
+                                ?>
+                                <td><input type="number" name="phase1_english_grades[]" id="grade" 
+                                value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                                <?php }}else{?>
+                                <td><input type="number" name="phase1_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                $phase1_finalrating_english = "SELECT * FROM student_final_ratings
+                                WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '1'";
+                                $query_phase1_finalrating_english = mysqli_query($conn, $phase1_finalrating_english);
+                                if(mysqli_num_rows($query_phase1_finalrating_english) > 0){
+                                $final_rating = mysqli_fetch_array($query_phase1_finalrating_english);
+                                ?>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                                <?php }else{?>
+                                <td></td>
+                                <td></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <?php
+                                $phase1_math = "SELECT * FROM student_grades
+                                WHERE student_grades.lrn = '$decrypted_lrn' 
+                                AND student_grades.phase = '1' AND student_grades.subject_id = '4'";
+                                $query_phase1_math = mysqli_query($conn, $phase1_math) or die (mysqli_error($conn));
+                                
+                                ?>
+                                <td class="text-start fw-bold">Mathematics</td>
+                                <?php 
+                                if(mysqli_num_rows($query_phase1_math) > 0){
+                                while($rows = mysqli_fetch_array($query_phase1_math)){
+                                ?>
+                                <td><input type="number" name="phase1_math_grades[]" id="grade" 
+                                value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                                <?php }}else{?>
+                                <td><input type="number" name="phase1_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                $phase1_finalrating_math = "SELECT * FROM student_final_ratings
+                                WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '1'";
+                                $query_phase1_finalrating_math = mysqli_query($conn, $phase1_finalrating_math);
+                                if(mysqli_num_rows($query_phase1_finalrating_math) > 0){
+                                $final_rating = mysqli_fetch_array($query_phase1_finalrating_math);
+                                ?>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                                <?php }else{?>
+                                <td></td>
+                                <td></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <?php
+                                $phase1_science = "SELECT * FROM student_grades
+                                WHERE student_grades.lrn = '$decrypted_lrn' 
+                                AND student_grades.phase = '1' AND student_grades.subject_id = '5'";
+                                $query_phase1_science = mysqli_query($conn, $phase1_science) or die (mysqli_error($conn));
+                                
+                                ?>
+                                <td class="text-start fw-bold">Science</td>
+                                <?php 
+                                if(mysqli_num_rows($query_phase1_science) > 0){
+                                while($rows = mysqli_fetch_array($query_phase1_science)){
+                                ?>
+                                <td><input type="number" name="phase1_science_grades[]" id="grade" 
+                                value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                                <?php }}else{?>
+                                <td><input type="number" name="phase1_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                $phase1_finalrating_science = "SELECT * FROM student_final_ratings
+                                WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '1'";
+                                $query_phase1_finalrating_science = mysqli_query($conn, $phase1_finalrating_science);
+                                if(mysqli_num_rows($query_phase1_finalrating_science) > 0){
+                                $final_rating = mysqli_fetch_array($query_phase1_finalrating_science);
+                                ?>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                                <?php }else{?>
+                                <td></td>
+                                <td></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <?php
+                                $phase1_araling_panlipunan = "SELECT * FROM student_grades
+                                WHERE student_grades.lrn = '$decrypted_lrn' 
+                                AND student_grades.phase = '1' AND student_grades.subject_id = '6'";
+                                $query_phase1_araling_panlipunan= mysqli_query($conn, $phase1_araling_panlipunan) or die (mysqli_error($conn));
+                                
+                                ?>
+                                <td class="text-start fw-bold">Araling Panlipunan</td>
+                                <?php 
+                                if(mysqli_num_rows($query_phase1_araling_panlipunan) > 0){
+                                while($rows = mysqli_fetch_array($query_phase1_araling_panlipunan)){
+                                ?>
+                                <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" 
+                                value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                                <?php }}else{?>
+                                <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                $phase1_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
+                                WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '1'";
+                                $query_phase1_finalrating_araling_panlipunan= mysqli_query($conn, $phase1_finalrating_araling_panlipunan);
+                                if(mysqli_num_rows($query_phase1_finalrating_araling_panlipunan) > 0){
+                                $final_rating = mysqli_fetch_array($query_phase1_finalrating_araling_panlipunan);
+                                ?>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                                <?php }else{?>
+                                <td></td>
+                                <td></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <?php
+                                $phase1_epp_tle = "SELECT * FROM student_grades
+                                WHERE student_grades.lrn = '$decrypted_lrn' 
+                                AND student_grades.phase = '1' AND student_grades.subject_id = '7'";
+                                $query_phase1_epp_tle= mysqli_query($conn, $phase1_epp_tle) or die (mysqli_error($conn));
+                                
+                                ?>
+                                <td class="text-start fw-bold">EPP/TLE</td>
+                                <?php 
+                                if(mysqli_num_rows($query_phase1_epp_tle) > 0){
+                                while($rows = mysqli_fetch_array($query_phase1_epp_tle)){
+                                ?>
+                                <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" 
+                                value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                                <?php }}else{?>
+                                <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                $phase1_finalrating_epp_tle = "SELECT * FROM student_final_ratings
+                                WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '1'";
+                                $query_phase1_finalrating_epp_tle= mysqli_query($conn, $phase1_finalrating_epp_tle);
+                                if(mysqli_num_rows($query_phase1_finalrating_epp_tle) > 0){
+                                $final_rating = mysqli_fetch_array($query_phase1_finalrating_epp_tle);
+                                ?>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                                <?php }else{?>
+                                <td></td>
+                                <td></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                            <?php
+                                $phase1_mapeh = "SELECT * FROM student_grades
+                                WHERE student_grades.lrn = '$decrypted_lrn' 
+                                AND student_grades.phase = '1' AND student_grades.subject_id = '8'";
+                                $query_phase1_mapeh= mysqli_query($conn, $phase1_mapeh) or die (mysqli_error($conn));
+                                
+                                ?>
+                                <td class="text-start fw-bold">MAPEH</td>
+                                <?php 
+                                if(mysqli_num_rows($query_phase1_mapeh) > 0){
+                                while($rows = mysqli_fetch_array($query_phase1_mapeh)){
+                                ?>
+                                <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
+                                <?php }}else{?>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                $phase1_finalrating_mapeh = "SELECT * FROM student_final_ratings
+                                WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '1'";
+                                $query_phase1_finalrating_mapeh= mysqli_query($conn, $phase1_finalrating_mapeh);
+                                if(mysqli_num_rows($query_phase1_finalrating_mapeh) > 0){
+                                $final_rating = mysqli_fetch_array($query_phase1_finalrating_mapeh);
+                                ?>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                                <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                                <?php }else{?>
+                                <td></td>
+                                <td></td>
+                            <?php } ?>
+                        </tr>
+                        <tr>
+                        <?php
+                            $phase1_music = "SELECT * FROM student_grades
+                            WHERE student_grades.lrn = '$decrypted_lrn' 
+                            AND student_grades.phase = '1' AND student_grades.subject_id = '9'";
+                            $query_phase1_music= mysqli_query($conn, $phase1_music) or die (mysqli_error($conn));
+                            
+                            ?>
+                            <td class="text-start"><i>Music</i></td>
+                            <?php 
+                            if(mysqli_num_rows($query_phase1_music) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_music)){
+                            ?>
+                            <td><input type="number" name="phase1_music_grades[]" id="grade" 
+                            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                            <?php }}else{?>
+                            <td><input type="number" name="phase1_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            $phase1_finalrating_music = "SELECT * FROM student_final_ratings
+                            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '1'";
+                            $query_phase1_finalrating_music= mysqli_query($conn, $phase1_finalrating_music);
+                            if(mysqli_num_rows($query_phase1_finalrating_music) > 0){
+                            $final_rating = mysqli_fetch_array($query_phase1_finalrating_music);
+                            ?>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                            <?php }else{?>
+                            <td></td>
+                            <td></td>
+                        <?php } ?>
+                        </tr>
 
 
-          <tr>
-          <?php
-            $phase1_filipino = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '2'";
-            $query_phase1_filipino = mysqli_query($conn, $phase1_filipino) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">Filipino</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_filipino) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_filipino)){
-            ?>
-            <td><input type="number" name="phase1_filipino_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_filipino_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_filipino = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '2' AND phase = '1'";
-            $query_phase1_finalrating_filipino = mysqli_query($conn, $phase1_finalrating_filipino);
-            if(mysqli_num_rows($query_phase1_finalrating_filipino) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_filipino);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-          <tr>
-          <?php
-            $phase1_english = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '3'";
-            $query_phase1_english = mysqli_query($conn, $phase1_english) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">English</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_english) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_english)){
-            ?>
-            <td><input type="number" name="phase1_english_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_english_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_english = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '3' AND phase = '1'";
-            $query_phase1_finalrating_english = mysqli_query($conn, $phase1_finalrating_english);
-            if(mysqli_num_rows($query_phase1_finalrating_english) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_english);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-          <tr>
-          <?php
-            $phase1_math = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '4'";
-            $query_phase1_math = mysqli_query($conn, $phase1_math) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">Mathematics</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_math) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_math)){
-            ?>
-            <td><input type="number" name="phase1_math_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_math_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_math = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '4' AND phase = '1'";
-            $query_phase1_finalrating_math = mysqli_query($conn, $phase1_finalrating_math);
-            if(mysqli_num_rows($query_phase1_finalrating_math) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_math);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
+                        <tr>
+                        <?php
+                            $phase1_art = "SELECT * FROM student_grades
+                            WHERE student_grades.lrn = '$decrypted_lrn' 
+                            AND student_grades.phase = '1' AND student_grades.subject_id = '10'";
+                            $query_phase1_art= mysqli_query($conn, $phase1_art) or die (mysqli_error($conn));
+                            
+                            ?>
+                            <td class="text-start"><i>Arts</i></td>
+                            <?php 
+                            if(mysqli_num_rows($query_phase1_art) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_art)){
+                            ?>
+                            <td><input type="number" name="phase1_art_grades[]" id="grade" 
+                            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                            <?php }}else{?>
+                            <td><input type="number" name="phase1_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            $phase1_finalrating_art = "SELECT * FROM student_final_ratings
+                            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '1'";
+                            $query_phase1_finalrating_art= mysqli_query($conn, $phase1_finalrating_art);
+                            if(mysqli_num_rows($query_phase1_finalrating_art) > 0){
+                            $final_rating = mysqli_fetch_array($query_phase1_finalrating_art);
+                            ?>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                            <?php }else{?>
+                            <td></td>
+                            <td></td>
+                        <?php } ?>
+                        </tr>
+
+                        
+                        <tr>
+                        <?php
+                            $phase1_pe = "SELECT * FROM student_grades
+                            WHERE student_grades.lrn = '$decrypted_lrn' 
+                            AND student_grades.phase = '1' AND student_grades.subject_id = '11'";
+                            $query_phase1_pe= mysqli_query($conn, $phase1_pe) or die (mysqli_error($conn));
+                            
+                            ?>
+                            <td class="text-start"><i>Physical Education</i></td>
+                            <?php 
+                            if(mysqli_num_rows($query_phase1_pe) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_pe)){
+                            ?>
+                            <td><input type="number" name="phase1_pe_grades[]" id="grade" 
+                            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                            <?php }}else{?>
+                            <td><input type="number" name="phase1_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            $phase1_finalrating_pe = "SELECT * FROM student_final_ratings
+                            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '1'";
+                            $query_phase1_finalrating_pe= mysqli_query($conn, $phase1_finalrating_pe);
+                            if(mysqli_num_rows($query_phase1_finalrating_pe) > 0){
+                            $final_rating = mysqli_fetch_array($query_phase1_finalrating_pe);
+                            ?>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                            <?php }else{?>
+                            <td></td>
+                            <td></td>
+                        <?php } ?>
+                        </tr>
 
 
-          <tr>
-          <?php
-            $phase1_science = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '5'";
-            $query_phase1_science = mysqli_query($conn, $phase1_science) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">Science</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_science) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_science)){
-            ?>
-            <td><input type="number" name="phase1_science_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_science_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_science = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '5' AND phase = '1'";
-            $query_phase1_finalrating_science = mysqli_query($conn, $phase1_finalrating_science);
-            if(mysqli_num_rows($query_phase1_finalrating_science) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_science);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
+                        <tr>
+                        <?php
+                            $phase1_health = "SELECT * FROM student_grades
+                            WHERE student_grades.lrn = '$decrypted_lrn' 
+                            AND student_grades.phase = '1' AND student_grades.subject_id = '12'";
+                            $query_phase1_health= mysqli_query($conn, $phase1_health) or die (mysqli_error($conn));
+                            
+                            ?>
+                            <td class="text-start"><i>Health</i></td>
+                            <?php 
+                            if(mysqli_num_rows($query_phase1_health) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_health)){
+                            ?>
+                            <td><input type="number" name="phase1_health_grades[]" id="grade" 
+                            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                            <?php }}else{?>
+                            <td><input type="number" name="phase1_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            $phase1_finalrating_health = "SELECT * FROM student_final_ratings
+                            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '1'";
+                            $query_phase1_finalrating_health= mysqli_query($conn, $phase1_finalrating_health);
+                            if(mysqli_num_rows($query_phase1_finalrating_health) > 0){
+                            $final_rating = mysqli_fetch_array($query_phase1_finalrating_health);
+                            ?>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                            <?php }else{?>
+                            <td></td>
+                            <td></td>
+                        <?php } ?>
+                        </tr>
 
 
-          <tr>
-          <?php
-            $phase1_araling_panlipunan = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '6'";
-            $query_phase1_araling_panlipunan= mysqli_query($conn, $phase1_araling_panlipunan) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">Araling Panlipunan</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_araling_panlipunan) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_araling_panlipunan)){
-            ?>
-            <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_araling_panlipunan_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_araling_panlipunan = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '6' AND phase = '1'";
-            $query_phase1_finalrating_araling_panlipunan= mysqli_query($conn, $phase1_finalrating_araling_panlipunan);
-            if(mysqli_num_rows($query_phase1_finalrating_araling_panlipunan) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_araling_panlipunan);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
+                        <tr>
+                        <?php
+                            $phase1_esp = "SELECT * FROM student_grades
+                            WHERE student_grades.lrn = '$decrypted_lrn' 
+                            AND student_grades.phase = '1' AND student_grades.subject_id = '13'";
+                            $query_phase1_esp= mysqli_query($conn, $phase1_esp) or die (mysqli_error($conn));
+                            
+                            ?>
+                            <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
+                            <?php 
+                            if(mysqli_num_rows($query_phase1_esp) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_esp)){
+                            ?>
+                            <td><input type="number" name="phase1_esp_grades[]" id="grade" 
+                            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                            <?php }}else{?>
+                            <td><input type="number" name="phase1_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            $phase1_finalrating_esp = "SELECT * FROM student_final_ratings
+                            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '1'";
+                            $query_phase1_finalrating_esp= mysqli_query($conn, $phase1_finalrating_esp);
+                            if(mysqli_num_rows($query_phase1_finalrating_esp) > 0){
+                            $final_rating = mysqli_fetch_array($query_phase1_finalrating_esp);
+                            ?>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                            <?php }else{?>
+                            <td></td>
+                            <td></td>
+                        <?php } ?>
+                        </tr>
 
 
-          <tr>
-          <?php
-            $phase1_epp_tle = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '7'";
-            $query_phase1_epp_tle= mysqli_query($conn, $phase1_epp_tle) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">EPP/TLE</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_epp_tle) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_epp_tle)){
-            ?>
-            <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_epp_tle_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_epp_tle = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '7' AND phase = '1'";
-            $query_phase1_finalrating_epp_tle= mysqli_query($conn, $phase1_finalrating_epp_tle);
-            if(mysqli_num_rows($query_phase1_finalrating_epp_tle) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_epp_tle);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
+                        <tr>
+                        <?php
+                            $phase1_arabic_lang = "SELECT * FROM student_grades
+                            WHERE student_grades.lrn = '$decrypted_lrn' 
+                            AND student_grades.phase = '1' AND student_grades.subject_id = '14'";
+                            $query_phase1_arabic_lang= mysqli_query($conn, $phase1_arabic_lang) or die (mysqli_error($conn));
+                            
+                            ?>
+                            <td class="text-start">*Arabic Language</td>
+                            <?php 
+                            if(mysqli_num_rows($query_phase1_arabic_lang) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_arabic_lang)){
+                            ?>
+                            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" 
+                            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                            <?php }}else{?>
+                            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            $phase1_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
+                            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '1'";
+                            $query_phase1_finalrating_arabic_lang= mysqli_query($conn, $phase1_finalrating_arabic_lang);
+                            if(mysqli_num_rows($query_phase1_finalrating_arabic_lang) > 0){
+                            $final_rating = mysqli_fetch_array($query_phase1_finalrating_arabic_lang);
+                            ?>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                            <?php }else{?>
+                            <td></td>
+                            <td></td>
+                        <?php } ?>
+                        </tr>
 
 
-          <tr>
-          <?php
-            $phase1_mapeh = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '8'";
-            $query_phase1_mapeh= mysqli_query($conn, $phase1_mapeh) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">MAPEH</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_mapeh) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_mapeh)){
-            ?>
-            <td><?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?></td>
-            <?php }}else{?>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_mapeh = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '8' AND phase = '1'";
-            $query_phase1_finalrating_mapeh= mysqli_query($conn, $phase1_finalrating_mapeh);
-            if(mysqli_num_rows($query_phase1_finalrating_mapeh) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_mapeh);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-
-
-          <tr>
-          <?php
-            $phase1_music = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '9'";
-            $query_phase1_music= mysqli_query($conn, $phase1_music) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start"><i>Music</i></td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_music) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_music)){
-            ?>
-            <td><input type="number" name="phase1_music_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_music_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_music = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '9' AND phase = '1'";
-            $query_phase1_finalrating_music= mysqli_query($conn, $phase1_finalrating_music);
-            if(mysqli_num_rows($query_phase1_finalrating_music) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_music);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-
-
-          <tr>
-          <?php
-            $phase1_art = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '10'";
-            $query_phase1_art= mysqli_query($conn, $phase1_art) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start"><i>Arts</i></td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_art) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_art)){
-            ?>
-            <td><input type="number" name="phase1_art_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_art_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_art = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '10' AND phase = '1'";
-            $query_phase1_finalrating_art= mysqli_query($conn, $phase1_finalrating_art);
-            if(mysqli_num_rows($query_phase1_finalrating_art) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_art);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-
-          
-          <tr>
-          <?php
-            $phase1_pe = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '11'";
-            $query_phase1_pe= mysqli_query($conn, $phase1_pe) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start"><i>Physical Education</i></td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_pe) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_pe)){
-            ?>
-            <td><input type="number" name="phase1_pe_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_pe_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_pe = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '11' AND phase = '1'";
-            $query_phase1_finalrating_pe= mysqli_query($conn, $phase1_finalrating_pe);
-            if(mysqli_num_rows($query_phase1_finalrating_pe) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_pe);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-
-
-          <tr>
-          <?php
-            $phase1_health = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '12'";
-            $query_phase1_health= mysqli_query($conn, $phase1_health) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start"><i>Health</i></td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_health) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_health)){
-            ?>
-            <td><input type="number" name="phase1_health_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_health_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_health = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '12' AND phase = '1'";
-            $query_phase1_finalrating_health= mysqli_query($conn, $phase1_finalrating_health);
-            if(mysqli_num_rows($query_phase1_finalrating_health) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_health);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-
-
-          <tr>
-          <?php
-            $phase1_esp = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '13'";
-            $query_phase1_esp= mysqli_query($conn, $phase1_esp) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start fw-bold">Edukasyon sa Pagpapakatao</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_esp) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_esp)){
-            ?>
-            <td><input type="number" name="phase1_esp_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_esp_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_esp = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '13' AND phase = '1'";
-            $query_phase1_finalrating_esp= mysqli_query($conn, $phase1_finalrating_esp);
-            if(mysqli_num_rows($query_phase1_finalrating_esp) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_esp);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-
-
-          <tr>
-          <?php
-            $phase1_arabic_lang = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '14'";
-            $query_phase1_arabic_lang= mysqli_query($conn, $phase1_arabic_lang) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start">*Arabic Language</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_arabic_lang) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_arabic_lang)){
-            ?>
-            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_arabic_lang_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_arabic_lang = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '14' AND phase = '1'";
-            $query_phase1_finalrating_arabic_lang= mysqli_query($conn, $phase1_finalrating_arabic_lang);
-            if(mysqli_num_rows($query_phase1_finalrating_arabic_lang) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_arabic_lang);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-
-
-          <tr>
-          <?php
-            $phase1_islamic_values = "SELECT * FROM student_grades
-            WHERE student_grades.lrn = '$decrypted_lrn' 
-            AND student_grades.phase = '1' AND student_grades.subject_id = '15'";
-            $query_phase1_islamic_values= mysqli_query($conn, $phase1_islamic_values) or die (mysqli_error($conn));
-            
-            ?>
-            <td class="text-start">*Islamic Values Education</td>
-            <?php 
-            if(mysqli_num_rows($query_phase1_islamic_values) > 0){
-            while($rows = mysqli_fetch_array($query_phase1_islamic_values)){
-            ?>
-            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" 
-            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
-            <?php }}else{?>
-            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
-            <?php
-            }
-            ?>
-            <?php
-            $phase1_finalrating_islamic_values = "SELECT * FROM student_final_ratings
-            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '1'";
-            $query_phase1_finalrating_islamic_values= mysqli_query($conn, $phase1_finalrating_islamic_values);
-            if(mysqli_num_rows($query_phase1_finalrating_islamic_values) > 0){
-            $final_rating = mysqli_fetch_array($query_phase1_finalrating_islamic_values);
-            ?>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
-            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
-            <?php }else{?>
-            <td></td>
-            <td></td>
-          <?php } ?>
-          </tr>
-        
-          <tr>
-            <?php
-            $phase1_general_average = "SELECT general_average FROM student_general_averages
-            WHERE lrn = '$decrypted_lrn' AND phase = '1'";
-            $query_phase1_general_average = mysqli_query($conn, $phase1_general_average);
-            ?>
-            <td class="text-start fw-bold">General Average</td>
-            <?php
-            if(mysqli_num_rows($query_phase1_general_average) > 0){
-              while($rows = mysqli_fetch_array($query_phase1_general_average)){
-            ?>
-            <td><?php if($rows['general_average'] == 0){ echo "";}else{ echo $rows['general_average'];}?></td>
-            <?php
-            }}else{
-            ?>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          <?php }?>
-          <?php
-          $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
-          WHERE phase = '1' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
-          $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
-          ?>
-          <td>
-            <?php
-            $rows = mysqli_fetch_array($run_total_remarks_phase1);
-            if($rows['final_rating'] == 0){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
-              echo "RETAINED";
-            }else if ($rows['total_remarks'] == 2){
-              echo "REMEDIAL";
-            }else if($rows['total_remarks'] <= 1){
-              echo "PROMOTED";
-            }?>
-          </td>
-          </tr>
-        </tbody>
-      </table>
+                        <tr>
+                        <?php
+                            $phase1_islamic_values = "SELECT * FROM student_grades
+                            WHERE student_grades.lrn = '$decrypted_lrn' 
+                            AND student_grades.phase = '1' AND student_grades.subject_id = '15'";
+                            $query_phase1_islamic_values= mysqli_query($conn, $phase1_islamic_values) or die (mysqli_error($conn));
+                            
+                            ?>
+                            <td class="text-start">*Islamic Values Education</td>
+                            <?php 
+                            if(mysqli_num_rows($query_phase1_islamic_values) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_islamic_values)){
+                            ?>
+                            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" 
+                            value="<?php if($rows['grade'] == 0){ echo ""; }else{ echo $rows['grade'];}?>" title="Please input 2 Numbers only" ></td>
+                            <?php }}else{?>
+                            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <td><input type="number" name="phase1_islamic_values_grades[]" id="grade" title="Please input 2 Numbers only" ></td>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            $phase1_finalrating_islamic_values = "SELECT * FROM student_final_ratings
+                            WHERE lrn = '$decrypted_lrn' AND subject_id = '15' AND phase = '1'";
+                            $query_phase1_finalrating_islamic_values= mysqli_query($conn, $phase1_finalrating_islamic_values);
+                            if(mysqli_num_rows($query_phase1_finalrating_islamic_values) > 0){
+                            $final_rating = mysqli_fetch_array($query_phase1_finalrating_islamic_values);
+                            ?>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo $final_rating['final_rating'];}?></td>
+                            <td><?php if($final_rating['final_rating'] == 0){ echo "";}else{ echo ucwords($final_rating['remarks']);}?></td>
+                            <?php }else{?>
+                            <td></td>
+                            <td></td>
+                        <?php } ?>
+                        </tr>
+                        
+                        <tr>
+                            <?php
+                            $phase1_general_average = "SELECT general_average FROM student_general_averages
+                            WHERE lrn = '$decrypted_lrn' AND phase = '1'";
+                            $query_phase1_general_average = mysqli_query($conn, $phase1_general_average);
+                            ?>
+                            <td class="text-start fw-bold">General Average</td>
+                            <?php
+                            if(mysqli_num_rows($query_phase1_general_average) > 0){
+                            while($rows = mysqli_fetch_array($query_phase1_general_average)){
+                            ?>
+                            <td><?php if($rows['general_average'] == 0){ echo "";}else{ echo $rows['general_average'];}?></td>
+                            <?php
+                            }}else{
+                            ?>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        <?php }?>
+                        <?php
+                        $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+                        WHERE phase = '1' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+                        $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+                        ?>
+                        <td>
+                            <?php
+                            $rows = mysqli_fetch_array($run_total_remarks_phase1);
+                            if($rows['final_rating'] == 0){
+                            echo "";
+                            }else if($rows['total_remarks'] >= 3){
+                            echo "RETAINED";
+                            }else if ($rows['total_remarks'] == 2){
+                            echo "REMEDIAL";
+                            }else if($rows['total_remarks'] <= 1){
+                            echo "PROMOTED";
+                            }?>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 
   <!-- Remedial Table PHASE 1 -->
   
@@ -1771,7 +1776,6 @@ if(isset($_GET['sid'])){
             <?php
             }}else{
             ?>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -2608,7 +2612,6 @@ if(isset($_GET['sid'])){
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
           <?php }?>
           <td><?php
           $sql_total_remarks_phase3 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
@@ -3438,7 +3441,6 @@ if(isset($_GET['sid'])){
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
           <?php }?>
           <td><?php
           $sql_total_remarks_phase4 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
@@ -3580,12 +3582,11 @@ if(isset($_GET['sid'])){
       </table>
         <?php }?>
       </div>
-    </div>
-      <input type="button" class="next-form text-end btn btn-success" style="float: right;" value="Next" />
-    </fieldset>
-    <fieldset class="pb-5">
-      <!-- BACK PHASES -->
-      <div class="gen-container d-flex flex-row">
+      </div>
+       </div>
+       <div id="step-2" class="tab-pane" role="tabpanel">
+      <p style="background:#c0c0c0; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">SCHOLASTIC RECORDS</p>
+       <div class="gen-container d-flex flex-row">
       <div class="form-container" style="padding: 0 7px 7px 0;">
       <section class="header">
       <span class="d-flex justify-content-between">
@@ -4267,7 +4268,6 @@ if(isset($_GET['sid'])){
             <?php
             }}else{
             ?>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -5096,7 +5096,6 @@ if(isset($_GET['sid'])){
             <?php
             }}else{
             ?>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -5933,7 +5932,6 @@ if(isset($_GET['sid'])){
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
           <?php }?>
           <td><?php
           $sql_total_remarks_phase7 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
@@ -6763,7 +6761,6 @@ if(isset($_GET['sid'])){
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
           <?php }?>
           <td><?php
           $sql_total_remarks_phase8 = "SELECT final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
@@ -6925,12 +6922,12 @@ if(isset($_GET['sid'])){
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase1_c_lrn"
+                        <input type="number" name="phase1_c_lrn"
                         value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" name="phase1_c_grade"
+                        <input type="number" name="phase1_c_grade"
                         value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
                     </span> 
                 </span>
@@ -6942,8 +6939,8 @@ if(isset($_GET['sid'])){
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="phase1_c_school_id"
-                        value="<?php echo $rows['school_id']; ?>" id="">
+                        <input type="text" name="phase1_c_school_id" id="dash"
+                        value="<?php echo $rows['school_id']; ?>">
                     </span>
                     <span>
                         <label>Division</label>
@@ -6953,7 +6950,7 @@ if(isset($_GET['sid'])){
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
                         <input type="text" name="phase1_c_last_school_year_attended"
-                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -6961,7 +6958,7 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" name="phase1_c_date"
+                                <input type="date" name="phase1_c_date" style="text-align:center;"
                                 value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
                                 }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
@@ -6989,15 +6986,15 @@ if(isset($_GET['sid'])){
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="phase1_c_name" id="">
+                        <input type="text" name="phase1_c_name" id="text-only">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase1_c_lrn" id="">
+                        <input type="number" name="phase1_c_lrn" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" name="phase1_c_grade" size="4" style="width: auto;">
+                        <input type="number" name="phase1_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7007,15 +7004,15 @@ if(isset($_GET['sid'])){
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="phase1_c_school_id" id="">
+                        <input type="text" name="phase1_c_school_id" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" name="phase1_c_division" size="4">
+                        <input type="text" name="phase1_c_division">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="text" name="phase1_c_last_school_year_attended" id="">
+                        <input type="text" name="phase1_c_last_school_year_attended" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -7023,13 +7020,13 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" name="phase1_c_date">
+                                <input type="date" class="text-center" name="phase1_c_date">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" name="phase1_c_name_of_principal">
+                                <input type="text" class="text-center" name="phase1_c_name_of_principal">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -7054,11 +7051,11 @@ if(isset($_GET['sid'])){
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
                         <input type="text" name="phase2_c_name" 
-                        value="<?php echo $rows['name'];?>" id="">
+                        value="<?php echo $rows['name'];?>" id="text-only">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase2_c_lrn"
+                        <input type="number" name="phase2_c_lrn"
                         value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
@@ -7076,17 +7073,17 @@ if(isset($_GET['sid'])){
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
                         <input type="text" name="phase2_c_school_id"
-                        value="<?php echo $rows['school_id']; ?>" id="">
+                        value="<?php echo $rows['school_id']; ?>" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
                         <input type="text" name="phase2_c_division"
-                        value="<?php echo $rows['division']; ?>" size="4">
+                        value="<?php echo $rows['division']; ?>">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
                         <input type="text" name="phase2_c_last_school_year_attended"
-                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -7102,7 +7099,7 @@ if(isset($_GET['sid'])){
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" name="phase2_c_name_of_principal"
+                                <input type="text" class="text-center" name="phase2_c_name_of_principal"
                                 value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
                                   echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
@@ -7116,21 +7113,21 @@ if(isset($_GET['sid'])){
     </div>
     <?php }else{?>
       <div class="col-lg-12 p-0">
-        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <p class="fw-bold m-0">For Transfer Out/Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="phase2_c_name" id="">
+                        <input type="text" name="phase2_c_name" id="text-only">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase2_c_lrn" id="">
+                        <input type="number" name="phase2_c_lrn" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" name="phase2_c_grade" size="4" style="width: auto;">
+                        <input type="number" name="phase2_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7140,15 +7137,15 @@ if(isset($_GET['sid'])){
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="phase2_c_school_id" id="">
+                        <input type="text" name="phase2_c_school_id" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" name="phase2_c_division" size="4">
+                        <input type="text" name="phase2_c_division">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="text" name="phase2_c_last_school_year_attended" id="">
+                        <input type="text" name="phase2_c_last_school_year_attended" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -7156,13 +7153,13 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" name="phase2_c_date">
+                                <input type="date" class="text-center" name="phase2_c_date">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" name="phase2_c_name_of_principal">
+                                <input type="text" class="text-center" name="phase2_c_name_of_principal">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -7180,7 +7177,7 @@ if(isset($_GET['sid'])){
       if(mysqli_num_rows($query_sql_phase3_certification) > 0){
       $rows = mysqli_fetch_array($query_sql_phase3_certification);
       ?>
-        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <p class="fw-bold m-0">For Transfer Out/Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
@@ -7191,13 +7188,13 @@ if(isset($_GET['sid'])){
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase3_c_lrn"
+                        <input type="number" name="phase3_c_lrn" class="lrn"
                         value="<?php echo $rows['lrn']; ?>" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" name="phase3_c_grade"
-                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
+                        <input type="number" name="phase3_c_grade"
+                        value="<?php echo $rows['grade']; ?>">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7209,7 +7206,7 @@ if(isset($_GET['sid'])){
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
                         <input type="text" name="phase3_c_school_id"
-                        value="<?php echo $rows['school_id']; ?>" id="">
+                        value="<?php echo $rows['school_id']; ?>" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
@@ -7218,8 +7215,8 @@ if(isset($_GET['sid'])){
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="text" name="phase3_c_last_school_year_attended"
-                        value="<?php echo $rows['last_school_year_attended']; ?>" id="">
+                        <input type="number" name="phase3_c_last_school_year_attended"
+                        value="<?php echo $rows['last_school_year_attended']; ?>" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -7227,7 +7224,7 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" name="phase3_c_date"
+                                <input type="date" name="phase3_c_date" class="text-center"
                                 value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
                                 }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
@@ -7235,7 +7232,7 @@ if(isset($_GET['sid'])){
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" name="phase3_c_name_of_principal"
+                                <input type="text" class="text-center" name="phase3_c_name_of_principal"
                                 value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
                                   echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
@@ -7249,21 +7246,21 @@ if(isset($_GET['sid'])){
     </div>
     <?php }else{?>
       <div class="col-lg-12 p-0">
-        <p class="fw-bold m-0">For Transfer Out /Elementary School Completer Only</p>
+        <p class="fw-bold m-0">For Transfer Out/Elementary School Completer Only</p>
         <section class="certification-box">
             <h6 class="text-center py-1 " style="background: #ddd; border:none;">CERTIFICATION</h6>
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="phase3_c_name" id="">
+                        <input type="text" name="phase3_c_name" id="text-only">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase3_c_lrn" id="">
+                        <input type="number" class="lrn" name="phase3_c_lrn" id="number-only">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" name="phase3_c_grade" size="4" style="width: auto;">
+                        <input type="number" name="phase3_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7273,7 +7270,7 @@ if(isset($_GET['sid'])){
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="phase3_c_school_id" id="">
+                        <input type="text" name="phase3_c_school_id" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
@@ -7281,7 +7278,7 @@ if(isset($_GET['sid'])){
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
-                        <input type="text" name="phase3_c_last_school_year_attended" id="">
+                        <input type="text" name="phase3_c_last_school_year_attended" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -7289,13 +7286,13 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="date" name="phase3_c_date">
+                                <input type="date" class="text-center" name="phase3_c_date">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" name="phase3_c_name_of_principal">
+                                <input type="text" class="text-center" id="text-only" name="phase3_c_name_of_principal">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -7307,21 +7304,20 @@ if(isset($_GET['sid'])){
     </div>
     <?php }?>
     </div>
-      <input type="button" name="previous" style="float:left;" class="previous-form btn btn-danger" value="Previous" /> 
-      <input type="submit" name="update" style="float:right;" class="submitbtn btn btn-success" value="Submit">
-      <!-- <input type="button" class="next-form text-end btn btn-success" value="Next" /> -->
-    </fieldset>
-      <!-- -->
+    </div>
+    <span class="pt-5 d-flex flex-column justify-content-center align-items-center">
+      <input type="submit" name="update" class="submitbtn btn btn-success" value="Submit">
+    </span>
   </form>
 </div>
-<!-- <script src="src/js/stepper.js"></script> -->
+</div>
 <script src="src/js/number_limitation.js"></script>
 <script src="src/js/loading_screen.js"></script>
 <script src="src/js/bootstrap.js"></script>
 <script src="src/js/email.js"></script>
-<?php
-include 'includes/footer.php';
-?>
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+<script src="src/js/smartwizard-settings.js"></script>
+<script src="src/js/smartwizard_init.js"></script>
 <?php
 if(isset($_POST['update'])){
     // PHT +8:00 FOR UPDATE AND CREATED DATA

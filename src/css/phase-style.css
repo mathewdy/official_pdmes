@@ -95,18 +95,13 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
-.next-form svg:hover{
-    fill: #80b5ff;
-}
-.previous-form svg:hover{
-    fill: #D1D1D1;
-}
+
 .submitbtn{
     border-radius: 20px;
 }
 .certification-box{
     border: 2px solid black;
-    font-size: 8pt;
+    font-size: 11px;
 }
 .cert-card{
     display: flex;
@@ -116,12 +111,14 @@ input[type=number] {
     
 }
 .cert-card label{
-    font-size: 11pt;
+    font-size: 11px;
 }
-.certification-box input[type=text]{
+.certification-box input[type=text],
+[type=number]{
     border: none;
     border-bottom: 1px solid black;
 }
-.certification-box input[type=text]:focus{
+.certification-box input[type=text]:focus,
+[type=number]:focus{
     outline: none;
 }
