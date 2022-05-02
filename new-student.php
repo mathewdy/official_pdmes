@@ -2412,7 +2412,7 @@ if(isset($_POST['add'])){
     $phase1_cert_id = ucfirst($_POST['phase1_cert_grade']);
     $phase1_cert_div = ucfirst($_POST['phase1_cert_grade']);
     $phase1_cert_attend = ucfirst($_POST['phase1_cert_grade']);
-    $phase1_cert_date = date("m-d-Y",['phase1_cert_date']);
+    $phase1_cert_date = date("m-d-Y",strtotime($_POST['phase1_cert_date']));
     $phase1_cert_principal = ucfirst($_POST['phase1_cert_grade']);
 
     // phase 2 certification
@@ -2423,7 +2423,7 @@ if(isset($_POST['add'])){
     $phase2_cert_id = ucfirst($_POST['phase2_cert_grade']);
     $phase2_cert_div = ucfirst($_POST['phase2_cert_grade']);
     $phase2_cert_attend = ucfirst($_POST['phase2_cert_grade']);
-    $phase2_cert_date = date("m-d-Y",['phase2_cert_date']);
+    $phase2_cert_date = date("m-d-Y",strtotime($_POST['phase2_cert_date']));
     $phase2_cert_principal = ucfirst($_POST['phase2_cert_grade']);
 
 
@@ -2436,7 +2436,7 @@ if(isset($_POST['add'])){
     $phase3_cert_id = ucfirst($_POST['phase3_cert_grade']);
     $phase3_cert_div = ucfirst($_POST['phase3_cert_grade']);
     $phase3_cert_attend = ucfirst($_POST['phase3_cert_grade']);
-    $phase3_cert_date = date("m-d-Y",['phase3_cert_date']);
+    $phase3_cert_date = date("m-d-Y",strtotime($_POST['phase3_cert_date']));
     $phase3_cert_principal = ucfirst($_POST['phase3_cert_grade']);
 
 

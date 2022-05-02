@@ -233,8 +233,12 @@ input type = [checkbox]{
 }
 
 .Address-School1{
-    margin-right:12rem;
+    margin-right:11rem;
 
+}
+
+.bottom-form{
+    margin: 0 1rem;
 }
 
 .rating{
@@ -276,7 +280,7 @@ table {
     
     margin:5rem 0;
     position:absolute;
-    top:10.84cm;
+    top:10.5cm;
     right:14.58cm;
     
 }
@@ -288,13 +292,13 @@ table {
     margin-right:auto;
     margin:5rem 0;
     position:absolute;
-    top:10.84cm;
+    top:10.5cm;
     left:10cm;
 }
 
 .container-phase-3{
     position:absolute;
-    top:24.2cm;
+    top:23.85cm;
     right:14.58cm;
     font-size:10pt;
 }
@@ -302,7 +306,7 @@ table {
 .container-phase-4{
     
     position:absolute;
-    top:24.2cm;
+    top:23.85cm;
     left:10cm;
     font-size:10pt;
 }
@@ -311,14 +315,14 @@ table {
    
    
     position:absolute;
-    top:2.6cm;
-    right:14.5cm;
+    top:2.25cm;
+    right:14.49cm;
     font-size:10pt;
 }
 
 .container-phase-6{
     position:absolute;
-    top:2.6cm;
+    top:2.25cm;
     left:10cm;
 }
 
@@ -326,8 +330,8 @@ table {
     margin-right:auto;
    
     position:absolute;
-    top:14.1cm;
-    right:14.5cm;
+    top:13.75cm;
+    right:14.45cm;
    
 }
 
@@ -335,7 +339,7 @@ table {
    
     margin-right:auto;
     position:absolute;
-    top:14.1cm;
+    top:13.75cm;
     left:10cm;
 }
 
@@ -348,17 +352,12 @@ table {
     right:9.88cm;
     top:10.85cm;
     border:1px solid black;
+    font-size:10pt;
     
 
 }
 
 
-.container-4 label{
-    font-size:11pt;
-}
-.learners-information1 label{
-    font-size:11pt;
-}
 
 .learners-information-2{
     width:376px;
@@ -366,31 +365,26 @@ table {
     top:22.1cm;
     right:9.88cm;
     border:1px solid black;
-    
+    font-size:10pt;
 }
 
-.learners-information-2 label{
-    font-size:11pt;
-}
 .learners-information-3{
     width:376px;
     position:absolute;
     top:23.39cm;
     right:9.80cm;
     border:1px solid black;
+    font-size:10pt;
     
 }
 
-.learners-information-3 label{
-    font-size:11pt;
-}
 .learners-information-7{
     width:376px;
     position:absolute;
     top:12cm;
     right:9.80cm;
     border:1px solid black;
-    
+    font-size:10pt;
 }
 
 .bottom-container{
@@ -609,7 +603,7 @@ table {
     right:9.80cm;
     top:0.5cm;
     border:1px solid black;
-    
+    font-size:10pt;
 }
 
 .container-2{
@@ -627,7 +621,8 @@ table {
     position:absolute;
     left:9.16cm;
     top:10.85cm;
-    border:1px solid
+    border:1px solid black;
+    font-size:10pt;
 }
 
 
@@ -638,12 +633,10 @@ table {
     left:10cm;
     top:22.1cm;
     border:1px solid black;
+    font-size:10pt;
     
 }
 
-.left-container label{
-    font-size:11pt;
-    }
 
 .left-container-2{
     width:376px;
@@ -651,7 +644,7 @@ table {
     top:0.5cm;
     left:10cm;
     border:1px solid black;
-    
+    font-size:10pt;
 }
 
 .left-container-3{
@@ -660,7 +653,7 @@ table {
     top:12cm;
     left:10cm;
     border:1px solid black;
-    
+    font-size:10pt;
 }
 
 
@@ -723,7 +716,7 @@ table {page-break-before:auto;}
 
 
 .first{
-  margin-top:0.5rem  ;
+  margin-top:0.7rem  ;
 }
 
 .second{
@@ -743,7 +736,7 @@ table {page-break-before:auto;}
 
 
 .row label{
-    margin: 0 1rem;
+    margin: 0 0.5rem;
 }
 
 .row1 label{
@@ -1001,10 +994,13 @@ while(mysqli_fetch_array($run_learners_query));
    </div>
 
    </div>
-     
-   <label class="Address-School1"  for="">Pept Passer '.$rows['pept_passer'].' </label>
-   <label class="rating" for="">Rating: '.$rows['rating'].' </label>
-   <label class="date-of-assesment" for="">Date of Assesment '.$rows['date_of_assessment'].' </label>
+    <div class="bottom-form">
+    <label class="Address-School1"  for="">Pept Passer '.$rows['pept_passer'].' </label>
+    <label class="rating" for="">Rating: '.$rows['rating'].' </label>
+    <label class="date-of-assesment" for="">Date of Assesment '.$rows['date_of_assessment'].' </label>
+    </div>
+
+ 
 
 
  
@@ -15057,18 +15053,17 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
         }
 }
-
-for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
     
     
     $term = 1;
     // phase 7 term 1 ap
-    if($phase6_subject_id == 6 ){
-        $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
-        $run_phase6_AP = mysqli_query($conn,$phase6_AP);
-        if(mysqli_num_rows($run_phase6_AP) > 0){
-            $rows = mysqli_fetch_array($run_phase6_AP);
-            while(mysqli_fetch_array($run_phase6_AP));
+    if($phase7_subject_id == 6 ){
+        $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+        $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+        if(mysqli_num_rows($run_phase7_AP) > 0){
+            $rows = mysqli_fetch_array($run_phase7_AP);
+            while(mysqli_fetch_array($run_phase7_AP));
 
             if($rows['grade'] == 0 ){
                 $rows['grade'] = " ";
@@ -15087,19 +15082,19 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
 }
 
-for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
     
     
     $term = 2;
 
 
                 // phase 7 term 2 ap
-                if($phase6_subject_id == 6 ){
-                    $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
-                    $run_phase6_AP = mysqli_query($conn,$phase6_AP);
-                    if(mysqli_num_rows($run_phase6_AP) > 0){
-                        $rows = mysqli_fetch_array($run_phase6_AP);
-                        while(mysqli_fetch_array($run_phase6_AP));
+                if($phase7_subject_id == 6 ){
+                    $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                    $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+                    if(mysqli_num_rows($run_phase7_AP) > 0){
+                        $rows = mysqli_fetch_array($run_phase7_AP);
+                        while(mysqli_fetch_array($run_phase7_AP));
 
                         if($rows['grade'] == 0 ){
                             $rows['grade'] = " ";
@@ -15116,18 +15111,18 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 }
 
 
-for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
     
     
     $term = 3;
 
             // phase 7 term 3 ap
-            if($phase6_subject_id == 6 ){
-                $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
-                $run_phase6_AP = mysqli_query($conn,$phase6_AP);
-                if(mysqli_num_rows($run_phase6_AP) > 0){
-                    $rows = mysqli_fetch_array($run_phase6_AP);
-                    while(mysqli_fetch_array($run_phase6_AP));
+            if($phase7_subject_id == 6 ){
+                $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+                if(mysqli_num_rows($run_phase7_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_AP);
+                    while(mysqli_fetch_array($run_phase7_AP));
 
                     if($rows['grade'] == 0 ){
                         $rows['grade'] = " ";
@@ -15145,19 +15140,19 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
 //phase 7 term 4 
 
-for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
     
     
 $term = 4;
 
 
             // phase 7 term 4 ap
-            if($phase6_subject_id == 6 ){
-                $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
-                $run_phase6_AP = mysqli_query($conn,$phase6_AP);
-                if(mysqli_num_rows($run_phase6_AP) > 0){
-                    $rows = mysqli_fetch_array($run_phase6_AP);
-                    while(mysqli_fetch_array($run_phase6_AP));
+            if($phase7_subject_id == 6 ){
+                $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
+                $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+                if(mysqli_num_rows($run_phase7_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase7_AP);
+                    while(mysqli_fetch_array($run_phase7_AP));
 
                     if($rows['grade'] == 0 ){
                         $rows['grade'] = " ";
@@ -15170,6 +15165,37 @@ $term = 4;
     
     
             }
+}
+
+
+
+for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+    
+
+    // phase 7 final rating ap
+    if($phase7_subject_id == 6 ){
+        $phase7_AP = "SELECT * FROM `student_final_ratings` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
+        $run_phase7_AP = mysqli_query($conn,$phase7_AP);
+        if(mysqli_num_rows($run_phase7_AP) > 0){
+            $rows = mysqli_fetch_array($run_phase7_AP);
+            while(mysqli_fetch_array($run_phase7_AP));
+
+            if($rows['final_rating'] == 0 ){
+                $rows['final_rating'] = " ";
+                $rows['remarks'] = " ";
+               }
+    
+            $html.='
+            <td>'.$rows['final_rating'].'</td>
+            <td>'.$rows['remarks'].'</td>
+            </tr>
+          ';
+        
+        }
+    
+    
+    }
+
 }
 
 
