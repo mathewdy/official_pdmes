@@ -1,0 +1,31 @@
+.active{
+    display: block;
+    transition: 2s ease;
+}
+.toggler{
+    border-radius: 35px;
+}
+input[type=text],
+[type=email]{
+    border: none;
+    width: 100%;
+    border-radius: 0;
+    padding: 10px 3px;
+}
+input[type=text]:focus,
+[type=email]:focus{
+    outline: none;
+}
+#To{
+    padding: 8px;
+    background: none;
+    border: none;
+}
+input[name=lrn]{
+    border-bottom: 1px solid black;
+    padding: 1px 2px;
+}
+.modal-footer{
+    padding: 12px 4px;
+    margin-bottom: 0;
+}

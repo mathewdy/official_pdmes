@@ -49,54 +49,6 @@ use PHPMailer\PHPMailer\Exception;
     
    
                     }
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="POST" enctype="multipart/form-data" >
-    <label for="">To: </label>
-        <input class="" type="email" name="email" placeholder="Recipients" required> <br>
-
-        <label for="">Subject:</label>
-        <input type="text" name="subject" required>
-
-
-        <br>
-        <label for="">LRN:</label>
-        <input type="text" name="lrn" required>
-        <br>
-                    
-        <label for="">Select Grade Level</label>
-
-        <select name="grade_level" id="" required>
-            <option value="">-Select-</option>
-            <option value="preparatory">Preparatory</option>
-            <option value="grade1">Grade 1</option>
-            <option value="grade2">Grade 2</option>
-            <option value="grade3">Grade 3</option>
-            <option value="grade4">Grade 4</option>
-            <option value="grade5">Grade 5</option>
-            <option value="grade6">Grade 6</option>
-        </select>
-
-        <br>
-        
-
-        <label for="">Select files: </label>
-        <input class="" type="file" name="file" accept= "application/pdf" required> <br>
-        <input class="" type="submit" name="submit" value="Send">
-    </form>
-</body>
-<?php
-
 
 if(isset($_POST['submit'])){
     $email = $_POST['email'];
