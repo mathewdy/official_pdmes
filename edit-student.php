@@ -19395,9 +19395,9 @@ if(isset($_POST['update'])){
           echo $conn->error;
         }
     }
-    // echo "<script>alert('Update Successfully');
-    //     window.location = 'home.php';</script>";
-    //     exit();
+    echo "<script>alert('Update Successfully');
+        window.location = 'home.php';</script>";
+        exit();
 
 
     
