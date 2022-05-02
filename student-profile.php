@@ -42,28 +42,17 @@ if(isset($_GET['sid'])){
 <div class="container-fluid text-end py-1" style="background:#c0c0c0;">
 <?php
 
-        $sql = "SELECT * FROM learners_personal_infos ORDER BY id DESC ";
-        $run = mysqli_query($conn,$sql);
-
-        if(mysqli_num_rows($run) > 0){
-            $count = 0;
-            foreach($run as $row){
-              $lrn = $row['lrn'];
-              $encrypted_data = (($lrn*12345678911*56789)/987654);
-              $viewpdf_link = "viewpdf.php?sid=" . urlencode(base64_encode($encrypted_data));
-                $count++;
-        
+      $encrypted_data = (($decrypted_lrn*12345678911*56789)/987654);
       ?>
 
     <!-- Button trigger modal -->
-    <a href="<?php echo $viewpdf_link ?>"class="btn btn-small btn-danger pdf-toggler"> Generate PDF </a>
+    <a href="viewpdf.php?sid=<?php echo urlencode(base64_encode($encrypted_data));?>"class="btn btn-small btn-danger pdf-toggler"> Generate PDF </a>
     <button type="button" class="btn btn-small btn-primary text-white toggler" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Send via Email
     </button>
 
     <?php
-                  }
-                }
+                  
               ?>
 </div>
 <!-- Modal -->
