@@ -6954,7 +6954,7 @@ if(isset($_GET['sid'])){
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
                         <input type="text" readonly name="phase1_c_grade"
-                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
+                        value="<?php echo $rows['grade']; ?>" >
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7020,7 +7020,7 @@ if(isset($_GET['sid'])){
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" readonly name="phase1_c_grade" size="4" style="width: auto;">
+                        <input type="text" readonly name="phase1_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7034,7 +7034,7 @@ if(isset($_GET['sid'])){
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" readonly name="phase1_c_division" size="4">
+                        <input type="text" readonly name="phase1_c_division">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
@@ -7087,7 +7087,7 @@ if(isset($_GET['sid'])){
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
                         <input type="text" readonly name="phase2_c_grade"
-                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
+                        value="<?php echo $rows['grade']; ?>" >
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7104,7 +7104,7 @@ if(isset($_GET['sid'])){
                     <span>
                         <label>Division</label>
                         <input type="text" readonly name="phase2_c_division"
-                        value="<?php echo $rows['division']; ?>" size="4">
+                        value="<?php echo $rows['division']; ?>">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
@@ -7153,7 +7153,7 @@ if(isset($_GET['sid'])){
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" readonly name="phase2_c_grade" size="4" style="width: auto;">
+                        <input type="text" readonly name="phase2_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7167,7 +7167,7 @@ if(isset($_GET['sid'])){
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" readonly name="phase2_c_division" size="4">
+                        <input type="text" readonly name="phase2_c_division">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
@@ -7220,7 +7220,7 @@ if(isset($_GET['sid'])){
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
                         <input type="text" readonly name="phase3_c_grade"
-                        value="<?php echo $rows['grade']; ?>" size="4" style="width: auto;">
+                        value="<?php echo $rows['grade']; ?>">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7237,7 +7237,7 @@ if(isset($_GET['sid'])){
                     <span>
                         <label>Division</label>
                         <input type="text" readonly name="phase3_c_division"
-                        value="<?php echo $rows['division']; ?>" size="4">
+                        value="<?php echo $rows['division']; ?>">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
@@ -7250,7 +7250,7 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text" readonly name="phase3_c_date"
+                                <input type="text" readonly name="phase3_c_date" class="text-center"
                                 value="<?php if($rows['date'] == "1970-01-01"){ echo strftime('%d-%m-%Y', strtotime($row['date']));
                                 }else{ echo strftime('%Y-%m-%d', strtotime($rows['date']));}?>">
                             </span>
@@ -7258,7 +7258,7 @@ if(isset($_GET['sid'])){
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" readonly name="phase3_c_name_of_principal"
+                                <input type="text" readonly name="phase3_c_name_of_principal" class="text-center"
                                 value="<?php if(empty($rows['name_of_principal']) || $rows['name_of_principal'] == null){
                                   echo "";}else{ echo $rows['name_of_principal'];} ?>">
                             </span>
@@ -7286,7 +7286,7 @@ if(isset($_GET['sid'])){
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" readonly name="phase3_c_grade" size="4" style="width: auto;">
+                        <input type="text" readonly name="phase3_c_grade">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
@@ -7300,7 +7300,7 @@ if(isset($_GET['sid'])){
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" readonly name="phase3_c_division" size="4">
+                        <input type="text" readonly name="phase3_c_division">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended</label>
@@ -7312,13 +7312,13 @@ if(isset($_GET['sid'])){
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text" readonly name="phase3_c_date">
+                                <input type="text" class="text-center" readonly name="phase3_c_date">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" readonly name="phase3_c_name_of_principal">
+                                <input type="text" class="text-center" readonly name="phase3_c_name_of_principal">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
