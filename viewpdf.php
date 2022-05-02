@@ -57,8 +57,7 @@ $html='
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../pdmes/bootstrap-5.1.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="styles.css">
@@ -67,7 +66,9 @@ $html='
 
 <style>
 *{
-    font-family:Arial, sans-serif;
+    font-family:Dejavu Sans, Arial, Helvetica, sans-serif;
+    font-size:7.9pt;
+    
 }
  tr,thead,  tbody, td ,th {
     border-collapse:collapse;
@@ -76,7 +77,7 @@ $html='
 table  {
     border:1px solid black;
     border-collapse:collapse;
-    font-size:12px;
+    font-size:8pt;
 
 }
 
@@ -85,11 +86,12 @@ table  {
 }
 
 td {
-    font-size:9px;
+    font-size:6pt;
+    height:10px;
 }
 
 th{
-    font-size:10px;
+    font-size:7pt;
 }
 
 
@@ -212,33 +214,36 @@ input type = [checkbox]{
 
 
 .kinder{
-    font-size:7.4pt;
+    font-size:8pt;
     font-style: italic;
+}
+
+.Name-of-School{
+    margin-right:14rem;
+}
+
+.School_ID{
+    margin-right:4rem;
 }
 
 
 .school-container{
     width:95%;
 }
-.Name-of-School{
+
+.kinder1{
     margin-right:4rem;
 }
 
-.School_ID{
-    margin-right:1rem;
-}
-.checkbox{
-    margin-top:1rem;
-    width:100%
+.date-of-assesment{
+    margin-right:4rem;
 }
 
-.Address-School1{
-    margin-right:11rem;
 
-}
+
 
 .bottom-form{
-    margin: 0 1rem;
+    margin: 0 1.5rem;
 }
 
 .rating{
@@ -280,8 +285,8 @@ table {
     
     margin:5rem 0;
     position:absolute;
-    top:10.5cm;
-    right:14.58cm;
+    top:9.37cm;
+    right:14.46cm;
     
 }
 
@@ -292,21 +297,21 @@ table {
     margin-right:auto;
     margin:5rem 0;
     position:absolute;
-    top:10.5cm;
+    top:9.37cm;     
     left:10cm;
 }
 
 .container-phase-3{
     position:absolute;
-    top:23.85cm;
-    right:14.58cm;
+    top:22.61cm;
+    right:14.46cm;
     font-size:10pt;
 }
 
 .container-phase-4{
     
     position:absolute;
-    top:23.85cm;
+    top:22.61cm;
     left:10cm;
     font-size:10pt;
 }
@@ -316,7 +321,7 @@ table {
    
     position:absolute;
     top:2.25cm;
-    right:14.49cm;
+    right:14.39cm;
     font-size:10pt;
 }
 
@@ -331,7 +336,7 @@ table {
    
     position:absolute;
     top:13.75cm;
-    right:14.45cm;
+    right:14.39cm;
    
 }
 
@@ -350,9 +355,9 @@ table {
     width:376px;
     position:absolute;
     right:9.88cm;
-    top:10.85cm;
+    top:9cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
     
 
 }
@@ -362,10 +367,10 @@ table {
 .learners-information-2{
     width:376px;
     position:absolute;
-    top:22.1cm;
+    top:20.9cm;
     right:9.88cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
 }
 
 .learners-information-3{
@@ -374,7 +379,7 @@ table {
     top:23.39cm;
     right:9.80cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
     
 }
 
@@ -384,10 +389,11 @@ table {
     top:12cm;
     right:9.80cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
 }
 
 .bottom-container{
+    font-size:6pt;
     width:20cm;
     border:1px solid black;
     position:absolute;
@@ -440,46 +446,46 @@ table {
 
 .certify{
     
-    font-size:9pt;
+    font-size:8pt;
    
 }
 .LRN{
    
-    font-size:9pt;
+    font-size:8pt;
 }
 
 .admission{
     width:200px;
-    font-size:9pt;
+    font-size:8pt;
     
 }
 
 .school-name{
-    font-size:9pt;
+    font-size:8pt;
 }
 
 .school-id{
     width:1rem;
-    font-size:9pt;
+    font-size:8pt;
     margin-right:  2rem;
    
 }
 
 .Division{
-    font-size:9pt;
+    font-size:8pt;
     margin: 0 2rem;
    
 }
 
 .last-school{
-    font-size:9pt;
+    font-size:8pt;
     width:1rem;
 }
 
 
 .Certify{
     margin:0 auto;
-    font-size:9pt;
+    font-size:8pt;
     width:95%;
 
 }
@@ -506,16 +512,16 @@ table {
 
 .bottom-names{
     width:100%;
-    font-size:9pt;
+    font-size:8pt;
 }
 
 .data-name{
     margin-left:10rem;
-    font-size:11px;
+    font-size:8pt;
 
 .data-date{
     margin-left:1rem;
-    font-size:11px;
+    font-size:8pt;
 }
 .date{
 
@@ -524,8 +530,8 @@ table {
 }
 
 .affix{
-    margin-left:10rem;
-    font-size:9pt;
+    margin-left:20rem;
+    font-size:8pt;
 }   
 
 .bottom-col{
@@ -534,7 +540,7 @@ table {
 
 .name-of-principal{
     margin-left:4.5rem;
-    font-size:9pt;
+    font-size:8pt;
 
 }
 
@@ -603,7 +609,7 @@ table {
     right:9.80cm;
     top:0.5cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
 }
 
 .container-2{
@@ -617,12 +623,12 @@ table {
 
 .container-4{
     width:376px;
-    margin:0 2rem;
+   
     position:absolute;
-    left:9.16cm;
-    top:10.85cm;
+    left:10cm;
+    top:9cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
 }
 
 
@@ -631,9 +637,9 @@ table {
     width:376px;
     position:absolute;
     left:10cm;
-    top:22.1cm;
+    top:20.9cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
     
 }
 
@@ -644,7 +650,7 @@ table {
     top:0.5cm;
     left:10cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
 }
 
 .left-container-3{
@@ -653,7 +659,7 @@ table {
     top:12cm;
     left:10cm;
     border:1px solid black;
-    font-size:10pt;
+    font-size:8pt;
 }
 
 
@@ -663,9 +669,9 @@ table {
 }
 
 .top-2{
-   
+   text-align:center;
     position:absolute;
-    left:3.33cm;
+    left:4.6cm;
     top:0.7cm;
 }
 
@@ -681,8 +687,11 @@ table {
 
 }
 
-.deped-2{
+.deped_2{
     width:2cm
+    position:absolute;
+    left:4cm;
+    
 }
 
 
@@ -716,7 +725,7 @@ table {page-break-before:auto;}
 
 
 .first{
-  margin-top:0.7rem  ;
+  margin-top:0.1rem  ;
 }
 
 .second{
@@ -740,11 +749,11 @@ table {page-break-before:auto;}
 }
 
 .row1 label{
-    margin:0 0.5rem;
+    margin:0 0.1rem;
 }
 
 .row2 label{
-    margin: 0 1rem;
+    margin: 0 0.5rem;
 }
 
 
@@ -870,6 +879,7 @@ table {page-break-before:auto;}
     position:absolute;
     top:-0.4cm;
     right:18cm;
+  
 }
 
 
@@ -890,8 +900,8 @@ table {page-break-before:auto;}
     height:1.5cm;
     position:absolute;
     top:0.2cm;
-    left:16.9cm;
-    right:1cm;
+    left:15cm;
+    
 
 
 }
@@ -899,7 +909,8 @@ table {page-break-before:auto;}
 .deped2{
     width:2.3cm;
     height:2.3cm;
-    
+    position:absolute;
+    left:1cm;
 }
 
 .deped_2{
@@ -926,6 +937,57 @@ table {page-break-before:auto;}
     $run_learners_query = mysqli_query($conn, $learners_query);
     if(mysqli_num_rows($run_learners_query) > 0){
     $rows = mysqli_fetch_array($run_learners_query);
+
+    $credentials = explode(',',$rows['credential_presented']);
+    $pept_passer = $rows['pept_passer'];
+    $others = $rows['others'];
+ 
+    if (in_array("Kinder Progress Report", $credentials)) {
+         $kinder = "checked"; 
+     }
+ 
+     else{
+         $kinder = "";
+     }
+ 
+ 
+     if (in_array("ECCD Checklist", $credentials)) {
+         $eccd   = "checked" ;
+     }
+ 
+     else
+     {
+         $eccd   = "" ;
+     }
+ 
+     if (in_array("Kindergarden Certificate of Completion", $credentials)) {
+         $complete = "checked";
+     }
+ 
+     else{
+ 
+         $complete = "";
+     }
+ 
+     if($pept_passer == 1 ){
+         $pept = "checked";
+         $ratings = $rows['rating'];
+     }
+ 
+     else {
+         $pept = "";
+         $ratings = "";
+     }
+ 
+     if($others == 1 ){
+         $checkbox = "checked";
+         $specify = $rows['specify'];
+     }
+ 
+     else {
+         $checkbox = "";
+         $specify = "";
+     }
 
 
 
@@ -979,14 +1041,14 @@ while(mysqli_fetch_array($run_learners_query));
    <h4 class="learners "> ELIGIBITY FOR ELEMENTARY SCHOOL ENROLLMENT </h4>
    <div class="credential">
    
-   <label for="">Credential Presented for grade 1: </label>
+   <label for="" class="credential-label"></label>Credential Presented for grade 1: </label>
   
-   <input type="text" class="checkbox" style="height: 15px;width:15px;border:1px solid black;"> 
+   <input type="checkbox" class="checkbox" '.$kinder.' "> 
    <label class="kinder">Kinder Progress Report </label>
-   <input type="text" class="checkbox" style="height: 15px;width:15px;border:1px solid black;"> 
+   <input type="checkbox" class="checkbox" '.$eccd.' "> 
    <label class="kinder">ECCD checklist </label>
-   <input type="text" class="checkbox" style="height: 15px;width:15px;border:1px solid black;"> 
-   <label class="kinder">Kindergarten Certificate of Completion </label><<br>
+   <input type="checkbox" class="checkbox" '.$complete.' "> 
+   <label class="kinder">Kindergarten Certificate of Completion </label>
    <div class="school-container">
    <label class="Name-of-School" for="">Name of School: '.$rows['name_of_school'].' </label>
    <label class="School_ID" for="">School ID: '.$rows['school_id'].' </label>
@@ -995,9 +1057,11 @@ while(mysqli_fetch_array($run_learners_query));
 
    </div>
     <div class="bottom-form">
-    <label class="Address-School1"  for="">Pept Passer '.$rows['pept_passer'].' </label>
-    <label class="rating" for="">Rating: '.$rows['rating'].' </label>
+    <input type="checkbox" class="checkbox" '.$pept.' "> 
+   <label class="kinder1">PEPT Passer Rating: '.$ratings.' </label>
     <label class="date-of-assesment" for="">Date of Assesment '.$rows['date_of_assessment'].' </label>
+    <input type="checkbox" class="checkbox" '.$checkbox.' "> 
+   <label class="kinder">Other (Pls.Specify) '.$specify.' </label>
     </div>
 
  
@@ -21956,6 +22020,9 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
 
 
 //certifications
+
+
+
 $cert_query = " SELECT * FROM `certifications` WHERE lrn ='$decrypted_lrn' AND phase = '$phase1' ";
 $run_cert_query = mysqli_query($conn,$cert_query);
 if(mysqli_num_rows($run_cert_query)> 0 ){
@@ -22016,7 +22083,7 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
   <div class="transfer-out">
 <h6>For Transfer Out/ Elementary School Completer Only</h6>
 </div> 
-<div class="bottom-container">
+<div class="bottom-container-1">
 <div class="certification-top">
 <h4 class="cert">Certification</h4>
 </div>
@@ -22067,7 +22134,7 @@ if(mysqli_num_rows($run_cert_query)> 0 ){
   <div class="transfer-out">
 <h6>For Transfer Out/ Elementary School Completer Only</h6>
 </div> 
-<div class="bottom-container">
+<div class="bottom-container-2">
 <div class="certification-top">
 <h4 class="cert">Certification</h4>
 </div>
