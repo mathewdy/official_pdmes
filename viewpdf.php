@@ -905,7 +905,7 @@ while(mysqli_fetch_array($run_learners_query));
     
     $html.='
         <body>
-        <input type="checkbox" checked="" value="input type checkbox">
+
     <div class="top-1">
         <label class="block ">Republic of The Philippines</label><br>
         <label class="block">Department of education</label>
