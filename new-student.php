@@ -713,7 +713,7 @@ include('security.php');
                     <td><input type="number" name="term3_phase3_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase3_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
-                    <td>Passed</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">Filipino</td>
@@ -969,7 +969,7 @@ include('security.php');
                     <td><input type="number" name="term3_phase4_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase4_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
-                    <td>Passed</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">Filipino</td>
@@ -1232,7 +1232,7 @@ include('security.php');
                     <td><input type="number" name="term3_phase5_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase5_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" id="grade" title="Please input 2 Numbers only"readonly ></td>
-                    <td>Passed</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">Filipino</td>
@@ -1488,7 +1488,7 @@ include('security.php');
                     <td><input type="number" name="term3_phase6_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase6_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
-                    <td>Passed</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">Filipino</td>
@@ -1747,7 +1747,7 @@ include('security.php');
                     <td><input type="number" name="term3_phase7_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase7_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
-                    <td>Passed</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">Filipino</td>
@@ -2003,7 +2003,7 @@ include('security.php');
                     <td><input type="number" name="term3_phase8_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" name="term4_phase8_mother_tongue" id="grade" title="Please input 2 Numbers only" ></td>
                     <td><input type="number" id="grade" title="Please input 2 Numbers only" readonly></td>
-                    <td>Passed</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td class="text-start fw-bold">Filipino</td>
@@ -2193,33 +2193,33 @@ include('security.php');
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="phase1_cert_name" id="">
+                        <input type="text" name="" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase1_cert_lrn" id="">
+                        <input type="text" name="" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;" name = "phase1_cert_grade">
+                        <input type="text" size="4" style="width: auto;">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="phase1_cert_school" id="">
+                        <input type="text" style="width: auto;" name="" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="phase1_cert_id" id="dash">
+                        <input type="text" name="" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4" name = "phase1_cert_div">
+                        <input type="text" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended:</label>
-                        <input type="text" name="phase1_cert_attend" id="dash">
+                        <input type="text" name="" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -2227,13 +2227,13 @@ include('security.php');
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text" name = "phase1_cert_date" >
+                                <input type="text">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" name = "phase1_cert_principal">
+                                <input type="text">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -2250,33 +2250,33 @@ include('security.php');
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="phase2_cert_name" id="">
+                        <input type="text" name="" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase2_cert_lrn" id="">
+                        <input type="text" name="" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;" name="phase2_cert_grade">
+                        <input type="text" size="4" style="width: auto;">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-start align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="phase2_cert_school" id="">
+                        <input type="text" style="width: auto;" name="" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="phase2_cert_id" id="dash">
+                        <input type="text" name="" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4" name ="phase2_cert_div" >
+                        <input type="text" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended:</label>
-                        <input type="text" name="phase2_cert_attend" id="dash">
+                        <input type="text" name="" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -2284,13 +2284,13 @@ include('security.php');
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text" name = "phase2_cert_date" >
+                                <input type="text">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" name = "phase2_cert_principal" >
+                                <input type="text">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -2307,33 +2307,33 @@ include('security.php');
                 <span class="cert-card px-lg-4 ">
                     <span class="d-flex flex-row align-items-center">
                         <label>I CERTIFY that this is a true record of</label>
-                        <input type="text" name="phase3_cert_name" id="">
+                        <input type="text" name="" id="">
                     </span>
                     <span class="hstack d-flex justify-content-end align-items-end">
                         <label>with LRN</label>
-                        <input type="text" name="phase3_cert_lrn" id="">
+                        <input type="text" name="" id="">
                     </span>
                     <span>
                         <label>and that he/she is eligible for admission to Grade </label>
-                        <input type="text" size="4" style="width: auto;" name = "phase1_cert_grade" >
+                        <input type="text" size="4" style="width: auto;">
                     </span> 
                 </span>
                 <span class="d-flex flex-row justify-content-between align-items-center px-lg-4">
                     <span class="d-flex flex-row align-items-center justify-content-end">
                         <label>School Name: </label>
-                        <input type="text" style="width: auto;" name="phase3_cert_school" id="">
+                        <input type="text" style="width: auto;" name="" id="">
                     </span>
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>School ID</label>
-                        <input type="text" name="phase3_cert_id" id="dash">
+                        <input type="text" name="" id="dash">
                     </span>
                     <span>
                         <label>Division</label>
-                        <input type="text" size="4" name = "phase3_cert_div" >
+                        <input type="text" size="4">
                     </span> 
                     <span class="hstack d-flex justify-content-center align-items-end">
                         <label>Last School Year Attended:</label>
-                        <input type="text" name="phase3_cert_attend" id="dash">
+                        <input type="text" name="" id="dash">
                     </span>
                 </span>
                 <div class="container pt-5">
@@ -2341,13 +2341,13 @@ include('security.php');
                         <div class="col-3">
                             <span class="vstack d-flex flex-column-reverse text-center">
                                 <label for="" class="">Date</label>
-                                <input type="text" name = "phase3_cert_date" >
+                                <input type="text">
                             </span>
                         </div>
                         <div class="col-5">
                             <span class="vstack d-flex flex-column-reverse">
                                 <label for="" class="text-center">Name of Principal/School Head over Printed Name</label>
-                                <input type="text" name = "phase1_cert_principal">
+                                <input type="text">
                             </span>
                         </div>
                         <div class="col-4" style="display:grid; place-items:end;">
@@ -2381,50 +2381,12 @@ if(isset($_POST['add'])){
     $suffix = $_POST['suffix'];
     $middle_name = ucfirst($_POST['middle_name']);
     $lrn = $_POST['lrn'];
-    $birth_date = date('m-d-Y',strtotime($_POST['birth_date']));
+    $birth_date = date('Y-m-d',strtotime($_POST['birth_date']));
     $sex = $_POST['sex'];
     $dateCreated = date("m-d-Y h:i:a");
     $dateUpdated = date("m-d-Y h:i:a");
     $remarks = 'none';
 
-    // certification 
-
-    //phase 1 certification
-
-    $phase1_cert_lrn = $_POST['phase1_cert_lrn'];
-    $phase1_cert_name = ucfirst($_POST['phase1_cert_name']);
-    $phase1_cert_grade = ucfirst($_POST['phase1_cert_grade']);
-    $phase1_cert_school = ucfirst($_POST['phase1_cert_grade']);
-    $phase1_cert_id = ucfirst($_POST['phase1_cert_grade']);
-    $phase1_cert_div = ucfirst($_POST['phase1_cert_grade']);
-    $phase1_cert_attend = ucfirst($_POST['phase1_cert_grade']);
-    $phase1_cert_date = date("m-d-Y",['phase1_cert_date']);
-    $phase1_cert_principal = ucfirst($_POST['phase1_cert_grade']);
-
-    // phase 2 certification
-
-    $phase2_cert_lrn = $_POST['phase2_cert_lrn'];
-    $phase2_cert_name = ucfirst($_POST['phase2_cert_name']);
-    $phase2_cert_grade = ucfirst($_POST['phase2_cert_grade']);
-    $phase2_cert_school = ucfirst($_POST['phase2_cert_grade']);
-    $phase2_cert_id = ucfirst($_POST['phase2_cert_grade']);
-    $phase2_cert_div = ucfirst($_POST['phase2_cert_grade']);
-    $phase2_cert_attend = ucfirst($_POST['phase2_cert_grade']);
-    $phase2_cert_date = date("m-d-Y",['phase2_cert_date']);
-    $phase2_cert_principal = ucfirst($_POST['phase2_cert_grade']);
-
-
-    // phase 3 certification
-
-    $phase3_cert_lrn = $_POST['phase3_cert_lrn'];
-    $phase3_cert_name = ucfirst($_POST['phase3_cert_name']);
-    $phase3_cert_grade = ucfirst($_POST['phase3_cert_grade']);
-    $phase3_cert_school = ucfirst($_POST['phase3_cert_grade']);
-    $phase3_cert_id = ucfirst($_POST['phase3_cert_grade']);
-    $phase3_cert_div = ucfirst($_POST['phase3_cert_grade']);
-    $phase3_cert_attend = ucfirst($_POST['phase3_cert_grade']);
-    $phase3_cert_date = date("m-d-Y",['phase3_cert_date']);
-    $phase3_cert_principal = ucfirst($_POST['phase3_cert_grade']);
 
     //eligibility 
     $eligibility_name_of_school = strtoupper($_POST['eligibility_name_of_school']);
@@ -2434,7 +2396,7 @@ if(isset($_POST['add'])){
     $dateUpdated = date("y-m-d h:i:s");
     $remarks = 'none';
     $rating = $_POST['rating'];
-    $date_of_assessment =   date("m-d-Y", strtotime($_POST['date_of_assessment']));
+    $date_of_assessment = date("Y-m-d", strtotime($_POST['date_of_assessment']));
     $name_and_address_testing_center = strtoupper($_POST['name_and_address_testing_center']);
     $eligibility_remarks = $_POST['eligibility_remarks'];
 
@@ -2579,8 +2541,8 @@ if(isset($_POST['add'])){
 
     // remedial phase1
 
-    $phase1_remedial_from = date("m-d-Y",strtotime($_POST['phase1_remedial_from']));
-    $phase1_remedial_to = date("m-d-Y" ,strtotime($_POST['phase1_remedial_to']));
+    $phase1_remedial_from = date("Y-m-d",strtotime($_POST['phase1_remedial_from']));
+    $phase1_remedial_to = date("Y-m-d" ,strtotime($_POST['phase1_remedial_to']));
     $phase1_remedial_learning_areas_1 = $_POST['phase1_remedial_learning_areas_1'] ;
     $phase1_remedial_final_rating_1 =$_POST['phase1_remedial_final_rating_1'];
     $phase1_remedial_class_mark_1 = $_POST['phase1_remedial_class_mark_1'];
@@ -2689,8 +2651,8 @@ if(isset($_POST['add'])){
 
     //remedial phase 2
 
-    $phase2_remedial_from = date("m-d-Y",strtotime($_POST['phase2_remedial_from']));
-    $phase2_remedial_to = date("m-d-Y" ,strtotime($_POST['phase2_remedial_to']));
+    $phase2_remedial_from = date("Y-m-d",strtotime($_POST['phase2_remedial_from']));
+    $phase2_remedial_to = date("Y-m-d" ,strtotime($_POST['phase2_remedial_to']));
     $phase2_remedial_learning_areas_1 = $_POST['phase2_remedial_learning_areas_1'] ;
     $phase2_remedial_final_rating_1 =$_POST['phase2_remedial_final_rating_1'];
     $phase2_remedial_class_mark_1 = $_POST['phase2_remedial_class_mark_1'];
@@ -3103,8 +3065,8 @@ if(isset($_POST['add'])){
 
     // remedial phase 3 
 
-    $phase3_remedial_from = date("m-d-Y",strtotime($_POST['phase3_remedial_from']));
-    $phase3_remedial_to = date("m-d-Y" ,strtotime($_POST['phase3_remedial_to']));
+    $phase3_remedial_from = date("Y-m-d",strtotime($_POST['phase3_remedial_from']));
+    $phase3_remedial_to = date("Y-m-d" ,strtotime($_POST['phase3_remedial_to']));
     $phase3_remedial_learning_areas_1 = $_POST['phase3_remedial_learning_areas_1'] ;
     $phase3_remedial_final_rating_1 =$_POST['phase3_remedial_final_rating_1'];
     $phase3_remedial_class_mark_1 = $_POST['phase3_remedial_class_mark_1'];
@@ -3368,8 +3330,8 @@ if(isset($_POST['add'])){
 
     //remedial phase 4 
 
-    $phase4_remedial_from = date("m-d-Y",strtotime($_POST['phase4_remedial_from']));
-    $phase4_remedial_to = date("m-d-Y" ,strtotime($_POST['phase4_remedial_to']));
+    $phase4_remedial_from = date("Y-m-d",strtotime($_POST['phase4_remedial_from']));
+    $phase4_remedial_to = date("Y-m-d" ,strtotime($_POST['phase4_remedial_to']));
     $phase4_remedial_learning_areas_1 = $_POST['phase4_remedial_learning_areas_1'] ;
     $phase4_remedial_final_rating_1 =$_POST['phase4_remedial_final_rating_1'];
     $phase4_remedial_class_mark_1 = $_POST['phase4_remedial_class_mark_1'];
@@ -3630,8 +3592,8 @@ if(isset($_POST['add'])){
 
     //remedial phase 5 
 
-    $phase5_remedial_from = date("m-d-Y",strtotime($_POST['phase5_remedial_from']));
-    $phase5_remedial_to = date("m-d-Y" ,strtotime($_POST['phase5_remedial_to']));
+    $phase5_remedial_from = date("Y-m-d",strtotime($_POST['phase5_remedial_from']));
+    $phase5_remedial_to = date("Y-m-d" ,strtotime($_POST['phase5_remedial_to']));
     $phase5_remedial_learning_areas_1 = $_POST['phase5_remedial_learning_areas_1'] ;
     $phase5_remedial_final_rating_1 =$_POST['phase5_remedial_final_rating_1'];
     $phase5_remedial_class_mark_1 = $_POST['phase5_remedial_class_mark_1'];
@@ -3897,8 +3859,8 @@ if(isset($_POST['add'])){
 
     //phase 6 remedial
 
-    $phase6_remedial_from = date("m-d-Y",strtotime($_POST['phase6_remedial_from']));
-    $phase6_remedial_to = date("m-d-Y" ,strtotime($_POST['phase6_remedial_to']));
+    $phase6_remedial_from = date("Y-m-d",strtotime($_POST['phase6_remedial_from']));
+    $phase6_remedial_to = date("Y-m-d" ,strtotime($_POST['phase6_remedial_to']));
     $phase6_remedial_learning_areas_1 = $_POST['phase6_remedial_learning_areas_1'] ;
     $phase6_remedial_final_rating_1 =$_POST['phase6_remedial_final_rating_1'];
     $phase6_remedial_class_mark_1 = $_POST['phase6_remedial_class_mark_1'];
@@ -4160,8 +4122,8 @@ if(isset($_POST['add'])){
     //phase 7 remedial
 
 
-    $phase7_remedial_from = date("m-d-Y",strtotime($_POST['phase7_remedial_from']));
-    $phase7_remedial_to = date("m-d-Y" ,strtotime($_POST['phase7_remedial_to']));
+    $phase7_remedial_from = date("Y-m-d",strtotime($_POST['phase7_remedial_from']));
+    $phase7_remedial_to = date("Y-m-d" ,strtotime($_POST['phase7_remedial_to']));
     $phase7_remedial_learning_areas_1 = $_POST['phase7_remedial_learning_areas_1'] ;
     $phase7_remedial_final_rating_1 =$_POST['phase7_remedial_final_rating_1'];
     $phase7_remedial_class_mark_1 = $_POST['phase7_remedial_class_mark_1'];
@@ -4425,8 +4387,8 @@ if(isset($_POST['add'])){
 
         // phase 8 remedial
         
-    $phase8_remedial_from = date("m-d-Y",strtotime($_POST['phase8_remedial_from']));
-    $phase8_remedial_to = date("m-d-Y" ,strtotime($_POST['phase8_remedial_to']));
+    $phase8_remedial_from = date("Y-m-d",strtotime($_POST['phase8_remedial_from']));
+    $phase8_remedial_to = date("Y-m-d" ,strtotime($_POST['phase8_remedial_to']));
     $phase8_remedial_learning_areas_1 = $_POST['phase8_remedial_learning_areas_1'] ;
     $phase8_remedial_final_rating_1 =$_POST['phase8_remedial_final_rating_1'];
     $phase8_remedial_class_mark_1 = $_POST['phase8_remedial_class_mark_1'];
@@ -4617,8 +4579,7 @@ if(isset($_POST['add'])){
     if(mysqli_num_rows($run_validation) > 0){
         echo "<script>alert('This student is already added')</script>";
         echo "<script>window.location.href='home.php' </script>";
-    }
-    else{
+    }else{
 
     
 
@@ -4635,55 +4596,14 @@ if(isset($_POST['add'])){
 
     $insert_elibility = "INSERT INTO eligibility_for_elementary_school_enrollment 
     (lrn, credential_presented, name_of_school, school_id, address_of_school, pept_passer, rating, date_of_assessment, others, specify, name_and_address_testing_center, remarks, date_time_created, date_time_updated) VALUES
-    ('$lrn' , '$new_credential','$eligibility_name_of_school', '$school_id' , '$address_of_school', '$pept_passer', '$rating', '$date_of_assessment', '$others_checkbox' ,'$others', '$name_and_address_testing_center' , '$eligibility_remarks', '$dateCreated' , '$dateUpdated')";
+    ('$lrn' , '$new_credential','$eligibility_name_of_school', '$school_id' , '$address_of_school', '$pept_passer', '$rating', '$date_of_assessment', '$others' ,'$others_checkbox', '$name_and_address_testing_center' , '$eligibility_remarks', '$dateCreated' , '$dateUpdated')";
     $run_eligibility = mysqli_query($conn,$insert_elibility);
 
     if($run_eligibility){
         echo "added eligibility";
     }else{
         echo "error";
-        
     }
-
-    //insert certifation 1
-
-    $insert_phase1_cert_query = "INSERT INTO `cetifications`(`lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `name_of_principal`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
-    VALUES ('$phase1_cert_lrn','$phase1_cert_name','$phase1_cert_grade','$phase1_cert_school','$phase1_cert_id','$phase1_cert_div','$phase1_cert_attend','$phase1_cert_date','$phase1_cert_principal','$phase1','$remarks','$dateCreated','$dateUpdated')";
-    $run_phase1_cert_query = mysqli_query($conn,$insert_phase1_cert_query);
-
-    if($run_phase1_cert_query){
-        echo "added Certification 1 ";
-    }else{
-        echo "error";
-        
-    }
-
-    // insert certification 2 
-
-    $insert_phase2_cert_query = "INSERT INTO `cetifications`(`lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `name_of_principal`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
-VALUES ('$phase2_cert_lrn','$phase2_cert_name','$phase2_cert_grade','$phase2_cert_school','$phase2_cert_id','$phase2_cert_div','$phase2_cert_attend','$phase2_cert_date','$phase2_cert_principal','$phase2','$remarks','$dateCreated','$dateUpdated')";
-$run_phase2_cert_query = mysqli_query($conn,$insert_phase2_cert_query);
-
-if($run_phase2_cert_query){
-    echo "added Certification 2 ";
-}else{
-    echo "error";
-    
-}
-
-//insert certification 3 
-
-$insert_phase3_cert_query = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `name_of_principal`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
-VALUES ('$phase3_cert_lrn','$phase3_cert_name','$phase3_cert_grade','$phase3_cert_school','$phase3_cert_id','$phase3_cert_div','$phase3_cert_attend','$phase3_cert_date','$phase3_cert_principal','$phase3','$remarks','$dateCreated','$dateUpdated')";
-$run_phase3_cert_query = mysqli_query($conn,$insert_phase3_cert_query);
-
-if($run_phase3_cert_query){
-    echo "added Certification 3 ";
-}else{
-    echo "error";
-    
-}
-
 
         //phase1 Insert Scholastic Records
 
@@ -4704,7 +4624,7 @@ if($run_phase3_cert_query){
         }
 
         else{
-            $conn->error;
+            $conn->error;;
         }
 
         // phase 1 term1 inserting of filipino
