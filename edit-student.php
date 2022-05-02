@@ -7306,10 +7306,10 @@ if(isset($_GET['sid'])){
     </div>
     <?php }?>
     </div>
-    </div>
-    <span class="pt-5 d-flex flex-column justify-content-center align-items-center">
+      <span class="d-flex flex-column justify-content-center align-items-center">
       <input type="submit" name="update" class="submitbtn btn btn-success" value="Submit">
     </span>
+    </div>
   </form>
 </div>
 </div>
@@ -19295,7 +19295,6 @@ if(isset($_POST['update'])){
         WHERE lrn = '109857060084' AND phase = '1'";
         $phase1_query_sql_update_certification = mysqli_query($conn, $phase1_sql_update_certification);
         if($phase1_query_sql_update_certification == true){
-            echo $phase1_sql_update_certification;
           echo "SUCCESS CERTIFICATION UPDATE <br>";
         }else{
           echo $conn->error;
@@ -19336,7 +19335,6 @@ if(isset($_POST['update'])){
         WHERE lrn = '109857060084' AND phase = '2'";
         $phase2_query_sql_update_certification = mysqli_query($conn, $phase2_sql_update_certification);
         if($phase2_query_sql_update_certification == true){
-            echo $phase2_sql_update_certification;
           echo "SUCCESS CERTIFICATION UPDATE <br>";
         }else{
           echo $conn->error;

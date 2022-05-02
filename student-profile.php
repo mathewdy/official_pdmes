@@ -988,7 +988,7 @@ if(isset($_GET['sid'])){
         WHERE lrn = '$decrypted_lrn' AND phase = '1'";
         $query_phase1_remedial_classes_dates = mysqli_query($conn, $phase1_remedial_classes_dates);
         if(mysqli_num_rows($query_phase1_remedial_classes_dates) > 0){
-          $date = mysqli_fetch_array($query_phase1_remedial_classes_dates);
+          $row = mysqli_fetch_array($query_phase1_remedial_classes_dates);
           ?>
           <table class="table-condensed text-center w-100">
         <thead> 
@@ -996,13 +996,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="text" readonly disabled class="datefrom" name="phase1_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($date['date_from']));?>">
+                  <input type="text" readonly disabled class="datefrom" name="phase1_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="text" readonly disabled class="dateto" name="phase1_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($date['date_to']));?>">
+                  <input type="text" readonly disabled class="dateto" name="phase1_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -1828,13 +1832,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="text" readonly disabled class="datefrom" name="phase2_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="text" readonly disabled class="datefrom" name="phase2_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="text" readonly disabled class="dateto" name="phase2_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="text" readonly disabled class="dateto" name="phase2_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -2660,13 +2668,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="text" readonly disabled class="datefrom" name="phase3_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="text" readonly disabled class="datefrom" name="phase3_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="text" readonly disabled class="dateto" name="phase3_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="text" readonly disabled class="dateto" name="phase3_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -3490,13 +3502,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="text" readonly disabled class="datefrom" name="phase4_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="text" readonly disabled class="datefrom" name="phase4_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="text" readonly disabled class="dateto" name="phase4_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="text" readonly disabled class="dateto" name="phase4_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -4322,13 +4338,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="text" readonly disabled class="datefrom" name="phase5_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="text" readonly disabled class="datefrom" name="phase5_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="text" readonly disabled class="dateto" name="phase5_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="text" readonly disabled class="dateto" name="phase5_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -5152,13 +5172,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="text" readonly disabled class="datefrom" name="phase6_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="text" readonly disabled class="datefrom" name="phase6_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="text" readonly disabled class="dateto" name="phase6_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="text" readonly disabled class="dateto" name="phase6_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -5984,13 +6008,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="text" readonly disabled class="datefrom" name="phase7_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="text" readonly disabled class="datefrom" name="phase7_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="text" readonly disabled class="dateto" name="phase7_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="text" readonly disabled class="dateto" name="phase7_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
@@ -6814,13 +6842,17 @@ if(isset($_GET['sid'])){
             <th colspan="2">Remedial Classes</th>
             <th colspan="4">
               <span class="d-flex flex-row justify-content-between">
-                <span>
+              <span>
                   <label for="">Date conducted: </label>
-                  <input type="text" readonly disabled class="datefrom" name="phase8_date_from" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_from']));?>">
+                  <input type="text" readonly disabled class="datefrom" name="phase8_date_from" 
+                  value="<?php if($row['date_from'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_from']));}?>">
                 </span>
                 <span>
                   <label for="">To: </label>
-                  <input type="text" readonly disabled class="dateto" name="phase8_date_to" value="<?php echo strftime('%Y-%m-%d', strtotime($row['date_to']));?>">
+                  <input type="text" readonly disabled class="dateto" name="phase8_date_to" 
+                  value="<?php if($row['date_to'] == "1970-01-01"){ echo "";
+                  }else{ echo strftime('%Y-%m-%d', strtotime($row['date_to']));}?>">
                 </span>
               </span>
             </th>
