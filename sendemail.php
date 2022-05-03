@@ -24,20 +24,20 @@ use PHPMailer\PHPMailer\Exception;
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = '';                     //SMTP username // email username
+                $mail->Username   = 'thaddeusgamit31@gmail.com';                     //SMTP username // email username
                 $mail->Password   = 'ztqejvrgppyaqfjm';                               //SMTP // email password password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
                 //Recipients
-                $mail->setFrom('', '');//wait si dali  sender
+                $mail->SetFrom('thaddeusgamit31@gmail.com');
                 $mail->addAddress($email);
                 $mail->addAttachment($path);       //Add a recipient
             
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = 'Debugging';
-                $mail->Body    = "Dali tangina mo " ;
+                $mail->Subject = $subject;
+                $mail->Body    = "Sample Body" ;
     
                 $mail->send();
                 return true;
@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
 
     ///////// USERS SA LAPTOP NI MAM///////////
     if($grade_level == "prep"){
-        $path = 'C:\Users\Thaddeus\Documents\files\prep/'. basename($_FILES['file']['name']);
+        $path = 'C:\Users\mathe\Documents\mama'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
         
             sendMail($email,$path);
@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
     
     
     if ($grade_level == "grade1"){
-    $path = 'C:\Users\Thaddeus\Documents\files\Grade 1/'. basename($_FILES['file']['name']);
+    $path = 'C:\Users\mathe\Documents\mama'. basename($_FILES['file']['name']);
     if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
     
         sendMail($email,$path);
@@ -89,7 +89,7 @@ if(isset($_POST['submit'])){
     }
 
     if ($grade_level == "grade2"){
-        $path = 'C:\Users\Thaddeus\Documents\files\Grade 2/'. basename($_FILES['file']['name']);
+        $path = 'C:\Users\mathe\Documents\mama'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
         
             sendMail($email,$path);
@@ -101,7 +101,7 @@ if(isset($_POST['submit'])){
     }
 
     if ($grade_level == "grade3"){
-        $path = 'C:\Users\Thaddeus\Documents\files\Grade 3/'. basename($_FILES['file']['name']);
+        $path = 'C:\Users\mathe\Documents\mama'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
         
             sendMail($email,$path);
@@ -113,7 +113,7 @@ if(isset($_POST['submit'])){
     }
 
     if ($grade_level == "grade4"){
-        $path = 'C:\Users\Thaddeus\Documents\files\Grade 4/'. basename($_FILES['file']['name']);
+        $path = 'C:\Users\mathe\Documents\mama'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
         
             sendMail($email,$path);
@@ -127,7 +127,7 @@ if(isset($_POST['submit'])){
         }
 
     if ($grade_level == "grade5"){
-        $path = 'C:\Users\Thaddeus\Documents\files\Grade 5/'. basename($_FILES['file']['name']);
+        $path = 'C:\Users\mathe\Documents\mama'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
         
             sendMail($email,$path);
@@ -139,7 +139,7 @@ if(isset($_POST['submit'])){
     }
 
     if ($grade_level == "grade6"){
-        $path = 'C:\Users\Thaddeus\Documents\files\Grade 6/'. basename($_FILES['file']['name']);
+        $path = 'C:\Users\mathe\Documents\mama'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
         
             sendMail($email,$path);
