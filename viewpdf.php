@@ -67,7 +67,7 @@ $html='
 <style>
 *{
     font-family:Dejavu Sans, Arial, Helvetica, sans-serif;
-    font-size:7.9pt;
+    font-size:8pt;
     
 }
  tr,thead,  tbody, td ,th {
@@ -77,8 +77,13 @@ $html='
 table  {
     border:1px solid black;
     border-collapse:collapse;
-    font-size:8pt;
+    width:10cm;
+    
+   
 
+}
+table tr td{
+    page-break-inside: avoid !important;
 }
 
 .remedial{
@@ -86,12 +91,22 @@ table  {
 }
 
 td {
-    font-size:6pt;
+    font-size:7pt;
+    
+    
+}
+
+
+.remedial-2{
     height:10px;
+    max-width: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+
 }
 
 th{
-    font-size:7pt;
+    font-size: 7pt;
 }
 
 
@@ -210,6 +225,7 @@ input type = [checkbox]{
     width:95%;
     border:1px solid black;
     margin:0 auto;
+    font-size:8pt;
 }
 
 
@@ -244,6 +260,7 @@ input type = [checkbox]{
 
 .bottom-form{
     margin: 0 1.5rem;
+    font-size:8pt;
 }
 
 .rating{
@@ -251,10 +268,6 @@ input type = [checkbox]{
 }
 
 
-.
-table {
-    width:10cm;
-}
 
 .row {
     margin-left:-5px;
@@ -283,81 +296,81 @@ table {
 
 .container-phase-1{
     
-    margin:5rem 0;
+    
     position:absolute;
-    top:9.37cm;
-    right:14.46cm;
+    top:10.78cm;
+    right:14cm;
     
 }
 
 
 .container-phase-2{
-    
-
-    margin-right:auto;
-    margin:5rem 0;
-    position:absolute;
-    top:9.37cm;     
+   position:absolute;
+   top:10.78cm;
     left:10cm;
 }
 
 .container-phase-3{
+    
     position:absolute;
-    top:22.61cm;
-    right:14.46cm;
-    font-size:10pt;
+    top:23.25cm;
+    right:14cm;
+  
 }
 
 .container-phase-4{
-    
+   
     position:absolute;
-    top:22.61cm;
-    left:10cm;
-    font-size:10pt;
+    top:23.25cm;
+    left:10.04cm;
+   
 }
 
 .container-phase-5{
    
-   
+
     position:absolute;
     top:2.25cm;
-    right:14.39cm;
-    font-size:10pt;
+    right:14cm;
+    
 }
 
 .container-phase-6{
+  
     position:absolute;
     top:2.25cm;
-    left:10cm;
+    left:10.04cm;
+    
 }
 
 .container-phase-7{
-    margin-right:auto;
-   
+ 
     position:absolute;
     top:13.75cm;
-    right:14.39cm;
+    right:14cm;
+   
    
 }
 
 .container-phase-8{
    
-    margin-right:auto;
     position:absolute;
     top:13.75cm;
-    left:10cm;
+    left:10.04cm;
+   
 }
 
 
 
 
 .learners-information1{
-    width:376px;
+    width:10cm;
     position:absolute;
-    right:9.88cm;
+    right:10.06cm;
     top:9cm;
     border:1px solid black;
     font-size:8pt;
+   
     
 
 }
@@ -365,35 +378,35 @@ table {
 
 
 .learners-information-2{
-    width:376px;
+    width:10cm;
     position:absolute;
-    top:20.9cm;
-    right:9.88cm;
+    top:21.5cm;
+    right:10.06cm;
     border:1px solid black;
     font-size:8pt;
 }
 
 .learners-information-3{
-    width:376px;
+    width:10cm;
     position:absolute;
     top:23.39cm;
-    right:9.80cm;
+    right:10.06cm;
     border:1px solid black;
     font-size:8pt;
     
 }
 
 .learners-information-7{
-    width:376px;
+    width:10cm;
     position:absolute;
     top:12cm;
-    right:9.80cm;
+    right:10.06cm;
     border:1px solid black;
     font-size:8pt;
 }
 
 .bottom-container{
-    font-size:6pt;
+    font-size:5pt;
     width:20cm;
     border:1px solid black;
     position:absolute;
@@ -406,7 +419,7 @@ table {
 
 .bottom-container-1{
     width:20cm;
-    
+    font-size:5pt;
     border:1px solid black;
     position:absolute;
     top:27cm;
@@ -416,7 +429,7 @@ table {
 
 .bottom-container-2{
     width:20cm;
-    
+    font-size:5pt;
     border:1px solid black;
     position:absolute;
     top:30.70cm;
@@ -592,10 +605,6 @@ table {
 
 
 
-.learners-information-4{
-    width:100%;
-}
-
 
 
 .container-row-2{
@@ -604,14 +613,13 @@ table {
 }
 
 .learners-information-5{
-    width:376px;
+    width:9.95cm;
     position:absolute;
-    right:9.80cm;
+    right:10.08cm;
     top:0.5cm;
     border:1px solid black;
     font-size:8pt;
 }
-
 .container-2{
     width:52%;
     margin:0 2rem;
@@ -622,22 +630,21 @@ table {
 
 
 .container-4{
-    width:376px;
-   
+    width:10cm;
+    font-size:8pt;
     position:absolute;
     left:10cm;
     top:9cm;
     border:1px solid black;
-    font-size:8pt;
+   
 }
 
 
-
 .left-container{
-    width:376px;
+    width:10cm;
     position:absolute;
-    left:10cm;
-    top:20.9cm;
+    left:10.01cm;
+    top:21.5cm;
     border:1px solid black;
     font-size:8pt;
     
@@ -645,19 +652,19 @@ table {
 
 
 .left-container-2{
-    width:376px;
+    width:10cm;
     position:absolute;
     top:0.5cm;
-    left:10cm;
+    left:10.01cm;
     border:1px solid black;
     font-size:8pt;
 }
 
 .left-container-3{
-    width:376px;
+    width:10cm;
     position:absolute;
     top:12cm;
-    left:10cm;
+    left:10.01cm;
     border:1px solid black;
     font-size:8pt;
 }
@@ -726,10 +733,12 @@ table {page-break-before:auto;}
 
 .first{
   margin-top:0.1rem  ;
+  font-size:8pt;
 }
 
 .second{
     margin-top:0.5rem  ;
+    font-size:8pt;
 }
 
 .third{
@@ -750,6 +759,7 @@ table {page-break-before:auto;}
 
 .row1 label{
     margin:0 0.1rem;
+    
 }
 
 .row2 label{
@@ -1120,7 +1130,7 @@ while(mysqli_fetch_array($run_learners_query));
 
     $html.='
     <div class="container-phase-1">
-        <table class="a">
+        <table>
         <thead>
         <tr>
         <th rowspan="2">Learnering Areas</th>
@@ -3440,7 +3450,8 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
 
 
             $html.='
-            <table class="remedial-2">
+            <div>
+            <table>
             <thead>
             <tr>
             <th colspan="2">Remedial Classes</th>
@@ -3455,13 +3466,13 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
             <td>Recomputed Final Grade</td>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <tbody  >
+            <tr >
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             ';
         }
@@ -3487,12 +3498,12 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
                    }
 
                 $html.='
-            <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <tr >
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             </tbody>
 
@@ -3502,7 +3513,7 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
             
             </table>
             </div>
-
+            </div>      
            
            
            ';
@@ -6195,11 +6206,11 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
             </thead>
             <tbody>
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
            
 
@@ -6236,11 +6247,11 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
 
       $html.='
              <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             </tbody>
 
@@ -9018,7 +9029,7 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
             }
 
             $html.='
-            <table class="d">
+            <table>
             <thead>
             <tr class="remedial">
             <th colspan="2">Remedial Classes</th>
@@ -9035,11 +9046,11 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
             </thead>
             <tbody>
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
 
            
@@ -9069,18 +9080,18 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
           
       $html.='
       <tr>
-     <td>'.$rows['learning_areas'].'</td>
-     <td>'.$rows['final_rating'].'</td>
-     <td>'.$rows['remarks'].'</td>
-     <td>'.$rows['remedial_class_mark'].'</td>
-     <td>'.$rows['recomputed_final_grade'].'</td>
+     <td class="remedial-2">'.$rows['learning_areas'].'</td>
+     <td class="remedial-2">'.$rows['final_rating'].'</td>
+     <td class="remedial-2">'.$rows['remarks'].'</td>
+     <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+     <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
      </tr>
      </tbody>
 
 
 </table>
-</div>
 
+</div>
 
 ';
         }
@@ -11742,14 +11753,14 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
             }
 
             $html.='
-            <table class="remedial-2">
+            <table>
             <thead>
             <tr>
             <th colspan="2">Remedial Classes</th>
             <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
-            <tr>
+            <tr class="remedial">
             <td>Learning Areas</td>
             <td>Final Rating</td>
             <td>Remedial Class Mark</td>
@@ -11759,11 +11770,11 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
             </thead>
             <tbody>
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
 
            
@@ -11792,11 +11803,11 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
                }
             $html.='
             <tr>
-           <td>'.$rows['learning_areas'].'</td>
-           <td>'.$rows['final_rating'].'</td>
-           <td>'.$rows['remarks'].'</td>
-           <td>'.$rows['remedial_class_mark'].'</td>
-           <td>'.$rows['recomputed_final_grade'].'</td>
+           <td class="remedial-2">'.$rows['learning_areas'].'</td>
+           <td class="remedial-2">'.$rows['final_rating'].'</td>
+           <td class="remedial-2">'.$rows['remarks'].'</td>
+           <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+           <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
            </tr>
            </tbody>
       
@@ -14267,14 +14278,14 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
             }
 
             $html.='
-            <table class="remedial-2">
+            <table >
             <thead>
             <tr>
             <th colspan="2">Remedial Classes</th>
             <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
-            <tr>
+            <tr class="remedial">
             <td>Learning Areas</td>
             <td>Final Rating</td>
             <td>Remedial Class Mark</td>
@@ -14284,11 +14295,11 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
             </thead>
             <tbody>
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             ';
         }
@@ -14314,11 +14325,11 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
                }
             $html.='
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             </tbody>
             </table>
@@ -15161,19 +15172,19 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
         }
 }
-for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
     
     $term = 1;
-    // phase 7 term 1 ap
-    if($phase7_subject_id == 6 ){
-        $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
-        $run_phase7_AP = mysqli_query($conn,$phase7_AP);
-        if(mysqli_num_rows($run_phase7_AP) > 0){
-            $rows = mysqli_fetch_array($run_phase7_AP);
-            while(mysqli_fetch_array($run_phase7_AP));
+    // phase 6 term 1 ap
+    if($phase6_subject_id == 6 ){
+        $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+        $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+        if(mysqli_num_rows($run_phase6_AP) > 0){
+            $rows = mysqli_fetch_array($run_phase6_AP);
+            while(mysqli_fetch_array($run_phase6_AP));
 
-            if($rows['grade'] == 0 ){
+            if($rows['grade'] == " "){
                 $rows['grade'] = " ";
                 }
 
@@ -15190,19 +15201,19 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
 }
 
-for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
     
     $term = 2;
 
 
-                // phase 7 term 2 ap
-                if($phase7_subject_id == 6 ){
-                    $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
-                    $run_phase7_AP = mysqli_query($conn,$phase7_AP);
-                    if(mysqli_num_rows($run_phase7_AP) > 0){
-                        $rows = mysqli_fetch_array($run_phase7_AP);
-                        while(mysqli_fetch_array($run_phase7_AP));
+                // phase 6 term 2 ap
+                if($phase6_subject_id == 6 ){
+                    $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                    $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+                    if(mysqli_num_rows($run_phase6_AP) > 0){
+                        $rows = mysqli_fetch_array($run_phase6_AP);
+                        while(mysqli_fetch_array($run_phase6_AP));
 
                         if($rows['grade'] == 0 ){
                             $rows['grade'] = " ";
@@ -15219,18 +15230,18 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 }
 
 
-for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
     
     $term = 3;
 
-            // phase 7 term 3 ap
-            if($phase7_subject_id == 6 ){
-                $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
-                $run_phase7_AP = mysqli_query($conn,$phase7_AP);
-                if(mysqli_num_rows($run_phase7_AP) > 0){
-                    $rows = mysqli_fetch_array($run_phase7_AP);
-                    while(mysqli_fetch_array($run_phase7_AP));
+            // phase 6 term 3 ap
+            if($phase6_subject_id == 6 ){
+                $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+                if(mysqli_num_rows($run_phase6_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_AP);
+                    while(mysqli_fetch_array($run_phase6_AP));
 
                     if($rows['grade'] == 0 ){
                         $rows['grade'] = " ";
@@ -15246,21 +15257,21 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 }
 
 
-//phase 7 term 4 
+//phase 6 term 4 
 
-for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
+for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
     
 $term = 4;
 
 
-            // phase 7 term 4 ap
-            if($phase7_subject_id == 6 ){
-                $phase7_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7' AND term = '$term'";
-                $run_phase7_AP = mysqli_query($conn,$phase7_AP);
-                if(mysqli_num_rows($run_phase7_AP) > 0){
-                    $rows = mysqli_fetch_array($run_phase7_AP);
-                    while(mysqli_fetch_array($run_phase7_AP));
+            // phase 6 term 4 ap
+            if($phase6_subject_id == 6 ){
+                $phase6_AP = "SELECT * FROM `student_grades` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase6_subject_id' AND phase = '$phase6' AND term = '$term'";
+                $run_phase6_AP = mysqli_query($conn,$phase6_AP);
+                if(mysqli_num_rows($run_phase6_AP) > 0){
+                    $rows = mysqli_fetch_array($run_phase6_AP);
+                    while(mysqli_fetch_array($run_phase6_AP));
 
                     if($rows['grade'] == 0 ){
                         $rows['grade'] = " ";
@@ -15273,37 +15284,6 @@ $term = 4;
     
     
             }
-}
-
-
-
-for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
-    
-
-    // phase 7 final rating ap
-    if($phase7_subject_id == 6 ){
-        $phase7_AP = "SELECT * FROM `student_final_ratings` WHERE lrn = '$decrypted_lrn' AND subject_id = '$phase7_subject_id' AND phase = '$phase7'";
-        $run_phase7_AP = mysqli_query($conn,$phase7_AP);
-        if(mysqli_num_rows($run_phase7_AP) > 0){
-            $rows = mysqli_fetch_array($run_phase7_AP);
-            while(mysqli_fetch_array($run_phase7_AP));
-
-            if($rows['final_rating'] == 0 ){
-                $rows['final_rating'] = " ";
-                $rows['remarks'] = " ";
-               }
-    
-            $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            </tr>
-          ';
-        
-        }
-    
-    
-    }
-
 }
 
 
@@ -15334,7 +15314,11 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
     
     }
+
 }
+
+
+
 // End of AP phase 7 copy paste 
 
 
@@ -16838,14 +16822,14 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
              $rows['date_to'] = "";
             }
             $html.='
-            <table class="remedial-2">
+            <table>
             <thead>
             <tr>
             <th colspan="2">Remedial Classes</th>
             <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
-            <tr>
+            <tr class="remedial">
             <td>Learning Areas</td>
             <td>Final Rating</td>
             <td>Remedial Class Mark</td>
@@ -16855,11 +16839,11 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
             </thead>
             <tbody>
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             ';
            
@@ -16886,11 +16870,11 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
                }
             $html.='
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             </tbody>
 
@@ -19459,14 +19443,14 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
              $rows['date_to'] = "";
             }
             $html.='
-            <table class="remedial-2">
+            <table >
             <thead>
             <tr>
             <th colspan="2">Remedial Classes</th>
             <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
-            <tr>
+            <tr class="remedial">
             <td>Learning Areas</td>
             <td>Final Rating</td>
             <td>Remedial Class Mark</td>
@@ -19476,11 +19460,11 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
             </thead>
             <tbody>
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             ';
            
@@ -19512,11 +19496,11 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
                }
             $html.='
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             </tbody>
 
@@ -19587,7 +19571,7 @@ if(mysqli_num_rows($run_phase8_scholastic) > 0){
 
 $html.='
 <div class="container-phase-8">
-<table >
+<table>
 <thead>
 <tr>
 <th rowspan="2">Learnering Areas</th>
@@ -22014,14 +21998,14 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
 
 
             $html.='
-            <table class="remedial-2">
+            <table>
             <thead>
             <tr>
             <th colspan="2">Remedial Classes</th>
             <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
             <th colspan="1">To: '.$rows['date_to'].'</th>
             </tr>
-            <tr>
+            <tr class="remedial">
             <td>Learning Areas</td>
             <td>Final Rating</td>
             <td>Remedial Class Mark</td>
@@ -22031,11 +22015,11 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
             </thead>
             <tbody>
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
 
            
            
@@ -22063,11 +22047,11 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
                }
             $html.='
             <tr>
-            <td>'.$rows['learning_areas'].'</td>
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
-            <td>'.$rows['remedial_class_mark'].'</td>
-            <td>'.$rows['recomputed_final_grade'].'</td>
+            <td class="remedial-2">'.$rows['learning_areas'].'</td>
+            <td class="remedial-2">'.$rows['final_rating'].'</td>
+            <td class="remedial-2">'.$rows['remarks'].'</td>
+            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
+            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
             </tr>
             </tbody>
 
