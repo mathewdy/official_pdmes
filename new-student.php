@@ -14053,7 +14053,7 @@ if($phase7_run_scholastic_records){
 
      //insert certifation 1
 
-    $insert_phase1_cert_query = "INSERT INTO `cetifications`(`lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `name_of_principal`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
+    $insert_phase1_cert_query = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `name_of_principal`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
     VALUES ('$phase1_cert_lrn','$phase1_cert_name','$phase1_cert_grade','$phase1_cert_school','$phase1_cert_id','$phase1_cert_div','$phase1_cert_attend','$phase1_cert_date','$phase1_cert_principal','$phase1','$remarks','$dateCreated','$dateUpdated')";
     $run_phase1_cert_query = mysqli_query($conn,$insert_phase1_cert_query);
 
@@ -14066,7 +14066,7 @@ if($phase7_run_scholastic_records){
 
     // insert certification 2 
 
-    $insert_phase2_cert_query = "INSERT INTO `cetifications`(`lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `name_of_principal`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
+    $insert_phase2_cert_query = "INSERT INTO `certifications`(`lrn`, `name`, `grade`, `name_of_school`, `school_id`, `division`, `last_school_year_attended`, `date`, `name_of_principal`, `phase`, `remarks`, `date_time_created`, `date_time_updated`) 
 VALUES ('$phase2_cert_lrn','$phase2_cert_name','$phase2_cert_grade','$phase2_cert_school','$phase2_cert_id','$phase2_cert_div','$phase2_cert_attend','$phase2_cert_date','$phase2_cert_principal','$phase2','$remarks','$dateCreated','$dateUpdated')";
 $run_phase2_cert_query = mysqli_query($conn,$insert_phase2_cert_query);
 
@@ -14122,6 +14122,9 @@ if($run_phase3_cert_query){
 
     if($phase8_run_query){
         echo "remedial query success term2  <br>";
+        echo "<script>alert('Inserted Successfully');
+        window.location = 'home.php';</script>";
+
     }
     else{
             $conn->error;
