@@ -364,12 +364,12 @@ input type = [checkbox]{
 
 
 .learners-information1{
-    width:10cm;
+    width:9.96cm;
     position:absolute;
     right:10.06cm;
     top:9cm;
     border:1px solid black;
-    font-size:8pt;
+  
    
     
 
@@ -378,26 +378,25 @@ input type = [checkbox]{
 
 
 .learners-information-2{
-    width:10cm;
+    width:9.96cm;
     position:absolute;
     top:21.5cm;
     right:10.06cm;
     border:1px solid black;
-    font-size:8pt;
+   
 }
 
 .learners-information-3{
-    width:10cm;
+    width:9.96cm;
     position:absolute;
     top:23.39cm;
     right:10.06cm;
     border:1px solid black;
-    font-size:8pt;
-    
+  
 }
 
 .learners-information-7{
-    width:10cm;
+    width:9.96cm;
     position:absolute;
     top:12cm;
     right:10.06cm;
@@ -630,7 +629,7 @@ input type = [checkbox]{
 
 
 .container-4{
-    width:10cm;
+    width:9.96cm;
     font-size:8pt;
     position:absolute;
     left:10cm;
