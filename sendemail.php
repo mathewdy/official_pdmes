@@ -1,4 +1,5 @@
 <?php
+include('connection.php');
 // dali tangina mo ayusin mo na yung body and subject ng php mailer kasi pang tanga nilagay ko 
 
 
@@ -36,7 +37,7 @@ use PHPMailer\PHPMailer\Exception;
             
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Subject = $subject;
+                $mail->Subject = "Students Grades";
                 $mail->Body    = "Sample Body" ;
     
                 $mail->send();
@@ -55,6 +56,7 @@ if(isset($_POST['submit'])){
     $grade_level = $_POST['grade_level'];
     $subject = $_POST['subject'];  
     $lrn = $_POST['lrn'];
+    $status;
 
     $dateCreated = date("M-d-Y h:i:a");
     $dateUpdated = date("y-m-d h:i:a");
@@ -62,7 +64,7 @@ if(isset($_POST['submit'])){
 
     ///////// USERS SA LAPTOP NI MAM///////////
     if($grade_level == "prep"){
-        $path = 'C:\Users\mathe\Documents\mama'. basename($_FILES['file']['name']);
+        $path = 'C:\Users\Thaddeus\Documents\files\prep'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
         
             sendMail($email,$path);
