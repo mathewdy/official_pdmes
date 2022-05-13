@@ -3388,23 +3388,45 @@ if($phase1_subject_id == 7 ){
         $phase1_term1_general_average_query = "SELECT * FROM `student_general_averages` WHERE lrn = '$decrypted_lrn' AND  phase = '$phase1' AND term = 'Final Rating' ";
         $run_phase1_term1_general_average = mysqli_query($conn,$phase1_term1_general_average_query);
         if(mysqli_num_rows($run_phase1_term1_general_average)> 0 ){
+
             $rows = mysqli_fetch_array($run_phase1_term1_general_average);
 
             if($rows['general_average'] == 0 ){
                 $rows['general_average'] = " ";
                 }
 
+
+            //phase 1 remarks
+            $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+            WHERE phase = '1' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+            $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+
+            $remarks = mysqli_fetch_array($run_total_remarks_phase1);
+
+            if($remarks['total_remarks'] == 15){
+                $output = "";
+              }else if($remarks['total_remarks'] >= 3){
+                $output = "RETAINED";
+              }else if ($remarks['total_remarks'] == 2){
+                $output = "REMEDIAL";
+              }else if($remarks['total_remarks'] <= 1){
+                $output = "PROMOTED";
+              }
+
+
+            
             
             $html.='
             <td>'.$rows['general_average'].'</td>
-            <td></td>  
+            <td> '.$output.' </td>
+          
             </tr>
             </tbody>
             
 
             ';
 
-            //count
+           
 
         }
         
@@ -6132,9 +6154,30 @@ if( $phase2_subject_id == 16){
         if($rows5['general_average'] == 0 ){
             $rows5['general_average'] = " ";
             }
+
+
+            //phase 2 remarks
+            $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+            WHERE phase = '2' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+            $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+
+            $remarks = mysqli_fetch_array($run_total_remarks_phase1);
+
+            if($remarks['total_remarks'] == 15){
+                $output = "";
+              }else if($remarks['total_remarks'] >= 3){
+                $output = "RETAINED";
+              }else if ($remarks['total_remarks'] == 2){
+                $output = "REMEDIAL";
+              }else if($remarks['total_remarks'] <= 1){
+                $output = "PROMOTED";
+              }
+
+
         $html.='
         <td>'.$rows5['general_average'].'</td>
-        <td></td>
+        <td>'.$output.'</td>
+
         </tr>
         </tbody>
             ';
@@ -8973,9 +9016,31 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
             if($rows['general_average'] == 0 ){
                 $rows['general_average'] = " ";
                 }
+
+
+
+                //phase 3 remarks
+            $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+            WHERE phase = '3' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+            $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+
+            $remarks = mysqli_fetch_array($run_total_remarks_phase1);
+
+            if($remarks['total_remarks'] == 15){
+                $output = "";
+              }else if($remarks['total_remarks'] >= 3){
+                $output = "RETAINED";
+              }else if ($remarks['total_remarks'] == 2){
+                $output = "REMEDIAL";
+              }else if($remarks['total_remarks'] <= 1){
+                $output = "PROMOTED";
+              }
+
+
             $html.='
             <td>'.$rows['general_average'].'</td>
-            <td></td>
+            <td>'.$output.'</td>
+          
             </tr>
             ';
 
@@ -11699,9 +11764,29 @@ if( $phase4_subject_id == 16){
         if($rows['general_average'] == 0 ){
             $rows['general_average'] = " ";
             }
+
+
+            //phase 4 remarks
+            $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+            WHERE phase = '4' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+            $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+
+            $remarks = mysqli_fetch_array($run_total_remarks_phase1);
+
+            if($remarks['total_remarks'] == 15){
+                $output = "";
+              }else if($remarks['total_remarks'] >= 3){
+                $output = "RETAINED";
+              }else if ($remarks['total_remarks'] == 2){
+                $output = "REMEDIAL";
+              }else if($remarks['total_remarks'] <= 1){
+                $output = "PROMOTED";
+              }
+
         $html.='
         <td>'.$rows['general_average'].'</td>
-        <td></td> 
+        <td>'.$output.'</td>
+       
         </tr>
         </tbody> ';
 
@@ -14225,9 +14310,29 @@ if( $phase5_subject_id == 16){
         if($rows['general_average'] == 0 ){
             $rows['general_average'] = " ";
             }
+
+
+            //phase 5 remarks
+            $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+            WHERE phase = '5' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+            $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+
+            $remarks = mysqli_fetch_array($run_total_remarks_phase1);
+
+            if($remarks['total_remarks'] == 15){
+                $output = "";
+              }else if($remarks['total_remarks'] >= 3){
+                $output = "RETAINED";
+              }else if ($remarks['total_remarks'] == 2){
+                $output = "REMEDIAL";
+              }else if($remarks['total_remarks'] <= 1){
+                $output = "PROMOTED";
+              }
+
         $html.='
         <td> '.$rows['general_average'].'</td>
-        <td></td>
+        <td>'.$output.'</td>
+       
         </tr>
         ';
     
@@ -16769,9 +16874,30 @@ if( $phase6_subject_id == 16){
         if($rows['general_average'] == 0 ){
             $rows['general_average'] = " ";
             }
+
+
+            //phase 6 remarks
+            $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+            WHERE phase = '6' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+            $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+
+            $remarks = mysqli_fetch_array($run_total_remarks_phase1);
+
+            if($remarks['total_remarks'] == 15){
+                $output = "";
+              }else if($remarks['total_remarks'] >= 3){
+                $output = "RETAINED";
+              }else if ($remarks['total_remarks'] == 2){
+                $output = "REMEDIAL";
+              }else if($remarks['total_remarks'] <= 1){
+                $output = "PROMOTED";
+              }
+
+
         $html.='
         <td> '.$rows['general_average'].'</td>  
-        <td></td>
+        <td>'.$output.'</td>
+     
         </tr>
         ';
 
@@ -19384,9 +19510,29 @@ if( $phase7_subject_id == 16){
         if($rows['general_average'] == 0 ){
             $rows['general_average'] = " ";
             }
+
+
+            //phase 7 remarks
+            $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+            WHERE phase = '7' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+            $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+
+            $remarks = mysqli_fetch_array($run_total_remarks_phase1);
+
+            if($remarks['total_remarks'] == 15){
+                $output = "";
+              }else if($remarks['total_remarks'] >= 3){
+                $output = "RETAINED";
+              }else if ($remarks['total_remarks'] == 2){
+                $output = "REMEDIAL";
+              }else if($remarks['total_remarks'] <= 1){
+                $output = "PROMOTED";
+              }
+
         $html.='
         <td>'.$rows['general_average'].'</td> 
-        <td></td>
+        <td>'.$output.'</td>
+       
         </tbody>
         </tr>
         ';
@@ -21946,9 +22092,29 @@ if( $phase8_subject_id == 16){
         if($rows['general_average'] == 0 ){
             $rows['general_average'] = " ";
             }
+
+
+            //phase 8 remarks
+            $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+            WHERE phase = '8' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
+            $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
+
+            $remarks = mysqli_fetch_array($run_total_remarks_phase1);
+
+            if($remarks['total_remarks'] == 15){
+                $output = "";
+              }else if($remarks['total_remarks'] >= 3){
+                $output = "RETAINED";
+              }else if ($remarks['total_remarks'] == 2){
+                $output = "REMEDIAL";
+              }else if($remarks['total_remarks'] <= 1){
+                $output = "PROMOTED";
+              }
+
         $html.='
         <td>'.$rows['general_average'].'</td>
-        <td></td>
+        <td>'.$output.'</td>
+       
         </tr>
         </tbody>
 
