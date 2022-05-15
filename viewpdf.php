@@ -79,8 +79,6 @@ table  {
     border-collapse:collapse;
     width:10cm;
     
-   
-
 }
 table tr td{
     page-break-inside: avoid !important;
@@ -92,8 +90,15 @@ table tr td{
 
 td {
     font-size:7pt;
+    height:5px;
+    min-height:20px;
+    min-width:100%;
     
-    
+}
+
+.Record{
+    position:absolute;
+    top:1cm;
 }
 
 
@@ -299,7 +304,7 @@ input type = [checkbox]{
     
     position:absolute;
     top:10.78cm;
-    right:14cm;
+    right:13.97cm;
     
 }
 
@@ -314,7 +319,7 @@ input type = [checkbox]{
     
     position:absolute;
     top:23.25cm;
-    right:14cm;
+    right:13.99cm;
   
 }
 
@@ -322,7 +327,7 @@ input type = [checkbox]{
    
     position:absolute;
     top:23.25cm;
-    left:10.04cm;
+    left:10cm;
    
 }
 
@@ -330,7 +335,7 @@ input type = [checkbox]{
    
 
     position:absolute;
-    top:2.25cm;
+    top:1.99cm;
     right:14cm;
     
 }
@@ -338,16 +343,16 @@ input type = [checkbox]{
 .container-phase-6{
   
     position:absolute;
-    top:2.25cm;
-    left:10.04cm;
+    top:1.99cm;
+    left:10cm;;
     
 }
 
 .container-phase-7{
  
     position:absolute;
-    top:13.75cm;
-    right:14cm;
+    top:14.28cm;
+    right:13.98cm;
    
    
 }
@@ -355,8 +360,8 @@ input type = [checkbox]{
 .container-phase-8{
    
     position:absolute;
-    top:13.75cm;
-    left:10.04cm;
+    top:14.28cm;
+    left:10cm;
    
 }
 
@@ -364,7 +369,7 @@ input type = [checkbox]{
 
 
 .learners-information1{
-    width:9.96cm;
+    width:9.95cm;
     position:absolute;
     right:10.06cm;
     top:9cm;
@@ -378,7 +383,7 @@ input type = [checkbox]{
 
 
 .learners-information-2{
-    width:9.96cm;
+    width:9.95cm;
     position:absolute;
     top:21.5cm;
     right:10.06cm;
@@ -387,7 +392,7 @@ input type = [checkbox]{
 }
 
 .learners-information-3{
-    width:9.96cm;
+    width:9.95cm;
     position:absolute;
     top:23.39cm;
     right:10.06cm;
@@ -396,20 +401,21 @@ input type = [checkbox]{
 }
 
 .learners-information-7{
-    width:9.96cm;
+    width:9.95cm;
     position:absolute;
-    top:12cm;
+    top:12.5cm;
     right:10.06cm;
     border:1px solid black;
-    font-size:8pt;
+    
 }
 
 .bottom-container{
     font-size:5pt;
+  
     width:20cm;
     border:1px solid black;
     position:absolute;
-    top:23.3cm;
+    top:25cm;
     left:-0.5cm;
     right:2cm;
 
@@ -421,7 +427,7 @@ input type = [checkbox]{
     font-size:5pt;
     border:1px solid black;
     position:absolute;
-    top:27cm;
+    top:28.1cm;
     left:-0.5cm;
     right:2cm;
 }
@@ -431,7 +437,7 @@ input type = [checkbox]{
     font-size:5pt;
     border:1px solid black;
     position:absolute;
-    top:30.70cm;
+    top:31.2cm;
     left:-0.5cm;
     right:2cm;
 }
@@ -442,7 +448,7 @@ input type = [checkbox]{
     width:100%;
     right:0.4cm;
     position:absolute;
-    top:22.3cm;
+    top:23.9cm;
 }
 
 .certification-top{
@@ -458,46 +464,47 @@ input type = [checkbox]{
 
 .certify{
     
-    font-size:8pt;
+    font-size:7pt;
    
 }
 .LRN{
    
-    font-size:8pt;
+    font-size:7pt;
 }
 
 .admission{
     width:200px;
-    font-size:8pt;
+    font-size:7pt;
     
 }
 
 .school-name{
-    font-size:8pt;
+    font-size:7pt;
+    margin-right:3cm;
 }
 
 .school-id{
     width:1rem;
-    font-size:8pt;
+    font-size:7pt;
     margin-right:  2rem;
    
 }
 
 .Division{
-    font-size:8pt;
+    font-size:7pt;
     margin: 0 2rem;
    
 }
 
 .last-school{
-    font-size:8pt;
+    font-size:7pt;
     width:1rem;
 }
 
 
 .Certify{
     margin:0 auto;
-    font-size:8pt;
+    font-size:7pt;
     width:95%;
 
 }
@@ -505,15 +512,10 @@ input type = [checkbox]{
 .second-row{
 
     margin:0 auto;
-    margin-right:1.3rem;
-    margin-top:0.5rem;
     width:95%;
 }
 
-.second-row label{
-    margin: 0 0.2rem;
-    margin-top:1rem 0;
-}
+
 
 .third-row{
 
@@ -615,7 +617,7 @@ input type = [checkbox]{
     width:9.95cm;
     position:absolute;
     right:10.08cm;
-    top:0.5cm;
+    top:0.2cm;
     border:1px solid black;
     font-size:8pt;
 }
@@ -640,32 +642,32 @@ input type = [checkbox]{
 
 
 .left-container{
-    width:10cm;
+    width:9.96cm;
     position:absolute;
-    left:10.01cm;
+    left:10cm;
     top:21.5cm;
     border:1px solid black;
-    font-size:8pt;
+   
     
 }
 
 
 .left-container-2{
-    width:10cm;
+    width:9.96cm;
     position:absolute;
-    top:0.5cm;
-    left:10.01cm;
+    top:0.2cm;
+    left:10cm;
     border:1px solid black;
-    font-size:8pt;
+    
 }
 
 .left-container-3{
-    width:10cm;
+    width:9.96cm;
     position:absolute;
-    top:12cm;
-    left:10.01cm;
+    top:12.5cm;
+    left:10cm;
     border:1px solid black;
-    font-size:8pt;
+    
 }
 
 
@@ -11926,7 +11928,11 @@ if(mysqli_num_rows($run_phase5_scholastic) > 0){
     while(mysqli_fetch_array($run_phase5_scholastic));
 
 
-    $html.='<h4 class="learners-1"> Scholastic Record </h4>
+    $html.='
+    <div >
+    <h4 class="learners-1"> Scholastic Record </h4>
+    </div>
+    
     <div class="learners-information-5">
     <div class="school1">
     <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
