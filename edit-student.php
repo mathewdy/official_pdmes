@@ -7431,46 +7431,46 @@ if(isset($_POST['update'])){
 
     // PHASE 1 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
     $phase1_sum_of_mother_tounge_grades = array_sum($phase1_mother_tounge_grades);
-    $phase1_ave_of_mother_tounge_grades = $phase1_sum_of_mother_tounge_grades/count($phase1_mother_tounge_grades);
+    $phase1_ave_of_mother_tounge_grades = $phase1_sum_of_mother_tounge_grades/count(array_filter($phase1_mother_tounge_grades));
 
     $phase1_sum_of_filipino_grades = array_sum($phase1_filipino_grades);
-    $phase1_ave_of_filipino_grades = $phase1_sum_of_filipino_grades/count($phase1_filipino_grades);
+    $phase1_ave_of_filipino_grades = $phase1_sum_of_filipino_grades/count(array_filter($phase1_filipino_grades));
 
     $phase1_sum_of_english_grades = array_sum($phase1_english_grades);
-    $phase1_ave_of_english_grades = $phase1_sum_of_english_grades/count($phase1_english_grades);
+    $phase1_ave_of_english_grades = $phase1_sum_of_english_grades/count(array_filter($phase1_english_grades));
 
     $phase1_sum_of_math_grades = array_sum($phase1_math_grades);
-    $phase1_ave_of_math_grades = $phase1_sum_of_math_grades/count($phase1_math_grades);
+    $phase1_ave_of_math_grades = $phase1_sum_of_math_grades/count(array_filter($phase1_math_grades));
 
     $phase1_sum_of_science_grades = array_sum($phase1_science_grades);
-    $phase1_ave_of_science_grades = $phase1_sum_of_science_grades/count($phase1_science_grades);
-
+    $phase1_ave_of_science_grades = $phase1_sum_of_science_grades/count(array_filter($phase1_science_grades));
+    
     $phase1_sum_of_araling_panlipunan_grades = array_sum($phase1_araling_panlipunan_grades);
-    $phase1_ave_of_araling_panlipunan_grades = $phase1_sum_of_araling_panlipunan_grades/count($phase1_araling_panlipunan_grades);
+    $phase1_ave_of_araling_panlipunan_grades = $phase1_sum_of_araling_panlipunan_grades/count(array_filter($phase1_araling_panlipunan_grades));
 
     $phase1_sum_of_epp_tle_grades = array_sum($phase1_epp_tle_grades);
-    $phase1_ave_of_epp_tle_grades = $phase1_sum_of_epp_tle_grades/count($phase1_epp_tle_grades);
+    $phase1_ave_of_epp_tle_grades = $phase1_sum_of_epp_tle_grades/count(array_filter($phase1_epp_tle_grades));
 
     $phase1_sum_of_music_grades = array_sum($phase1_music_grades);
-    $phase1_ave_of_music_grades = $phase1_sum_of_music_grades/count($phase1_music_grades);
+    $phase1_ave_of_music_grades = $phase1_sum_of_music_grades/count(array_filter($phase1_music_grades));
 
     $phase1_sum_of_art_grades = array_sum($phase1_art_grades);
-    $phase1_ave_of_art_grades = $phase1_sum_of_art_grades/count($phase1_art_grades);
+    $phase1_ave_of_art_grades = $phase1_sum_of_art_grades/count(array_filter($phase1_art_grades));
 
     $phase1_sum_of_pe_grades = array_sum($phase1_pe_grades);
     $phase1_ave_of_pe_grades = $phase1_sum_of_pe_grades/count($phase1_pe_grades);
 
     $phase1_sum_of_health_grades = array_sum($phase1_health_grades);
-    $phase1_ave_of_health_grades = $phase1_sum_of_health_grades/count($phase1_health_grades);
+    $phase1_ave_of_health_grades = $phase1_sum_of_health_grades/count(array_filter($phase1_health_grades));
 
     $phase1_sum_of_esp_grades = array_sum($phase1_esp_grades);
-    $phase1_ave_of_esp_grades = $phase1_sum_of_esp_grades/count($phase1_esp_grades);
+    $phase1_ave_of_esp_grades = $phase1_sum_of_esp_grades/count(array_filter($phase1_esp_grades));
 
     $phase1_sum_of_arabic_lang_grades = array_sum($phase1_arabic_lang_grades);
-    $phase1_ave_of_arabic_lang_grades = $phase1_sum_of_arabic_lang_grades/count($phase1_arabic_lang_grades);
+    $phase1_ave_of_arabic_lang_grades = $phase1_sum_of_arabic_lang_grades/count(array_filter($phase1_arabic_lang_grades));
 
     $phase1_sum_of_islamic_values_grades = array_sum($phase1_islamic_values_grades);
-    $phase1_ave_of_islamic_values_grades = $phase1_sum_of_islamic_values_grades/count($phase1_islamic_values_grades);
+    $phase1_ave_of_islamic_values_grades = $phase1_sum_of_islamic_values_grades/count(array_filter($phase1_islamic_values_grades));
 
     
     // PHASE 2 OF SCHOLASTIC RECORDS
@@ -7522,46 +7522,46 @@ if(isset($_POST['update'])){
 
     // PHASE 2 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
     $phase2_sum_of_mother_tounge_grades = array_sum($phase2_mother_tounge_grades);
-    $phase2_ave_of_mother_tounge_grades = $phase2_sum_of_mother_tounge_grades/count($phase2_mother_tounge_grades);
+    $phase2_ave_of_mother_tounge_grades = $phase2_sum_of_mother_tounge_grades/count(array_filter($phase2_mother_tounge_grades));
 
     $phase2_sum_of_filipino_grades = array_sum($phase2_filipino_grades);
-    $phase2_ave_of_filipino_grades = $phase2_sum_of_filipino_grades/count($phase2_filipino_grades);
+    $phase2_ave_of_filipino_grades = $phase2_sum_of_filipino_grades/count(array_filter($phase2_filipino_grades));
 
     $phase2_sum_of_english_grades = array_sum($phase2_english_grades);
-    $phase2_ave_of_english_grades = $phase2_sum_of_english_grades/count($phase2_english_grades);
+    $phase2_ave_of_english_grades = $phase2_sum_of_english_grades/count(array_filter($phase2_english_grades));
 
     $phase2_sum_of_math_grades = array_sum($phase2_math_grades);
-    $phase2_ave_of_math_grades = $phase2_sum_of_math_grades/count($phase2_math_grades);
+    $phase2_ave_of_math_grades = $phase2_sum_of_math_grades/count(array_filter($phase2_math_grades));
 
     $phase2_sum_of_science_grades = array_sum($phase2_science_grades);
-    $phase2_ave_of_science_grades = $phase2_sum_of_science_grades/count($phase2_science_grades);
-
+    $phase2_ave_of_science_grades = $phase2_sum_of_science_grades/count(array_filter($phase2_science_grades));
+    
     $phase2_sum_of_araling_panlipunan_grades = array_sum($phase2_araling_panlipunan_grades);
-    $phase2_ave_of_araling_panlipunan_grades = $phase2_sum_of_araling_panlipunan_grades/count($phase2_araling_panlipunan_grades);
+    $phase2_ave_of_araling_panlipunan_grades = $phase2_sum_of_araling_panlipunan_grades/count(array_filter($phase2_araling_panlipunan_grades));
 
     $phase2_sum_of_epp_tle_grades = array_sum($phase2_epp_tle_grades);
-    $phase2_ave_of_epp_tle_grades = $phase2_sum_of_epp_tle_grades/count($phase2_epp_tle_grades);
+    $phase2_ave_of_epp_tle_grades = $phase2_sum_of_epp_tle_grades/count(array_filter($phase2_epp_tle_grades));
 
     $phase2_sum_of_music_grades = array_sum($phase2_music_grades);
-    $phase2_ave_of_music_grades = $phase2_sum_of_music_grades/count($phase2_music_grades);
+    $phase2_ave_of_music_grades = $phase2_sum_of_music_grades/count(array_filter($phase2_music_grades));
 
     $phase2_sum_of_art_grades = array_sum($phase2_art_grades);
-    $phase2_ave_of_art_grades = $phase2_sum_of_art_grades/count($phase2_art_grades);
+    $phase2_ave_of_art_grades = $phase2_sum_of_art_grades/count(array_filter($phase2_art_grades));
 
     $phase2_sum_of_pe_grades = array_sum($phase2_pe_grades);
     $phase2_ave_of_pe_grades = $phase2_sum_of_pe_grades/count($phase2_pe_grades);
 
     $phase2_sum_of_health_grades = array_sum($phase2_health_grades);
-    $phase2_ave_of_health_grades = $phase2_sum_of_health_grades/count($phase2_health_grades);
+    $phase2_ave_of_health_grades = $phase2_sum_of_health_grades/count(array_filter($phase2_health_grades));
 
     $phase2_sum_of_esp_grades = array_sum($phase2_esp_grades);
-    $phase2_ave_of_esp_grades = $phase2_sum_of_esp_grades/count($phase2_esp_grades);
+    $phase2_ave_of_esp_grades = $phase2_sum_of_esp_grades/count(array_filter($phase2_esp_grades));
 
     $phase2_sum_of_arabic_lang_grades = array_sum($phase2_arabic_lang_grades);
-    $phase2_ave_of_arabic_lang_grades = $phase2_sum_of_arabic_lang_grades/count($phase2_arabic_lang_grades);
+    $phase2_ave_of_arabic_lang_grades = $phase2_sum_of_arabic_lang_grades/count(array_filter($phase2_arabic_lang_grades));
 
     $phase2_sum_of_islamic_values_grades = array_sum($phase2_islamic_values_grades);
-    $phase2_ave_of_islamic_values_grades = $phase2_sum_of_islamic_values_grades/count($phase2_islamic_values_grades);
+    $phase2_ave_of_islamic_values_grades = $phase2_sum_of_islamic_values_grades/count(array_filter($phase2_islamic_values_grades));
 
 
     // PHASE 3 OF SCHOLASTIC RECORDS
@@ -7613,46 +7613,46 @@ if(isset($_POST['update'])){
 
     // PHASE 3 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
     $phase3_sum_of_mother_tounge_grades = array_sum($phase3_mother_tounge_grades);
-    $phase3_ave_of_mother_tounge_grades = $phase3_sum_of_mother_tounge_grades/count($phase3_mother_tounge_grades);
+    $phase3_ave_of_mother_tounge_grades = $phase3_sum_of_mother_tounge_grades/count(array_filter($phase3_mother_tounge_grades));
 
     $phase3_sum_of_filipino_grades = array_sum($phase3_filipino_grades);
-    $phase3_ave_of_filipino_grades = $phase3_sum_of_filipino_grades/count($phase3_filipino_grades);
+    $phase3_ave_of_filipino_grades = $phase3_sum_of_filipino_grades/count(array_filter($phase3_filipino_grades));
 
     $phase3_sum_of_english_grades = array_sum($phase3_english_grades);
-    $phase3_ave_of_english_grades = $phase3_sum_of_english_grades/count($phase3_english_grades);
+    $phase3_ave_of_english_grades = $phase3_sum_of_english_grades/count(array_filter($phase3_english_grades));
 
     $phase3_sum_of_math_grades = array_sum($phase3_math_grades);
-    $phase3_ave_of_math_grades = $phase3_sum_of_math_grades/count($phase3_math_grades);
+    $phase3_ave_of_math_grades = $phase3_sum_of_math_grades/count(array_filter($phase3_math_grades));
 
     $phase3_sum_of_science_grades = array_sum($phase3_science_grades);
-    $phase3_ave_of_science_grades = $phase3_sum_of_science_grades/count($phase3_science_grades);
-
+    $phase3_ave_of_science_grades = $phase3_sum_of_science_grades/count(array_filter($phase3_science_grades));
+    
     $phase3_sum_of_araling_panlipunan_grades = array_sum($phase3_araling_panlipunan_grades);
-    $phase3_ave_of_araling_panlipunan_grades = $phase3_sum_of_araling_panlipunan_grades/count($phase3_araling_panlipunan_grades);
+    $phase3_ave_of_araling_panlipunan_grades = $phase3_sum_of_araling_panlipunan_grades/count(array_filter($phase3_araling_panlipunan_grades));
 
     $phase3_sum_of_epp_tle_grades = array_sum($phase3_epp_tle_grades);
-    $phase3_ave_of_epp_tle_grades = $phase3_sum_of_epp_tle_grades/count($phase3_epp_tle_grades);
+    $phase3_ave_of_epp_tle_grades = $phase3_sum_of_epp_tle_grades/count(array_filter($phase3_epp_tle_grades));
 
     $phase3_sum_of_music_grades = array_sum($phase3_music_grades);
-    $phase3_ave_of_music_grades = $phase3_sum_of_music_grades/count($phase3_music_grades);
+    $phase3_ave_of_music_grades = $phase3_sum_of_music_grades/count(array_filter($phase3_music_grades));
 
     $phase3_sum_of_art_grades = array_sum($phase3_art_grades);
-    $phase3_ave_of_art_grades = $phase3_sum_of_art_grades/count($phase3_art_grades);
+    $phase3_ave_of_art_grades = $phase3_sum_of_art_grades/count(array_filter($phase3_art_grades));
 
     $phase3_sum_of_pe_grades = array_sum($phase3_pe_grades);
     $phase3_ave_of_pe_grades = $phase3_sum_of_pe_grades/count($phase3_pe_grades);
 
     $phase3_sum_of_health_grades = array_sum($phase3_health_grades);
-    $phase3_ave_of_health_grades = $phase3_sum_of_health_grades/count($phase3_health_grades);
+    $phase3_ave_of_health_grades = $phase3_sum_of_health_grades/count(array_filter($phase3_health_grades));
 
     $phase3_sum_of_esp_grades = array_sum($phase3_esp_grades);
-    $phase3_ave_of_esp_grades = $phase3_sum_of_esp_grades/count($phase3_esp_grades);
+    $phase3_ave_of_esp_grades = $phase3_sum_of_esp_grades/count(array_filter($phase3_esp_grades));
 
     $phase3_sum_of_arabic_lang_grades = array_sum($phase3_arabic_lang_grades);
-    $phase3_ave_of_arabic_lang_grades = $phase3_sum_of_arabic_lang_grades/count($phase3_arabic_lang_grades);
+    $phase3_ave_of_arabic_lang_grades = $phase3_sum_of_arabic_lang_grades/count(array_filter($phase3_arabic_lang_grades));
 
     $phase3_sum_of_islamic_values_grades = array_sum($phase3_islamic_values_grades);
-    $phase3_ave_of_islamic_values_grades = $phase3_sum_of_islamic_values_grades/count($phase3_islamic_values_grades);
+    $phase3_ave_of_islamic_values_grades = $phase3_sum_of_islamic_values_grades/count(array_filter($phase3_islamic_values_grades));
 
 
     // PHASE 4 OF SCHOLASTIC RECORDS
@@ -7704,46 +7704,46 @@ if(isset($_POST['update'])){
 
     // PHASE 4 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
     $phase4_sum_of_mother_tounge_grades = array_sum($phase4_mother_tounge_grades);
-    $phase4_ave_of_mother_tounge_grades = $phase4_sum_of_mother_tounge_grades/count($phase4_mother_tounge_grades);
+    $phase4_ave_of_mother_tounge_grades = $phase4_sum_of_mother_tounge_grades/count(array_filter($phase4_mother_tounge_grades));
 
     $phase4_sum_of_filipino_grades = array_sum($phase4_filipino_grades);
-    $phase4_ave_of_filipino_grades = $phase4_sum_of_filipino_grades/count($phase4_filipino_grades);
+    $phase4_ave_of_filipino_grades = $phase4_sum_of_filipino_grades/count(array_filter($phase4_filipino_grades));
 
     $phase4_sum_of_english_grades = array_sum($phase4_english_grades);
-    $phase4_ave_of_english_grades = $phase4_sum_of_english_grades/count($phase4_english_grades);
+    $phase4_ave_of_english_grades = $phase4_sum_of_english_grades/count(array_filter($phase4_english_grades));
 
     $phase4_sum_of_math_grades = array_sum($phase4_math_grades);
-    $phase4_ave_of_math_grades = $phase4_sum_of_math_grades/count($phase4_math_grades);
+    $phase4_ave_of_math_grades = $phase4_sum_of_math_grades/count(array_filter($phase4_math_grades));
 
     $phase4_sum_of_science_grades = array_sum($phase4_science_grades);
-    $phase4_ave_of_science_grades = $phase4_sum_of_science_grades/count($phase4_science_grades);
-
+    $phase4_ave_of_science_grades = $phase4_sum_of_science_grades/count(array_filter($phase4_science_grades));
+    
     $phase4_sum_of_araling_panlipunan_grades = array_sum($phase4_araling_panlipunan_grades);
-    $phase4_ave_of_araling_panlipunan_grades = $phase4_sum_of_araling_panlipunan_grades/count($phase4_araling_panlipunan_grades);
+    $phase4_ave_of_araling_panlipunan_grades = $phase4_sum_of_araling_panlipunan_grades/count(array_filter($phase4_araling_panlipunan_grades));
 
     $phase4_sum_of_epp_tle_grades = array_sum($phase4_epp_tle_grades);
-    $phase4_ave_of_epp_tle_grades = $phase4_sum_of_epp_tle_grades/count($phase4_epp_tle_grades);
+    $phase4_ave_of_epp_tle_grades = $phase4_sum_of_epp_tle_grades/count(array_filter($phase4_epp_tle_grades));
 
     $phase4_sum_of_music_grades = array_sum($phase4_music_grades);
-    $phase4_ave_of_music_grades = $phase4_sum_of_music_grades/count($phase4_music_grades);
+    $phase4_ave_of_music_grades = $phase4_sum_of_music_grades/count(array_filter($phase4_music_grades));
 
     $phase4_sum_of_art_grades = array_sum($phase4_art_grades);
-    $phase4_ave_of_art_grades = $phase4_sum_of_art_grades/count($phase4_art_grades);
+    $phase4_ave_of_art_grades = $phase4_sum_of_art_grades/count(array_filter($phase4_art_grades));
 
     $phase4_sum_of_pe_grades = array_sum($phase4_pe_grades);
     $phase4_ave_of_pe_grades = $phase4_sum_of_pe_grades/count($phase4_pe_grades);
 
     $phase4_sum_of_health_grades = array_sum($phase4_health_grades);
-    $phase4_ave_of_health_grades = $phase4_sum_of_health_grades/count($phase4_health_grades);
+    $phase4_ave_of_health_grades = $phase4_sum_of_health_grades/count(array_filter($phase4_health_grades));
 
     $phase4_sum_of_esp_grades = array_sum($phase4_esp_grades);
-    $phase4_ave_of_esp_grades = $phase4_sum_of_esp_grades/count($phase4_esp_grades);
+    $phase4_ave_of_esp_grades = $phase4_sum_of_esp_grades/count(array_filter($phase4_esp_grades));
 
     $phase4_sum_of_arabic_lang_grades = array_sum($phase4_arabic_lang_grades);
-    $phase4_ave_of_arabic_lang_grades = $phase4_sum_of_arabic_lang_grades/count($phase4_arabic_lang_grades);
+    $phase4_ave_of_arabic_lang_grades = $phase4_sum_of_arabic_lang_grades/count(array_filter($phase4_arabic_lang_grades));
 
     $phase4_sum_of_islamic_values_grades = array_sum($phase4_islamic_values_grades);
-    $phase4_ave_of_islamic_values_grades = $phase4_sum_of_islamic_values_grades/count($phase4_islamic_values_grades);
+    $phase4_ave_of_islamic_values_grades = $phase4_sum_of_islamic_values_grades/count(array_filter($phase4_islamic_values_grades));
 
 
     // PHASE 5 OF SCHOLASTIC RECORDS
@@ -7795,46 +7795,46 @@ if(isset($_POST['update'])){
 
     // PHASE 5 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
     $phase5_sum_of_mother_tounge_grades = array_sum($phase5_mother_tounge_grades);
-    $phase5_ave_of_mother_tounge_grades = $phase5_sum_of_mother_tounge_grades/count($phase5_mother_tounge_grades);
+    $phase5_ave_of_mother_tounge_grades = $phase5_sum_of_mother_tounge_grades/count(array_filter($phase5_mother_tounge_grades));
 
     $phase5_sum_of_filipino_grades = array_sum($phase5_filipino_grades);
-    $phase5_ave_of_filipino_grades = $phase5_sum_of_filipino_grades/count($phase5_filipino_grades);
+    $phase5_ave_of_filipino_grades = $phase5_sum_of_filipino_grades/count(array_filter($phase5_filipino_grades));
 
     $phase5_sum_of_english_grades = array_sum($phase5_english_grades);
-    $phase5_ave_of_english_grades = $phase5_sum_of_english_grades/count($phase5_english_grades);
+    $phase5_ave_of_english_grades = $phase5_sum_of_english_grades/count(array_filter($phase5_english_grades));
 
     $phase5_sum_of_math_grades = array_sum($phase5_math_grades);
-    $phase5_ave_of_math_grades = $phase5_sum_of_math_grades/count($phase5_math_grades);
+    $phase5_ave_of_math_grades = $phase5_sum_of_math_grades/count(array_filter($phase5_math_grades));
 
     $phase5_sum_of_science_grades = array_sum($phase5_science_grades);
-    $phase5_ave_of_science_grades = $phase5_sum_of_science_grades/count($phase5_science_grades);
-
+    $phase5_ave_of_science_grades = $phase5_sum_of_science_grades/count(array_filter($phase5_science_grades));
+    
     $phase5_sum_of_araling_panlipunan_grades = array_sum($phase5_araling_panlipunan_grades);
-    $phase5_ave_of_araling_panlipunan_grades = $phase5_sum_of_araling_panlipunan_grades/count($phase5_araling_panlipunan_grades);
+    $phase5_ave_of_araling_panlipunan_grades = $phase5_sum_of_araling_panlipunan_grades/count(array_filter($phase5_araling_panlipunan_grades));
 
     $phase5_sum_of_epp_tle_grades = array_sum($phase5_epp_tle_grades);
-    $phase5_ave_of_epp_tle_grades = $phase5_sum_of_epp_tle_grades/count($phase5_epp_tle_grades);
+    $phase5_ave_of_epp_tle_grades = $phase5_sum_of_epp_tle_grades/count(array_filter($phase5_epp_tle_grades));
 
     $phase5_sum_of_music_grades = array_sum($phase5_music_grades);
-    $phase5_ave_of_music_grades = $phase5_sum_of_music_grades/count($phase5_music_grades);
+    $phase5_ave_of_music_grades = $phase5_sum_of_music_grades/count(array_filter($phase5_music_grades));
 
     $phase5_sum_of_art_grades = array_sum($phase5_art_grades);
-    $phase5_ave_of_art_grades = $phase5_sum_of_art_grades/count($phase5_art_grades);
+    $phase5_ave_of_art_grades = $phase5_sum_of_art_grades/count(array_filter($phase5_art_grades));
 
     $phase5_sum_of_pe_grades = array_sum($phase5_pe_grades);
     $phase5_ave_of_pe_grades = $phase5_sum_of_pe_grades/count($phase5_pe_grades);
 
     $phase5_sum_of_health_grades = array_sum($phase5_health_grades);
-    $phase5_ave_of_health_grades = $phase5_sum_of_health_grades/count($phase5_health_grades);
+    $phase5_ave_of_health_grades = $phase5_sum_of_health_grades/count(array_filter($phase5_health_grades));
 
     $phase5_sum_of_esp_grades = array_sum($phase5_esp_grades);
-    $phase5_ave_of_esp_grades = $phase5_sum_of_esp_grades/count($phase5_esp_grades);
+    $phase5_ave_of_esp_grades = $phase5_sum_of_esp_grades/count(array_filter($phase5_esp_grades));
 
     $phase5_sum_of_arabic_lang_grades = array_sum($phase5_arabic_lang_grades);
-    $phase5_ave_of_arabic_lang_grades = $phase5_sum_of_arabic_lang_grades/count($phase5_arabic_lang_grades);
+    $phase5_ave_of_arabic_lang_grades = $phase5_sum_of_arabic_lang_grades/count(array_filter($phase5_arabic_lang_grades));
 
     $phase5_sum_of_islamic_values_grades = array_sum($phase5_islamic_values_grades);
-    $phase5_ave_of_islamic_values_grades = $phase5_sum_of_islamic_values_grades/count($phase5_islamic_values_grades);
+    $phase5_ave_of_islamic_values_grades = $phase5_sum_of_islamic_values_grades/count(array_filter($phase5_islamic_values_grades));
 
 
     // PHASE 6 OF SCHOLASTIC RECORDS
@@ -7886,46 +7886,46 @@ if(isset($_POST['update'])){
 
     // PHASE 6 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
     $phase6_sum_of_mother_tounge_grades = array_sum($phase6_mother_tounge_grades);
-    $phase6_ave_of_mother_tounge_grades = $phase6_sum_of_mother_tounge_grades/count($phase6_mother_tounge_grades);
+    $phase6_ave_of_mother_tounge_grades = $phase6_sum_of_mother_tounge_grades/count(array_filter($phase6_mother_tounge_grades));
 
     $phase6_sum_of_filipino_grades = array_sum($phase6_filipino_grades);
-    $phase6_ave_of_filipino_grades = $phase6_sum_of_filipino_grades/count($phase6_filipino_grades);
+    $phase6_ave_of_filipino_grades = $phase6_sum_of_filipino_grades/count(array_filter($phase6_filipino_grades));
 
     $phase6_sum_of_english_grades = array_sum($phase6_english_grades);
-    $phase6_ave_of_english_grades = $phase6_sum_of_english_grades/count($phase6_english_grades);
+    $phase6_ave_of_english_grades = $phase6_sum_of_english_grades/count(array_filter($phase6_english_grades));
 
     $phase6_sum_of_math_grades = array_sum($phase6_math_grades);
-    $phase6_ave_of_math_grades = $phase6_sum_of_math_grades/count($phase6_math_grades);
+    $phase6_ave_of_math_grades = $phase6_sum_of_math_grades/count(array_filter($phase6_math_grades));
 
     $phase6_sum_of_science_grades = array_sum($phase6_science_grades);
-    $phase6_ave_of_science_grades = $phase6_sum_of_science_grades/count($phase6_science_grades);
-
+    $phase6_ave_of_science_grades = $phase6_sum_of_science_grades/count(array_filter($phase6_science_grades));
+    
     $phase6_sum_of_araling_panlipunan_grades = array_sum($phase6_araling_panlipunan_grades);
-    $phase6_ave_of_araling_panlipunan_grades = $phase6_sum_of_araling_panlipunan_grades/count($phase6_araling_panlipunan_grades);
+    $phase6_ave_of_araling_panlipunan_grades = $phase6_sum_of_araling_panlipunan_grades/count(array_filter($phase6_araling_panlipunan_grades));
 
     $phase6_sum_of_epp_tle_grades = array_sum($phase6_epp_tle_grades);
-    $phase6_ave_of_epp_tle_grades = $phase6_sum_of_epp_tle_grades/count($phase6_epp_tle_grades);
+    $phase6_ave_of_epp_tle_grades = $phase6_sum_of_epp_tle_grades/count(array_filter($phase6_epp_tle_grades));
 
     $phase6_sum_of_music_grades = array_sum($phase6_music_grades);
-    $phase6_ave_of_music_grades = $phase6_sum_of_music_grades/count($phase6_music_grades);
+    $phase6_ave_of_music_grades = $phase6_sum_of_music_grades/count(array_filter($phase6_music_grades));
 
     $phase6_sum_of_art_grades = array_sum($phase6_art_grades);
-    $phase6_ave_of_art_grades = $phase6_sum_of_art_grades/count($phase6_art_grades);
+    $phase6_ave_of_art_grades = $phase6_sum_of_art_grades/count(array_filter($phase6_art_grades));
 
     $phase6_sum_of_pe_grades = array_sum($phase6_pe_grades);
     $phase6_ave_of_pe_grades = $phase6_sum_of_pe_grades/count($phase6_pe_grades);
 
     $phase6_sum_of_health_grades = array_sum($phase6_health_grades);
-    $phase6_ave_of_health_grades = $phase6_sum_of_health_grades/count($phase6_health_grades);
+    $phase6_ave_of_health_grades = $phase6_sum_of_health_grades/count(array_filter($phase6_health_grades));
 
     $phase6_sum_of_esp_grades = array_sum($phase6_esp_grades);
-    $phase6_ave_of_esp_grades = $phase6_sum_of_esp_grades/count($phase6_esp_grades);
+    $phase6_ave_of_esp_grades = $phase6_sum_of_esp_grades/count(array_filter($phase6_esp_grades));
 
     $phase6_sum_of_arabic_lang_grades = array_sum($phase6_arabic_lang_grades);
-    $phase6_ave_of_arabic_lang_grades = $phase6_sum_of_arabic_lang_grades/count($phase6_arabic_lang_grades);
+    $phase6_ave_of_arabic_lang_grades = $phase6_sum_of_arabic_lang_grades/count(array_filter($phase6_arabic_lang_grades));
 
     $phase6_sum_of_islamic_values_grades = array_sum($phase6_islamic_values_grades);
-    $phase6_ave_of_islamic_values_grades = $phase6_sum_of_islamic_values_grades/count($phase6_islamic_values_grades);
+    $phase6_ave_of_islamic_values_grades = $phase6_sum_of_islamic_values_grades/count(array_filter($phase6_islamic_values_grades));
 
 
     // PHASE 7 OF SCHOLASTIC RECORDS
@@ -7977,46 +7977,46 @@ if(isset($_POST['update'])){
 
     // PHASE 7 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
     $phase7_sum_of_mother_tounge_grades = array_sum($phase7_mother_tounge_grades);
-    $phase7_ave_of_mother_tounge_grades = $phase7_sum_of_mother_tounge_grades/count($phase7_mother_tounge_grades);
+    $phase7_ave_of_mother_tounge_grades = $phase7_sum_of_mother_tounge_grades/count(array_filter($phase7_mother_tounge_grades));
 
     $phase7_sum_of_filipino_grades = array_sum($phase7_filipino_grades);
-    $phase7_ave_of_filipino_grades = $phase7_sum_of_filipino_grades/count($phase7_filipino_grades);
+    $phase7_ave_of_filipino_grades = $phase7_sum_of_filipino_grades/count(array_filter($phase7_filipino_grades));
 
     $phase7_sum_of_english_grades = array_sum($phase7_english_grades);
-    $phase7_ave_of_english_grades = $phase7_sum_of_english_grades/count($phase7_english_grades);
+    $phase7_ave_of_english_grades = $phase7_sum_of_english_grades/count(array_filter($phase7_english_grades));
 
     $phase7_sum_of_math_grades = array_sum($phase7_math_grades);
-    $phase7_ave_of_math_grades = $phase7_sum_of_math_grades/count($phase7_math_grades);
+    $phase7_ave_of_math_grades = $phase7_sum_of_math_grades/count(array_filter($phase7_math_grades));
 
     $phase7_sum_of_science_grades = array_sum($phase7_science_grades);
-    $phase7_ave_of_science_grades = $phase7_sum_of_science_grades/count($phase7_science_grades);
-
+    $phase7_ave_of_science_grades = $phase7_sum_of_science_grades/count(array_filter($phase7_science_grades));
+    
     $phase7_sum_of_araling_panlipunan_grades = array_sum($phase7_araling_panlipunan_grades);
-    $phase7_ave_of_araling_panlipunan_grades = $phase7_sum_of_araling_panlipunan_grades/count($phase7_araling_panlipunan_grades);
+    $phase7_ave_of_araling_panlipunan_grades = $phase7_sum_of_araling_panlipunan_grades/count(array_filter($phase7_araling_panlipunan_grades));
 
     $phase7_sum_of_epp_tle_grades = array_sum($phase7_epp_tle_grades);
-    $phase7_ave_of_epp_tle_grades = $phase7_sum_of_epp_tle_grades/count($phase7_epp_tle_grades);
+    $phase7_ave_of_epp_tle_grades = $phase7_sum_of_epp_tle_grades/count(array_filter($phase7_epp_tle_grades));
 
     $phase7_sum_of_music_grades = array_sum($phase7_music_grades);
-    $phase7_ave_of_music_grades = $phase7_sum_of_music_grades/count($phase7_music_grades);
+    $phase7_ave_of_music_grades = $phase7_sum_of_music_grades/count(array_filter($phase7_music_grades));
 
     $phase7_sum_of_art_grades = array_sum($phase7_art_grades);
-    $phase7_ave_of_art_grades = $phase7_sum_of_art_grades/count($phase7_art_grades);
+    $phase7_ave_of_art_grades = $phase7_sum_of_art_grades/count(array_filter($phase7_art_grades));
 
     $phase7_sum_of_pe_grades = array_sum($phase7_pe_grades);
     $phase7_ave_of_pe_grades = $phase7_sum_of_pe_grades/count($phase7_pe_grades);
 
     $phase7_sum_of_health_grades = array_sum($phase7_health_grades);
-    $phase7_ave_of_health_grades = $phase7_sum_of_health_grades/count($phase7_health_grades);
+    $phase7_ave_of_health_grades = $phase7_sum_of_health_grades/count(array_filter($phase7_health_grades));
 
     $phase7_sum_of_esp_grades = array_sum($phase7_esp_grades);
-    $phase7_ave_of_esp_grades = $phase7_sum_of_esp_grades/count($phase7_esp_grades);
+    $phase7_ave_of_esp_grades = $phase7_sum_of_esp_grades/count(array_filter($phase7_esp_grades));
 
     $phase7_sum_of_arabic_lang_grades = array_sum($phase7_arabic_lang_grades);
-    $phase7_ave_of_arabic_lang_grades = $phase7_sum_of_arabic_lang_grades/count($phase7_arabic_lang_grades);
+    $phase7_ave_of_arabic_lang_grades = $phase7_sum_of_arabic_lang_grades/count(array_filter($phase7_arabic_lang_grades));
 
     $phase7_sum_of_islamic_values_grades = array_sum($phase7_islamic_values_grades);
-    $phase7_ave_of_islamic_values_grades = $phase7_sum_of_islamic_values_grades/count($phase7_islamic_values_grades);
+    $phase7_ave_of_islamic_values_grades = $phase7_sum_of_islamic_values_grades/count(array_filter($phase7_islamic_values_grades));
 
 
     // PHASE 8 OF SCHOLASTIC RECORDS
@@ -8068,46 +8068,46 @@ if(isset($_POST['update'])){
 
     // PHASE 8 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
     $phase8_sum_of_mother_tounge_grades = array_sum($phase8_mother_tounge_grades);
-    $phase8_ave_of_mother_tounge_grades = $phase8_sum_of_mother_tounge_grades/count($phase8_mother_tounge_grades);
+    $phase8_ave_of_mother_tounge_grades = $phase8_sum_of_mother_tounge_grades/count(array_filter($phase8_mother_tounge_grades));
 
     $phase8_sum_of_filipino_grades = array_sum($phase8_filipino_grades);
-    $phase8_ave_of_filipino_grades = $phase8_sum_of_filipino_grades/count($phase8_filipino_grades);
+    $phase8_ave_of_filipino_grades = $phase8_sum_of_filipino_grades/count(array_filter($phase8_filipino_grades));
 
     $phase8_sum_of_english_grades = array_sum($phase8_english_grades);
-    $phase8_ave_of_english_grades = $phase8_sum_of_english_grades/count($phase8_english_grades);
+    $phase8_ave_of_english_grades = $phase8_sum_of_english_grades/count(array_filter($phase8_english_grades));
 
     $phase8_sum_of_math_grades = array_sum($phase8_math_grades);
-    $phase8_ave_of_math_grades = $phase8_sum_of_math_grades/count($phase8_math_grades);
+    $phase8_ave_of_math_grades = $phase8_sum_of_math_grades/count(array_filter($phase8_math_grades));
 
     $phase8_sum_of_science_grades = array_sum($phase8_science_grades);
-    $phase8_ave_of_science_grades = $phase8_sum_of_science_grades/count($phase8_science_grades);
-
+    $phase8_ave_of_science_grades = $phase8_sum_of_science_grades/count(array_filter($phase8_science_grades));
+    
     $phase8_sum_of_araling_panlipunan_grades = array_sum($phase8_araling_panlipunan_grades);
-    $phase8_ave_of_araling_panlipunan_grades = $phase8_sum_of_araling_panlipunan_grades/count($phase8_araling_panlipunan_grades);
+    $phase8_ave_of_araling_panlipunan_grades = $phase8_sum_of_araling_panlipunan_grades/count(array_filter($phase8_araling_panlipunan_grades));
 
     $phase8_sum_of_epp_tle_grades = array_sum($phase8_epp_tle_grades);
-    $phase8_ave_of_epp_tle_grades = $phase8_sum_of_epp_tle_grades/count($phase8_epp_tle_grades);
+    $phase8_ave_of_epp_tle_grades = $phase8_sum_of_epp_tle_grades/count(array_filter($phase8_epp_tle_grades));
 
     $phase8_sum_of_music_grades = array_sum($phase8_music_grades);
-    $phase8_ave_of_music_grades = $phase8_sum_of_music_grades/count($phase8_music_grades);
+    $phase8_ave_of_music_grades = $phase8_sum_of_music_grades/count(array_filter($phase8_music_grades));
 
     $phase8_sum_of_art_grades = array_sum($phase8_art_grades);
-    $phase8_ave_of_art_grades = $phase8_sum_of_art_grades/count($phase8_art_grades);
+    $phase8_ave_of_art_grades = $phase8_sum_of_art_grades/count(array_filter($phase8_art_grades));
 
     $phase8_sum_of_pe_grades = array_sum($phase8_pe_grades);
     $phase8_ave_of_pe_grades = $phase8_sum_of_pe_grades/count($phase8_pe_grades);
 
     $phase8_sum_of_health_grades = array_sum($phase8_health_grades);
-    $phase8_ave_of_health_grades = $phase8_sum_of_health_grades/count($phase8_health_grades);
+    $phase8_ave_of_health_grades = $phase8_sum_of_health_grades/count(array_filter($phase8_health_grades));
 
     $phase8_sum_of_esp_grades = array_sum($phase8_esp_grades);
-    $phase8_ave_of_esp_grades = $phase8_sum_of_esp_grades/count($phase8_esp_grades);
+    $phase8_ave_of_esp_grades = $phase8_sum_of_esp_grades/count(array_filter($phase8_esp_grades));
 
     $phase8_sum_of_arabic_lang_grades = array_sum($phase8_arabic_lang_grades);
-    $phase8_ave_of_arabic_lang_grades = $phase8_sum_of_arabic_lang_grades/count($phase8_arabic_lang_grades);
+    $phase8_ave_of_arabic_lang_grades = $phase8_sum_of_arabic_lang_grades/count(array_filter($phase8_arabic_lang_grades));
 
     $phase8_sum_of_islamic_values_grades = array_sum($phase8_islamic_values_grades);
-    $phase8_ave_of_islamic_values_grades = $phase8_sum_of_islamic_values_grades/count($phase8_islamic_values_grades);
+    $phase8_ave_of_islamic_values_grades = $phase8_sum_of_islamic_values_grades/count(array_filter($phase8_islamic_values_grades));
 
     
     // UPDATE SECTION OF STUDENT LEARNER PERSONAL INFO
