@@ -2961,7 +2961,8 @@ if(isset($_POST['add'])){
     $phase1_term1_general_average = $phase1_term1_gen_sum / $phase1_term1_gen_count;
     
     // $phase1_term2_general_average = round(($term2_phase1_mother_tongue + $term2_phase1_filipino + $term2_phase1_english + $term2_phase1_mathematics + $term2_phase1_science + $term2_phase1_araling_panlipunan + $term2_phase1_epp_tle + $term2_phase1_average_of_mapeh + $term2_phase1_esp) / 9);
-    $phase1_term2_gen_numbers = ($term2_phase1_mother_tongue, $term2_phase1_filipino, $term2_phase1_english, $term2_phase1_mathematics, $term2_phase1_science, $term2_phase1_araling_panlipunan, $term2_phase1_epp_tle, $term2_phase1_average_of_mapeh, $term2_phase1_esp);
+    $phase1_term2_gen_numbers = array($term2_phase1_mother_tongue, $term2_phase1_filipino, $term2_phase1_english, $term2_phase1_mathematics, $term2_phase1_science, $term2_phase1_araling_panlipunan, $term2_phase1_epp_tle, $term2_phase1_average_of_mapeh, $term2_phase1_esp);
+
     $phase1_term2_gen_sum = array_sum($phase1_term2_gen_numbers);
     $phase1_term2_gen_count = count(array_filter($phase1_term2_gen_numbers));
     $phase1_term2_general_average = $phase1_term2_gen_sum / $phase1_term2_gen_count;
@@ -3252,7 +3253,7 @@ $phase2_term1_gen_count = count(array_filter($phase2_term1_gen_numbers));
 $phase2_term1_general_average = $phase2_term1_gen_sum / $phase2_term1_gen_count;
 
 // $phase2_term2_general_average = round(($term2_phase2_mother_tongue + $term2_phase2_filipino + $term2_phase2_english + $term2_phase2_mathematics + $term2_phase2_science + $term2_phase2_araling_panlipunan + $term2_phase2_epp_tle + $term2_phase2_average_of_mapeh + $term2_phase2_esp) / 9);
-$phase2_term2_gen_numbers = ($term2_phase2_mother_tongue, $term2_phase2_filipino, $term2_phase2_english, $term2_phase2_mathematics, $term2_phase2_science, $term2_phase2_araling_panlipunan, $term2_phase2_epp_tle, $term2_phase2_average_of_mapeh, $term2_phase2_esp);
+$phase2_term2_gen_numbers = array($term2_phase2_mother_tongue, $term2_phase2_filipino, $term2_phase2_english, $term2_phase2_mathematics, $term2_phase2_science, $term2_phase2_araling_panlipunan, $term2_phase2_epp_tle, $term2_phase2_average_of_mapeh, $term2_phase2_esp);
 $phase2_term2_gen_sum = array_sum($phase2_term2_gen_numbers);
 $phase2_term2_gen_count = count(array_filter($phase2_term2_gen_numbers));
 $phase2_term2_general_average = $phase2_term2_gen_sum / $phase2_term2_gen_count;
@@ -4036,7 +4037,7 @@ $phase4_term1_gen_count = count(array_filter($phase4_term1_gen_numbers));
 $phase4_term1_general_average = $phase4_term1_gen_sum / $phase4_term1_gen_count;
 
 // $phase4_term2_general_average = round(($term2_phase4_mother_tongue + $term2_phase4_filipino + $term2_phase4_english + $term2_phase4_mathematics + $term2_phase4_science + $term2_phase4_araling_panlipunan + $term2_phase4_epp_tle + $term2_phase4_average_of_mapeh + $term2_phase4_esp) / 9);
-$phase4_term2_gen_numbers = ($term2_phase4_mother_tongue, $term2_phase4_filipino, $term2_phase4_english + $term2_phase4_mathematics, $term2_phase4_science + $term2_phase4_araling_panlipunan, $term2_phase4_epp_tle, $term2_phase4_average_of_mapeh, $term2_phase4_esp);
+$phase4_term2_gen_numbers = array($term2_phase4_mother_tongue, $term2_phase4_filipino, $term2_phase4_english + $term2_phase4_mathematics, $term2_phase4_science + $term2_phase4_araling_panlipunan, $term2_phase4_epp_tle, $term2_phase4_average_of_mapeh, $term2_phase4_esp);
 $phase4_term2_gen_sum = array_sum($phase4_term2_gen_numbers);
 $phase4_term2_gen_count = count(array_filter($phase4_term2_gen_numbers));
 $phase4_term2_general_average = $phase4_term2_gen_sum / $phase4_term2_gen_count;
@@ -4815,7 +4816,7 @@ $phase6_term1_gen_count = count(array_filter($phase6_term1_gen_numbers));
 $phase6_term1_general_average = $phase6_term1_gen_sum / $phase6_term1_gen_count;
 
 // $phase6_term2_general_average = round(($term2_phase6_mother_tongue + $term2_phase6_filipino + $term2_phase6_english + $term2_phase6_mathematics + $term2_phase6_science + $term2_phase6_araling_panlipunan + $term2_phase6_epp_tle + $term2_phase6_average_of_mapeh + $term2_phase6_esp) / 9);
-$phase6_term2_gen_numbers = ($term2_phase6_mother_tongue, $term2_phase6_filipino, $term2_phase6_english + $term2_phase6_mathematics, $term2_phase6_science + $term2_phase6_araling_panlipunan, $term2_phase6_epp_tle, $term2_phase6_average_of_mapeh, $term2_phase6_esp);
+$phase6_term2_gen_numbers = array($term2_phase6_mother_tongue, $term2_phase6_filipino, $term2_phase6_english + $term2_phase6_mathematics, $term2_phase6_science + $term2_phase6_araling_panlipunan, $term2_phase6_epp_tle, $term2_phase6_average_of_mapeh, $term2_phase6_esp);
 $phase6_term2_gen_sum = array_sum($phase6_term2_gen_numbers);
 $phase6_term2_gen_count = count(array_filter($phase6_term2_gen_numbers));
 $phase6_term2_general_average = $phase6_term2_gen_sum / $phase6_term2_gen_count;
@@ -5592,7 +5593,7 @@ $phase8_term1_gen_count = count(array_filter($phase8_term1_gen_numbers));
 $phase8_term1_general_average = $phase8_term1_gen_sum / $phase8_term1_gen_count;
 
 // $phase8_term2_general_average = round(($term2_phase8_mother_tongue + $term2_phase8_filipino + $term2_phase8_english + $term2_phase8_mathematics + $term2_phase8_science + $term2_phase8_araling_panlipunan + $term2_phase8_epp_tle + $term2_phase8_average_of_mapeh + $term2_phase8_esp) / 9);
-$phase8_term2_gen_numbers = ($term2_phase8_mother_tongue, $term2_phase8_filipino, $term2_phase8_english + $term2_phase8_mathematics, $term2_phase8_science + $term2_phase8_araling_panlipunan, $term2_phase8_epp_tle, $term2_phase8_average_of_mapeh, $term2_phase8_esp);
+$phase8_term2_gen_numbers = array($term2_phase8_mother_tongue, $term2_phase8_filipino, $term2_phase8_english + $term2_phase8_mathematics, $term2_phase8_science + $term2_phase8_araling_panlipunan, $term2_phase8_epp_tle, $term2_phase8_average_of_mapeh, $term2_phase8_esp);
 $phase8_term2_gen_sum = array_sum($phase8_term2_gen_numbers);
 $phase8_term2_gen_count = count(array_filter($phase8_term2_gen_numbers));
 $phase8_term2_general_average = $phase8_term2_gen_sum / $phase8_term2_gen_count;

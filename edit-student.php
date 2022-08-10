@@ -53,7 +53,7 @@ if(isset($_GET['sid'])){
 <?php include 'includes/pre-load.php'; ?>
 <div class="container-fluid text-end py-1" style="background:#c0c0c0;">
     <!-- Button trigger modal -->
-    <a href="viewpdf.php?sid=<?php echo urlencode(base64_encode($encrypted_data));?>" class="btn btn-small btn-danger pdf-toggler">Generate PDF</a>
+    <a href="viewpdf.php?sid=<?php echo urlencode(base64_encode($encrypted_data));?>" class="btn btn-small btn-danger pdf-toggler" target="_blank">Generate PDF</a>
     <button type="button" class="btn btn-small btn-primary text-white toggler" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Send via Email
     </button>
