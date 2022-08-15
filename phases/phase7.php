@@ -521,7 +521,7 @@ $phase7_final_rating_music =  $phase7_music_sum / $phase7_music_count;
 
 $phase7_arts_numbers = array($term1_phase7_arts, $term2_phase7_arts, $term3_phase7_arts, $term4_phase7_arts);
 $phase7_arts_sum = array_sum($phase7_arts_numbers);
-$phase7_arts_count = count(array_filter($phase7_ap_numbers));
+$phase7_arts_count = count(array_filter($phase7_arts_numbers));
 $phase7_final_rating_arts =  $phase7_arts_sum / $phase7_arts_count;
 
 // $phase7_final_rating_PE = round(($term1_phase7_pe + $term2_phase7_pe + $term3_phase7_pe + $term4_phase7_pe) / 4);

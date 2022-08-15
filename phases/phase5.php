@@ -530,7 +530,7 @@ $phase5_final_rating_music =  $phase5_music_sum / $phase5_music_count;
 
 $phase5_arts_numbers = array($term1_phase5_arts, $term2_phase5_arts, $term3_phase5_arts, $term4_phase5_arts);
 $phase5_arts_sum = array_sum($phase5_arts_numbers);
-$phase5_arts_count = count(array_filter($phase5_ap_numbers));
+$phase5_arts_count = count(array_filter($phase5_arts_numbers));
 $phase5_final_rating_arts =  $phase5_arts_sum / $phase5_arts_count;
 
 // $phase5_final_rating_PE = round(($term1_phase5_pe + $term2_phase5_pe + $term3_phase5_pe + $term4_phase5_pe) / 4);
