@@ -26,7 +26,7 @@ use PHPMailer\PHPMailer\Exception;
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
                 $mail->Username   = 'thaddeusgamit31@gmail.com';                     //SMTP username // email username
-                $mail->Password   = 'ztqejvrgppyaqfjm';                               //SMTP // email password password
+                $mail->Password   = 'atobvewoqjwdipsw';                               //SMTP // email password password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
 
     ///////// USERS SA LAPTOP NI MAM///////////
     if($grade_level == "prep"){
-        $path = 'C:\Users\Thaddeus\Documents\files\prep'. basename($_FILES['file']['name']);
+        $path = 'C:\Users\thadd\OneDrive\Documents\files\prep'. basename($_FILES['file']['name']);
         if(move_uploaded_file($_FILES['file']['tmp_name'],$path)){
         
             sendMail($email,$path);

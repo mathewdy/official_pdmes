@@ -178,6 +178,7 @@ if(isset($_POST['next'])){
 
     //validation
 
+
     $validation_learners = "SELECT lrn, last_name,first_name,middle_name,suffix,birth_date
     FROM learners_personal_infos WHERE lrn = '$lrn'";
     $run_validation = mysqli_query($conn,$validation_learners);
@@ -185,59 +186,32 @@ if(isset($_POST['next'])){
     if(mysqli_num_rows($run_validation) > 0){
         echo "<script>alert('This student is already added')</script>";
         echo "<script>window.location.href='home.php' </script>";
-    }else{
+    }
+    else{
 
+        $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,first_name,middle_name,suffix,birth_date,sex,remarks,date_time_created,date_time_updated)
+        VALUES ('$lrn' , '$last_name' , '$first_name' ,'$middle_name', '$suffix' , '$birth_date' , '$sex','$remarks', '$dateCreated', '$dateUpdated')
+        ";
     
+        $run_insert_learners_info = mysqli_query($conn,$insert_learners_info);
+    
+        echo "inserted leanrer" . '<br>';
+    
+        //insert eligibility
+    
+        $insert_elibility = "INSERT INTO eligibility_for_elementary_school_enrollment 
+        (lrn, credential_presented, name_of_school, school_id, address_of_school, pept_passer, rating, date_of_assessment, others, specify, name_and_address_testing_center, remarks, date_time_created, date_time_updated) VALUES
+        ('$lrn' , '$new_credential','$eligibility_name_of_school', '$school_id' , '$address_of_school', '$pept_passer', '$rating', '$date_of_assessment', '$others' ,'$others_checkbox', '$name_and_address_testing_center' , '$eligibility_remarks', '$dateCreated' , '$dateUpdated')";
+        $run_eligibility = mysqli_query($conn,$insert_elibility);
+    
+        if($run_eligibility){
+            echo "added eligibility";
+        }else{
+            echo "error";
+        }
 
 
-    $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,first_name,middle_name,suffix,birth_date,sex,remarks,date_time_created,date_time_updated)
-    VALUES ('$lrn' , '$last_name' , '$first_name' ,'$middle_name', '$suffix' , '$birth_date' , '$sex','$remarks', '$dateCreated', '$dateUpdated')
-    ";
-
-    $run_insert_learners_info = mysqli_query($conn,$insert_learners_info);
-
-    echo "inserted leanrer" . '<br>';
-
-    //insert eligibility
-
-    $insert_elibility = "INSERT INTO eligibility_for_elementary_school_enrollment 
-    (lrn, credential_presented, name_of_school, school_id, address_of_school, pept_passer, rating, date_of_assessment, others, specify, name_and_address_testing_center, remarks, date_time_created, date_time_updated) VALUES
-    ('$lrn' , '$new_credential','$eligibility_name_of_school', '$school_id' , '$address_of_school', '$pept_passer', '$rating', '$date_of_assessment', '$others' ,'$others_checkbox', '$name_and_address_testing_center' , '$eligibility_remarks', '$dateCreated' , '$dateUpdated')";
-    $run_eligibility = mysqli_query($conn,$insert_elibility);
-
-    if($run_eligibility){
-        echo "added eligibility";
-    }else{
-        echo "error";
     }
-
-
-
-
-    $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,first_name,middle_name,suffix,birth_date,sex,remarks,date_time_created,date_time_updated)
-    VALUES ('$lrn' , '$last_name' , '$first_name' ,'$middle_name', '$suffix' , '$birth_date' , '$sex','$remarks', '$dateCreated', '$dateUpdated')
-    ";
-
-    $run_insert_learners_info = mysqli_query($conn,$insert_learners_info);
-
-    echo "inserted leanrer" . '<br>';
-
-    //insert eligibility
-
-    $insert_elibility = "INSERT INTO eligibility_for_elementary_school_enrollment 
-    (lrn, credential_presented, name_of_school, school_id, address_of_school, pept_passer, rating, date_of_assessment, others, specify, name_and_address_testing_center, remarks, date_time_created, date_time_updated) VALUES
-    ('$lrn' , '$new_credential','$eligibility_name_of_school', '$school_id' , '$address_of_school', '$pept_passer', '$rating', '$date_of_assessment', '$others' ,'$others_checkbox', '$name_and_address_testing_center' , '$eligibility_remarks', '$dateCreated' , '$dateUpdated')";
-    $run_eligibility = mysqli_query($conn,$insert_elibility);
-
-    if($run_eligibility){
-        echo "added eligibility";
-    }else{
-        echo "error";
-    }
-
-
-
-}
 
 
 
