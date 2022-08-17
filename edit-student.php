@@ -7430,47 +7430,103 @@ if(isset($_POST['update'])){
 
 
     // PHASE 1 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
-    $phase1_sum_of_mother_tounge_grades = array_sum($phase1_mother_tounge_grades);
-    $phase1_ave_of_mother_tounge_grades = $phase1_sum_of_mother_tounge_grades/count(array_filter($phase1_mother_tounge_grades));
+    $phase1_mother_tounge_count = count(array_filter($phase1_mother_tounge_grades));
+    if($phase1_mother_tounge_count == 0){
+        $phase1_ave_of_mother_tounge_grades = 0;
+    }else{
+        $phase1_ave_of_mother_tounge_grades = array_sum($phase1_mother_tounge_grades)/$phase1_mother_tounge_count;
+    }
 
-    $phase1_sum_of_filipino_grades = array_sum($phase1_filipino_grades);
-    $phase1_ave_of_filipino_grades = $phase1_sum_of_filipino_grades/count(array_filter($phase1_filipino_grades));
+    $phase1_filipino_grades_count = count(array_filter($phase1_filipino_grades));
+    if($phase1_filipino_grades_count == 0){
+        $phase1_ave_of_filipino_grades = 0;
+    }else{
+        $phase1_ave_of_filipino_grades = array_sum($phase1_filipino_grades)/$phase1_filipino_grades_count;
+    }
 
-    $phase1_sum_of_english_grades = array_sum($phase1_english_grades);
-    $phase1_ave_of_english_grades = $phase1_sum_of_english_grades/count(array_filter($phase1_english_grades));
+    $phase1_english_grades_count = count(array_filter($phase1_english_grades));
+    if($phase1_english_grades_count == 0){
+        $phase1_ave_of_english_grades = 0;
+    }else{
+        $phase1_ave_of_english_grades = array_sum($phase1_english_grades)/$phase1_english_grades_count;
+    }
 
-    $phase1_sum_of_math_grades = array_sum($phase1_math_grades);
-    $phase1_ave_of_math_grades = $phase1_sum_of_math_grades/count(array_filter($phase1_math_grades));
+    $phase1_math_grades_count = count(array_filter($phase1_math_grades));
+    if($phase1_english_grades_count == 0){
+        $phase1_ave_of_math_grades = 0;
+    }else{
+        $phase1_ave_of_math_grades = array_sum($phase1_math_grades)/$phase1_math_grades_count;
+    }
 
-    $phase1_sum_of_science_grades = array_sum($phase1_science_grades);
-    $phase1_ave_of_science_grades = $phase1_sum_of_science_grades/count(array_filter($phase1_science_grades));
+    $phase1_science_grades_count = count(array_filter($phase1_science_grades));
+    if($phase1_science_grades_count == 0){
+        $phase1_ave_of_science_grades = 0;
+    }else{
+        $phase1_ave_of_science_grades = array_sum($phase1_science_grades)/$phase1_science_grades_count;
+    }
     
-    $phase1_sum_of_araling_panlipunan_grades = array_sum($phase1_araling_panlipunan_grades);
-    $phase1_ave_of_araling_panlipunan_grades = $phase1_sum_of_araling_panlipunan_grades/count(array_filter($phase1_araling_panlipunan_grades));
+    $phase1_araling_panlipunan_grades_count = count(array_filter($phase1_araling_panlipunan_grades));
+    if($phase1_araling_panlipunan_grades_count == 0){
+        $phase1_ave_of_araling_panlipunan_grades = 0;
+    }else{
+        $phase1_ave_of_araling_panlipunan_grades = array_sum($phase1_araling_panlipunan_grades)/$phase1_araling_panlipunan_grades_count;
+    }
 
-    $phase1_sum_of_epp_tle_grades = array_sum($phase1_epp_tle_grades);
-    $phase1_ave_of_epp_tle_grades = $phase1_sum_of_epp_tle_grades/count(array_filter($phase1_epp_tle_grades));
+    $phase1_epp_tle_grades_count = count(array_filter($phase1_epp_tle_grades));
+    if($phase1_epp_tle_grades_count == 0){
+        $phase1_ave_of_epp_tle_grades = 0;
+    }else{
+        $phase1_ave_of_epp_tle_grades = array_sum($phase1_epp_tle_grades)/$phase1_epp_tle_grades_count;
+    }
 
-    $phase1_sum_of_music_grades = array_sum($phase1_music_grades);
-    $phase1_ave_of_music_grades = $phase1_sum_of_music_grades/count(array_filter($phase1_music_grades));
+    $phase1_music_grades_count = count(array_filter($phase1_music_grades));
+    if($phase1_music_grades_count == 0){
+        $phase1_ave_of_music_grades = 0;
+    }else{
+        $phase1_ave_of_music_grades = array_sum($phase1_music_grades)/$phase1_music_grades_count;
+    }
 
-    $phase1_sum_of_art_grades = array_sum($phase1_art_grades);
-    $phase1_ave_of_art_grades = $phase1_sum_of_art_grades/count(array_filter($phase1_art_grades));
+    $phase1_art_grades_count = count(array_filter($phase1_art_grades));
+    if($phase1_art_grades_count == 0){
+        $phase1_ave_of_art_grades = 0;
+    }else{
+        $phase1_ave_of_art_grades = array_sum($phase1_art_grades)/$phase1_art_grades_count;
+    }
 
-    $phase1_sum_of_pe_grades = array_sum($phase1_pe_grades);
-    $phase1_ave_of_pe_grades = $phase1_sum_of_pe_grades/count($phase1_pe_grades);
+    $phase1_pe_grades_count = count(array_filter($phase1_pe_grades));
+    if($phase1_pe_grades_count == 0){
+        $phase1_ave_of_pe_grades = 0;
+    }else{
+        $phase1_ave_of_pe_grades = array_sum($phase1_pe_grades)/$phase1_pe_grades_count;
+    }
 
-    $phase1_sum_of_health_grades = array_sum($phase1_health_grades);
-    $phase1_ave_of_health_grades = $phase1_sum_of_health_grades/count(array_filter($phase1_health_grades));
+    $phase1_health_grades_count = count(array_filter($phase1_health_grades));
+    if($phase1_health_grades_count == 0){
+        $phase1_ave_of_health_grades = 0;
+    }else{
+        $phase1_ave_of_health_grades = array_sum($phase1_health_grades)/$phase1_health_grades_count;
+    }
 
-    $phase1_sum_of_esp_grades = array_sum($phase1_esp_grades);
-    $phase1_ave_of_esp_grades = $phase1_sum_of_esp_grades/count(array_filter($phase1_esp_grades));
+    $phase1_esp_grades_count = count(array_filter($phase1_esp_grades));
+    if($phase1_esp_grades_count == 0){
+        $phase1_ave_of_esp_grades = 0;
+    }else{
+        $phase1_ave_of_esp_grades = array_sum($phase1_esp_grades)/$phase1_esp_grades_count;
+    }
 
-    $phase1_sum_of_arabic_lang_grades = array_sum($phase1_arabic_lang_grades);
-    $phase1_ave_of_arabic_lang_grades = $phase1_sum_of_arabic_lang_grades/count(array_filter($phase1_arabic_lang_grades));
+    $phase1_arabic_lang_grades_count = count(array_filter($phase1_arabic_lang_grades));
+    if($phase1_arabic_lang_grades_count == 0){
+        $phase1_ave_of_arabic_lang_grades = 0;
+    }else{
+        $phase1_ave_of_arabic_lang_grades = array_sum($phase1_arabic_lang_grades)/$phase1_arabic_lang_grades_count;
+    }
 
-    $phase1_sum_of_islamic_values_grades = array_sum($phase1_islamic_values_grades);
-    $phase1_ave_of_islamic_values_grades = $phase1_sum_of_islamic_values_grades/count(array_filter($phase1_islamic_values_grades));
+    $phase1_islamic_values_grades_count = count(array_filter($phase1_islamic_values_grades));
+    if($phase1_islamic_values_grades_count == 0){
+        $phase1_ave_of_islamic_values_grades = 0;
+    }else{
+        $phase1_ave_of_islamic_values_grades = array_sum($phase1_islamic_values_grades)/$phase1_islamic_values_grades_count;
+    }
 
     
     // PHASE 2 OF SCHOLASTIC RECORDS
@@ -7521,47 +7577,103 @@ if(isset($_POST['update'])){
 
 
     // PHASE 2 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
-    $phase2_sum_of_mother_tounge_grades = array_sum($phase2_mother_tounge_grades);
-    $phase2_ave_of_mother_tounge_grades = $phase2_sum_of_mother_tounge_grades/count(array_filter($phase2_mother_tounge_grades));
+    $phase2_mother_tounge_count = count(array_filter($phase2_mother_tounge_grades));
+    if($phase2_mother_tounge_count == 0){
+        $phase2_ave_of_mother_tounge_grades = 0;
+    }else{
+        $phase2_ave_of_mother_tounge_grades = array_sum($phase2_mother_tounge_grades)/$phase2_mother_tounge_count;
+    }
 
-    $phase2_sum_of_filipino_grades = array_sum($phase2_filipino_grades);
-    $phase2_ave_of_filipino_grades = $phase2_sum_of_filipino_grades/count(array_filter($phase2_filipino_grades));
+    $phase2_filipino_grades_count = count(array_filter($phase2_filipino_grades));
+    if($phase2_filipino_grades_count == 0){
+        $phase2_ave_of_filipino_grades = 0;
+    }else{
+        $phase2_ave_of_filipino_grades = array_sum($phase2_filipino_grades)/$phase2_filipino_grades_count;
+    }
 
-    $phase2_sum_of_english_grades = array_sum($phase2_english_grades);
-    $phase2_ave_of_english_grades = $phase2_sum_of_english_grades/count(array_filter($phase2_english_grades));
+    $phase2_english_grades_count = count(array_filter($phase2_english_grades));
+    if($phase2_english_grades_count == 0){
+        $phase2_ave_of_english_grades = 0;
+    }else{
+        $phase2_ave_of_english_grades = array_sum($phase2_english_grades)/$phase2_english_grades_count;
+    }
 
-    $phase2_sum_of_math_grades = array_sum($phase2_math_grades);
-    $phase2_ave_of_math_grades = $phase2_sum_of_math_grades/count(array_filter($phase2_math_grades));
+    $phase2_math_grades_count = count(array_filter($phase2_math_grades));
+    if($phase2_english_grades_count == 0){
+        $phase2_ave_of_math_grades = 0;
+    }else{
+        $phase2_ave_of_math_grades = array_sum($phase2_math_grades)/$phase2_math_grades_count;
+    }
 
-    $phase2_sum_of_science_grades = array_sum($phase2_science_grades);
-    $phase2_ave_of_science_grades = $phase2_sum_of_science_grades/count(array_filter($phase2_science_grades));
+    $phase2_science_grades_count = count(array_filter($phase2_science_grades));
+    if($phase2_science_grades_count == 0){
+        $phase2_ave_of_science_grades = 0;
+    }else{
+        $phase2_ave_of_science_grades = array_sum($phase2_science_grades)/$phase2_science_grades_count;
+    }
     
-    $phase2_sum_of_araling_panlipunan_grades = array_sum($phase2_araling_panlipunan_grades);
-    $phase2_ave_of_araling_panlipunan_grades = $phase2_sum_of_araling_panlipunan_grades/count(array_filter($phase2_araling_panlipunan_grades));
+    $phase2_araling_panlipunan_grades_count = count(array_filter($phase2_araling_panlipunan_grades));
+    if($phase2_araling_panlipunan_grades_count == 0){
+        $phase2_ave_of_araling_panlipunan_grades = 0;
+    }else{
+        $phase2_ave_of_araling_panlipunan_grades = array_sum($phase2_araling_panlipunan_grades)/$phase2_araling_panlipunan_grades_count;
+    }
 
-    $phase2_sum_of_epp_tle_grades = array_sum($phase2_epp_tle_grades);
-    $phase2_ave_of_epp_tle_grades = $phase2_sum_of_epp_tle_grades/count(array_filter($phase2_epp_tle_grades));
+    $phase2_epp_tle_grades_count = count(array_filter($phase2_epp_tle_grades));
+    if($phase2_epp_tle_grades_count == 0){
+        $phase2_ave_of_epp_tle_grades = 0;
+    }else{
+        $phase2_ave_of_epp_tle_grades = array_sum($phase2_epp_tle_grades)/$phase2_epp_tle_grades_count;
+    }
 
-    $phase2_sum_of_music_grades = array_sum($phase2_music_grades);
-    $phase2_ave_of_music_grades = $phase2_sum_of_music_grades/count(array_filter($phase2_music_grades));
+    $phase2_music_grades_count = count(array_filter($phase2_music_grades));
+    if($phase2_music_grades_count == 0){
+        $phase2_ave_of_music_grades = 0;
+    }else{
+        $phase2_ave_of_music_grades = array_sum($phase2_music_grades)/$phase2_music_grades_count;
+    }
 
-    $phase2_sum_of_art_grades = array_sum($phase2_art_grades);
-    $phase2_ave_of_art_grades = $phase2_sum_of_art_grades/count(array_filter($phase2_art_grades));
+    $phase2_art_grades_count = count(array_filter($phase2_art_grades));
+    if($phase2_art_grades_count == 0){
+        $phase2_ave_of_art_grades = 0;
+    }else{
+        $phase2_ave_of_art_grades = array_sum($phase2_art_grades)/$phase2_art_grades_count;
+    }
 
-    $phase2_sum_of_pe_grades = array_sum($phase2_pe_grades);
-    $phase2_ave_of_pe_grades = $phase2_sum_of_pe_grades/count($phase2_pe_grades);
+    $phase2_pe_grades_count = count(array_filter($phase2_pe_grades));
+    if($phase2_pe_grades_count == 0){
+        $phase2_ave_of_pe_grades = 0;
+    }else{
+        $phase2_ave_of_pe_grades = array_sum($phase2_pe_grades)/$phase2_pe_grades_count;
+    }
 
-    $phase2_sum_of_health_grades = array_sum($phase2_health_grades);
-    $phase2_ave_of_health_grades = $phase2_sum_of_health_grades/count(array_filter($phase2_health_grades));
+    $phase2_health_grades_count = count(array_filter($phase2_health_grades));
+    if($phase2_health_grades_count == 0){
+        $phase2_ave_of_health_grades = 0;
+    }else{
+        $phase2_ave_of_health_grades = array_sum($phase2_health_grades)/$phase2_health_grades_count;
+    }
 
-    $phase2_sum_of_esp_grades = array_sum($phase2_esp_grades);
-    $phase2_ave_of_esp_grades = $phase2_sum_of_esp_grades/count(array_filter($phase2_esp_grades));
+    $phase2_esp_grades_count = count(array_filter($phase2_esp_grades));
+    if($phase2_esp_grades_count == 0){
+        $phase2_ave_of_esp_grades = 0;
+    }else{
+        $phase2_ave_of_esp_grades = array_sum($phase2_esp_grades)/$phase2_esp_grades_count;
+    }
 
-    $phase2_sum_of_arabic_lang_grades = array_sum($phase2_arabic_lang_grades);
-    $phase2_ave_of_arabic_lang_grades = $phase2_sum_of_arabic_lang_grades/count(array_filter($phase2_arabic_lang_grades));
+    $phase2_arabic_lang_grades_count = count(array_filter($phase2_arabic_lang_grades));
+    if($phase2_arabic_lang_grades_count == 0){
+        $phase2_ave_of_arabic_lang_grades = 0;
+    }else{
+        $phase2_ave_of_arabic_lang_grades = array_sum($phase2_arabic_lang_grades)/$phase2_arabic_lang_grades_count;
+    }
 
-    $phase2_sum_of_islamic_values_grades = array_sum($phase2_islamic_values_grades);
-    $phase2_ave_of_islamic_values_grades = $phase2_sum_of_islamic_values_grades/count(array_filter($phase2_islamic_values_grades));
+    $phase2_islamic_values_grades_count = count(array_filter($phase2_islamic_values_grades));
+    if($phase2_islamic_values_grades_count == 0){
+        $phase2_ave_of_islamic_values_grades = 0;
+    }else{
+        $phase2_ave_of_islamic_values_grades = array_sum($phase2_islamic_values_grades)/$phase2_islamic_values_grades_count;
+    }
 
 
     // PHASE 3 OF SCHOLASTIC RECORDS
@@ -7612,47 +7724,103 @@ if(isset($_POST['update'])){
 
 
     // PHASE 3 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
-    $phase3_sum_of_mother_tounge_grades = array_sum($phase3_mother_tounge_grades);
-    $phase3_ave_of_mother_tounge_grades = $phase3_sum_of_mother_tounge_grades/count(array_filter($phase3_mother_tounge_grades));
+    $phase3_mother_tounge_count = count(array_filter($phase3_mother_tounge_grades));
+    if($phase3_mother_tounge_count == 0){
+        $phase3_ave_of_mother_tounge_grades = 0;
+    }else{
+        $phase3_ave_of_mother_tounge_grades = array_sum($phase3_mother_tounge_grades)/$phase3_mother_tounge_count;
+    }
 
-    $phase3_sum_of_filipino_grades = array_sum($phase3_filipino_grades);
-    $phase3_ave_of_filipino_grades = $phase3_sum_of_filipino_grades/count(array_filter($phase3_filipino_grades));
+    $phase3_filipino_grades_count = count(array_filter($phase3_filipino_grades));
+    if($phase3_filipino_grades_count == 0){
+        $phase3_ave_of_filipino_grades = 0;
+    }else{
+        $phase3_ave_of_filipino_grades = array_sum($phase3_filipino_grades)/$phase3_filipino_grades_count;
+    }
 
-    $phase3_sum_of_english_grades = array_sum($phase3_english_grades);
-    $phase3_ave_of_english_grades = $phase3_sum_of_english_grades/count(array_filter($phase3_english_grades));
+    $phase3_english_grades_count = count(array_filter($phase3_english_grades));
+    if($phase3_english_grades_count == 0){
+        $phase3_ave_of_english_grades = 0;
+    }else{
+        $phase3_ave_of_english_grades = array_sum($phase3_english_grades)/$phase3_english_grades_count;
+    }
 
-    $phase3_sum_of_math_grades = array_sum($phase3_math_grades);
-    $phase3_ave_of_math_grades = $phase3_sum_of_math_grades/count(array_filter($phase3_math_grades));
+    $phase3_math_grades_count = count(array_filter($phase3_math_grades));
+    if($phase3_english_grades_count == 0){
+        $phase3_ave_of_math_grades = 0;
+    }else{
+        $phase3_ave_of_math_grades = array_sum($phase3_math_grades)/$phase3_math_grades_count;
+    }
 
-    $phase3_sum_of_science_grades = array_sum($phase3_science_grades);
-    $phase3_ave_of_science_grades = $phase3_sum_of_science_grades/count(array_filter($phase3_science_grades));
+    $phase3_science_grades_count = count(array_filter($phase3_science_grades));
+    if($phase3_science_grades_count == 0){
+        $phase3_ave_of_science_grades = 0;
+    }else{
+        $phase3_ave_of_science_grades = array_sum($phase3_science_grades)/$phase3_science_grades_count;
+    }
     
-    $phase3_sum_of_araling_panlipunan_grades = array_sum($phase3_araling_panlipunan_grades);
-    $phase3_ave_of_araling_panlipunan_grades = $phase3_sum_of_araling_panlipunan_grades/count(array_filter($phase3_araling_panlipunan_grades));
+    $phase3_araling_panlipunan_grades_count = count(array_filter($phase3_araling_panlipunan_grades));
+    if($phase3_araling_panlipunan_grades_count == 0){
+        $phase3_ave_of_araling_panlipunan_grades = 0;
+    }else{
+        $phase3_ave_of_araling_panlipunan_grades = array_sum($phase3_araling_panlipunan_grades)/$phase3_araling_panlipunan_grades_count;
+    }
 
-    $phase3_sum_of_epp_tle_grades = array_sum($phase3_epp_tle_grades);
-    $phase3_ave_of_epp_tle_grades = $phase3_sum_of_epp_tle_grades/count(array_filter($phase3_epp_tle_grades));
+    $phase3_epp_tle_grades_count = count(array_filter($phase3_epp_tle_grades));
+    if($phase3_epp_tle_grades_count == 0){
+        $phase3_ave_of_epp_tle_grades = 0;
+    }else{
+        $phase3_ave_of_epp_tle_grades = array_sum($phase3_epp_tle_grades)/$phase3_epp_tle_grades_count;
+    }
 
-    $phase3_sum_of_music_grades = array_sum($phase3_music_grades);
-    $phase3_ave_of_music_grades = $phase3_sum_of_music_grades/count(array_filter($phase3_music_grades));
+    $phase3_music_grades_count = count(array_filter($phase3_music_grades));
+    if($phase3_music_grades_count == 0){
+        $phase3_ave_of_music_grades = 0;
+    }else{
+        $phase3_ave_of_music_grades = array_sum($phase3_music_grades)/$phase3_music_grades_count;
+    }
 
-    $phase3_sum_of_art_grades = array_sum($phase3_art_grades);
-    $phase3_ave_of_art_grades = $phase3_sum_of_art_grades/count(array_filter($phase3_art_grades));
+    $phase3_art_grades_count = count(array_filter($phase3_art_grades));
+    if($phase3_art_grades_count == 0){
+        $phase3_ave_of_art_grades = 0;
+    }else{
+        $phase3_ave_of_art_grades = array_sum($phase3_art_grades)/$phase3_art_grades_count;
+    }
 
-    $phase3_sum_of_pe_grades = array_sum($phase3_pe_grades);
-    $phase3_ave_of_pe_grades = $phase3_sum_of_pe_grades/count($phase3_pe_grades);
+    $phase3_pe_grades_count = count(array_filter($phase3_pe_grades));
+    if($phase3_pe_grades_count == 0){
+        $phase3_ave_of_pe_grades = 0;
+    }else{
+        $phase3_ave_of_pe_grades = array_sum($phase3_pe_grades)/$phase3_pe_grades_count;
+    }
 
-    $phase3_sum_of_health_grades = array_sum($phase3_health_grades);
-    $phase3_ave_of_health_grades = $phase3_sum_of_health_grades/count(array_filter($phase3_health_grades));
+    $phase3_health_grades_count = count(array_filter($phase3_health_grades));
+    if($phase3_health_grades_count == 0){
+        $phase3_ave_of_health_grades = 0;
+    }else{
+        $phase3_ave_of_health_grades = array_sum($phase3_health_grades)/$phase3_health_grades_count;
+    }
 
-    $phase3_sum_of_esp_grades = array_sum($phase3_esp_grades);
-    $phase3_ave_of_esp_grades = $phase3_sum_of_esp_grades/count(array_filter($phase3_esp_grades));
+    $phase3_esp_grades_count = count(array_filter($phase3_esp_grades));
+    if($phase3_esp_grades_count == 0){
+        $phase3_ave_of_esp_grades = 0;
+    }else{
+        $phase3_ave_of_esp_grades = array_sum($phase3_esp_grades)/$phase3_esp_grades_count;
+    }
 
-    $phase3_sum_of_arabic_lang_grades = array_sum($phase3_arabic_lang_grades);
-    $phase3_ave_of_arabic_lang_grades = $phase3_sum_of_arabic_lang_grades/count(array_filter($phase3_arabic_lang_grades));
+    $phase3_arabic_lang_grades_count = count(array_filter($phase3_arabic_lang_grades));
+    if($phase3_arabic_lang_grades_count == 0){
+        $phase3_ave_of_arabic_lang_grades = 0;
+    }else{
+        $phase3_ave_of_arabic_lang_grades = array_sum($phase3_arabic_lang_grades)/$phase3_arabic_lang_grades_count;
+    }
 
-    $phase3_sum_of_islamic_values_grades = array_sum($phase3_islamic_values_grades);
-    $phase3_ave_of_islamic_values_grades = $phase3_sum_of_islamic_values_grades/count(array_filter($phase3_islamic_values_grades));
+    $phase3_islamic_values_grades_count = count(array_filter($phase3_islamic_values_grades));
+    if($phase3_islamic_values_grades_count == 0){
+        $phase3_ave_of_islamic_values_grades = 0;
+    }else{
+        $phase3_ave_of_islamic_values_grades = array_sum($phase3_islamic_values_grades)/$phase3_islamic_values_grades_count;
+    }
 
 
     // PHASE 4 OF SCHOLASTIC RECORDS
@@ -7703,47 +7871,103 @@ if(isset($_POST['update'])){
 
 
     // PHASE 4 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
-    $phase4_sum_of_mother_tounge_grades = array_sum($phase4_mother_tounge_grades);
-    $phase4_ave_of_mother_tounge_grades = $phase4_sum_of_mother_tounge_grades/count(array_filter($phase4_mother_tounge_grades));
+    $phase4_mother_tounge_count = count(array_filter($phase4_mother_tounge_grades));
+    if($phase4_mother_tounge_count == 0){
+        $phase4_ave_of_mother_tounge_grades = 0;
+    }else{
+        $phase4_ave_of_mother_tounge_grades = array_sum($phase4_mother_tounge_grades)/$phase4_mother_tounge_count;
+    }
 
-    $phase4_sum_of_filipino_grades = array_sum($phase4_filipino_grades);
-    $phase4_ave_of_filipino_grades = $phase4_sum_of_filipino_grades/count(array_filter($phase4_filipino_grades));
+    $phase4_filipino_grades_count = count(array_filter($phase4_filipino_grades));
+    if($phase4_filipino_grades_count == 0){
+        $phase4_ave_of_filipino_grades = 0;
+    }else{
+        $phase4_ave_of_filipino_grades = array_sum($phase4_filipino_grades)/$phase4_filipino_grades_count;
+    }
 
-    $phase4_sum_of_english_grades = array_sum($phase4_english_grades);
-    $phase4_ave_of_english_grades = $phase4_sum_of_english_grades/count(array_filter($phase4_english_grades));
+    $phase4_english_grades_count = count(array_filter($phase4_english_grades));
+    if($phase4_english_grades_count == 0){
+        $phase4_ave_of_english_grades = 0;
+    }else{
+        $phase4_ave_of_english_grades = array_sum($phase4_english_grades)/$phase4_english_grades_count;
+    }
 
-    $phase4_sum_of_math_grades = array_sum($phase4_math_grades);
-    $phase4_ave_of_math_grades = $phase4_sum_of_math_grades/count(array_filter($phase4_math_grades));
+    $phase4_math_grades_count = count(array_filter($phase4_math_grades));
+    if($phase4_english_grades_count == 0){
+        $phase4_ave_of_math_grades = 0;
+    }else{
+        $phase4_ave_of_math_grades = array_sum($phase4_math_grades)/$phase4_math_grades_count;
+    }
 
-    $phase4_sum_of_science_grades = array_sum($phase4_science_grades);
-    $phase4_ave_of_science_grades = $phase4_sum_of_science_grades/count(array_filter($phase4_science_grades));
+    $phase4_science_grades_count = count(array_filter($phase4_science_grades));
+    if($phase4_science_grades_count == 0){
+        $phase4_ave_of_science_grades = 0;
+    }else{
+        $phase4_ave_of_science_grades = array_sum($phase4_science_grades)/$phase4_science_grades_count;
+    }
     
-    $phase4_sum_of_araling_panlipunan_grades = array_sum($phase4_araling_panlipunan_grades);
-    $phase4_ave_of_araling_panlipunan_grades = $phase4_sum_of_araling_panlipunan_grades/count(array_filter($phase4_araling_panlipunan_grades));
+    $phase4_araling_panlipunan_grades_count = count(array_filter($phase4_araling_panlipunan_grades));
+    if($phase4_araling_panlipunan_grades_count == 0){
+        $phase4_ave_of_araling_panlipunan_grades = 0;
+    }else{
+        $phase4_ave_of_araling_panlipunan_grades = array_sum($phase4_araling_panlipunan_grades)/$phase4_araling_panlipunan_grades_count;
+    }
 
-    $phase4_sum_of_epp_tle_grades = array_sum($phase4_epp_tle_grades);
-    $phase4_ave_of_epp_tle_grades = $phase4_sum_of_epp_tle_grades/count(array_filter($phase4_epp_tle_grades));
+    $phase4_epp_tle_grades_count = count(array_filter($phase4_epp_tle_grades));
+    if($phase4_epp_tle_grades_count == 0){
+        $phase4_ave_of_epp_tle_grades = 0;
+    }else{
+        $phase4_ave_of_epp_tle_grades = array_sum($phase4_epp_tle_grades)/$phase4_epp_tle_grades_count;
+    }
 
-    $phase4_sum_of_music_grades = array_sum($phase4_music_grades);
-    $phase4_ave_of_music_grades = $phase4_sum_of_music_grades/count(array_filter($phase4_music_grades));
+    $phase4_music_grades_count = count(array_filter($phase4_music_grades));
+    if($phase4_music_grades_count == 0){
+        $phase4_ave_of_music_grades = 0;
+    }else{
+        $phase4_ave_of_music_grades = array_sum($phase4_music_grades)/$phase4_music_grades_count;
+    }
 
-    $phase4_sum_of_art_grades = array_sum($phase4_art_grades);
-    $phase4_ave_of_art_grades = $phase4_sum_of_art_grades/count(array_filter($phase4_art_grades));
+    $phase4_art_grades_count = count(array_filter($phase4_art_grades));
+    if($phase4_art_grades_count == 0){
+        $phase4_ave_of_art_grades = 0;
+    }else{
+        $phase4_ave_of_art_grades = array_sum($phase4_art_grades)/$phase4_art_grades_count;
+    }
 
-    $phase4_sum_of_pe_grades = array_sum($phase4_pe_grades);
-    $phase4_ave_of_pe_grades = $phase4_sum_of_pe_grades/count($phase4_pe_grades);
+    $phase4_pe_grades_count = count(array_filter($phase4_pe_grades));
+    if($phase4_pe_grades_count == 0){
+        $phase4_ave_of_pe_grades = 0;
+    }else{
+        $phase4_ave_of_pe_grades = array_sum($phase4_pe_grades)/$phase4_pe_grades_count;
+    }
 
-    $phase4_sum_of_health_grades = array_sum($phase4_health_grades);
-    $phase4_ave_of_health_grades = $phase4_sum_of_health_grades/count(array_filter($phase4_health_grades));
+    $phase4_health_grades_count = count(array_filter($phase4_health_grades));
+    if($phase4_health_grades_count == 0){
+        $phase4_ave_of_health_grades = 0;
+    }else{
+        $phase4_ave_of_health_grades = array_sum($phase4_health_grades)/$phase4_health_grades_count;
+    }
 
-    $phase4_sum_of_esp_grades = array_sum($phase4_esp_grades);
-    $phase4_ave_of_esp_grades = $phase4_sum_of_esp_grades/count(array_filter($phase4_esp_grades));
+    $phase4_esp_grades_count = count(array_filter($phase4_esp_grades));
+    if($phase4_esp_grades_count == 0){
+        $phase4_ave_of_esp_grades = 0;
+    }else{
+        $phase4_ave_of_esp_grades = array_sum($phase4_esp_grades)/$phase4_esp_grades_count;
+    }
 
-    $phase4_sum_of_arabic_lang_grades = array_sum($phase4_arabic_lang_grades);
-    $phase4_ave_of_arabic_lang_grades = $phase4_sum_of_arabic_lang_grades/count(array_filter($phase4_arabic_lang_grades));
+    $phase4_arabic_lang_grades_count = count(array_filter($phase4_arabic_lang_grades));
+    if($phase4_arabic_lang_grades_count == 0){
+        $phase4_ave_of_arabic_lang_grades = 0;
+    }else{
+        $phase4_ave_of_arabic_lang_grades = array_sum($phase4_arabic_lang_grades)/$phase4_arabic_lang_grades_count;
+    }
 
-    $phase4_sum_of_islamic_values_grades = array_sum($phase4_islamic_values_grades);
-    $phase4_ave_of_islamic_values_grades = $phase4_sum_of_islamic_values_grades/count(array_filter($phase4_islamic_values_grades));
+    $phase4_islamic_values_grades_count = count(array_filter($phase4_islamic_values_grades));
+    if($phase4_islamic_values_grades_count == 0){
+        $phase4_ave_of_islamic_values_grades = 0;
+    }else{
+        $phase4_ave_of_islamic_values_grades = array_sum($phase4_islamic_values_grades)/$phase4_islamic_values_grades_count;
+    }
 
 
     // PHASE 5 OF SCHOLASTIC RECORDS
@@ -7794,47 +8018,103 @@ if(isset($_POST['update'])){
 
 
     // PHASE 5 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
-    $phase5_sum_of_mother_tounge_grades = array_sum($phase5_mother_tounge_grades);
-    $phase5_ave_of_mother_tounge_grades = $phase5_sum_of_mother_tounge_grades/count(array_filter($phase5_mother_tounge_grades));
+    $phase5_mother_tounge_count = count(array_filter($phase5_mother_tounge_grades));
+    if($phase5_mother_tounge_count == 0){
+        $phase5_ave_of_mother_tounge_grades = 0;
+    }else{
+        $phase5_ave_of_mother_tounge_grades = array_sum($phase5_mother_tounge_grades)/$phase5_mother_tounge_count;
+    }
 
-    $phase5_sum_of_filipino_grades = array_sum($phase5_filipino_grades);
-    $phase5_ave_of_filipino_grades = $phase5_sum_of_filipino_grades/count(array_filter($phase5_filipino_grades));
+    $phase5_filipino_grades_count = count(array_filter($phase5_filipino_grades));
+    if($phase5_filipino_grades_count == 0){
+        $phase5_ave_of_filipino_grades = 0;
+    }else{
+        $phase5_ave_of_filipino_grades = array_sum($phase5_filipino_grades)/$phase5_filipino_grades_count;
+    }
 
-    $phase5_sum_of_english_grades = array_sum($phase5_english_grades);
-    $phase5_ave_of_english_grades = $phase5_sum_of_english_grades/count(array_filter($phase5_english_grades));
+    $phase5_english_grades_count = count(array_filter($phase5_english_grades));
+    if($phase5_english_grades_count == 0){
+        $phase5_ave_of_english_grades = 0;
+    }else{
+        $phase5_ave_of_english_grades = array_sum($phase5_english_grades)/$phase5_english_grades_count;
+    }
 
-    $phase5_sum_of_math_grades = array_sum($phase5_math_grades);
-    $phase5_ave_of_math_grades = $phase5_sum_of_math_grades/count(array_filter($phase5_math_grades));
+    $phase5_math_grades_count = count(array_filter($phase5_math_grades));
+    if($phase5_english_grades_count == 0){
+        $phase5_ave_of_math_grades = 0;
+    }else{
+        $phase5_ave_of_math_grades = array_sum($phase5_math_grades)/$phase5_math_grades_count;
+    }
 
-    $phase5_sum_of_science_grades = array_sum($phase5_science_grades);
-    $phase5_ave_of_science_grades = $phase5_sum_of_science_grades/count(array_filter($phase5_science_grades));
+    $phase5_science_grades_count = count(array_filter($phase5_science_grades));
+    if($phase5_science_grades_count == 0){
+        $phase5_ave_of_science_grades = 0;
+    }else{
+        $phase5_ave_of_science_grades = array_sum($phase5_science_grades)/$phase5_science_grades_count;
+    }
     
-    $phase5_sum_of_araling_panlipunan_grades = array_sum($phase5_araling_panlipunan_grades);
-    $phase5_ave_of_araling_panlipunan_grades = $phase5_sum_of_araling_panlipunan_grades/count(array_filter($phase5_araling_panlipunan_grades));
+    $phase5_araling_panlipunan_grades_count = count(array_filter($phase5_araling_panlipunan_grades));
+    if($phase5_araling_panlipunan_grades_count == 0){
+        $phase5_ave_of_araling_panlipunan_grades = 0;
+    }else{
+        $phase5_ave_of_araling_panlipunan_grades = array_sum($phase5_araling_panlipunan_grades)/$phase5_araling_panlipunan_grades_count;
+    }
 
-    $phase5_sum_of_epp_tle_grades = array_sum($phase5_epp_tle_grades);
-    $phase5_ave_of_epp_tle_grades = $phase5_sum_of_epp_tle_grades/count(array_filter($phase5_epp_tle_grades));
+    $phase5_epp_tle_grades_count = count(array_filter($phase5_epp_tle_grades));
+    if($phase5_epp_tle_grades_count == 0){
+        $phase5_ave_of_epp_tle_grades = 0;
+    }else{
+        $phase5_ave_of_epp_tle_grades = array_sum($phase5_epp_tle_grades)/$phase5_epp_tle_grades_count;
+    }
 
-    $phase5_sum_of_music_grades = array_sum($phase5_music_grades);
-    $phase5_ave_of_music_grades = $phase5_sum_of_music_grades/count(array_filter($phase5_music_grades));
+    $phase5_music_grades_count = count(array_filter($phase5_music_grades));
+    if($phase5_music_grades_count == 0){
+        $phase5_ave_of_music_grades = 0;
+    }else{
+        $phase5_ave_of_music_grades = array_sum($phase5_music_grades)/$phase5_music_grades_count;
+    }
 
-    $phase5_sum_of_art_grades = array_sum($phase5_art_grades);
-    $phase5_ave_of_art_grades = $phase5_sum_of_art_grades/count(array_filter($phase5_art_grades));
+    $phase5_art_grades_count = count(array_filter($phase5_art_grades));
+    if($phase5_art_grades_count == 0){
+        $phase5_ave_of_art_grades = 0;
+    }else{
+        $phase5_ave_of_art_grades = array_sum($phase5_art_grades)/$phase5_art_grades_count;
+    }
 
-    $phase5_sum_of_pe_grades = array_sum($phase5_pe_grades);
-    $phase5_ave_of_pe_grades = $phase5_sum_of_pe_grades/count($phase5_pe_grades);
+    $phase5_pe_grades_count = count(array_filter($phase5_pe_grades));
+    if($phase5_pe_grades_count == 0){
+        $phase5_ave_of_pe_grades = 0;
+    }else{
+        $phase5_ave_of_pe_grades = array_sum($phase5_pe_grades)/$phase5_pe_grades_count;
+    }
 
-    $phase5_sum_of_health_grades = array_sum($phase5_health_grades);
-    $phase5_ave_of_health_grades = $phase5_sum_of_health_grades/count(array_filter($phase5_health_grades));
+    $phase5_health_grades_count = count(array_filter($phase5_health_grades));
+    if($phase5_health_grades_count == 0){
+        $phase5_ave_of_health_grades = 0;
+    }else{
+        $phase5_ave_of_health_grades = array_sum($phase5_health_grades)/$phase5_health_grades_count;
+    }
 
-    $phase5_sum_of_esp_grades = array_sum($phase5_esp_grades);
-    $phase5_ave_of_esp_grades = $phase5_sum_of_esp_grades/count(array_filter($phase5_esp_grades));
+    $phase5_esp_grades_count = count(array_filter($phase5_esp_grades));
+    if($phase5_esp_grades_count == 0){
+        $phase5_ave_of_esp_grades = 0;
+    }else{
+        $phase5_ave_of_esp_grades = array_sum($phase5_esp_grades)/$phase5_esp_grades_count;
+    }
 
-    $phase5_sum_of_arabic_lang_grades = array_sum($phase5_arabic_lang_grades);
-    $phase5_ave_of_arabic_lang_grades = $phase5_sum_of_arabic_lang_grades/count(array_filter($phase5_arabic_lang_grades));
+    $phase5_arabic_lang_grades_count = count(array_filter($phase5_arabic_lang_grades));
+    if($phase5_arabic_lang_grades_count == 0){
+        $phase5_ave_of_arabic_lang_grades = 0;
+    }else{
+        $phase5_ave_of_arabic_lang_grades = array_sum($phase5_arabic_lang_grades)/$phase5_arabic_lang_grades_count;
+    }
 
-    $phase5_sum_of_islamic_values_grades = array_sum($phase5_islamic_values_grades);
-    $phase5_ave_of_islamic_values_grades = $phase5_sum_of_islamic_values_grades/count(array_filter($phase5_islamic_values_grades));
+    $phase5_islamic_values_grades_count = count(array_filter($phase5_islamic_values_grades));
+    if($phase5_islamic_values_grades_count == 0){
+        $phase5_ave_of_islamic_values_grades = 0;
+    }else{
+        $phase5_ave_of_islamic_values_grades = array_sum($phase5_islamic_values_grades)/$phase5_islamic_values_grades_count;
+    }
 
 
     // PHASE 6 OF SCHOLASTIC RECORDS
@@ -7885,47 +8165,103 @@ if(isset($_POST['update'])){
 
 
     // PHASE 6 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
-    $phase6_sum_of_mother_tounge_grades = array_sum($phase6_mother_tounge_grades);
-    $phase6_ave_of_mother_tounge_grades = $phase6_sum_of_mother_tounge_grades/count(array_filter($phase6_mother_tounge_grades));
+    $phase6_mother_tounge_count = count(array_filter($phase6_mother_tounge_grades));
+    if($phase6_mother_tounge_count == 0){
+        $phase6_ave_of_mother_tounge_grades = 0;
+    }else{
+        $phase6_ave_of_mother_tounge_grades = array_sum($phase6_mother_tounge_grades)/$phase6_mother_tounge_count;
+    }
 
-    $phase6_sum_of_filipino_grades = array_sum($phase6_filipino_grades);
-    $phase6_ave_of_filipino_grades = $phase6_sum_of_filipino_grades/count(array_filter($phase6_filipino_grades));
+    $phase6_filipino_grades_count = count(array_filter($phase6_filipino_grades));
+    if($phase6_filipino_grades_count == 0){
+        $phase6_ave_of_filipino_grades = 0;
+    }else{
+        $phase6_ave_of_filipino_grades = array_sum($phase6_filipino_grades)/$phase6_filipino_grades_count;
+    }
 
-    $phase6_sum_of_english_grades = array_sum($phase6_english_grades);
-    $phase6_ave_of_english_grades = $phase6_sum_of_english_grades/count(array_filter($phase6_english_grades));
+    $phase6_english_grades_count = count(array_filter($phase6_english_grades));
+    if($phase6_english_grades_count == 0){
+        $phase6_ave_of_english_grades = 0;
+    }else{
+        $phase6_ave_of_english_grades = array_sum($phase6_english_grades)/$phase6_english_grades_count;
+    }
 
-    $phase6_sum_of_math_grades = array_sum($phase6_math_grades);
-    $phase6_ave_of_math_grades = $phase6_sum_of_math_grades/count(array_filter($phase6_math_grades));
+    $phase6_math_grades_count = count(array_filter($phase6_math_grades));
+    if($phase6_english_grades_count == 0){
+        $phase6_ave_of_math_grades = 0;
+    }else{
+        $phase6_ave_of_math_grades = array_sum($phase6_math_grades)/$phase6_math_grades_count;
+    }
 
-    $phase6_sum_of_science_grades = array_sum($phase6_science_grades);
-    $phase6_ave_of_science_grades = $phase6_sum_of_science_grades/count(array_filter($phase6_science_grades));
+    $phase6_science_grades_count = count(array_filter($phase6_science_grades));
+    if($phase6_science_grades_count == 0){
+        $phase6_ave_of_science_grades = 0;
+    }else{
+        $phase6_ave_of_science_grades = array_sum($phase6_science_grades)/$phase6_science_grades_count;
+    }
     
-    $phase6_sum_of_araling_panlipunan_grades = array_sum($phase6_araling_panlipunan_grades);
-    $phase6_ave_of_araling_panlipunan_grades = $phase6_sum_of_araling_panlipunan_grades/count(array_filter($phase6_araling_panlipunan_grades));
+    $phase6_araling_panlipunan_grades_count = count(array_filter($phase6_araling_panlipunan_grades));
+    if($phase6_araling_panlipunan_grades_count == 0){
+        $phase6_ave_of_araling_panlipunan_grades = 0;
+    }else{
+        $phase6_ave_of_araling_panlipunan_grades = array_sum($phase6_araling_panlipunan_grades)/$phase6_araling_panlipunan_grades_count;
+    }
 
-    $phase6_sum_of_epp_tle_grades = array_sum($phase6_epp_tle_grades);
-    $phase6_ave_of_epp_tle_grades = $phase6_sum_of_epp_tle_grades/count(array_filter($phase6_epp_tle_grades));
+    $phase6_epp_tle_grades_count = count(array_filter($phase6_epp_tle_grades));
+    if($phase6_epp_tle_grades_count == 0){
+        $phase6_ave_of_epp_tle_grades = 0;
+    }else{
+        $phase6_ave_of_epp_tle_grades = array_sum($phase6_epp_tle_grades)/$phase6_epp_tle_grades_count;
+    }
 
-    $phase6_sum_of_music_grades = array_sum($phase6_music_grades);
-    $phase6_ave_of_music_grades = $phase6_sum_of_music_grades/count(array_filter($phase6_music_grades));
+    $phase6_music_grades_count = count(array_filter($phase6_music_grades));
+    if($phase6_music_grades_count == 0){
+        $phase6_ave_of_music_grades = 0;
+    }else{
+        $phase6_ave_of_music_grades = array_sum($phase6_music_grades)/$phase6_music_grades_count;
+    }
 
-    $phase6_sum_of_art_grades = array_sum($phase6_art_grades);
-    $phase6_ave_of_art_grades = $phase6_sum_of_art_grades/count(array_filter($phase6_art_grades));
+    $phase6_art_grades_count = count(array_filter($phase6_art_grades));
+    if($phase6_art_grades_count == 0){
+        $phase6_ave_of_art_grades = 0;
+    }else{
+        $phase6_ave_of_art_grades = array_sum($phase6_art_grades)/$phase6_art_grades_count;
+    }
 
-    $phase6_sum_of_pe_grades = array_sum($phase6_pe_grades);
-    $phase6_ave_of_pe_grades = $phase6_sum_of_pe_grades/count($phase6_pe_grades);
+    $phase6_pe_grades_count = count(array_filter($phase6_pe_grades));
+    if($phase6_pe_grades_count == 0){
+        $phase6_ave_of_pe_grades = 0;
+    }else{
+        $phase6_ave_of_pe_grades = array_sum($phase6_pe_grades)/$phase6_pe_grades_count;
+    }
 
-    $phase6_sum_of_health_grades = array_sum($phase6_health_grades);
-    $phase6_ave_of_health_grades = $phase6_sum_of_health_grades/count(array_filter($phase6_health_grades));
+    $phase6_health_grades_count = count(array_filter($phase6_health_grades));
+    if($phase6_health_grades_count == 0){
+        $phase6_ave_of_health_grades = 0;
+    }else{
+        $phase6_ave_of_health_grades = array_sum($phase6_health_grades)/$phase6_health_grades_count;
+    }
 
-    $phase6_sum_of_esp_grades = array_sum($phase6_esp_grades);
-    $phase6_ave_of_esp_grades = $phase6_sum_of_esp_grades/count(array_filter($phase6_esp_grades));
+    $phase6_esp_grades_count = count(array_filter($phase6_esp_grades));
+    if($phase6_esp_grades_count == 0){
+        $phase6_ave_of_esp_grades = 0;
+    }else{
+        $phase6_ave_of_esp_grades = array_sum($phase6_esp_grades)/$phase6_esp_grades_count;
+    }
 
-    $phase6_sum_of_arabic_lang_grades = array_sum($phase6_arabic_lang_grades);
-    $phase6_ave_of_arabic_lang_grades = $phase6_sum_of_arabic_lang_grades/count(array_filter($phase6_arabic_lang_grades));
+    $phase6_arabic_lang_grades_count = count(array_filter($phase6_arabic_lang_grades));
+    if($phase6_arabic_lang_grades_count == 0){
+        $phase6_ave_of_arabic_lang_grades = 0;
+    }else{
+        $phase6_ave_of_arabic_lang_grades = array_sum($phase6_arabic_lang_grades)/$phase6_arabic_lang_grades_count;
+    }
 
-    $phase6_sum_of_islamic_values_grades = array_sum($phase6_islamic_values_grades);
-    $phase6_ave_of_islamic_values_grades = $phase6_sum_of_islamic_values_grades/count(array_filter($phase6_islamic_values_grades));
+    $phase6_islamic_values_grades_count = count(array_filter($phase6_islamic_values_grades));
+    if($phase6_islamic_values_grades_count == 0){
+        $phase6_ave_of_islamic_values_grades = 0;
+    }else{
+        $phase6_ave_of_islamic_values_grades = array_sum($phase6_islamic_values_grades)/$phase6_islamic_values_grades_count;
+    }
 
 
     // PHASE 7 OF SCHOLASTIC RECORDS
@@ -7976,47 +8312,103 @@ if(isset($_POST['update'])){
 
 
     // PHASE 7 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
-    $phase7_sum_of_mother_tounge_grades = array_sum($phase7_mother_tounge_grades);
-    $phase7_ave_of_mother_tounge_grades = $phase7_sum_of_mother_tounge_grades/count(array_filter($phase7_mother_tounge_grades));
+    $phase7_mother_tounge_count = count(array_filter($phase7_mother_tounge_grades));
+    if($phase7_mother_tounge_count == 0){
+        $phase7_ave_of_mother_tounge_grades = 0;
+    }else{
+        $phase7_ave_of_mother_tounge_grades = array_sum($phase7_mother_tounge_grades)/$phase7_mother_tounge_count;
+    }
 
-    $phase7_sum_of_filipino_grades = array_sum($phase7_filipino_grades);
-    $phase7_ave_of_filipino_grades = $phase7_sum_of_filipino_grades/count(array_filter($phase7_filipino_grades));
+    $phase7_filipino_grades_count = count(array_filter($phase7_filipino_grades));
+    if($phase7_filipino_grades_count == 0){
+        $phase7_ave_of_filipino_grades = 0;
+    }else{
+        $phase7_ave_of_filipino_grades = array_sum($phase7_filipino_grades)/$phase7_filipino_grades_count;
+    }
 
-    $phase7_sum_of_english_grades = array_sum($phase7_english_grades);
-    $phase7_ave_of_english_grades = $phase7_sum_of_english_grades/count(array_filter($phase7_english_grades));
+    $phase7_english_grades_count = count(array_filter($phase7_english_grades));
+    if($phase7_english_grades_count == 0){
+        $phase7_ave_of_english_grades = 0;
+    }else{
+        $phase7_ave_of_english_grades = array_sum($phase7_english_grades)/$phase7_english_grades_count;
+    }
 
-    $phase7_sum_of_math_grades = array_sum($phase7_math_grades);
-    $phase7_ave_of_math_grades = $phase7_sum_of_math_grades/count(array_filter($phase7_math_grades));
+    $phase7_math_grades_count = count(array_filter($phase7_math_grades));
+    if($phase7_english_grades_count == 0){
+        $phase7_ave_of_math_grades = 0;
+    }else{
+        $phase7_ave_of_math_grades = array_sum($phase7_math_grades)/$phase7_math_grades_count;
+    }
 
-    $phase7_sum_of_science_grades = array_sum($phase7_science_grades);
-    $phase7_ave_of_science_grades = $phase7_sum_of_science_grades/count(array_filter($phase7_science_grades));
+    $phase7_science_grades_count = count(array_filter($phase7_science_grades));
+    if($phase7_science_grades_count == 0){
+        $phase7_ave_of_science_grades = 0;
+    }else{
+        $phase7_ave_of_science_grades = array_sum($phase7_science_grades)/$phase7_science_grades_count;
+    }
     
-    $phase7_sum_of_araling_panlipunan_grades = array_sum($phase7_araling_panlipunan_grades);
-    $phase7_ave_of_araling_panlipunan_grades = $phase7_sum_of_araling_panlipunan_grades/count(array_filter($phase7_araling_panlipunan_grades));
+    $phase7_araling_panlipunan_grades_count = count(array_filter($phase7_araling_panlipunan_grades));
+    if($phase7_araling_panlipunan_grades_count == 0){
+        $phase7_ave_of_araling_panlipunan_grades = 0;
+    }else{
+        $phase7_ave_of_araling_panlipunan_grades = array_sum($phase7_araling_panlipunan_grades)/$phase7_araling_panlipunan_grades_count;
+    }
 
-    $phase7_sum_of_epp_tle_grades = array_sum($phase7_epp_tle_grades);
-    $phase7_ave_of_epp_tle_grades = $phase7_sum_of_epp_tle_grades/count(array_filter($phase7_epp_tle_grades));
+    $phase7_epp_tle_grades_count = count(array_filter($phase7_epp_tle_grades));
+    if($phase7_epp_tle_grades_count == 0){
+        $phase7_ave_of_epp_tle_grades = 0;
+    }else{
+        $phase7_ave_of_epp_tle_grades = array_sum($phase7_epp_tle_grades)/$phase7_epp_tle_grades_count;
+    }
 
-    $phase7_sum_of_music_grades = array_sum($phase7_music_grades);
-    $phase7_ave_of_music_grades = $phase7_sum_of_music_grades/count(array_filter($phase7_music_grades));
+    $phase7_music_grades_count = count(array_filter($phase7_music_grades));
+    if($phase7_music_grades_count == 0){
+        $phase7_ave_of_music_grades = 0;
+    }else{
+        $phase7_ave_of_music_grades = array_sum($phase7_music_grades)/$phase7_music_grades_count;
+    }
 
-    $phase7_sum_of_art_grades = array_sum($phase7_art_grades);
-    $phase7_ave_of_art_grades = $phase7_sum_of_art_grades/count(array_filter($phase7_art_grades));
+    $phase7_art_grades_count = count(array_filter($phase7_art_grades));
+    if($phase7_art_grades_count == 0){
+        $phase7_ave_of_art_grades = 0;
+    }else{
+        $phase7_ave_of_art_grades = array_sum($phase7_art_grades)/$phase7_art_grades_count;
+    }
 
-    $phase7_sum_of_pe_grades = array_sum($phase7_pe_grades);
-    $phase7_ave_of_pe_grades = $phase7_sum_of_pe_grades/count($phase7_pe_grades);
+    $phase7_pe_grades_count = count(array_filter($phase7_pe_grades));
+    if($phase7_pe_grades_count == 0){
+        $phase7_ave_of_pe_grades = 0;
+    }else{
+        $phase7_ave_of_pe_grades = array_sum($phase7_pe_grades)/$phase7_pe_grades_count;
+    }
 
-    $phase7_sum_of_health_grades = array_sum($phase7_health_grades);
-    $phase7_ave_of_health_grades = $phase7_sum_of_health_grades/count(array_filter($phase7_health_grades));
+    $phase7_health_grades_count = count(array_filter($phase7_health_grades));
+    if($phase7_health_grades_count == 0){
+        $phase7_ave_of_health_grades = 0;
+    }else{
+        $phase7_ave_of_health_grades = array_sum($phase7_health_grades)/$phase7_health_grades_count;
+    }
 
-    $phase7_sum_of_esp_grades = array_sum($phase7_esp_grades);
-    $phase7_ave_of_esp_grades = $phase7_sum_of_esp_grades/count(array_filter($phase7_esp_grades));
+    $phase7_esp_grades_count = count(array_filter($phase7_esp_grades));
+    if($phase7_esp_grades_count == 0){
+        $phase7_ave_of_esp_grades = 0;
+    }else{
+        $phase7_ave_of_esp_grades = array_sum($phase7_esp_grades)/$phase7_esp_grades_count;
+    }
 
-    $phase7_sum_of_arabic_lang_grades = array_sum($phase7_arabic_lang_grades);
-    $phase7_ave_of_arabic_lang_grades = $phase7_sum_of_arabic_lang_grades/count(array_filter($phase7_arabic_lang_grades));
+    $phase7_arabic_lang_grades_count = count(array_filter($phase7_arabic_lang_grades));
+    if($phase7_arabic_lang_grades_count == 0){
+        $phase7_ave_of_arabic_lang_grades = 0;
+    }else{
+        $phase7_ave_of_arabic_lang_grades = array_sum($phase7_arabic_lang_grades)/$phase7_arabic_lang_grades_count;
+    }
 
-    $phase7_sum_of_islamic_values_grades = array_sum($phase7_islamic_values_grades);
-    $phase7_ave_of_islamic_values_grades = $phase7_sum_of_islamic_values_grades/count(array_filter($phase7_islamic_values_grades));
+    $phase7_islamic_values_grades_count = count(array_filter($phase7_islamic_values_grades));
+    if($phase7_islamic_values_grades_count == 0){
+        $phase7_ave_of_islamic_values_grades = 0;
+    }else{
+        $phase7_ave_of_islamic_values_grades = array_sum($phase7_islamic_values_grades)/$phase7_islamic_values_grades_count;
+    }
 
 
     // PHASE 8 OF SCHOLASTIC RECORDS
@@ -8067,47 +8459,103 @@ if(isset($_POST['update'])){
 
 
     // PHASE 8 AVERAGE(FINAL RATING) OF EVERY SUBJECTS
-    $phase8_sum_of_mother_tounge_grades = array_sum($phase8_mother_tounge_grades);
-    $phase8_ave_of_mother_tounge_grades = $phase8_sum_of_mother_tounge_grades/count(array_filter($phase8_mother_tounge_grades));
+    $phase8_mother_tounge_count = count(array_filter($phase8_mother_tounge_grades));
+    if($phase8_mother_tounge_count == 0){
+        $phase8_ave_of_mother_tounge_grades = 0;
+    }else{
+        $phase8_ave_of_mother_tounge_grades = array_sum($phase8_mother_tounge_grades)/$phase8_mother_tounge_count;
+    }
 
-    $phase8_sum_of_filipino_grades = array_sum($phase8_filipino_grades);
-    $phase8_ave_of_filipino_grades = $phase8_sum_of_filipino_grades/count(array_filter($phase8_filipino_grades));
+    $phase8_filipino_grades_count = count(array_filter($phase8_filipino_grades));
+    if($phase8_filipino_grades_count == 0){
+        $phase8_ave_of_filipino_grades = 0;
+    }else{
+        $phase8_ave_of_filipino_grades = array_sum($phase8_filipino_grades)/$phase8_filipino_grades_count;
+    }
 
-    $phase8_sum_of_english_grades = array_sum($phase8_english_grades);
-    $phase8_ave_of_english_grades = $phase8_sum_of_english_grades/count(array_filter($phase8_english_grades));
+    $phase8_english_grades_count = count(array_filter($phase8_english_grades));
+    if($phase8_english_grades_count == 0){
+        $phase8_ave_of_english_grades = 0;
+    }else{
+        $phase8_ave_of_english_grades = array_sum($phase8_english_grades)/$phase8_english_grades_count;
+    }
 
-    $phase8_sum_of_math_grades = array_sum($phase8_math_grades);
-    $phase8_ave_of_math_grades = $phase8_sum_of_math_grades/count(array_filter($phase8_math_grades));
+    $phase8_math_grades_count = count(array_filter($phase8_math_grades));
+    if($phase8_english_grades_count == 0){
+        $phase8_ave_of_math_grades = 0;
+    }else{
+        $phase8_ave_of_math_grades = array_sum($phase8_math_grades)/$phase8_math_grades_count;
+    }
 
-    $phase8_sum_of_science_grades = array_sum($phase8_science_grades);
-    $phase8_ave_of_science_grades = $phase8_sum_of_science_grades/count(array_filter($phase8_science_grades));
+    $phase8_science_grades_count = count(array_filter($phase8_science_grades));
+    if($phase8_science_grades_count == 0){
+        $phase8_ave_of_science_grades = 0;
+    }else{
+        $phase8_ave_of_science_grades = array_sum($phase8_science_grades)/$phase8_science_grades_count;
+    }
     
-    $phase8_sum_of_araling_panlipunan_grades = array_sum($phase8_araling_panlipunan_grades);
-    $phase8_ave_of_araling_panlipunan_grades = $phase8_sum_of_araling_panlipunan_grades/count(array_filter($phase8_araling_panlipunan_grades));
+    $phase8_araling_panlipunan_grades_count = count(array_filter($phase8_araling_panlipunan_grades));
+    if($phase8_araling_panlipunan_grades_count == 0){
+        $phase8_ave_of_araling_panlipunan_grades = 0;
+    }else{
+        $phase8_ave_of_araling_panlipunan_grades = array_sum($phase8_araling_panlipunan_grades)/$phase8_araling_panlipunan_grades_count;
+    }
 
-    $phase8_sum_of_epp_tle_grades = array_sum($phase8_epp_tle_grades);
-    $phase8_ave_of_epp_tle_grades = $phase8_sum_of_epp_tle_grades/count(array_filter($phase8_epp_tle_grades));
+    $phase8_epp_tle_grades_count = count(array_filter($phase8_epp_tle_grades));
+    if($phase8_epp_tle_grades_count == 0){
+        $phase8_ave_of_epp_tle_grades = 0;
+    }else{
+        $phase8_ave_of_epp_tle_grades = array_sum($phase8_epp_tle_grades)/$phase8_epp_tle_grades_count;
+    }
 
-    $phase8_sum_of_music_grades = array_sum($phase8_music_grades);
-    $phase8_ave_of_music_grades = $phase8_sum_of_music_grades/count(array_filter($phase8_music_grades));
+    $phase8_music_grades_count = count(array_filter($phase8_music_grades));
+    if($phase8_music_grades_count == 0){
+        $phase8_ave_of_music_grades = 0;
+    }else{
+        $phase8_ave_of_music_grades = array_sum($phase8_music_grades)/$phase8_music_grades_count;
+    }
 
-    $phase8_sum_of_art_grades = array_sum($phase8_art_grades);
-    $phase8_ave_of_art_grades = $phase8_sum_of_art_grades/count(array_filter($phase8_art_grades));
+    $phase8_art_grades_count = count(array_filter($phase8_art_grades));
+    if($phase8_art_grades_count == 0){
+        $phase8_ave_of_art_grades = 0;
+    }else{
+        $phase8_ave_of_art_grades = array_sum($phase8_art_grades)/$phase8_art_grades_count;
+    }
 
-    $phase8_sum_of_pe_grades = array_sum($phase8_pe_grades);
-    $phase8_ave_of_pe_grades = $phase8_sum_of_pe_grades/count($phase8_pe_grades);
+    $phase8_pe_grades_count = count(array_filter($phase8_pe_grades));
+    if($phase8_pe_grades_count == 0){
+        $phase8_ave_of_pe_grades = 0;
+    }else{
+        $phase8_ave_of_pe_grades = array_sum($phase8_pe_grades)/$phase8_pe_grades_count;
+    }
 
-    $phase8_sum_of_health_grades = array_sum($phase8_health_grades);
-    $phase8_ave_of_health_grades = $phase8_sum_of_health_grades/count(array_filter($phase8_health_grades));
+    $phase8_health_grades_count = count(array_filter($phase8_health_grades));
+    if($phase8_health_grades_count == 0){
+        $phase8_ave_of_health_grades = 0;
+    }else{
+        $phase8_ave_of_health_grades = array_sum($phase8_health_grades)/$phase8_health_grades_count;
+    }
 
-    $phase8_sum_of_esp_grades = array_sum($phase8_esp_grades);
-    $phase8_ave_of_esp_grades = $phase8_sum_of_esp_grades/count(array_filter($phase8_esp_grades));
+    $phase8_esp_grades_count = count(array_filter($phase8_esp_grades));
+    if($phase8_esp_grades_count == 0){
+        $phase8_ave_of_esp_grades = 0;
+    }else{
+        $phase8_ave_of_esp_grades = array_sum($phase8_esp_grades)/$phase8_esp_grades_count;
+    }
 
-    $phase8_sum_of_arabic_lang_grades = array_sum($phase8_arabic_lang_grades);
-    $phase8_ave_of_arabic_lang_grades = $phase8_sum_of_arabic_lang_grades/count(array_filter($phase8_arabic_lang_grades));
+    $phase8_arabic_lang_grades_count = count(array_filter($phase8_arabic_lang_grades));
+    if($phase8_arabic_lang_grades_count == 0){
+        $phase8_ave_of_arabic_lang_grades = 0;
+    }else{
+        $phase8_ave_of_arabic_lang_grades = array_sum($phase8_arabic_lang_grades)/$phase8_arabic_lang_grades_count;
+    }
 
-    $phase8_sum_of_islamic_values_grades = array_sum($phase8_islamic_values_grades);
-    $phase8_ave_of_islamic_values_grades = $phase8_sum_of_islamic_values_grades/count(array_filter($phase8_islamic_values_grades));
+    $phase8_islamic_values_grades_count = count(array_filter($phase8_islamic_values_grades));
+    if($phase8_islamic_values_grades_count == 0){
+        $phase8_ave_of_islamic_values_grades = 0;
+    }else{
+        $phase8_ave_of_islamic_values_grades = array_sum($phase8_islamic_values_grades)/$phase8_islamic_values_grades_count;
+    }
 
     
     // UPDATE SECTION OF STUDENT LEARNER PERSONAL INFO

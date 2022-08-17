@@ -3,7 +3,6 @@ include('../connection.php');
 date_default_timezone_set('Asia/Manila');
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,104 +12,7 @@ date_default_timezone_set('Asia/Manila');
     <title>Phase 1 </title>
 </head>
 <body>
-<form action="phase1.php" method="POST" >
-
-<p style="background:#808080; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">LEARNER'S PERSONAL INFORMATION</p>
-    <section class="line-1 pt-2 pb-2 d-flex justify-content-between">
-    <span class="hstack d-flex align-items-center">
-            <label for="">LAST NAME:</label>
-            <input type="text" id="text-only" name="last_name" required>    
-    </span>
-    <span class="hstack d-flex align-items-center">
-        <label for="">FIRST NAME:</label>
-        <input type="text" id="text-only" name="first_name" required>   
-    </span>
-    <span class="hstack d-flex align-items-center" >
-        <label for="">NAME EXTN. (Jr,I,II): </label>
-        <input type="text" id="text-only" name="suffix">
-    </span>
-    <span class="hstack d-flex justify-content-end align-items-center">
-        <label for="">MIDDLE NAME: </label>
-        <input type="text" id="text-only" name="middle_name" required>                    
-    </span>
-    </section>
-    <section class="line-2 d-flex justify-content-between">
-        <span class="hstack d-flex align-items-end w-75">
-            <label for="">Learner Reference Number (LRN):</label>
-            <input type="number" style="margin: 0 1em 0 0; width:30%;" name="lrn" required>
-            <label for="">Birthdate (mm/dd/yyyy):</label>
-            <input type="date" name="birth_date" required>  
-        </span>
-        <span class="hstack d-flex align-items-center w-25">
-        <label for="">Sex:</label>
-            <select class=" w-100" name="sex" id="" required>
-            <option value="">-Gender-</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            </select>
-        </span>
-    </section>
-    <p style="background:#d3d3d3; text-align:center; font-size:12pt; font-weight:600; margin:0; border:1px solid black;">ELIGIBILITY FOR ELEMENTARY SCHOOL ENROLLMENT</p>
-    <div class="credentials-row border border-dark px-2">
-        <div class="d-flex flex-row justify-content-between">
-            <i>Credential Presented for Grade 1</i>
-            <span class="form-check form-check-inline">
-                <label class="form-check-label">Kinder Progress Report </label>
-                <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kinder progress report">
-            </span>
-            <span class="form-check form-check-inline">
-                <label class="form-check-label">ECCD Checklist </label>
-                <input type="checkbox" class="form-check-input" name="credential_presented[]" value="ECCD Checklist">
-            </span>
-            <span class="form-check form-check-inline">
-                <label class="form-check-label">Kindergarten Certificate of Completion </label>
-                <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kindergarten Certificate of Completion">
-            </span>
-        </div>
-        <section class="cred-info d-flex flex-row justify-content-between">
-            <span class="hstack d-flex align-items-center">
-                <label for="">Name of School:</label>
-                <input type="text" name="eligibility_name_of_school" required>
-            </span>
-            <span class="hstack d-flex align-items-center justify-content-start">
-                <label for="">School ID:</label>
-                <input type="text" name="school_id" id="dash" required>
-            </span>
-            <span class="hstack d-flex align-items-center">
-                <label for="">Address of School:</label>
-                <input type="text" name="address_of_school" required>
-            </span>
-        </section>
-    </div>
-    <div class="other-cred">
-    <p>Other Credential Presented</p>
-    <span class="wrapper d-flex flex-row justify-content-evenly">
-        <span>
-        <input type="checkbox" name="pept_passer" value="1" class="form-check-input">
-            <label class="form-check-label" style="padding: 0 2px 0 0;">PEPT Passer</label>
-            <label for="">Rating:</label>
-            <input type="number" class="w-30" name="rating" required>
-        </span>
-        <span>
-            <label for="">Date of Examination/Assessment (mm/dd/yyyy):</label>
-            <input type="date" name="date_of_assessment" id=""> 
-            <input type="checkbox" class="form-check-input" name="others" value="1" >
-            <label for="">Others (Pls. Specify):</label>
-            <input type="text" style="width:20%;" name="others_please_specify" id="">
-        </span>
-    </span>
-    <section class="last-cred d-flex flex-row justify-content-evenly px-5">
-        <span class="hstack w-75">
-            <label for="">Name and Address of Testing Center:</label>
-            <input type="text" class="w-50" name="name_and_address_testing_center" id="">
-        </span>
-        <span class="w-50">
-            <label for="">Remark:</label>
-            <input type="text" class="w-75"  name="eligibility_remarks" id="">
-        </span>
-    </section>
-    </div>
-
+<form action="phase1.php" method="POST">
 
 
 <!-- Phase 1 -->
@@ -119,6 +21,10 @@ date_default_timezone_set('Asia/Manila');
         <div class="form-container" style="padding: 0 7px 7px 0 ;">
         <section class="header">
             <span class="d-flex justify-content-between">
+
+            <label for="">Learner Reference Number (LRN):</label>
+            <input type="number" style="margin: 0 1em 0 0; width:30%;" name="lrn" required>
+
                 <span>
                     <label>School:</label>
                     <input type="text" id="text-only" name="phase1_name_of_school"  class="school">
@@ -395,51 +301,23 @@ date_default_timezone_set('Asia/Manila');
 
 if(isset($_POST['add'])){
 
-    
-    $last_name = ucfirst($_POST['last_name']);
-    $first_name = ucfirst($_POST['first_name']);
-    $suffix = $_POST['suffix'];
-    $middle_name = ucfirst($_POST['middle_name']);
+
     $lrn = $_POST['lrn'];
-    $birth_date = date('Y-m-d',strtotime($_POST['birth_date']));
-    $sex = $_POST['sex'];
     $dateCreated = date("m-d-Y h:i:a");
     $dateUpdated = date("m-d-Y h:i:a");
     $remarks = 'none';
 
 
-    $eligibility_name_of_school = strtoupper($_POST['eligibility_name_of_school']);
-    $school_id = strtoupper($_POST['school_id']);
-    $address_of_school = strtoupper($_POST['address_of_school']);
-    $dateCreated = date("y-m-d h:i:s");
-    $dateUpdated = date("y-m-d h:i:s");
-    $remarks = 'none';
-    $rating = $_POST['rating'];
-    $date_of_assessment = date("Y-m-d", strtotime($_POST['date_of_assessment']));
-    $name_and_address_testing_center = strtoupper($_POST['name_and_address_testing_center']);
-    $eligibility_remarks = $_POST['eligibility_remarks'];
 
 
-    if(isset($_POST['credential_presented'])){
-        $new_credential = implode(',', $_POST['credential_presented']);
-    }else{
-        $new_credential = " ";
-    }
+    // 
+
+    
+    
 
 
-    if(isset($_POST['pept_passer'])){
-    $pept_passer = $_POST['pept_passer'];
-    }else{
-    $pept_passer = " ";
-    }
 
-    if(isset($_POST['others'])){
-    $others_checkbox  = $_POST['others_please_specify'];
-    $others = $_POST['others'];
-    }else{
-        $others  = " ";
-        $others_checkbox = " ";
-    }
+    
 
 
 //subjectssss
@@ -460,40 +338,7 @@ $arabic_language = 14;
 $islamic_values = 15;
 
 
-// validation 
 
-$validation_learners = "SELECT lrn, last_name,first_name,middle_name,suffix,birth_date
-    FROM learners_personal_infos WHERE lrn = '$lrn'";
-    $run_validation = mysqli_query($conn,$validation_learners);
-
-    if(mysqli_num_rows($run_validation) > 0){
-        echo "<script>alert('This student is already added')</script>";
-        echo "<script>window.location.href='home.php' </script>";
-    }else
-    
-    {
-
-
-$insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,first_name,middle_name,suffix,birth_date,sex,remarks,date_time_created,date_time_updated)
-    VALUES ('$lrn' , '$last_name' , '$first_name' ,'$middle_name', '$suffix' , '$birth_date' , '$sex','$remarks', '$dateCreated', '$dateUpdated')
-    ";
-
-    $run_insert_learners_info = mysqli_query($conn,$insert_learners_info);
-
-    echo "inserted leanrer" . '<br>';
-
-
-    $insert_elibility = "INSERT INTO eligibility_for_elementary_school_enrollment 
-    (lrn, credential_presented, name_of_school, school_id, address_of_school, pept_passer, rating, date_of_assessment, others, specify, name_and_address_testing_center, remarks, date_time_created, date_time_updated) VALUES
-    ('$lrn' , '$new_credential','$eligibility_name_of_school', '$school_id' , '$address_of_school', '$pept_passer', '$rating', '$date_of_assessment', '$others' ,'$others_checkbox', '$name_and_address_testing_center' , '$eligibility_remarks', '$dateCreated' , '$dateUpdated')";
-    $run_eligibility = mysqli_query($conn,$insert_elibility);
-
-    if($run_eligibility){
-        echo "added eligibility";
-    }else{
-        echo "error";
-
-    }
 
     //phase1
 
@@ -617,32 +462,70 @@ $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,firs
     // $term1_phase1_average_of_mapeh = round(($term1_phase1_music + $term1_phase1_arts + $term1_phase1_pe + $term1_phase1_health) / 4) ;
 
     $phase1_term1_average_mapeh_numbers = array($term1_phase1_music, $term1_phase1_arts, $term1_phase1_pe, $term1_phase1_health);
-    $phase1_term1_average_mapeh_sum = array_sum($phase1_term1_average_mapeh_numbers);
     $phase1_term1_average_mapeh_count = count(array_filter($phase1_term1_average_mapeh_numbers));
-    $term1_phase1_average_of_mapeh = $phase1_term1_average_mapeh_sum / $phase1_term1_average_mapeh_count;
+        if( $phase1_term1_average_mapeh_count != 0 ){
+
+            $phase1_term1_average_mapeh_sum = array_sum($phase1_term1_average_mapeh_numbers);
+           
+            $term1_phase1_average_of_mapeh = $phase1_term1_average_mapeh_sum / $phase1_term1_average_mapeh_count;
+        }
+
+        else{
+            $term1_phase1_average_of_mapeh = 0;
+        }
+  
 
     // $term2_phase1_average_of_mapeh = round(($term2_phase1_music + $term2_phase1_arts + $term2_phase1_pe + $term2_phase1_health) / 4) ;
 
     $phase1_term2_average_mapeh_numbers = array($term2_phase1_music, $term2_phase1_arts, $term2_phase1_pe, $term2_phase1_health);
-    $phase1_term2_average_mapeh_sum = array_sum($phase1_term2_average_mapeh_numbers);
     $phase1_term2_average_mapeh_count = count(array_filter($phase1_term2_average_mapeh_numbers));
-    $term2_phase1_average_of_mapeh = $phase1_term2_average_mapeh_sum / $phase1_term2_average_mapeh_count;
+
+    if($phase1_term2_average_mapeh_count !=0){
+
+        $phase1_term2_average_mapeh_sum = array_sum($phase1_term2_average_mapeh_numbers);
+        
+        $term2_phase1_average_of_mapeh = $phase1_term2_average_mapeh_sum / $phase1_term2_average_mapeh_count;
+    }
+
+    else{
+        $term2_phase1_average_of_mapeh = 0;
+    }
 
     // $term3_phase1_average_of_mapeh = round(($term3_phase1_music + $term3_phase1_arts + $term3_phase1_pe + $term3_phase1_health) / 4) ;
 
     $phase1_term3_average_mapeh_numbers = array($term3_phase1_music, $term3_phase1_arts, $term3_phase1_pe, $term3_phase1_health);
-    $phase1_term3_average_mapeh_sum = array_sum($phase1_term3_average_mapeh_numbers);
     $phase1_term3_average_mapeh_count = count(array_filter($phase1_term3_average_mapeh_numbers));
-    $term3_phase1_average_of_mapeh = $phase1_term3_average_mapeh_sum / $phase1_term3_average_mapeh_count;
+    
+    if($phase1_term3_average_mapeh_count !=0){
+
+        $phase1_term3_average_mapeh_sum = array_sum($phase1_term3_average_mapeh_numbers);
+        $term3_phase1_average_of_mapeh = $phase1_term3_average_mapeh_sum / $phase1_term3_average_mapeh_count;
+    }
+    
+    else{
+        
+        $term3_phase1_average_of_mapeh = 0;
+
+    }
+
+
 
     // $term4_phase1_average_of_mapeh = round(($term4_phase1_music + $term4_phase1_arts + $term4_phase1_pe + $term4_phase1_health) / 4) ;
 
 
+    
     $phase1_term4_average_mapeh_numbers = array($term4_phase1_music, $term4_phase1_arts, $term4_phase1_pe, $term4_phase1_health);
-    $phase1_term4_average_mapeh_sum = array_sum($phase1_term4_average_mapeh_numbers);
     $phase1_term4_average_mapeh_count = count(array_filter($phase1_term4_average_mapeh_numbers));
-    $term4_phase1_average_of_mapeh = $phase1_term4_average_mapeh_sum / $phase1_term4_average_mapeh_count;
+    
+    if($phase1_term4_average_mapeh_count !=0 ){
+        $phase1_term4_average_mapeh_sum = array_sum($phase1_term4_average_mapeh_numbers);
+        
+        $term4_phase1_average_of_mapeh = $phase1_term4_average_mapeh_sum / $phase1_term4_average_mapeh_count;
+    }
 
+    else{
+        $term4_phase1_average_of_mapeh = 0;
+    }
    
 
     //final rating
@@ -651,112 +534,279 @@ $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,firs
 
     // $phase1_final_rating_mother_tongue = round(($term1_phase1_mother_tongue + $term2_phase1_mother_tongue + 
     // $term3_phase1_mother_tongue + $term4_phase1_mother_tongue) / 4);
+
         $phase1_mt_numbers = array($term1_phase1_mother_tongue, $term2_phase1_mother_tongue, $term3_phase1_mother_tongue,$term4_phase1_mother_tongue);
-        $phase1_mt_sum = array_sum($phase1_mt_numbers);
         $phase1_mt_count = count(array_filter($phase1_mt_numbers));
-        $phase1_final_rating_mother_tongue = $phase1_mt_sum / $phase1_mt_count;
+        if($phase1_mt_count != 0){
+
+            $phase1_mt_sum = array_sum($phase1_mt_numbers);
+        
+            $phase1_final_rating_mother_tongue = $phase1_mt_sum / $phase1_mt_count;
+        }
+       else{
+        $phase1_final_rating_mother_tongue = 0;
+       }
 
 
     // $phase1_final_rating_filipino = round(($term1_phase1_filipino + $term2_phase1_filipino + $term3_phase1_filipino + $term4_phase1_filipino) / 4);
 
     $phase1_filipino_numbers = array($term1_phase1_filipino, $term2_phase1_filipino, $term3_phase1_filipino, $term4_phase1_filipino);
-    $phase1_filipino_sum = array_sum($phase1_filipino_numbers);
     $phase1_filipino_count = count(array_filter($phase1_filipino_numbers));
-    $phase1_final_rating_filipino = $phase1_filipino_sum / $phase1_filipino_count;
+
+    if($phase1_filipino_count != 0){
+
+        $phase1_filipino_sum = array_sum($phase1_filipino_numbers);
+
+        $phase1_final_rating_filipino = $phase1_filipino_sum / $phase1_filipino_count;
+
+    }
+
+    else{
+
+        $phase1_final_rating_filipino = 0;
+
+    }
+
+   
 
     // $phase1_final_rating_english = round(($term1_phase1_english + $term2_phase1_english + $term3_phase1_english + $term4_phase1_english) / 4);
 
+    
     $phase1_english_numbers = array($term1_phase1_english, $term2_phase1_english, $term3_phase1_english, $term4_phase1_english);
-    $phase1_english_sum = array_sum($phase1_english_numbers);
     $phase1_english_count = count(array_filter($phase1_english_numbers));
-    $phase1_final_rating_english = $phase1_english_sum / $phase1_english_count;
+    if($phase1_english_count != 0 ){
+        $phase1_english_sum = array_sum($phase1_english_numbers);
+
+        $phase1_final_rating_english = $phase1_english_sum / $phase1_english_count;
+    }
+    
+    else{
+
+        $phase1_final_rating_english = 0;
+    }
 
 
     // $phase1_final_rating_math = round(($term1_phase1_mathematics + $term2_phase1_mathematics + $term3_phase1_mathematics + $term4_phase1_mathematics ) / 4);
 
     $phase1_math_numbers = array($term1_phase1_mathematics, $term2_phase1_mathematics,  $term3_phase1_mathematics, $term4_phase1_mathematics);
-    $phase1_math_sum = array_sum($phase1_math_numbers);
     $phase1_math_count = count(array_filter($phase1_math_numbers));
-    $phase1_final_rating_math = $phase1_math_sum / $phase1_math_count;
+    
+    if($phase1_math_count != 0){
+        $phase1_math_sum = array_sum($phase1_math_numbers);
+    
+        $phase1_final_rating_math = $phase1_math_sum / $phase1_math_count;
+
+    }
+
+    else{
+        $phase1_final_rating_math = 0;
+
+    }
+
+   
 
     // $phase1_final_rating_science = round(($term1_phase1_science + $term2_phase1_science + $term3_phase1_science + $term4_phase1_science) / 4);
 
     $phase1_science_numbers = array($term1_phase1_science, $term2_phase1_science, $term3_phase1_science, $term4_phase1_science);
-    $phase1_science_sum = array_sum($phase1_science_numbers);
     $phase1_science_count = count(array_filter($phase1_science_numbers));
+    
+    if($phase1_science_count != 0){
+
+        $phase1_science_sum = array_sum($phase1_science_numbers);
+
     $phase1_final_rating_science = $phase1_science_sum / $phase1_science_count;
+    }
+
+    else{
+
+        $phase1_final_rating_science = 0;
+    }
+
+    
 
     // $phase1_final_rating_AP = round(($term1_phase1_araling_panlipunan + $term2_phase1_araling_panlipunan + $term3_phase1_araling_panlipunan + $term4_phase1_araling_panlipunan) / 4);
 
     $phase1_ap_numbers = array($term1_phase1_araling_panlipunan, $term2_phase1_araling_panlipunan, $term3_phase1_araling_panlipunan, $term4_phase1_araling_panlipunan);
-    $phase1_ap_sum = array_sum($phase1_ap_numbers);
     $phase1_ap_count = count(array_filter($phase1_ap_numbers));
-    $phase1_final_rating_AP = $phase1_ap_sum / $phase1_ap_count;
+
+    if($phase1_ap_count != 0){
+        $phase1_ap_sum = array_sum($phase1_ap_numbers);
+
+        $phase1_final_rating_AP = $phase1_ap_sum / $phase1_ap_count;
+
+    }
+
+    else{
+        $phase1_final_rating_AP = 0;
+        
+    }
 
     // $phase1_final_rating_epp_tle = round(($term1_phase1_epp_tle + $term2_phase1_epp_tle + $term3_phase1_epp_tle + $term4_phase1_epp_tle) / 4);
 
     $phase1_epp_tle_numbers = array($term1_phase1_epp_tle, $term2_phase1_epp_tle, $term3_phase1_epp_tle, $term4_phase1_epp_tle);
-    $phase1_epp_tle_sum = array_sum($phase1_epp_tle_numbers);
     $phase1_epp_tle_count = count(array_filter($phase1_epp_tle_numbers));
+
+    if($phase1_epp_tle_count != 0){
+
+        $phase1_epp_tle_sum = array_sum($phase1_epp_tle_numbers);
+    
     $phase1_final_rating_epp_tle = $phase1_epp_tle_sum / $phase1_epp_tle_count;
+    }
+
+    else{
+        $phase1_final_rating_epp_tle = 0;
+    }
+    
+    
+    
 
     // $phase1_final_rating_mapeh = round(($term1_phase1_average_of_mapeh + $term2_phase1_average_of_mapeh + $term3_phase1_average_of_mapeh + $term4_phase1_average_of_mapeh) / 4 );
 
     $phase1_mapeh_numbers = array($term1_phase1_average_of_mapeh, $term2_phase1_average_of_mapeh, $term3_phase1_average_of_mapeh, $term4_phase1_average_of_mapeh);
-    $phase1_mapeh_sum = array_sum($phase1_mapeh_numbers);
     $phase1_mapeh_count = count(array_filter($phase1_mapeh_numbers));
-    $phase1_final_rating_mapeh = $phase1_mapeh_sum / $phase1_mapeh_count;
+    
+    if($phase1_mapeh_count != 0){
+
+        $phase1_mapeh_sum = array_sum($phase1_mapeh_numbers);
+    
+        $phase1_final_rating_mapeh = $phase1_mapeh_sum / $phase1_mapeh_count;
+
+    }
+
+    else{
+        
+        $phase1_final_rating_mapeh = 0;
+
+    }
+   
 
     // $phase1_final_rating_music = round(($term1_phase1_music + $term2_phase1_music + $term3_phase1_music + $term4_phase1_music) / 4);
 
     $phase1_music_numbers = array($term1_phase1_music, $term2_phase1_music, $term3_phase1_music, $term4_phase1_music);
-    $phase1_music_sum = array_sum($phase1_music_numbers);
     $phase1_music_count = count(array_filter($phase1_music_numbers));
-    $phase1_final_rating_music =  $phase1_music_sum / $phase1_music_count;
+    
+    if($phase1_music_count != 0){
+        $phase1_music_sum = array_sum($phase1_music_numbers);
+    
+        $phase1_final_rating_music =  $phase1_music_sum / $phase1_music_count;
+
+    }
+
+    else {
+        $phase1_final_rating_music = 0;
+    }
+   
+    
 
     // $phase1_final_rating_arts = round(($term1_phase1_arts + $term2_phase1_arts + $term3_phase1_arts + $term4_phase1_arts ) / 4);
 
+    
     $phase1_arts_numbers = array($term1_phase1_arts, $term2_phase1_arts, $term3_phase1_arts, $term4_phase1_arts);
-    $phase1_arts_sum = array_sum($phase1_arts_numbers);
-    $phase1_arts_count = count(array_filter($phase1_ap_numbers));
-    $phase1_final_rating_arts =  $phase1_arts_sum / $phase1_arts_count;
+    $phase1_arts_count = count(array_filter($phase1_arts_numbers)); 
+    
+    if ($phase1_arts_count != 0) {
+        
+        $phase1_arts_sum = array_sum($phase1_arts_numbers);
+    
+        $phase1_final_rating_arts =  $phase1_arts_sum / $phase1_arts_count;
 
+    }
+
+    else{
+        $phase1_final_rating_arts = 0;
+    }
+    
     // $phase1_final_rating_PE = round(($term1_phase1_pe + $term2_phase1_pe + $term3_phase1_pe + $term4_phase1_pe) / 4);
 
     $phase1_pe_numbers = array($term1_phase1_pe, $term2_phase1_pe, $term3_phase1_pe, $term4_phase1_pe);
-    $phase1_pe_sum = array_sum($phase1_pe_numbers);
     $phase1_pe_count = count(array_filter($phase1_pe_numbers));
-    $phase1_final_rating_PE = $phase1_pe_sum / $phase1_pe_count;
+    
+    if($phase1_pe_count != 0){
+        $phase1_pe_sum = array_sum($phase1_pe_numbers);
+    
+        $phase1_final_rating_PE = $phase1_pe_sum / $phase1_pe_count;
+    }
+
+    else{
+        $phase1_final_rating_PE = 0;
+    }
+    
+
+    
+
+
 
     // $phase1_final_rating_health = round(($term1_phase1_health + $term2_phase1_health + $term3_phase1_health + $term4_phase1_health)/ 4);
 
     $phase1_health_numbers = array($term1_phase1_health, $term2_phase1_health, $term3_phase1_health, $term4_phase1_health);
-    $phase1_health_sum = array_sum($phase1_health_numbers);
     $phase1_health_count = count(array_filter($phase1_health_numbers));
-    $phase1_final_rating_health = $phase1_health_sum / $phase1_health_count;
+    
+    if($phase1_health_count != 0){
+        $phase1_health_sum = array_sum($phase1_health_numbers);
+    
+        $phase1_final_rating_health = $phase1_health_sum / $phase1_health_count;
+    }
+
+    else {
+        $phase1_final_rating_health = 0;
+    }
+
+    
 
      // $phase1_final_rating_esp = round(($term1_phase1_esp + $term2_phase1_esp + $term3_phase1_esp + $term4_phase1_esp) / 4);
     
      $phase1_esp_numbers = array($term1_phase1_esp, $term2_phase1_esp, $term3_phase1_esp, $term4_phase1_esp);
-     $phase1_esp_sum = array_sum($phase1_esp_numbers);
      $phase1_esp_count = count (array_filter($phase1_esp_numbers));
-     $phase1_final_rating_esp = $phase1_esp_sum / $phase1_esp_count;
+     
+     if($phase1_esp_count != 0){
+
+        $phase1_esp_sum = array_sum($phase1_esp_numbers);
+     
+        $phase1_final_rating_esp = $phase1_esp_sum / $phase1_esp_count;
+     }
+     else{
+        $phase1_final_rating_esp = 0;
+     }
+     
 
 
 
      // $phase1_final_rating_arabic_language = round(($term1_phase1_arabic_language + $term2_phase1_arabic_language + $term3_phase1_arabic_language + $term4_phase1_arabic_language) / 4);
 
+    
      $phase1_arabic_numbers = array($term1_phase1_arabic_language, $term2_phase1_arabic_language, $term3_phase1_arabic_language, $term4_phase1_arabic_language);
-     $phase1_arabic_sum = array_sum($phase1_arabic_numbers);
      $phase1_arabic_count = count(array_filter($phase1_arabic_numbers));
-     $phase1_final_rating_arabic_language = $phase1_arabic_sum / $phase1_arabic_count;
+    
+     if($phase1_arabic_count != 0){
+        $phase1_arabic_sum = array_sum($phase1_arabic_numbers);
+     
+        $phase1_final_rating_arabic_language = $phase1_arabic_sum / $phase1_arabic_count;
+     }
+
+     else{
+
+        $phase1_final_rating_arabic_language = 0;
+
+     }
+
+    
 
     // $phase1_final_rating_islamic_values = round(($term1_phase1_islamic_values + $term2_phase1_islamic_values + $term3_phase1_islamic_values + $term4_phase1_islamic_values) / 4);
 
     $phase1_islamic_numbers = array($term1_phase1_islamic_values, $term2_phase1_islamic_values, $term3_phase1_islamic_values, $term4_phase1_islamic_values);
-    $phase1_islamic_sum = array_sum($phase1_islamic_numbers);
     $phase1_islamic_count = count(array_filter($phase1_islamic_numbers));
-    $phase1_final_rating_islamic_values = $phase1_islamic_sum / $phase1_islamic_count;
+    
+    if($phase1_islamic_count !=0){
+        $phase1_islamic_sum = array_sum($phase1_islamic_numbers);
+    
+        $phase1_final_rating_islamic_values = $phase1_islamic_sum / $phase1_islamic_count;
+    }
+
+    else{
+        $phase1_final_rating_islamic_values = 0;
+    }
+    
+    
 
 
 
@@ -862,31 +912,79 @@ $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,firs
     // $phase1_term1_general_average = round(($term1_phase1_mother_tongue + $term1_phase1_filipino + $term1_phase1_english + $term1_phase1_mathematics + $term1_phase1_science + $term1_phase1_araling_panlipunan + $term1_phase1_epp_tle + $term1_phase1_average_of_mapeh + $term1_phase1_esp) / 9);
     
     $phase1_term1_gen_numbers = array($term1_phase1_mother_tongue, $term1_phase1_filipino, $term1_phase1_english, $term1_phase1_mathematics, $term1_phase1_science, $term1_phase1_araling_panlipunan, $term1_phase1_epp_tle, $term1_phase1_average_of_mapeh, $term1_phase1_esp);
-    $phase1_term1_gen_sum = array_sum($phase1_term1_gen_numbers);
     $phase1_term1_gen_count = count(array_filter($phase1_term1_gen_numbers));
-    $phase1_term1_general_average = $phase1_term1_gen_sum / $phase1_term1_gen_count;
+
+    if($phase1_term1_gen_count != 0){
+        
+        $phase1_term1_gen_sum = array_sum($phase1_term1_gen_numbers);
+    
+        $phase1_term1_general_average = $phase1_term1_gen_sum / $phase1_term1_gen_count;
+        
+    }
+    
+    else{
+        $phase1_term1_general_average = 0;
+    }
     
     // $phase1_term2_general_average = round(($term2_phase1_mother_tongue + $term2_phase1_filipino + $term2_phase1_english + $term2_phase1_mathematics + $term2_phase1_science + $term2_phase1_araling_panlipunan + $term2_phase1_epp_tle + $term2_phase1_average_of_mapeh + $term2_phase1_esp) / 9);
     $phase1_term2_gen_numbers = array($term2_phase1_mother_tongue, $term2_phase1_filipino, $term2_phase1_english, $term2_phase1_mathematics, $term2_phase1_science, $term2_phase1_araling_panlipunan, $term2_phase1_epp_tle, $term2_phase1_average_of_mapeh, $term2_phase1_esp);
-    $phase1_term2_gen_sum = array_sum($phase1_term2_gen_numbers);
     $phase1_term2_gen_count = count(array_filter($phase1_term2_gen_numbers));
-    $phase1_term2_general_average = $phase1_term2_gen_sum / $phase1_term2_gen_count;
+    
+    if ($phase1_term2_gen_count != 0){
+        
+        $phase1_term2_gen_sum = array_sum($phase1_term2_gen_numbers);
+    
+        $phase1_term2_general_average = $phase1_term2_gen_sum / $phase1_term2_gen_count;
+
+    }
+
+    else {
+        $phase1_term2_general_average = 0;
+    }
+
+   
     
      // $phase1_term3_general_average = round(($term3_phase1_mother_tongue + $term3_phase1_filipino + $term3_phase1_english + $term3_phase1_mathematics + $term3_phase1_science + $term3_phase1_araling_panlipunan + $term3_phase1_epp_tle + $term3_phase1_average_of_mapeh + $term3_phase1_esp) / 9);
     
      $phase1_term3_gen_numbers = array($term3_phase1_mother_tongue, $term3_phase1_filipino, $term3_phase1_english, $term3_phase1_mathematics, $term3_phase1_science, $term3_phase1_araling_panlipunan, $term3_phase1_epp_tle, $term3_phase1_average_of_mapeh, $term3_phase1_esp);
-     $phase1_term3_gen_sum = array_sum($phase1_term3_gen_numbers);
      $phase1_term3_gen_count = count(array_filter($phase1_term3_gen_numbers));
-     $phase1_term3_general_average = $phase1_term3_gen_sum / $phase1_term3_gen_count;
+     
+
+        if($phase1_term3_gen_count != 0){
+            $phase1_term3_gen_sum = array_sum($phase1_term3_gen_numbers);
+     
+            $phase1_term3_general_average = $phase1_term3_gen_sum / $phase1_term3_gen_count;
+
+        }
+
+        else{
+            $phase1_term3_general_average = 0;
+
+        }
+
+
+     
     
     
     
      // $phase1_term4_general_average = round(($term4_phase1_mother_tongue + $term4_phase1_filipino + $term4_phase1_english + $term4_phase1_mathematics + $term4_phase1_science + $term4_phase1_araling_panlipunan + $term4_phase1_epp_tle + $term4_phase1_average_of_mapeh + $term4_phase1_esp) / 9);
     
      $phase1_term4_gen_numbers = array($term4_phase1_mother_tongue, $term4_phase1_filipino, $term4_phase1_english, $term4_phase1_mathematics, $term4_phase1_science, $term4_phase1_araling_panlipunan, $term4_phase1_epp_tle, $term4_phase1_average_of_mapeh, $term4_phase1_esp);
-     $phase1_term4_gen_sum = array_sum($phase1_term4_gen_numbers);
      $phase1_term4_gen_count = count(array_filter($phase1_term4_gen_numbers));
-     $phase1_term4_general_average = $phase1_term4_gen_sum / $phase1_term4_gen_count;
+    
+        if($phase1_term4_gen_count != 0){
+            $phase1_term4_gen_sum = array_sum($phase1_term4_gen_numbers);
+     
+            $phase1_term4_general_average = $phase1_term4_gen_sum / $phase1_term4_gen_count;
+
+        }
+
+        else{
+            $phase1_term4_general_average = 0;
+
+        }
+
+    
     
     
     
@@ -895,10 +993,21 @@ $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,firs
 
 
      $phase1_term5_gen_numbers = array($phase1_final_rating_mother_tongue, $phase1_final_rating_filipino, $phase1_final_rating_english, $phase1_final_rating_math, $phase1_final_rating_science, $phase1_final_rating_AP, $phase1_final_rating_epp_tle, $phase1_final_rating_mapeh, $phase1_final_rating_esp);
-     $phase1_term5_gen_sum = array_sum($phase1_term5_gen_numbers);
      $phase1_term5_gen_count = count(array_filter($phase1_term5_gen_numbers));
-     $phase1_term5_general_average = $phase1_term5_gen_sum / $phase1_term5_gen_count;
 
+     if($phase1_term5_gen_count != 0){
+        
+        $phase1_term5_gen_sum = array_sum($phase1_term5_gen_numbers);
+        
+        $phase1_term5_general_average = $phase1_term5_gen_sum / $phase1_term5_gen_count;
+   }
+
+     else{
+        $phase1_term5_general_average = 0;
+
+     }
+     
+     
 
       //phase1 Insert Scholastic Records
 
@@ -2107,5 +2216,5 @@ $insert_learners_info = "INSERT INTO learners_personal_infos (lrn,last_name,firs
 
     }
 }
-}
+
     ?>
