@@ -96,6 +96,29 @@ td {
     
 }
 
+
+.insert:before{
+    content: "&nbsp;";
+}
+
+
+.remedial-2:before{
+
+    content: "&nbsp;";
+}
+
+
+.insert-gen-av:before{
+    content:"&nbsp;";
+
+}
+
+.insert-remarks:before{
+
+    content:"&nbsp;";
+}
+
+
 .Record{
     position:absolute;
     top:1cm;
@@ -1174,7 +1197,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             $html.=' 
          
             <td class="mother" class="mother">Mother&#8216s Tongue</td>
-            <td>'.$rows['grade'].'</td>
+            <td >'.$rows['grade'].'</td>
             
       ';
         
@@ -1200,7 +1223,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
 
             $html.='
-            <td>'.$rows2['grade'].'</td>
+            <td >'.$rows2['grade'].'</td>
             
             ';
         
@@ -1337,7 +1360,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     
                             $html.='
 
-                            <td>'.$rows2['grade'].'</td> ';
+                            <td >'.$rows2['grade'].'</td> ';
                         
 
 
@@ -1478,7 +1501,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                    
                     ';
                 
@@ -1750,7 +1773,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     
     
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                       ';
                 
                 }
@@ -1830,7 +1853,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     
                     $html.='
                     <td> '.$rows['final_rating'].'</td>
-                    <td> '.$rows['remarks'].'</td>
+                    <td class="insert-remarks"> '.$rows['remarks'].'</td>
                     </tr>';
                 
                 }
@@ -1889,7 +1912,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                      ';
                 
                 }
@@ -2098,7 +2121,7 @@ if($phase1_subject_id == 7 ){
     
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
-                <td> '.$rows['remarks'].'</td>
+                <td class="insert-remarks"> '.$rows['remarks'].'</td>
                 </tr>  ';
             
             }
@@ -2381,7 +2404,7 @@ if($phase1_subject_id == 7 ){
 
             $html.='
             <td>'.$rows['final_rating'].'</td>
-            <td> '.$rows['remarks'].'</td>
+            <td class="insert-remarks"> '.$rows['remarks'].'</td>
             </tr>
                 ';
         
@@ -2445,7 +2468,7 @@ if($phase1_subject_id == 7 ){
                                     }
             
                                 $html.='
-                                <td>'.$rows2['grade'].'</td>
+                                <td >'.$rows2['grade'].'</td>
                                   ';
                             
                             }
@@ -2586,7 +2609,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td>'.$rows2['grade'].'</td>
+                        <td >'.$rows2['grade'].'</td>
                         ';
                     
                     }
@@ -2731,7 +2754,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td>'.$rows2['grade'].'</td>
+                        <td >'.$rows2['grade'].'</td>
                         ';
                     
                     }
@@ -3280,7 +3303,7 @@ if($phase1_subject_id == 7 ){
                         $html.='
                         <tr>
                         <td class="general">General Average</td>
-                        <td>'.$rows['general_average'].'</td>
+                        <td class="insert-gen-av">'.$rows['general_average'].'</td>
                        
                         ';
                     
@@ -3420,7 +3443,7 @@ if($phase1_subject_id == 7 ){
             
             
             $html.='
-            <td>'.$rows['general_average'].'</td>
+            <td class="insert-gen-av">'.$rows['general_average'].'</td>
             <td> '.$output.' </td>
           
             </tr>
@@ -3969,7 +3992,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows2['grade'].'</td>
+                <td >'.$rows2['grade'].'</td>
                 ';
             
             }
@@ -4125,7 +4148,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                         $html.='
-                        <td>'.$rows2['grade'].'</td>
+                        <td >'.$rows2['grade'].'</td>
                          ';
                     
                     }   
@@ -4290,7 +4313,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -4451,7 +4474,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows2['grade'].'</td>
+                <td >'.$rows2['grade'].'</td>
                     ';
             
             }
@@ -4541,7 +4564,7 @@ if($phase2_subject_id == 6 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr> ';
     
     }
@@ -4613,7 +4636,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                         ';
                 
                 }
@@ -4704,7 +4727,7 @@ if($phase2_subject_id == 7 ){
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -4775,7 +4798,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows2['grade'].'</td>
+                <td >'.$rows2['grade'].'</td>
                 ';
             
             }
@@ -4865,7 +4888,7 @@ if($phase2_subject_id == 8 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>  ';
     
     }
@@ -5026,7 +5049,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -5184,7 +5207,7 @@ if($phase2_subject_id == 10 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -5346,7 +5369,7 @@ if($phase2_subject_id == 11 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>';
     
     }
@@ -5414,7 +5437,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -5740,7 +5763,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows2['grade'].'</td>
+                <td >'.$rows2['grade'].'</td>
                ';
             
             }
@@ -5830,7 +5853,7 @@ if($phase2_subject_id == 14 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -5992,7 +6015,7 @@ if($phase2_subject_id == 15 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -6435,7 +6458,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 }
 
                 $html.=' 
-                <td>'.$rows2['grade'].'</td>
+                <td >'.$rows2['grade'].'</td>
                 ';
             
             }
@@ -6582,7 +6605,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -6917,7 +6940,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                     ';
                 
                 }   
@@ -7087,7 +7110,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows2['grade'].'</td>
+                <td >'.$rows2['grade'].'</td>
                   ';
             
             }
@@ -7430,7 +7453,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                    ';
                 
                 }
@@ -7601,7 +7624,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -8104,7 +8127,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>
+                    <td >'.$rows2['grade'].'</td>
                         ';
                 
                 }
@@ -8267,7 +8290,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows2['grade'].'</td>  ';
+                <td >'.$rows2['grade'].'</td>  ';
             
             }
 
@@ -8360,7 +8383,7 @@ if($phase3_subject_id == 12 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>';
     
     }
@@ -8429,7 +8452,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>';
+                    <td >'.$rows2['grade'].'</td>';
                 
                 }
 
@@ -8524,7 +8547,7 @@ if($phase3_subject_id == 13 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>';
     
     }
@@ -8755,7 +8778,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].'</td>  ';
+                    <td >'.$rows2['grade'].'</td>  ';
                 
                 }
 
@@ -8884,7 +8907,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     $html.='
                     <tr>
                     <td class="general">General average</td>
-                    <td>'.$rows['general_average'].'</td>
+                    <td class="insert-gen-av">'.$rows['general_average'].'</td>
 
                    ';
                 
@@ -9041,7 +9064,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
 
             $html.='
-            <td>'.$rows['general_average'].'</td>
+            <td class="insert-gen-av">'.$rows['general_average'].'</td>
             <td>'.$output.'</td>
           
             </tr>
@@ -9618,7 +9641,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows2['grade'].'</td>
+                <td >'.$rows2['grade'].'</td>
                ';
             
             }
@@ -9777,7 +9800,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                         $html.='
-                        <td>'.$rows2['grade'].'</td>
+                        <td >'.$rows2['grade'].'</td>
                         ';
                     
                     }   
@@ -9946,7 +9969,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows2['grade'].'</td>
+                <td >'.$rows2['grade'].'</td>
                 ';
             
             }
@@ -10508,7 +10531,7 @@ if($phase4_subject_id == 8 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
        
         </tr>
         ';
@@ -10822,7 +10845,7 @@ if($phase4_subject_id == 10 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -11135,7 +11158,7 @@ if($phase4_subject_id == 12 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>
           ';
     
@@ -11290,7 +11313,7 @@ if($phase4_subject_id == 13 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -11443,7 +11466,7 @@ if($phase4_subject_id == 14 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -11600,7 +11623,7 @@ if($phase4_subject_id == 15 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -11636,7 +11659,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $html.='
                     <tr>
                     <td class="general">General Average</td>
-                    <td>'.$rows['general_average'].'</td>
+                    <td class="insert-gen-av">'.$rows['general_average'].'</td>
                     
                     
                   ';
@@ -11676,7 +11699,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['general_average'].'</td>  ';
+                    <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
                 
 
 
@@ -11709,7 +11732,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td>'.$rows['general_average'].'</td> ';
+                <td class="insert-gen-av">'.$rows['general_average'].'</td> ';
             
 
 
@@ -11740,7 +11763,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['general_average'].'</td> ';
+                <td class="insert-gen-av">'.$rows['general_average'].'</td> ';
             
 
 
@@ -11787,7 +11810,7 @@ if( $phase4_subject_id == 16){
               }
 
         $html.='
-        <td>'.$rows['general_average'].'</td>
+        <td class="insert-gen-av">'.$rows['general_average'].'</td>
         <td>'.$output.'</td>
        
         </tr>
@@ -12873,7 +12896,7 @@ if($phase5_subject_id == 6 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -13015,7 +13038,7 @@ if($phase5_subject_id == 7 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -13166,7 +13189,7 @@ if($phase5_subject_id == 8 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -13313,7 +13336,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
             $html.='
             <td>'.$rows['final_rating'].'</td>
-            <td> '.$rows['remarks'].'</td>
+            <td class="insert-remarks"> '.$rows['remarks'].'</td>
             </tr>
            ';
         
@@ -13600,7 +13623,7 @@ if($phase5_subject_id == 11 ){
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -13742,7 +13765,7 @@ if($phase5_subject_id == 12 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -15274,7 +15297,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
-                <td> '.$rows['remarks'].'</td>
+                <td class="insert-remarks"> '.$rows['remarks'].'</td>
                 </tr>
                  ';
             
@@ -15295,7 +15318,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             $rows = mysqli_fetch_array($run_phase6_AP);
             while(mysqli_fetch_array($run_phase6_AP));
 
-            if($rows['grade'] == " "){
+            if($rows['grade'] == 0){
                 $rows['grade'] = " ";
                 }
 
@@ -15359,7 +15382,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
     
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td>'.$rows['grade'].'</td>';
                 
                 }
     
@@ -15562,7 +15585,7 @@ if($phase6_subject_id == 7 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -15707,7 +15730,7 @@ if($phase6_subject_id == 8 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -16439,7 +16462,7 @@ if($phase6_subject_id == 13 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>
       ';
     
@@ -16587,7 +16610,7 @@ if($phase6_subject_id == 14 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -16731,7 +16754,7 @@ if($phase6_subject_id == 15 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -17231,7 +17254,7 @@ if($rows['final_rating'] == 0 ){
 
     $html.=' 
     <td>'.$rows['final_rating'].'</td>
-    <td> '.$rows['remarks'].'</td>
+    <td class="insert-remarks"> '.$rows['remarks'].'</td>
     </tr>
     ';
 
@@ -17383,7 +17406,7 @@ if($phase7_subject_id == 2 ){
 
             $html.='
             <td> '.$rows['final_rating'].'</td>
-            <td> '.$rows['remarks'].'</td>
+            <td class="insert-remarks"> '.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -18146,7 +18169,7 @@ if($phase7_subject_id == 7 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -19050,7 +19073,7 @@ if($phase7_subject_id == 13 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -19211,7 +19234,7 @@ if($phase7_subject_id == 14 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         < ';
     
@@ -19362,7 +19385,7 @@ if($phase7_subject_id == 15 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -19398,7 +19421,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $html.='
                     <tr>
                     <td class="general">General average</td>
-                    <td>'.$rows['general_average'].'</td>
+                    <td class="insert-gen-av">'.$rows['general_average'].'</td>
                      ';
                 
 
@@ -19426,7 +19449,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 $rows['general_average'] = " ";
                 }
             $html.='
-            <td>'.$rows['general_average'].'</td>  ';
+            <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
         
 
 
@@ -19455,7 +19478,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td>'.$rows['general_average'].'</td>  ';
+                <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
             
 
 
@@ -19488,7 +19511,7 @@ $term = 4;
                     }
 
                 $html.='
-                  <td>'.$rows['general_average'].'</td>  ';
+                  <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
             
 
 
@@ -19537,7 +19560,7 @@ if( $phase7_subject_id == 16){
               }
 
         $html.='
-        <td>'.$rows['general_average'].'</td> 
+        <td class="insert-gen-av">'.$rows['general_average'].'</td> 
         <td>'.$output.'</td>
        
         </tbody>
@@ -19877,7 +19900,7 @@ if(mysqli_num_rows($run_phase8_mt) > 0){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -20175,7 +20198,7 @@ if($phase8_subject_id == 3 ){
 
             $html.='
             <td>'.$rows['final_rating'].' </td>
-            <td> '.$rows['remarks'].'</td>
+            <td class="insert-remarks"> '.$rows['remarks'].'</td>
             </tr>
              ';
         
@@ -20480,7 +20503,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
     
                 $html.='
                 <td>'.$rows['final_rating'].'</td>
-                <td> '.$rows['remarks'].'</td>
+                <td class="insert-remarks"> '.$rows['remarks'].'</td>
                 </tr>
                  ';
             
@@ -20773,7 +20796,7 @@ if($phase8_subject_id == 7 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -20922,7 +20945,7 @@ if($phase8_subject_id == 8 ){
 
         $html.='
         <td> '.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].'</td>
+        <td class="insert-remarks"> '.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21356,7 +21379,7 @@ if($phase8_subject_id == 11 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21506,7 +21529,7 @@ if($phase8_subject_id == 12 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21802,7 +21825,7 @@ if($phase8_subject_id == 14 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21951,7 +21974,7 @@ if($phase8_subject_id == 15 ){
 
         $html.='
         <td>'.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class=z>'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21983,7 +22006,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $html.='
                     <tr>
                     <td class="general">General average</td>
-                    <td>'.$rows['general_average'].'</td>
+                    <td class="insert-gen-av">'.$rows['general_average'].'</td>
                    ';
                 
 
@@ -22013,7 +22036,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td>'.$rows['general_average'].'</td>  ';
+                <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
             
 
 
@@ -22044,7 +22067,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['general_average'].'</td>  ';
+                <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
             
 
 
@@ -22073,7 +22096,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td>'.$rows['general_average'].'</td> ';
+                <td class="insert-gen-av">'.$rows['general_average'].'</td> ';
             
 
 
@@ -22119,7 +22142,7 @@ if( $phase8_subject_id == 16){
               }
 
         $html.='
-        <td>'.$rows['general_average'].'</td>
+        <td class="insert-gen-av">'.$rows['general_average'].'</td>
         <td>'.$output.'</td>
        
         </tr>
