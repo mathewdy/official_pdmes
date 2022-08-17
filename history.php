@@ -18,8 +18,8 @@ include('connection.php');
                     <th>No.</th>
                     <th>LRN</th>
                     <th>Full Name</th>
-                    <th>Grade Level</th>
                     <th>Email</th>
+                    <th>Grade Level</th>
                     <th>Date Sent</th>
                 </tr>
             </thead>

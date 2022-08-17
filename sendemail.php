@@ -69,9 +69,11 @@ if(isset($_POST['submit'])){
         
             sendMail($email,$path);
             $status = 'Sent';
+            echo "<script>window.location.href='home.php'</script> ";
     
         }else{
-            echo  "Please upload the pdf";
+            echo "<script>alert('Please upload the pdf')</script>";
+            echo "<script>window.location.href='home.php' </script>";
         } 
             
     
@@ -84,9 +86,12 @@ if(isset($_POST['submit'])){
     
         sendMail($email,$path);
         $status = 'Sent';
+        echo "<script>window.location.href='home.php'</script> ";
 
         }else{
-            echo  "Please upload the pdf";
+            echo "<script>alert('Please upload the pdf')</script>";
+            echo "<script>window.location.href='home.php' </script>";
+
         } 
     }
 
@@ -96,9 +101,11 @@ if(isset($_POST['submit'])){
         
             sendMail($email,$path);
             $status = 'Sent';
+            echo "<script>window.location.href='home.php'</script> ";
             
         }else{
-            echo  "Please upload the pdf";
+            echo "<script>alert('Please upload the pdf')</script>";
+            echo "<script>window.location.href='home.php' </script>";
         }
     }
 
@@ -108,9 +115,11 @@ if(isset($_POST['submit'])){
         
             sendMail($email,$path);
             $status = 'Sent';
+            echo "<script>window.location.href='home.php'</script> ";
 
         }else{
-            echo  "Please upload the pdf";
+            echo "<script>alert('Please upload the pdf')</script>";
+            echo "<script>window.location.href='home.php' </script>";
         } 
     }
 
@@ -120,9 +129,11 @@ if(isset($_POST['submit'])){
         
             sendMail($email,$path);
             $status = 'Sent';
+            echo "<script>window.location.href='home.php'</script> ";
             
             }else{
-                echo  "Please upload the pdf";
+                echo "<script>alert('Please upload the pdf')</script>";
+                echo "<script>window.location.href='home.php' </script>";
             }
             
     
@@ -134,9 +145,10 @@ if(isset($_POST['submit'])){
         
             sendMail($email,$path);
             $status = 'Sent';
-            
+            echo "<script>window.location.href='home.php'</script> ";
         }else{
-            echo  "Please upload the pdf";
+            echo "<script>alert('Please upload the pdf')</script>";
+            echo "<script>window.location.href='home.php' </script>";
         } 
     }
 
@@ -146,9 +158,11 @@ if(isset($_POST['submit'])){
         
             sendMail($email,$path);
             $status = 'Sent';
+            echo "<script>window.location.href='home.php'</script> ";
             
         }else{
-            echo  "Please upload the pdf";  
+            echo "<script>alert('Please upload the pdf')</script>";
+            echo "<script>window.location.href='home.php' </script>";
         }
             
     
@@ -160,6 +174,10 @@ if(isset($_POST['submit'])){
 
     if($run){
         echo "sent in database";
+        echo "<script>window.location.href='home.php'</script> ";
+    }else{
+        echo "<script>alert('Please upload the pdf')</script>";
+        echo "<script>window.location.href='home.php' </script>";
     }
     
 }
