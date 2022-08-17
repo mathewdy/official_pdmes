@@ -47,7 +47,7 @@ include('security.php');
     <section class="line-2 d-flex justify-content-between">
         <span class="hstack d-flex align-items-end w-75">
             <label for="">Learner Reference Number (LRN):</label>
-            <input type="text" style="margin: 0 1em 0 0; width:30%;" name="lrn" required>
+            <input type="number" style="margin: 0 1em 0 0; width:30%;" name="lrn" required>
             <label for="">Birthdate (mm/dd/yyyy):</label>
             <input type="date" name="birth_date" required>  
         </span>
@@ -2710,33 +2710,75 @@ if(isset($_POST['add'])){
 
     // $term1_phase1_average_of_mapeh = round(($term1_phase1_music + $term1_phase1_arts + $term1_phase1_pe + $term1_phase1_health) / 4) ;
 
+    //average of mapeh  phase1 
+
+    // $term1_phase1_average_of_mapeh = round(($term1_phase1_music + $term1_phase1_arts + $term1_phase1_pe + $term1_phase1_health) / 4) ;
+
     $phase1_term1_average_mapeh_numbers = array($term1_phase1_music, $term1_phase1_arts, $term1_phase1_pe, $term1_phase1_health);
-    $phase1_term1_average_mapeh_sum = array_sum($phase1_term1_average_mapeh_numbers);
     $phase1_term1_average_mapeh_count = count(array_filter($phase1_term1_average_mapeh_numbers));
-    $term1_phase1_average_of_mapeh = $phase1_term1_average_mapeh_sum / $phase1_term1_average_mapeh_count;
+        if( $phase1_term1_average_mapeh_count != 0 ){
+
+            $phase1_term1_average_mapeh_sum = array_sum($phase1_term1_average_mapeh_numbers);
+           
+            $term1_phase1_average_of_mapeh = $phase1_term1_average_mapeh_sum / $phase1_term1_average_mapeh_count;
+        }
+
+        else{
+            $term1_phase1_average_of_mapeh = 0;
+        }
+  
 
     // $term2_phase1_average_of_mapeh = round(($term2_phase1_music + $term2_phase1_arts + $term2_phase1_pe + $term2_phase1_health) / 4) ;
 
     $phase1_term2_average_mapeh_numbers = array($term2_phase1_music, $term2_phase1_arts, $term2_phase1_pe, $term2_phase1_health);
-    $phase1_term2_average_mapeh_sum = array_sum($phase1_term2_average_mapeh_numbers);
     $phase1_term2_average_mapeh_count = count(array_filter($phase1_term2_average_mapeh_numbers));
-    $term2_phase1_average_of_mapeh = $phase1_term2_average_mapeh_sum / $phase1_term2_average_mapeh_count;
+
+    if($phase1_term2_average_mapeh_count !=0){
+
+        $phase1_term2_average_mapeh_sum = array_sum($phase1_term2_average_mapeh_numbers);
+        
+        $term2_phase1_average_of_mapeh = $phase1_term2_average_mapeh_sum / $phase1_term2_average_mapeh_count;
+    }
+
+    else{
+        $term2_phase1_average_of_mapeh = 0;
+    }
 
     // $term3_phase1_average_of_mapeh = round(($term3_phase1_music + $term3_phase1_arts + $term3_phase1_pe + $term3_phase1_health) / 4) ;
 
     $phase1_term3_average_mapeh_numbers = array($term3_phase1_music, $term3_phase1_arts, $term3_phase1_pe, $term3_phase1_health);
-    $phase1_term3_average_mapeh_sum = array_sum($phase1_term3_average_mapeh_numbers);
     $phase1_term3_average_mapeh_count = count(array_filter($phase1_term3_average_mapeh_numbers));
-    $term3_phase1_average_of_mapeh = $phase1_term3_average_mapeh_sum / $phase1_term3_average_mapeh_count;
+    
+    if($phase1_term3_average_mapeh_count !=0){
+
+        $phase1_term3_average_mapeh_sum = array_sum($phase1_term3_average_mapeh_numbers);
+        $term3_phase1_average_of_mapeh = $phase1_term3_average_mapeh_sum / $phase1_term3_average_mapeh_count;
+    }
+    
+    else{
+        
+        $term3_phase1_average_of_mapeh = 0;
+
+    }
+
+
 
     // $term4_phase1_average_of_mapeh = round(($term4_phase1_music + $term4_phase1_arts + $term4_phase1_pe + $term4_phase1_health) / 4) ;
 
 
+    
     $phase1_term4_average_mapeh_numbers = array($term4_phase1_music, $term4_phase1_arts, $term4_phase1_pe, $term4_phase1_health);
-    $phase1_term4_average_mapeh_sum = array_sum($phase1_term4_average_mapeh_numbers);
     $phase1_term4_average_mapeh_count = count(array_filter($phase1_term4_average_mapeh_numbers));
-    $term4_phase1_average_of_mapeh = $phase1_term4_average_mapeh_sum / $phase1_term4_average_mapeh_count;
+    
+    if($phase1_term4_average_mapeh_count !=0 ){
+        $phase1_term4_average_mapeh_sum = array_sum($phase1_term4_average_mapeh_numbers);
+        
+        $term4_phase1_average_of_mapeh = $phase1_term4_average_mapeh_sum / $phase1_term4_average_mapeh_count;
+    }
 
+    else{
+        $term4_phase1_average_of_mapeh = 0;
+    }
    
 
     //final rating
@@ -2745,112 +2787,277 @@ if(isset($_POST['add'])){
 
     // $phase1_final_rating_mother_tongue = round(($term1_phase1_mother_tongue + $term2_phase1_mother_tongue + 
     // $term3_phase1_mother_tongue + $term4_phase1_mother_tongue) / 4);
+
         $phase1_mt_numbers = array($term1_phase1_mother_tongue, $term2_phase1_mother_tongue, $term3_phase1_mother_tongue,$term4_phase1_mother_tongue);
-        $phase1_mt_sum = array_sum($phase1_mt_numbers);
         $phase1_mt_count = count(array_filter($phase1_mt_numbers));
-        $phase1_final_rating_mother_tongue = $phase1_mt_sum / $phase1_mt_count;
+        if($phase1_mt_count != 0){
+
+            $phase1_mt_sum = array_sum($phase1_mt_numbers);
+        
+            $phase1_final_rating_mother_tongue = $phase1_mt_sum / $phase1_mt_count;
+        }
+       else{
+        $phase1_final_rating_mother_tongue = 0;
+       }
 
 
     // $phase1_final_rating_filipino = round(($term1_phase1_filipino + $term2_phase1_filipino + $term3_phase1_filipino + $term4_phase1_filipino) / 4);
 
     $phase1_filipino_numbers = array($term1_phase1_filipino, $term2_phase1_filipino, $term3_phase1_filipino, $term4_phase1_filipino);
-    $phase1_filipino_sum = array_sum($phase1_filipino_numbers);
     $phase1_filipino_count = count(array_filter($phase1_filipino_numbers));
-    $phase1_final_rating_filipino = $phase1_filipino_sum / $phase1_filipino_count;
+
+    if($phase1_filipino_count != 0){
+
+        $phase1_filipino_sum = array_sum($phase1_filipino_numbers);
+
+        $phase1_final_rating_filipino = $phase1_filipino_sum / $phase1_filipino_count;
+
+    }
+
+    else{
+
+        $phase1_final_rating_filipino = 0;
+
+    }
+
+   
 
     // $phase1_final_rating_english = round(($term1_phase1_english + $term2_phase1_english + $term3_phase1_english + $term4_phase1_english) / 4);
 
+    
     $phase1_english_numbers = array($term1_phase1_english, $term2_phase1_english, $term3_phase1_english, $term4_phase1_english);
-    $phase1_english_sum = array_sum($phase1_english_numbers);
     $phase1_english_count = count(array_filter($phase1_english_numbers));
-    $phase1_final_rating_english = $phase1_english_sum / $phase1_english_count;
+    if($phase1_english_count != 0 ){
+        $phase1_english_sum = array_sum($phase1_english_numbers);
+
+        $phase1_final_rating_english = $phase1_english_sum / $phase1_english_count;
+    }
+    
+    else{
+
+        $phase1_final_rating_english = 0;
+    }
 
 
     // $phase1_final_rating_math = round(($term1_phase1_mathematics + $term2_phase1_mathematics + $term3_phase1_mathematics + $term4_phase1_mathematics ) / 4);
 
     $phase1_math_numbers = array($term1_phase1_mathematics, $term2_phase1_mathematics,  $term3_phase1_mathematics, $term4_phase1_mathematics);
-    $phase1_math_sum = array_sum($phase1_math_numbers);
     $phase1_math_count = count(array_filter($phase1_math_numbers));
-    $phase1_final_rating_math = $phase1_math_sum / $phase1_math_count;
+    
+    if($phase1_math_count != 0){
+        $phase1_math_sum = array_sum($phase1_math_numbers);
+    
+        $phase1_final_rating_math = $phase1_math_sum / $phase1_math_count;
+
+    }
+
+    else{
+        $phase1_final_rating_math = 0;
+
+    }
+
+   
 
     // $phase1_final_rating_science = round(($term1_phase1_science + $term2_phase1_science + $term3_phase1_science + $term4_phase1_science) / 4);
 
     $phase1_science_numbers = array($term1_phase1_science, $term2_phase1_science, $term3_phase1_science, $term4_phase1_science);
-    $phase1_science_sum = array_sum($phase1_science_numbers);
     $phase1_science_count = count(array_filter($phase1_science_numbers));
+    
+    if($phase1_science_count != 0){
+
+        $phase1_science_sum = array_sum($phase1_science_numbers);
+
     $phase1_final_rating_science = $phase1_science_sum / $phase1_science_count;
+    }
+
+    else{
+
+        $phase1_final_rating_science = 0;
+    }
+
+    
 
     // $phase1_final_rating_AP = round(($term1_phase1_araling_panlipunan + $term2_phase1_araling_panlipunan + $term3_phase1_araling_panlipunan + $term4_phase1_araling_panlipunan) / 4);
 
     $phase1_ap_numbers = array($term1_phase1_araling_panlipunan, $term2_phase1_araling_panlipunan, $term3_phase1_araling_panlipunan, $term4_phase1_araling_panlipunan);
-    $phase1_ap_sum = array_sum($phase1_ap_numbers);
     $phase1_ap_count = count(array_filter($phase1_ap_numbers));
-    $phase1_final_rating_AP = $phase1_ap_sum / $phase1_ap_count;
+
+    if($phase1_ap_count != 0){
+        $phase1_ap_sum = array_sum($phase1_ap_numbers);
+
+        $phase1_final_rating_AP = $phase1_ap_sum / $phase1_ap_count;
+
+    }
+
+    else{
+        $phase1_final_rating_AP = 0;
+        
+    }
 
     // $phase1_final_rating_epp_tle = round(($term1_phase1_epp_tle + $term2_phase1_epp_tle + $term3_phase1_epp_tle + $term4_phase1_epp_tle) / 4);
 
     $phase1_epp_tle_numbers = array($term1_phase1_epp_tle, $term2_phase1_epp_tle, $term3_phase1_epp_tle, $term4_phase1_epp_tle);
-    $phase1_epp_tle_sum = array_sum($phase1_epp_tle_numbers);
     $phase1_epp_tle_count = count(array_filter($phase1_epp_tle_numbers));
+
+    if($phase1_epp_tle_count != 0){
+
+        $phase1_epp_tle_sum = array_sum($phase1_epp_tle_numbers);
+    
     $phase1_final_rating_epp_tle = $phase1_epp_tle_sum / $phase1_epp_tle_count;
+    }
+
+    else{
+        $phase1_final_rating_epp_tle = 0;
+    }
+    
+    
+    
 
     // $phase1_final_rating_mapeh = round(($term1_phase1_average_of_mapeh + $term2_phase1_average_of_mapeh + $term3_phase1_average_of_mapeh + $term4_phase1_average_of_mapeh) / 4 );
 
     $phase1_mapeh_numbers = array($term1_phase1_average_of_mapeh, $term2_phase1_average_of_mapeh, $term3_phase1_average_of_mapeh, $term4_phase1_average_of_mapeh);
-    $phase1_mapeh_sum = array_sum($phase1_mapeh_numbers);
     $phase1_mapeh_count = count(array_filter($phase1_mapeh_numbers));
-    $phase1_final_rating_mapeh = $phase1_mapeh_sum / $phase1_mapeh_count;
+    
+    if($phase1_mapeh_count != 0){
+
+        $phase1_mapeh_sum = array_sum($phase1_mapeh_numbers);
+    
+        $phase1_final_rating_mapeh = $phase1_mapeh_sum / $phase1_mapeh_count;
+
+    }
+
+    else{
+        
+        $phase1_final_rating_mapeh = 0;
+
+    }
+   
 
     // $phase1_final_rating_music = round(($term1_phase1_music + $term2_phase1_music + $term3_phase1_music + $term4_phase1_music) / 4);
 
     $phase1_music_numbers = array($term1_phase1_music, $term2_phase1_music, $term3_phase1_music, $term4_phase1_music);
-    $phase1_music_sum = array_sum($phase1_music_numbers);
     $phase1_music_count = count(array_filter($phase1_music_numbers));
-    $phase1_final_rating_music =  $phase1_music_sum / $phase1_music_count;
+    
+    if($phase1_music_count != 0){
+        $phase1_music_sum = array_sum($phase1_music_numbers);
+    
+        $phase1_final_rating_music =  $phase1_music_sum / $phase1_music_count;
+
+    }
+
+    else {
+        $phase1_final_rating_music = 0;
+    }
+   
+    
 
     // $phase1_final_rating_arts = round(($term1_phase1_arts + $term2_phase1_arts + $term3_phase1_arts + $term4_phase1_arts ) / 4);
 
+    
     $phase1_arts_numbers = array($term1_phase1_arts, $term2_phase1_arts, $term3_phase1_arts, $term4_phase1_arts);
-    $phase1_arts_sum = array_sum($phase1_arts_numbers);
-    $phase1_arts_count = count(array_filter($phase1_ap_numbers));
-    $phase1_final_rating_arts =  $phase1_arts_sum / $phase1_arts_count;
+    $phase1_arts_count = count(array_filter($phase1_arts_numbers)); 
+    
+    if ($phase1_arts_count != 0) {
+        
+        $phase1_arts_sum = array_sum($phase1_arts_numbers);
+    
+        $phase1_final_rating_arts =  $phase1_arts_sum / $phase1_arts_count;
 
+    }
+
+    else{
+        $phase1_final_rating_arts = 0;
+    }
+    
     // $phase1_final_rating_PE = round(($term1_phase1_pe + $term2_phase1_pe + $term3_phase1_pe + $term4_phase1_pe) / 4);
 
     $phase1_pe_numbers = array($term1_phase1_pe, $term2_phase1_pe, $term3_phase1_pe, $term4_phase1_pe);
-    $phase1_pe_sum = array_sum($phase1_pe_numbers);
     $phase1_pe_count = count(array_filter($phase1_pe_numbers));
-    $phase1_final_rating_PE = $phase1_pe_sum / $phase1_pe_count;
+    
+    if($phase1_pe_count != 0){
+        $phase1_pe_sum = array_sum($phase1_pe_numbers);
+    
+        $phase1_final_rating_PE = $phase1_pe_sum / $phase1_pe_count;
+    }
+
+    else{
+        $phase1_final_rating_PE = 0;
+    }
+    
+
+    
+
+
 
     // $phase1_final_rating_health = round(($term1_phase1_health + $term2_phase1_health + $term3_phase1_health + $term4_phase1_health)/ 4);
 
     $phase1_health_numbers = array($term1_phase1_health, $term2_phase1_health, $term3_phase1_health, $term4_phase1_health);
-    $phase1_health_sum = array_sum($phase1_health_numbers);
     $phase1_health_count = count(array_filter($phase1_health_numbers));
-    $phase1_final_rating_health = $phase1_health_sum / $phase1_health_count;
+    
+    if($phase1_health_count != 0){
+        $phase1_health_sum = array_sum($phase1_health_numbers);
+    
+        $phase1_final_rating_health = $phase1_health_sum / $phase1_health_count;
+    }
+
+    else {
+        $phase1_final_rating_health = 0;
+    }
+
+    
 
      // $phase1_final_rating_esp = round(($term1_phase1_esp + $term2_phase1_esp + $term3_phase1_esp + $term4_phase1_esp) / 4);
     
      $phase1_esp_numbers = array($term1_phase1_esp, $term2_phase1_esp, $term3_phase1_esp, $term4_phase1_esp);
-     $phase1_esp_sum = array_sum($phase1_esp_numbers);
      $phase1_esp_count = count (array_filter($phase1_esp_numbers));
-     $phase1_final_rating_esp = $phase1_esp_sum / $phase1_esp_count;
+     
+     if($phase1_esp_count != 0){
+
+        $phase1_esp_sum = array_sum($phase1_esp_numbers);
+     
+        $phase1_final_rating_esp = $phase1_esp_sum / $phase1_esp_count;
+     }
+     else{
+        $phase1_final_rating_esp = 0;
+     }
+     
 
 
 
      // $phase1_final_rating_arabic_language = round(($term1_phase1_arabic_language + $term2_phase1_arabic_language + $term3_phase1_arabic_language + $term4_phase1_arabic_language) / 4);
 
+    
      $phase1_arabic_numbers = array($term1_phase1_arabic_language, $term2_phase1_arabic_language, $term3_phase1_arabic_language, $term4_phase1_arabic_language);
-     $phase1_arabic_sum = array_sum($phase1_arabic_numbers);
      $phase1_arabic_count = count(array_filter($phase1_arabic_numbers));
-     $phase1_final_rating_arabic_language = $phase1_arabic_sum / $phase1_arabic_count;
+    
+     if($phase1_arabic_count != 0){
+        $phase1_arabic_sum = array_sum($phase1_arabic_numbers);
+     
+        $phase1_final_rating_arabic_language = $phase1_arabic_sum / $phase1_arabic_count;
+     }
+
+     else{
+
+        $phase1_final_rating_arabic_language = 0;
+
+     }
+
+    
 
     // $phase1_final_rating_islamic_values = round(($term1_phase1_islamic_values + $term2_phase1_islamic_values + $term3_phase1_islamic_values + $term4_phase1_islamic_values) / 4);
 
     $phase1_islamic_numbers = array($term1_phase1_islamic_values, $term2_phase1_islamic_values, $term3_phase1_islamic_values, $term4_phase1_islamic_values);
-    $phase1_islamic_sum = array_sum($phase1_islamic_numbers);
     $phase1_islamic_count = count(array_filter($phase1_islamic_numbers));
-    $phase1_final_rating_islamic_values = $phase1_islamic_sum / $phase1_islamic_count;
+    
+    if($phase1_islamic_count !=0){
+        $phase1_islamic_sum = array_sum($phase1_islamic_numbers);
+    
+        $phase1_final_rating_islamic_values = $phase1_islamic_sum / $phase1_islamic_count;
+    }
+
+    else{
+        $phase1_final_rating_islamic_values = 0;
+    }
 
 
 
@@ -2956,32 +3163,79 @@ if(isset($_POST['add'])){
     // $phase1_term1_general_average = round(($term1_phase1_mother_tongue + $term1_phase1_filipino + $term1_phase1_english + $term1_phase1_mathematics + $term1_phase1_science + $term1_phase1_araling_panlipunan + $term1_phase1_epp_tle + $term1_phase1_average_of_mapeh + $term1_phase1_esp) / 9);
     
     $phase1_term1_gen_numbers = array($term1_phase1_mother_tongue, $term1_phase1_filipino, $term1_phase1_english, $term1_phase1_mathematics, $term1_phase1_science, $term1_phase1_araling_panlipunan, $term1_phase1_epp_tle, $term1_phase1_average_of_mapeh, $term1_phase1_esp);
-    $phase1_term1_gen_sum = array_sum($phase1_term1_gen_numbers);
     $phase1_term1_gen_count = count(array_filter($phase1_term1_gen_numbers));
-    $phase1_term1_general_average = $phase1_term1_gen_sum / $phase1_term1_gen_count;
+
+    if($phase1_term1_gen_count != 0){
+        
+        $phase1_term1_gen_sum = array_sum($phase1_term1_gen_numbers);
+    
+        $phase1_term1_general_average = $phase1_term1_gen_sum / $phase1_term1_gen_count;
+        
+    }
+    
+    else{
+        $phase1_term1_general_average = 0;
+    }
     
     // $phase1_term2_general_average = round(($term2_phase1_mother_tongue + $term2_phase1_filipino + $term2_phase1_english + $term2_phase1_mathematics + $term2_phase1_science + $term2_phase1_araling_panlipunan + $term2_phase1_epp_tle + $term2_phase1_average_of_mapeh + $term2_phase1_esp) / 9);
     $phase1_term2_gen_numbers = array($term2_phase1_mother_tongue, $term2_phase1_filipino, $term2_phase1_english, $term2_phase1_mathematics, $term2_phase1_science, $term2_phase1_araling_panlipunan, $term2_phase1_epp_tle, $term2_phase1_average_of_mapeh, $term2_phase1_esp);
-
-    $phase1_term2_gen_sum = array_sum($phase1_term2_gen_numbers);
     $phase1_term2_gen_count = count(array_filter($phase1_term2_gen_numbers));
-    $phase1_term2_general_average = $phase1_term2_gen_sum / $phase1_term2_gen_count;
+    
+    if ($phase1_term2_gen_count != 0){
+        
+        $phase1_term2_gen_sum = array_sum($phase1_term2_gen_numbers);
+    
+        $phase1_term2_general_average = $phase1_term2_gen_sum / $phase1_term2_gen_count;
+
+    }
+
+    else {
+        $phase1_term2_general_average = 0;
+    }
+
+   
     
      // $phase1_term3_general_average = round(($term3_phase1_mother_tongue + $term3_phase1_filipino + $term3_phase1_english + $term3_phase1_mathematics + $term3_phase1_science + $term3_phase1_araling_panlipunan + $term3_phase1_epp_tle + $term3_phase1_average_of_mapeh + $term3_phase1_esp) / 9);
     
      $phase1_term3_gen_numbers = array($term3_phase1_mother_tongue, $term3_phase1_filipino, $term3_phase1_english, $term3_phase1_mathematics, $term3_phase1_science, $term3_phase1_araling_panlipunan, $term3_phase1_epp_tle, $term3_phase1_average_of_mapeh, $term3_phase1_esp);
-     $phase1_term3_gen_sum = array_sum($phase1_term3_gen_numbers);
      $phase1_term3_gen_count = count(array_filter($phase1_term3_gen_numbers));
-     $phase1_term3_general_average = $phase1_term3_gen_sum / $phase1_term3_gen_count;
+     
+
+        if($phase1_term3_gen_count != 0){
+            $phase1_term3_gen_sum = array_sum($phase1_term3_gen_numbers);
+     
+            $phase1_term3_general_average = $phase1_term3_gen_sum / $phase1_term3_gen_count;
+
+        }
+
+        else{
+            $phase1_term3_general_average = 0;
+
+        }
+
+
+     
     
     
     
      // $phase1_term4_general_average = round(($term4_phase1_mother_tongue + $term4_phase1_filipino + $term4_phase1_english + $term4_phase1_mathematics + $term4_phase1_science + $term4_phase1_araling_panlipunan + $term4_phase1_epp_tle + $term4_phase1_average_of_mapeh + $term4_phase1_esp) / 9);
     
      $phase1_term4_gen_numbers = array($term4_phase1_mother_tongue, $term4_phase1_filipino, $term4_phase1_english, $term4_phase1_mathematics, $term4_phase1_science, $term4_phase1_araling_panlipunan, $term4_phase1_epp_tle, $term4_phase1_average_of_mapeh, $term4_phase1_esp);
-     $phase1_term4_gen_sum = array_sum($phase1_term4_gen_numbers);
      $phase1_term4_gen_count = count(array_filter($phase1_term4_gen_numbers));
-     $phase1_term4_general_average = $phase1_term4_gen_sum / $phase1_term4_gen_count;
+    
+        if($phase1_term4_gen_count != 0){
+            $phase1_term4_gen_sum = array_sum($phase1_term4_gen_numbers);
+     
+            $phase1_term4_general_average = $phase1_term4_gen_sum / $phase1_term4_gen_count;
+
+        }
+
+        else{
+            $phase1_term4_general_average = 0;
+
+        }
+
+    
     
     
     
@@ -2990,162 +3244,368 @@ if(isset($_POST['add'])){
 
 
      $phase1_term5_gen_numbers = array($phase1_final_rating_mother_tongue, $phase1_final_rating_filipino, $phase1_final_rating_english, $phase1_final_rating_math, $phase1_final_rating_science, $phase1_final_rating_AP, $phase1_final_rating_epp_tle, $phase1_final_rating_mapeh, $phase1_final_rating_esp);
-     $phase1_term5_gen_sum = array_sum($phase1_term5_gen_numbers);
      $phase1_term5_gen_count = count(array_filter($phase1_term5_gen_numbers));
-     $phase1_term5_general_average = $phase1_term5_gen_sum / $phase1_term5_gen_count;
+
+     if($phase1_term5_gen_count != 0){
+        
+        $phase1_term5_gen_sum = array_sum($phase1_term5_gen_numbers);
+        
+        $phase1_term5_general_average = $phase1_term5_gen_sum / $phase1_term5_gen_count;
+   }
+
+     else{
+        $phase1_term5_general_average = 0;
+
+     }
 
 
 
 
-    //average of mapeh phase2
-    $phase2_term1_average_mapeh_numbers = array($term1_phase2_music, $term1_phase2_arts, $term1_phase2_pe, $term1_phase2_health);
-    $phase2_term1_average_mapeh_sum = array_sum($phase2_term1_average_mapeh_numbers);
-    $phase2_term1_average_mapeh_count = count(array_filter($phase2_term1_average_mapeh_numbers));
-    $term1_phase2_average_of_mapeh = $phase2_term1_average_mapeh_sum / $phase2_term1_average_mapeh_count;
+     $phase2_term1_average_mapeh_numbers = array($term1_phase2_music, $term1_phase2_arts, $term1_phase2_pe, $term1_phase2_health);
+     $phase2_term1_average_mapeh_count = count(array_filter($phase2_term1_average_mapeh_numbers));
+         if( $phase2_term1_average_mapeh_count != 0 ){
+ 
+             $phase2_term1_average_mapeh_sum = array_sum($phase2_term1_average_mapeh_numbers);
+            
+             $term1_phase2_average_of_mapeh = $phase2_term1_average_mapeh_sum / $phase2_term1_average_mapeh_count;
+         }
+ 
+         else{
+             $term1_phase2_average_of_mapeh = 0;
+         }
    
-  
-    $phase2_term2_average_mapeh_numbers = array($term2_phase2_music, $term2_phase2_arts, $term2_phase2_pe, $term2_phase2_health);
-    $phase2_term2_average_mapeh_sum = array_sum($phase2_term2_average_mapeh_numbers);
-    $phase2_term2_average_mapeh_count = count(array_filter($phase2_term2_average_mapeh_numbers));
-    $term2_phase2_average_of_mapeh = $phase2_term2_average_mapeh_sum / $phase2_term2_average_mapeh_count;
-
-
-    $phase2_term3_average_mapeh_numbers = array($term3_phase2_music, $term3_phase2_arts, $term3_phase2_pe, $term3_phase2_health);
-    $phase2_term3_average_mapeh_sum = array_sum($phase2_term3_average_mapeh_numbers);
-    $phase2_term3_average_mapeh_count = count(array_filter($phase2_term3_average_mapeh_numbers));
-    $term3_phase2_average_of_mapeh = $phase2_term3_average_mapeh_sum / $phase2_term3_average_mapeh_count;
-
-
-
-    $phase2_term4_average_mapeh_numbers = array($term4_phase2_music, $term4_phase2_arts, $term4_phase2_pe, $term4_phase2_health);
-    $phase2_term4_average_mapeh_sum = array_sum($phase2_term4_average_mapeh_numbers);
-    $phase2_term4_average_mapeh_count = count(array_filter($phase2_term4_average_mapeh_numbers));
-    $term4_phase2_average_of_mapeh = $phase2_term4_average_mapeh_sum / $phase2_term4_average_mapeh_count;
-
-    // $term1_phase2_average_of_mapeh = round(($term1_phase2_music + $term1_phase2_arts + $term1_phase2_pe + $term1_phase2_health) / 4) ;
-
-    // $term2_phase2_average_of_mapeh = round(($term2_phase2_music + $term2_phase2_arts + $term2_phase2_pe + $term2_phase2_health) / 4) ;
-
-    // $term3_phase2_average_of_mapeh = round(($term3_phase2_music + $term3_phase2_arts + $term3_phase2_pe + $term3_phase2_health) / 4) ;
-
-    // $term4_phase2_average_of_mapeh = round(($term4_phase2_music + $term4_phase2_arts + $term4_phase2_pe + $term4_phase2_health) / 4) ;
-
-
-
-
-    // final rating phase 2
-
-    $phase2_term5 ='Final Rating';
-  
-    // $phase2_final_rating_mother_tongue = round(($term1_phase2_mother_tongue + $term2_phase2_mother_tongue + 
-    // $term3_phase2_mother_tongue + $term4_phase2_mother_tongue) / 4);
-    $phase2_mt_numbers = array($term1_phase2_mother_tongue, $term2_phase2_mother_tongue, $term3_phase2_mother_tongue,$term4_phase2_mother_tongue);
-    $phase2_mt_sum = array_sum($phase2_mt_numbers);
-    $phase2_mt_count = count(array_filter($phase2_mt_numbers));
-    $phase2_final_rating_mother_tongue = $phase2_mt_sum / $phase2_mt_count;
-
-
-// $phase2_final_rating_filipino = round(($term1_phase2_filipino + $term2_phase2_filipino + $term3_phase2_filipino + $term4_phase2_filipino) / 4);
-
-$phase2_filipino_numbers = array($term1_phase2_filipino, $term2_phase2_filipino, $term3_phase2_filipino, $term4_phase2_filipino);
-$phase2_filipino_sum = array_sum($phase2_filipino_numbers);
-$phase2_filipino_count = count(array_filter($phase2_filipino_numbers));
-$phase2_final_rating_filipino = $phase2_filipino_sum / $phase2_filipino_count;
-
-// $phase2_final_rating_english = round(($term1_phase2_english + $term2_phase2_english + $term3_phase2_english + $term4_phase2_english) / 4);
-
-$phase2_english_numbers = array($term1_phase2_english, $term2_phase2_english, $term3_phase2_english, $term4_phase2_english);
-$phase2_english_sum = array_sum($phase2_english_numbers);
-$phase2_english_count = count(array_filter($phase2_english_numbers));
-$phase2_final_rating_english = $phase2_english_sum / $phase2_english_count;
-
-
-// $phase2_final_rating_math = round(($term1_phase2_mathematics + $term2_phase2_mathematics + $term3_phase2_mathematics + $term4_phase2_mathematics ) / 4);
-
-$phase2_math_numbers = array($term1_phase2_mathematics, $term2_phase2_mathematics,  $term3_phase2_mathematics, $term4_phase2_mathematics);
-$phase2_math_sum = array_sum($phase2_math_numbers);
-$phase2_math_count = count(array_filter($phase2_math_numbers));
-$phase2_final_rating_math = $phase2_math_sum / $phase2_math_count;
-
-// $phase2_final_rating_science = round(($term1_phase2_science + $term2_phase2_science + $term3_phase2_science + $term4_phase2_science) / 4);
-
-$phase2_science_numbers = array($term1_phase2_science, $term2_phase2_science, $term3_phase2_science, $term4_phase2_science);
-$phase2_science_sum = array_sum($phase2_science_numbers);
-$phase2_science_count = count(array_filter($phase2_science_numbers));
-$phase2_final_rating_science = $phase2_science_sum / $phase2_science_count;
-
-// $phase2_final_rating_AP = round(($term1_phase2_araling_panlipunan + $term2_phase2_araling_panlipunan + $term3_phase2_araling_panlipunan + $term4_phase2_araling_panlipunan) / 4);
-
-$phase2_ap_numbers = array($term1_phase2_araling_panlipunan, $term2_phase2_araling_panlipunan, $term3_phase2_araling_panlipunan, $term4_phase2_araling_panlipunan);
-$phase2_ap_sum = array_sum($phase2_ap_numbers);
-$phase2_ap_count = count(array_filter($phase2_ap_numbers));
-$phase2_final_rating_AP = $phase2_ap_sum / $phase2_ap_count;
-
-// $phase2_final_rating_epp_tle = round(($term1_phase2_epp_tle + $term2_phase2_epp_tle + $term3_phase2_epp_tle + $term4_phase2_epp_tle) / 4);
-
-$phase2_epp_tle_numbers = array($term1_phase2_epp_tle, $term2_phase2_epp_tle, $term3_phase2_epp_tle, $term4_phase2_epp_tle);
-$phase2_epp_tle_sum = array_sum($phase2_epp_tle_numbers);
-$phase2_epp_tle_count = count(array_filter($phase2_epp_tle_numbers));
-$phase2_final_rating_epp_tle = $phase2_epp_tle_sum / $phase2_epp_tle_count;
-
-// $phase2_final_rating_mapeh = round(($term1_phase2_average_of_mapeh + $term2_phase2_average_of_mapeh + $term3_phase2_average_of_mapeh + $term4_phase2_average_of_mapeh) / 4 );
-
-$phase2_mapeh_numbers = array($term1_phase2_average_of_mapeh, $term2_phase2_average_of_mapeh, $term3_phase2_average_of_mapeh, $term4_phase2_average_of_mapeh);
-$phase2_mapeh_sum = array_sum($phase2_mapeh_numbers);
-$phase2_mapeh_count = count(array_filter($phase2_mapeh_numbers));
-$phase2_final_rating_mapeh = $phase2_mapeh_sum / $phase2_mapeh_count;
-
-// $phase2_final_rating_music = round(($term1_phase2_music + $term2_phase2_music + $term3_phase2_music + $term4_phase2_music) / 4);
-
-$phase2_music_numbers = array($term1_phase2_music, $term2_phase2_music, $term3_phase2_music, $term4_phase2_music);
-$phase2_music_sum = array_sum($phase2_music_numbers);
-$phase2_music_count = count(array_filter($phase2_music_numbers));
-$phase2_final_rating_music =  $phase2_music_sum / $phase2_music_count;
-
-// $phase2_final_rating_arts = round(($term1_phase2_arts + $term2_phase2_arts + $term3_phase2_arts + $term4_phase2_arts ) / 4);
-
-$phase2_arts_numbers = array($term1_phase2_arts, $term2_phase2_arts, $term3_phase2_arts, $term4_phase2_arts);
-$phase2_arts_sum = array_sum($phase2_arts_numbers);
-$phase2_arts_count = count(array_filter($phase2_ap_numbers));
-$phase2_final_rating_arts =  $phase2_arts_sum / $phase2_arts_count;
-
-// $phase2_final_rating_PE = round(($term1_phase2_pe + $term2_phase2_pe + $term3_phase2_pe + $term4_phase2_pe) / 4);
-
-$phase2_pe_numbers = array($term1_phase2_pe, $term2_phase2_pe, $term3_phase2_pe, $term4_phase2_pe);
-$phase2_pe_sum = array_sum($phase2_pe_numbers);
-$phase2_pe_count = count(array_filter($phase2_pe_numbers));
-$phase2_final_rating_PE = $phase2_pe_sum / $phase2_pe_count;
-
-// $phase2_final_rating_health = round(($term1_phase2_health + $term2_phase2_health + $term3_phase2_health + $term4_phase2_health)/ 4);
-
-$phase2_health_numbers = array($term1_phase2_health, $term2_phase2_health, $term3_phase2_health, $term4_phase2_health);
-$phase2_health_sum = array_sum($phase2_health_numbers);
-$phase2_health_count = count(array_filter($phase2_health_numbers));
-$phase2_final_rating_health = $phase2_health_sum / $phase2_health_count;
-
- // $phase2_final_rating_esp = round(($term1_phase2_esp + $term2_phase2_esp + $term3_phase2_esp + $term4_phase2_esp) / 4);
-
- $phase2_esp_numbers = array($term1_phase2_esp, $term2_phase2_esp, $term3_phase2_esp, $term4_phase2_esp);
- $phase2_esp_sum = array_sum($phase2_esp_numbers);
- $phase2_esp_count = count (array_filter($phase2_esp_numbers));
- $phase2_final_rating_esp = $phase2_esp_sum / $phase2_esp_count;
-
-
-
- // $phase2_final_rating_arabic_language = round(($term1_phase2_arabic_language + $term2_phase2_arabic_language + $term3_phase2_arabic_language + $term4_phase2_arabic_language) / 4);
-
- $phase2_arabic_numbers = array($term1_phase2_arabic_language, $term2_phase2_arabic_language, $term3_phase2_arabic_language, $term4_phase2_arabic_language);
- $phase2_arabic_sum = array_sum($phase2_arabic_numbers);
- $phase2_arabic_count = count(array_filter($phase2_arabic_numbers));
- $phase2_final_rating_arabic_language = $phase2_arabic_sum / $phase2_arabic_count;
-
-// $phase2_final_rating_islamic_values = round(($term1_phase2_islamic_values + $term2_phase2_islamic_values + $term3_phase2_islamic_values + $term4_phase2_islamic_values) / 4);
-
-$phase2_islamic_numbers = array($term1_phase2_islamic_values, $term2_phase2_islamic_values, $term3_phase2_islamic_values, $term4_phase2_islamic_values);
-$phase2_islamic_sum = array_sum($phase2_islamic_numbers);
-$phase2_islamic_count = count(array_filter($phase2_islamic_numbers));
-$phase2_final_rating_islamic_values = $phase2_islamic_sum / $phase2_islamic_count;
-
+ 
+     // $term2_phase2_average_of_mapeh = round(($term2_phase2_music + $term2_phase2_arts + $term2_phase2_pe + $term2_phase2_health) / 4) ;
+ 
+     $phase2_term2_average_mapeh_numbers = array($term2_phase2_music, $term2_phase2_arts, $term2_phase2_pe, $term2_phase2_health);
+     $phase2_term2_average_mapeh_count = count(array_filter($phase2_term2_average_mapeh_numbers));
+ 
+     if($phase2_term2_average_mapeh_count !=0){
+ 
+         $phase2_term2_average_mapeh_sum = array_sum($phase2_term2_average_mapeh_numbers);
+         
+         $term2_phase2_average_of_mapeh = $phase2_term2_average_mapeh_sum / $phase2_term2_average_mapeh_count;
+     }
+ 
+     else{
+         $term2_phase2_average_of_mapeh = 0;
+     }
+ 
+     // $term3_phase2_average_of_mapeh = round(($term3_phase2_music + $term3_phase2_arts + $term3_phase2_pe + $term3_phase2_health) / 4) ;
+ 
+     $phase2_term3_average_mapeh_numbers = array($term3_phase2_music, $term3_phase2_arts, $term3_phase2_pe, $term3_phase2_health);
+     $phase2_term3_average_mapeh_count = count(array_filter($phase2_term3_average_mapeh_numbers));
+     
+     if($phase2_term3_average_mapeh_count !=0){
+ 
+         $phase2_term3_average_mapeh_sum = array_sum($phase2_term3_average_mapeh_numbers);
+         $term3_phase2_average_of_mapeh = $phase2_term3_average_mapeh_sum / $phase2_term3_average_mapeh_count;
+     }
+     
+     else{
+         
+         $term3_phase2_average_of_mapeh = 0;
+ 
+     }
+ 
+ 
+ 
+     // $term4_phase2_average_of_mapeh = round(($term4_phase2_music + $term4_phase2_arts + $term4_phase2_pe + $term4_phase2_health) / 4) ;
+ 
+ 
+     
+     $phase2_term4_average_mapeh_numbers = array($term4_phase2_music, $term4_phase2_arts, $term4_phase2_pe, $term4_phase2_health);
+     $phase2_term4_average_mapeh_count = count(array_filter($phase2_term4_average_mapeh_numbers));
+     
+     if($phase2_term4_average_mapeh_count !=0 ){
+         $phase2_term4_average_mapeh_sum = array_sum($phase2_term4_average_mapeh_numbers);
+         
+         $term4_phase2_average_of_mapeh = $phase2_term4_average_mapeh_sum / $phase2_term4_average_mapeh_count;
+     }
+ 
+     else{
+         $term4_phase2_average_of_mapeh = 0;
+     }
+    
+ 
+     //final rating
+     $phase2_term5 ='Final Rating';
+   
+ 
+     // $phase2_final_rating_mother_tongue = round(($term1_phase2_mother_tongue + $term2_phase2_mother_tongue + 
+     // $term3_phase2_mother_tongue + $term4_phase2_mother_tongue) / 4);
+ 
+         $phase2_mt_numbers = array($term1_phase2_mother_tongue, $term2_phase2_mother_tongue, $term3_phase2_mother_tongue,$term4_phase2_mother_tongue);
+         $phase2_mt_count = count(array_filter($phase2_mt_numbers));
+         if($phase2_mt_count != 0){
+ 
+             $phase2_mt_sum = array_sum($phase2_mt_numbers);
+         
+             $phase2_final_rating_mother_tongue = $phase2_mt_sum / $phase2_mt_count;
+         }
+        else{
+         $phase2_final_rating_mother_tongue = 0;
+        }
+ 
+ 
+     // $phase2_final_rating_filipino = round(($term1_phase2_filipino + $term2_phase2_filipino + $term3_phase2_filipino + $term4_phase2_filipino) / 4);
+ 
+     $phase2_filipino_numbers = array($term1_phase2_filipino, $term2_phase2_filipino, $term3_phase2_filipino, $term4_phase2_filipino);
+     $phase2_filipino_count = count(array_filter($phase2_filipino_numbers));
+ 
+     if($phase2_filipino_count != 0){
+ 
+         $phase2_filipino_sum = array_sum($phase2_filipino_numbers);
+ 
+         $phase2_final_rating_filipino = $phase2_filipino_sum / $phase2_filipino_count;
+ 
+     }
+ 
+     else{
+ 
+         $phase2_final_rating_filipino = 0;
+ 
+     }
+ 
+    
+ 
+     // $phase2_final_rating_english = round(($term1_phase2_english + $term2_phase2_english + $term3_phase2_english + $term4_phase2_english) / 4);
+ 
+     
+     $phase2_english_numbers = array($term1_phase2_english, $term2_phase2_english, $term3_phase2_english, $term4_phase2_english);
+     $phase2_english_count = count(array_filter($phase2_english_numbers));
+     if($phase2_english_count != 0 ){
+         $phase2_english_sum = array_sum($phase2_english_numbers);
+ 
+         $phase2_final_rating_english = $phase2_english_sum / $phase2_english_count;
+     }
+     
+     else{
+ 
+         $phase2_final_rating_english = 0;
+     }
+ 
+ 
+     // $phase2_final_rating_math = round(($term1_phase2_mathematics + $term2_phase2_mathematics + $term3_phase2_mathematics + $term4_phase2_mathematics ) / 4);
+ 
+     $phase2_math_numbers = array($term1_phase2_mathematics, $term2_phase2_mathematics,  $term3_phase2_mathematics, $term4_phase2_mathematics);
+     $phase2_math_count = count(array_filter($phase2_math_numbers));
+     
+     if($phase2_math_count != 0){
+         $phase2_math_sum = array_sum($phase2_math_numbers);
+     
+         $phase2_final_rating_math = $phase2_math_sum / $phase2_math_count;
+ 
+     }
+ 
+     else{
+         $phase2_final_rating_math = 0;
+ 
+     }
+ 
+    
+ 
+     // $phase2_final_rating_science = round(($term1_phase2_science + $term2_phase2_science + $term3_phase2_science + $term4_phase2_science) / 4);
+ 
+     $phase2_science_numbers = array($term1_phase2_science, $term2_phase2_science, $term3_phase2_science, $term4_phase2_science);
+     $phase2_science_count = count(array_filter($phase2_science_numbers));
+     
+     if($phase2_science_count != 0){
+ 
+         $phase2_science_sum = array_sum($phase2_science_numbers);
+ 
+     $phase2_final_rating_science = $phase2_science_sum / $phase2_science_count;
+     }
+ 
+     else{
+ 
+         $phase2_final_rating_science = 0;
+     }
+ 
+     
+ 
+     // $phase2_final_rating_AP = round(($term1_phase2_araling_panlipunan + $term2_phase2_araling_panlipunan + $term3_phase2_araling_panlipunan + $term4_phase2_araling_panlipunan) / 4);
+ 
+     $phase2_ap_numbers = array($term1_phase2_araling_panlipunan, $term2_phase2_araling_panlipunan, $term3_phase2_araling_panlipunan, $term4_phase2_araling_panlipunan);
+     $phase2_ap_count = count(array_filter($phase2_ap_numbers));
+ 
+     if($phase2_ap_count != 0){
+         $phase2_ap_sum = array_sum($phase2_ap_numbers);
+ 
+         $phase2_final_rating_AP = $phase2_ap_sum / $phase2_ap_count;
+ 
+     }
+ 
+     else{
+         $phase2_final_rating_AP = 0;
+         
+     }
+ 
+     // $phase2_final_rating_epp_tle = round(($term1_phase2_epp_tle + $term2_phase2_epp_tle + $term3_phase2_epp_tle + $term4_phase2_epp_tle) / 4);
+ 
+     $phase2_epp_tle_numbers = array($term1_phase2_epp_tle, $term2_phase2_epp_tle, $term3_phase2_epp_tle, $term4_phase2_epp_tle);
+     $phase2_epp_tle_count = count(array_filter($phase2_epp_tle_numbers));
+ 
+     if($phase2_epp_tle_count != 0){
+ 
+         $phase2_epp_tle_sum = array_sum($phase2_epp_tle_numbers);
+     
+     $phase2_final_rating_epp_tle = $phase2_epp_tle_sum / $phase2_epp_tle_count;
+     }
+ 
+     else{
+         $phase2_final_rating_epp_tle = 0;
+     }
+     
+     
+     
+ 
+     // $phase2_final_rating_mapeh = round(($term1_phase2_average_of_mapeh + $term2_phase2_average_of_mapeh + $term3_phase2_average_of_mapeh + $term4_phase2_average_of_mapeh) / 4 );
+ 
+     $phase2_mapeh_numbers = array($term1_phase2_average_of_mapeh, $term2_phase2_average_of_mapeh, $term3_phase2_average_of_mapeh, $term4_phase2_average_of_mapeh);
+     $phase2_mapeh_count = count(array_filter($phase2_mapeh_numbers));
+     
+     if($phase2_mapeh_count != 0){
+ 
+         $phase2_mapeh_sum = array_sum($phase2_mapeh_numbers);
+     
+         $phase2_final_rating_mapeh = $phase2_mapeh_sum / $phase2_mapeh_count;
+ 
+     }
+ 
+     else{
+         
+         $phase2_final_rating_mapeh = 0;
+ 
+     }
+    
+ 
+     // $phase2_final_rating_music = round(($term1_phase2_music + $term2_phase2_music + $term3_phase2_music + $term4_phase2_music) / 4);
+ 
+     $phase2_music_numbers = array($term1_phase2_music, $term2_phase2_music, $term3_phase2_music, $term4_phase2_music);
+     $phase2_music_count = count(array_filter($phase2_music_numbers));
+     
+     if($phase2_music_count != 0){
+         $phase2_music_sum = array_sum($phase2_music_numbers);
+     
+         $phase2_final_rating_music =  $phase2_music_sum / $phase2_music_count;
+ 
+     }
+ 
+     else {
+         $phase2_final_rating_music = 0;
+     }
+    
+     
+ 
+     // $phase2_final_rating_arts = round(($term1_phase2_arts + $term2_phase2_arts + $term3_phase2_arts + $term4_phase2_arts ) / 4);
+ 
+     
+     $phase2_arts_numbers = array($term1_phase2_arts, $term2_phase2_arts, $term3_phase2_arts, $term4_phase2_arts);
+     $phase2_arts_count = count(array_filter($phase2_arts_numbers)); 
+     
+     if ($phase2_arts_count != 0) {
+         
+         $phase2_arts_sum = array_sum($phase2_arts_numbers);
+     
+         $phase2_final_rating_arts =  $phase2_arts_sum / $phase2_arts_count;
+ 
+     }
+ 
+     else{
+         $phase2_final_rating_arts = 0;
+     }
+     
+     // $phase2_final_rating_PE = round(($term1_phase2_pe + $term2_phase2_pe + $term3_phase2_pe + $term4_phase2_pe) / 4);
+ 
+     $phase2_pe_numbers = array($term1_phase2_pe, $term2_phase2_pe, $term3_phase2_pe, $term4_phase2_pe);
+     $phase2_pe_count = count(array_filter($phase2_pe_numbers));
+     
+     if($phase2_pe_count != 0){
+         $phase2_pe_sum = array_sum($phase2_pe_numbers);
+     
+         $phase2_final_rating_PE = $phase2_pe_sum / $phase2_pe_count;
+     }
+ 
+     else{
+         $phase2_final_rating_PE = 0;
+     }
+     
+ 
+     
+ 
+ 
+ 
+     // $phase2_final_rating_health = round(($term1_phase2_health + $term2_phase2_health + $term3_phase2_health + $term4_phase2_health)/ 4);
+ 
+     $phase2_health_numbers = array($term1_phase2_health, $term2_phase2_health, $term3_phase2_health, $term4_phase2_health);
+     $phase2_health_count = count(array_filter($phase2_health_numbers));
+     
+     if($phase2_health_count != 0){
+         $phase2_health_sum = array_sum($phase2_health_numbers);
+     
+         $phase2_final_rating_health = $phase2_health_sum / $phase2_health_count;
+     }
+ 
+     else {
+         $phase2_final_rating_health = 0;
+     }
+ 
+     
+ 
+      // $phase2_final_rating_esp = round(($term1_phase2_esp + $term2_phase2_esp + $term3_phase2_esp + $term4_phase2_esp) / 4);
+     
+      $phase2_esp_numbers = array($term1_phase2_esp, $term2_phase2_esp, $term3_phase2_esp, $term4_phase2_esp);
+      $phase2_esp_count = count (array_filter($phase2_esp_numbers));
+      
+      if($phase2_esp_count != 0){
+ 
+         $phase2_esp_sum = array_sum($phase2_esp_numbers);
+      
+         $phase2_final_rating_esp = $phase2_esp_sum / $phase2_esp_count;
+      }
+      else{
+         $phase2_final_rating_esp = 0;
+      }
+      
+ 
+ 
+ 
+      // $phase2_final_rating_arabic_language = round(($term1_phase2_arabic_language + $term2_phase2_arabic_language + $term3_phase2_arabic_language + $term4_phase2_arabic_language) / 4);
+ 
+     
+      $phase2_arabic_numbers = array($term1_phase2_arabic_language, $term2_phase2_arabic_language, $term3_phase2_arabic_language, $term4_phase2_arabic_language);
+      $phase2_arabic_count = count(array_filter($phase2_arabic_numbers));
+     
+      if($phase2_arabic_count != 0){
+         $phase2_arabic_sum = array_sum($phase2_arabic_numbers);
+      
+         $phase2_final_rating_arabic_language = $phase2_arabic_sum / $phase2_arabic_count;
+      }
+ 
+      else{
+ 
+         $phase2_final_rating_arabic_language = 0;
+ 
+      }
+ 
+     
+ 
+     // $phase2_final_rating_islamic_values = round(($term1_phase2_islamic_values + $term2_phase2_islamic_values + $term3_phase2_islamic_values + $term4_phase2_islamic_values) / 4);
+ 
+     $phase2_islamic_numbers = array($term1_phase2_islamic_values, $term2_phase2_islamic_values, $term3_phase2_islamic_values, $term4_phase2_islamic_values);
+     $phase2_islamic_count = count(array_filter($phase2_islamic_numbers));
+     
+     if($phase2_islamic_count !=0){
+         $phase2_islamic_sum = array_sum($phase2_islamic_numbers);
+     
+         $phase2_final_rating_islamic_values = $phase2_islamic_sum / $phase2_islamic_count;
+     }
+ 
+     else{
+         $phase2_final_rating_islamic_values = 0;
+     }
+ 
     
 
 
@@ -3247,44 +3707,44 @@ $phase2_final_rating_islamic_values = $phase2_islamic_sum / $phase2_islamic_coun
 
     // $phase2_term1_general_average = round(($term1_phase2_mother_tongue + $term1_phase2_filipino + $term1_phase2_english + $term1_phase2_mathematics + $term1_phase2_science + $term1_phase2_araling_panlipunan + $term1_phase2_epp_tle + $term1_phase2_average_of_mapeh + $term1_phase2_esp) / 9);
     
-$phase2_term1_gen_numbers = array($term1_phase2_mother_tongue, $term1_phase2_filipino, $term1_phase2_english, $term1_phase2_mathematics, $term1_phase2_science, $term1_phase2_araling_panlipunan, $term1_phase2_epp_tle, $term1_phase2_average_of_mapeh, $term1_phase2_esp);
-$phase2_term1_gen_sum = array_sum($phase2_term1_gen_numbers);
-$phase2_term1_gen_count = count(array_filter($phase2_term1_gen_numbers));
-$phase2_term1_general_average = $phase2_term1_gen_sum / $phase2_term1_gen_count;
-
-// $phase2_term2_general_average = round(($term2_phase2_mother_tongue + $term2_phase2_filipino + $term2_phase2_english + $term2_phase2_mathematics + $term2_phase2_science + $term2_phase2_araling_panlipunan + $term2_phase2_epp_tle + $term2_phase2_average_of_mapeh + $term2_phase2_esp) / 9);
-$phase2_term2_gen_numbers = array($term2_phase2_mother_tongue, $term2_phase2_filipino, $term2_phase2_english, $term2_phase2_mathematics, $term2_phase2_science, $term2_phase2_araling_panlipunan, $term2_phase2_epp_tle, $term2_phase2_average_of_mapeh, $term2_phase2_esp);
-$phase2_term2_gen_sum = array_sum($phase2_term2_gen_numbers);
-$phase2_term2_gen_count = count(array_filter($phase2_term2_gen_numbers));
-$phase2_term2_general_average = $phase2_term2_gen_sum / $phase2_term2_gen_count;
-
- // $phase2_term3_general_average = round(($term3_phase2_mother_tongue + $term3_phase2_filipino + $term3_phase2_english + $term3_phase2_mathematics + $term3_phase2_science + $term3_phase2_araling_panlipunan + $term3_phase2_epp_tle + $term3_phase2_average_of_mapeh + $term3_phase2_esp) / 9);
-
- $phase2_term3_gen_numbers = array($term3_phase2_mother_tongue, $term3_phase2_filipino, $term3_phase2_english, $term3_phase2_mathematics, $term3_phase2_science, $term3_phase2_araling_panlipunan, $term3_phase2_epp_tle, $term3_phase2_average_of_mapeh, $term3_phase2_esp);
- $phase2_term3_gen_sum = array_sum($phase2_term3_gen_numbers);
- $phase2_term3_gen_count = count(array_filter($phase2_term3_gen_numbers));
- $phase2_term3_general_average = $phase2_term3_gen_sum / $phase2_term3_gen_count;
-
-
-
- // $phase2_term4_general_average = round(($term4_phase2_mother_tongue + $term4_phase2_filipino + $term4_phase2_english + $term4_phase2_mathematics + $term4_phase2_science + $term4_phase2_araling_panlipunan + $term4_phase2_epp_tle + $term4_phase2_average_of_mapeh + $term4_phase2_esp) / 9);
-
- $phase2_term4_gen_numbers = array($term4_phase2_mother_tongue, $term4_phase2_filipino, $term4_phase2_english, $term4_phase2_mathematics, $term4_phase2_science, $term4_phase2_araling_panlipunan, $term4_phase2_epp_tle, $term4_phase2_average_of_mapeh, $term4_phase2_esp);
- $phase2_term4_gen_sum = array_sum($phase2_term4_gen_numbers);
- $phase2_term4_gen_count = count(array_filter($phase2_term4_gen_numbers));
- $phase2_term4_general_average = $phase2_term4_gen_sum / $phase2_term4_gen_count;
-
-
-
-
- // $phase2_term5_general_average = round(($phase2_final_rating_mother_tongue  + $phase2_final_rating_filipino + $phase2_final_rating_english + $phase2_final_rating_math + $phase2_final_rating_science + $phase2_final_rating_AP + $phase2_final_rating_epp_tle + $phase2_final_rating_mapeh + $phase2_final_rating_esp) / 9);
-
-
- $phase2_term5_gen_numbers = array($phase2_final_rating_mother_tongue, $phase2_final_rating_filipino, $phase2_final_rating_english, $phase2_final_rating_math, $phase2_final_rating_science, $phase2_final_rating_AP, $phase2_final_rating_epp_tle, $phase2_final_rating_mapeh, $phase2_final_rating_esp);
- $phase2_term5_gen_sum = array_sum($phase2_term5_gen_numbers);
- $phase2_term5_gen_count = count(array_filter($phase2_term5_gen_numbers));
- $phase2_term5_general_average = $phase2_term5_gen_sum / $phase2_term5_gen_count;
+    $phase2_term4_gen_numbers = array($term4_phase2_mother_tongue, $term4_phase2_filipino, $term4_phase2_english, $term4_phase2_mathematics, $term4_phase2_science, $term4_phase2_araling_panlipunan, $term4_phase2_epp_tle, $term4_phase2_average_of_mapeh, $term4_phase2_esp);
+    $phase2_term4_gen_count = count(array_filter($phase2_term4_gen_numbers));
+   
+       if($phase2_term4_gen_count != 0){
+           $phase2_term4_gen_sum = array_sum($phase2_term4_gen_numbers);
     
+           $phase2_term4_general_average = $phase2_term4_gen_sum / $phase2_term4_gen_count;
+   
+       }
+   
+       else{
+           $phase2_term4_general_average = 0;
+   
+       }
+   
+   
+   
+   
+   
+   
+    // $phase2_term5_general_average = round(($phase2_final_rating_mother_tongue  + $phase2_final_rating_filipino + $phase2_final_rating_english + $phase2_final_rating_math + $phase2_final_rating_science + $phase2_final_rating_AP + $phase2_final_rating_epp_tle + $phase2_final_rating_mapeh + $phase2_final_rating_esp) / 9);
+   
+   
+    $phase2_term5_gen_numbers = array($phase2_final_rating_mother_tongue, $phase2_final_rating_filipino, $phase2_final_rating_english, $phase2_final_rating_math, $phase2_final_rating_science, $phase2_final_rating_AP, $phase2_final_rating_epp_tle, $phase2_final_rating_mapeh, $phase2_final_rating_esp);
+    $phase2_term5_gen_count = count(array_filter($phase2_term5_gen_numbers));
+   
+    if($phase2_term5_gen_count != 0){
+       
+       $phase2_term5_gen_sum = array_sum($phase2_term5_gen_numbers);
+       
+       $phase2_term5_general_average = $phase2_term5_gen_sum / $phase2_term5_gen_count;
+   }
+   
+    else{
+       $phase2_term5_general_average = 0;
+   
+    }
+   
    
     //phase3
 
@@ -3399,145 +3859,350 @@ $phase2_term2_general_average = $phase2_term2_gen_sum / $phase2_term2_gen_count;
 
 
     $phase3_term1_average_mapeh_numbers = array($term1_phase3_music, $term1_phase3_arts, $term1_phase3_pe, $term1_phase3_health);
-    $phase3_term1_average_mapeh_sum = array_sum($phase3_term1_average_mapeh_numbers);
     $phase3_term1_average_mapeh_count = count(array_filter($phase3_term1_average_mapeh_numbers));
-    $term1_phase3_average_of_mapeh = $phase3_term1_average_mapeh_sum / $phase3_term1_average_mapeh_count;
-   
-  
-    $phase3_term2_average_mapeh_numbers = array($term2_phase3_music, $term2_phase3_arts, $term2_phase3_pe, $term2_phase3_health);
-    $phase3_term2_average_mapeh_sum = array_sum($phase3_term2_average_mapeh_numbers);
-    $phase3_term2_average_mapeh_count = count(array_filter($phase3_term2_average_mapeh_numbers));
-    $term2_phase3_average_of_mapeh = $phase3_term2_average_mapeh_sum / $phase3_term2_average_mapeh_count;
+        if( $phase3_term1_average_mapeh_count != 0 ){
 
+            $phase3_term1_average_mapeh_sum = array_sum($phase3_term1_average_mapeh_numbers);
+           
+            $term1_phase3_average_of_mapeh = $phase3_term1_average_mapeh_sum / $phase3_term1_average_mapeh_count;
+        }
+
+        else{
+            $term1_phase3_average_of_mapeh = 0;
+        }
+  
+
+    // $term2_phase3_average_of_mapeh = round(($term2_phase3_music + $term2_phase3_arts + $term2_phase3_pe + $term2_phase3_health) / 4) ;
+
+    $phase3_term2_average_mapeh_numbers = array($term2_phase3_music, $term2_phase3_arts, $term2_phase3_pe, $term2_phase3_health);
+    $phase3_term2_average_mapeh_count = count(array_filter($phase3_term2_average_mapeh_numbers));
+
+    if($phase3_term2_average_mapeh_count !=0){
+
+        $phase3_term2_average_mapeh_sum = array_sum($phase3_term2_average_mapeh_numbers);
+        
+        $term2_phase3_average_of_mapeh = $phase3_term2_average_mapeh_sum / $phase3_term2_average_mapeh_count;
+    }
+
+    else{
+        $term2_phase3_average_of_mapeh = 0;
+    }
+
+    // $term3_phase3_average_of_mapeh = round(($term3_phase3_music + $term3_phase3_arts + $term3_phase3_pe + $term3_phase3_health) / 4) ;
 
     $phase3_term3_average_mapeh_numbers = array($term3_phase3_music, $term3_phase3_arts, $term3_phase3_pe, $term3_phase3_health);
-    $phase3_term3_average_mapeh_sum = array_sum($phase3_term3_average_mapeh_numbers);
     $phase3_term3_average_mapeh_count = count(array_filter($phase3_term3_average_mapeh_numbers));
-    $term3_phase3_average_of_mapeh = $phase3_term3_average_mapeh_sum / $phase3_term3_average_mapeh_count;
+    
+    if($phase3_term3_average_mapeh_count !=0){
+
+        $phase3_term3_average_mapeh_sum = array_sum($phase3_term3_average_mapeh_numbers);
+        $term3_phase3_average_of_mapeh = $phase3_term3_average_mapeh_sum / $phase3_term3_average_mapeh_count;
+    }
+    
+    else{
+        
+        $term3_phase3_average_of_mapeh = 0;
+
+    }
 
 
 
+    // $term4_phase3_average_of_mapeh = round(($term4_phase3_music + $term4_phase3_arts + $term4_phase3_pe + $term4_phase3_health) / 4) ;
+
+
+    
     $phase3_term4_average_mapeh_numbers = array($term4_phase3_music, $term4_phase3_arts, $term4_phase3_pe, $term4_phase3_health);
-    $phase3_term4_average_mapeh_sum = array_sum($phase3_term4_average_mapeh_numbers);
     $phase3_term4_average_mapeh_count = count(array_filter($phase3_term4_average_mapeh_numbers));
-    $term4_phase3_average_of_mapeh = $phase3_term4_average_mapeh_sum / $phase3_term4_average_mapeh_count;
+    
+    if($phase3_term4_average_mapeh_count !=0 ){
+        $phase3_term4_average_mapeh_sum = array_sum($phase3_term4_average_mapeh_numbers);
+        
+        $term4_phase3_average_of_mapeh = $phase3_term4_average_mapeh_sum / $phase3_term4_average_mapeh_count;
+    }
 
+    else{
+        $term4_phase3_average_of_mapeh = 0;
+    }
+   
 
-    // final rating phase 3 
-
+    //final rating
     $phase3_term5 ='Final Rating';
   
 
     // $phase3_final_rating_mother_tongue = round(($term1_phase3_mother_tongue + $term2_phase3_mother_tongue + 
     // $term3_phase3_mother_tongue + $term4_phase3_mother_tongue) / 4);
-    $phase3_mt_numbers = array($term1_phase3_mother_tongue, $term2_phase3_mother_tongue, $term3_phase3_mother_tongue,$term4_phase3_mother_tongue);
-    $phase3_mt_sum = array_sum($phase3_mt_numbers);
-    $phase3_mt_count = count(array_filter($phase3_mt_numbers));
-    $phase3_final_rating_mother_tongue = $phase3_mt_sum / $phase3_mt_count;
+
+        $phase3_mt_numbers = array($term1_phase3_mother_tongue, $term2_phase3_mother_tongue, $term3_phase3_mother_tongue,$term4_phase3_mother_tongue);
+        $phase3_mt_count = count(array_filter($phase3_mt_numbers));
+        if($phase3_mt_count != 0){
+
+            $phase3_mt_sum = array_sum($phase3_mt_numbers);
+        
+            $phase3_final_rating_mother_tongue = $phase3_mt_sum / $phase3_mt_count;
+        }
+       else{
+        $phase3_final_rating_mother_tongue = 0;
+       }
 
 
-// $phase3_final_rating_filipino = round(($term1_phase3_filipino + $term2_phase3_filipino + $term3_phase3_filipino + $term4_phase3_filipino) / 4);
+    // $phase3_final_rating_filipino = round(($term1_phase3_filipino + $term2_phase3_filipino + $term3_phase3_filipino + $term4_phase3_filipino) / 4);
 
-$phase3_filipino_numbers = array($term1_phase3_filipino, $term2_phase3_filipino, $term3_phase3_filipino, $term4_phase3_filipino);
-$phase3_filipino_sum = array_sum($phase3_filipino_numbers);
-$phase3_filipino_count = count(array_filter($phase3_filipino_numbers));
-$phase3_final_rating_filipino = $phase3_filipino_sum / $phase3_filipino_count;
+    $phase3_filipino_numbers = array($term1_phase3_filipino, $term2_phase3_filipino, $term3_phase3_filipino, $term4_phase3_filipino);
+    $phase3_filipino_count = count(array_filter($phase3_filipino_numbers));
 
-// $phase3_final_rating_english = round(($term1_phase3_english + $term2_phase3_english + $term3_phase3_english + $term4_phase3_english) / 4);
+    if($phase3_filipino_count != 0){
 
-$phase3_english_numbers = array($term1_phase3_english, $term2_phase3_english, $term3_phase3_english, $term4_phase3_english);
-$phase3_english_sum = array_sum($phase3_english_numbers);
-$phase3_english_count = count(array_filter($phase3_english_numbers));
-$phase3_final_rating_english = $phase3_english_sum / $phase3_english_count;
+        $phase3_filipino_sum = array_sum($phase3_filipino_numbers);
 
+        $phase3_final_rating_filipino = $phase3_filipino_sum / $phase3_filipino_count;
 
-// $phase3_final_rating_math = round(($term1_phase3_mathematics + $term2_phase3_mathematics + $term3_phase3_mathematics + $term4_phase3_mathematics ) / 4);
+    }
 
-$phase3_math_numbers = array($term1_phase3_mathematics, $term2_phase3_mathematics,  $term3_phase3_mathematics, $term4_phase3_mathematics);
-$phase3_math_sum = array_sum($phase3_math_numbers);
-$phase3_math_count = count(array_filter($phase3_math_numbers));
-$phase3_final_rating_math = $phase3_math_sum / $phase3_math_count;
+    else{
 
-// $phase3_final_rating_science = round(($term1_phase3_science + $term2_phase3_science + $term3_phase3_science + $term4_phase3_science) / 4);
+        $phase3_final_rating_filipino = 0;
 
-$phase3_science_numbers = array($term1_phase3_science, $term2_phase3_science, $term3_phase3_science, $term4_phase3_science);
-$phase3_science_sum = array_sum($phase3_science_numbers);
-$phase3_science_count = count(array_filter($phase3_science_numbers));
-$phase3_final_rating_science = $phase3_science_sum / $phase3_science_count;
+    }
 
-// $phase3_final_rating_AP = round(($term1_phase3_araling_panlipunan + $term2_phase3_araling_panlipunan + $term3_phase3_araling_panlipunan + $term4_phase3_araling_panlipunan) / 4);
+   
 
-$phase3_ap_numbers = array($term1_phase3_araling_panlipunan, $term2_phase3_araling_panlipunan, $term3_phase3_araling_panlipunan, $term4_phase3_araling_panlipunan);
-$phase3_ap_sum = array_sum($phase3_ap_numbers);
-$phase3_ap_count = count(array_filter($phase3_ap_numbers));
-$phase3_final_rating_AP = $phase3_ap_sum / $phase3_ap_count;
+    // $phase3_final_rating_english = round(($term1_phase3_english + $term2_phase3_english + $term3_phase3_english + $term4_phase3_english) / 4);
 
-// $phase3_final_rating_epp_tle = round(($term1_phase3_epp_tle + $term2_phase3_epp_tle + $term3_phase3_epp_tle + $term4_phase3_epp_tle) / 4);
+    
+    $phase3_english_numbers = array($term1_phase3_english, $term2_phase3_english, $term3_phase3_english, $term4_phase3_english);
+    $phase3_english_count = count(array_filter($phase3_english_numbers));
+    if($phase3_english_count != 0 ){
+        $phase3_english_sum = array_sum($phase3_english_numbers);
 
-$phase3_epp_tle_numbers = array($term1_phase3_epp_tle, $term2_phase3_epp_tle, $term3_phase3_epp_tle, $term4_phase3_epp_tle);
-$phase3_epp_tle_sum = array_sum($phase3_epp_tle_numbers);
-$phase3_epp_tle_count = count(array_filter($phase3_epp_tle_numbers));
-$phase3_final_rating_epp_tle = $phase3_epp_tle_sum / $phase3_epp_tle_count;
+        $phase3_final_rating_english = $phase3_english_sum / $phase3_english_count;
+    }
+    
+    else{
 
-// $phase3_final_rating_mapeh = round(($term1_phase3_average_of_mapeh + $term2_phase3_average_of_mapeh + $term3_phase3_average_of_mapeh + $term4_phase3_average_of_mapeh) / 4 );
-
-$phase3_mapeh_numbers = array($term1_phase3_average_of_mapeh, $term2_phase3_average_of_mapeh, $term3_phase3_average_of_mapeh, $term4_phase3_average_of_mapeh);
-$phase3_mapeh_sum = array_sum($phase3_mapeh_numbers);
-$phase3_mapeh_count = count(array_filter($phase3_mapeh_numbers));
-$phase3_final_rating_mapeh = $phase3_mapeh_sum / $phase3_mapeh_count;
-
-// $phase3_final_rating_music = round(($term1_phase3_music + $term2_phase3_music + $term3_phase3_music + $term4_phase3_music) / 4);
-
-$phase3_music_numbers = array($term1_phase3_music, $term2_phase3_music, $term3_phase3_music, $term4_phase3_music);
-$phase3_music_sum = array_sum($phase3_music_numbers);
-$phase3_music_count = count(array_filter($phase3_music_numbers));
-$phase3_final_rating_music =  $phase3_music_sum / $phase3_music_count;
-
-// $phase3_final_rating_arts = round(($term1_phase3_arts + $term2_phase3_arts + $term3_phase3_arts + $term4_phase3_arts ) / 4);
-
-$phase3_arts_numbers = array($term1_phase3_arts, $term2_phase3_arts, $term3_phase3_arts, $term4_phase3_arts);
-$phase3_arts_sum = array_sum($phase3_arts_numbers);
-$phase3_arts_count = count(array_filter($phase3_ap_numbers));
-$phase3_final_rating_arts =  $phase3_arts_sum / $phase3_arts_count;
-
-// $phase3_final_rating_PE = round(($term1_phase3_pe + $term2_phase3_pe + $term3_phase3_pe + $term4_phase3_pe) / 4);
-
-$phase3_pe_numbers = array($term1_phase3_pe, $term2_phase3_pe, $term3_phase3_pe, $term4_phase3_pe);
-$phase3_pe_sum = array_sum($phase3_pe_numbers);
-$phase3_pe_count = count(array_filter($phase3_pe_numbers));
-$phase3_final_rating_PE = $phase3_pe_sum / $phase3_pe_count;
-
-// $phase3_final_rating_health = round(($term1_phase3_health + $term2_phase3_health + $term3_phase3_health + $term4_phase3_health)/ 4);
-
-$phase3_health_numbers = array($term1_phase3_health, $term2_phase3_health, $term3_phase3_health, $term4_phase3_health);
-$phase3_health_sum = array_sum($phase3_health_numbers);
-$phase3_health_count = count(array_filter($phase3_health_numbers));
-$phase3_final_rating_health = $phase3_health_sum / $phase3_health_count;
-
- // $phase3_final_rating_esp = round(($term1_phase3_esp + $term2_phase3_esp + $term3_phase3_esp + $term4_phase3_esp) / 4);
-
- $phase3_esp_numbers = array($term1_phase3_esp, $term2_phase3_esp, $term3_phase3_esp, $term4_phase3_esp);
- $phase3_esp_sum = array_sum($phase3_esp_numbers);
- $phase3_esp_count = count (array_filter($phase3_esp_numbers));
- $phase3_final_rating_esp = $phase3_esp_sum / $phase3_esp_count;
+        $phase3_final_rating_english = 0;
+    }
 
 
+    // $phase3_final_rating_math = round(($term1_phase3_mathematics + $term2_phase3_mathematics + $term3_phase3_mathematics + $term4_phase3_mathematics ) / 4);
 
- // $phase3_final_rating_arabic_language = round(($term1_phase3_arabic_language + $term2_phase3_arabic_language + $term3_phase3_arabic_language + $term4_phase3_arabic_language) / 4);
+    $phase3_math_numbers = array($term1_phase3_mathematics, $term2_phase3_mathematics,  $term3_phase3_mathematics, $term4_phase3_mathematics);
+    $phase3_math_count = count(array_filter($phase3_math_numbers));
+    
+    if($phase3_math_count != 0){
+        $phase3_math_sum = array_sum($phase3_math_numbers);
+    
+        $phase3_final_rating_math = $phase3_math_sum / $phase3_math_count;
 
- $phase3_arabic_numbers = array($term1_phase3_arabic_language, $term2_phase3_arabic_language, $term3_phase3_arabic_language, $term4_phase3_arabic_language);
- $phase3_arabic_sum = array_sum($phase3_arabic_numbers);
- $phase3_arabic_count = count(array_filter($phase3_arabic_numbers));
- $phase3_final_rating_arabic_language = $phase3_arabic_sum / $phase3_arabic_count;
+    }
 
-// $phase3_final_rating_islamic_values = round(($term1_phase3_islamic_values + $term2_phase3_islamic_values + $term3_phase3_islamic_values + $term4_phase3_islamic_values) / 4);
+    else{
+        $phase3_final_rating_math = 0;
 
-$phase3_islamic_numbers = array($term1_phase3_islamic_values, $term2_phase3_islamic_values, $term3_phase3_islamic_values, $term4_phase3_islamic_values);
-$phase3_islamic_sum = array_sum($phase3_islamic_numbers);
-$phase3_islamic_count = count(array_filter($phase3_islamic_numbers));
-$phase3_final_rating_islamic_values = $phase3_islamic_sum / $phase3_islamic_count;
+    }
+
+   
+
+    // $phase3_final_rating_science = round(($term1_phase3_science + $term2_phase3_science + $term3_phase3_science + $term4_phase3_science) / 4);
+
+    $phase3_science_numbers = array($term1_phase3_science, $term2_phase3_science, $term3_phase3_science, $term4_phase3_science);
+    $phase3_science_count = count(array_filter($phase3_science_numbers));
+    
+    if($phase3_science_count != 0){
+
+        $phase3_science_sum = array_sum($phase3_science_numbers);
+
+    $phase3_final_rating_science = $phase3_science_sum / $phase3_science_count;
+    }
+
+    else{
+
+        $phase3_final_rating_science = 0;
+    }
+
+    
+
+    // $phase3_final_rating_AP = round(($term1_phase3_araling_panlipunan + $term2_phase3_araling_panlipunan + $term3_phase3_araling_panlipunan + $term4_phase3_araling_panlipunan) / 4);
+
+    $phase3_ap_numbers = array($term1_phase3_araling_panlipunan, $term2_phase3_araling_panlipunan, $term3_phase3_araling_panlipunan, $term4_phase3_araling_panlipunan);
+    $phase3_ap_count = count(array_filter($phase3_ap_numbers));
+
+    if($phase3_ap_count != 0){
+        $phase3_ap_sum = array_sum($phase3_ap_numbers);
+
+        $phase3_final_rating_AP = $phase3_ap_sum / $phase3_ap_count;
+
+    }
+
+    else{
+        $phase3_final_rating_AP = 0;
+        
+    }
+
+    // $phase3_final_rating_epp_tle = round(($term1_phase3_epp_tle + $term2_phase3_epp_tle + $term3_phase3_epp_tle + $term4_phase3_epp_tle) / 4);
+
+    $phase3_epp_tle_numbers = array($term1_phase3_epp_tle, $term2_phase3_epp_tle, $term3_phase3_epp_tle, $term4_phase3_epp_tle);
+    $phase3_epp_tle_count = count(array_filter($phase3_epp_tle_numbers));
+
+    if($phase3_epp_tle_count != 0){
+
+        $phase3_epp_tle_sum = array_sum($phase3_epp_tle_numbers);
+    
+    $phase3_final_rating_epp_tle = $phase3_epp_tle_sum / $phase3_epp_tle_count;
+    }
+
+    else{
+        $phase3_final_rating_epp_tle = 0;
+    }
+    
+    
+    
+
+    // $phase3_final_rating_mapeh = round(($term1_phase3_average_of_mapeh + $term2_phase3_average_of_mapeh + $term3_phase3_average_of_mapeh + $term4_phase3_average_of_mapeh) / 4 );
+
+    $phase3_mapeh_numbers = array($term1_phase3_average_of_mapeh, $term2_phase3_average_of_mapeh, $term3_phase3_average_of_mapeh, $term4_phase3_average_of_mapeh);
+    $phase3_mapeh_count = count(array_filter($phase3_mapeh_numbers));
+    
+    if($phase3_mapeh_count != 0){
+
+        $phase3_mapeh_sum = array_sum($phase3_mapeh_numbers);
+    
+        $phase3_final_rating_mapeh = $phase3_mapeh_sum / $phase3_mapeh_count;
+
+    }
+
+    else{
+        
+        $phase3_final_rating_mapeh = 0;
+
+    }
+   
+
+    // $phase3_final_rating_music = round(($term1_phase3_music + $term2_phase3_music + $term3_phase3_music + $term4_phase3_music) / 4);
+
+    $phase3_music_numbers = array($term1_phase3_music, $term2_phase3_music, $term3_phase3_music, $term4_phase3_music);
+    $phase3_music_count = count(array_filter($phase3_music_numbers));
+    
+    if($phase3_music_count != 0){
+        $phase3_music_sum = array_sum($phase3_music_numbers);
+    
+        $phase3_final_rating_music =  $phase3_music_sum / $phase3_music_count;
+
+    }
+
+    else {
+        $phase3_final_rating_music = 0;
+    }
+   
+    
+
+    // $phase3_final_rating_arts = round(($term1_phase3_arts + $term2_phase3_arts + $term3_phase3_arts + $term4_phase3_arts ) / 4);
+
+    
+    $phase3_arts_numbers = array($term1_phase3_arts, $term2_phase3_arts, $term3_phase3_arts, $term4_phase3_arts);
+    $phase3_arts_count = count(array_filter($phase3_arts_numbers)); 
+    
+    if ($phase3_arts_count != 0) {
+        
+        $phase3_arts_sum = array_sum($phase3_arts_numbers);
+    
+        $phase3_final_rating_arts =  $phase3_arts_sum / $phase3_arts_count;
+
+    }
+
+    else{
+        $phase3_final_rating_arts = 0;
+    }
+    
+    // $phase3_final_rating_PE = round(($term1_phase3_pe + $term2_phase3_pe + $term3_phase3_pe + $term4_phase3_pe) / 4);
+
+    $phase3_pe_numbers = array($term1_phase3_pe, $term2_phase3_pe, $term3_phase3_pe, $term4_phase3_pe);
+    $phase3_pe_count = count(array_filter($phase3_pe_numbers));
+    
+    if($phase3_pe_count != 0){
+        $phase3_pe_sum = array_sum($phase3_pe_numbers);
+    
+        $phase3_final_rating_PE = $phase3_pe_sum / $phase3_pe_count;
+    }
+
+    else{
+        $phase3_final_rating_PE = 0;
+    }
+    
+
+    
 
 
+
+    // $phase3_final_rating_health = round(($term1_phase3_health + $term2_phase3_health + $term3_phase3_health + $term4_phase3_health)/ 4);
+
+    $phase3_health_numbers = array($term1_phase3_health, $term2_phase3_health, $term3_phase3_health, $term4_phase3_health);
+    $phase3_health_count = count(array_filter($phase3_health_numbers));
+    
+    if($phase3_health_count != 0){
+        $phase3_health_sum = array_sum($phase3_health_numbers);
+    
+        $phase3_final_rating_health = $phase3_health_sum / $phase3_health_count;
+    }
+
+    else {
+        $phase3_final_rating_health = 0;
+    }
+
+    
+
+     // $phase3_final_rating_esp = round(($term1_phase3_esp + $term2_phase3_esp + $term3_phase3_esp + $term4_phase3_esp) / 4);
+    
+     $phase3_esp_numbers = array($term1_phase3_esp, $term2_phase3_esp, $term3_phase3_esp, $term4_phase3_esp);
+     $phase3_esp_count = count (array_filter($phase3_esp_numbers));
+     
+     if($phase3_esp_count != 0){
+
+        $phase3_esp_sum = array_sum($phase3_esp_numbers);
+     
+        $phase3_final_rating_esp = $phase3_esp_sum / $phase3_esp_count;
+     }
+     else{
+        $phase3_final_rating_esp = 0;
+     }
+     
+
+
+
+     // $phase3_final_rating_arabic_language = round(($term1_phase3_arabic_language + $term2_phase3_arabic_language + $term3_phase3_arabic_language + $term4_phase3_arabic_language) / 4);
+
+    
+     $phase3_arabic_numbers = array($term1_phase3_arabic_language, $term2_phase3_arabic_language, $term3_phase3_arabic_language, $term4_phase3_arabic_language);
+     $phase3_arabic_count = count(array_filter($phase3_arabic_numbers));
+    
+     if($phase3_arabic_count != 0){
+        $phase3_arabic_sum = array_sum($phase3_arabic_numbers);
+     
+        $phase3_final_rating_arabic_language = $phase3_arabic_sum / $phase3_arabic_count;
+     }
+
+     else{
+
+        $phase3_final_rating_arabic_language = 0;
+
+     }
+
+    
+
+    // $phase3_final_rating_islamic_values = round(($term1_phase3_islamic_values + $term2_phase3_islamic_values + $term3_phase3_islamic_values + $term4_phase3_islamic_values) / 4);
+
+    $phase3_islamic_numbers = array($term1_phase3_islamic_values, $term2_phase3_islamic_values, $term3_phase3_islamic_values, $term4_phase3_islamic_values);
+    $phase3_islamic_count = count(array_filter($phase3_islamic_numbers));
+    
+    if($phase3_islamic_count !=0){
+        $phase3_islamic_sum = array_sum($phase3_islamic_numbers);
+    
+        $phase3_final_rating_islamic_values = $phase3_islamic_sum / $phase3_islamic_count;
+    }
+
+    else{
+        $phase3_final_rating_islamic_values = 0;
+    }
+    
 
     // validation of phase 3 
 
@@ -3638,38 +4303,101 @@ $phase3_final_rating_islamic_values = $phase3_islamic_sum / $phase3_islamic_coun
 
    // $phase3_term1_general_average = round(($term1_phase3_mother_tongue + $term1_phase3_mathematics + $term1_phase3_araling_panlipunan + $term1_phase3_average_of_mapeh + $term1_phase3_esp ) / 5);
 
-   $phase3_term1_gen_numbers = array($term1_phase3_mother_tongue, $term1_phase3_mathematics, $term1_phase3_araling_panlipunan, $term1_phase3_average_of_mapeh, $term1_phase3_esp);
-   $phase3_term1_gen_sum = array_sum($phase3_term1_gen_numbers);
+   $phase3_term1_gen_numbers = array($term1_phase3_mother_tongue, $term1_phase3_filipino, $term1_phase3_english, $term1_phase3_mathematics, $term1_phase3_science, $term1_phase3_araling_panlipunan, $term1_phase3_epp_tle, $term1_phase3_average_of_mapeh, $term1_phase3_esp);
    $phase3_term1_gen_count = count(array_filter($phase3_term1_gen_numbers));
-   $phase3_term1_general_average = $phase3_term1_gen_sum / $phase3_term1_gen_count;
-  
-// $phase3_term2_general_average = round(($term2_phase3_mother_tongue + $term2_phase3_filipino + $term2_phase3_mathematics + $term2_phase3_araling_panlipunan + $term2_phase3_average_of_mapeh + $term2_phase3_esp) / 6);
 
-   $phase3_term2_gen_numbers = array($term2_phase3_mother_tongue, $term2_phase3_filipino, $term2_phase3_mathematics, $term2_phase3_araling_panlipunan, $term2_phase3_average_of_mapeh, $term2_phase3_esp);
-   $phase3_term2_gen_sum = array_sum($phase3_term2_gen_numbers);
+   if($phase3_term1_gen_count != 0){
+       
+       $phase3_term1_gen_sum = array_sum($phase3_term1_gen_numbers);
+   
+       $phase3_term1_general_average = $phase3_term1_gen_sum / $phase3_term1_gen_count;
+       
+   }
+   
+   else{
+       $phase3_term1_general_average = 0;
+   }
+   
+   // $phase3_term2_general_average = round(($term2_phase3_mother_tongue + $term2_phase3_filipino + $term2_phase3_english + $term2_phase3_mathematics + $term2_phase3_science + $term2_phase3_araling_panlipunan + $term2_phase3_epp_tle + $term2_phase3_average_of_mapeh + $term2_phase3_esp) / 9);
+   $phase3_term2_gen_numbers = array($term2_phase3_mother_tongue, $term2_phase3_filipino, $term2_phase3_english, $term2_phase3_mathematics, $term2_phase3_science, $term2_phase3_araling_panlipunan, $term2_phase3_epp_tle, $term2_phase3_average_of_mapeh, $term2_phase3_esp);
    $phase3_term2_gen_count = count(array_filter($phase3_term2_gen_numbers));
-   $phase3_term2_general_average = $phase3_term2_gen_sum / $phase3_term2_gen_count;
-   // $phase3_term3_general_average = round(($term3_phase3_mother_tongue + $term3_phase3_filipino + $term3_phase3_english + $term3_phase3_mathematics + $term3_phase3_araling_panlipunan + $term3_phase3_average_of_mapeh + $term3_phase3_esp) / 7);
+   
+   if ($phase3_term2_gen_count != 0){
+       
+       $phase3_term2_gen_sum = array_sum($phase3_term2_gen_numbers);
+   
+       $phase3_term2_general_average = $phase3_term2_gen_sum / $phase3_term2_gen_count;
 
-   $phase3_term3_gen_numbers = array($term3_phase3_mother_tongue, $term3_phase3_filipino, $term3_phase3_english, $term3_phase3_mathematics, $term3_phase3_araling_panlipunan, $term3_phase3_average_of_mapeh, $term3_phase3_esp);
-   $phase3_term3_gen_sum = array_sum($phase3_term3_gen_numbers);
-   $phase3_term3_gen_count = count(array_filter($phase3_term3_gen_numbers));
-   $phase3_term3_general_average = $phase3_term3_gen_sum / $phase3_term3_gen_count;
+   }
 
-   // $phase3_term4_general_average = round(($term4_phase3_mother_tongue + $term4_phase3_filipino + $term4_phase3_english + $term4_phase3_mathematics + $term4_phase3_araling_panlipunan + $term4_phase3_average_of_mapeh + $term4_phase3_esp) / 7);
+   else {
+       $phase3_term2_general_average = 0;
+   }
 
-   $phase3_term4_gen_numbers = array($term4_phase3_mother_tongue, $term4_phase3_filipino, $term4_phase3_english, $term4_phase3_mathematics, $term4_phase3_araling_panlipunan, $term4_phase3_average_of_mapeh, $term4_phase3_esp);
-   $phase3_term4_gen_sum = array_sum($phase3_term4_gen_numbers);
-   $phase3_term4_gen_count = count(array_filter($phase3_term4_gen_numbers));
-   $phase3_term4_general_average = $phase3_term4_gen_sum / $phase3_term4_gen_count;
+  
+   
+    // $phase3_term3_general_average = round(($term3_phase3_mother_tongue + $term3_phase3_filipino + $term3_phase3_english + $term3_phase3_mathematics + $term3_phase3_science + $term3_phase3_araling_panlipunan + $term3_phase3_epp_tle + $term3_phase3_average_of_mapeh + $term3_phase3_esp) / 9);
+   
+    $phase3_term3_gen_numbers = array($term3_phase3_mother_tongue, $term3_phase3_filipino, $term3_phase3_english, $term3_phase3_mathematics, $term3_phase3_science, $term3_phase3_araling_panlipunan, $term3_phase3_epp_tle, $term3_phase3_average_of_mapeh, $term3_phase3_esp);
+    $phase3_term3_gen_count = count(array_filter($phase3_term3_gen_numbers));
+    
+
+       if($phase3_term3_gen_count != 0){
+           $phase3_term3_gen_sum = array_sum($phase3_term3_gen_numbers);
+    
+           $phase3_term3_general_average = $phase3_term3_gen_sum / $phase3_term3_gen_count;
+
+       }
+
+       else{
+           $phase3_term3_general_average = 0;
+
+       }
 
 
-   // $phase3_term5_general_average = round(($phase3_final_rating_mother_tongue + $phase3_final_rating_filipino + $phase3_final_rating_english + $phase3_final_rating_math + $phase3_final_rating_science + $phase3_final_rating_AP + $phase3_final_rating_epp_tle + $phase3_final_rating_mapeh + $phase3_final_rating_esp) / 9);
+    
+   
+   
+   
+    // $phase3_term4_general_average = round(($term4_phase3_mother_tongue + $term4_phase3_filipino + $term4_phase3_english + $term4_phase3_mathematics + $term4_phase3_science + $term4_phase3_araling_panlipunan + $term4_phase3_epp_tle + $term4_phase3_average_of_mapeh + $term4_phase3_esp) / 9);
+   
+    $phase3_term4_gen_numbers = array($term4_phase3_mother_tongue, $term4_phase3_filipino, $term4_phase3_english, $term4_phase3_mathematics, $term4_phase3_science, $term4_phase3_araling_panlipunan, $term4_phase3_epp_tle, $term4_phase3_average_of_mapeh, $term4_phase3_esp);
+    $phase3_term4_gen_count = count(array_filter($phase3_term4_gen_numbers));
+   
+       if($phase3_term4_gen_count != 0){
+           $phase3_term4_gen_sum = array_sum($phase3_term4_gen_numbers);
+    
+           $phase3_term4_general_average = $phase3_term4_gen_sum / $phase3_term4_gen_count;
 
-   $phase3_term5_gen_numbers = array($phase3_final_rating_mother_tongue, $phase3_final_rating_filipino, $phase3_final_rating_english, $phase3_final_rating_math, $phase3_final_rating_science, $phase3_final_rating_AP, $phase3_final_rating_epp_tle, $phase3_final_rating_mapeh, $phase3_final_rating_esp);
-   $phase3_term5_gen_sum = array_sum($phase3_term5_gen_numbers);
-   $phase3_term5_gen_count = count(array_filter($phase3_term5_gen_numbers));
-   $phase3_term5_general_average = $phase3_term5_gen_sum / $phase3_term5_gen_count;
+       }
+
+       else{
+           $phase3_term4_general_average = 0;
+
+       }
+
+   
+   
+   
+   
+   
+    // $phase3_term5_general_average = round(($phase3_final_rating_mother_tongue  + $phase3_final_rating_filipino + $phase3_final_rating_english + $phase3_final_rating_math + $phase3_final_rating_science + $phase3_final_rating_AP + $phase3_final_rating_epp_tle + $phase3_final_rating_mapeh + $phase3_final_rating_esp) / 9);
+
+
+    $phase3_term5_gen_numbers = array($phase3_final_rating_mother_tongue, $phase3_final_rating_filipino, $phase3_final_rating_english, $phase3_final_rating_math, $phase3_final_rating_science, $phase3_final_rating_AP, $phase3_final_rating_epp_tle, $phase3_final_rating_mapeh, $phase3_final_rating_esp);
+    $phase3_term5_gen_count = count(array_filter($phase3_term5_gen_numbers));
+
+    if($phase3_term5_gen_count != 0){
+       
+       $phase3_term5_gen_sum = array_sum($phase3_term5_gen_numbers);
+       
+       $phase3_term5_general_average = $phase3_term5_gen_sum / $phase3_term5_gen_count;
+  }
+
+    else{
+       $phase3_term5_general_average = 0;
+
+    }
    
     // phase 4
     $phase4 = '4';
@@ -3784,152 +4512,349 @@ $phase3_final_rating_islamic_values = $phase3_islamic_sum / $phase3_islamic_coun
 
 
     $phase4_term1_average_mapeh_numbers = array($term1_phase4_music, $term1_phase4_arts, $term1_phase4_pe, $term1_phase4_health);
-    $phase4_term1_average_mapeh_sum = array_sum($phase4_term1_average_mapeh_numbers);
     $phase4_term1_average_mapeh_count = count(array_filter($phase4_term1_average_mapeh_numbers));
-    $term1_phase4_average_of_mapeh = $phase4_term1_average_mapeh_sum / $phase4_term1_average_mapeh_count;
-   
+        if( $phase4_term1_average_mapeh_count != 0 ){
+
+            $phase4_term1_average_mapeh_sum = array_sum($phase4_term1_average_mapeh_numbers);
+           
+            $term1_phase4_average_of_mapeh = $phase4_term1_average_mapeh_sum / $phase4_term1_average_mapeh_count;
+        }
+
+        else{
+            $term1_phase4_average_of_mapeh = 0;
+        }
   
-    $phase4_term2_average_mapeh_numbers = array($term2_phase4_music, $term2_phase4_arts, $term2_phase4_pe, $term2_phase4_health);
-    $phase4_term2_average_mapeh_sum = array_sum($phase4_term2_average_mapeh_numbers);
-    $phase4_term2_average_mapeh_count = count(array_filter($phase4_term2_average_mapeh_numbers));
-    $term2_phase4_average_of_mapeh = $phase4_term2_average_mapeh_sum / $phase4_term2_average_mapeh_count;
-
-
-    $phase4_term3_average_mapeh_numbers = array($term3_phase4_music, $term3_phase4_arts, $term3_phase4_pe, $term3_phase4_health);
-    $phase4_term3_average_mapeh_sum = array_sum($phase4_term3_average_mapeh_numbers);
-    $phase4_term3_average_mapeh_count = count(array_filter($phase4_term3_average_mapeh_numbers));
-    $term3_phase4_average_of_mapeh = $phase4_term3_average_mapeh_sum / $phase4_term3_average_mapeh_count;
-
-
-
-    $phase4_term4_average_mapeh_numbers = array($term4_phase4_music, $term4_phase4_arts, $term4_phase4_pe, $term4_phase4_health);
-    $phase4_term4_average_mapeh_sum = array_sum($phase4_term4_average_mapeh_numbers);
-    $phase4_term4_average_mapeh_count = count(array_filter($phase4_term4_average_mapeh_numbers));
-    $term4_phase4_average_of_mapeh = $phase4_term4_average_mapeh_sum / $phase4_term4_average_mapeh_count;
-
-    // $term1_phase4_average_of_mapeh = round(($term1_phase4_music + $term1_phase4_arts + $term1_phase4_pe + $term1_phase4_health) / 4) ;
 
     // $term2_phase4_average_of_mapeh = round(($term2_phase4_music + $term2_phase4_arts + $term2_phase4_pe + $term2_phase4_health) / 4) ;
 
+    $phase4_term2_average_mapeh_numbers = array($term2_phase4_music, $term2_phase4_arts, $term2_phase4_pe, $term2_phase4_health);
+    $phase4_term2_average_mapeh_count = count(array_filter($phase4_term2_average_mapeh_numbers));
+
+    if($phase4_term2_average_mapeh_count !=0){
+
+        $phase4_term2_average_mapeh_sum = array_sum($phase4_term2_average_mapeh_numbers);
+        
+        $term2_phase4_average_of_mapeh = $phase4_term2_average_mapeh_sum / $phase4_term2_average_mapeh_count;
+    }
+
+    else{
+        $term2_phase4_average_of_mapeh = 0;
+    }
+
     // $term3_phase4_average_of_mapeh = round(($term3_phase4_music + $term3_phase4_arts + $term3_phase4_pe + $term3_phase4_health) / 4) ;
+
+    $phase4_term3_average_mapeh_numbers = array($term3_phase4_music, $term3_phase4_arts, $term3_phase4_pe, $term3_phase4_health);
+    $phase4_term3_average_mapeh_count = count(array_filter($phase4_term3_average_mapeh_numbers));
+    
+    if($phase4_term3_average_mapeh_count !=0){
+
+        $phase4_term3_average_mapeh_sum = array_sum($phase4_term3_average_mapeh_numbers);
+        $term3_phase4_average_of_mapeh = $phase4_term3_average_mapeh_sum / $phase4_term3_average_mapeh_count;
+    }
+    
+    else{
+        
+        $term3_phase4_average_of_mapeh = 0;
+
+    }
+
+
 
     // $term4_phase4_average_of_mapeh = round(($term4_phase4_music + $term4_phase4_arts + $term4_phase4_pe + $term4_phase4_health) / 4) ;
 
 
+    
+    $phase4_term4_average_mapeh_numbers = array($term4_phase4_music, $term4_phase4_arts, $term4_phase4_pe, $term4_phase4_health);
+    $phase4_term4_average_mapeh_count = count(array_filter($phase4_term4_average_mapeh_numbers));
+    
+    if($phase4_term4_average_mapeh_count !=0 ){
+        $phase4_term4_average_mapeh_sum = array_sum($phase4_term4_average_mapeh_numbers);
+        
+        $term4_phase4_average_of_mapeh = $phase4_term4_average_mapeh_sum / $phase4_term4_average_mapeh_count;
+    }
 
-     // phase 4 final rating
+    else{
+        $term4_phase4_average_of_mapeh = 0;
+    }
+   
 
+    //final rating
     $phase4_term5 ='Final Rating';
   
 
     // $phase4_final_rating_mother_tongue = round(($term1_phase4_mother_tongue + $term2_phase4_mother_tongue + 
     // $term3_phase4_mother_tongue + $term4_phase4_mother_tongue) / 4);
-    $phase4_mt_numbers = array($term1_phase4_mother_tongue, $term2_phase4_mother_tongue, $term3_phase4_mother_tongue,$term4_phase4_mother_tongue);
-    $phase4_mt_sum = array_sum($phase4_mt_numbers);
-    $phase4_mt_count = count(array_filter($phase4_mt_numbers));
-    $phase4_final_rating_mother_tongue = $phase4_mt_sum / $phase4_mt_count;
+
+        $phase4_mt_numbers = array($term1_phase4_mother_tongue, $term2_phase4_mother_tongue, $term3_phase4_mother_tongue,$term4_phase4_mother_tongue);
+        $phase4_mt_count = count(array_filter($phase4_mt_numbers));
+        if($phase4_mt_count != 0){
+
+            $phase4_mt_sum = array_sum($phase4_mt_numbers);
+        
+            $phase4_final_rating_mother_tongue = $phase4_mt_sum / $phase4_mt_count;
+        }
+       else{
+        $phase4_final_rating_mother_tongue = 0;
+       }
 
 
-// $phase4_final_rating_filipino = round(($term1_phase4_filipino + $term2_phase4_filipino + $term3_phase4_filipino + $term4_phase4_filipino) / 4);
+    // $phase4_final_rating_filipino = round(($term1_phase4_filipino + $term2_phase4_filipino + $term3_phase4_filipino + $term4_phase4_filipino) / 4);
 
-$phase4_filipino_numbers = array($term1_phase4_filipino, $term2_phase4_filipino, $term3_phase4_filipino, $term4_phase4_filipino);
-$phase4_filipino_sum = array_sum($phase4_filipino_numbers);
-$phase4_filipino_count = count(array_filter($phase4_filipino_numbers));
-$phase4_final_rating_filipino = $phase4_filipino_sum / $phase4_filipino_count;
+    $phase4_filipino_numbers = array($term1_phase4_filipino, $term2_phase4_filipino, $term3_phase4_filipino, $term4_phase4_filipino);
+    $phase4_filipino_count = count(array_filter($phase4_filipino_numbers));
 
-// $phase4_final_rating_english = round(($term1_phase4_english + $term2_phase4_english + $term3_phase4_english + $term4_phase4_english) / 4);
+    if($phase4_filipino_count != 0){
 
-$phase4_english_numbers = array($term1_phase4_english, $term2_phase4_english, $term3_phase4_english, $term4_phase4_english);
-$phase4_english_sum = array_sum($phase4_english_numbers);
-$phase4_english_count = count(array_filter($phase4_english_numbers));
-$phase4_final_rating_english = $phase4_english_sum / $phase4_english_count;
+        $phase4_filipino_sum = array_sum($phase4_filipino_numbers);
 
+        $phase4_final_rating_filipino = $phase4_filipino_sum / $phase4_filipino_count;
 
-// $phase4_final_rating_math = round(($term1_phase4_mathematics + $term2_phase4_mathematics + $term3_phase4_mathematics + $term4_phase4_mathematics ) / 4);
+    }
 
-$phase4_math_numbers = array($term1_phase4_mathematics, $term2_phase4_mathematics,  $term3_phase4_mathematics, $term4_phase4_mathematics);
-$phase4_math_sum = array_sum($phase4_math_numbers);
-$phase4_math_count = count(array_filter($phase4_math_numbers));
-$phase4_final_rating_math = $phase4_math_sum / $phase4_math_count;
+    else{
 
-// $phase4_final_rating_science = round(($term1_phase4_science + $term2_phase4_science + $term3_phase4_science + $term4_phase4_science) / 4);
+        $phase4_final_rating_filipino = 0;
 
-$phase4_science_numbers = array($term1_phase4_science, $term2_phase4_science, $term3_phase4_science, $term4_phase4_science);
-$phase4_science_sum = array_sum($phase4_science_numbers);
-$phase4_science_count = count(array_filter($phase4_science_numbers));
-$phase4_final_rating_science = $phase4_science_sum / $phase4_science_count;
+    }
 
-// $phase4_final_rating_AP = round(($term1_phase4_araling_panlipunan + $term2_phase4_araling_panlipunan + $term3_phase4_araling_panlipunan + $term4_phase4_araling_panlipunan) / 4);
+   
 
-$phase4_ap_numbers = array($term1_phase4_araling_panlipunan, $term2_phase4_araling_panlipunan, $term3_phase4_araling_panlipunan, $term4_phase4_araling_panlipunan);
-$phase4_ap_sum = array_sum($phase4_ap_numbers);
-$phase4_ap_count = count(array_filter($phase4_ap_numbers));
-$phase4_final_rating_AP = $phase4_ap_sum / $phase4_ap_count;
+    // $phase4_final_rating_english = round(($term1_phase4_english + $term2_phase4_english + $term3_phase4_english + $term4_phase4_english) / 4);
 
-// $phase4_final_rating_epp_tle = round(($term1_phase4_epp_tle + $term2_phase4_epp_tle + $term3_phase4_epp_tle + $term4_phase4_epp_tle) / 4);
+    
+    $phase4_english_numbers = array($term1_phase4_english, $term2_phase4_english, $term3_phase4_english, $term4_phase4_english);
+    $phase4_english_count = count(array_filter($phase4_english_numbers));
+    if($phase4_english_count != 0 ){
+        $phase4_english_sum = array_sum($phase4_english_numbers);
 
-$phase4_epp_tle_numbers = array($term1_phase4_epp_tle, $term2_phase4_epp_tle, $term3_phase4_epp_tle, $term4_phase4_epp_tle);
-$phase4_epp_tle_sum = array_sum($phase4_epp_tle_numbers);
-$phase4_epp_tle_count = count(array_filter($phase4_epp_tle_numbers));
-$phase4_final_rating_epp_tle = $phase4_epp_tle_sum / $phase4_epp_tle_count;
+        $phase4_final_rating_english = $phase4_english_sum / $phase4_english_count;
+    }
+    
+    else{
 
-// $phase4_final_rating_mapeh = round(($term1_phase4_average_of_mapeh + $term2_phase4_average_of_mapeh + $term3_phase4_average_of_mapeh + $term4_phase4_average_of_mapeh) / 4 );
-
-$phase4_mapeh_numbers = array($term1_phase4_average_of_mapeh, $term2_phase4_average_of_mapeh, $term3_phase4_average_of_mapeh, $term4_phase4_average_of_mapeh);
-$phase4_mapeh_sum = array_sum($phase4_mapeh_numbers);
-$phase4_mapeh_count = count(array_filter($phase4_mapeh_numbers));
-$phase4_final_rating_mapeh = $phase4_mapeh_sum / $phase4_mapeh_count;
-
-// $phase4_final_rating_music = round(($term1_phase4_music + $term2_phase4_music + $term3_phase4_music + $term4_phase4_music) / 4);
-
-$phase4_music_numbers = array($term1_phase4_music, $term2_phase4_music, $term3_phase4_music, $term4_phase4_music);
-$phase4_music_sum = array_sum($phase4_music_numbers);
-$phase4_music_count = count(array_filter($phase4_music_numbers));
-$phase4_final_rating_music =  $phase4_music_sum / $phase4_music_count;
-
-// $phase4_final_rating_arts = round(($term1_phase4_arts + $term2_phase4_arts + $term3_phase4_arts + $term4_phase4_arts ) / 4);
-
-$phase4_arts_numbers = array($term1_phase4_arts, $term2_phase4_arts, $term3_phase4_arts, $term4_phase4_arts);
-$phase4_arts_sum = array_sum($phase4_arts_numbers);
-$phase4_arts_count = count(array_filter($phase4_ap_numbers));
-$phase4_final_rating_arts =  $phase4_arts_sum / $phase4_arts_count;
-
-// $phase4_final_rating_PE = round(($term1_phase4_pe + $term2_phase4_pe + $term3_phase4_pe + $term4_phase4_pe) / 4);
-
-$phase4_pe_numbers = array($term1_phase4_pe, $term2_phase4_pe, $term3_phase4_pe, $term4_phase4_pe);
-$phase4_pe_sum = array_sum($phase4_pe_numbers);
-$phase4_pe_count = count(array_filter($phase4_pe_numbers));
-$phase4_final_rating_PE = $phase4_pe_sum / $phase4_pe_count;
-
-// $phase4_final_rating_health = round(($term1_phase4_health + $term2_phase4_health + $term3_phase4_health + $term4_phase4_health)/ 4);
-
-$phase4_health_numbers = array($term1_phase4_health, $term2_phase4_health, $term3_phase4_health, $term4_phase4_health);
-$phase4_health_sum = array_sum($phase4_health_numbers);
-$phase4_health_count = count(array_filter($phase4_health_numbers));
-$phase4_final_rating_health = $phase4_health_sum / $phase4_health_count;
-
- // $phase4_final_rating_esp = round(($term1_phase4_esp + $term2_phase4_esp + $term3_phase4_esp + $term4_phase4_esp) / 4);
-
- $phase4_esp_numbers = array($term1_phase4_esp, $term2_phase4_esp, $term3_phase4_esp, $term4_phase4_esp);
- $phase4_esp_sum = array_sum($phase4_esp_numbers);
- $phase4_esp_count = count (array_filter($phase4_esp_numbers));
- $phase4_final_rating_esp = $phase4_esp_sum / $phase4_esp_count;
+        $phase4_final_rating_english = 0;
+    }
 
 
+    // $phase4_final_rating_math = round(($term1_phase4_mathematics + $term2_phase4_mathematics + $term3_phase4_mathematics + $term4_phase4_mathematics ) / 4);
 
- // $phase4_final_rating_arabic_language = round(($term1_phase4_arabic_language + $term2_phase4_arabic_language + $term3_phase4_arabic_language + $term4_phase4_arabic_language) / 4);
+    $phase4_math_numbers = array($term1_phase4_mathematics, $term2_phase4_mathematics,  $term3_phase4_mathematics, $term4_phase4_mathematics);
+    $phase4_math_count = count(array_filter($phase4_math_numbers));
+    
+    if($phase4_math_count != 0){
+        $phase4_math_sum = array_sum($phase4_math_numbers);
+    
+        $phase4_final_rating_math = $phase4_math_sum / $phase4_math_count;
 
- $phase4_arabic_numbers = array($term1_phase4_arabic_language, $term2_phase4_arabic_language, $term3_phase4_arabic_language, $term4_phase4_arabic_language);
- $phase4_arabic_sum = array_sum($phase4_arabic_numbers);
- $phase4_arabic_count = count(array_filter($phase4_arabic_numbers));
- $phase4_final_rating_arabic_language = $phase4_arabic_sum / $phase4_arabic_count;
+    }
 
-// $phase4_final_rating_islamic_values = round(($term1_phase4_islamic_values + $term2_phase4_islamic_values + $term3_phase4_islamic_values + $term4_phase4_islamic_values) / 4);
+    else{
+        $phase4_final_rating_math = 0;
 
-$phase4_islamic_numbers = array($term1_phase4_islamic_values, $term2_phase4_islamic_values, $term3_phase4_islamic_values, $term4_phase4_islamic_values);
-$phase4_islamic_sum = array_sum($phase4_islamic_numbers);
-$phase4_islamic_count = count(array_filter($phase4_islamic_numbers));
-$phase4_final_rating_islamic_values = $phase4_islamic_sum / $phase4_islamic_count;
+    }
+
+   
+
+    // $phase4_final_rating_science = round(($term1_phase4_science + $term2_phase4_science + $term3_phase4_science + $term4_phase4_science) / 4);
+
+    $phase4_science_numbers = array($term1_phase4_science, $term2_phase4_science, $term3_phase4_science, $term4_phase4_science);
+    $phase4_science_count = count(array_filter($phase4_science_numbers));
+    
+    if($phase4_science_count != 0){
+
+        $phase4_science_sum = array_sum($phase4_science_numbers);
+
+    $phase4_final_rating_science = $phase4_science_sum / $phase4_science_count;
+    }
+
+    else{
+
+        $phase4_final_rating_science = 0;
+    }
+
+    
+
+    // $phase4_final_rating_AP = round(($term1_phase4_araling_panlipunan + $term2_phase4_araling_panlipunan + $term3_phase4_araling_panlipunan + $term4_phase4_araling_panlipunan) / 4);
+
+    $phase4_ap_numbers = array($term1_phase4_araling_panlipunan, $term2_phase4_araling_panlipunan, $term3_phase4_araling_panlipunan, $term4_phase4_araling_panlipunan);
+    $phase4_ap_count = count(array_filter($phase4_ap_numbers));
+
+    if($phase4_ap_count != 0){
+        $phase4_ap_sum = array_sum($phase4_ap_numbers);
+
+        $phase4_final_rating_AP = $phase4_ap_sum / $phase4_ap_count;
+
+    }
+
+    else{
+        $phase4_final_rating_AP = 0;
+        
+    }
+
+    // $phase4_final_rating_epp_tle = round(($term1_phase4_epp_tle + $term2_phase4_epp_tle + $term3_phase4_epp_tle + $term4_phase4_epp_tle) / 4);
+
+    $phase4_epp_tle_numbers = array($term1_phase4_epp_tle, $term2_phase4_epp_tle, $term3_phase4_epp_tle, $term4_phase4_epp_tle);
+    $phase4_epp_tle_count = count(array_filter($phase4_epp_tle_numbers));
+
+    if($phase4_epp_tle_count != 0){
+
+        $phase4_epp_tle_sum = array_sum($phase4_epp_tle_numbers);
+    
+    $phase4_final_rating_epp_tle = $phase4_epp_tle_sum / $phase4_epp_tle_count;
+    }
+
+    else{
+        $phase4_final_rating_epp_tle = 0;
+    }
+    
+    
+    
+
+    // $phase4_final_rating_mapeh = round(($term1_phase4_average_of_mapeh + $term2_phase4_average_of_mapeh + $term3_phase4_average_of_mapeh + $term4_phase4_average_of_mapeh) / 4 );
+
+    $phase4_mapeh_numbers = array($term1_phase4_average_of_mapeh, $term2_phase4_average_of_mapeh, $term3_phase4_average_of_mapeh, $term4_phase4_average_of_mapeh);
+    $phase4_mapeh_count = count(array_filter($phase4_mapeh_numbers));
+    
+    if($phase4_mapeh_count != 0){
+
+        $phase4_mapeh_sum = array_sum($phase4_mapeh_numbers);
+    
+        $phase4_final_rating_mapeh = $phase4_mapeh_sum / $phase4_mapeh_count;
+
+    }
+
+    else{
+        
+        $phase4_final_rating_mapeh = 0;
+
+    }
+   
+
+    // $phase4_final_rating_music = round(($term1_phase4_music + $term2_phase4_music + $term3_phase4_music + $term4_phase4_music) / 4);
+
+    $phase4_music_numbers = array($term1_phase4_music, $term2_phase4_music, $term3_phase4_music, $term4_phase4_music);
+    $phase4_music_count = count(array_filter($phase4_music_numbers));
+    
+    if($phase4_music_count != 0){
+        $phase4_music_sum = array_sum($phase4_music_numbers);
+    
+        $phase4_final_rating_music =  $phase4_music_sum / $phase4_music_count;
+
+    }
+
+    else {
+        $phase4_final_rating_music = 0;
+    }
+   
+    
+
+    // $phase4_final_rating_arts = round(($term1_phase4_arts + $term2_phase4_arts + $term3_phase4_arts + $term4_phase4_arts ) / 4);
+
+    
+    $phase4_arts_numbers = array($term1_phase4_arts, $term2_phase4_arts, $term3_phase4_arts, $term4_phase4_arts);
+    $phase4_arts_count = count(array_filter($phase4_arts_numbers)); 
+    
+    if ($phase4_arts_count != 0) {
+        
+        $phase4_arts_sum = array_sum($phase4_arts_numbers);
+    
+        $phase4_final_rating_arts =  $phase4_arts_sum / $phase4_arts_count;
+
+    }
+
+    else{
+        $phase4_final_rating_arts = 0;
+    }
+    
+    // $phase4_final_rating_PE = round(($term1_phase4_pe + $term2_phase4_pe + $term3_phase4_pe + $term4_phase4_pe) / 4);
+
+    $phase4_pe_numbers = array($term1_phase4_pe, $term2_phase4_pe, $term3_phase4_pe, $term4_phase4_pe);
+    $phase4_pe_count = count(array_filter($phase4_pe_numbers));
+    
+    if($phase4_pe_count != 0){
+        $phase4_pe_sum = array_sum($phase4_pe_numbers);
+    
+        $phase4_final_rating_PE = $phase4_pe_sum / $phase4_pe_count;
+    }
+
+    else{
+        $phase4_final_rating_PE = 0;
+    }
+    
+
+    
+
+
+
+    // $phase4_final_rating_health = round(($term1_phase4_health + $term2_phase4_health + $term3_phase4_health + $term4_phase4_health)/ 4);
+
+    $phase4_health_numbers = array($term1_phase4_health, $term2_phase4_health, $term3_phase4_health, $term4_phase4_health);
+    $phase4_health_count = count(array_filter($phase4_health_numbers));
+    
+    if($phase4_health_count != 0){
+        $phase4_health_sum = array_sum($phase4_health_numbers);
+    
+        $phase4_final_rating_health = $phase4_health_sum / $phase4_health_count;
+    }
+
+    else {
+        $phase4_final_rating_health = 0;
+    }
+
+    
+
+     // $phase4_final_rating_esp = round(($term1_phase4_esp + $term2_phase4_esp + $term3_phase4_esp + $term4_phase4_esp) / 4);
+    
+     $phase4_esp_numbers = array($term1_phase4_esp, $term2_phase4_esp, $term3_phase4_esp, $term4_phase4_esp);
+     $phase4_esp_count = count (array_filter($phase4_esp_numbers));
+     
+     if($phase4_esp_count != 0){
+
+        $phase4_esp_sum = array_sum($phase4_esp_numbers);
+     
+        $phase4_final_rating_esp = $phase4_esp_sum / $phase4_esp_count;
+     }
+     else{
+        $phase4_final_rating_esp = 0;
+     }
+     
+
+
+
+     // $phase4_final_rating_arabic_language = round(($term1_phase4_arabic_language + $term2_phase4_arabic_language + $term3_phase4_arabic_language + $term4_phase4_arabic_language) / 4);
+
+    
+     $phase4_arabic_numbers = array($term1_phase4_arabic_language, $term2_phase4_arabic_language, $term3_phase4_arabic_language, $term4_phase4_arabic_language);
+     $phase4_arabic_count = count(array_filter($phase4_arabic_numbers));
+    
+     if($phase4_arabic_count != 0){
+        $phase4_arabic_sum = array_sum($phase4_arabic_numbers);
+     
+        $phase4_final_rating_arabic_language = $phase4_arabic_sum / $phase4_arabic_count;
+     }
+
+     else{
+
+        $phase4_final_rating_arabic_language = 0;
+
+     }
+
+    
+
+    // $phase4_final_rating_islamic_values = round(($term1_phase4_islamic_values + $term2_phase4_islamic_values + $term3_phase4_islamic_values + $term4_phase4_islamic_values) / 4);
+
+    $phase4_islamic_numbers = array($term1_phase4_islamic_values, $term2_phase4_islamic_values, $term3_phase4_islamic_values, $term4_phase4_islamic_values);
+    $phase4_islamic_count = count(array_filter($phase4_islamic_numbers));
+    
+    if($phase4_islamic_count !=0){
+        $phase4_islamic_sum = array_sum($phase4_islamic_numbers);
+    
+        $phase4_final_rating_islamic_values = $phase4_islamic_sum / $phase4_islamic_count;
+    }
+
+    else{
+        $phase4_final_rating_islamic_values = 0;
+    }
 
     // valdiation of phase 4 
 
@@ -4031,43 +4956,101 @@ $phase4_final_rating_islamic_values = $phase4_islamic_sum / $phase4_islamic_coun
 
     // $phase4_term1_general_average = round(($term1_phase4_mother_tongue + $term1_phase4_filipino + $term1_phase4_english + $term1_phase4_mathematics + $term1_phase4_science + $term1_phase4_araling_panlipunan + $term1_phase4_epp_tle + $term1_phase4_average_of_mapeh + $term1_phase4_esp) / 9);
     
-$phase4_term1_gen_numbers = array($term1_phase4_mother_tongue + $term1_phase4_filipino + $term1_phase4_english + $term1_phase4_mathematics + $term1_phase4_science + $term1_phase4_araling_panlipunan, $term1_phase4_epp_tle, $term1_phase4_average_of_mapeh, $term1_phase4_esp);
-$phase4_term1_gen_sum = array_sum($phase4_term1_gen_numbers);
-$phase4_term1_gen_count = count(array_filter($phase4_term1_gen_numbers));
-$phase4_term1_general_average = $phase4_term1_gen_sum / $phase4_term1_gen_count;
+    $phase4_term1_gen_numbers = array($term1_phase4_mother_tongue, $term1_phase4_filipino, $term1_phase4_english, $term1_phase4_mathematics, $term1_phase4_science, $term1_phase4_araling_panlipunan, $term1_phase4_epp_tle, $term1_phase4_average_of_mapeh, $term1_phase4_esp);
+    $phase4_term1_gen_count = count(array_filter($phase4_term1_gen_numbers));
 
-// $phase4_term2_general_average = round(($term2_phase4_mother_tongue + $term2_phase4_filipino + $term2_phase4_english + $term2_phase4_mathematics + $term2_phase4_science + $term2_phase4_araling_panlipunan + $term2_phase4_epp_tle + $term2_phase4_average_of_mapeh + $term2_phase4_esp) / 9);
-$phase4_term2_gen_numbers = array($term2_phase4_mother_tongue, $term2_phase4_filipino, $term2_phase4_english + $term2_phase4_mathematics, $term2_phase4_science + $term2_phase4_araling_panlipunan, $term2_phase4_epp_tle, $term2_phase4_average_of_mapeh, $term2_phase4_esp);
-$phase4_term2_gen_sum = array_sum($phase4_term2_gen_numbers);
-$phase4_term2_gen_count = count(array_filter($phase4_term2_gen_numbers));
-$phase4_term2_general_average = $phase4_term2_gen_sum / $phase4_term2_gen_count;
+    if($phase4_term1_gen_count != 0){
+        
+        $phase4_term1_gen_sum = array_sum($phase4_term1_gen_numbers);
+    
+        $phase4_term1_general_average = $phase4_term1_gen_sum / $phase4_term1_gen_count;
+        
+    }
+    
+    else{
+        $phase4_term1_general_average = 0;
+    }
+    
+    // $phase4_term2_general_average = round(($term2_phase4_mother_tongue + $term2_phase4_filipino + $term2_phase4_english + $term2_phase4_mathematics + $term2_phase4_science + $term2_phase4_araling_panlipunan + $term2_phase4_epp_tle + $term2_phase4_average_of_mapeh + $term2_phase4_esp) / 9);
+    $phase4_term2_gen_numbers = array($term2_phase4_mother_tongue, $term2_phase4_filipino, $term2_phase4_english, $term2_phase4_mathematics, $term2_phase4_science, $term2_phase4_araling_panlipunan, $term2_phase4_epp_tle, $term2_phase4_average_of_mapeh, $term2_phase4_esp);
+    $phase4_term2_gen_count = count(array_filter($phase4_term2_gen_numbers));
+    
+    if ($phase4_term2_gen_count != 0){
+        
+        $phase4_term2_gen_sum = array_sum($phase4_term2_gen_numbers);
+    
+        $phase4_term2_general_average = $phase4_term2_gen_sum / $phase4_term2_gen_count;
 
- // $phase4_term3_general_average = round(($term3_phase4_mother_tongue + $term3_phase4_filipino + $term3_phase4_english + $term3_phase4_mathematics + $term3_phase4_science + $term3_phase4_araling_panlipunan + $term3_phase4_epp_tle + $term3_phase4_average_of_mapeh + $term3_phase4_esp) / 9);
+    }
 
- $phase4_term3_gen_numbers = array($term3_phase4_mother_tongue, $term3_phase4_filipino, $term3_phase4_english, $term3_phase4_mathematics, $term3_phase4_science + $term3_phase4_araling_panlipunan, $term3_phase4_epp_tle, $term3_phase4_average_of_mapeh, $term3_phase4_esp);
- $phase4_term3_gen_sum = array_sum($phase4_term3_gen_numbers);
- $phase4_term3_gen_count = count(array_filter($phase4_term3_gen_numbers));
- $phase4_term3_general_average = $phase4_term3_gen_sum / $phase4_term3_gen_count;
+    else {
+        $phase4_term2_general_average = 0;
+    }
+
+   
+    
+     // $phase4_term3_general_average = round(($term3_phase4_mother_tongue + $term3_phase4_filipino + $term3_phase4_english + $term3_phase4_mathematics + $term3_phase4_science + $term3_phase4_araling_panlipunan + $term3_phase4_epp_tle + $term3_phase4_average_of_mapeh + $term3_phase4_esp) / 9);
+    
+     $phase4_term3_gen_numbers = array($term3_phase4_mother_tongue, $term3_phase4_filipino, $term3_phase4_english, $term3_phase4_mathematics, $term3_phase4_science, $term3_phase4_araling_panlipunan, $term3_phase4_epp_tle, $term3_phase4_average_of_mapeh, $term3_phase4_esp);
+     $phase4_term3_gen_count = count(array_filter($phase4_term3_gen_numbers));
+     
+
+        if($phase4_term3_gen_count != 0){
+            $phase4_term3_gen_sum = array_sum($phase4_term3_gen_numbers);
+     
+            $phase4_term3_general_average = $phase4_term3_gen_sum / $phase4_term3_gen_count;
+
+        }
+
+        else{
+            $phase4_term3_general_average = 0;
+
+        }
 
 
+     
+    
+    
+    
+     // $phase4_term4_general_average = round(($term4_phase4_mother_tongue + $term4_phase4_filipino + $term4_phase4_english + $term4_phase4_mathematics + $term4_phase4_science + $term4_phase4_araling_panlipunan + $term4_phase4_epp_tle + $term4_phase4_average_of_mapeh + $term4_phase4_esp) / 9);
+    
+     $phase4_term4_gen_numbers = array($term4_phase4_mother_tongue, $term4_phase4_filipino, $term4_phase4_english, $term4_phase4_mathematics, $term4_phase4_science, $term4_phase4_araling_panlipunan, $term4_phase4_epp_tle, $term4_phase4_average_of_mapeh, $term4_phase4_esp);
+     $phase4_term4_gen_count = count(array_filter($phase4_term4_gen_numbers));
+    
+        if($phase4_term4_gen_count != 0){
+            $phase4_term4_gen_sum = array_sum($phase4_term4_gen_numbers);
+     
+            $phase4_term4_general_average = $phase4_term4_gen_sum / $phase4_term4_gen_count;
 
- // $phase4_term4_general_average = round(($term4_phase4_mother_tongue + $term4_phase4_filipino + $term4_phase4_english + $term4_phase4_mathematics + $term4_phase4_science + $term4_phase4_araling_panlipunan + $term4_phase4_epp_tle + $term4_phase4_average_of_mapeh + $term4_phase4_esp) / 9);
+        }
 
- $phase4_term4_gen_numbers = array($term4_phase4_mother_tongue, $term4_phase4_filipino, $term4_phase4_english, $term4_phase4_mathematics, $term4_phase4_science + $term4_phase4_araling_panlipunan, $term4_phase4_epp_tle, $term4_phase4_average_of_mapeh, $term4_phase4_esp);
- $phase4_term4_gen_sum = array_sum($phase4_term4_gen_numbers);
- $phase4_term4_gen_count = count(array_filter($phase4_term4_gen_numbers));
- $phase4_term4_general_average = $phase4_term4_gen_sum / $phase4_term4_gen_count;
+        else{
+            $phase4_term4_general_average = 0;
+
+        }
+
+    
+    
+    
+    
+    
+     // $phase4_term5_general_average = round(($phase4_final_rating_mother_tongue  + $phase4_final_rating_filipino + $phase4_final_rating_english + $phase4_final_rating_math + $phase4_final_rating_science + $phase4_final_rating_AP + $phase4_final_rating_epp_tle + $phase4_final_rating_mapeh + $phase4_final_rating_esp) / 9);
 
 
+     $phase4_term5_gen_numbers = array($phase4_final_rating_mother_tongue, $phase4_final_rating_filipino, $phase4_final_rating_english, $phase4_final_rating_math, $phase4_final_rating_science, $phase4_final_rating_AP, $phase4_final_rating_epp_tle, $phase4_final_rating_mapeh, $phase4_final_rating_esp);
+     $phase4_term5_gen_count = count(array_filter($phase4_term5_gen_numbers));
 
+     if($phase4_term5_gen_count != 0){
+        
+        $phase4_term5_gen_sum = array_sum($phase4_term5_gen_numbers);
+        
+        $phase4_term5_general_average = $phase4_term5_gen_sum / $phase4_term5_gen_count;
+   }
 
- // $phase4_term5_general_average = round(($phase4_final_rating_mother_tongue  + $phase4_final_rating_filipino + $phase4_final_rating_english + $phase4_final_rating_math + $phase4_final_rating_science + $phase4_final_rating_AP + $phase4_final_rating_epp_tle + $phase4_final_rating_mapeh + $phase4_final_rating_esp) / 9);
+     else{
+        $phase4_term5_general_average = 0;
 
-
- $phase4_term5_gen_numbers = array($phase4_final_rating_mother_tongue  + $phase4_final_rating_filipino + $phase4_final_rating_english, $phase4_final_rating_math, $phase4_final_rating_science, $phase4_final_rating_AP, $phase4_final_rating_epp_tle, $phase4_final_rating_mapeh, $phase4_final_rating_esp);
- $phase4_term5_gen_sum = array_sum($phase4_term5_gen_numbers);
- $phase4_term5_gen_count = count(array_filter($phase4_term5_gen_numbers));
- $phase4_term5_general_average = $phase4_term5_gen_sum / $phase4_term5_gen_count;
+     }
 
 
 
@@ -4184,147 +5167,349 @@ $phase4_term2_general_average = $phase4_term2_gen_sum / $phase4_term2_gen_count;
     //phase 5 average mapeh
 
     $phase5_term1_average_mapeh_numbers = array($term1_phase5_music, $term1_phase5_arts, $term1_phase5_pe, $term1_phase5_health);
-    $phase5_term1_average_mapeh_sum = array_sum($phase5_term1_average_mapeh_numbers);
     $phase5_term1_average_mapeh_count = count(array_filter($phase5_term1_average_mapeh_numbers));
-    $term1_phase5_average_of_mapeh = $phase5_term1_average_mapeh_sum / $phase5_term1_average_mapeh_count;
-   
-  
-    $phase5_term2_average_mapeh_numbers = array($term2_phase5_music, $term2_phase5_arts, $term2_phase5_pe, $term2_phase5_health);
-    $phase5_term2_average_mapeh_sum = array_sum($phase5_term2_average_mapeh_numbers);
-    $phase5_term2_average_mapeh_count = count(array_filter($phase5_term2_average_mapeh_numbers));
-    $term2_phase5_average_of_mapeh = $phase5_term2_average_mapeh_sum / $phase5_term2_average_mapeh_count;
+        if( $phase5_term1_average_mapeh_count != 0 ){
 
+            $phase5_term1_average_mapeh_sum = array_sum($phase5_term1_average_mapeh_numbers);
+           
+            $term1_phase5_average_of_mapeh = $phase5_term1_average_mapeh_sum / $phase5_term1_average_mapeh_count;
+        }
+
+        else{
+            $term1_phase5_average_of_mapeh = 0;
+        }
+  
+
+    // $term2_phase5_average_of_mapeh = round(($term2_phase5_music + $term2_phase5_arts + $term2_phase5_pe + $term2_phase5_health) / 4) ;
+
+    $phase5_term2_average_mapeh_numbers = array($term2_phase5_music, $term2_phase5_arts, $term2_phase5_pe, $term2_phase5_health);
+    $phase5_term2_average_mapeh_count = count(array_filter($phase5_term2_average_mapeh_numbers));
+
+    if($phase5_term2_average_mapeh_count !=0){
+
+        $phase5_term2_average_mapeh_sum = array_sum($phase5_term2_average_mapeh_numbers);
+        
+        $term2_phase5_average_of_mapeh = $phase5_term2_average_mapeh_sum / $phase5_term2_average_mapeh_count;
+    }
+
+    else{
+        $term2_phase5_average_of_mapeh = 0;
+    }
+
+    // $term3_phase5_average_of_mapeh = round(($term3_phase5_music + $term3_phase5_arts + $term3_phase5_pe + $term3_phase5_health) / 4) ;
 
     $phase5_term3_average_mapeh_numbers = array($term3_phase5_music, $term3_phase5_arts, $term3_phase5_pe, $term3_phase5_health);
-    $phase5_term3_average_mapeh_sum = array_sum($phase5_term3_average_mapeh_numbers);
     $phase5_term3_average_mapeh_count = count(array_filter($phase5_term3_average_mapeh_numbers));
-    $term3_phase5_average_of_mapeh = $phase5_term3_average_mapeh_sum / $phase5_term3_average_mapeh_count;
+    
+    if($phase5_term3_average_mapeh_count !=0){
+
+        $phase5_term3_average_mapeh_sum = array_sum($phase5_term3_average_mapeh_numbers);
+        $term3_phase5_average_of_mapeh = $phase5_term3_average_mapeh_sum / $phase5_term3_average_mapeh_count;
+    }
+    
+    else{
+        
+        $term3_phase5_average_of_mapeh = 0;
+
+    }
 
 
 
+    // $term4_phase5_average_of_mapeh = round(($term4_phase5_music + $term4_phase5_arts + $term4_phase5_pe + $term4_phase5_health) / 4) ;
+
+
+    
     $phase5_term4_average_mapeh_numbers = array($term4_phase5_music, $term4_phase5_arts, $term4_phase5_pe, $term4_phase5_health);
-    $phase5_term4_average_mapeh_sum = array_sum($phase5_term4_average_mapeh_numbers);
     $phase5_term4_average_mapeh_count = count(array_filter($phase5_term4_average_mapeh_numbers));
-    $term4_phase5_average_of_mapeh = $phase5_term4_average_mapeh_sum / $phase5_term4_average_mapeh_count;
+    
+    if($phase5_term4_average_mapeh_count !=0 ){
+        $phase5_term4_average_mapeh_sum = array_sum($phase5_term4_average_mapeh_numbers);
+        
+        $term4_phase5_average_of_mapeh = $phase5_term4_average_mapeh_sum / $phase5_term4_average_mapeh_count;
+    }
 
-
-
-        // phase 5 final rating
-
-    $phase5_term5 ='Final Rating';
-  
-
+    else{
+        $term4_phase5_average_of_mapeh = 0;
+    }
    
+
+    //final rating
+    $phase5_term5 ='Final Rating';
   
 
     // $phase5_final_rating_mother_tongue = round(($term1_phase5_mother_tongue + $term2_phase5_mother_tongue + 
     // $term3_phase5_mother_tongue + $term4_phase5_mother_tongue) / 4);
-    $phase5_mt_numbers = array($term1_phase5_mother_tongue, $term2_phase5_mother_tongue, $term3_phase5_mother_tongue,$term4_phase5_mother_tongue);
-    $phase5_mt_sum = array_sum($phase5_mt_numbers);
-    $phase5_mt_count = count(array_filter($phase5_mt_numbers));
-    $phase5_final_rating_mother_tongue = $phase5_mt_sum / $phase5_mt_count;
+
+        $phase5_mt_numbers = array($term1_phase5_mother_tongue, $term2_phase5_mother_tongue, $term3_phase5_mother_tongue,$term4_phase5_mother_tongue);
+        $phase5_mt_count = count(array_filter($phase5_mt_numbers));
+        if($phase5_mt_count != 0){
+
+            $phase5_mt_sum = array_sum($phase5_mt_numbers);
+        
+            $phase5_final_rating_mother_tongue = $phase5_mt_sum / $phase5_mt_count;
+        }
+       else{
+        $phase5_final_rating_mother_tongue = 0;
+       }
 
 
-// $phase5_final_rating_filipino = round(($term1_phase5_filipino + $term2_phase5_filipino + $term3_phase5_filipino + $term4_phase5_filipino) / 4);
+    // $phase5_final_rating_filipino = round(($term1_phase5_filipino + $term2_phase5_filipino + $term3_phase5_filipino + $term4_phase5_filipino) / 4);
 
-$phase5_filipino_numbers = array($term1_phase5_filipino, $term2_phase5_filipino, $term3_phase5_filipino, $term4_phase5_filipino);
-$phase5_filipino_sum = array_sum($phase5_filipino_numbers);
-$phase5_filipino_count = count(array_filter($phase5_filipino_numbers));
-$phase5_final_rating_filipino = $phase5_filipino_sum / $phase5_filipino_count;
+    $phase5_filipino_numbers = array($term1_phase5_filipino, $term2_phase5_filipino, $term3_phase5_filipino, $term4_phase5_filipino);
+    $phase5_filipino_count = count(array_filter($phase5_filipino_numbers));
 
-// $phase5_final_rating_english = round(($term1_phase5_english + $term2_phase5_english + $term3_phase5_english + $term4_phase5_english) / 4);
+    if($phase5_filipino_count != 0){
 
-$phase5_english_numbers = array($term1_phase5_english, $term2_phase5_english, $term3_phase5_english, $term4_phase5_english);
-$phase5_english_sum = array_sum($phase5_english_numbers);
-$phase5_english_count = count(array_filter($phase5_english_numbers));
-$phase5_final_rating_english = $phase5_english_sum / $phase5_english_count;
+        $phase5_filipino_sum = array_sum($phase5_filipino_numbers);
 
+        $phase5_final_rating_filipino = $phase5_filipino_sum / $phase5_filipino_count;
 
-// $phase5_final_rating_math = round(($term1_phase5_mathematics + $term2_phase5_mathematics + $term3_phase5_mathematics + $term4_phase5_mathematics ) / 4);
+    }
 
-$phase5_math_numbers = array($term1_phase5_mathematics, $term2_phase5_mathematics,  $term3_phase5_mathematics, $term4_phase5_mathematics);
-$phase5_math_sum = array_sum($phase5_math_numbers);
-$phase5_math_count = count(array_filter($phase5_math_numbers));
-$phase5_final_rating_math = $phase5_math_sum / $phase5_math_count;
+    else{
 
-// $phase5_final_rating_science = round(($term1_phase5_science + $term2_phase5_science + $term3_phase5_science + $term4_phase5_science) / 4);
+        $phase5_final_rating_filipino = 0;
 
-$phase5_science_numbers = array($term1_phase5_science, $term2_phase5_science, $term3_phase5_science, $term4_phase5_science);
-$phase5_science_sum = array_sum($phase5_science_numbers);
-$phase5_science_count = count(array_filter($phase5_science_numbers));
-$phase5_final_rating_science = $phase5_science_sum / $phase5_science_count;
+    }
 
-// $phase5_final_rating_AP = round(($term1_phase5_araling_panlipunan + $term2_phase5_araling_panlipunan + $term3_phase5_araling_panlipunan + $term4_phase5_araling_panlipunan) / 4);
+   
 
-$phase5_ap_numbers = array($term1_phase5_araling_panlipunan, $term2_phase5_araling_panlipunan, $term3_phase5_araling_panlipunan, $term4_phase5_araling_panlipunan);
-$phase5_ap_sum = array_sum($phase5_ap_numbers);
-$phase5_ap_count = count(array_filter($phase5_ap_numbers));
-$phase5_final_rating_AP = $phase5_ap_sum / $phase5_ap_count;
+    // $phase5_final_rating_english = round(($term1_phase5_english + $term2_phase5_english + $term3_phase5_english + $term4_phase5_english) / 4);
 
-// $phase5_final_rating_epp_tle = round(($term1_phase5_epp_tle + $term2_phase5_epp_tle + $term3_phase5_epp_tle + $term4_phase5_epp_tle) / 4);
+    
+    $phase5_english_numbers = array($term1_phase5_english, $term2_phase5_english, $term3_phase5_english, $term4_phase5_english);
+    $phase5_english_count = count(array_filter($phase5_english_numbers));
+    if($phase5_english_count != 0 ){
+        $phase5_english_sum = array_sum($phase5_english_numbers);
 
-$phase5_epp_tle_numbers = array($term1_phase5_epp_tle, $term2_phase5_epp_tle, $term3_phase5_epp_tle, $term4_phase5_epp_tle);
-$phase5_epp_tle_sum = array_sum($phase5_epp_tle_numbers);
-$phase5_epp_tle_count = count(array_filter($phase5_epp_tle_numbers));
-$phase5_final_rating_epp_tle = $phase5_epp_tle_sum / $phase5_epp_tle_count;
+        $phase5_final_rating_english = $phase5_english_sum / $phase5_english_count;
+    }
+    
+    else{
 
-// $phase5_final_rating_mapeh = round(($term1_phase5_average_of_mapeh + $term2_phase5_average_of_mapeh + $term3_phase5_average_of_mapeh + $term4_phase5_average_of_mapeh) / 4 );
-
-$phase5_mapeh_numbers = array($term1_phase5_average_of_mapeh, $term2_phase5_average_of_mapeh, $term3_phase5_average_of_mapeh, $term4_phase5_average_of_mapeh);
-$phase5_mapeh_sum = array_sum($phase5_mapeh_numbers);
-$phase5_mapeh_count = count(array_filter($phase5_mapeh_numbers));
-$phase5_final_rating_mapeh = $phase5_mapeh_sum / $phase5_mapeh_count;
-
-// $phase5_final_rating_music = round(($term1_phase5_music + $term2_phase5_music + $term3_phase5_music + $term4_phase5_music) / 4);
-
-$phase5_music_numbers = array($term1_phase5_music, $term2_phase5_music, $term3_phase5_music, $term4_phase5_music);
-$phase5_music_sum = array_sum($phase5_music_numbers);
-$phase5_music_count = count(array_filter($phase5_music_numbers));
-$phase5_final_rating_music =  $phase5_music_sum / $phase5_music_count;
-
-// $phase5_final_rating_arts = round(($term1_phase5_arts + $term2_phase5_arts + $term3_phase5_arts + $term4_phase5_arts ) / 4);
-
-$phase5_arts_numbers = array($term1_phase5_arts, $term2_phase5_arts, $term3_phase5_arts, $term4_phase5_arts);
-$phase5_arts_sum = array_sum($phase5_arts_numbers);
-$phase5_arts_count = count(array_filter($phase5_ap_numbers));
-$phase5_final_rating_arts =  $phase5_arts_sum / $phase5_arts_count;
-
-// $phase5_final_rating_PE = round(($term1_phase5_pe + $term2_phase5_pe + $term3_phase5_pe + $term4_phase5_pe) / 4);
-
-$phase5_pe_numbers = array($term1_phase5_pe, $term2_phase5_pe, $term3_phase5_pe, $term4_phase5_pe);
-$phase5_pe_sum = array_sum($phase5_pe_numbers);
-$phase5_pe_count = count(array_filter($phase5_pe_numbers));
-$phase5_final_rating_PE = $phase5_pe_sum / $phase5_pe_count;
-
-// $phase5_final_rating_health = round(($term1_phase5_health + $term2_phase5_health + $term3_phase5_health + $term4_phase5_health)/ 4);
-
-$phase5_health_numbers = array($term1_phase5_health, $term2_phase5_health, $term3_phase5_health, $term4_phase5_health);
-$phase5_health_sum = array_sum($phase5_health_numbers);
-$phase5_health_count = count(array_filter($phase5_health_numbers));
-$phase5_final_rating_health = $phase5_health_sum / $phase5_health_count;
-
- // $phase5_final_rating_esp = round(($term1_phase5_esp + $term2_phase5_esp + $term3_phase5_esp + $term4_phase5_esp) / 4);
-
- $phase5_esp_numbers = array($term1_phase5_esp, $term2_phase5_esp, $term3_phase5_esp, $term4_phase5_esp);
- $phase5_esp_sum = array_sum($phase5_esp_numbers);
- $phase5_esp_count = count (array_filter($phase5_esp_numbers));
- $phase5_final_rating_esp = $phase5_esp_sum / $phase5_esp_count;
+        $phase5_final_rating_english = 0;
+    }
 
 
+    // $phase5_final_rating_math = round(($term1_phase5_mathematics + $term2_phase5_mathematics + $term3_phase5_mathematics + $term4_phase5_mathematics ) / 4);
 
- // $phase5_final_rating_arabic_language = round(($term1_phase5_arabic_language + $term2_phase5_arabic_language + $term3_phase5_arabic_language + $term4_phase5_arabic_language) / 4);
+    $phase5_math_numbers = array($term1_phase5_mathematics, $term2_phase5_mathematics,  $term3_phase5_mathematics, $term4_phase5_mathematics);
+    $phase5_math_count = count(array_filter($phase5_math_numbers));
+    
+    if($phase5_math_count != 0){
+        $phase5_math_sum = array_sum($phase5_math_numbers);
+    
+        $phase5_final_rating_math = $phase5_math_sum / $phase5_math_count;
 
- $phase5_arabic_numbers = array($term1_phase5_arabic_language, $term2_phase5_arabic_language, $term3_phase5_arabic_language, $term4_phase5_arabic_language);
- $phase5_arabic_sum = array_sum($phase5_arabic_numbers);
- $phase5_arabic_count = count(array_filter($phase5_arabic_numbers));
- $phase5_final_rating_arabic_language = $phase5_arabic_sum / $phase5_arabic_count;
+    }
 
-// $phase5_final_rating_islamic_values = round(($term1_phase5_islamic_values + $term2_phase5_islamic_values + $term3_phase5_islamic_values + $term4_phase5_islamic_values) / 4);
+    else{
+        $phase5_final_rating_math = 0;
 
-$phase5_islamic_numbers = array($term1_phase5_islamic_values, $term2_phase5_islamic_values, $term3_phase5_islamic_values, $term4_phase5_islamic_values);
-$phase5_islamic_sum = array_sum($phase5_islamic_numbers);
-$phase5_islamic_count = count(array_filter($phase5_islamic_numbers));
-$phase5_final_rating_islamic_values = $phase5_islamic_sum / $phase5_islamic_count;
+    }
+
+   
+
+    // $phase5_final_rating_science = round(($term1_phase5_science + $term2_phase5_science + $term3_phase5_science + $term4_phase5_science) / 4);
+
+    $phase5_science_numbers = array($term1_phase5_science, $term2_phase5_science, $term3_phase5_science, $term4_phase5_science);
+    $phase5_science_count = count(array_filter($phase5_science_numbers));
+    
+    if($phase5_science_count != 0){
+
+        $phase5_science_sum = array_sum($phase5_science_numbers);
+
+    $phase5_final_rating_science = $phase5_science_sum / $phase5_science_count;
+    }
+
+    else{
+
+        $phase5_final_rating_science = 0;
+    }
+
+    
+
+    // $phase5_final_rating_AP = round(($term1_phase5_araling_panlipunan + $term2_phase5_araling_panlipunan + $term3_phase5_araling_panlipunan + $term4_phase5_araling_panlipunan) / 4);
+
+    $phase5_ap_numbers = array($term1_phase5_araling_panlipunan, $term2_phase5_araling_panlipunan, $term3_phase5_araling_panlipunan, $term4_phase5_araling_panlipunan);
+    $phase5_ap_count = count(array_filter($phase5_ap_numbers));
+
+    if($phase5_ap_count != 0){
+        $phase5_ap_sum = array_sum($phase5_ap_numbers);
+
+        $phase5_final_rating_AP = $phase5_ap_sum / $phase5_ap_count;
+
+    }
+
+    else{
+        $phase5_final_rating_AP = 0;
+        
+    }
+
+    // $phase5_final_rating_epp_tle = round(($term1_phase5_epp_tle + $term2_phase5_epp_tle + $term3_phase5_epp_tle + $term4_phase5_epp_tle) / 4);
+
+    $phase5_epp_tle_numbers = array($term1_phase5_epp_tle, $term2_phase5_epp_tle, $term3_phase5_epp_tle, $term4_phase5_epp_tle);
+    $phase5_epp_tle_count = count(array_filter($phase5_epp_tle_numbers));
+
+    if($phase5_epp_tle_count != 0){
+
+        $phase5_epp_tle_sum = array_sum($phase5_epp_tle_numbers);
+    
+    $phase5_final_rating_epp_tle = $phase5_epp_tle_sum / $phase5_epp_tle_count;
+    }
+
+    else{
+        $phase5_final_rating_epp_tle = 0;
+    }
+    
+    
+    
+
+    // $phase5_final_rating_mapeh = round(($term1_phase5_average_of_mapeh + $term2_phase5_average_of_mapeh + $term3_phase5_average_of_mapeh + $term4_phase5_average_of_mapeh) / 4 );
+
+    $phase5_mapeh_numbers = array($term1_phase5_average_of_mapeh, $term2_phase5_average_of_mapeh, $term3_phase5_average_of_mapeh, $term4_phase5_average_of_mapeh);
+    $phase5_mapeh_count = count(array_filter($phase5_mapeh_numbers));
+    
+    if($phase5_mapeh_count != 0){
+
+        $phase5_mapeh_sum = array_sum($phase5_mapeh_numbers);
+    
+        $phase5_final_rating_mapeh = $phase5_mapeh_sum / $phase5_mapeh_count;
+
+    }
+
+    else{
+        
+        $phase5_final_rating_mapeh = 0;
+
+    }
+   
+
+    // $phase5_final_rating_music = round(($term1_phase5_music + $term2_phase5_music + $term3_phase5_music + $term4_phase5_music) / 4);
+
+    $phase5_music_numbers = array($term1_phase5_music, $term2_phase5_music, $term3_phase5_music, $term4_phase5_music);
+    $phase5_music_count = count(array_filter($phase5_music_numbers));
+    
+    if($phase5_music_count != 0){
+        $phase5_music_sum = array_sum($phase5_music_numbers);
+    
+        $phase5_final_rating_music =  $phase5_music_sum / $phase5_music_count;
+
+    }
+
+    else {
+        $phase5_final_rating_music = 0;
+    }
+   
+    
+
+    // $phase5_final_rating_arts = round(($term1_phase5_arts + $term2_phase5_arts + $term3_phase5_arts + $term4_phase5_arts ) / 4);
+
+    
+    $phase5_arts_numbers = array($term1_phase5_arts, $term2_phase5_arts, $term3_phase5_arts, $term4_phase5_arts);
+    $phase5_arts_count = count(array_filter($phase5_arts_numbers)); 
+    
+    if ($phase5_arts_count != 0) {
+        
+        $phase5_arts_sum = array_sum($phase5_arts_numbers);
+    
+        $phase5_final_rating_arts =  $phase5_arts_sum / $phase5_arts_count;
+
+    }
+
+    else{
+        $phase5_final_rating_arts = 0;
+    }
+    
+    // $phase5_final_rating_PE = round(($term1_phase5_pe + $term2_phase5_pe + $term3_phase5_pe + $term4_phase5_pe) / 4);
+
+    $phase5_pe_numbers = array($term1_phase5_pe, $term2_phase5_pe, $term3_phase5_pe, $term4_phase5_pe);
+    $phase5_pe_count = count(array_filter($phase5_pe_numbers));
+    
+    if($phase5_pe_count != 0){
+        $phase5_pe_sum = array_sum($phase5_pe_numbers);
+    
+        $phase5_final_rating_PE = $phase5_pe_sum / $phase5_pe_count;
+    }
+
+    else{
+        $phase5_final_rating_PE = 0;
+    }
+    
+
+    
+
+
+
+    // $phase5_final_rating_health = round(($term1_phase5_health + $term2_phase5_health + $term3_phase5_health + $term4_phase5_health)/ 4);
+
+    $phase5_health_numbers = array($term1_phase5_health, $term2_phase5_health, $term3_phase5_health, $term4_phase5_health);
+    $phase5_health_count = count(array_filter($phase5_health_numbers));
+    
+    if($phase5_health_count != 0){
+        $phase5_health_sum = array_sum($phase5_health_numbers);
+    
+        $phase5_final_rating_health = $phase5_health_sum / $phase5_health_count;
+    }
+
+    else {
+        $phase5_final_rating_health = 0;
+    }
+
+    
+
+     // $phase5_final_rating_esp = round(($term1_phase5_esp + $term2_phase5_esp + $term3_phase5_esp + $term4_phase5_esp) / 4);
+    
+     $phase5_esp_numbers = array($term1_phase5_esp, $term2_phase5_esp, $term3_phase5_esp, $term4_phase5_esp);
+     $phase5_esp_count = count (array_filter($phase5_esp_numbers));
+     
+     if($phase5_esp_count != 0){
+
+        $phase5_esp_sum = array_sum($phase5_esp_numbers);
+     
+        $phase5_final_rating_esp = $phase5_esp_sum / $phase5_esp_count;
+     }
+     else{
+        $phase5_final_rating_esp = 0;
+     }
+     
+
+
+
+     // $phase5_final_rating_arabic_language = round(($term1_phase5_arabic_language + $term2_phase5_arabic_language + $term3_phase5_arabic_language + $term4_phase5_arabic_language) / 4);
+
+    
+     $phase5_arabic_numbers = array($term1_phase5_arabic_language, $term2_phase5_arabic_language, $term3_phase5_arabic_language, $term4_phase5_arabic_language);
+     $phase5_arabic_count = count(array_filter($phase5_arabic_numbers));
+    
+     if($phase5_arabic_count != 0){
+        $phase5_arabic_sum = array_sum($phase5_arabic_numbers);
+     
+        $phase5_final_rating_arabic_language = $phase5_arabic_sum / $phase5_arabic_count;
+     }
+
+     else{
+
+        $phase5_final_rating_arabic_language = 0;
+
+     }
+
+    
+
+    // $phase5_final_rating_islamic_values = round(($term1_phase5_islamic_values + $term2_phase5_islamic_values + $term3_phase5_islamic_values + $term4_phase5_islamic_values) / 4);
+
+    $phase5_islamic_numbers = array($term1_phase5_islamic_values, $term2_phase5_islamic_values, $term3_phase5_islamic_values, $term4_phase5_islamic_values);
+    $phase5_islamic_count = count(array_filter($phase5_islamic_numbers));
+    
+    if($phase5_islamic_count !=0){
+        $phase5_islamic_sum = array_sum($phase5_islamic_numbers);
+    
+        $phase5_final_rating_islamic_values = $phase5_islamic_sum / $phase5_islamic_count;
+    }
+
+    else{
+        $phase5_final_rating_islamic_values = 0;
+    }
 
     // phase 5 validation
 
@@ -4421,44 +5606,101 @@ $phase5_final_rating_islamic_values = $phase5_islamic_sum / $phase5_islamic_coun
     // average phase 5
 
 
-   // $phase5_term1_general_average = round(($term1_phase5_mother_tongue + $term1_phase5_mathematics + $term1_phase5_araling_panlipunan + $term1_phase5_average_of_mapeh + $term1_phase5_esp ) / 5);
-
-   $phase5_term1_gen_numbers = array($term1_phase5_mother_tongue, $term1_phase5_mathematics, $term1_phase5_araling_panlipunan, $term1_phase5_average_of_mapeh, $term1_phase5_esp);
-   $phase5_term1_gen_sum = array_sum($phase5_term1_gen_numbers);
-   $phase5_term1_gen_count = count(array_filter($phase5_term1_gen_numbers));
-   $phase5_term1_general_average = $phase5_term1_gen_sum / $phase5_term1_gen_count;
-
-
-
-  
-// $phase5_term2_general_average = round(($term2_phase5_mother_tongue + $term2_phase5_filipino + $term2_phase5_mathematics + $term2_phase5_araling_panlipunan + $term2_phase5_average_of_mapeh + $term2_phase5_esp) / 6);
-
-   $phase5_term2_gen_numbers = array($term2_phase5_mother_tongue, $term2_phase5_filipino, $term2_phase5_mathematics, $term2_phase5_araling_panlipunan, $term2_phase5_average_of_mapeh, $term2_phase5_esp);
-   $phase5_term2_gen_sum = array_sum($phase5_term2_gen_numbers);
-   $phase5_term2_gen_count = count(array_filter($phase5_term2_gen_numbers));
-   $phase5_term2_general_average = $phase5_term2_gen_sum / $phase5_term2_gen_count;
-   // $phase5_term3_general_average = round(($term3_phase5_mother_tongue + $term3_phase5_filipino + $term3_phase5_english + $term3_phase5_mathematics + $term3_phase5_araling_panlipunan + $term3_phase5_average_of_mapeh + $term3_phase5_esp) / 7);
-
-   $phase5_term3_gen_numbers = array($term3_phase5_mother_tongue, $term3_phase5_filipino, $term3_phase5_english, $term3_phase5_mathematics, $term3_phase5_araling_panlipunan, $term3_phase5_average_of_mapeh, $term3_phase5_esp);
-   $phase5_term3_gen_sum = array_sum($phase5_term3_gen_numbers);
-   $phase5_term3_gen_count = count(array_filter($phase5_term3_gen_numbers));
-   $phase5_term3_general_average = $phase5_term3_gen_sum / $phase5_term3_gen_count;
-
-   // $phase5_term4_general_average = round(($term4_phase5_mother_tongue + $term4_phase5_filipino + $term4_phase5_english + $term4_phase5_mathematics + $term4_phase5_araling_panlipunan + $term4_phase5_average_of_mapeh + $term4_phase5_esp) / 7);
-
-   $phase5_term4_gen_numbers = array($term4_phase5_mother_tongue, $term4_phase5_filipino, $term4_phase5_english, $term4_phase5_mathematics, $term4_phase5_araling_panlipunan, $term4_phase5_average_of_mapeh, $term4_phase5_esp);
-   $phase5_term4_gen_sum = array_sum($phase5_term4_gen_numbers);
-   $phase5_term4_gen_count = count(array_filter($phase5_term4_gen_numbers));
-   $phase5_term4_general_average = $phase5_term4_gen_sum / $phase5_term4_gen_count;
-
-
-   // $phase5_term5_general_average = round(($phase5_final_rating_mother_tongue + $phase5_final_rating_filipino + $phase5_final_rating_english + $phase5_final_rating_math + $phase5_final_rating_science + $phase5_final_rating_AP + $phase5_final_rating_epp_tle + $phase5_final_rating_mapeh + $phase5_final_rating_esp) / 9);
-
-   $phase5_term5_gen_numbers = array($phase5_final_rating_mother_tongue, $phase5_final_rating_filipino, $phase5_final_rating_english, $phase5_final_rating_math, $phase5_final_rating_science, $phase5_final_rating_AP, $phase5_final_rating_epp_tle, $phase5_final_rating_mapeh, $phase5_final_rating_esp);
-   $phase5_term5_gen_sum = array_sum($phase5_term5_gen_numbers);
-   $phase5_term5_gen_count = count(array_filter($phase5_term5_gen_numbers));
-   $phase5_term5_general_average = $phase5_term5_gen_sum / $phase5_term5_gen_count;
-
+    $phase5_term1_gen_numbers = array($term1_phase5_mother_tongue, $term1_phase5_filipino, $term1_phase5_english, $term1_phase5_mathematics, $term1_phase5_science, $term1_phase5_araling_panlipunan, $term1_phase5_epp_tle, $term1_phase5_average_of_mapeh, $term1_phase5_esp);
+    $phase5_term1_gen_count = count(array_filter($phase5_term1_gen_numbers));
+ 
+    if($phase5_term1_gen_count != 0){
+        
+        $phase5_term1_gen_sum = array_sum($phase5_term1_gen_numbers);
+    
+        $phase5_term1_general_average = $phase5_term1_gen_sum / $phase5_term1_gen_count;
+        
+    }
+    
+    else{
+        $phase5_term1_general_average = 0;
+    }
+    
+    // $phase5_term2_general_average = round(($term2_phase5_mother_tongue + $term2_phase5_filipino + $term2_phase5_english + $term2_phase5_mathematics + $term2_phase5_science + $term2_phase5_araling_panlipunan + $term2_phase5_epp_tle + $term2_phase5_average_of_mapeh + $term2_phase5_esp) / 9);
+    $phase5_term2_gen_numbers = array($term2_phase5_mother_tongue, $term2_phase5_filipino, $term2_phase5_english, $term2_phase5_mathematics, $term2_phase5_science, $term2_phase5_araling_panlipunan, $term2_phase5_epp_tle, $term2_phase5_average_of_mapeh, $term2_phase5_esp);
+    $phase5_term2_gen_count = count(array_filter($phase5_term2_gen_numbers));
+    
+    if ($phase5_term2_gen_count != 0){
+        
+        $phase5_term2_gen_sum = array_sum($phase5_term2_gen_numbers);
+    
+        $phase5_term2_general_average = $phase5_term2_gen_sum / $phase5_term2_gen_count;
+ 
+    }
+ 
+    else {
+        $phase5_term2_general_average = 0;
+    }
+ 
+   
+    
+     // $phase5_term3_general_average = round(($term3_phase5_mother_tongue + $term3_phase5_filipino + $term3_phase5_english + $term3_phase5_mathematics + $term3_phase5_science + $term3_phase5_araling_panlipunan + $term3_phase5_epp_tle + $term3_phase5_average_of_mapeh + $term3_phase5_esp) / 9);
+    
+     $phase5_term3_gen_numbers = array($term3_phase5_mother_tongue, $term3_phase5_filipino, $term3_phase5_english, $term3_phase5_mathematics, $term3_phase5_science, $term3_phase5_araling_panlipunan, $term3_phase5_epp_tle, $term3_phase5_average_of_mapeh, $term3_phase5_esp);
+     $phase5_term3_gen_count = count(array_filter($phase5_term3_gen_numbers));
+     
+ 
+        if($phase5_term3_gen_count != 0){
+            $phase5_term3_gen_sum = array_sum($phase5_term3_gen_numbers);
+     
+            $phase5_term3_general_average = $phase5_term3_gen_sum / $phase5_term3_gen_count;
+ 
+        }
+ 
+        else{
+            $phase5_term3_general_average = 0;
+ 
+        }
+ 
+ 
+     
+    
+    
+    
+     // $phase5_term4_general_average = round(($term4_phase5_mother_tongue + $term4_phase5_filipino + $term4_phase5_english + $term4_phase5_mathematics + $term4_phase5_science + $term4_phase5_araling_panlipunan + $term4_phase5_epp_tle + $term4_phase5_average_of_mapeh + $term4_phase5_esp) / 9);
+    
+     $phase5_term4_gen_numbers = array($term4_phase5_mother_tongue, $term4_phase5_filipino, $term4_phase5_english, $term4_phase5_mathematics, $term4_phase5_science, $term4_phase5_araling_panlipunan, $term4_phase5_epp_tle, $term4_phase5_average_of_mapeh, $term4_phase5_esp);
+     $phase5_term4_gen_count = count(array_filter($phase5_term4_gen_numbers));
+    
+        if($phase5_term4_gen_count != 0){
+            $phase5_term4_gen_sum = array_sum($phase5_term4_gen_numbers);
+     
+            $phase5_term4_general_average = $phase5_term4_gen_sum / $phase5_term4_gen_count;
+ 
+        }
+ 
+        else{
+            $phase5_term4_general_average = 0;
+ 
+        }
+ 
+    
+    
+    
+    
+    
+     // $phase5_term5_general_average = round(($phase5_final_rating_mother_tongue  + $phase5_final_rating_filipino + $phase5_final_rating_english + $phase5_final_rating_math + $phase5_final_rating_science + $phase5_final_rating_AP + $phase5_final_rating_epp_tle + $phase5_final_rating_mapeh + $phase5_final_rating_esp) / 9);
+ 
+ 
+     $phase5_term5_gen_numbers = array($phase5_final_rating_mother_tongue, $phase5_final_rating_filipino, $phase5_final_rating_english, $phase5_final_rating_math, $phase5_final_rating_science, $phase5_final_rating_AP, $phase5_final_rating_epp_tle, $phase5_final_rating_mapeh, $phase5_final_rating_esp);
+     $phase5_term5_gen_count = count(array_filter($phase5_term5_gen_numbers));
+ 
+     if($phase5_term5_gen_count != 0){
+        
+        $phase5_term5_gen_sum = array_sum($phase5_term5_gen_numbers);
+        
+        $phase5_term5_general_average = $phase5_term5_gen_sum / $phase5_term5_gen_count;
+   }
+ 
+     else{
+        $phase5_term5_general_average = 0;
+ 
+     }
     
 
 ///Phase 6
@@ -4572,145 +5814,351 @@ $phase5_final_rating_islamic_values = $phase5_islamic_sum / $phase5_islamic_coun
     //phase 6 average of mapeh
 
     $phase6_term1_average_mapeh_numbers = array($term1_phase6_music, $term1_phase6_arts, $term1_phase6_pe, $term1_phase6_health);
-    $phase6_term1_average_mapeh_sum = array_sum($phase6_term1_average_mapeh_numbers);
     $phase6_term1_average_mapeh_count = count(array_filter($phase6_term1_average_mapeh_numbers));
-    $term1_phase6_average_of_mapeh = $phase6_term1_average_mapeh_sum / $phase6_term1_average_mapeh_count;
-   
-  
-    $phase6_term2_average_mapeh_numbers = array($term2_phase6_music, $term2_phase6_arts, $term2_phase6_pe, $term2_phase6_health);
-    $phase6_term2_average_mapeh_sum = array_sum($phase6_term2_average_mapeh_numbers);
-    $phase6_term2_average_mapeh_count = count(array_filter($phase6_term2_average_mapeh_numbers));
-    $term2_phase6_average_of_mapeh = $phase6_term2_average_mapeh_sum / $phase6_term2_average_mapeh_count;
+        if( $phase6_term1_average_mapeh_count != 0 ){
 
+            $phase6_term1_average_mapeh_sum = array_sum($phase6_term1_average_mapeh_numbers);
+           
+            $term1_phase6_average_of_mapeh = $phase6_term1_average_mapeh_sum / $phase6_term1_average_mapeh_count;
+        }
+
+        else{
+            $term1_phase6_average_of_mapeh = 0;
+        }
+  
+
+    // $term2_phase6_average_of_mapeh = round(($term2_phase6_music + $term2_phase6_arts + $term2_phase6_pe + $term2_phase6_health) / 4) ;
+
+    $phase6_term2_average_mapeh_numbers = array($term2_phase6_music, $term2_phase6_arts, $term2_phase6_pe, $term2_phase6_health);
+    $phase6_term2_average_mapeh_count = count(array_filter($phase6_term2_average_mapeh_numbers));
+
+    if($phase6_term2_average_mapeh_count !=0){
+
+        $phase6_term2_average_mapeh_sum = array_sum($phase6_term2_average_mapeh_numbers);
+        
+        $term2_phase6_average_of_mapeh = $phase6_term2_average_mapeh_sum / $phase6_term2_average_mapeh_count;
+    }
+
+    else{
+        $term2_phase6_average_of_mapeh = 0;
+    }
+
+    // $term3_phase6_average_of_mapeh = round(($term3_phase6_music + $term3_phase6_arts + $term3_phase6_pe + $term3_phase6_health) / 4) ;
 
     $phase6_term3_average_mapeh_numbers = array($term3_phase6_music, $term3_phase6_arts, $term3_phase6_pe, $term3_phase6_health);
-    $phase6_term3_average_mapeh_sum = array_sum($phase6_term3_average_mapeh_numbers);
     $phase6_term3_average_mapeh_count = count(array_filter($phase6_term3_average_mapeh_numbers));
-    $term3_phase6_average_of_mapeh = $phase6_term3_average_mapeh_sum / $phase6_term3_average_mapeh_count;
+    
+    if($phase6_term3_average_mapeh_count !=0){
+
+        $phase6_term3_average_mapeh_sum = array_sum($phase6_term3_average_mapeh_numbers);
+        $term3_phase6_average_of_mapeh = $phase6_term3_average_mapeh_sum / $phase6_term3_average_mapeh_count;
+    }
+    
+    else{
+        
+        $term3_phase6_average_of_mapeh = 0;
+
+    }
 
 
 
+    // $term4_phase6_average_of_mapeh = round(($term4_phase6_music + $term4_phase6_arts + $term4_phase6_pe + $term4_phase6_health) / 4) ;
+
+
+    
     $phase6_term4_average_mapeh_numbers = array($term4_phase6_music, $term4_phase6_arts, $term4_phase6_pe, $term4_phase6_health);
-    $phase6_term4_average_mapeh_sum = array_sum($phase6_term4_average_mapeh_numbers);
     $phase6_term4_average_mapeh_count = count(array_filter($phase6_term4_average_mapeh_numbers));
-    $term4_phase6_average_of_mapeh = $phase6_term4_average_mapeh_sum / $phase6_term4_average_mapeh_count;
+    
+    if($phase6_term4_average_mapeh_count !=0 ){
+        $phase6_term4_average_mapeh_sum = array_sum($phase6_term4_average_mapeh_numbers);
+        
+        $term4_phase6_average_of_mapeh = $phase6_term4_average_mapeh_sum / $phase6_term4_average_mapeh_count;
+    }
 
+    else{
+        $term4_phase6_average_of_mapeh = 0;
+    }
+   
 
-
-    // phase 6 final rating
-
+    //final rating
     $phase6_term5 ='Final Rating';
   
 
-   // $phase6_final_rating_mother_tongue = round(($term1_phase6_mother_tongue + $term2_phase6_mother_tongue + 
+    // $phase6_final_rating_mother_tongue = round(($term1_phase6_mother_tongue + $term2_phase6_mother_tongue + 
     // $term3_phase6_mother_tongue + $term4_phase6_mother_tongue) / 4);
-    $phase6_mt_numbers = array($term1_phase6_mother_tongue, $term2_phase6_mother_tongue, $term3_phase6_mother_tongue,$term4_phase6_mother_tongue);
-    $phase6_mt_sum = array_sum($phase6_mt_numbers);
-    $phase6_mt_count = count(array_filter($phase6_mt_numbers));
-    $phase6_final_rating_mother_tongue = $phase6_mt_sum / $phase6_mt_count;
+
+        $phase6_mt_numbers = array($term1_phase6_mother_tongue, $term2_phase6_mother_tongue, $term3_phase6_mother_tongue,$term4_phase6_mother_tongue);
+        $phase6_mt_count = count(array_filter($phase6_mt_numbers));
+        if($phase6_mt_count != 0){
+
+            $phase6_mt_sum = array_sum($phase6_mt_numbers);
+        
+            $phase6_final_rating_mother_tongue = $phase6_mt_sum / $phase6_mt_count;
+        }
+       else{
+        $phase6_final_rating_mother_tongue = 0;
+       }
 
 
-// $phase6_final_rating_filipino = round(($term1_phase6_filipino + $term2_phase6_filipino + $term3_phase6_filipino + $term4_phase6_filipino) / 4);
+    // $phase6_final_rating_filipino = round(($term1_phase6_filipino + $term2_phase6_filipino + $term3_phase6_filipino + $term4_phase6_filipino) / 4);
 
-$phase6_filipino_numbers = array($term1_phase6_filipino, $term2_phase6_filipino, $term3_phase6_filipino, $term4_phase6_filipino);
-$phase6_filipino_sum = array_sum($phase6_filipino_numbers);
-$phase6_filipino_count = count(array_filter($phase6_filipino_numbers));
-$phase6_final_rating_filipino = $phase6_filipino_sum / $phase6_filipino_count;
+    $phase6_filipino_numbers = array($term1_phase6_filipino, $term2_phase6_filipino, $term3_phase6_filipino, $term4_phase6_filipino);
+    $phase6_filipino_count = count(array_filter($phase6_filipino_numbers));
 
-// $phase6_final_rating_english = round(($term1_phase6_english + $term2_phase6_english + $term3_phase6_english + $term4_phase6_english) / 4);
+    if($phase6_filipino_count != 0){
 
-$phase6_english_numbers = array($term1_phase6_english, $term2_phase6_english, $term3_phase6_english, $term4_phase6_english);
-$phase6_english_sum = array_sum($phase6_english_numbers);
-$phase6_english_count = count(array_filter($phase6_english_numbers));
-$phase6_final_rating_english = $phase6_english_sum / $phase6_english_count;
+        $phase6_filipino_sum = array_sum($phase6_filipino_numbers);
 
+        $phase6_final_rating_filipino = $phase6_filipino_sum / $phase6_filipino_count;
 
-// $phase6_final_rating_math = round(($term1_phase6_mathematics + $term2_phase6_mathematics + $term3_phase6_mathematics + $term4_phase6_mathematics ) / 4);
+    }
 
-$phase6_math_numbers = array($term1_phase6_mathematics, $term2_phase6_mathematics,  $term3_phase6_mathematics, $term4_phase6_mathematics);
-$phase6_math_sum = array_sum($phase6_math_numbers);
-$phase6_math_count = count(array_filter($phase6_math_numbers));
-$phase6_final_rating_math = $phase6_math_sum / $phase6_math_count;
+    else{
 
-// $phase6_final_rating_science = round(($term1_phase6_science + $term2_phase6_science + $term3_phase6_science + $term4_phase6_science) / 4);
+        $phase6_final_rating_filipino = 0;
 
-$phase6_science_numbers = array($term1_phase6_science, $term2_phase6_science, $term3_phase6_science, $term4_phase6_science);
-$phase6_science_sum = array_sum($phase6_science_numbers);
-$phase6_science_count = count(array_filter($phase6_science_numbers));
-$phase6_final_rating_science = $phase6_science_sum / $phase6_science_count;
+    }
 
-// $phase6_final_rating_AP = round(($term1_phase6_araling_panlipunan + $term2_phase6_araling_panlipunan + $term3_phase6_araling_panlipunan + $term4_phase6_araling_panlipunan) / 4);
+   
 
-$phase6_ap_numbers = array($term1_phase6_araling_panlipunan, $term2_phase6_araling_panlipunan, $term3_phase6_araling_panlipunan, $term4_phase6_araling_panlipunan);
-$phase6_ap_sum = array_sum($phase6_ap_numbers);
-$phase6_ap_count = count(array_filter($phase6_ap_numbers));
-$phase6_final_rating_AP = $phase6_ap_sum / $phase6_ap_count;
+    // $phase6_final_rating_english = round(($term1_phase6_english + $term2_phase6_english + $term3_phase6_english + $term4_phase6_english) / 4);
 
-// $phase6_final_rating_epp_tle = round(($term1_phase6_epp_tle + $term2_phase6_epp_tle + $term3_phase6_epp_tle + $term4_phase6_epp_tle) / 4);
+    
+    $phase6_english_numbers = array($term1_phase6_english, $term2_phase6_english, $term3_phase6_english, $term4_phase6_english);
+    $phase6_english_count = count(array_filter($phase6_english_numbers));
+    if($phase6_english_count != 0 ){
+        $phase6_english_sum = array_sum($phase6_english_numbers);
 
-$phase6_epp_tle_numbers = array($term1_phase6_epp_tle, $term2_phase6_epp_tle, $term3_phase6_epp_tle, $term4_phase6_epp_tle);
-$phase6_epp_tle_sum = array_sum($phase6_epp_tle_numbers);
-$phase6_epp_tle_count = count(array_filter($phase6_epp_tle_numbers));
-$phase6_final_rating_epp_tle = $phase6_epp_tle_sum / $phase6_epp_tle_count;
+        $phase6_final_rating_english = $phase6_english_sum / $phase6_english_count;
+    }
+    
+    else{
 
-// $phase6_final_rating_mapeh = round(($term1_phase6_average_of_mapeh + $term2_phase6_average_of_mapeh + $term3_phase6_average_of_mapeh + $term4_phase6_average_of_mapeh) / 4 );
-
-$phase6_mapeh_numbers = array($term1_phase6_average_of_mapeh, $term2_phase6_average_of_mapeh, $term3_phase6_average_of_mapeh, $term4_phase6_average_of_mapeh);
-$phase6_mapeh_sum = array_sum($phase6_mapeh_numbers);
-$phase6_mapeh_count = count(array_filter($phase6_mapeh_numbers));
-$phase6_final_rating_mapeh = $phase6_mapeh_sum / $phase6_mapeh_count;
-
-// $phase6_final_rating_music = round(($term1_phase6_music + $term2_phase6_music + $term3_phase6_music + $term4_phase6_music) / 4);
-
-$phase6_music_numbers = array($term1_phase6_music, $term2_phase6_music, $term3_phase6_music, $term4_phase6_music);
-$phase6_music_sum = array_sum($phase6_music_numbers);
-$phase6_music_count = count(array_filter($phase6_music_numbers));
-$phase6_final_rating_music =  $phase6_music_sum / $phase6_music_count;
-
-// $phase6_final_rating_arts = round(($term1_phase6_arts + $term2_phase6_arts + $term3_phase6_arts + $term4_phase6_arts ) / 4);
-
-$phase6_arts_numbers = array($term1_phase6_arts, $term2_phase6_arts, $term3_phase6_arts, $term4_phase6_arts);
-$phase6_arts_sum = array_sum($phase6_arts_numbers);
-$phase6_arts_count = count(array_filter($phase6_ap_numbers));
-$phase6_final_rating_arts =  $phase6_arts_sum / $phase6_arts_count;
-
-// $phase6_final_rating_PE = round(($term1_phase6_pe + $term2_phase6_pe + $term3_phase6_pe + $term4_phase6_pe) / 4);
-
-$phase6_pe_numbers = array($term1_phase6_pe, $term2_phase6_pe, $term3_phase6_pe, $term4_phase6_pe);
-$phase6_pe_sum = array_sum($phase6_pe_numbers);
-$phase6_pe_count = count(array_filter($phase6_pe_numbers));
-$phase6_final_rating_PE = $phase6_pe_sum / $phase6_pe_count;
-
-// $phase6_final_rating_health = round(($term1_phase6_health + $term2_phase6_health + $term3_phase6_health + $term4_phase6_health)/ 4);
-
-$phase6_health_numbers = array($term1_phase6_health, $term2_phase6_health, $term3_phase6_health, $term4_phase6_health);
-$phase6_health_sum = array_sum($phase6_health_numbers);
-$phase6_health_count = count(array_filter($phase6_health_numbers));
-$phase6_final_rating_health = $phase6_health_sum / $phase6_health_count;
-
- // $phase6_final_rating_esp = round(($term1_phase6_esp + $term2_phase6_esp + $term3_phase6_esp + $term4_phase6_esp) / 4);
-
- $phase6_esp_numbers = array($term1_phase6_esp, $term2_phase6_esp, $term3_phase6_esp, $term4_phase6_esp);
- $phase6_esp_sum = array_sum($phase6_esp_numbers);
- $phase6_esp_count = count (array_filter($phase6_esp_numbers));
- $phase6_final_rating_esp = $phase6_esp_sum / $phase6_esp_count;
+        $phase6_final_rating_english = 0;
+    }
 
 
+    // $phase6_final_rating_math = round(($term1_phase6_mathematics + $term2_phase6_mathematics + $term3_phase6_mathematics + $term4_phase6_mathematics ) / 4);
 
- // $phase6_final_rating_arabic_language = round(($term1_phase6_arabic_language + $term2_phase6_arabic_language + $term3_phase6_arabic_language + $term4_phase6_arabic_language) / 4);
+    $phase6_math_numbers = array($term1_phase6_mathematics, $term2_phase6_mathematics,  $term3_phase6_mathematics, $term4_phase6_mathematics);
+    $phase6_math_count = count(array_filter($phase6_math_numbers));
+    
+    if($phase6_math_count != 0){
+        $phase6_math_sum = array_sum($phase6_math_numbers);
+    
+        $phase6_final_rating_math = $phase6_math_sum / $phase6_math_count;
 
- $phase6_arabic_numbers = array($term1_phase6_arabic_language, $term2_phase6_arabic_language, $term3_phase6_arabic_language, $term4_phase6_arabic_language);
- $phase6_arabic_sum = array_sum($phase6_arabic_numbers);
- $phase6_arabic_count = count(array_filter($phase6_arabic_numbers));
- $phase6_final_rating_arabic_language = $phase6_arabic_sum / $phase6_arabic_count;
+    }
 
-// $phase6_final_rating_islamic_values = round(($term1_phase6_islamic_values + $term2_phase6_islamic_values + $term3_phase6_islamic_values + $term4_phase6_islamic_values) / 4);
+    else{
+        $phase6_final_rating_math = 0;
 
-$phase6_islamic_numbers = array($term1_phase6_islamic_values, $term2_phase6_islamic_values, $term3_phase6_islamic_values, $term4_phase6_islamic_values);
-$phase6_islamic_sum = array_sum($phase6_islamic_numbers);
-$phase6_islamic_count = count(array_filter($phase6_islamic_numbers));
-$phase6_final_rating_islamic_values = $phase6_islamic_sum / $phase6_islamic_count;
+    }
 
+   
+
+    // $phase6_final_rating_science = round(($term1_phase6_science + $term2_phase6_science + $term3_phase6_science + $term4_phase6_science) / 4);
+
+    $phase6_science_numbers = array($term1_phase6_science, $term2_phase6_science, $term3_phase6_science, $term4_phase6_science);
+    $phase6_science_count = count(array_filter($phase6_science_numbers));
+    
+    if($phase6_science_count != 0){
+
+        $phase6_science_sum = array_sum($phase6_science_numbers);
+
+    $phase6_final_rating_science = $phase6_science_sum / $phase6_science_count;
+    }
+
+    else{
+
+        $phase6_final_rating_science = 0;
+    }
+
+    
+
+    // $phase6_final_rating_AP = round(($term1_phase6_araling_panlipunan + $term2_phase6_araling_panlipunan + $term3_phase6_araling_panlipunan + $term4_phase6_araling_panlipunan) / 4);
+
+    $phase6_ap_numbers = array($term1_phase6_araling_panlipunan, $term2_phase6_araling_panlipunan, $term3_phase6_araling_panlipunan, $term4_phase6_araling_panlipunan);
+    $phase6_ap_count = count(array_filter($phase6_ap_numbers));
+
+    if($phase6_ap_count != 0){
+        $phase6_ap_sum = array_sum($phase6_ap_numbers);
+
+        $phase6_final_rating_AP = $phase6_ap_sum / $phase6_ap_count;
+
+    }
+
+    else{
+        $phase6_final_rating_AP = 0;
+        
+    }
+
+    // $phase6_final_rating_epp_tle = round(($term1_phase6_epp_tle + $term2_phase6_epp_tle + $term3_phase6_epp_tle + $term4_phase6_epp_tle) / 4);
+
+    $phase6_epp_tle_numbers = array($term1_phase6_epp_tle, $term2_phase6_epp_tle, $term3_phase6_epp_tle, $term4_phase6_epp_tle);
+    $phase6_epp_tle_count = count(array_filter($phase6_epp_tle_numbers));
+
+    if($phase6_epp_tle_count != 0){
+
+        $phase6_epp_tle_sum = array_sum($phase6_epp_tle_numbers);
+    
+    $phase6_final_rating_epp_tle = $phase6_epp_tle_sum / $phase6_epp_tle_count;
+    }
+
+    else{
+        $phase6_final_rating_epp_tle = 0;
+    }
+    
+    
+    
+
+    // $phase6_final_rating_mapeh = round(($term1_phase6_average_of_mapeh + $term2_phase6_average_of_mapeh + $term3_phase6_average_of_mapeh + $term4_phase6_average_of_mapeh) / 4 );
+
+    $phase6_mapeh_numbers = array($term1_phase6_average_of_mapeh, $term2_phase6_average_of_mapeh, $term3_phase6_average_of_mapeh, $term4_phase6_average_of_mapeh);
+    $phase6_mapeh_count = count(array_filter($phase6_mapeh_numbers));
+    
+    if($phase6_mapeh_count != 0){
+
+        $phase6_mapeh_sum = array_sum($phase6_mapeh_numbers);
+    
+        $phase6_final_rating_mapeh = $phase6_mapeh_sum / $phase6_mapeh_count;
+
+    }
+
+    else{
+        
+        $phase6_final_rating_mapeh = 0;
+
+    }
+   
+
+    // $phase6_final_rating_music = round(($term1_phase6_music + $term2_phase6_music + $term3_phase6_music + $term4_phase6_music) / 4);
+
+    $phase6_music_numbers = array($term1_phase6_music, $term2_phase6_music, $term3_phase6_music, $term4_phase6_music);
+    $phase6_music_count = count(array_filter($phase6_music_numbers));
+    
+    if($phase6_music_count != 0){
+        $phase6_music_sum = array_sum($phase6_music_numbers);
+    
+        $phase6_final_rating_music =  $phase6_music_sum / $phase6_music_count;
+
+    }
+
+    else {
+        $phase6_final_rating_music = 0;
+    }
+   
+    
+
+    // $phase6_final_rating_arts = round(($term1_phase6_arts + $term2_phase6_arts + $term3_phase6_arts + $term4_phase6_arts ) / 4);
+
+    
+    $phase6_arts_numbers = array($term1_phase6_arts, $term2_phase6_arts, $term3_phase6_arts, $term4_phase6_arts);
+    $phase6_arts_count = count(array_filter($phase6_arts_numbers)); 
+    
+    if ($phase6_arts_count != 0) {
+        
+        $phase6_arts_sum = array_sum($phase6_arts_numbers);
+    
+        $phase6_final_rating_arts =  $phase6_arts_sum / $phase6_arts_count;
+
+    }
+
+    else{
+        $phase6_final_rating_arts = 0;
+    }
+    
+    // $phase6_final_rating_PE = round(($term1_phase6_pe + $term2_phase6_pe + $term3_phase6_pe + $term4_phase6_pe) / 4);
+
+    $phase6_pe_numbers = array($term1_phase6_pe, $term2_phase6_pe, $term3_phase6_pe, $term4_phase6_pe);
+    $phase6_pe_count = count(array_filter($phase6_pe_numbers));
+    
+    if($phase6_pe_count != 0){
+        $phase6_pe_sum = array_sum($phase6_pe_numbers);
+    
+        $phase6_final_rating_PE = $phase6_pe_sum / $phase6_pe_count;
+    }
+
+    else{
+        $phase6_final_rating_PE = 0;
+    }
+    
+
+    
+
+
+
+    // $phase6_final_rating_health = round(($term1_phase6_health + $term2_phase6_health + $term3_phase6_health + $term4_phase6_health)/ 4);
+
+    $phase6_health_numbers = array($term1_phase6_health, $term2_phase6_health, $term3_phase6_health, $term4_phase6_health);
+    $phase6_health_count = count(array_filter($phase6_health_numbers));
+    
+    if($phase6_health_count != 0){
+        $phase6_health_sum = array_sum($phase6_health_numbers);
+    
+        $phase6_final_rating_health = $phase6_health_sum / $phase6_health_count;
+    }
+
+    else {
+        $phase6_final_rating_health = 0;
+    }
+
+    
+
+     // $phase6_final_rating_esp = round(($term1_phase6_esp + $term2_phase6_esp + $term3_phase6_esp + $term4_phase6_esp) / 4);
+    
+     $phase6_esp_numbers = array($term1_phase6_esp, $term2_phase6_esp, $term3_phase6_esp, $term4_phase6_esp);
+     $phase6_esp_count = count (array_filter($phase6_esp_numbers));
+     
+     if($phase6_esp_count != 0){
+
+        $phase6_esp_sum = array_sum($phase6_esp_numbers);
+     
+        $phase6_final_rating_esp = $phase6_esp_sum / $phase6_esp_count;
+     }
+     else{
+        $phase6_final_rating_esp = 0;
+     }
+     
+
+
+
+     // $phase6_final_rating_arabic_language = round(($term1_phase6_arabic_language + $term2_phase6_arabic_language + $term3_phase6_arabic_language + $term4_phase6_arabic_language) / 4);
+
+    
+     $phase6_arabic_numbers = array($term1_phase6_arabic_language, $term2_phase6_arabic_language, $term3_phase6_arabic_language, $term4_phase6_arabic_language);
+     $phase6_arabic_count = count(array_filter($phase6_arabic_numbers));
+    
+     if($phase6_arabic_count != 0){
+        $phase6_arabic_sum = array_sum($phase6_arabic_numbers);
+     
+        $phase6_final_rating_arabic_language = $phase6_arabic_sum / $phase6_arabic_count;
+     }
+
+     else{
+
+        $phase6_final_rating_arabic_language = 0;
+
+     }
+
+    
+
+    // $phase6_final_rating_islamic_values = round(($term1_phase6_islamic_values + $term2_phase6_islamic_values + $term3_phase6_islamic_values + $term4_phase6_islamic_values) / 4);
+
+    $phase6_islamic_numbers = array($term1_phase6_islamic_values, $term2_phase6_islamic_values, $term3_phase6_islamic_values, $term4_phase6_islamic_values);
+    $phase6_islamic_count = count(array_filter($phase6_islamic_numbers));
+    
+    if($phase6_islamic_count !=0){
+        $phase6_islamic_sum = array_sum($phase6_islamic_numbers);
+    
+        $phase6_final_rating_islamic_values = $phase6_islamic_sum / $phase6_islamic_count;
+    }
+
+    else{
+        $phase6_final_rating_islamic_values = 0;
+    }
+
+    // validation for phase 6 
 
     // validation of mother tongue
 
@@ -4810,43 +6258,101 @@ $phase6_final_rating_islamic_values = $phase6_islamic_sum / $phase6_islamic_coun
 
     // $phase6_term1_general_average = round(($term1_phase6_mother_tongue + $term1_phase6_filipino + $term1_phase6_english + $term1_phase6_mathematics + $term1_phase6_science + $term1_phase6_araling_panlipunan + $term1_phase6_epp_tle + $term1_phase6_average_of_mapeh + $term1_phase6_esp) / 9);
     
-$phase6_term1_gen_numbers = array($term1_phase6_mother_tongue + $term1_phase6_filipino + $term1_phase6_english + $term1_phase6_mathematics + $term1_phase6_science + $term1_phase6_araling_panlipunan, $term1_phase6_epp_tle, $term1_phase6_average_of_mapeh, $term1_phase6_esp);
-$phase6_term1_gen_sum = array_sum($phase6_term1_gen_numbers);
-$phase6_term1_gen_count = count(array_filter($phase6_term1_gen_numbers));
-$phase6_term1_general_average = $phase6_term1_gen_sum / $phase6_term1_gen_count;
+    $phase6_term1_gen_numbers = array($term1_phase6_mother_tongue, $term1_phase6_filipino, $term1_phase6_english, $term1_phase6_mathematics, $term1_phase6_science, $term1_phase6_araling_panlipunan, $term1_phase6_epp_tle, $term1_phase6_average_of_mapeh, $term1_phase6_esp);
+    $phase6_term1_gen_count = count(array_filter($phase6_term1_gen_numbers));
 
-// $phase6_term2_general_average = round(($term2_phase6_mother_tongue + $term2_phase6_filipino + $term2_phase6_english + $term2_phase6_mathematics + $term2_phase6_science + $term2_phase6_araling_panlipunan + $term2_phase6_epp_tle + $term2_phase6_average_of_mapeh + $term2_phase6_esp) / 9);
-$phase6_term2_gen_numbers = array($term2_phase6_mother_tongue, $term2_phase6_filipino, $term2_phase6_english + $term2_phase6_mathematics, $term2_phase6_science + $term2_phase6_araling_panlipunan, $term2_phase6_epp_tle, $term2_phase6_average_of_mapeh, $term2_phase6_esp);
-$phase6_term2_gen_sum = array_sum($phase6_term2_gen_numbers);
-$phase6_term2_gen_count = count(array_filter($phase6_term2_gen_numbers));
-$phase6_term2_general_average = $phase6_term2_gen_sum / $phase6_term2_gen_count;
+    if($phase6_term1_gen_count != 0){
+        
+        $phase6_term1_gen_sum = array_sum($phase6_term1_gen_numbers);
+    
+        $phase6_term1_general_average = $phase6_term1_gen_sum / $phase6_term1_gen_count;
+        
+    }
+    
+    else{
+        $phase6_term1_general_average = 0;
+    }
+    
+    // $phase6_term2_general_average = round(($term2_phase6_mother_tongue + $term2_phase6_filipino + $term2_phase6_english + $term2_phase6_mathematics + $term2_phase6_science + $term2_phase6_araling_panlipunan + $term2_phase6_epp_tle + $term2_phase6_average_of_mapeh + $term2_phase6_esp) / 9);
+    $phase6_term2_gen_numbers = array($term2_phase6_mother_tongue, $term2_phase6_filipino, $term2_phase6_english, $term2_phase6_mathematics, $term2_phase6_science, $term2_phase6_araling_panlipunan, $term2_phase6_epp_tle, $term2_phase6_average_of_mapeh, $term2_phase6_esp);
+    $phase6_term2_gen_count = count(array_filter($phase6_term2_gen_numbers));
+    
+    if ($phase6_term2_gen_count != 0){
+        
+        $phase6_term2_gen_sum = array_sum($phase6_term2_gen_numbers);
+    
+        $phase6_term2_general_average = $phase6_term2_gen_sum / $phase6_term2_gen_count;
 
- // $phase6_term3_general_average = round(($term3_phase6_mother_tongue + $term3_phase6_filipino + $term3_phase6_english + $term3_phase6_mathematics + $term3_phase6_science + $term3_phase6_araling_panlipunan + $term3_phase6_epp_tle + $term3_phase6_average_of_mapeh + $term3_phase6_esp) / 9);
+    }
 
- $phase6_term3_gen_numbers = array($term3_phase6_mother_tongue, $term3_phase6_filipino, $term3_phase6_english, $term3_phase6_mathematics, $term3_phase6_science + $term3_phase6_araling_panlipunan, $term3_phase6_epp_tle, $term3_phase6_average_of_mapeh, $term3_phase6_esp);
- $phase6_term3_gen_sum = array_sum($phase6_term3_gen_numbers);
- $phase6_term3_gen_count = count(array_filter($phase6_term3_gen_numbers));
- $phase6_term3_general_average = $phase6_term3_gen_sum / $phase6_term3_gen_count;
+    else {
+        $phase6_term2_general_average = 0;
+    }
+
+   
+    
+     // $phase6_term3_general_average = round(($term3_phase6_mother_tongue + $term3_phase6_filipino + $term3_phase6_english + $term3_phase6_mathematics + $term3_phase6_science + $term3_phase6_araling_panlipunan + $term3_phase6_epp_tle + $term3_phase6_average_of_mapeh + $term3_phase6_esp) / 9);
+    
+     $phase6_term3_gen_numbers = array($term3_phase6_mother_tongue, $term3_phase6_filipino, $term3_phase6_english, $term3_phase6_mathematics, $term3_phase6_science, $term3_phase6_araling_panlipunan, $term3_phase6_epp_tle, $term3_phase6_average_of_mapeh, $term3_phase6_esp);
+     $phase6_term3_gen_count = count(array_filter($phase6_term3_gen_numbers));
+     
+
+        if($phase6_term3_gen_count != 0){
+            $phase6_term3_gen_sum = array_sum($phase6_term3_gen_numbers);
+     
+            $phase6_term3_general_average = $phase6_term3_gen_sum / $phase6_term3_gen_count;
+
+        }
+
+        else{
+            $phase6_term3_general_average = 0;
+
+        }
 
 
+     
+    
+    
+    
+     // $phase6_term4_general_average = round(($term4_phase6_mother_tongue + $term4_phase6_filipino + $term4_phase6_english + $term4_phase6_mathematics + $term4_phase6_science + $term4_phase6_araling_panlipunan + $term4_phase6_epp_tle + $term4_phase6_average_of_mapeh + $term4_phase6_esp) / 9);
+    
+     $phase6_term4_gen_numbers = array($term4_phase6_mother_tongue, $term4_phase6_filipino, $term4_phase6_english, $term4_phase6_mathematics, $term4_phase6_science, $term4_phase6_araling_panlipunan, $term4_phase6_epp_tle, $term4_phase6_average_of_mapeh, $term4_phase6_esp);
+     $phase6_term4_gen_count = count(array_filter($phase6_term4_gen_numbers));
+    
+        if($phase6_term4_gen_count != 0){
+            $phase6_term4_gen_sum = array_sum($phase6_term4_gen_numbers);
+     
+            $phase6_term4_general_average = $phase6_term4_gen_sum / $phase6_term4_gen_count;
 
- // $phase6_term4_general_average = round(($term4_phase6_mother_tongue + $term4_phase6_filipino + $term4_phase6_english + $term4_phase6_mathematics + $term4_phase6_science + $term4_phase6_araling_panlipunan + $term4_phase6_epp_tle + $term4_phase6_average_of_mapeh + $term4_phase6_esp) / 9);
+        }
 
- $phase6_term4_gen_numbers = array($term4_phase6_mother_tongue, $term4_phase6_filipino, $term4_phase6_english, $term4_phase6_mathematics, $term4_phase6_science + $term4_phase6_araling_panlipunan, $term4_phase6_epp_tle, $term4_phase6_average_of_mapeh, $term4_phase6_esp);
- $phase6_term4_gen_sum = array_sum($phase6_term4_gen_numbers);
- $phase6_term4_gen_count = count(array_filter($phase6_term4_gen_numbers));
- $phase6_term4_general_average = $phase6_term4_gen_sum / $phase6_term4_gen_count;
+        else{
+            $phase6_term4_general_average = 0;
+
+        }
+
+    
+    
+    
+    
+    
+     // $phase6_term5_general_average = round(($phase6_final_rating_mother_tongue  + $phase6_final_rating_filipino + $phase6_final_rating_english + $phase6_final_rating_math + $phase6_final_rating_science + $phase6_final_rating_AP + $phase6_final_rating_epp_tle + $phase6_final_rating_mapeh + $phase6_final_rating_esp) / 9);
 
 
+     $phase6_term5_gen_numbers = array($phase6_final_rating_mother_tongue, $phase6_final_rating_filipino, $phase6_final_rating_english, $phase6_final_rating_math, $phase6_final_rating_science, $phase6_final_rating_AP, $phase6_final_rating_epp_tle, $phase6_final_rating_mapeh, $phase6_final_rating_esp);
+     $phase6_term5_gen_count = count(array_filter($phase6_term5_gen_numbers));
 
+     if($phase6_term5_gen_count != 0){
+        
+        $phase6_term5_gen_sum = array_sum($phase6_term5_gen_numbers);
+        
+        $phase6_term5_general_average = $phase6_term5_gen_sum / $phase6_term5_gen_count;
+   }
 
- // $phase6_term5_general_average = round(($phase6_final_rating_mother_tongue  + $phase6_final_rating_filipino + $phase6_final_rating_english + $phase6_final_rating_math + $phase6_final_rating_science + $phase6_final_rating_AP + $phase6_final_rating_epp_tle + $phase6_final_rating_mapeh + $phase6_final_rating_esp) / 9);
+     else{
+        $phase6_term5_general_average = 0;
 
-
- $phase6_term5_gen_numbers = array($phase6_final_rating_mother_tongue  + $phase6_final_rating_filipino + $phase6_final_rating_english, $phase6_final_rating_math, $phase6_final_rating_science, $phase6_final_rating_AP, $phase6_final_rating_epp_tle, $phase6_final_rating_mapeh, $phase6_final_rating_esp);
- $phase6_term5_gen_sum = array_sum($phase6_term5_gen_numbers);
- $phase6_term5_gen_count = count(array_filter($phase6_term5_gen_numbers));
- $phase6_term5_general_average = $phase6_term5_gen_sum / $phase6_term5_gen_count;
+     }
 
 
 
@@ -4963,145 +6469,350 @@ $phase6_term2_general_average = $phase6_term2_gen_sum / $phase6_term2_gen_count;
 
 
     $phase7_term1_average_mapeh_numbers = array($term1_phase7_music, $term1_phase7_arts, $term1_phase7_pe, $term1_phase7_health);
-    $phase7_term1_average_mapeh_sum = array_sum($phase7_term1_average_mapeh_numbers);
     $phase7_term1_average_mapeh_count = count(array_filter($phase7_term1_average_mapeh_numbers));
-    $term1_phase7_average_of_mapeh = $phase7_term1_average_mapeh_sum / $phase7_term1_average_mapeh_count;
-   
-  
-    $phase7_term2_average_mapeh_numbers = array($term2_phase7_music, $term2_phase7_arts, $term2_phase7_pe, $term2_phase7_health);
-    $phase7_term2_average_mapeh_sum = array_sum($phase7_term2_average_mapeh_numbers);
-    $phase7_term2_average_mapeh_count = count(array_filter($phase7_term2_average_mapeh_numbers));
-    $term2_phase7_average_of_mapeh = $phase7_term2_average_mapeh_sum / $phase7_term2_average_mapeh_count;
+        if( $phase7_term1_average_mapeh_count != 0 ){
 
+            $phase7_term1_average_mapeh_sum = array_sum($phase7_term1_average_mapeh_numbers);
+           
+            $term1_phase7_average_of_mapeh = $phase7_term1_average_mapeh_sum / $phase7_term1_average_mapeh_count;
+        }
+
+        else{
+            $term1_phase7_average_of_mapeh = 0;
+        }
+  
+
+    // $term2_phase7_average_of_mapeh = round(($term2_phase7_music + $term2_phase7_arts + $term2_phase7_pe + $term2_phase7_health) / 4) ;
+
+    $phase7_term2_average_mapeh_numbers = array($term2_phase7_music, $term2_phase7_arts, $term2_phase7_pe, $term2_phase7_health);
+    $phase7_term2_average_mapeh_count = count(array_filter($phase7_term2_average_mapeh_numbers));
+
+    if($phase7_term2_average_mapeh_count !=0){
+
+        $phase7_term2_average_mapeh_sum = array_sum($phase7_term2_average_mapeh_numbers);
+        
+        $term2_phase7_average_of_mapeh = $phase7_term2_average_mapeh_sum / $phase7_term2_average_mapeh_count;
+    }
+
+    else{
+        $term2_phase7_average_of_mapeh = 0;
+    }
+
+    // $term3_phase7_average_of_mapeh = round(($term3_phase7_music + $term3_phase7_arts + $term3_phase7_pe + $term3_phase7_health) / 4) ;
 
     $phase7_term3_average_mapeh_numbers = array($term3_phase7_music, $term3_phase7_arts, $term3_phase7_pe, $term3_phase7_health);
-    $phase7_term3_average_mapeh_sum = array_sum($phase7_term3_average_mapeh_numbers);
     $phase7_term3_average_mapeh_count = count(array_filter($phase7_term3_average_mapeh_numbers));
-    $term3_phase7_average_of_mapeh = $phase7_term3_average_mapeh_sum / $phase7_term3_average_mapeh_count;
+    
+    if($phase7_term3_average_mapeh_count !=0){
+
+        $phase7_term3_average_mapeh_sum = array_sum($phase7_term3_average_mapeh_numbers);
+        $term3_phase7_average_of_mapeh = $phase7_term3_average_mapeh_sum / $phase7_term3_average_mapeh_count;
+    }
+    
+    else{
+        
+        $term3_phase7_average_of_mapeh = 0;
+
+    }
 
 
 
+    // $term4_phase7_average_of_mapeh = round(($term4_phase7_music + $term4_phase7_arts + $term4_phase7_pe + $term4_phase7_health) / 4) ;
+
+
+    
     $phase7_term4_average_mapeh_numbers = array($term4_phase7_music, $term4_phase7_arts, $term4_phase7_pe, $term4_phase7_health);
-    $phase7_term4_average_mapeh_sum = array_sum($phase7_term4_average_mapeh_numbers);
     $phase7_term4_average_mapeh_count = count(array_filter($phase7_term4_average_mapeh_numbers));
-    $term4_phase7_average_of_mapeh = $phase7_term4_average_mapeh_sum / $phase7_term4_average_mapeh_count;
+    
+    if($phase7_term4_average_mapeh_count !=0 ){
+        $phase7_term4_average_mapeh_sum = array_sum($phase7_term4_average_mapeh_numbers);
+        
+        $term4_phase7_average_of_mapeh = $phase7_term4_average_mapeh_sum / $phase7_term4_average_mapeh_count;
+    }
 
-    // phase 7 final rating
+    else{
+        $term4_phase7_average_of_mapeh = 0;
+    }
+   
 
-
+    //final rating
     $phase7_term5 ='Final Rating';
   
 
-   // $phase7_final_rating_mother_tongue = round(($term1_phase7_mother_tongue + $term2_phase7_mother_tongue + 
+    // $phase7_final_rating_mother_tongue = round(($term1_phase7_mother_tongue + $term2_phase7_mother_tongue + 
     // $term3_phase7_mother_tongue + $term4_phase7_mother_tongue) / 4);
-    $phase7_mt_numbers = array($term1_phase7_mother_tongue, $term2_phase7_mother_tongue, $term3_phase7_mother_tongue,$term4_phase7_mother_tongue);
-    $phase7_mt_sum = array_sum($phase7_mt_numbers);
-    $phase7_mt_count = count(array_filter($phase7_mt_numbers));
-    $phase7_final_rating_mother_tongue = $phase7_mt_sum / $phase7_mt_count;
+
+        $phase7_mt_numbers = array($term1_phase7_mother_tongue, $term2_phase7_mother_tongue, $term3_phase7_mother_tongue,$term4_phase7_mother_tongue);
+        $phase7_mt_count = count(array_filter($phase7_mt_numbers));
+        if($phase7_mt_count != 0){
+
+            $phase7_mt_sum = array_sum($phase7_mt_numbers);
+        
+            $phase7_final_rating_mother_tongue = $phase7_mt_sum / $phase7_mt_count;
+        }
+       else{
+        $phase7_final_rating_mother_tongue = 0;
+       }
 
 
-// $phase7_final_rating_filipino = round(($term1_phase7_filipino + $term2_phase7_filipino + $term3_phase7_filipino + $term4_phase7_filipino) / 4);
+    // $phase7_final_rating_filipino = round(($term1_phase7_filipino + $term2_phase7_filipino + $term3_phase7_filipino + $term4_phase7_filipino) / 4);
 
-$phase7_filipino_numbers = array($term1_phase7_filipino, $term2_phase7_filipino, $term3_phase7_filipino, $term4_phase7_filipino);
-$phase7_filipino_sum = array_sum($phase7_filipino_numbers);
-$phase7_filipino_count = count(array_filter($phase7_filipino_numbers));
-$phase7_final_rating_filipino = $phase7_filipino_sum / $phase7_filipino_count;
+    $phase7_filipino_numbers = array($term1_phase7_filipino, $term2_phase7_filipino, $term3_phase7_filipino, $term4_phase7_filipino);
+    $phase7_filipino_count = count(array_filter($phase7_filipino_numbers));
 
-// $phase7_final_rating_english = round(($term1_phase7_english + $term2_phase7_english + $term3_phase7_english + $term4_phase7_english) / 4);
+    if($phase7_filipino_count != 0){
 
-$phase7_english_numbers = array($term1_phase7_english, $term2_phase7_english, $term3_phase7_english, $term4_phase7_english);
-$phase7_english_sum = array_sum($phase7_english_numbers);
-$phase7_english_count = count(array_filter($phase7_english_numbers));
-$phase7_final_rating_english = $phase7_english_sum / $phase7_english_count;
+        $phase7_filipino_sum = array_sum($phase7_filipino_numbers);
 
+        $phase7_final_rating_filipino = $phase7_filipino_sum / $phase7_filipino_count;
 
-// $phase7_final_rating_math = round(($term1_phase7_mathematics + $term2_phase7_mathematics + $term3_phase7_mathematics + $term4_phase7_mathematics ) / 4);
+    }
 
-$phase7_math_numbers = array($term1_phase7_mathematics, $term2_phase7_mathematics,  $term3_phase7_mathematics, $term4_phase7_mathematics);
-$phase7_math_sum = array_sum($phase7_math_numbers);
-$phase7_math_count = count(array_filter($phase7_math_numbers));
-$phase7_final_rating_math = $phase7_math_sum / $phase7_math_count;
+    else{
 
-// $phase7_final_rating_science = round(($term1_phase7_science + $term2_phase7_science + $term3_phase7_science + $term4_phase7_science) / 4);
+        $phase7_final_rating_filipino = 0;
 
-$phase7_science_numbers = array($term1_phase7_science, $term2_phase7_science, $term3_phase7_science, $term4_phase7_science);
-$phase7_science_sum = array_sum($phase7_science_numbers);
-$phase7_science_count = count(array_filter($phase7_science_numbers));
-$phase7_final_rating_science = $phase7_science_sum / $phase7_science_count;
+    }
 
-// $phase7_final_rating_AP = round(($term1_phase7_araling_panlipunan + $term2_phase7_araling_panlipunan + $term3_phase7_araling_panlipunan + $term4_phase7_araling_panlipunan) / 4);
+   
 
-$phase7_ap_numbers = array($term1_phase7_araling_panlipunan, $term2_phase7_araling_panlipunan, $term3_phase7_araling_panlipunan, $term4_phase7_araling_panlipunan);
-$phase7_ap_sum = array_sum($phase7_ap_numbers);
-$phase7_ap_count = count(array_filter($phase7_ap_numbers));
-$phase7_final_rating_AP = $phase7_ap_sum / $phase7_ap_count;
+    // $phase7_final_rating_english = round(($term1_phase7_english + $term2_phase7_english + $term3_phase7_english + $term4_phase7_english) / 4);
 
-// $phase7_final_rating_epp_tle = round(($term1_phase7_epp_tle + $term2_phase7_epp_tle + $term3_phase7_epp_tle + $term4_phase7_epp_tle) / 4);
+    
+    $phase7_english_numbers = array($term1_phase7_english, $term2_phase7_english, $term3_phase7_english, $term4_phase7_english);
+    $phase7_english_count = count(array_filter($phase7_english_numbers));
+    if($phase7_english_count != 0 ){
+        $phase7_english_sum = array_sum($phase7_english_numbers);
 
-$phase7_epp_tle_numbers = array($term1_phase7_epp_tle, $term2_phase7_epp_tle, $term3_phase7_epp_tle, $term4_phase7_epp_tle);
-$phase7_epp_tle_sum = array_sum($phase7_epp_tle_numbers);
-$phase7_epp_tle_count = count(array_filter($phase7_epp_tle_numbers));
-$phase7_final_rating_epp_tle = $phase7_epp_tle_sum / $phase7_epp_tle_count;
+        $phase7_final_rating_english = $phase7_english_sum / $phase7_english_count;
+    }
+    
+    else{
 
-// $phase7_final_rating_mapeh = round(($term1_phase7_average_of_mapeh + $term2_phase7_average_of_mapeh + $term3_phase7_average_of_mapeh + $term4_phase7_average_of_mapeh) / 4 );
-
-$phase7_mapeh_numbers = array($term1_phase7_average_of_mapeh, $term2_phase7_average_of_mapeh, $term3_phase7_average_of_mapeh, $term4_phase7_average_of_mapeh);
-$phase7_mapeh_sum = array_sum($phase7_mapeh_numbers);
-$phase7_mapeh_count = count(array_filter($phase7_mapeh_numbers));
-$phase7_final_rating_mapeh = $phase7_mapeh_sum / $phase7_mapeh_count;
-
-// $phase7_final_rating_music = round(($term1_phase7_music + $term2_phase7_music + $term3_phase7_music + $term4_phase7_music) / 4);
-
-$phase7_music_numbers = array($term1_phase7_music, $term2_phase7_music, $term3_phase7_music, $term4_phase7_music);
-$phase7_music_sum = array_sum($phase7_music_numbers);
-$phase7_music_count = count(array_filter($phase7_music_numbers));
-$phase7_final_rating_music =  $phase7_music_sum / $phase7_music_count;
-
-// $phase7_final_rating_arts = round(($term1_phase7_arts + $term2_phase7_arts + $term3_phase7_arts + $term4_phase7_arts ) / 4);
-
-$phase7_arts_numbers = array($term1_phase7_arts, $term2_phase7_arts, $term3_phase7_arts, $term4_phase7_arts);
-$phase7_arts_sum = array_sum($phase7_arts_numbers);
-$phase7_arts_count = count(array_filter($phase7_ap_numbers));
-$phase7_final_rating_arts =  $phase7_arts_sum / $phase7_arts_count;
-
-// $phase7_final_rating_PE = round(($term1_phase7_pe + $term2_phase7_pe + $term3_phase7_pe + $term4_phase7_pe) / 4);
-
-$phase7_pe_numbers = array($term1_phase7_pe, $term2_phase7_pe, $term3_phase7_pe, $term4_phase7_pe);
-$phase7_pe_sum = array_sum($phase7_pe_numbers);
-$phase7_pe_count = count(array_filter($phase7_pe_numbers));
-$phase7_final_rating_PE = $phase7_pe_sum / $phase7_pe_count;
-
-// $phase7_final_rating_health = round(($term1_phase7_health + $term2_phase7_health + $term3_phase7_health + $term4_phase7_health)/ 4);
-
-$phase7_health_numbers = array($term1_phase7_health, $term2_phase7_health, $term3_phase7_health, $term4_phase7_health);
-$phase7_health_sum = array_sum($phase7_health_numbers);
-$phase7_health_count = count(array_filter($phase7_health_numbers));
-$phase7_final_rating_health = $phase7_health_sum / $phase7_health_count;
-
- // $phase7_final_rating_esp = round(($term1_phase7_esp + $term2_phase7_esp + $term3_phase7_esp + $term4_phase7_esp) / 4);
-
- $phase7_esp_numbers = array($term1_phase7_esp, $term2_phase7_esp, $term3_phase7_esp, $term4_phase7_esp);
- $phase7_esp_sum = array_sum($phase7_esp_numbers);
- $phase7_esp_count = count (array_filter($phase7_esp_numbers));
- $phase7_final_rating_esp = $phase7_esp_sum / $phase7_esp_count;
+        $phase7_final_rating_english = 0;
+    }
 
 
+    // $phase7_final_rating_math = round(($term1_phase7_mathematics + $term2_phase7_mathematics + $term3_phase7_mathematics + $term4_phase7_mathematics ) / 4);
 
- // $phase7_final_rating_arabic_language = round(($term1_phase7_arabic_language + $term2_phase7_arabic_language + $term3_phase7_arabic_language + $term4_phase7_arabic_language) / 4);
+    $phase7_math_numbers = array($term1_phase7_mathematics, $term2_phase7_mathematics,  $term3_phase7_mathematics, $term4_phase7_mathematics);
+    $phase7_math_count = count(array_filter($phase7_math_numbers));
+    
+    if($phase7_math_count != 0){
+        $phase7_math_sum = array_sum($phase7_math_numbers);
+    
+        $phase7_final_rating_math = $phase7_math_sum / $phase7_math_count;
 
- $phase7_arabic_numbers = array($term1_phase7_arabic_language, $term2_phase7_arabic_language, $term3_phase7_arabic_language, $term4_phase7_arabic_language);
- $phase7_arabic_sum = array_sum($phase7_arabic_numbers);
- $phase7_arabic_count = count(array_filter($phase7_arabic_numbers));
- $phase7_final_rating_arabic_language = $phase7_arabic_sum / $phase7_arabic_count;
+    }
 
-// $phase7_final_rating_islamic_values = round(($term1_phase7_islamic_values + $term2_phase7_islamic_values + $term3_phase7_islamic_values + $term4_phase7_islamic_values) / 4);
+    else{
+        $phase7_final_rating_math = 0;
 
-$phase7_islamic_numbers = array($term1_phase7_islamic_values, $term2_phase7_islamic_values, $term3_phase7_islamic_values, $term4_phase7_islamic_values);
-$phase7_islamic_sum = array_sum($phase7_islamic_numbers);
-$phase7_islamic_count = count(array_filter($phase7_islamic_numbers));
-$phase7_final_rating_islamic_values = $phase7_islamic_sum / $phase7_islamic_count;
+    }
+
+   
+
+    // $phase7_final_rating_science = round(($term1_phase7_science + $term2_phase7_science + $term3_phase7_science + $term4_phase7_science) / 4);
+
+    $phase7_science_numbers = array($term1_phase7_science, $term2_phase7_science, $term3_phase7_science, $term4_phase7_science);
+    $phase7_science_count = count(array_filter($phase7_science_numbers));
+    
+    if($phase7_science_count != 0){
+
+        $phase7_science_sum = array_sum($phase7_science_numbers);
+
+    $phase7_final_rating_science = $phase7_science_sum / $phase7_science_count;
+    }
+
+    else{
+
+        $phase7_final_rating_science = 0;
+    }
+
+    
+
+    // $phase7_final_rating_AP = round(($term1_phase7_araling_panlipunan + $term2_phase7_araling_panlipunan + $term3_phase7_araling_panlipunan + $term4_phase7_araling_panlipunan) / 4);
+
+    $phase7_ap_numbers = array($term1_phase7_araling_panlipunan, $term2_phase7_araling_panlipunan, $term3_phase7_araling_panlipunan, $term4_phase7_araling_panlipunan);
+    $phase7_ap_count = count(array_filter($phase7_ap_numbers));
+
+    if($phase7_ap_count != 0){
+        $phase7_ap_sum = array_sum($phase7_ap_numbers);
+
+        $phase7_final_rating_AP = $phase7_ap_sum / $phase7_ap_count;
+
+    }
+
+    else{
+        $phase7_final_rating_AP = 0;
+        
+    }
+
+    // $phase7_final_rating_epp_tle = round(($term1_phase7_epp_tle + $term2_phase7_epp_tle + $term3_phase7_epp_tle + $term4_phase7_epp_tle) / 4);
+
+    $phase7_epp_tle_numbers = array($term1_phase7_epp_tle, $term2_phase7_epp_tle, $term3_phase7_epp_tle, $term4_phase7_epp_tle);
+    $phase7_epp_tle_count = count(array_filter($phase7_epp_tle_numbers));
+
+    if($phase7_epp_tle_count != 0){
+
+        $phase7_epp_tle_sum = array_sum($phase7_epp_tle_numbers);
+    
+    $phase7_final_rating_epp_tle = $phase7_epp_tle_sum / $phase7_epp_tle_count;
+    }
+
+    else{
+        $phase7_final_rating_epp_tle = 0;
+    }
+    
+    
+    
+
+    // $phase7_final_rating_mapeh = round(($term1_phase7_average_of_mapeh + $term2_phase7_average_of_mapeh + $term3_phase7_average_of_mapeh + $term4_phase7_average_of_mapeh) / 4 );
+
+    $phase7_mapeh_numbers = array($term1_phase7_average_of_mapeh, $term2_phase7_average_of_mapeh, $term3_phase7_average_of_mapeh, $term4_phase7_average_of_mapeh);
+    $phase7_mapeh_count = count(array_filter($phase7_mapeh_numbers));
+    
+    if($phase7_mapeh_count != 0){
+
+        $phase7_mapeh_sum = array_sum($phase7_mapeh_numbers);
+    
+        $phase7_final_rating_mapeh = $phase7_mapeh_sum / $phase7_mapeh_count;
+
+    }
+
+    else{
+        
+        $phase7_final_rating_mapeh = 0;
+
+    }
+   
+
+    // $phase7_final_rating_music = round(($term1_phase7_music + $term2_phase7_music + $term3_phase7_music + $term4_phase7_music) / 4);
+
+    $phase7_music_numbers = array($term1_phase7_music, $term2_phase7_music, $term3_phase7_music, $term4_phase7_music);
+    $phase7_music_count = count(array_filter($phase7_music_numbers));
+    
+    if($phase7_music_count != 0){
+        $phase7_music_sum = array_sum($phase7_music_numbers);
+    
+        $phase7_final_rating_music =  $phase7_music_sum / $phase7_music_count;
+
+    }
+
+    else {
+        $phase7_final_rating_music = 0;
+    }
+   
+    
+
+    // $phase7_final_rating_arts = round(($term1_phase7_arts + $term2_phase7_arts + $term3_phase7_arts + $term4_phase7_arts ) / 4);
+
+    
+    $phase7_arts_numbers = array($term1_phase7_arts, $term2_phase7_arts, $term3_phase7_arts, $term4_phase7_arts);
+    $phase7_arts_count = count(array_filter($phase7_arts_numbers)); 
+    
+    if ($phase7_arts_count != 0) {
+        
+        $phase7_arts_sum = array_sum($phase7_arts_numbers);
+    
+        $phase7_final_rating_arts =  $phase7_arts_sum / $phase7_arts_count;
+
+    }
+
+    else{
+        $phase7_final_rating_arts = 0;
+    }
+    
+    // $phase7_final_rating_PE = round(($term1_phase7_pe + $term2_phase7_pe + $term3_phase7_pe + $term4_phase7_pe) / 4);
+
+    $phase7_pe_numbers = array($term1_phase7_pe, $term2_phase7_pe, $term3_phase7_pe, $term4_phase7_pe);
+    $phase7_pe_count = count(array_filter($phase7_pe_numbers));
+    
+    if($phase7_pe_count != 0){
+        $phase7_pe_sum = array_sum($phase7_pe_numbers);
+    
+        $phase7_final_rating_PE = $phase7_pe_sum / $phase7_pe_count;
+    }
+
+    else{
+        $phase7_final_rating_PE = 0;
+    }
+    
+
+    
 
 
+
+    // $phase7_final_rating_health = round(($term1_phase7_health + $term2_phase7_health + $term3_phase7_health + $term4_phase7_health)/ 4);
+
+    $phase7_health_numbers = array($term1_phase7_health, $term2_phase7_health, $term3_phase7_health, $term4_phase7_health);
+    $phase7_health_count = count(array_filter($phase7_health_numbers));
+    
+    if($phase7_health_count != 0){
+        $phase7_health_sum = array_sum($phase7_health_numbers);
+    
+        $phase7_final_rating_health = $phase7_health_sum / $phase7_health_count;
+    }
+
+    else {
+        $phase7_final_rating_health = 0;
+    }
+
+    
+
+     // $phase7_final_rating_esp = round(($term1_phase7_esp + $term2_phase7_esp + $term3_phase7_esp + $term4_phase7_esp) / 4);
+    
+     $phase7_esp_numbers = array($term1_phase7_esp, $term2_phase7_esp, $term3_phase7_esp, $term4_phase7_esp);
+     $phase7_esp_count = count (array_filter($phase7_esp_numbers));
+     
+     if($phase7_esp_count != 0){
+
+        $phase7_esp_sum = array_sum($phase7_esp_numbers);
+     
+        $phase7_final_rating_esp = $phase7_esp_sum / $phase7_esp_count;
+     }
+     else{
+        $phase7_final_rating_esp = 0;
+     }
+     
+
+
+
+     // $phase7_final_rating_arabic_language = round(($term1_phase7_arabic_language + $term2_phase7_arabic_language + $term3_phase7_arabic_language + $term4_phase7_arabic_language) / 4);
+
+    
+     $phase7_arabic_numbers = array($term1_phase7_arabic_language, $term2_phase7_arabic_language, $term3_phase7_arabic_language, $term4_phase7_arabic_language);
+     $phase7_arabic_count = count(array_filter($phase7_arabic_numbers));
+    
+     if($phase7_arabic_count != 0){
+        $phase7_arabic_sum = array_sum($phase7_arabic_numbers);
+     
+        $phase7_final_rating_arabic_language = $phase7_arabic_sum / $phase7_arabic_count;
+     }
+
+     else{
+
+        $phase7_final_rating_arabic_language = 0;
+
+     }
+
+    
+
+    // $phase7_final_rating_islamic_values = round(($term1_phase7_islamic_values + $term2_phase7_islamic_values + $term3_phase7_islamic_values + $term4_phase7_islamic_values) / 4);
+
+    $phase7_islamic_numbers = array($term1_phase7_islamic_values, $term2_phase7_islamic_values, $term3_phase7_islamic_values, $term4_phase7_islamic_values);
+    $phase7_islamic_count = count(array_filter($phase7_islamic_numbers));
+    
+    if($phase7_islamic_count !=0){
+        $phase7_islamic_sum = array_sum($phase7_islamic_numbers);
+    
+        $phase7_final_rating_islamic_values = $phase7_islamic_sum / $phase7_islamic_count;
+    }
+
+    else{
+        $phase7_final_rating_islamic_values = 0;
+    }
+    
 
     
     // phase 7 validation
@@ -5201,41 +6912,101 @@ $phase7_final_rating_islamic_values = $phase7_islamic_sum / $phase7_islamic_coun
 
     // $phase7_term1_general_average = round(($term1_phase7_mother_tongue + $term1_phase7_mathematics + $term1_phase7_araling_panlipunan + $term1_phase7_average_of_mapeh + $term1_phase7_esp ) / 5);
 
-    $phase7_term1_gen_numbers = array($term1_phase7_mother_tongue, $term1_phase7_mathematics, $term1_phase7_araling_panlipunan, $term1_phase7_average_of_mapeh, $term1_phase7_esp);
-    $phase7_term1_gen_sum = array_sum($phase7_term1_gen_numbers);
+    $phase7_term1_gen_numbers = array($term1_phase7_mother_tongue, $term1_phase7_filipino, $term1_phase7_english, $term1_phase7_mathematics, $term1_phase7_science, $term1_phase7_araling_panlipunan, $term1_phase7_epp_tle, $term1_phase7_average_of_mapeh, $term1_phase7_esp);
     $phase7_term1_gen_count = count(array_filter($phase7_term1_gen_numbers));
-    $phase7_term1_general_average = $phase7_term1_gen_sum / $phase7_term1_gen_count;
 
+    if($phase7_term1_gen_count != 0){
+        
+        $phase7_term1_gen_sum = array_sum($phase7_term1_gen_numbers);
+    
+        $phase7_term1_general_average = $phase7_term1_gen_sum / $phase7_term1_gen_count;
+        
+    }
+    
+    else{
+        $phase7_term1_general_average = 0;
+    }
+    
+    // $phase7_term2_general_average = round(($term2_phase7_mother_tongue + $term2_phase7_filipino + $term2_phase7_english + $term2_phase7_mathematics + $term2_phase7_science + $term2_phase7_araling_panlipunan + $term2_phase7_epp_tle + $term2_phase7_average_of_mapeh + $term2_phase7_esp) / 9);
+    $phase7_term2_gen_numbers = array($term2_phase7_mother_tongue, $term2_phase7_filipino, $term2_phase7_english, $term2_phase7_mathematics, $term2_phase7_science, $term2_phase7_araling_panlipunan, $term2_phase7_epp_tle, $term2_phase7_average_of_mapeh, $term2_phase7_esp);
+    $phase7_term2_gen_count = count(array_filter($phase7_term2_gen_numbers));
+    
+    if ($phase7_term2_gen_count != 0){
+        
+        $phase7_term2_gen_sum = array_sum($phase7_term2_gen_numbers);
+    
+        $phase7_term2_general_average = $phase7_term2_gen_sum / $phase7_term2_gen_count;
 
+    }
+
+    else {
+        $phase7_term2_general_average = 0;
+    }
 
    
-// $phase7_term2_general_average = round(($term2_phase7_mother_tongue + $term2_phase7_filipino + $term2_phase7_mathematics + $term2_phase7_araling_panlipunan + $term2_phase7_average_of_mapeh + $term2_phase7_esp) / 6);
+    
+     // $phase7_term3_general_average = round(($term3_phase7_mother_tongue + $term3_phase7_filipino + $term3_phase7_english + $term3_phase7_mathematics + $term3_phase7_science + $term3_phase7_araling_panlipunan + $term3_phase7_epp_tle + $term3_phase7_average_of_mapeh + $term3_phase7_esp) / 9);
+    
+     $phase7_term3_gen_numbers = array($term3_phase7_mother_tongue, $term3_phase7_filipino, $term3_phase7_english, $term3_phase7_mathematics, $term3_phase7_science, $term3_phase7_araling_panlipunan, $term3_phase7_epp_tle, $term3_phase7_average_of_mapeh, $term3_phase7_esp);
+     $phase7_term3_gen_count = count(array_filter($phase7_term3_gen_numbers));
+     
 
-    $phase7_term2_gen_numbers = array($term2_phase7_mother_tongue, $term2_phase7_filipino, $term2_phase7_mathematics, $term2_phase7_araling_panlipunan, $term2_phase7_average_of_mapeh, $term2_phase7_esp);
-    $phase7_term2_gen_sum = array_sum($phase7_term2_gen_numbers);
-    $phase7_term2_gen_count = count(array_filter($phase7_term2_gen_numbers));
-    $phase7_term2_general_average = $phase7_term2_gen_sum / $phase7_term2_gen_count;
-    // $phase7_term3_general_average = round(($term3_phase7_mother_tongue + $term3_phase7_filipino + $term3_phase7_english + $term3_phase7_mathematics + $term3_phase7_araling_panlipunan + $term3_phase7_average_of_mapeh + $term3_phase7_esp) / 7);
+        if($phase7_term3_gen_count != 0){
+            $phase7_term3_gen_sum = array_sum($phase7_term3_gen_numbers);
+     
+            $phase7_term3_general_average = $phase7_term3_gen_sum / $phase7_term3_gen_count;
 
-    $phase7_term3_gen_numbers = array($term3_phase7_mother_tongue, $term3_phase7_filipino, $term3_phase7_english, $term3_phase7_mathematics, $term3_phase7_araling_panlipunan, $term3_phase7_average_of_mapeh, $term3_phase7_esp);
-    $phase7_term3_gen_sum = array_sum($phase7_term3_gen_numbers);
-    $phase7_term3_gen_count = count(array_filter($phase7_term3_gen_numbers));
-    $phase7_term3_general_average = $phase7_term3_gen_sum / $phase7_term3_gen_count;
+        }
 
-    // $phase7_term4_general_average = round(($term4_phase7_mother_tongue + $term4_phase7_filipino + $term4_phase7_english + $term4_phase7_mathematics + $term4_phase7_araling_panlipunan + $term4_phase7_average_of_mapeh + $term4_phase7_esp) / 7);
+        else{
+            $phase7_term3_general_average = 0;
 
-    $phase7_term4_gen_numbers = array($term4_phase7_mother_tongue, $term4_phase7_filipino, $term4_phase7_english, $term4_phase7_mathematics, $term4_phase7_araling_panlipunan, $term4_phase7_average_of_mapeh, $term4_phase7_esp);
-    $phase7_term4_gen_sum = array_sum($phase7_term4_gen_numbers);
-    $phase7_term4_gen_count = count(array_filter($phase7_term4_gen_numbers));
-    $phase7_term4_general_average = $phase7_term4_gen_sum / $phase7_term4_gen_count;
+        }
 
 
-    // $phase7_term5_general_average = round(($phase7_final_rating_mother_tongue + $phase7_final_rating_filipino + $phase7_final_rating_english + $phase7_final_rating_math + $phase7_final_rating_science + $phase7_final_rating_AP + $phase7_final_rating_epp_tle + $phase7_final_rating_mapeh + $phase7_final_rating_esp) / 9);
+     
+    
+    
+    
+     // $phase7_term4_general_average = round(($term4_phase7_mother_tongue + $term4_phase7_filipino + $term4_phase7_english + $term4_phase7_mathematics + $term4_phase7_science + $term4_phase7_araling_panlipunan + $term4_phase7_epp_tle + $term4_phase7_average_of_mapeh + $term4_phase7_esp) / 9);
+    
+     $phase7_term4_gen_numbers = array($term4_phase7_mother_tongue, $term4_phase7_filipino, $term4_phase7_english, $term4_phase7_mathematics, $term4_phase7_science, $term4_phase7_araling_panlipunan, $term4_phase7_epp_tle, $term4_phase7_average_of_mapeh, $term4_phase7_esp);
+     $phase7_term4_gen_count = count(array_filter($phase7_term4_gen_numbers));
+    
+        if($phase7_term4_gen_count != 0){
+            $phase7_term4_gen_sum = array_sum($phase7_term4_gen_numbers);
+     
+            $phase7_term4_general_average = $phase7_term4_gen_sum / $phase7_term4_gen_count;
 
-    $phase7_term5_gen_numbers = array($phase7_final_rating_mother_tongue, $phase7_final_rating_filipino, $phase7_final_rating_english, $phase7_final_rating_math, $phase7_final_rating_science, $phase7_final_rating_AP, $phase7_final_rating_epp_tle, $phase7_final_rating_mapeh, $phase7_final_rating_esp);
-    $phase7_term5_gen_sum = array_sum($phase7_term5_gen_numbers);
-    $phase7_term5_gen_count = count(array_filter($phase7_term5_gen_numbers));
-    $phase7_term5_general_average = $phase7_term5_gen_sum / $phase7_term5_gen_count;
+        }
+
+        else{
+            $phase7_term4_general_average = 0;
+
+        }
+
+    
+    
+    
+    
+    
+     // $phase7_term5_general_average = round(($phase7_final_rating_mother_tongue  + $phase7_final_rating_filipino + $phase7_final_rating_english + $phase7_final_rating_math + $phase7_final_rating_science + $phase7_final_rating_AP + $phase7_final_rating_epp_tle + $phase7_final_rating_mapeh + $phase7_final_rating_esp) / 9);
+
+
+     $phase7_term5_gen_numbers = array($phase7_final_rating_mother_tongue, $phase7_final_rating_filipino, $phase7_final_rating_english, $phase7_final_rating_math, $phase7_final_rating_science, $phase7_final_rating_AP, $phase7_final_rating_epp_tle, $phase7_final_rating_mapeh, $phase7_final_rating_esp);
+     $phase7_term5_gen_count = count(array_filter($phase7_term5_gen_numbers));
+
+     if($phase7_term5_gen_count != 0){
+        
+        $phase7_term5_gen_sum = array_sum($phase7_term5_gen_numbers);
+        
+        $phase7_term5_general_average = $phase7_term5_gen_sum / $phase7_term5_gen_count;
+   }
+
+     else{
+        $phase7_term5_general_average = 0;
+
+     }
 
 
     //Phase 8
@@ -5348,146 +7119,349 @@ $phase7_final_rating_islamic_values = $phase7_islamic_sum / $phase7_islamic_coun
     //PHASE 8 AVERAGE OF MAPEH
 
     $phase8_term1_average_mapeh_numbers = array($term1_phase8_music, $term1_phase8_arts, $term1_phase8_pe, $term1_phase8_health);
-    $phase8_term1_average_mapeh_sum = array_sum($phase8_term1_average_mapeh_numbers);
     $phase8_term1_average_mapeh_count = count(array_filter($phase8_term1_average_mapeh_numbers));
-    $term1_phase8_average_of_mapeh = $phase8_term1_average_mapeh_sum / $phase8_term1_average_mapeh_count;
-   
-  
-    $phase8_term2_average_mapeh_numbers = array($term2_phase8_music, $term2_phase8_arts, $term2_phase8_pe, $term2_phase8_health);
-    $phase8_term2_average_mapeh_sum = array_sum($phase8_term2_average_mapeh_numbers);
-    $phase8_term2_average_mapeh_count = count(array_filter($phase8_term2_average_mapeh_numbers));
-    $term2_phase8_average_of_mapeh = $phase8_term2_average_mapeh_sum / $phase8_term2_average_mapeh_count;
+        if( $phase8_term1_average_mapeh_count != 0 ){
 
+            $phase8_term1_average_mapeh_sum = array_sum($phase8_term1_average_mapeh_numbers);
+           
+            $term1_phase8_average_of_mapeh = $phase8_term1_average_mapeh_sum / $phase8_term1_average_mapeh_count;
+        }
+
+        else{
+            $term1_phase8_average_of_mapeh = 0;
+        }
+  
+
+    // $term2_phase8_average_of_mapeh = round(($term2_phase8_music + $term2_phase8_arts + $term2_phase8_pe + $term2_phase8_health) / 4) ;
+
+    $phase8_term2_average_mapeh_numbers = array($term2_phase8_music, $term2_phase8_arts, $term2_phase8_pe, $term2_phase8_health);
+    $phase8_term2_average_mapeh_count = count(array_filter($phase8_term2_average_mapeh_numbers));
+
+    if($phase8_term2_average_mapeh_count !=0){
+
+        $phase8_term2_average_mapeh_sum = array_sum($phase8_term2_average_mapeh_numbers);
+        
+        $term2_phase8_average_of_mapeh = $phase8_term2_average_mapeh_sum / $phase8_term2_average_mapeh_count;
+    }
+
+    else{
+        $term2_phase8_average_of_mapeh = 0;
+    }
+
+    // $term3_phase8_average_of_mapeh = round(($term3_phase8_music + $term3_phase8_arts + $term3_phase8_pe + $term3_phase8_health) / 4) ;
 
     $phase8_term3_average_mapeh_numbers = array($term3_phase8_music, $term3_phase8_arts, $term3_phase8_pe, $term3_phase8_health);
-    $phase8_term3_average_mapeh_sum = array_sum($phase8_term3_average_mapeh_numbers);
     $phase8_term3_average_mapeh_count = count(array_filter($phase8_term3_average_mapeh_numbers));
-    $term3_phase8_average_of_mapeh = $phase8_term3_average_mapeh_sum / $phase8_term3_average_mapeh_count;
+    
+    if($phase8_term3_average_mapeh_count !=0){
+
+        $phase8_term3_average_mapeh_sum = array_sum($phase8_term3_average_mapeh_numbers);
+        $term3_phase8_average_of_mapeh = $phase8_term3_average_mapeh_sum / $phase8_term3_average_mapeh_count;
+    }
+    
+    else{
+        
+        $term3_phase8_average_of_mapeh = 0;
+
+    }
 
 
 
+    // $term4_phase8_average_of_mapeh = round(($term4_phase8_music + $term4_phase8_arts + $term4_phase8_pe + $term4_phase8_health) / 4) ;
+
+
+    
     $phase8_term4_average_mapeh_numbers = array($term4_phase8_music, $term4_phase8_arts, $term4_phase8_pe, $term4_phase8_health);
-    $phase8_term4_average_mapeh_sum = array_sum($phase8_term4_average_mapeh_numbers);
     $phase8_term4_average_mapeh_count = count(array_filter($phase8_term4_average_mapeh_numbers));
-    $term4_phase8_average_of_mapeh = $phase8_term4_average_mapeh_sum / $phase8_term4_average_mapeh_count;
+    
+    if($phase8_term4_average_mapeh_count !=0 ){
+        $phase8_term4_average_mapeh_sum = array_sum($phase8_term4_average_mapeh_numbers);
+        
+        $term4_phase8_average_of_mapeh = $phase8_term4_average_mapeh_sum / $phase8_term4_average_mapeh_count;
+    }
 
+    else{
+        $term4_phase8_average_of_mapeh = 0;
+    }
+   
 
-
-        // phases 8 final ratings 
-
-
+    //final rating
     $phase8_term5 ='Final Rating';
   
 
-     // $phase8_final_rating_mother_tongue = round(($term1_phase8_mother_tongue + $term2_phase8_mother_tongue + 
+    // $phase8_final_rating_mother_tongue = round(($term1_phase8_mother_tongue + $term2_phase8_mother_tongue + 
     // $term3_phase8_mother_tongue + $term4_phase8_mother_tongue) / 4);
-    $phase8_mt_numbers = array($term1_phase8_mother_tongue, $term2_phase8_mother_tongue, $term3_phase8_mother_tongue,$term4_phase8_mother_tongue);
-    $phase8_mt_sum = array_sum($phase8_mt_numbers);
-    $phase8_mt_count = count(array_filter($phase8_mt_numbers));
-    $phase8_final_rating_mother_tongue = $phase8_mt_sum / $phase8_mt_count;
+
+        $phase8_mt_numbers = array($term1_phase8_mother_tongue, $term2_phase8_mother_tongue, $term3_phase8_mother_tongue,$term4_phase8_mother_tongue);
+        $phase8_mt_count = count(array_filter($phase8_mt_numbers));
+        if($phase8_mt_count != 0){
+
+            $phase8_mt_sum = array_sum($phase8_mt_numbers);
+        
+            $phase8_final_rating_mother_tongue = $phase8_mt_sum / $phase8_mt_count;
+        }
+       else{
+        $phase8_final_rating_mother_tongue = 0;
+       }
 
 
-// $phase8_final_rating_filipino = round(($term1_phase8_filipino + $term2_phase8_filipino + $term3_phase8_filipino + $term4_phase8_filipino) / 4);
+    // $phase8_final_rating_filipino = round(($term1_phase8_filipino + $term2_phase8_filipino + $term3_phase8_filipino + $term4_phase8_filipino) / 4);
 
-$phase8_filipino_numbers = array($term1_phase8_filipino, $term2_phase8_filipino, $term3_phase8_filipino, $term4_phase8_filipino);
-$phase8_filipino_sum = array_sum($phase8_filipino_numbers);
-$phase8_filipino_count = count(array_filter($phase8_filipino_numbers));
-$phase8_final_rating_filipino = $phase8_filipino_sum / $phase8_filipino_count;
+    $phase8_filipino_numbers = array($term1_phase8_filipino, $term2_phase8_filipino, $term3_phase8_filipino, $term4_phase8_filipino);
+    $phase8_filipino_count = count(array_filter($phase8_filipino_numbers));
 
-// $phase8_final_rating_english = round(($term1_phase8_english + $term2_phase8_english + $term3_phase8_english + $term4_phase8_english) / 4);
+    if($phase8_filipino_count != 0){
 
-$phase8_english_numbers = array($term1_phase8_english, $term2_phase8_english, $term3_phase8_english, $term4_phase8_english);
-$phase8_english_sum = array_sum($phase8_english_numbers);
-$phase8_english_count = count(array_filter($phase8_english_numbers));
-$phase8_final_rating_english = $phase8_english_sum / $phase8_english_count;
+        $phase8_filipino_sum = array_sum($phase8_filipino_numbers);
 
+        $phase8_final_rating_filipino = $phase8_filipino_sum / $phase8_filipino_count;
 
-// $phase8_final_rating_math = round(($term1_phase8_mathematics + $term2_phase8_mathematics + $term3_phase8_mathematics + $term4_phase8_mathematics ) / 4);
+    }
 
-$phase8_math_numbers = array($term1_phase8_mathematics, $term2_phase8_mathematics,  $term3_phase8_mathematics, $term4_phase8_mathematics);
-$phase8_math_sum = array_sum($phase8_math_numbers);
-$phase8_math_count = count(array_filter($phase8_math_numbers));
-$phase8_final_rating_math = $phase8_math_sum / $phase8_math_count;
+    else{
 
-// $phase8_final_rating_science = round(($term1_phase8_science + $term2_phase8_science + $term3_phase8_science + $term4_phase8_science) / 4);
+        $phase8_final_rating_filipino = 0;
 
-$phase8_science_numbers = array($term1_phase8_science, $term2_phase8_science, $term3_phase8_science, $term4_phase8_science);
-$phase8_science_sum = array_sum($phase8_science_numbers);
-$phase8_science_count = count(array_filter($phase8_science_numbers));
-$phase8_final_rating_science = $phase8_science_sum / $phase8_science_count;
+    }
 
-// $phase8_final_rating_AP = round(($term1_phase8_araling_panlipunan + $term2_phase8_araling_panlipunan + $term3_phase8_araling_panlipunan + $term4_phase8_araling_panlipunan) / 4);
+   
 
-$phase8_ap_numbers = array($term1_phase8_araling_panlipunan, $term2_phase8_araling_panlipunan, $term3_phase8_araling_panlipunan, $term4_phase8_araling_panlipunan);
-$phase8_ap_sum = array_sum($phase8_ap_numbers);
-$phase8_ap_count = count(array_filter($phase8_ap_numbers));
-$phase8_final_rating_AP = $phase8_ap_sum / $phase8_ap_count;
+    // $phase8_final_rating_english = round(($term1_phase8_english + $term2_phase8_english + $term3_phase8_english + $term4_phase8_english) / 4);
 
-// $phase8_final_rating_epp_tle = round(($term1_phase8_epp_tle + $term2_phase8_epp_tle + $term3_phase8_epp_tle + $term4_phase8_epp_tle) / 4);
+    
+    $phase8_english_numbers = array($term1_phase8_english, $term2_phase8_english, $term3_phase8_english, $term4_phase8_english);
+    $phase8_english_count = count(array_filter($phase8_english_numbers));
+    if($phase8_english_count != 0 ){
+        $phase8_english_sum = array_sum($phase8_english_numbers);
 
-$phase8_epp_tle_numbers = array($term1_phase8_epp_tle, $term2_phase8_epp_tle, $term3_phase8_epp_tle, $term4_phase8_epp_tle);
-$phase8_epp_tle_sum = array_sum($phase8_epp_tle_numbers);
-$phase8_epp_tle_count = count(array_filter($phase8_epp_tle_numbers));
-$phase8_final_rating_epp_tle = $phase8_epp_tle_sum / $phase8_epp_tle_count;
+        $phase8_final_rating_english = $phase8_english_sum / $phase8_english_count;
+    }
+    
+    else{
 
-// $phase8_final_rating_mapeh = round(($term1_phase8_average_of_mapeh + $term2_phase8_average_of_mapeh + $term3_phase8_average_of_mapeh + $term4_phase8_average_of_mapeh) / 4 );
-
-$phase8_mapeh_numbers = array($term1_phase8_average_of_mapeh, $term2_phase8_average_of_mapeh, $term3_phase8_average_of_mapeh, $term4_phase8_average_of_mapeh);
-$phase8_mapeh_sum = array_sum($phase8_mapeh_numbers);
-$phase8_mapeh_count = count(array_filter($phase8_mapeh_numbers));
-$phase8_final_rating_mapeh = $phase8_mapeh_sum / $phase8_mapeh_count;
-
-// $phase8_final_rating_music = round(($term1_phase8_music + $term2_phase8_music + $term3_phase8_music + $term4_phase8_music) / 4);
-
-$phase8_music_numbers = array($term1_phase8_music, $term2_phase8_music, $term3_phase8_music, $term4_phase8_music);
-$phase8_music_sum = array_sum($phase8_music_numbers);
-$phase8_music_count = count(array_filter($phase8_music_numbers));
-$phase8_final_rating_music =  $phase8_music_sum / $phase8_music_count;
-
-// $phase8_final_rating_arts = round(($term1_phase8_arts + $term2_phase8_arts + $term3_phase8_arts + $term4_phase8_arts ) / 4);
-
-$phase8_arts_numbers = array($term1_phase8_arts, $term2_phase8_arts, $term3_phase8_arts, $term4_phase8_arts);
-$phase8_arts_sum = array_sum($phase8_arts_numbers);
-$phase8_arts_count = count(array_filter($phase8_ap_numbers));
-$phase8_final_rating_arts =  $phase8_arts_sum / $phase8_arts_count;
-
-// $phase8_final_rating_PE = round(($term1_phase8_pe + $term2_phase8_pe + $term3_phase8_pe + $term4_phase8_pe) / 4);
-
-$phase8_pe_numbers = array($term1_phase8_pe, $term2_phase8_pe, $term3_phase8_pe, $term4_phase8_pe);
-$phase8_pe_sum = array_sum($phase8_pe_numbers);
-$phase8_pe_count = count(array_filter($phase8_pe_numbers));
-$phase8_final_rating_PE = $phase8_pe_sum / $phase8_pe_count;
-
-// $phase8_final_rating_health = round(($term1_phase8_health + $term2_phase8_health + $term3_phase8_health + $term4_phase8_health)/ 4);
-
-$phase8_health_numbers = array($term1_phase8_health, $term2_phase8_health, $term3_phase8_health, $term4_phase8_health);
-$phase8_health_sum = array_sum($phase8_health_numbers);
-$phase8_health_count = count(array_filter($phase8_health_numbers));
-$phase8_final_rating_health = $phase8_health_sum / $phase8_health_count;
-
- // $phase8_final_rating_esp = round(($term1_phase8_esp + $term2_phase8_esp + $term3_phase8_esp + $term4_phase8_esp) / 4);
-
- $phase8_esp_numbers = array($term1_phase8_esp, $term2_phase8_esp, $term3_phase8_esp, $term4_phase8_esp);
- $phase8_esp_sum = array_sum($phase8_esp_numbers);
- $phase8_esp_count = count (array_filter($phase8_esp_numbers));
- $phase8_final_rating_esp = $phase8_esp_sum / $phase8_esp_count;
+        $phase8_final_rating_english = 0;
+    }
 
 
+    // $phase8_final_rating_math = round(($term1_phase8_mathematics + $term2_phase8_mathematics + $term3_phase8_mathematics + $term4_phase8_mathematics ) / 4);
 
- // $phase8_final_rating_arabic_language = round(($term1_phase8_arabic_language + $term2_phase8_arabic_language + $term3_phase8_arabic_language + $term4_phase8_arabic_language) / 4);
+    $phase8_math_numbers = array($term1_phase8_mathematics, $term2_phase8_mathematics,  $term3_phase8_mathematics, $term4_phase8_mathematics);
+    $phase8_math_count = count(array_filter($phase8_math_numbers));
+    
+    if($phase8_math_count != 0){
+        $phase8_math_sum = array_sum($phase8_math_numbers);
+    
+        $phase8_final_rating_math = $phase8_math_sum / $phase8_math_count;
 
- $phase8_arabic_numbers = array($term1_phase8_arabic_language, $term2_phase8_arabic_language, $term3_phase8_arabic_language, $term4_phase8_arabic_language);
- $phase8_arabic_sum = array_sum($phase8_arabic_numbers);
- $phase8_arabic_count = count(array_filter($phase8_arabic_numbers));
- $phase8_final_rating_arabic_language = $phase8_arabic_sum / $phase8_arabic_count;
+    }
 
-// $phase8_final_rating_islamic_values = round(($term1_phase8_islamic_values + $term2_phase8_islamic_values + $term3_phase8_islamic_values + $term4_phase8_islamic_values) / 4);
+    else{
+        $phase8_final_rating_math = 0;
 
-$phase8_islamic_numbers = array($term1_phase8_islamic_values, $term2_phase8_islamic_values, $term3_phase8_islamic_values, $term4_phase8_islamic_values);
-$phase8_islamic_sum = array_sum($phase8_islamic_numbers);
-$phase8_islamic_count = count(array_filter($phase8_islamic_numbers));
-$phase8_final_rating_islamic_values = $phase8_islamic_sum / $phase8_islamic_count;
+    }
 
+   
+
+    // $phase8_final_rating_science = round(($term1_phase8_science + $term2_phase8_science + $term3_phase8_science + $term4_phase8_science) / 4);
+
+    $phase8_science_numbers = array($term1_phase8_science, $term2_phase8_science, $term3_phase8_science, $term4_phase8_science);
+    $phase8_science_count = count(array_filter($phase8_science_numbers));
+    
+    if($phase8_science_count != 0){
+
+        $phase8_science_sum = array_sum($phase8_science_numbers);
+
+    $phase8_final_rating_science = $phase8_science_sum / $phase8_science_count;
+    }
+
+    else{
+
+        $phase8_final_rating_science = 0;
+    }
+
+    
+
+    // $phase8_final_rating_AP = round(($term1_phase8_araling_panlipunan + $term2_phase8_araling_panlipunan + $term3_phase8_araling_panlipunan + $term4_phase8_araling_panlipunan) / 4);
+
+    $phase8_ap_numbers = array($term1_phase8_araling_panlipunan, $term2_phase8_araling_panlipunan, $term3_phase8_araling_panlipunan, $term4_phase8_araling_panlipunan);
+    $phase8_ap_count = count(array_filter($phase8_ap_numbers));
+
+    if($phase8_ap_count != 0){
+        $phase8_ap_sum = array_sum($phase8_ap_numbers);
+
+        $phase8_final_rating_AP = $phase8_ap_sum / $phase8_ap_count;
+
+    }
+
+    else{
+        $phase8_final_rating_AP = 0;
+        
+    }
+
+    // $phase8_final_rating_epp_tle = round(($term1_phase8_epp_tle + $term2_phase8_epp_tle + $term3_phase8_epp_tle + $term4_phase8_epp_tle) / 4);
+
+    $phase8_epp_tle_numbers = array($term1_phase8_epp_tle, $term2_phase8_epp_tle, $term3_phase8_epp_tle, $term4_phase8_epp_tle);
+    $phase8_epp_tle_count = count(array_filter($phase8_epp_tle_numbers));
+
+    if($phase8_epp_tle_count != 0){
+
+        $phase8_epp_tle_sum = array_sum($phase8_epp_tle_numbers);
+    
+    $phase8_final_rating_epp_tle = $phase8_epp_tle_sum / $phase8_epp_tle_count;
+    }
+
+    else{
+        $phase8_final_rating_epp_tle = 0;
+    }
+    
+    
+    
+
+    // $phase8_final_rating_mapeh = round(($term1_phase8_average_of_mapeh + $term2_phase8_average_of_mapeh + $term3_phase8_average_of_mapeh + $term4_phase8_average_of_mapeh) / 4 );
+
+    $phase8_mapeh_numbers = array($term1_phase8_average_of_mapeh, $term2_phase8_average_of_mapeh, $term3_phase8_average_of_mapeh, $term4_phase8_average_of_mapeh);
+    $phase8_mapeh_count = count(array_filter($phase8_mapeh_numbers));
+    
+    if($phase8_mapeh_count != 0){
+
+        $phase8_mapeh_sum = array_sum($phase8_mapeh_numbers);
+    
+        $phase8_final_rating_mapeh = $phase8_mapeh_sum / $phase8_mapeh_count;
+
+    }
+
+    else{
+        
+        $phase8_final_rating_mapeh = 0;
+
+    }
+   
+
+    // $phase8_final_rating_music = round(($term1_phase8_music + $term2_phase8_music + $term3_phase8_music + $term4_phase8_music) / 4);
+
+    $phase8_music_numbers = array($term1_phase8_music, $term2_phase8_music, $term3_phase8_music, $term4_phase8_music);
+    $phase8_music_count = count(array_filter($phase8_music_numbers));
+    
+    if($phase8_music_count != 0){
+        $phase8_music_sum = array_sum($phase8_music_numbers);
+    
+        $phase8_final_rating_music =  $phase8_music_sum / $phase8_music_count;
+
+    }
+
+    else {
+        $phase8_final_rating_music = 0;
+    }
+   
+    
+
+    // $phase8_final_rating_arts = round(($term1_phase8_arts + $term2_phase8_arts + $term3_phase8_arts + $term4_phase8_arts ) / 4);
+
+    
+    $phase8_arts_numbers = array($term1_phase8_arts, $term2_phase8_arts, $term3_phase8_arts, $term4_phase8_arts);
+    $phase8_arts_count = count(array_filter($phase8_arts_numbers)); 
+    
+    if ($phase8_arts_count != 0) {
+        
+        $phase8_arts_sum = array_sum($phase8_arts_numbers);
+    
+        $phase8_final_rating_arts =  $phase8_arts_sum / $phase8_arts_count;
+
+    }
+
+    else{
+        $phase8_final_rating_arts = 0;
+    }
+    
+    // $phase8_final_rating_PE = round(($term1_phase8_pe + $term2_phase8_pe + $term3_phase8_pe + $term4_phase8_pe) / 4);
+
+    $phase8_pe_numbers = array($term1_phase8_pe, $term2_phase8_pe, $term3_phase8_pe, $term4_phase8_pe);
+    $phase8_pe_count = count(array_filter($phase8_pe_numbers));
+    
+    if($phase8_pe_count != 0){
+        $phase8_pe_sum = array_sum($phase8_pe_numbers);
+    
+        $phase8_final_rating_PE = $phase8_pe_sum / $phase8_pe_count;
+    }
+
+    else{
+        $phase8_final_rating_PE = 0;
+    }
+    
+
+    
+
+
+
+    // $phase8_final_rating_health = round(($term1_phase8_health + $term2_phase8_health + $term3_phase8_health + $term4_phase8_health)/ 4);
+
+    $phase8_health_numbers = array($term1_phase8_health, $term2_phase8_health, $term3_phase8_health, $term4_phase8_health);
+    $phase8_health_count = count(array_filter($phase8_health_numbers));
+    
+    if($phase8_health_count != 0){
+        $phase8_health_sum = array_sum($phase8_health_numbers);
+    
+        $phase8_final_rating_health = $phase8_health_sum / $phase8_health_count;
+    }
+
+    else {
+        $phase8_final_rating_health = 0;
+    }
+
+    
+
+     // $phase8_final_rating_esp = round(($term1_phase8_esp + $term2_phase8_esp + $term3_phase8_esp + $term4_phase8_esp) / 4);
+    
+     $phase8_esp_numbers = array($term1_phase8_esp, $term2_phase8_esp, $term3_phase8_esp, $term4_phase8_esp);
+     $phase8_esp_count = count (array_filter($phase8_esp_numbers));
+     
+     if($phase8_esp_count != 0){
+
+        $phase8_esp_sum = array_sum($phase8_esp_numbers);
+     
+        $phase8_final_rating_esp = $phase8_esp_sum / $phase8_esp_count;
+     }
+     else{
+        $phase8_final_rating_esp = 0;
+     }
+     
+
+
+
+     // $phase8_final_rating_arabic_language = round(($term1_phase8_arabic_language + $term2_phase8_arabic_language + $term3_phase8_arabic_language + $term4_phase8_arabic_language) / 4);
+
+    
+     $phase8_arabic_numbers = array($term1_phase8_arabic_language, $term2_phase8_arabic_language, $term3_phase8_arabic_language, $term4_phase8_arabic_language);
+     $phase8_arabic_count = count(array_filter($phase8_arabic_numbers));
+    
+     if($phase8_arabic_count != 0){
+        $phase8_arabic_sum = array_sum($phase8_arabic_numbers);
+     
+        $phase8_final_rating_arabic_language = $phase8_arabic_sum / $phase8_arabic_count;
+     }
+
+     else{
+
+        $phase8_final_rating_arabic_language = 0;
+
+     }
+
+    
+
+    // $phase8_final_rating_islamic_values = round(($term1_phase8_islamic_values + $term2_phase8_islamic_values + $term3_phase8_islamic_values + $term4_phase8_islamic_values) / 4);
+
+    $phase8_islamic_numbers = array($term1_phase8_islamic_values, $term2_phase8_islamic_values, $term3_phase8_islamic_values, $term4_phase8_islamic_values);
+    $phase8_islamic_count = count(array_filter($phase8_islamic_numbers));
+    
+    if($phase8_islamic_count !=0){
+        $phase8_islamic_sum = array_sum($phase8_islamic_numbers);
+    
+        $phase8_final_rating_islamic_values = $phase8_islamic_sum / $phase8_islamic_count;
+    }
+
+    else{
+        $phase8_final_rating_islamic_values = 0;
+    }
 
 
         //validation of phase 8
@@ -5587,43 +7561,101 @@ $phase8_final_rating_islamic_values = $phase8_islamic_sum / $phase8_islamic_coun
 
   // $phase8_term1_general_average = round(($term1_phase8_mother_tongue + $term1_phase8_filipino + $term1_phase8_english + $term1_phase8_mathematics + $term1_phase8_science + $term1_phase8_araling_panlipunan + $term1_phase8_epp_tle + $term1_phase8_average_of_mapeh + $term1_phase8_esp) / 9);
     
-$phase8_term1_gen_numbers = array($term1_phase8_mother_tongue + $term1_phase8_filipino + $term1_phase8_english + $term1_phase8_mathematics + $term1_phase8_science + $term1_phase8_araling_panlipunan, $term1_phase8_epp_tle, $term1_phase8_average_of_mapeh, $term1_phase8_esp);
-$phase8_term1_gen_sum = array_sum($phase8_term1_gen_numbers);
-$phase8_term1_gen_count = count(array_filter($phase8_term1_gen_numbers));
-$phase8_term1_general_average = $phase8_term1_gen_sum / $phase8_term1_gen_count;
+  $phase8_term1_gen_numbers = array($term1_phase8_mother_tongue, $term1_phase8_filipino, $term1_phase8_english, $term1_phase8_mathematics, $term1_phase8_science, $term1_phase8_araling_panlipunan, $term1_phase8_epp_tle, $term1_phase8_average_of_mapeh, $term1_phase8_esp);
+  $phase8_term1_gen_count = count(array_filter($phase8_term1_gen_numbers));
 
-// $phase8_term2_general_average = round(($term2_phase8_mother_tongue + $term2_phase8_filipino + $term2_phase8_english + $term2_phase8_mathematics + $term2_phase8_science + $term2_phase8_araling_panlipunan + $term2_phase8_epp_tle + $term2_phase8_average_of_mapeh + $term2_phase8_esp) / 9);
-$phase8_term2_gen_numbers = array($term2_phase8_mother_tongue, $term2_phase8_filipino, $term2_phase8_english + $term2_phase8_mathematics, $term2_phase8_science + $term2_phase8_araling_panlipunan, $term2_phase8_epp_tle, $term2_phase8_average_of_mapeh, $term2_phase8_esp);
-$phase8_term2_gen_sum = array_sum($phase8_term2_gen_numbers);
-$phase8_term2_gen_count = count(array_filter($phase8_term2_gen_numbers));
-$phase8_term2_general_average = $phase8_term2_gen_sum / $phase8_term2_gen_count;
+  if($phase8_term1_gen_count != 0){
+      
+      $phase8_term1_gen_sum = array_sum($phase8_term1_gen_numbers);
+  
+      $phase8_term1_general_average = $phase8_term1_gen_sum / $phase8_term1_gen_count;
+      
+  }
+  
+  else{
+      $phase8_term1_general_average = 0;
+  }
+  
+  // $phase8_term2_general_average = round(($term2_phase8_mother_tongue + $term2_phase8_filipino + $term2_phase8_english + $term2_phase8_mathematics + $term2_phase8_science + $term2_phase8_araling_panlipunan + $term2_phase8_epp_tle + $term2_phase8_average_of_mapeh + $term2_phase8_esp) / 9);
+  $phase8_term2_gen_numbers = array($term2_phase8_mother_tongue, $term2_phase8_filipino, $term2_phase8_english, $term2_phase8_mathematics, $term2_phase8_science, $term2_phase8_araling_panlipunan, $term2_phase8_epp_tle, $term2_phase8_average_of_mapeh, $term2_phase8_esp);
+  $phase8_term2_gen_count = count(array_filter($phase8_term2_gen_numbers));
+  
+  if ($phase8_term2_gen_count != 0){
+      
+      $phase8_term2_gen_sum = array_sum($phase8_term2_gen_numbers);
+  
+      $phase8_term2_general_average = $phase8_term2_gen_sum / $phase8_term2_gen_count;
 
- // $phase8_term3_general_average = round(($term3_phase8_mother_tongue + $term3_phase8_filipino + $term3_phase8_english + $term3_phase8_mathematics + $term3_phase8_science + $term3_phase8_araling_panlipunan + $term3_phase8_epp_tle + $term3_phase8_average_of_mapeh + $term3_phase8_esp) / 9);
+  }
 
- $phase8_term3_gen_numbers = array($term3_phase8_mother_tongue, $term3_phase8_filipino, $term3_phase8_english, $term3_phase8_mathematics, $term3_phase8_science + $term3_phase8_araling_panlipunan, $term3_phase8_epp_tle, $term3_phase8_average_of_mapeh, $term3_phase8_esp);
- $phase8_term3_gen_sum = array_sum($phase8_term3_gen_numbers);
- $phase8_term3_gen_count = count(array_filter($phase8_term3_gen_numbers));
- $phase8_term3_general_average = $phase8_term3_gen_sum / $phase8_term3_gen_count;
+  else {
+      $phase8_term2_general_average = 0;
+  }
+
+ 
+  
+   // $phase8_term3_general_average = round(($term3_phase8_mother_tongue + $term3_phase8_filipino + $term3_phase8_english + $term3_phase8_mathematics + $term3_phase8_science + $term3_phase8_araling_panlipunan + $term3_phase8_epp_tle + $term3_phase8_average_of_mapeh + $term3_phase8_esp) / 9);
+  
+   $phase8_term3_gen_numbers = array($term3_phase8_mother_tongue, $term3_phase8_filipino, $term3_phase8_english, $term3_phase8_mathematics, $term3_phase8_science, $term3_phase8_araling_panlipunan, $term3_phase8_epp_tle, $term3_phase8_average_of_mapeh, $term3_phase8_esp);
+   $phase8_term3_gen_count = count(array_filter($phase8_term3_gen_numbers));
+   
+
+      if($phase8_term3_gen_count != 0){
+          $phase8_term3_gen_sum = array_sum($phase8_term3_gen_numbers);
+   
+          $phase8_term3_general_average = $phase8_term3_gen_sum / $phase8_term3_gen_count;
+
+      }
+
+      else{
+          $phase8_term3_general_average = 0;
+
+      }
 
 
+   
+  
+  
+  
+   // $phase8_term4_general_average = round(($term4_phase8_mother_tongue + $term4_phase8_filipino + $term4_phase8_english + $term4_phase8_mathematics + $term4_phase8_science + $term4_phase8_araling_panlipunan + $term4_phase8_epp_tle + $term4_phase8_average_of_mapeh + $term4_phase8_esp) / 9);
+  
+   $phase8_term4_gen_numbers = array($term4_phase8_mother_tongue, $term4_phase8_filipino, $term4_phase8_english, $term4_phase8_mathematics, $term4_phase8_science, $term4_phase8_araling_panlipunan, $term4_phase8_epp_tle, $term4_phase8_average_of_mapeh, $term4_phase8_esp);
+   $phase8_term4_gen_count = count(array_filter($phase8_term4_gen_numbers));
+  
+      if($phase8_term4_gen_count != 0){
+          $phase8_term4_gen_sum = array_sum($phase8_term4_gen_numbers);
+   
+          $phase8_term4_general_average = $phase8_term4_gen_sum / $phase8_term4_gen_count;
 
- // $phase8_term4_general_average = round(($term4_phase8_mother_tongue + $term4_phase8_filipino + $term4_phase8_english + $term4_phase8_mathematics + $term4_phase8_science + $term4_phase8_araling_panlipunan + $term4_phase8_epp_tle + $term4_phase8_average_of_mapeh + $term4_phase8_esp) / 9);
+      }
 
- $phase8_term4_gen_numbers = array($term4_phase8_mother_tongue, $term4_phase8_filipino, $term4_phase8_english, $term4_phase8_mathematics, $term4_phase8_science + $term4_phase8_araling_panlipunan, $term4_phase8_epp_tle, $term4_phase8_average_of_mapeh, $term4_phase8_esp);
- $phase8_term4_gen_sum = array_sum($phase8_term4_gen_numbers);
- $phase8_term4_gen_count = count(array_filter($phase8_term4_gen_numbers));
- $phase8_term4_general_average = $phase8_term4_gen_sum / $phase8_term4_gen_count;
+      else{
+          $phase8_term4_general_average = 0;
+
+      }
+
+  
+  
+  
+  
+  
+   // $phase8_term5_general_average = round(($phase8_final_rating_mother_tongue  + $phase8_final_rating_filipino + $phase8_final_rating_english + $phase8_final_rating_math + $phase8_final_rating_science + $phase8_final_rating_AP + $phase8_final_rating_epp_tle + $phase8_final_rating_mapeh + $phase8_final_rating_esp) / 9);
 
 
+   $phase8_term5_gen_numbers = array($phase8_final_rating_mother_tongue, $phase8_final_rating_filipino, $phase8_final_rating_english, $phase8_final_rating_math, $phase8_final_rating_science, $phase8_final_rating_AP, $phase8_final_rating_epp_tle, $phase8_final_rating_mapeh, $phase8_final_rating_esp);
+   $phase8_term5_gen_count = count(array_filter($phase8_term5_gen_numbers));
 
+   if($phase8_term5_gen_count != 0){
+      
+      $phase8_term5_gen_sum = array_sum($phase8_term5_gen_numbers);
+      
+      $phase8_term5_general_average = $phase8_term5_gen_sum / $phase8_term5_gen_count;
+ }
 
- // $phase8_term5_general_average = round(($phase8_final_rating_mother_tongue  + $phase8_final_rating_filipino + $phase8_final_rating_english + $phase8_final_rating_math + $phase8_final_rating_science + $phase8_final_rating_AP + $phase8_final_rating_epp_tle + $phase8_final_rating_mapeh + $phase8_final_rating_esp) / 9);
+   else{
+      $phase8_term5_general_average = 0;
 
-
- $phase8_term5_gen_numbers = array($phase8_final_rating_mother_tongue  + $phase8_final_rating_filipino + $phase8_final_rating_english, $phase8_final_rating_math, $phase8_final_rating_science, $phase8_final_rating_AP, $phase8_final_rating_epp_tle, $phase8_final_rating_mapeh, $phase8_final_rating_esp);
- $phase8_term5_gen_sum = array_sum($phase8_term5_gen_numbers);
- $phase8_term5_gen_count = count(array_filter($phase8_term5_gen_numbers));
- $phase8_term5_general_average = $phase8_term5_gen_sum / $phase8_term5_gen_count;
+   }
 
 
     //CHECK DITO kung papasa si student, RETAINED, REMEDIAL OR PROMOTED
@@ -9187,7 +11219,7 @@ if($phase3_run_scholastic_records){
     if($run_student_final_ratings_arabic){
         echo "added to student final ratings arabic" . '<br>';
     }else{
-        echo "Error student final ratings arabic" . $conn->error();
+        echo "Error student final ratings arabic" . $conn->error;
     }
 
     //insert PHASE 3 ko sa FINAL RATINGS table PER SUBJECT islamic values
@@ -11528,7 +13560,7 @@ if($phase5_run_scholastic_records){
     if($run_student_final_ratings_arabic){
         echo "added to student final ratings arabic" . '<br>';
     }else{
-        echo "Error student final ratings arabic" . $conn->error();
+        echo "Error student final ratings arabic" . $conn->error;
     }
 
     //insert ko sa PHASE 5 FINAL RATINGS table PER SUBJECT islamic values
@@ -13870,7 +15902,7 @@ if($phase7_run_scholastic_records){
     if($run_student_final_ratings_arabic){
         echo "added to student final ratings arabic" . '<br>';
     }else{
-        echo "Error student final ratings arabic" . $conn->error();
+        echo "Error student final ratings arabic" . $conn->error;
     }
 
     //insert ko sa PHASE 7  FINAL RATINGS table PER SUBJECT islamic values
@@ -15054,7 +17086,7 @@ if($phase7_run_scholastic_records){
      if($run_student_final_ratings_arabic){
          echo "added to student final ratings arabic" . '<br>';
      }else{
-         echo "Error student final ratings arabic" . $conn->error();
+         echo "Error student final ratings arabic" . $conn->error;
      }
 
      //insert ko sa PHASE 8 FINAL RATINGS table PER SUBJECT islamic values
