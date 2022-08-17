@@ -957,14 +957,14 @@ if(isset($_GET['sid'])){
                         <td>
                             <?php
                             $rows = mysqli_fetch_array($run_total_remarks_phase1);
-                            if($rows['total_remarks'] == 15){
-                              echo "";
-                            }else if($rows['total_remarks'] >= 3){
+                            if($rows['total_remarks'] >= 3){
                               echo "RETAINED";
                             }else if ($rows['total_remarks'] == 2){
                                 echo "REMEDIAL";
                             }else if($rows['total_remarks'] <= 1){
                                 echo "PROMOTED";
+                            }else{
+                              echo "";
                             }?>
                         </td>
                     </tr>
@@ -1789,15 +1789,16 @@ if(isset($_GET['sid'])){
           WHERE phase = '2' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase2 = mysqli_query($conn,$sql_total_remarks_phase2);
           $rows = mysqli_fetch_array($run_total_remarks_phase2);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
-              echo "RETAINED";
-            }else if ($rows['total_remarks'] == 2){
-                echo "REMEDIAL";
-            }else if($rows['total_remarks'] <= 1){
-                echo "PROMOTED";
-            }?></td>
+          if($rows['total_remarks'] >= 3){
+            echo "RETAINED";
+          }else if ($rows['total_remarks'] == 2){
+              echo "REMEDIAL";
+          }else if($rows['total_remarks'] <= 1){
+              echo "PROMOTED";
+          }else{
+            echo "";
+          }?>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -2620,15 +2621,16 @@ if(isset($_GET['sid'])){
           WHERE phase = '3' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase3 = mysqli_query($conn,$sql_total_remarks_phase3);
           $rows = mysqli_fetch_array($run_total_remarks_phase3);
-          if($rows['total_remarks'] == 15){
-            echo "";
-          }else if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-            }?></td>
+          }else{
+            echo "";
+          }?>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -3449,15 +3451,16 @@ if(isset($_GET['sid'])){
           WHERE phase = '4' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase4 = mysqli_query($conn,$sql_total_remarks_phase4);
           $rows = mysqli_fetch_array($run_total_remarks_phase4);
-          if($rows['total_remarks'] == 15){
-            echo "";
-          }else if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-            }?></td>
+          }else{
+            echo "";
+          }?>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -4281,15 +4284,16 @@ if(isset($_GET['sid'])){
           WHERE phase = '5' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase5 = mysqli_query($conn,$sql_total_remarks_phase5);
           $rows = mysqli_fetch_array($run_total_remarks_phase5);
-          if($rows['total_remarks'] == 15){
-            echo "";
-          }else if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-            }?></td>
+          }else{
+            echo "";
+          }?>
+            </td>
         </tbody>
       </table>
 
@@ -5109,15 +5113,16 @@ if(isset($_GET['sid'])){
           WHERE phase = '6' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase6 = mysqli_query($conn,$sql_total_remarks_phase6);
           $rows = mysqli_fetch_array($run_total_remarks_phase6);
-          if($rows['total_remarks'] == 15){
-            echo "";
-          }else if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-            }?></td>
+          }else{
+            echo "";
+          }?>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -5940,15 +5945,16 @@ if(isset($_GET['sid'])){
           WHERE phase = '7' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase7 = mysqli_query($conn,$sql_total_remarks_phase7);
           $rows = mysqli_fetch_array($run_total_remarks_phase7);
-          if($rows['total_remarks'] == 15){
-            echo "";
-          }else if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-            }?></td>
+          }else{
+            echo "";
+          }?>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -6769,15 +6775,16 @@ if(isset($_GET['sid'])){
           WHERE phase = '8' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase8 = mysqli_query($conn,$sql_total_remarks_phase8);
           $rows = mysqli_fetch_array($run_total_remarks_phase8);
-          if($rows['total_remarks'] == 15){
-            echo "";
-          }else if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-            }?></td>
+          }else{
+            echo "";
+          }?>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -6908,7 +6915,7 @@ if(isset($_GET['sid'])){
     <div class="row pb-5" style="padding:0 14px;">
     <div class="col-lg-12 p-0">
       <?php
-      $sql_phase1_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '1'";
+      $sql_phase1_certification = "SELECT * FROM `certifications` WHERE lrn = '$decrypted_lrn' AND phase = '1'";
       $query_sql_phase1_certification = mysqli_query($conn, $sql_phase1_certification);
       if(mysqli_num_rows($query_sql_phase1_certification) > 0){
       $rows = mysqli_fetch_array($query_sql_phase1_certification);
@@ -7041,7 +7048,7 @@ if(isset($_GET['sid'])){
     <?php }?>
     <div class="col-lg-12 p-0">
       <?php
-      $sql_phase2_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '2'";
+      $sql_phase2_certification = "SELECT * FROM `certifications` WHERE lrn = '$decrypted_lrn' AND phase = '2'";
       $query_sql_phase2_certification = mysqli_query($conn, $sql_phase2_certification);
       if(mysqli_num_rows($query_sql_phase2_certification) > 0){
       $rows = mysqli_fetch_array($query_sql_phase2_certification);
@@ -7174,7 +7181,7 @@ if(isset($_GET['sid'])){
     <?php }?>
     <div class="col-lg-12 p-0">
       <?php
-      $sql_phase3_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '3'";
+      $sql_phase3_certification = "SELECT * FROM `certifications` WHERE lrn = '$decrypted_lrn' AND phase = '3'";
       $query_sql_phase3_certification = mysqli_query($conn, $sql_phase3_certification);
       if(mysqli_num_rows($query_sql_phase3_certification) > 0){
       $rows = mysqli_fetch_array($query_sql_phase3_certification);
@@ -7306,10 +7313,10 @@ if(isset($_GET['sid'])){
     </div>
     <?php }?>
     </div>
-      <span class="d-flex flex-column justify-content-center align-items-center">
+    </div>  
+    <span class="d-flex flex-column justify-content-center align-items-center">
       <input type="submit" name="update" class="submitbtn btn btn-success" value="Submit">
     </span>
-    </div>
   </form>
 </div>
 </div>
@@ -19734,13 +19741,13 @@ if(isset($_POST['update'])){
     $phase1_c_date = $_POST['phase1_c_date'];
     $phase1_c_name_of_principal = $_POST['phase1_c_name_of_principal'];
 
-    $phase1_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '1'";
+    $phase1_check_certification = "SELECT * FROM certifications WHERE lrn = '$decrypted_lrn' AND phase = '1'";
     $phase1_query_check_certification = mysqli_query($conn, $phase1_check_certification);
     if(mysqli_num_rows($phase1_query_check_certification) > 0){
         $phase1_sql_update_certification = "UPDATE certifications SET name = '$phase1_c_name', grade = '$phase1_c_grade', name_of_school = '$phase1_c_school_name',
         school_id = '$phase1_c_school_id', division = '$phase1_c_division', last_school_year_attended = '$phase1_c_last_school_year_attended',
         `date` = '$phase1_c_date', name_of_principal = '$phase1_c_name_of_principal', date_time_updated = '$date_time_updated' 
-        WHERE lrn = '109857060084' AND phase = '1'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '1'";
         $phase1_query_sql_update_certification = mysqli_query($conn, $phase1_sql_update_certification);
         if($phase1_query_sql_update_certification == true){
           echo "SUCCESS CERTIFICATION UPDATE <br>";
@@ -19774,13 +19781,13 @@ if(isset($_POST['update'])){
     $phase2_c_date = $_POST['phase2_c_date'];
     $phase2_c_name_of_principal = $_POST['phase2_c_name_of_principal'];
 
-    $phase2_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '2'";
+    $phase2_check_certification = "SELECT * FROM certifications WHERE lrn = '$decrypted_lrn' AND phase = '2'";
     $phase2_query_check_certification = mysqli_query($conn, $phase2_check_certification);
     if(mysqli_num_rows($phase2_query_check_certification) > 0){
         $phase2_sql_update_certification = "UPDATE certifications SET name = '$phase2_c_name', grade = '$phase2_c_grade', name_of_school = '$phase2_c_school_name',
         school_id = '$phase2_c_school_id', division = '$phase2_c_division', last_school_year_attended = '$phase2_c_last_school_year_attended',
         `date` = '$phase2_c_date', name_of_principal = '$phase2_c_name_of_principal', date_time_updated = '$date_time_updated' 
-        WHERE lrn = '109857060084' AND phase = '2'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '2'";
         $phase2_query_sql_update_certification = mysqli_query($conn, $phase2_sql_update_certification);
         if($phase2_query_sql_update_certification == true){
           echo "SUCCESS CERTIFICATION UPDATE <br>";
@@ -19813,13 +19820,13 @@ if(isset($_POST['update'])){
     $phase3_c_date = $_POST['phase3_c_date'];
     $phase3_c_name_of_principal = $_POST['phase3_c_name_of_principal'];
 
-    $phase3_check_certification = "SELECT * FROM certifications WHERE lrn = '109857060084' AND phase = '3'";
+    $phase3_check_certification = "SELECT * FROM certifications WHERE lrn = '$decrypted_lrn' AND phase = '3'";
     $phase3_query_check_certification = mysqli_query($conn, $phase3_check_certification);
     if(mysqli_num_rows($phase3_query_check_certification) > 0){
         $phase3_sql_update_certification = "UPDATE certifications SET name = '$phase3_c_name', grade = '$phase3_c_grade', name_of_school = '$phase3_c_school_name',
         school_id = '$phase3_c_school_id', division = '$phase3_c_division', last_school_year_attended = '$phase3_c_last_school_year_attended',
         `date` = '$phase3_c_date', name_of_principal = '$phase3_c_name_of_principal', date_time_updated = '$date_time_updated' 
-        WHERE lrn = '109857060084' AND phase = '3'";
+        WHERE lrn = '$decrypted_lrn' AND phase = '3'";
         $phase3_query_sql_update_certification = mysqli_query($conn, $phase3_sql_update_certification);
         if($phase3_query_sql_update_certification == true){
           echo "SUCCESS CERTIFICATION UPDATE <br>";
