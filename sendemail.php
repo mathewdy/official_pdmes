@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+/I
 
 
         function sendMail($email,$path){
@@ -25,13 +26,13 @@ use PHPMailer\PHPMailer\Exception;
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = 'thaddeusgamit31@gmail.com';                     //SMTP username // email username
-                $mail->Password   = 'atobvewoqjwdipsw';                               //SMTP // email password password
+                $mail->Username   = 'tite';                     //SMTP username // email username
+                $mail->Password   = 'tite';                               //SMTP // email password password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
                 //Recipients
-                $mail->SetFrom('thaddeusgamit31@gmail.com');
+                $mail->SetFrom('tite');
                 $mail->addAddress($email);
                 $mail->addAttachment($path);       //Add a recipient
             
