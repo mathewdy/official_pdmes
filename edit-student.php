@@ -174,7 +174,7 @@ if(isset($_GET['sid'])){
                 <span class="hstack d-flex align-items-end w-75">
                     <label for="">Learner Reference Number (LRN):</label>
                     <input type="text" style="margin: 0 1em 0 0; width:30%;" name="lrn" 
-                    value="<?php if(empty($rows['lrn'])){ echo "";}else{ echo $rows['lrn'];}?>" required>
+                    value="<?php if(empty($rows['lrn'])){ echo "";}else{ echo $rows['lrn'];}?>" readonly required>
 
                     <label for="">Birthdate (mm/dd/yyyy):</label>
                     <input type="date" name="birthday" value="<?php echo strftime('%Y-%m-%d', strtotime($rows['birth_date']));?>" required>  
@@ -950,21 +950,21 @@ if(isset($_GET['sid'])){
                             <td></td>
                         <?php }?>
                         <?php
-                        $sql_total_remarks_phase1 = "SELECT final_rating, final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
+                        $sql_total_remarks_phase1 = "SELECT  final_rating, COUNT(remarks) AS 'total_remarks' , lrn FROM student_final_ratings 
                         WHERE phase = '1' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
                         $run_total_remarks_phase1 = mysqli_query($conn,$sql_total_remarks_phase1);
                         ?>
                         <td>
                             <?php
                             $rows = mysqli_fetch_array($run_total_remarks_phase1);
-                            if($rows['total_remarks'] >= 3){
+                            if($rows['total_remarks'] == 15){
+                              echo "";
+                            }else if($rows['total_remarks'] >= 3){
                               echo "RETAINED";
                             }else if ($rows['total_remarks'] == 2){
                                 echo "REMEDIAL";
                             }else if($rows['total_remarks'] <= 1){
                                 echo "PROMOTED";
-                            }else{
-                              echo "";
                             }?>
                         </td>
                     </tr>
@@ -1789,14 +1789,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '2' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase2 = mysqli_query($conn,$sql_total_remarks_phase2);
           $rows = mysqli_fetch_array($run_total_remarks_phase2);
-          if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-          }else{
-            echo "";
           }?>
             </td>
           </tr>
@@ -2621,14 +2621,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '3' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase3 = mysqli_query($conn,$sql_total_remarks_phase3);
           $rows = mysqli_fetch_array($run_total_remarks_phase3);
-          if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-          }else{
-            echo "";
           }?>
             </td>
           </tr>
@@ -3451,14 +3451,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '4' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase4 = mysqli_query($conn,$sql_total_remarks_phase4);
           $rows = mysqli_fetch_array($run_total_remarks_phase4);
-          if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-          }else{
-            echo "";
           }?>
             </td>
           </tr>
@@ -4284,14 +4284,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '5' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase5 = mysqli_query($conn,$sql_total_remarks_phase5);
           $rows = mysqli_fetch_array($run_total_remarks_phase5);
-          if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-          }else{
-            echo "";
           }?>
             </td>
         </tbody>
@@ -5113,14 +5113,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '6' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase6 = mysqli_query($conn,$sql_total_remarks_phase6);
           $rows = mysqli_fetch_array($run_total_remarks_phase6);
-          if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-          }else{
-            echo "";
           }?>
             </td>
           </tr>
@@ -5945,14 +5945,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '7' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase7 = mysqli_query($conn,$sql_total_remarks_phase7);
           $rows = mysqli_fetch_array($run_total_remarks_phase7);
-          if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-          }else{
-            echo "";
           }?>
             </td>
           </tr>
@@ -6775,14 +6775,14 @@ if(isset($_GET['sid'])){
           WHERE phase = '8' AND lrn = '$decrypted_lrn' AND remarks= 'FAILED' ";
           $run_total_remarks_phase8 = mysqli_query($conn,$sql_total_remarks_phase8);
           $rows = mysqli_fetch_array($run_total_remarks_phase8);
-          if($rows['total_remarks'] >= 3){
+          if($rows['total_remarks'] == 15){
+            echo "";
+          }else if($rows['total_remarks'] >= 3){
             echo "RETAINED";
           }else if ($rows['total_remarks'] == 2){
               echo "REMEDIAL";
           }else if($rows['total_remarks'] <= 1){
               echo "PROMOTED";
-          }else{
-            echo "";
           }?>
             </td>
           </tr>
@@ -8567,7 +8567,7 @@ if(isset($_POST['update'])){
     
     // UPDATE SECTION OF STUDENT LEARNER PERSONAL INFO
     $update_student_learner_personal_infos = "UPDATE `learners_personal_infos` 
-    SET `lrn`='$lrn',`last_name`='$last_name',
+    SET `last_name`='$last_name',
     `first_name`='$first_name',`middle_name`='$middle_name',
     `suffix`='$suffix',`birth_date`='$birthday',`sex`='$sex',
     `date_time_updated`='$date_time_updated' WHERE lrn = '$lrn'";
@@ -8579,7 +8579,7 @@ if(isset($_POST['update'])){
     }
 
     // UPDATE SECTION OF STUDENT ELIGIBILITY FOR ELEM SCHOOL ENROLLMENT
-    $update_student_efese = "UPDATE `eligibility_for_elementary_school_enrollment` SET `lrn`='$lrn',
+    $update_student_efese = "UPDATE `eligibility_for_elementary_school_enrollment` SET
     `credential_presented`='$credential_presented',`name_of_school`='$efese_name_of_school',`school_id`='$efese_school_id',
     `address_of_school`='$efese_address_of_school',`pept_passer`='$pept_passer',`rating`='$efese_rating',
     `date_of_assessment`='$date_of_assessment',`others`='$efese_others',`specify`='$efese_specify',
@@ -8599,7 +8599,7 @@ if(isset($_POST['update'])){
     AND phase = '1'";
     $query_check_phase1_student_scholastic_record = mysqli_query($conn, $check_phase1_student_scholastic_record);
     if(mysqli_num_rows($query_check_phase1_student_scholastic_record) > 0){
-      $update_phase1_student_scholastic_record = "UPDATE `scholastic_records` SET `lrn`='$lrn',
+      $update_phase1_student_scholastic_record = "UPDATE `scholastic_records` SET
       `school`='$phase1_sr_school',`school_id`='$phase1_sr_school_id',`district`='$phase1_sr_district',
       `division`='$phase1_sr_division',`region`='$phase1_sr_region',`classified_as_grade`='$phase1_sr_classified_as_grade',
       `section`='$phase1_sr_section',`school_year`='$phase1_sr_school_year',`name_of_teacher`='$phase1_sr_name_of_adviser',
