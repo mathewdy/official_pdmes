@@ -1,8 +1,8 @@
 <?php
 ob_start();
 include('../connection.php');
-$decrypted_lrn = 1923948758391;
-$lrn = 1923948758391;
+$decrypted_lrn = 123456789456;
+$lrn = 123456789456;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -826,8 +826,9 @@ $lrn = 1923948758391;
           </tr>
         </tbody>
       </table>
-      <button type="submit" name="submit">Confirm</button>
         <?php }?>
+      <input type="submit" name="submit" value="Confirm">
+
     </form>
 </body>
 </html>
