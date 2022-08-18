@@ -833,7 +833,7 @@ $lrn = 1923948758391;
 </html>
 <?php
 if(isset($_POST['submit'])){
-  // PHT +8:00 FOR UPDATE AND CREATED DATA//
+  // PHT +8:00 FOR UPDATE AND CREATED DATA
   date_default_timezone_set('Asia/Manila');
   $date_time_created = date("Y-m-d h:i:s");
   $date_time_updated = date("Y-m-d h:i:s");
