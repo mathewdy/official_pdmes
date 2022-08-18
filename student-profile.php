@@ -967,14 +967,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase1);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
+            if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
                 echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
                 echo "PROMOTED";
+            }else{
+              echo "";
             }?>
           </td>
           </tr>
@@ -1803,14 +1803,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase2);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
+            if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
                 echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
                 echo "PROMOTED";
+            }else{
+              echo "";
             }?>
           </td>
           </tr>
@@ -2639,14 +2639,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase3);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
+            if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
                 echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
                 echo "PROMOTED";
+            }else{
+              echo "";
             }?>
           </td>
           </tr>
@@ -3473,14 +3473,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase4);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
+            if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
                 echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
                 echo "PROMOTED";
+            }else{
+              echo "";
             }?>
           </td>
           </tr>
@@ -4309,14 +4309,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase5);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
+            if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
                 echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
                 echo "PROMOTED";
+            }else{
+              echo "";
             }?>
           </td>
           </tr>
@@ -5143,14 +5143,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase6);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
+            if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
                 echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
                 echo "PROMOTED";
+            }else{
+              echo "";
             }?>
           </td>
           </tr>
@@ -5979,14 +5979,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase7);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
+            if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
                 echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
                 echo "PROMOTED";
+            }else{
+              echo "";
             }?>
           </td>
           </tr>
@@ -6813,14 +6813,14 @@ if(isset($_GET['sid'])){
           <td>
             <?php
             $rows = mysqli_fetch_array($run_total_remarks_phase8);
-            if($rows['total_remarks'] == 15){
-              echo "";
-            }else if($rows['total_remarks'] >= 3){
+            if($rows['total_remarks'] >= 3){
               echo "RETAINED";
             }else if ($rows['total_remarks'] == 2){
                 echo "REMEDIAL";
             }else if($rows['total_remarks'] <= 1){
                 echo "PROMOTED";
+            }else{
+              echo "";
             }?>
           </td>
           </tr>
@@ -6953,7 +6953,7 @@ if(isset($_GET['sid'])){
     <div class="row pb-5" style="padding:0 14px;">
     <div class="col-lg-12 p-0">
       <?php
-      $sql_phase1_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '1'";
+      $sql_phase1_certification = "SELECT * FROM `certifications` WHERE lrn = '$decrypted_lrn' AND phase = '1'";
       $query_sql_phase1_certification = mysqli_query($conn, $sql_phase1_certification);
       if(mysqli_num_rows($query_sql_phase1_certification) > 0){
       $rows = mysqli_fetch_array($query_sql_phase1_certification);
@@ -7086,7 +7086,7 @@ if(isset($_GET['sid'])){
     <?php }?>
     <div class="col-lg-12 p-0">
       <?php
-      $sql_phase2_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '2'";
+      $sql_phase2_certification = "SELECT * FROM `certifications` WHERE lrn = '$decrypted_lrn' AND phase = '2'";
       $query_sql_phase2_certification = mysqli_query($conn, $sql_phase2_certification);
       if(mysqli_num_rows($query_sql_phase2_certification) > 0){
       $rows = mysqli_fetch_array($query_sql_phase2_certification);
@@ -7219,7 +7219,7 @@ if(isset($_GET['sid'])){
     <?php }?>
     <div class="col-lg-12 p-0">
       <?php
-      $sql_phase3_certification = "SELECT * FROM `certifications` WHERE lrn = '109857060084' AND phase = '3'";
+      $sql_phase3_certification = "SELECT * FROM `certifications` WHERE lrn = '$decrypted_lrn' AND phase = '3'";
       $query_sql_phase3_certification = mysqli_query($conn, $sql_phase3_certification);
       if(mysqli_num_rows($query_sql_phase3_certification) > 0){
       $rows = mysqli_fetch_array($query_sql_phase3_certification);
