@@ -66,7 +66,7 @@ include('security.php');
             <i>Credential Presented for Grade 1</i>
             <span class="form-check form-check-inline">
                 <label class="form-check-label">Kinder Progress Report </label>
-                <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kinder progress report">
+                <input type="checkbox" class="form-check-input" name="credential_presented[]" value="Kinder Progress Report">
             </span>
             <span class="form-check form-check-inline">
                 <label class="form-check-label">ECCD Checklist </label>

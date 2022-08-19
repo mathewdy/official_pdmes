@@ -37,10 +37,26 @@ include 'includes/header.php';
             $count = 0;
             foreach($run as $row){
               $lrn = $row['lrn'];
-              $encrypted_data = (($lrn*12345678911*56789)/987654);
-              $edit_link = "edit-student.php?sid=" . urlencode(base64_encode($encrypted_data));
-              $view_link = "student-profile.php?sid=" . urlencode(base64_encode($encrypted_data));
-              $delete_link = "delete-student.php?sid=" . urlencode(base64_encode($encrypted_data));
+            // Store the cipher method
+            $ciphering = "AES-128-CTR";
+
+            // Use OpenSSl Encryption method
+            $iv_length = openssl_cipher_iv_length($ciphering);
+            $options = 0;
+
+            // Non-NULL Initialization Vector for encryption
+            $encryption_iv = '1234567891011121';
+
+            // Store the encryption key
+            $encryption_key = "TeamAgnat";
+
+            // Use openssl_encrypt() function to encrypt the data
+            $encryption = openssl_encrypt($lrn, $ciphering,
+                        $encryption_key, $options, $encryption_iv);
+            //   $encrypted_data = (($lrn*12345678911*56789)/987654);
+              $edit_link = "edit-student.php?sid=" . $encryption;
+              $view_link = "student-profile.php?sid=" . $encryption;
+              $delete_link = "delete-student.php?sid=" . $encryption;
                 $count++;
                 ?>
 
