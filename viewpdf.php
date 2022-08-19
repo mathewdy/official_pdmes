@@ -47,7 +47,6 @@ $phase7 = 7;
 $phase8 = 8;
 
 
-
 $png1 = file_get_contents("../official_pdmes/src/images/DepEd.png");
 $png1base64 = base64_encode($png1);
 $png2 = file_get_contents("../official_pdmes/src/images/DepEd_2.png");
@@ -59,903 +58,139 @@ $html='
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../pdmes/bootstrap-5.1.1-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="styles.css">
-    <title>PDMES</title>
 </head>
 
 <style>
-*{
-    font-family:Dejavu Sans, Arial, Helvetica, sans-serif;
-    font-size:8pt;
-    
-}
- tr,thead,  tbody, td ,th {
-    border-collapse:collapse;
-    border:0.5px solid black;
-}
-table  {
-    border:1px solid black;
-    border-collapse:collapse;
-    width:10cm;
-    
-}
-table tr td{
-    page-break-inside: avoid !important;
+
+:root{
+    --calibri: "Calibri, sans-serif";
+    --arial:  Arial, Helvetica, sans-serif;
 }
 
-.remedial{
-    font-size:9px;
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
-td {
-    font-size:7pt;
-    height:5px;
-    min-height:20px;
-    min-width:100%;
-    
+body{
+    margin: .5em;
 }
-
-
-.insert:before{
-    content: "&nbsp;";
+.small-pad-left{
+    padding-left: 7px;
 }
-
-
-.remedial-2:before{
-
-    content: "&nbsp;";
+.text-start{
+    text-align: left;
 }
-
-
-.insert-gen-av:before{
-    content:"&nbsp;";
-
+.text-center{
+    text-align: center;
 }
-
-.insert-remarks:before{
-
-    content:"&nbsp;";
+.text-end{
+    text-align: right;
 }
-
-
-.Record{
-    position:absolute;
-    top:1cm;
+.wd{
+    width: 10em;
 }
-
-
-.remedial-2{
-    height:10px;
-    max-width: 20px;
-    overflow: hidden;
-    white-space: nowrap;
-
-}
-
-th{
-    font-size: 7pt;
-}
-
-
-th{
-    text-align:center;
-}
-
-
-td{
-    text-align:center;
- }
-
-.mother{
-    text-align:left;
-    font-style:bold;
-}
-
-.filipino{
-    text-align:left;
-    font-style:bold;
-}
-
-.english{
-    text-align:left;
-    font-style:bold;
-}
-.math{
-    text-align:left;
-    font-style:bold;
-}
-
-.science{
-    text-align:left;
-    font-style:bold;
-}
-
-.Ap{
-    text-align:left;
-    font-style:bold;
-}
-
-.epp{
-    text-align:left;
-    font-style:bold;
-}
-
-.mapeh{
-    text-align:left;
-    font-style:bold;
-}
-
-.music{
-    text-align:left;
-    font-style:italic;
-    font-size:6pt;
-
-}
-
-.arts{
-    text-align:left;
-    font-style:italic;
-    font-size:6pt;
-}
-
-.pe{
-    text-align:left;
-    font-style:italic;
-    font-size:6pt;
-}
-
-.health{
-    text-align:left;
-    font-style:italic;
-    font-size:6pt;
-}
-
-.eduk{
-    text-align:left;
-    font-style:bold;
-
-}
-
-.arabic{
-    text-align:left;
-    font-style:italic;
-    font-size:6pt;
-}
-
-.islamic{
-    text-align:left;
-    font-style:italic;
-    font-size:6pt;
-}
-
-.general{
-    text-align:left;
-   font-style:bold;
-}
-
-
-
-.container-1 label{
-    font-size:10pt;
-}
-
-
-
-input type = [checkbox]{
-    height: 15px;
-    width:15px;
-    border:1px solid black;"
-}
-
-
-.credential{
-    width:95%;
-    border:1px solid black;
-    margin:0 auto;
-    font-size:8pt;
-}
-
-
-.kinder{
-    font-size:8pt;
+.italic{
     font-style: italic;
 }
 
-.Name-of-School{
-    margin-right:14rem;
+.heading-content{
+    position: relative;
+} 
+.heading-texts{
+    text-align: center;
+}
+.calibri-text{
+    font-family: var(--calibri);
+    font-weight: light;
+    font-size: 14px;
 }
-
-.School_ID{
-    margin-right:4rem;
-}
-
-
-.school-container{
-    width:95%;
-}
-
-.kinder1{
-    margin-right:4rem;
-}
-
-.date-of-assesment{
-    margin-right:4rem;
-}
-
-
-
-
-.bottom-form{
-    margin: 0 1.5rem;
-    font-size:8pt;
-}
-
-.rating{
-    margin-right:4rem;
-}
-
-
-
-.row {
-    margin-left:-5px;
-    margin-right:-5px;
-  }
-    
-  .column {
-    float: left;
-    width: 50%;
-    padding: 5px;
-  }
-  
-  /* Clearfix (clear floats) */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  
-
-
-
-
-
-
-
-.container-phase-1{
-    
-    
-    position:absolute;
-    top:10.78cm;
-    right:13.97cm;
-    
-    
-}
-
-
-.container-phase-2{
-   position:absolute;
-   top:10.78cm;
-    left:10cm;
-}
-
-.container-phase-3{
-    
-    position:absolute;
-    top:23.25cm;
-    right:13.99cm;
-  
-}
-
-.container-phase-4{
-   
-    position:absolute;
-    top:23.25cm;
-    left:10cm;
-   
-}
-
-.container-phase-5{
-   
-
-    position:absolute;
-    top:1.99cm;
-    right:14cm;
-    
-}
-
-.container-phase-6{
-  
-    position:absolute;
-    top:1.99cm;
-    left:10cm;;
-    
-}
-
-.container-phase-7{
- 
-    position:absolute;
-    top:14.28cm;
-    right:13.98cm;
-   
-   
-}
-
-.container-phase-8{
-   
-    position:absolute;
-    top:14.28cm;
-    left:10cm;
-   
-}
-
-
-
-
-.learners-information1{
-    width:9.95cm;
-    position:absolute;
-    right:10.06cm;
-    top:9cm;
-    border:1px solid black;
-  
-   
-    
-
-}
-
-
-
-.learners-information-2{
-    width:9.95cm;
-    position:absolute;
-    top:21.5cm;
-    right:10.06cm;
-    border:1px solid black;
-   
-}
-
-.learners-information-3{
-    width:9.95cm;
-    position:absolute;
-    top:23.39cm;
-    right:10.06cm;
-    border:1px solid black;
-  
-}
-
-.learners-information-7{
-    width:9.95cm;
-    position:absolute;
-    top:12.5cm;
-    right:10.06cm;
-    border:1px solid black;
-    
-}
-
-.bottom-container{
-    font-size:5pt;
-  
-    width:20cm;
-    border:1px solid black;
-    position:absolute;
-    top:25cm;
-    left:-0.5cm;
-    right:2cm;
-
-    
-}
-
-.bottom-container-1{
-    width:20cm;
-    font-size:5pt;
-    border:1px solid black;
-    position:absolute;
-    top:28.1cm;
-    left:-0.5cm;
-    right:2cm;
-}
-
-.bottom-container-2{
-    width:20cm;
-    font-size:5pt;
-    border:1px solid black;
-    position:absolute;
-    top:31.2cm;
-    left:-0.5cm;
-    right:2cm;
-}
-
-
-
-.transfer-out{
-    width:100%;
-    right:0.4cm;
-    position:absolute;
-    top:23.9cm;
-}
-
-.certification-top{
-    background:#E7E7E7;
-    width:100%;
-    margin:0.5cm 0;
-    margin-top:-1.3rem;
-}
-
-.cert{
-    text-align:center;
-}
-
-.certify{
-    
-    font-size:7pt;
-   
-}
-.LRN{
-   
-    font-size:7pt;
-}
-
-.admission{
-    width:200px;
-    font-size:7pt;
-    
-}
-
-.school-name{
-    font-size:7pt;
-    margin-right:3cm;
-}
-
-.school-id{
-    width:1rem;
-    font-size:7pt;
-    margin-right:  2rem;
-   
-}
-
-.Division{
-    font-size:7pt;
-    margin: 0 2rem;
-   
-}
-
-.last-school{
-    font-size:7pt;
-    width:1rem;
-}
-
-
-.Certify{
-    margin:0 auto;
-    font-size:7pt;
-    width:95%;
-
-}
-
-.second-row{
-
-    margin:0 auto;
-    width:95%;
-}
-
-
-
-.third-row{
-
-    margin:0 auto;
-    margin-left:1.1rem;
-    width:95%;
-}
-
-.bottom-names{
-    width:100%;
-    font-size:8pt;
-}
-
-.data-name{
-    margin-left:10rem;
-    font-size:8pt;
-
-.data-date{
-    margin-left:1rem;
-    font-size:8pt;
-}
-.date{
-
-    width:2rem;
-    margin-left:0.9rem;
-}
-
-.affix{
-    margin-left:20rem;
-    font-size:8pt;
-}   
-
-.bottom-col{
-    margin-top:1rem;
-    }
-
-.name-of-principal{
-    margin-left:4.5rem;
-    font-size:8pt;
-
-}
-
-.certify_underline{
-    text-decoration:underline;
-}
-
-.LRN_underline{
-    text-decoration:underline;
-}
-
-.admission_underline{
-    text-decoration:underline;
-
-}
-
-.school-name-underline{
-    text-decoration:underline;
-}
-
-.school-id-underline{
-    text-decoration:underline;
-}
-
-.Division-underline{
-    text-decoration:underline;
-}
-
-.last-school-underline{
-    text-decoration:underline;
-}
-
-.date-underline{
-    text-decoration:underline;
-    font-size:9pt;
-}
-
-.name-underline{
-    text-decoration:underline;
-    font-size:9pt;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-.container-row-2{
-    width:100%;
-
-}
-
-.learners-information-5{
-    width:9.95cm;
-    position:absolute;
-    right:10.08cm;
-    top:0.2cm;
-    border:1px solid black;
-    font-size:8pt;
-}
-.container-2{
-    width:52%;
-    margin:0 2rem;
-    max-width:50%;
-    margin:0 0.5rem;
-    margin-right:auto;
-}
-
-
-.container-4{
-    width:9.96cm;
-    font-size:8pt;
-    position:absolute;
-    left:10cm;
-    top:9cm;
-    border:1px solid black;
-   
-}
-
-
-.left-container{
-    width:9.96cm;
-    position:absolute;
-    left:10cm;
-    top:21.5cm;
-    border:1px solid black;
-   
-    
-}
-
-
-.left-container-2{
-    width:9.96cm;
-    position:absolute;
-    top:0.2cm;
-    left:10cm;
-    border:1px solid black;
-    
-}
-
-.left-container-3{
-    width:9.96cm;
-    position:absolute;
-    top:12.5cm;
-    left:10cm;
-    border:1px solid black;
-    
-}
-
-
-
-.top-1{
-    text-align:center;
-}
-
-.top-2{
-   text-align:center;
-    position:absolute;
-    left:4.6cm;
-    top:0.7cm;
-}
-
-.center{
-    text-align:center;
-}
-
-.deped{
-    position:absolute;
-    left:18cm;
-    height:1.9cm;
-    width:10cm;
-
-}
-
-.deped_2{
-    width:2cm
-    position:absolute;
-    left:4cm;
-    
-}
-
-
-.second-page{
-    position:absolute;
-    top:200px;
-}
-
-table {page-break-before:auto;}
-.page_break { page-break-before: always; }
-
-
-.learners{
-    text-align:center;
-    background:grey;
-}
-
-.learners-personal{
-    text-align:center;
-    background:grey;
-
-    margin-top:-2rem;
-}
-
-.learners-1{
-    text-align:center;
-    background:grey;
-    margin-top:-1.5rem;
-}
-
-
-
-.first{
-  margin-top:0.1rem  ;
-  font-size:8pt;
-}
-
-.second{
-    margin-top:0.5rem  ;
-    font-size:8pt;
-}
-
-.third{
-    margin:1rem 0 ;
-    
-}
-
-.fourth{
-    margin:1rem 0;
-   
-}
-
-
-
-.row label{
-    margin: 0 0.5rem;
-}
-
-.row1 label{
-    margin:0 0.1rem;
-    
-}
-
-.row2 label{
-    margin: 0 0.5rem;
-}
-
-
-.container-1{
-    width:95%;
-    margin:0 auto;
-   
-}
-
-.container-5{
-    width:52%;
-    margin:0 2rem;
-    max-width:50%;
-    margin:0 0.5rem;
-    margin-right:auto;
-    
-}
-
-
-
-
-
-
-
-
-.school_id{
-   
-    margin:0 4.5rem;
-    position:absolute;
-    left:3cm;
-    
-   
-}
-
-.school_underline{
-    text-decoration:underline;
-}
-
-.school_id_underline{
-     text-decoration:underline;
-}
-
-.district_underline{
-    text-decoration:underline;
-
-}
-
-.division_underline{
-    text-decoration:underline;
-}
-
-.region_underline{
-    text-decoration:underline;
-}
-
-.classified_underline{
-    text-decoration:underline;
-}
-
-.section_underline{
-    text-decoration:underline;
-}
-
-.school_year_underline{
-    text-decoration:underline;
-}
-
-.name_of_teacher_underline{
-    text-decoration:underline;
-}
-
-.signature_underline{
-    text-decoration:underline;
-    
-}
-
-
-.division{
-    width:4rem;
-    margin:0 2rem;
-    
-}
-
-.region{
-    width:4rem;
-    margin:0 0.5rem;
-}
-
-
-.section{
-    width:2rem;
-    
-    margin-right:0.6rem;
-}
-
-.as_grade{
-    width:2rem;
-    margin:0 0.1rem;
-    
-}
-.school_year{
-    width:2rem;
-    margin:0 -0.9rem;
-}
-
-
-
-.school{
-    width:65%;
-    max-width:880px;
-    
-}
-
-.adviser{
-    margin:0 0.2rem;
-}
-
 .SF{
-    font-size:10px;
+    position: absolute;
+    font-size: 11px;
+    left: 0;
+    top: 0; 
 }
-
-.sf{
-    position:absolute;
-    top:-0.4cm;
-    right:18cm;
-  
+.arial-text{
+    font-family: var(--arial);
+    font-weight: 700;
+    font-size: 18px;
 }
-
-
-.remdial-2{
-    position:absolute;
-    left:51%;
-    top: 84.8%;
-   
+img{
+    position: absolute;
 }
-
-.deped_2{
-    width:5cm;
-    height:1.5cm;
-}
-
-.deped{
-    width:3cm;
-    height:1.5cm;
-    position:absolute;
-    top:0.2cm;
-    left:15cm;
+.img_2{
+    height: 4.7rem;
+    width: 4.7rem;
+    margin: 0 0 0 2.5em;
+    left: 0;
     
-
-
+}
+.img_1{
+    height: 2.7rem;
+    width: 5.7rem;
+    margin: 1em 2.2em 0 0;
+    right: 0;
+}
+.main-content-header{
+    text-align: center;
+    padding: 2px 0;
+    border:1px solid black;
+}
+.learners{
+    background: #a9a9a9;
+}
+.eligibility{
+    background: #d3d3d3;
+}
+.scholastic{
+    background: #acacac;
 }
 
-.deped2{
-    width:2.3cm;
-    height:2.3cm;
-    position:absolute;
-    left:1cm;
+.arial-header{
+    font-family: var(--arial);
+    font-weight: bold;
+    font-size: 11px;
+}
+.main-arial-text{
+    font-family: var(--arial);
+    font-size: 11px;
+}
+.eligibility-content{
+    margin: 4px 0;
+    padding: auto 5px;
+    border:1px solid black;
+}
+.phase_head{
+    border-bottom: none;
+}
+.phase_head tr,
+.phase_head td{
+    border:none;
+    padding:2px;
 }
 
-.deped_2{
-    position:relative;
-    top:-0.99cm;
-    left:0.7cm;
+table, 
+tr,
+th, 
+td{
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
-
-
+table{
+    width: 100%;
+}
+td{
+    padding: 4px 0 0 0;
+}
+.subject{
+    font-weight: bold;
+    padding-left: 2px;
+}
+.remedial th{
+    padding: 4px 0;
+}
 </style>
 
     ';
@@ -1025,84 +260,72 @@ table {page-break-before:auto;}
      }
 
 
-
 while(mysqli_fetch_array($run_learners_query));
 
     
     $html.='
         <body>
-
-    <div class="top-1">
-        <label class="block ">Republic of The Philippines</label><br>
-        <label class="block">Department of education</label>
-    </div>
-    <div class="top-2">
-    <h4 class="center">Learner&#8216s Permanent Academic Record for Elementary School</h5>
-    <h4 class="center">(SF-10 ES)</h4>
-    </div>
-
-    <div class="sf">
-   <p class="SF">Sf-10-ES</p>
-   </div>
-   <div>
-  
-   <img src="DepEd_2.svg" class="deped">
-   <div class="deped_2">
-   <img src="DepEd.svg" class="deped2">
-   </div>
-  
-<br>
-<br>
-
-
-   <h4 class="learners-personal ">LEARNER`S PERSONAL INFORMATION </h4>
-   <div class="container-1">
-   <div class="first row">
-   <label for="">LASTNAME: '.$rows['last_name'].' </label> 
-   <label for="">FIRSTNAME: '.$rows['first_name'].' </label> 
-   <label for="">MIDDLENAME: '.$rows['middle_name'].' </label>
-   <label for="">NAMEEXTN(JR,I,II): '.$rows['suffix'].' </label>
-   </div>
-
-   <div class="second row1">
-   <label for="">Learner Reference Number (LRN): '.$rows['lrn'].' </label>
-   <label for="">Birthdate(mm/yy/dd): '.$rows['birth_date'].' </label>
-   <label for="">Sex: '.$rows['sex'].' </label>
-   </div>
-  
-   </div>
-   
-
-   <h4 class="learners "> ELIGIBITY FOR ELEMENTARY SCHOOL ENROLLMENT </h4>
-   <div class="credential">
-   
-   <label for="" class="credential-label"></label>Credential Presented for grade 1: </label>
-  
-   <input type="checkbox" class="checkbox" '.$kinder.' "> 
-   <label class="kinder">Kinder Progress Report </label>
-   <input type="checkbox" class="checkbox" '.$eccd.' "> 
-   <label class="kinder">ECCD checklist </label>
-   <input type="checkbox" class="checkbox" '.$complete.' "> 
-   <label class="kinder">Kindergarten Certificate of Completion </label>
-   <div class="school-container">
-   <label class="Name-of-School" for="">Name of School: '.$rows['name_of_school'].' </label>
-   <label class="School_ID" for="">School ID: '.$rows['school_id'].' </label>
-   <label class="Address-School" for="">Address of School: '.$rows['address_of_school'].' </label>
-   </div>
-
-   </div>
-    <div class="bottom-form">
-    <input type="checkbox" class="checkbox" '.$pept.' "> 
-   <label class="kinder1">PEPT Passer Rating: '.$ratings.' </label>
-    <label class="date-of-assesment" for="">Date of Assesment '.$rows['date_of_assessment'].' </label>
-    <input type="checkbox" class="checkbox" '.$checkbox.' "> 
-   <label class="kinder">Other (Pls.Specify) '.$specify.' </label>
-    </div>
-
- 
-
-
- 
+     <div class="heading-container">
+        <div class="heading-content">
+            <img src="DepEd_2.svg" class="img_1" alt="DepEd">
+            <img src="DepEd.svg" class="img_2" alt="DepEd">
+            <div class="heading-texts">
+                <p class="calibri-text SF">SF10-ES</p>
+                <p class="calibri-text">Republic of The Philippines</p>
+                <p class="calibri-text">Department of Education</p>
+                <p class="arial-text">Learner&#8216s Permanent Academic Record for Elementary School</p>
+                <p class="arial-text">(SF-10 ES)</p>
+            </div>
+        </div>
+     </div>
+     <main>
+        <div class="main-content">
+            <div class="main-content-header learners">
+                <p class="arial-header">LEARNER`S PERSONAL INFORMATION</p>
+            </div>
+            <div class="learners-content">
+                <span class="main-arial-text" style="padding: 1px 6em 1px 0;">LAST NAME: <span style="font-weight: bold;">'.$rows['last_name'].' </span></span>
+                <span class="main-arial-text" style="padding: 1px 4em;">FIRST NAME: <span style="font-weight: bold;">'.$rows['first_name'].'</span></span>
+                <span class="main-arial-text" style="padding: 1px 4em;">NAME EXTN(Jr,I,II): <span style="font-weight: bold;">'.$rows['suffix'].'</span></span>
+                <span class="main-arial-text" style="padding: 1px 6em 1px 6em;">MIDDLE NAME: <span style="font-weight: bold;">'.$rows['middle_name'].'</span></span>
+                <br>
+                <span class="main-arial-text" style="padding: 1px 4em 1px 0;">Learner Reference Number (LRN): <span style="font-weight: bold;">'.$rows['lrn'].'</span></span>
+                <span class="main-arial-text" style="padding: 1px 6em;">Birthdate(mm/yy/dd): <span style="font-weight: bold;">'.$rows['birth_date'].'</span></span>
+                <span class="main-arial-text" style="padding: 1px 4em 1px 22em;">Sex: <span style="font-weight: bold;">'.$rows['sex'].'</span></span>
+            </div>
+            <div class="main-content-header eligibility">
+                <p class="arial-header">ELIGIBILITY FOR ELEMENTARY SCHOOL ENROLLMENT</p>
+            </div>
+            <div class="eligibility-content">
+                <span class="main-arial-text" style="padding: 1px 2em 1px 0;"><i>Credential Presented for grade 1: </i></span>
+                <span class="main-arial-text"><input type="checkbox" style="vertical-align: text-bottom;" class="checkbox" '.$kinder.' "><i>Kinder Progress Report</i></span>
+                <span class="wd">  </span>
+                <span class="wd">  </span>
+                <span class="wd">  </span>
+                <span class="main-arial-text"><input type="checkbox" style="vertical-align: text-bottom;" class="checkbox" '.$eccd.' "><i>ECCD checklist</i></span>
+                <span class="wd">  </span>
+                <span class="wd">  </span>
+                <span class="wd">  </span>
+                <span class="main-arial-text"><input type="checkbox" style="vertical-align: text-bottom;" class="checkbox" '.$complete.' "><i>Kindergarten Certificate of Completion</i></span>
+                <br>
+                <span class="main-arial-text" style="padding: 1px 4em 1px 0;">Name of School: <span style="font-weight: bold;">'.$rows['name_of_school'].'</span></span>
+                <span class="main-arial-text" style="padding: 1px 6em;">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span>
+                <span class="main-arial-text" style="padding: 1px 4em 1px 4em;">Address of School: <span style="font-weight: bold;">'.$rows['address_of_school'].'</span></span>
+            </div>
+            <div class="eligibility-bottom">
+                <p class="main-arial-text">Other Credential Presented</p>
+                <div class="bottom-texts" style="margin: 0 1.3em;">
+                    <span class="main-arial-text" style="padding: 1px 1em 1px 0;"><input type="checkbox" style="vertical-align: text-bottom;" class="checkbox" '.$pept.' ">PEPT Passer</span>
+                    <span class="main-arial-text" style="padding: 1px 4em;">Rating: <span style="font-weight: bold;"> '.$ratings.' </span></span>
+                    <span class="main-arial-text" style="padding: 1px 4em;">Date of Examination/Assessment (mm/dd/yyyy): <span style="font-weight: bold;"> '.$rows['date_of_assessment'].' </span></span>
+                    <span class="main-arial-text" style="padding: 1px 6em 1px 6em;"><input type="checkbox" style="vertical-align: text-bottom;" class="checkbox" '.$checkbox.' "> Other (Pls.Specify): '.$specify.'</span>
+                    <br>
+                    <span class="main-arial-text" style="padding: 1px 8em 1px 0;"> Name and Address of Testing Center:<span style="font-weight: bold;"> </span></span>
+                    <span class="main-arial-text" style="padding: 1px 12em; text-align:right;"> Remark:<span style="font-weight: bold;"> </span></span>
+                </div>
+            </div>
+        </div>
+     </main>
     
       ';
     
@@ -1119,58 +342,54 @@ while(mysqli_fetch_array($run_learners_query));
         while(mysqli_fetch_array($run_phase1_scholastic));
 
     
-        $html.='<h4 class="learners"> Scholastic Record </h4>
-        <div class="learners-information1">
-            <div class="school1">
-            <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
-            <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
-            </div>
-            <div>
-            <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
-            <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
-            <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
-            </div>
-
-            <div>
-            <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
-            <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
-            <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
-            </div>
-
-            <div>
-            <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
-            <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
-            </div>
-
+        $html.='
+        <div class="main-content-header scholastic">
+            <p class="arial-header">Scholastic Record</p>
         </div>
-
-
-            
-            
-                
-        
-        
-        ';
+        <div class="scholastic-content main-arial-text">
+            <table style" border:none;">
+                <tr class="row_1" style="width: 100vw; margin-bottom: 2em;  border:none;">
+                    <td class="phase_1" style="width: 48%;  border:none;">
+                        <table class="phase_head">
+                            <tr>
+                                <td colspan="6"><span class="main-arial-text">School: <span style="font-weight: bold;">'.$rows['school'].'</span></span></td>
+                                <td colspan="6" style="text-align: right;><span class="main-arial-text">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><span class="main-arial-text">District: <span style="font-weight: bold;">'.$rows['district'].'</span></span></td>
+                                <td colspan="4" style="text-align: center;"><span class="main-arial-text">Division: <span style="font-weight: bold;">'.$rows['division'].'</span></span></td>
+                                <td colspan="4" style="text-align: right;"><span class="main-arial-text">Region: <span style="font-weight: bold;">'.$rows['region'].'</span></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><span class="main-arial-text">Classified as Grade: <span style="font-weight: bold;">'.$rows['classified_as_grade'].'</span></span></td>
+                                <td colspan="5" style="text-align: center;"><span class="main-arial-text" >Section: <span style="font-weight: bold;">'.$rows['section'].'</span></span></td>
+                                <td colspan="4" style="text-align: right;"><span class="main-arial-text">School year: <span style="font-weight: bold;">'.$rows['school_year'].'-2012</span></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"><span class="main-arial-text">Name of adviser: <span style="font-weight: bold;">'.$rows['name_of_teacher'].'</span></span></td>
+                                <td colspan="6" style="text-align: right;"><span class="main-arial-text">Signature:<span style="font-weight: bold;">'.$rows['signature'].'</span></span></td>
+                            </tr>
+                        </table>
+    ';
     }
 
     $html.='
-    <div class="container-phase-1">
-        <table>
-        <thead>
-        <tr>
-        <th rowspan="2">Learnering Areas</th>
-        <th class="quarterly" colspan="4">Quarterly Rating</th>
-        <th class="final-raiting" rowspan="2" >Final Rating</th>
-        <th rowspan="2">Remarks</th>
-        </tr>
-        <tr class="quarter">
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        </tr>
-        </thead>    
-        <tbody>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">Learning Areas</th>
+                                    <th class="quarterly" colspan="4">Quarterly Rating</th>
+                                    <th colspan="1" class="final-rating" rowspan="2" >Final <br> Rating</th>
+                                    <th rowspan="2">Remarks</th>
+                                </tr>
+                                <tr class="quarter">
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                </tr>
+                            </thead>    
+                            <tbody> 
      
     ';
     
@@ -1196,8 +415,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
             $html.=' 
          
-            <td class="mother" class="mother">Mother&#8216s Tongue</td>
-            <td >'.$rows['grade'].'</td>
+            <td class="subject">Mother Tongue</td>
+            <td class="text-center">'.$rows['grade'].'</td>
             
       ';
         
@@ -1223,7 +442,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
 
             $html.='
-            <td >'.$rows2['grade'].'</td>
+            <td class="text-center">'.$rows2['grade'].'</td>
             
             ';
         
@@ -1250,7 +469,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 $rows3['grade'] = " ";
                 }
             $html.='
-            <td>'.$rows3['grade'].'</td>
+            <td class="text-center">'.$rows3['grade'].'</td>
            
             ';
             
@@ -1276,7 +495,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                         $rows4['grade'] = " ";
                         }
 
-                        $html.='  <td>'.$rows4['grade'].'</td>
+                        $html.='  <td class="text-center">'.$rows4['grade'].'</td>
                          ';
                     
                     }
@@ -1299,8 +518,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                                }
         
                     $html.='
-                    <td>'.$rows5['final_rating'].'</td>
-                    <td> '.$rows5['remarks'].'</td>
+                    <td class="text-center">'.$rows5['final_rating'].'</td>
+                    <td class="text-center"> '.$rows5['remarks'].'</td>
                 </tr>
                     ';
                 
@@ -1331,8 +550,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
                             $html.='
                           <tr>
-                          <td class="filipino">Filipino</td>
-                            <td>'.$rows['grade'].'</td>
+                            <td class="subject">Filipino</td>
+                            <td class="text-center">'.$rows['grade'].'</td>
                          
                             
 
@@ -1359,8 +578,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
             
     
                             $html.='
-
-                            <td >'.$rows2['grade'].'</td> ';
+                            
+                            <td class="text-center">'.$rows2['grade'].'</td> ';
                         
 
 
@@ -1389,7 +608,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -1420,7 +639,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>';
+                <td class="text-center">'.$rows4['grade'].'</td>';
             
             }
 
@@ -1448,8 +667,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
            }
 
             $html.='
-            <td>'.$rows5['final_rating'].'</td>
-            <td>'.$rows5['remarks'].'</td>
+            <td class="text-center">'.$rows5['final_rating'].'</td>
+            <td class="text-center">'.$rows5['remarks'].'</td>
             </tr>    ';
         
         }
@@ -1477,8 +696,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="english">English</td>
-                <td>'.$rows['grade'].'</td>
+                <td class="subject">English</td>
+                <td class="text-center">'.$rows['grade'].'</td>
                  ';
             }
         }
@@ -1501,7 +720,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center"">'.$rows2['grade'].'</td>
                    
                     ';
                 
@@ -1528,7 +747,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows3['grade'].' </td>
+                    <td class="text-center">'.$rows3['grade'].' </td>
                    
                    ';
                 
@@ -1556,7 +775,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows4['grade'].' </td>
+                    <td class="text-center">'.$rows4['grade'].' </td>
                     ';
                 
                 }
@@ -1580,8 +799,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                    }
     
                     $html.='
-                    <td>'.$rows['final_rating'].'</td>
-                    <td>'.$rows['remarks'].' </td>
+                    <td class="text-center">'.$rows['final_rating'].'</td>
+                    <td class="text-center">'.$rows['remarks'].' </td>
                     </tr>
                     ';
                 
@@ -1613,8 +832,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="math">Mathematics</td>
-                <td>'.$rows['grade'].'</td>
+                <td class="subject">Mathematics</td>
+                <td class="text-center">'.$rows['grade'].'</td>
                 
                 ';
             
@@ -1643,7 +862,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     
 
                     $html.='
-                    <td> '.$rows2['grade'].'</td>
+                    <td class="text-center"> '.$rows2['grade'].'</td>
                     ';
                 
                 }   
@@ -1669,7 +888,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows3['grade'].'</td> ';
+                    <td class="text-center"> '.$rows3['grade'].'</td> ';
                 
                 }   
 
@@ -1693,7 +912,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows4['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows4['grade'].'</td>  ';
                 
                 }   
 
@@ -1717,8 +936,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                }
 
                 $html.='
-                <td>'.$rows['final_rating'].'</td>
-                <td>'.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="text-center">'.$rows['remarks'].'</td>
                 </tr>';
             
             }   
@@ -1745,8 +964,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
                             $html.='
                             <tr>
-                            <td class="science">Science</td>
-                            <td>'.$rows['grade'].' </td>
+                            <td class="subject">Science</td>
+                            <td class="text-center">'.$rows['grade'].' </td>
                            
                             ';
                         
@@ -1773,7 +992,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
     
     
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                       ';
                 
                 }
@@ -1798,7 +1017,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -1825,7 +1044,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows4['grade'].'</td>
+                    <td class="text-center"> '.$rows4['grade'].'</td>
                     ';
                 
                 }
@@ -1852,8 +1071,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                 
     
                     $html.='
-                    <td> '.$rows['final_rating'].'</td>
-                    <td class="insert-remarks"> '.$rows['remarks'].'</td>
+                    <td class="text-center"> '.$rows['final_rating'].'</td>
+                    <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
                     </tr>';
                 
                 }
@@ -1883,8 +1102,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
 
             $html.='
             <tr>
-            <td class="Ap">Araling Panlipunan</td>
-            <td>'.$rows['grade'].' </td>
+            <td class="subject">Araling Panlipunan</td>
+            <td class="text-center">'.$rows['grade'].' </td>
               ';
         
         }
@@ -1912,7 +1131,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
         
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                      ';
                 
                 }
@@ -1938,7 +1157,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows3['grade'].' </td>
+                    <td class="text-center">'.$rows3['grade'].' </td>
                     ';
                 
                 }
@@ -1963,7 +1182,7 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>
+                <td class="text-center">'.$rows4['grade'].'</td>
                 >  ';
             
             }
@@ -1988,8 +1207,8 @@ for ($phase1_subject_id = 1; $phase1_subject_id <= 16 ; $phase1_subject_id++) {
                }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr> ';
         
         }
@@ -2018,8 +1237,8 @@ if($phase1_subject_id == 7 ){
 
         $html.='
         <tr>
-        <td class="epp">EPP/TLE</td>
-        <td>'.$rows['grade'].' </td>
+        <td class="subject">EPP/TLE</td>
+        <td class="text-center">'.$rows['grade'].' </td>
           ';
     
     }
@@ -2046,7 +1265,7 @@ if($phase1_subject_id == 7 ){
     
 
                 $html.='
-                <td> '.$rows2['grade'].'</td>
+                <td class="text-center"> '.$rows2['grade'].'</td>
                     ';
             
             }
@@ -2071,7 +1290,7 @@ if($phase1_subject_id == 7 ){
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -2096,7 +1315,7 @@ if($phase1_subject_id == 7 ){
                     }
 
                 $html.='
-               <td>'.$rows4['grade'].'</td>  ';
+               <td class="text-center">'.$rows4['grade'].'</td>  ';
             
             }
 
@@ -2120,8 +1339,8 @@ if($phase1_subject_id == 7 ){
                    }
     
                 $html.='
-                <td>'.$rows['final_rating'].'</td>
-                <td class="insert-remarks"> '.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
                 </tr>  ';
             
             }
@@ -2152,8 +1371,8 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                        <td class="mapeh">MAPEH</td>
-                        <td>'.$rows['grade'].' </td>
+                        <td class="subject">MAPEH</td>
+                        <td class="text-center">'.$rows['grade'].' </td>
                          ';
                     
                     }
@@ -2184,7 +1403,7 @@ if($phase1_subject_id == 7 ){
             
     
                         $html.='
-                        <td> '.$rows2['grade'].'</td>
+                        <td class="text-center"> '.$rows2['grade'].'</td>
                           ';
                     
                     }
@@ -2209,7 +1428,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td> '.$rows3['grade'].'</td> ';
+                        <td class="text-center"> '.$rows3['grade'].'</td> ';
                     
                     }
     
@@ -2236,7 +1455,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td> '.$rows4['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows4['grade'].'</td>  ';
                 
                 }
 
@@ -2260,8 +1479,8 @@ if($phase1_subject_id == 7 ){
                    }
 
                 $html.='
-                <td>'.$rows['final_rating'].'</td>
-                <td>'.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="text-center">'.$rows['remarks'].'</td>
                 </tr>        
                 ';
             
@@ -2292,8 +1511,8 @@ if($phase1_subject_id == 7 ){
     
                         $html.='
                         <tr>
-                        <td class="music">Music</td>
-                        <td>'.$rows['grade'].' </td>
+                        <td class="small-pad-left italic">Music</td>
+                        <td class="text-center">'.$rows['grade'].' </td>
                          ';
                     
                     }
@@ -2323,7 +1542,7 @@ if($phase1_subject_id == 7 ){
                                 }
         
                             $html.='
-                            <td> '.$rows2['grade'].'</td>
+                            <td class="text-center"> '.$rows2['grade'].'</td>
                             ';
                         
                         }
@@ -2350,7 +1569,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td> '.$rows3['grade'].'</td>
+                    <td class="text-center"> '.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -2377,7 +1596,7 @@ if($phase1_subject_id == 7 ){
                                 }
         
                             $html.='
-                            <td>'.$rows4['grade'].'</td>
+                            <td class="text-center">'.$rows4['grade'].'</td>
                              ';
                         
                         }
@@ -2403,8 +1622,8 @@ if($phase1_subject_id == 7 ){
                }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td class="insert-remarks"> '.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
             </tr>
                 ';
         
@@ -2437,8 +1656,8 @@ if($phase1_subject_id == 7 ){
         
                                 $html.='
                                 <tr>
-                                <td class="arts">Arts</td>
-                                <td>'.$rows['grade'].' </td>
+                                <td class="small-pad-left italic">Arts</td>
+                                <td class="text-center">'.$rows['grade'].' </td>
                                ';
                             
                             }
@@ -2468,7 +1687,7 @@ if($phase1_subject_id == 7 ){
                                     }
             
                                 $html.='
-                                <td >'.$rows2['grade'].'</td>
+                                <td class="text-center">'.$rows2['grade'].'</td>
                                   ';
                             
                             }
@@ -2496,7 +1715,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -2524,7 +1743,7 @@ if($phase1_subject_id == 7 ){
                                 }
         
                             $html.='
-                            <td> '.$rows4['grade'].'</td>
+                            <td class="text-center"> '.$rows4['grade'].'</td>
                             ';
                         
                         }
@@ -2549,8 +1768,8 @@ if($phase1_subject_id == 7 ){
                    }
 
                 $html.='
-                <td> '.$rows['final_rating'].'</td>
-                <td>'.$rows['remarks'].'</td>
+                <td class="text-center"> '.$rows['final_rating'].'</td>
+                <td class="text-center">'.$rows['remarks'].'</td>
                 ';
             
             }
@@ -2581,8 +1800,8 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                            <td class="pe">Physical Education</td>
-                            <td>'.$rows['grade'].' </td>
+                            <td class="small-pad-left italic">Physical Education</td>
+                            <td class="text-center">'.$rows['grade'].' </td>
                             ';
                     
                     }
@@ -2609,7 +1828,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td >'.$rows2['grade'].'</td>
+                        <td class="text-center">'.$rows2['grade'].'</td>
                         ';
                     
                     }
@@ -2636,7 +1855,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td> '.$rows3['grade'].'</td>
+                    <td class="text-center"> '.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -2665,7 +1884,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td> '.$rows4['grade'].'</td>
+                    <td class="text-center"> '.$rows4['grade'].'</td>
                 ';
                 
                 }
@@ -2693,8 +1912,8 @@ if($phase1_subject_id == 7 ){
                }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'<   /td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'<   /td>
             </tr>
          ';
         
@@ -2725,8 +1944,8 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                        <td class="health">Health</td>
-                        <td>'.$rows['grade'].' </td>
+                        <td class="small-pad-left italic">Health</td>
+                        <td class="text-center">'.$rows['grade'].' </td>
                          ';
                     
                     }
@@ -2754,7 +1973,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td >'.$rows2['grade'].'</td>
+                        <td class="text-center">'.$rows2['grade'].'</td>
                         ';
                     
                     }
@@ -2780,7 +1999,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -2811,7 +2030,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td>'.$rows4['grade'].' </td>
+                    <td class="text-center">'.$rows4['grade'].' </td>
                     ';
                 
                 }
@@ -2837,8 +2056,8 @@ if($phase1_subject_id == 7 ){
                }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -2870,8 +2089,8 @@ if($phase1_subject_id == 7 ){
 
                     $html.='
                     <tr>
-                    <td class="eduk">Eduk. sa Pagpapakatao  </td>
-                    <td>'.$rows['grade'].' </td>
+                    <td class="subject">Eduk. sa Pagpapakatao  </td>
+                    <td class="text-center">'.$rows['grade'].' </td>
                      ';
                 
                 }
@@ -2900,7 +2119,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td> '.$rows2['grade'].'</td>
+                        <td class="text-center"> '.$rows2['grade'].'</td>
                         ';
                     
                     }
@@ -2927,7 +2146,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -2955,7 +2174,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td> '.$rows4['grade'].'</td>
+                        <td class="text-center"> '.$rows4['grade'].'</td>
                         ';
                     
                     }
@@ -2981,8 +2200,8 @@ if($phase1_subject_id == 7 ){
                }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -3013,8 +2232,8 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                        <td class="arabic">*Arabic Language</td>
-                        <td>'.$rows['grade'].' </td>
+                        <td class="small-pad-left">*Arabic Language</td>
+                        <td class="text-center">'.$rows['grade'].' </td>
                         ';
                     
                     }
@@ -3042,7 +2261,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td> '.$rows2['grade'].'</td>
+                        <td class="text-center"> '.$rows2['grade'].'</td>
                         ';
                     
                     }
@@ -3070,7 +2289,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -3098,7 +2317,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td>'.$rows4['grade'].'</td>
+                        <td class="text-center">'.$rows4['grade'].'</td>
                         ';
                     
                     }
@@ -3125,8 +2344,8 @@ if($phase1_subject_id == 7 ){
                }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
              ';
         
@@ -3158,8 +2377,8 @@ if($phase1_subject_id == 7 ){
 
                         $html.='
                         <tr>
-                        <td class="islamic">*Islamic Values Education</td>
-                        <td>'.$rows['grade'].' </td>
+                        <td class="small-pad-left">*Islamic Values Education</td>
+                        <td class="text-center">'.$rows['grade'].' </td>
                          ';
                     
                     }
@@ -3189,7 +2408,7 @@ if($phase1_subject_id == 7 ){
                             }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                           ';
                     
                     }
@@ -3218,7 +2437,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                     ';
                     
                 
@@ -3249,7 +2468,7 @@ if($phase1_subject_id == 7 ){
                         }
 
                     $html.='
-                    <td> '.$rows4['grade'].'</td>
+                    <td class="text-center"> '.$rows4['grade'].'</td>
                      ';
                 
                 }
@@ -3275,8 +2494,8 @@ if($phase1_subject_id == 7 ){
                }
 
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td> '.$rows['remarks'].' </td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="text-center"> '.$rows['remarks'].' </td>
            
             ';
         
@@ -3302,8 +2521,8 @@ if($phase1_subject_id == 7 ){
                             }
                         $html.='
                         <tr>
-                        <td class="general">General Average</td>
-                        <td class="insert-gen-av">'.$rows['general_average'].'</td>
+                        <td class="subject">General Average</td>
+                        <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
                        
                         ';
                     
@@ -3334,7 +2553,7 @@ if($phase1_subject_id == 7 ){
                                 }
 
                             $html.='
-                            <td>'.$rows2['general_average'].'</td>
+                            <td class="text-center">'.$rows2['general_average'].'</td>
                              ';
                         
         
@@ -3363,7 +2582,7 @@ if($phase1_subject_id == 7 ){
                         $rows3['general_average'] = " ";
                         }
                     $html.='
-                    <td>'.$rows3['general_average'].'</td>
+                    <td class="text-center">'.$rows3['general_average'].'</td>
                       ';
                 
 
@@ -3396,7 +2615,7 @@ if($phase1_subject_id == 7 ){
                         $rows4['general_average'] = " ";
                         }
                     $html.='
-                    <td>'.$rows4['general_average'].'</td>
+                    <td class="text-center">'.$rows4['general_average'].'</td>
                       ';
                 
 
@@ -3443,7 +2662,7 @@ if($phase1_subject_id == 7 ){
             
             
             $html.='
-            <td class="insert-gen-av">'.$rows['general_average'].'</td>
+            <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
             <td> '.$output.' </td>
           
             </tr>
@@ -3497,33 +2716,33 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
 
 
             $html.='
-            <div>
-            <table>
-            <thead>
-            <tr>
-            <th colspan="2">Remedial Classes</th>
-            <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
-            <th colspan="1">To: '.$rows['date_to'].'</th>
-            </tr>
-            <tr>
-            <td>Learning Areas</td>
-            <td>Final Rating</td>
-            <td>Remedial Class Mark</td>
-            <td>Remarks</td>
-            <td>Recomputed Final Grade</td>
-            </tr>
-            </thead>
-            <tbody  >
-            <tr >
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
+            <table style="margin-top:4px;">
+                <thead>
+                    <tr class="remedial">
+                        <th colspan="2">Remedial Classes</th>
+                        <th colspan="2" class="text-start" style="border-right: none;"> Date Conducted: '.$rows['date_from'].'</th>
+                        <th colspan="2" class="text-start" style="border-left: none;">To: '.$rows['date_to'].'</th>
+                    </tr>
+                    <tr class="arial-header text-center">
+                        <td colspan="2">Learning Areas</td>
+                        <td>Final Rating</td>
+                        <td>Remedial Class <br> Mark</td>
+                        <td>Recomputed <br> Final Grade</td>
+                        <td>Remarks</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr >
+                    <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                    
+                </tr>
             ';
         }
-
+        //last 1
         
     }
 
@@ -3545,24 +2764,18 @@ for($phase1_remedial_term = 1; $phase1_remedial_term <=2; $phase1_remedial_term+
                    }
 
                 $html.='
-            <tr >
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
-            </tbody>
-
-            
-            
-
-            
-            </table>
-            </div>
-            </div>      
-           
-           
+                    <tr >
+                        <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td style="width:.8em; border:none;">
+        </td>
            ';
             
         }
@@ -3578,30 +2791,27 @@ if(mysqli_num_rows($run_phase2_scholastic) > 0){
     while(mysqli_fetch_array($run_phase2_scholastic));
 
 $html.='
-
-<div class="container-4">
-<div class="school1">
-<label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
-<label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
-</div>
-<div>
-<label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
-<label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
-<label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
-</div>
-
-<div>
-<label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
-<label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
-<label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
-</div>
-
-<div>
-<label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
-<label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
-</div>
-</div>
-</div>
+        <td class="phase_2" style="width: 48%;  border:none;">
+            <table class="phase_head">
+                <tr>
+                    <td colspan="6"><span class="main-arial-text">School: <span style="font-weight: bold;">'.$rows['school'].'</span></span></td>
+                    <td colspan="6" style="text-align: right;><span class="main-arial-text">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><span class="main-arial-text">District: <span style="font-weight: bold;">'.$rows['district'].'</span></span></td>
+                    <td colspan="4" style="text-align: center;"><span class="main-arial-text">Division: <span style="font-weight: bold;">'.$rows['division'].'</span></span></td>
+                    <td colspan="4" style="text-align: right;"><span class="main-arial-text">Region: <span style="font-weight: bold;">'.$rows['region'].'</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><span class="main-arial-text">Classified as Grade: <span style="font-weight: bold;">'.$rows['classified_as_grade'].'</span></span></td>
+                    <td colspan="5" style="text-align: center;"><span class="main-arial-text" >Section: <span style="font-weight: bold;">'.$rows['section'].'</span></span></td>
+                    <td colspan="4" style="text-align: right;"><span class="main-arial-text">School year: <span style="font-weight: bold;">'.$rows['school_year'].'-2012</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="6"><span class="main-arial-text">Name of adviser: <span style="font-weight: bold;">'.$rows['name_of_teacher'].'</span></span></td>
+                    <td colspan="6" style="text-align: right;"><span class="main-arial-text">Signature:<span style="font-weight: bold;">'.$rows['signature'].'</span></span></td>
+                </tr>
+            </table>
 ';
 
 }
@@ -3610,23 +2820,23 @@ $html.='
 
 
 $html.='
-    <div class="container-phase-2">
-    <table>
-    <thead>
-    <tr>
-    <th rowspan="2">Learnering Areas</th>
-    <th class="quarterly" colspan="4">Quarterly Rating</th>
-    <th class="final-raiting" rowspan="2" >Final Rating</th>
-    <th rowspan="2">Remarks</th>
-    </tr>
-    <tr class="quarter">
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-</tr>
-        </thead>
-        <tbody>
+                <table>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Learning Areas</th>
+                            <th class="quarterly" colspan="4">Quarterly Rating</th>
+                            <th colspan="1" class="final-rating" rowspan="2" >Final <br> Rating</th>
+                            <th rowspan="2">Remarks</th>
+                        </tr>
+                        <tr class="quarter">
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                        </tr>
+                    </thead>    
+                    <tbody> 
+                
         
       
 ';
@@ -3655,8 +2865,8 @@ if($rows['grade'] == 0 ){
 
 $html.=' 
 <tr>
-<td class="mother">Mother&#8216s Tongue</td>
-<td>'.$rows['grade'].'</td>
+<td class="subject">Mother Tongue</td>
+<td class="text-center">'.$rows['grade'].'</td>
 
 
 
@@ -3686,7 +2896,7 @@ if($rows2['grade'] == 0 ){
     $rows2['grade'] = " ";
     }
 
-$html.=' <td>'.$rows2['grade'].'</td>';
+$html.=' <td class="text-center">'.$rows2['grade'].'</td>';
 
 }
 }
@@ -3710,7 +2920,7 @@ if($rows3['grade'] == 0 ){
     $rows3['grade'] = " ";
     }
 
-$html.='<td> '.$rows3['grade'].'</td>
+$html.='<td class="text-center"> '.$rows3['grade'].'</td>
  ';
 
 }
@@ -3737,7 +2947,7 @@ if($phase2_subject_id == 1){
             }
 
 
-            $html.='<td>'.$rows4['grade'].'</td>
+            $html.='<td class="text-center">'.$rows4['grade'].'</td>
           ';
         
         }
@@ -3765,8 +2975,8 @@ if($phase2_subject_id == 1){
                    }
         
                     $html.=' 
-                    <td>'.$rows['final_rating'].'</td>
-                    <td>'.$rows['remarks'].'</td>
+                    <td class="text-center">'.$rows['final_rating'].'</td>
+                    <td class="text-center">'.$rows['remarks'].'</td>
                       ';
                 
                 }
@@ -3796,8 +3006,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="filipino">Filipino</td>
-                <td>'.$rows['grade'].' </td>
+                <td class="subject">Filipino</td>
+                <td class="text-center">'.$rows['grade'].' </td>
                   ';
             
             }
@@ -3829,7 +3039,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows2['grade'].'</td>
+                    <td class="text-center"> '.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -3862,7 +3072,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows3['grade'].'</td>
+                    <td class="text-center"> '.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -3895,7 +3105,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                     $html.='
-                    <td> '.$rows4['grade'].'</td>
+                    <td class="text-center"> '.$rows4['grade'].'</td>
                     ';
                 
                 }
@@ -3923,8 +3133,8 @@ if($phase2_subject_id == 2 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr> 
             ';
         
@@ -3958,8 +3168,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="english">English</td>
-                <td>'.$rows['grade'].'</td>
+                <td class="subject">English</td>
+                <td class="text-center">'.$rows['grade'].'</td>
                     ';
             
             }
@@ -3992,7 +3202,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 }
 
                 $html.='
-                <td >'.$rows2['grade'].'</td>
+                <td class="text-center">'.$rows2['grade'].'</td>
                 ';
             
             }
@@ -4024,7 +3234,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                     ';
             
             }
@@ -4056,7 +3266,7 @@ if($phase2_subject_id == 3 ){
 
 
             $html.='
-            <td>'.$rows4['grade'].'</td>
+            <td class="text-center">'.$rows4['grade'].'</td>
             ';
         
         }
@@ -4080,8 +3290,8 @@ if($phase2_subject_id == 3 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr> ';
         
         }
@@ -4112,8 +3322,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="math">Mathematics</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">Mathematics</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                     ';
                 
                 }   
@@ -4148,7 +3358,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                         $html.='
-                        <td >'.$rows2['grade'].'</td>
+                        <td class="text-center">'.$rows2['grade'].'</td>
                          ';
                     
                     }   
@@ -4182,7 +3392,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows3['grade'].'</td>
+                    <td class="text-center"> '.$rows3['grade'].'</td>
                     ';
                 
                 }   
@@ -4215,7 +3425,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
 
                 $html.='
-                <td> '.$rows4['grade'].'</td>
+                <td class="text-center"> '.$rows4['grade'].'</td>
                     ';
             
             }   
@@ -4240,8 +3450,8 @@ if($phase2_subject_id == 4 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].' </td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].' </td>
             </tr>
             ';
         
@@ -4279,8 +3489,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
                             $html.='
                             <tr>
-                            <td class="science">Science</td>
-                            <td>'.$rows['grade'].'</td>
+                            <td class="subject">Science</td>
+                            <td class="text-center">'.$rows['grade'].'</td>
                             ';
                         
                         }
@@ -4313,7 +3523,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -4346,7 +3556,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
     
                         $html.='
-                        <td>'.$rows3['grade'].'</td>
+                        <td class="text-center">'.$rows3['grade'].'</td>
                         ';
                     
                     }
@@ -4378,7 +3588,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                     $html.='
-                    <td>'.$rows4['grade'].'</td>
+                    <td class="text-center">'.$rows4['grade'].'</td>
                         ';
                 
                 }
@@ -4404,8 +3614,8 @@ if($phase2_subject_id == 5 ){
            }
 
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -4441,8 +3651,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td class="Ap">Araling Panlipunan</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="subject">Araling Panlipunan</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                         ';
                     
                     }
@@ -4474,7 +3684,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td >'.$rows2['grade'].'</td>
+                <td class="text-center">'.$rows2['grade'].'</td>
                     ';
             
             }
@@ -4507,7 +3717,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -4539,7 +3749,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         
     
                     $html.='
-                    <td>'.$rows4['grade'].'</td>
+                    <td class="text-center">'.$rows4['grade'].'</td>
                     ';
                 
                 }
@@ -4563,8 +3773,8 @@ if($phase2_subject_id == 6 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr> ';
     
     }
@@ -4602,7 +3812,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="epp">EPP/TLE</td>
+                    <td class="subject">EPP/TLE</td>
                     <td>'.$rows['grade'].'</td>
                   
                     ';
@@ -4669,7 +3879,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -4702,7 +3912,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>
+                <td class="text-center">'.$rows4['grade'].'</td>
                 ';
             
             }
@@ -4726,8 +3936,8 @@ if($phase2_subject_id == 7 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -4765,8 +3975,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="mapeh">MAPEH</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">MAPEH</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                     
                     ';
                 
@@ -4831,7 +4041,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -4864,7 +4074,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                 $html.='
-               <td>'.$rows4['grade'].'</td>  ';
+               <td class="text-center">'.$rows4['grade'].'</td>  ';
             
             }
 
@@ -4887,8 +4097,8 @@ if($phase2_subject_id == 8 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>  ';
     
     }
@@ -4927,8 +4137,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td class="music">Music</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="small-pad-left italic">Music</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                         ';
                     
                     }
@@ -4958,7 +4168,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows2['grade'].'</td>
+                <td class="text-center"> '.$rows2['grade'].'</td>
                 ';
             
             }
@@ -4992,7 +4202,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -5023,7 +4233,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>
+                <td class="text-center">'.$rows4['grade'].'</td>
                 ';
             
             }
@@ -5048,8 +4258,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -5085,8 +4295,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
         
                             $html.='
                             <tr>
-                            <td class="arts">Arts</td>
-                            <td> '.$rows['grade'].'</td>
+                            <td class="small-pad-left italic">Arts</td>
+                            <td class="text-center"> '.$rows['grade'].'</td>
                              ';
                         
                         }
@@ -5118,7 +4328,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
             }
 
         $html.='
-        <td> '.$rows2['grade'].'</td>
+        <td class="text-center"> '.$rows2['grade'].'</td>
         ';
     
     }
@@ -5149,7 +4359,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows3['grade'].'</td>
+            <td class="text-center">'.$rows3['grade'].'</td>
             ';
         
         }
@@ -5181,7 +4391,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
 
             $html.='
-            <td>'.$rows4['grade'].'</td>
+            <td class="text-center">'.$rows4['grade'].'</td>
             ';
         
         }
@@ -5206,8 +4416,8 @@ if($phase2_subject_id == 10 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -5246,8 +4456,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
             $html.='
             <tr>
-            <td class="pe">Physical Education </td>
-            <td>'.$rows['grade'].'</td>
+            <td class="small-pad-left italic">Physical Education </td>
+            <td class="text-center">'.$rows['grade'].'</td>
             ';
         
         }
@@ -5279,7 +4489,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].' </td>
+                    <td class="text-center">'.$rows2['grade'].' </td>
                     ';
                 
                 }
@@ -5312,7 +4522,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -5343,7 +4553,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>
+                <td class="text-center">'.$rows4['grade'].'</td>
                 ';
             
             }
@@ -5368,8 +4578,8 @@ if($phase2_subject_id == 11 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>';
     
     }
@@ -5404,8 +4614,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="health">Health</td>
-                <td>'.$rows['grade'].'</td>
+                <td class="small-pad-left italic">Health</td>
+                <td class="text-center">'.$rows['grade'].'</td>
                 ';
             
             }
@@ -5437,7 +4647,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -5471,7 +4681,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -5504,7 +4714,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>
+                <td class="text-center">'.$rows4['grade'].'</td>
                 ';
             
             }
@@ -5529,8 +4739,8 @@ if($phase2_subject_id == 12 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].' </td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].' </td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
       ';
     
@@ -5566,8 +4776,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
             $html.='
             <tr>
-            <td class="eduk">Eduk. Sa Pagpapakatao</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="subject">Eduk. Sa Pagpapakatao</td>
+            <td class="text-center">'.$rows['grade'].'</td>
                 ';
         
         }
@@ -5598,7 +4808,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows2['grade'].'</td>
+                    <td class="text-center"> '.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -5631,7 +4841,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].' </td>
+                <td class="text-center">'.$rows['grade'].' </td>
                 ';
             
             }
@@ -5664,7 +4874,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows4['grade'].' </td>
+                <td class="text-center">'.$rows4['grade'].' </td>
                 ';
             
             }
@@ -5689,8 +4899,8 @@ if($phase2_subject_id == 13 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -5728,8 +4938,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="arabic">*Arabic Language</td>
-                    <td> '.$rows['grade'].' </td>
+                    <td class="small-pad-left">*Arabic Language</td>
+                    <td class="text-center"> '.$rows['grade'].' </td>
                    
 
                     ';
@@ -5763,7 +4973,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td >'.$rows2['grade'].'</td>
+                <td class="text-center">'.$rows2['grade'].'</td>
                ';
             
             }
@@ -5796,7 +5006,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -5828,7 +5038,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
 
             $html.='
-            <td> '.$rows4['grade'].'</td>
+            <td class="text-center"> '.$rows4['grade'].'</td>
             ';
         
         }
@@ -5852,8 +5062,8 @@ if($phase2_subject_id == 14 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -5892,8 +5102,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
             $html.='
             <tr>
-            <td class="islamic">*Islamic Values Education</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="small-pad-left">*Islamic Values Education</td>
+            <td class="text-center">'.$rows['grade'].'</td>
             
               ';
         
@@ -5925,7 +5135,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['grade'].' </td>
+                    <td class="text-center">'.$rows2['grade'].' </td>
                     ';
                 
                 }
@@ -5958,7 +5168,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 }
 
             $html.='
-            <td> '.$rows3['grade'].'</td>
+            <td class="text-center"> '.$rows3['grade'].'</td>
             ';
             
         
@@ -5990,7 +5200,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>
+                <td class="text-center">'.$rows4['grade'].'</td>
                 ';
             
             }
@@ -6014,8 +5224,8 @@ if($phase2_subject_id == 15 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -6053,8 +5263,8 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="general">General Average</td>
-                    <td>'.$rows['general_average'].' </td>
+                    <td class="subject">General Average</td>
+                    <td class="text-center">'.$rows['general_average'].' </td>
                    
                     
                     ';
@@ -6089,7 +5299,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows2['general_average'].'</td>
+                    <td class="text-center">'.$rows2['general_average'].'</td>
                     ';
                 
 
@@ -6123,7 +5333,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                     $rows3['general_average'] = " ";
                     }
                 $html.='
-                <td>'.$rows3['general_average'].'</td>
+                <td class="text-center">'.$rows3['general_average'].'</td>
                 ';
             
 
@@ -6155,7 +5365,7 @@ for ($phase2_subject_id = 1; $phase2_subject_id <= 16 ; $phase2_subject_id++) {
                 $rows4['general_average'] = " ";
                 }
             $html.='
-            <td>'.$rows4['general_average'].'</td>
+            <td class="text-center">'.$rows4['general_average'].'</td>
            
 
                 ';
@@ -6201,8 +5411,8 @@ if( $phase2_subject_id == 16){
 
 
         $html.='
-        <td>'.$rows5['general_average'].'</td>
-        <td>'.$output.'</td>
+        <td class="text-center">'.$rows5['general_average'].'</td>
+        <td class="text-center">'.$output.'</td>
 
         </tr>
         </tbody>
@@ -6257,36 +5467,29 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
             }
 
             $html.='
-            <table>
-            <thead>
-            <tr>
-            <th colspan="2">Remedial Classes</th>
-            <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
-            <th colspan="1">To: '.$rows['date_to'].'</th>
-            </tr>
-            <tr class="remedial">
-            <td>Learning Areas</td>
-            <td>Final Rating</td>
-            <td>Remedial Class Mark</td>
-            <td>Remarks</td>
-            <td>Recomputed Final Grade</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
-           
-
-            
-            
-
-          
-           
+            <table style="margin-top:4px;">
+                <thead>
+                    <tr class="remedial">
+                        <th colspan="2">Remedial Classes</th>
+                        <th colspan="2" class="text-start" style="border-right: none;"> Date Conducted: '.$rows['date_from'].'</th>
+                        <th colspan="2" class="text-start" style="border-left: none;">To: '.$rows['date_to'].'</th>
+                    </tr>
+                    <tr class="arial-header text-center">
+                        <td colspan="2">Learning Areas</td>
+                        <td>Final Rating</td>
+                        <td>Remedial Class <br> Mark</td>
+                        <td>Recomputed <br> Final Grade</td>
+                        <td>Remarks</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr >
+                    <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                </tr>    
            ';
             
         }
@@ -6314,22 +5517,19 @@ for($phase2_remedial_term = 1; $phase2_remedial_term <=2; $phase2_remedial_term+
 
 
       $html.='
-             <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
-            </tbody>
-
-
-      </table>
-      </div>
-
-    
+                    <tr >
+                        <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+    </tr>
       ';
-   
+   // last 2
     }
 }
 
@@ -6353,52 +5553,52 @@ if(mysqli_num_rows($run_phase3_scholastic) > 0){
 
 
     $html.='
-
-    <div class="learners-information-2">
-    <div class="School">
-    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
-    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
-    </div>
-    <div>
-    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
-    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
-    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
-    </div>
-
-    <div>
-    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
-    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
-    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
-    </div>
-
-    <div>
-    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
-    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
-    </div>
-    </div>
-
+    <tr style="border:none;">
+        <td style="height: 6px; border:none;"></td>
+    </tr>
+    <tr class="row_2" style="width: 100vw; height:50vh; border:none;">
+         <td class="phase_3" style="width: 48%;  border:none;">
+            <table class="phase_head">
+                <tr>
+                    <td colspan="6"><span class="main-arial-text">School: <span style="font-weight: bold;">'.$rows['school'].'</span></span></td>
+                    <td colspan="6" style="text-align: right;><span class="main-arial-text">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><span class="main-arial-text">District: <span style="font-weight: bold;">'.$rows['district'].'</span></span></td>
+                    <td colspan="4" style="text-align: center;"><span class="main-arial-text">Division: <span style="font-weight: bold;">'.$rows['division'].'</span></span></td>
+                    <td colspan="4" style="text-align: right;"><span class="main-arial-text">Region: <span style="font-weight: bold;">'.$rows['region'].'</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><span class="main-arial-text">Classified as Grade: <span style="font-weight: bold;">'.$rows['classified_as_grade'].'</span></span></td>
+                    <td colspan="5" style="text-align: center;"><span class="main-arial-text" >Section: <span style="font-weight: bold;">'.$rows['section'].'</span></span></td>
+                    <td colspan="4" style="text-align: right;"><span class="main-arial-text">School year: <span style="font-weight: bold;">'.$rows['school_year'].'-2012</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="6"><span class="main-arial-text">Name of adviser: <span style="font-weight: bold;">'.$rows['name_of_teacher'].'</span></span></td>
+                    <td colspan="6" style="text-align: right;"><span class="main-arial-text">Signature:<span style="font-weight: bold;">'.$rows['signature'].'</span></span></td>
+                </tr>
+            </table>
     ';
 }
 
 
 $html.='
-<div class="container-phase-3">
-<table>
-    <thead>
-    <tr>
-    <th rowspan="2">Learnering Areas</th>
-<th class="quarterly" colspan="4">Quarterly Rating</th>
-<th class="final-raiting" rowspan="2" >Final Rating</th>
-<th rowspan="2">Remarks</th>
-    </tr>
-    <tr class="quarter">
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-    </thead>
-    <tbody>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Learning Areas</th>
+                        <th class="quarterly" colspan="4">Quarterly Rating</th>
+                        <th colspan="1" class="final-rating" rowspan="2" >Final <br> Rating</th>
+                        <th rowspan="2">Remarks</th>
+                    </tr>
+                    <tr class="quarter">
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                    </tr>
+                </thead>    
+                <tbody> 
     
      
     ';
@@ -6431,9 +5631,9 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                         $html.=' 
                         <tr>
-                        <td class="mother">Mother&#8216s Tongue</td>
+                        <td class="subject">Mother Tongue</td>
                         
-                        <td>'.$rows['grade'].'</td>';
+                        <td class="text-center">'.$rows['grade'].'</td>';
                     
                     }
                 }
@@ -6458,7 +5658,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 }
 
                 $html.=' 
-                <td >'.$rows2['grade'].'</td>
+                <td class="text-center">'.$rows2['grade'].'</td>
                 ';
             
             }
@@ -6485,7 +5685,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
 
 
-            $html.='  <td>'.$rows3['grade'].'</td>  ';
+            $html.='  <td class="text-center">'.$rows3['grade'].'</td>  ';
         
         }
     }
@@ -6513,7 +5713,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
             $rows4['grade'] = " ";
             }
 
-            $html.=' <td>'.$rows4['grade'].'</td> ';
+            $html.=' <td class="text-center">'.$rows4['grade'].'</td> ';
         
         }
     }
@@ -6540,8 +5740,8 @@ if(mysqli_num_rows($run_phase3_mt) > 0){
 
 
         $html.=' 
-        <td>'.$rows5['final_rating'].'</td>
-        <td>'.$rows5['remarks'].' </td>
+        <td class="text-center">'.$rows5['final_rating'].'</td>
+        <td class="text-center">'.$rows5['remarks'].' </td>
         </tr>
         ';
     
@@ -6571,8 +5771,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="filipino">Filipino</td>
-                <td>'.$rows['grade'].'</td>
+                <td class="subject">Filipino</td>
+                <td class="text-center">'.$rows['grade'].'</td>
                 ';
             
             }
@@ -6605,7 +5805,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -6639,7 +5839,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                   ';
                 
                 }
@@ -6674,7 +5874,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows4['grade'].'</td>
+                    <td class="text-center">'.$rows4['grade'].'</td>
                     ';
                 
                 }
@@ -6703,8 +5903,8 @@ if($phase3_subject_id == 2 ){
            }
 
             $html.='
-            <td>'.$rows5['final_rating'].'</td>
-            <td>'.$rows5['remarks'].'</td>
+            <td class="text-center">'.$rows5['final_rating'].'</td>
+            <td class="text-center">'.$rows5['remarks'].'</td>
             </tr>
             ';
         
@@ -6737,8 +5937,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="english">English</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="subject">English</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                           ';
                     
                     }
@@ -6770,7 +5970,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                         $html.='
-                        <td> '.$rows2['grade'].'</td>
+                        <td class="text-center"> '.$rows2['grade'].'</td>
                        ';
                     
                     }
@@ -6804,7 +6004,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -6841,7 +6041,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows4['grade'].'</td>
+                    <td class="text-center">'.$rows4['grade'].'</td>
                    ';
                 
                 }
@@ -6870,8 +6070,8 @@ if($phase3_subject_id == 3 ){
            }
 
             $html.='
-            <td>'.$rows5['final_rating'].'</td>
-            <td>'.$rows5['remarks'].'</td>
+            <td class="text-center">'.$rows5['final_rating'].'</td>
+            <td class="text-center">'.$rows5['remarks'].'</td>
             </tr>
            ';
         
@@ -6907,8 +6107,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="math">Mathematics</td>
-                        <td>'.$rows['grade'].' </td>
+                        <td class="subject">Mathematics</td>
+                        <td class="text-center">'.$rows['grade'].' </td>
                         ';
                     
                     }   
@@ -6940,7 +6140,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                     ';
                 
                 }   
@@ -6972,7 +6172,7 @@ $term = 3;
             }
 
             $html.='
-            <td> '.$rows3['grade'].'</td>
+            <td class="text-center"> '.$rows3['grade'].'</td>
             ';
         
         }   
@@ -7009,7 +6209,7 @@ $term = 4;
             }
 
             $html.='
-            <td> '.$rows4['grade'].'</td>
+            <td class="text-center"> '.$rows4['grade'].'</td>
             ';
         
         }   
@@ -7038,8 +6238,8 @@ if($phase3_subject_id == 4 ){
            }
 
             $html.='
-            <td>'.$rows5['final_rating'].'</td>
-            <td>'.$rows5['remarks'].'</td>
+            <td class="text-center">'.$rows5['final_rating'].'</td>
+            <td class="text-center">'.$rows5['remarks'].'</td>
             </tr>
             ';
         
@@ -7076,8 +6276,8 @@ if($phase3_subject_id == 5 ){
 
             $html.='
             <tr>
-            <td class="science">Science</td>
-            <td> '.$rows['grade'].'</td>
+            <td class="subject">Science</td>
+            <td class="text-center"> '.$rows['grade'].'</td>
             ';
         
         }
@@ -7110,7 +6310,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 }
 
                 $html.='
-                <td >'.$rows2['grade'].'</td>
+                <td class="text-center">'.$rows2['grade'].'</td>
                   ';
             
             }
@@ -7143,7 +6343,7 @@ $term = 3;
                 }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                   ';
             
             }
@@ -7180,7 +6380,7 @@ if($phase3_subject_id == 5 ){
             }
 
             $html.='
-            <td>'.$rows4['grade'].'</td>
+            <td class="text-center">'.$rows4['grade'].'</td>
             ';
         
         }
@@ -7211,8 +6411,8 @@ if($rows5['final_rating'] == 0 ){
    }
 
     $html.='
-    <td>'.$rows5['final_rating'].'</td>
-    <td>'.$rows5['remarks'].'</td>
+    <td class="text-center">'.$rows5['final_rating'].'</td>
+    <td class="text-center">'.$rows5['remarks'].'</td>
         </tr>';
 
 }
@@ -7249,8 +6449,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
             $html.='
             <tr>
-            <td class="Ap">Araling Panlipunan</td>
-            <td> '.$rows['grade'].'</td>            
+            <td class="subject">Araling Panlipunan</td>
+            <td class="text-center"> '.$rows['grade'].'</td>            
           ';
         
         }
@@ -7282,7 +6482,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                             }
     
                         $html.='
-                        <td> '.$rows2['grade'].' </td>
+                        <td class="text-center"> '.$rows2['grade'].' </td>
                           ';
                     
                     }
@@ -7315,7 +6515,7 @@ $term = 3;
                         }
     
                     $html.='
-                    <td> '.$rows3['grade'].'</td>
+                    <td class="text-center"> '.$rows3['grade'].'</td>
                    ';
                 
                 }
@@ -7351,7 +6551,7 @@ $term = 4;
                         }
     
                     $html.='
-                    <td>'.$rows4['grade'].'</td>
+                    <td class="text-center">'.$rows4['grade'].'</td>
                     ';
                 
                 }
@@ -7382,8 +6582,8 @@ if($phase3_subject_id == 6 ){
            }
 
         $html.='
-        <td> '.$rows5['final_rating'].'</td>
-        <td>'.$rows5['remarks'].'</td>
+        <td class="text-center"> '.$rows5['final_rating'].'</td>
+        <td class="text-center">'.$rows5['remarks'].'</td>
         </tr>
        ';
     
@@ -7420,8 +6620,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="epp">EPP/TLE</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">EPP/TLE</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -7453,7 +6653,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                    ';
                 
                 }
@@ -7485,7 +6685,7 @@ $term = 3;
             }
 
         $html.='
-        <td>'.$rows3['grade'].'</td>
+        <td class="text-center">'.$rows3['grade'].'</td>
         ';
     
     }
@@ -7520,7 +6720,7 @@ $term = 4;
             }
 
         $html.='
-        <td>'.$rows4['grade'].'</td>
+        <td class="text-center">'.$rows4['grade'].'</td>
          ';
     
     }
@@ -7550,8 +6750,8 @@ if($phase3_subject_id == 7 ){
            }
 
         $html.='
-        <td>'.$rows5['final_rating'].'</td>
-        <td>'.$rows5['remarks'].'</td>
+        <td class="text-center">'.$rows5['final_rating'].'</td>
+        <td class="text-center">'.$rows5['remarks'].'</td>
         </tr>
         ';
     
@@ -7591,8 +6791,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="mapeh">MAPEH</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">MAPEH</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
 
                     ';
                 
@@ -7624,7 +6824,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                     ';
                 
                 }
@@ -7654,7 +6854,7 @@ $term = 3;
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                 ';
             
             }
@@ -7689,7 +6889,7 @@ $term = 4;
                 }
 
             $html.='
-            <td> '.$rows4['grade'].' </td>
+            <td class="text-center"> '.$rows4['grade'].' </td>
             ';
         
         }
@@ -7717,8 +6917,8 @@ if($phase3_subject_id == 8 ){
            }
 
         $html.='
-        <td>'.$rows5['final_rating'].' </td>
-        <td> '.$rows5['remarks'].'</td>
+        <td class="text-center">'.$rows5['final_rating'].' </td>
+        <td class="text-center"> '.$rows5['remarks'].'</td>
         </tr>
             ';
     
@@ -7757,8 +6957,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td class="music">Music</td>
-                        <td> '.$rows['grade'].'</td>
+                        <td class="small-pad-left italic">Music</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>
                         ';
                     
                     }
@@ -7792,7 +6992,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                             }
     
                         $html.='
-                        <td> '.$rows2['grade'].'</td>
+                        <td class="text-center"> '.$rows2['grade'].'</td>
                         ';
                     
                     }
@@ -7824,7 +7024,7 @@ $term = 3;
                         }
     
                     $html.='
-                    <td> '.$rows3['grade'].'</td>
+                    <td class="text-center"> '.$rows3['grade'].'</td>
                         ';
                 
                 }
@@ -7860,7 +7060,7 @@ $term = 4;
                         }
     
                     $html.='
-                    <td>'.$rows4['grade'].'</td>
+                    <td class="text-center">'.$rows4['grade'].'</td>
 
                      ';
                 
@@ -7889,8 +7089,8 @@ if($phase3_subject_id == 9 ){
            }
 
         $html.='
-        <td> '.$rows5['final_rating'].'</td>
-        <td>'.$rows5['remarks'].'</td>
+        <td class="text-center"> '.$rows5['final_rating'].'</td>
+        <td class="text-center">'.$rows5['remarks'].'</td>
         </tr>
         ';
     
@@ -7924,8 +7124,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
         
                             $html.='
                             <tr>
-                            <td class="arts">Arts</td>
-                            <td> '.$rows['grade'].'</td>
+                            <td class="small-pad-left italic">Arts</td>
+                            <td class="text-center"> '.$rows['grade'].'</td>
                             ';
                         
                         }
@@ -7958,7 +7158,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows2['grade'].' </td>
+            <td class="text-center">'.$rows2['grade'].' </td>
              ';
         
         }
@@ -7990,7 +7190,7 @@ $term = 3;
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].' </td>
+                <td class="text-center">'.$rows3['grade'].' </td>
                 ';
             
             }
@@ -8026,7 +7226,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>
+                <td class="text-center">'.$rows4['grade'].'</td>
                 ';
             
             }
@@ -8055,8 +7255,8 @@ if($phase3_subject_id == 10 ){
            }
 
         $html.='
-        <td>'.$rows5['final_rating'].'</td>
-        <td> '.$rows5['remarks'].'</td>
+        <td class="text-center">'.$rows5['final_rating'].'</td>
+        <td class="text-center"> '.$rows5['remarks'].'</td>
         </tr>
     ';
     
@@ -8094,8 +7294,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="pe">Physical Education</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left italic">Physical Education</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                         ';
                 
                 }
@@ -8127,7 +7327,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>
+                    <td class="text-center">'.$rows2['grade'].'</td>
                         ';
                 
                 }
@@ -8159,7 +7359,7 @@ $term = 3;
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
                ';
             
             }
@@ -8194,7 +7394,7 @@ $term = 4;
             }
 
         $html.='
-        <td>'.$rows4['grade'].'</td>
+        <td class="text-center">'.$rows4['grade'].'</td>
     ';
     
     }
@@ -8225,8 +7425,8 @@ if($phase3_subject_id == 11 ){
            }
 
         $html.='
-        <td>'.$rows5['final_rating'].' </td>
-        <td>'.$rows5['remarks'].'</td>
+        <td class="text-center">'.$rows5['final_rating'].' </td>
+        <td class="text-center">'.$rows5['remarks'].'</td>
        </tr> ';
     
     }
@@ -8259,8 +7459,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="health">Health</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left italic">Health</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                  ';
                 
                 }
@@ -8290,7 +7490,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                 $html.='
-                <td >'.$rows2['grade'].'</td>  ';
+                <td class="text-center">'.$rows2['grade'].'</td>  ';
             
             }
 
@@ -8320,7 +7520,7 @@ $term = 3;
             }
 
         $html.='
-        <td>'.$rows3['grade'].'</td>';
+        <td class="text-center">'.$rows3['grade'].'</td>';
     
     }
 
@@ -8355,7 +7555,7 @@ $term = 4;
                 }
 
             $html.='
-            <td>'.$rows4['grade'].'</td> ';
+            <td class="text-center">'.$rows4['grade'].'</td> ';
         
         }
 
@@ -8382,8 +7582,8 @@ if($phase3_subject_id == 12 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>';
     
     }
@@ -8418,8 +7618,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">Eduk. Sa Pagpapakatao</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                 ';
                 
                 }
@@ -8452,7 +7652,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>';
+                    <td class="text-center">'.$rows2['grade'].'</td>';
                 
                 }
 
@@ -8483,7 +7683,7 @@ $term = 3;
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td> ';
+                <td class="text-center">'.$rows3['grade'].'</td> ';
             
             }
 
@@ -8518,7 +7718,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>';
+                <td class="text-center">'.$rows4['grade'].'</td>';
             
             }
 
@@ -8546,8 +7746,8 @@ if($phase3_subject_id == 13 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>';
     
     }
@@ -8582,8 +7782,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="arabic">*Arabic Language</td>
-                    <td>'.$rows['grade'].' </td>
+                    <td class="small-pad-left">*Arabic Language</td>
+                    <td class="text-center">'.$rows['grade'].' </td>
                 ';
                 
                 }
@@ -8614,7 +7814,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows2['grade'].' </td> ';
+                <td class="text-center">'.$rows2['grade'].' </td> ';
             
             }
 
@@ -8646,7 +7846,7 @@ $term = 3;
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].' </td>  ';
+                <td class="text-center">'.$rows3['grade'].' </td>  ';
             
             }
 
@@ -8682,7 +7882,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td>'.$rows4['grade'].' </td>  ';
+                <td class="text-center">'.$rows4['grade'].' </td>  ';
             
             }
 
@@ -8709,8 +7909,8 @@ if($phase3_subject_id == 14 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>';
     
     }
@@ -8744,8 +7944,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="islamic">*Islamic Values Education </td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Islamic Values Education </td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                     ';
                 
                 }
@@ -8778,7 +7978,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td >'.$rows2['grade'].'</td>  ';
+                    <td class="text-center">'.$rows2['grade'].'</td>  ';
                 
                 }
 
@@ -8808,7 +8008,7 @@ $term = 3;
                     }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td> ';
+                <td class="text-center">'.$rows3['grade'].'</td> ';
                 
             
             }
@@ -8844,7 +8044,7 @@ $term = 4;
             }
 
         $html.='
-        <td>'.$rows4['grade'].'</td>  ';
+        <td class="text-center">'.$rows4['grade'].'</td>  ';
     
     }
 
@@ -8872,8 +8072,8 @@ if($phase3_subject_id == 15 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -8906,8 +8106,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="general">General average</td>
-                    <td class="insert-gen-av">'.$rows['general_average'].'</td>
+                    <td class="subject">General average</td>
+                    <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
 
                    ';
                 
@@ -8942,7 +8142,7 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows2['general_average'].'</td>
+                    <td class="text-center">'.$rows2['general_average'].'</td>
                     ';
                 
 
@@ -8977,7 +8177,7 @@ $term = 3;
                     }
 
                 $html.='
-                <td> '.$rows3['general_average'].'</td>
+                <td class="text-center"> '.$rows3['general_average'].'</td>
                 ';
             
 
@@ -9014,7 +8214,7 @@ $term = 4;
                 $rows4['general_average'] = " ";
                 }
             $html.='
-            <td> '.$rows4['general_average'].'</td>
+            <td class="text-center"> '.$rows4['general_average'].'</td>
            \
            ';
         
@@ -9064,8 +8264,8 @@ for ($phase3_subject_id = 1; $phase3_subject_id <= 16 ; $phase3_subject_id++) {
 
 
             $html.='
-            <td class="insert-gen-av">'.$rows['general_average'].'</td>
-            <td>'.$output.'</td>
+            <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
+            <td class="text-center">'.$output.'</td>
           
             </tr>
             ';
@@ -9119,32 +8319,29 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
             }
 
             $html.='
-            <table>
+            <table style="margin-top:4px;">
             <thead>
-            <tr class="remedial">
-            <th colspan="2">Remedial Classes</th>
-            <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
-            <th colspan="1">To: '.$rows['date_to'].'</th>
-            </tr>
-            <tr>
-            <td>Learning Areas</td>
-            <td>Final Rating</td>
-            <td>Remedial Class Mark</td>
-            <td>Remarks</td>
-            <td>Recomputed Final Grade</td>
-            </tr>
+                <tr class="remedial">
+                    <th colspan="2">Remedial Classes</th>
+                    <th colspan="2" class="text-start" style="border-right: none;"> Date Conducted: '.$rows['date_from'].'</th>
+                    <th colspan="2" class="text-start" style="border-left: none;">To: '.$rows['date_to'].'</th>
+                </tr>
+                <tr class="arial-header text-center">
+                    <td colspan="2">Learning Areas</td>
+                    <td>Final Rating</td>
+                    <td>Remedial Class <br> Mark</td>
+                    <td>Recomputed <br> Final Grade</td>
+                    <td>Remarks</td>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
-
-           
-           
+            <tr >
+                <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+            </tr>    
            ';
             
         }
@@ -9169,23 +8366,22 @@ for($phase3_remedial_term = 1; $phase3_remedial_term <=2; $phase3_remedial_term+
                }
           
       $html.='
-      <tr>
-     <td class="remedial-2">'.$rows['learning_areas'].'</td>
-     <td class="remedial-2">'.$rows['final_rating'].'</td>
-     <td class="remedial-2">'.$rows['remarks'].'</td>
-     <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-     <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-     </tr>
-     </tbody>
-
-
-</table>
-
-</div>
+                    <tr>
+                        <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td style="width:.8em; border:none;">
+        </td>
 
 ';
         }
-
+//last 3
         }
 
     
@@ -9209,59 +8405,48 @@ if(mysqli_num_rows($run_phase4_scholastic) > 0){
 
     $html.='
 
-    <div class="left-container">
-    <div class="School">
-    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
-    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
-    </div>
-    <div>
-    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
-    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
-    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
-    </div>
-
-    <div>
-    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
-    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
-    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
-    </div>
-
-    <div>
-    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
-    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
-    </div>
-    </div>    
-   
-    </div>
-    </div>
-
-   
-
-    
-   
-    
-    ';
+    <td class="phase_4" style="width: 48%; border:none;">
+    <table class="phase_head">
+        <tr>
+            <td colspan="6"><span class="main-arial-text">School: <span style="font-weight: bold;">'.$rows['school'].'</span></span></td>
+            <td colspan="6" style="text-align: right;><span class="main-arial-text">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="4"><span class="main-arial-text">District: <span style="font-weight: bold;">'.$rows['district'].'</span></span></td>
+            <td colspan="4" style="text-align: center;"><span class="main-arial-text">Division: <span style="font-weight: bold;">'.$rows['division'].'</span></span></td>
+            <td colspan="4" style="text-align: right;"><span class="main-arial-text">Region: <span style="font-weight: bold;">'.$rows['region'].'</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="3"><span class="main-arial-text">Classified as Grade: <span style="font-weight: bold;">'.$rows['classified_as_grade'].'</span></span></td>
+            <td colspan="5" style="text-align: center;"><span class="main-arial-text" >Section: <span style="font-weight: bold;">'.$rows['section'].'</span></span></td>
+            <td colspan="4" style="text-align: right;"><span class="main-arial-text">School year: <span style="font-weight: bold;">'.$rows['school_year'].'-2012</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="6"><span class="main-arial-text">Name of adviser: <span style="font-weight: bold;">'.$rows['name_of_teacher'].'</span></span></td>
+            <td colspan="6" style="text-align: right;"><span class="main-arial-text">Signature:<span style="font-weight: bold;">'.$rows['signature'].'</span></span></td>
+        </tr>
+    </table>
+';
 }
 
-$html.='
 
-<div class="container-phase-4">
-<table >
-<thead>
-<tr>
-<th rowspan="2">Learnering Areas</th>
-<th class="quarterly" colspan="4">Quarterly Rating</th>
-<th class="final-raiting" rowspan="2" >Final Rating</th>
-<th rowspan="2">Remarks</th>
-</tr>
-<tr class="quarter">
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>    
-<tbody>
+$html.='
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Learning Areas</th>
+                <th class="quarterly" colspan="4">Quarterly Rating</th>
+                <th colspan="1" class="final-rating" rowspan="2" >Final <br> Rating</th>
+                <th rowspan="2">Remarks</th>
+            </tr>
+            <tr class="quarter">
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+        </thead>    
+        <tbody> 
 
 
 ';
@@ -9290,8 +8475,8 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
 
         $html.=' 
         <tr>
-        <td class="mother">Mother&#8216s Tongue</td>
-        <td> '.$rows['grade'].'</td>
+        <td class="subject">Mother Tongue</td>
+        <td class="text-center"> '.$rows['grade'].'</td>
         
         ';
     
@@ -9325,7 +8510,7 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
         }
 
         $html.=' 
-        <td> '.$rows2['grade'].' </td>
+        <td class="text-center"> '.$rows2['grade'].' </td>
         ';
     
     }
@@ -9355,7 +8540,7 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
         }
 
         $html.='
-        <td>'.$rows3['grade'].'</td>
+        <td class="text-center"> '.$rows3['grade'].'</td>
             ';
     
     }
@@ -9383,7 +8568,7 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
         $rows4['grade'] = " ";
         }
 
-        $html.=' <td>'.$rows4['grade'].'</td>';
+        $html.=' <td class="text-center">'.$rows4['grade'].'</td>';
     
     }
 }
@@ -9408,8 +8593,8 @@ if(mysqli_num_rows($run_phase4_mt) > 0){
        }
 
         $html.=' 
-        <td>'.$rows5['final_rating'].'</td>
-        <td>'.$rows5['remarks'].'</td>
+        <td class="text-center">'.$rows5['final_rating'].'</td>
+        <td class="text-center">'.$rows5['remarks'].'</td>
         </tr>';
     
     }
@@ -9442,8 +8627,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="filipino">Filipino</td>
-                <td> '.$rows['grade'].'</td>
+                <td class="subject ">Filipino</td>
+                <td class="text-center"> '.$rows['grade'].'</td>
                     ';
             
             }
@@ -9511,7 +8696,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows3['grade'].'</td>
+                    <td class="text-center"> '.$rows3['grade'].'</td>
                     ';
                 
                 }
@@ -9541,7 +8726,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows4['grade'].'</td>
+                    <td class="text-center"> '.$rows4['grade'].'</td>
                      ';
                 
                 }
@@ -9569,8 +8754,8 @@ if($phase4_subject_id == 2 ){
            }
 
             $html.='
-            <td> '.$rows5['final_rating'].' </td>
-            <td>'.$rows5['remarks'].'</td>
+            <td class="text-center"> '.$rows5['final_rating'].' </td>
+            <td class="text-center">'.$rows5['remarks'].'</td>
             </tr>
                 ';
         
@@ -9603,8 +8788,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="english">English</td>
-                <td>'.$rows['grade'].'</td>
+                <td class="subject">English</td>
+                <td class="text-center">'.$rows['grade'].'</td>
                 
               
                 ';
@@ -9641,7 +8826,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
                 $html.='
-                <td >'.$rows2['grade'].'</td>
+                <td class="text-center">'.$rows2['grade'].'</td>
                ';
             
             }
@@ -9673,7 +8858,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>  ';
+                    <td class="text-center">'.$rows3['grade'].'</td>  ';
                 
                 }
 
@@ -9702,7 +8887,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows4['grade'].'</td> ';
+                <td class="text-center"> '.$rows4['grade'].'</td> ';
             
             }
 
@@ -9729,8 +8914,8 @@ if($phase4_subject_id == 3 ){
            }
 
             $html.='
-            <td> '.$rows5['final_rating'].'</td>
-            <td>'.$rows5['remarks'].'</td>
+            <td class="text-center"> '.$rows5['final_rating'].'</td>
+            <td class="text-center">'.$rows5['remarks'].'</td>
             </tr>
             ';
         
@@ -9765,8 +8950,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="math">Mathematics</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="subject">Mathematics</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                        ';
                     
                     }   
@@ -9800,7 +8985,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                         $html.='
-                        <td >'.$rows2['grade'].'</td>
+                        <td class="text-center">'.$rows2['grade'].'</td>
                         ';
                     
                     }   
@@ -9834,7 +9019,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows3['grade'].'</td>
+                    <td class="text-center">'.$rows3['grade'].'</td>
                     ';
                 
                 }   
@@ -9867,7 +9052,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows4['grade'].'</td>
+                    <td class="text-center">'.$rows4['grade'].'</td>
                     ';
                 
                 }   
@@ -9896,8 +9081,8 @@ if($phase4_subject_id == 4 ){
            }
 
             $html.='
-            <td>'.$rows5['final_rating'].' </td>
-            <td>'.$rows5['remarks'].' </td>
+            <td class="text-center">'.$rows5['final_rating'].' </td>
+            <td class="text-center">'.$rows5['remarks'].' </td>
             </tr>
             ';
         
@@ -9934,8 +9119,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="science">Science</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">Science</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                     ';
                 
                 }
@@ -9969,7 +9154,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
                 $html.='
-                <td >'.$rows2['grade'].'</td>
+                <td class="text-center">'.$rows2['grade'].'</td>
                 ';
             
             }
@@ -10000,7 +9185,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows3['grade'].'</td>
+                <td class="text-center">'.$rows3['grade'].'</td>
               ';
             
             }
@@ -10031,7 +9216,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows4['grade'].'</td>
+                <td class="text-center">'.$rows4['grade'].'</td>
                 ';
             
             }
@@ -10059,8 +9244,8 @@ if($phase4_subject_id == 5 ){
            }
 
             $html.='
-            <td> '.$rows5['final_rating'].'</td>
-            <td>'.$rows5['remarks'].'</td>
+            <td class="text-center"> '.$rows5['final_rating'].'</td>
+            <td class="text-center">'.$rows5['remarks'].'</td>
             </tr>
             ';
         
@@ -10095,8 +9280,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="Ap">Araling Panlipunan</td>
-                <td>'.$rows['grade'].' </td>
+                <td class="subject">Araling Panlipunan</td>
+                <td class="text-center">'.$rows['grade'].' </td>
                 ';
             
             }
@@ -10127,7 +9312,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows2['grade'].' </td>
+            <td class="text-center">'.$rows2['grade'].' </td>
              ';
         
         }
@@ -10159,7 +9344,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
     
                     $html.='
-                    <td>'.$rows3['grade'].' </td>
+                    <td class="text-center">'.$rows3['grade'].' </td>
                   ';
                 
                 }
@@ -10188,7 +9373,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows4['grade'].' </td>
+                <td class="text-center">'.$rows4['grade'].' </td>
                   ';
             
             }
@@ -10215,8 +9400,8 @@ if($phase4_subject_id == 6 ){
            }
 
         $html.='
-        <td> '.$rows5['final_rating'].'</td>
-        <td> '.$rows5['remarks'].' </td>
+        <td class="text-center"> '.$rows5['final_rating'].'</td>
+        <td class="text-center"> '.$rows5['remarks'].' </td>
         </tr>
         ';
     
@@ -10253,8 +9438,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="epp">EPP/TLE</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">EPP/TLE</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                      
                 
                     ';
@@ -10288,7 +9473,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows2['grade'].'</td> ';
+                    <td class="text-center"> '.$rows2['grade'].'</td> ';
                 
                 }
 
@@ -10318,7 +9503,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows3['grade'].'</td>  ';
+                <td class="text-center"> '.$rows3['grade'].'</td>  ';
             
             }
 
@@ -10346,7 +9531,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td> '.$rows4['grade'].'</td>  ';
+            <td class="text-center"> '.$rows4['grade'].'</td>  ';
         
         }
 
@@ -10373,8 +9558,8 @@ if($phase4_subject_id == 7 ){
            }
 
         $html.='
-        <td>'.$rows5['final_rating'].'</td>
-        <td> '.$rows5['remarks'].'</td>
+        <td class="text-center">'.$rows5['final_rating'].'</td>
+        <td class="text-center"> '.$rows5['remarks'].'</td>
        
         </tr>
         ';
@@ -10408,8 +9593,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="mapeh">MAPEH</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">MAPEH</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -10445,7 +9630,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                       ';
                 
                 }
@@ -10475,7 +9660,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td>';
+            <td class="text-center">'.$rows['grade'].'</td>';
         
         }
 
@@ -10502,7 +9687,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td> ';
+            <td class="text-center">'.$rows['grade'].'</td> ';
         
         }
 
@@ -10530,8 +9715,8 @@ if($phase4_subject_id == 8 ){
 
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
        
         </tr>
         ';
@@ -10570,8 +9755,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td class="music">Music</td>
-                        <td> '.$rows['grade'].'</td>
+                        <td class="small-pad-left italic">Music</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>
                        ';
                     
                     }
@@ -10605,7 +9790,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                             }
     
                         $html.='
-                        <td> '.$rows['grade'].'</td>  ';
+                        <td class="text-center"> '.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -10635,7 +9820,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
     
                     $html.='
-                    <td> '.$rows['grade'].'</td>';
+                    <td class="text-center"> '.$rows['grade'].'</td>';
                 
                 }
     
@@ -10662,7 +9847,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>';
+                <td class="text-center"> '.$rows['grade'].'</td>';
             
             }
 
@@ -10687,8 +9872,8 @@ if($phase4_subject_id == 9 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -10726,8 +9911,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="arts">Arts</td>
-                <td> '.$rows['grade'].'</td>
+                <td class="small-pad-left italic">Arts</td>
+                <td class="text-center"> '.$rows['grade'].'</td>
                   ';
             
             }
@@ -10759,7 +9944,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td> ';
+                <td class="text-center"> '.$rows['grade'].'</td> ';
             
             }
 
@@ -10789,7 +9974,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td> ';
+                <td class="text-center"> '.$rows['grade'].'</td> ';
             
             }
 
@@ -10817,7 +10002,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td> '.$rows['grade'].'</td>  ';
+            <td class="text-center"> '.$rows['grade'].'</td>  ';
         
         }
 
@@ -10844,8 +10029,8 @@ if($phase4_subject_id == 10 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -10882,8 +10067,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
             $html.='
             <tr>
-            <td class="pe">Physical Education </td>
-            <td>'.$rows['grade'].'</td>
+            <td class="small-pad-left italic">Physical Education </td>
+            <td class="text-center">'.$rows['grade'].'</td>
              ';
         
         }
@@ -10915,7 +10100,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -10945,7 +10130,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td>  ';
+            <td class="text-center">'.$rows['grade'].'</td>  ';
         
         }
 
@@ -10975,7 +10160,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -11002,8 +10187,8 @@ if($phase4_subject_id == 11 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
             ';
     
@@ -11040,8 +10225,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
             $html.='
             <tr>
-            <td class="health">Health</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="small-pad-left italic">Health</td>
+            <td class="text-center">'.$rows['grade'].'</td>
             ';
         
         }
@@ -11075,7 +10260,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -11104,7 +10289,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td>  ';
+            <td class="text-center">'.$rows['grade'].'</td>  ';
         
         }
 
@@ -11131,7 +10316,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td>  ';
+            <td class="text-center">'.$rows['grade'].'</td>  ';
         
         }
 
@@ -11157,8 +10342,8 @@ if($phase4_subject_id == 12 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>
           ';
     
@@ -11191,8 +10376,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">Eduk. Sa Pagpapakatao</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                     ';
                 
                 }
@@ -11225,7 +10410,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -11258,7 +10443,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -11286,7 +10471,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -11312,8 +10497,8 @@ if($phase4_subject_id == 13 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -11346,8 +10531,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
             $html.='
             <tr>
-            <td class="arabic">*Arabic language</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="small-pad-left">*Arabic language</td>
+            <td class="text-center">'.$rows['grade'].'</td>
            ';
         
         }
@@ -11379,7 +10564,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td> ';
+            <td class="text-center"> '.$rows['grade'].'</td> ';
         
         }
 
@@ -11410,7 +10595,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -11440,7 +10625,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -11465,8 +10650,8 @@ if($phase4_subject_id == 14 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -11502,8 +10687,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="islamic">*Islamic values Education</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Islamic values Education</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                     ';
                 
                 }
@@ -11536,7 +10721,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -11567,7 +10752,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
                 
             
             }
@@ -11596,7 +10781,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -11622,8 +10807,8 @@ if($phase4_subject_id == 15 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -11658,8 +10843,8 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="general">General Average</td>
-                    <td class="insert-gen-av">'.$rows['general_average'].'</td>
+                    <td class="subject">General Average</td>
+                    <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
                     
                     
                   ';
@@ -11699,7 +10884,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                         }
 
                     $html.='
-                    <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
+                    <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>  ';
                 
 
 
@@ -11732,7 +10917,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td class="insert-gen-av">'.$rows['general_average'].'</td> ';
+                <td class="insert-gen-av text-center">'.$rows['general_average'].'</td> ';
             
 
 
@@ -11763,7 +10948,7 @@ for ($phase4_subject_id = 1; $phase4_subject_id <= 16 ; $phase4_subject_id++) {
                     }
 
                 $html.='
-                <td class="insert-gen-av">'.$rows['general_average'].'</td> ';
+                <td class="insert-gen-av text-center">'.$rows['general_average'].'</td> ';
             
 
 
@@ -11810,8 +10995,8 @@ if( $phase4_subject_id == 16){
               }
 
         $html.='
-        <td class="insert-gen-av">'.$rows['general_average'].'</td>
-        <td>'.$output.'</td>
+        <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
+        <td class="text-center">'.$output.'</td>
        
         </tr>
         </tbody> ';
@@ -11863,36 +11048,33 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
             }
 
             $html.='
-            <table>
-            <thead>
-            <tr>
-            <th colspan="2">Remedial Classes</th>
-            <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
-            <th colspan="1">To: '.$rows['date_to'].'</th>
-            </tr>
-            <tr class="remedial">
-            <td>Learning Areas</td>
-            <td>Final Rating</td>
-            <td>Remedial Class Mark</td>
-            <td>Remarks</th>
-            <td>Recomputed Final Grade</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
-
-           
-           
+            <table style="margin-top:4px;">
+                <thead>
+                    <tr class="remedial">
+                        <th colspan="2">Remedial Classes</th>
+                        <th colspan="2" class="text-start" style="border-right: none;"> Date Conducted: '.$rows['date_from'].'</th>
+                        <th colspan="2" class="text-start" style="border-left: none;">To: '.$rows['date_to'].'</th>
+                    </tr>
+                    <tr class="arial-header text-center">
+                        <td colspan="2">Learning Areas</td>
+                        <td>Final Rating</td>
+                        <td>Remedial Class <br> Mark</td>
+                        <td>Recomputed <br> Final Grade</td>
+                        <td>Remarks</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr >
+                    <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                </tr>    
            ';
             
         }
-
+        //last 4
     }
 
             // term 2
@@ -11912,19 +11094,17 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
                 $rows['recomputed_final_grade'] = " ";
                }
             $html.='
-            <tr>
-           <td class="remedial-2">'.$rows['learning_areas'].'</td>
-           <td class="remedial-2">'.$rows['final_rating'].'</td>
-           <td class="remedial-2">'.$rows['remarks'].'</td>
-           <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-           <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-           </tr>
-           </tbody>
-      
-      
-      </table>
-      </div>
-      
+                <tr>
+                    <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                </tr>
+            </tbody>
+        </table>   
+    </td>
+</tr>
       
       ';
               }
@@ -11934,10 +11114,6 @@ for($phase4_remedial_term = 1; $phase4_remedial_term <=2; $phase4_remedial_term+
           
       }// end of remedial phase 3 
       
-      $html.='
-<div class="page_break">
-
-';
 
 
 //start of phase 5 
@@ -11953,62 +11129,51 @@ if(mysqli_num_rows($run_phase5_scholastic) > 0){
 
 
     $html.='
-    <div >
-    <h4 class="learners-1"> Scholastic Record </h4>
-    </div>
-    
-    <div class="learners-information-5">
-    <div class="school1">
-    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
-    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
-    </div>
-    <div>
-    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
-    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
-    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
-    </div>
-
-    <div>
-    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
-    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
-    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
-    </div>
-
-    <div>
-    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
-    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
-    </div>
-    </div>
-
-   
-
-  
- 
+                <tr class="row_1" style="width: 100vw; margin-bottom: 2em;  border:none;">
+                    <td class="phase_5" style="width: 48%;  border:none;">
+                        <table class="phase_head">
+                            <tr>
+                                <td colspan="6"><span class="main-arial-text">School: <span style="font-weight: bold;">'.$rows['school'].'</span></span></td>
+                                <td colspan="6" style="text-align: right;><span class="main-arial-text">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><span class="main-arial-text">District: <span style="font-weight: bold;">'.$rows['district'].'</span></span></td>
+                                <td colspan="4" style="text-align: center;"><span class="main-arial-text">Division: <span style="font-weight: bold;">'.$rows['division'].'</span></span></td>
+                                <td colspan="4" style="text-align: right;"><span class="main-arial-text">Region: <span style="font-weight: bold;">'.$rows['region'].'</span></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><span class="main-arial-text">Classified as Grade: <span style="font-weight: bold;">'.$rows['classified_as_grade'].'</span></span></td>
+                                <td colspan="5" style="text-align: center;"><span class="main-arial-text" >Section: <span style="font-weight: bold;">'.$rows['section'].'</span></span></td>
+                                <td colspan="4" style="text-align: right;"><span class="main-arial-text">School year: <span style="font-weight: bold;">'.$rows['school_year'].'-2012</span></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"><span class="main-arial-text">Name of adviser: <span style="font-weight: bold;">'.$rows['name_of_teacher'].'</span></span></td>
+                                <td colspan="6" style="text-align: right;"><span class="main-arial-text">Signature:<span style="font-weight: bold;">'.$rows['signature'].'</span></span></td>
+                            </tr>
+                        </table>
     ';
-}
+    }
 
-$html.='
-
-<div class="container-phase-5">
-<table >
-<thead>
-<tr>
-<th rowspan="2">Learnering Areas</th>
-<th class="quarterly" colspan="4">Quarterly Rating</th>
-<th class="final-raiting" rowspan="2" >Final Rating</th>
-<th rowspan="2">Remarks</th>
-</tr>
-<tr class="quarter">
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>    
-<tbody>
-
-';
-
+    $html.='
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">Learning Areas</th>
+                                    <th class="quarterly" colspan="4">Quarterly Rating</th>
+                                    <th colspan="1" class="final-rating" rowspan="2" >Final <br> Rating</th>
+                                    <th rowspan="2">Remarks</th>
+                                </tr>
+                                <tr class="quarter">
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                </tr>
+                            </thead>    
+                            <tbody> 
+     
+    ';
+    
 //phase 5 term 1 
 
 
@@ -12035,8 +11200,8 @@ if(mysqli_num_rows($run_phase5_mt) > 0){
 
         $html.=' 
         <tr>
-        <td class="mother">Mother&#8216s Tongue</td>
-        <td> '.$rows['grade'].'</td>
+        <td class="subject">Mother Tongue</td>
+        <td class="text-center"> '.$rows['grade'].'</td>
         
         ';
     
@@ -12070,7 +11235,7 @@ if($rows['grade'] == 0 ){
 
 
     $html.=' 
-    <td> '.$rows['grade'].'</td> ';
+    <td class="text-center"> '.$rows['grade'].'</td> ';
 
 }
 }
@@ -12098,7 +11263,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 $rows['grade'] = " ";
                 }
 
-                $html.='  <td> '.$rows['grade'].'</td>  ';
+                $html.='  <td class="text-center"> '.$rows['grade'].'</td>  ';
             
             }
         }
@@ -12130,7 +11295,7 @@ if($rows['grade'] == 0 ){
     }
 
 
-    $html.=' <td> '.$rows['grade'].'</td>';
+    $html.=' <td class="text-center"> '.$rows['grade'].'</td>';
 
 }
 }
@@ -12155,8 +11320,8 @@ if($rows['final_rating'] == 0 ){
    }
 
     $html.=' 
-    <td>'.$rows['final_rating'].'</td>
-    <td>'.$rows['remarks'].'</td>
+    <td class="text-center">'.$rows['final_rating'].'</td>
+    <td class="text-center">'.$rows['remarks'].'</td>
     </tr>
     ';
 
@@ -12189,8 +11354,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="filipino">Filipino</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="subject">Filipino</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                         ';
                     
                     }
@@ -12219,7 +11384,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -12246,7 +11411,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -12275,7 +11440,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -12303,8 +11468,8 @@ if($phase5_subject_id == 2 ){
            }
 
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
                 ';
         
@@ -12336,8 +11501,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="english">English</td>
-                <td>'.$rows['grade'].'</td>
+                <td class="subject">English</td>
+                <td class="text-center">'.$rows['grade'].'</td>
                 
                 ';
             
@@ -12367,7 +11532,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center"> '.$rows['grade'].'</td> ';
                 
                 }
 
@@ -12394,7 +11559,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -12424,7 +11589,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -12452,8 +11617,8 @@ if($phase5_subject_id == 3 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -12489,8 +11654,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="math">Mathematics</td>
-                        <td> '.$rows['grade'].'</td>
+                        <td class="subject">Mathematics</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>
                         ';
                     
                     }   
@@ -12519,7 +11684,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
 
                 $html.='
-                <td> '.$rows['grade'].'</td> ';
+                <td class="text-center"> '.$rows['grade'].'</td> ';
             
             }   
 
@@ -12546,7 +11711,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>';
+                    <td class="text-center"> '.$rows['grade'].'</td>';
                 
                 }   
 
@@ -12576,7 +11741,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>';
+                    <td class="text-center"> '.$rows['grade'].'</td>';
                 
                 }   
 
@@ -12603,8 +11768,8 @@ if($phase5_subject_id == 4 ){
            }
 
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -12637,8 +11802,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="science">Science</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">Science</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                     ';
                 
                 }
@@ -12668,7 +11833,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
 
-                   <td>'.$rows['grade'].'</td> ';
+                   <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -12695,7 +11860,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                         }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -12725,7 +11890,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         
     
                         $html.='
-                        <td>'.$rows['grade'].'</td> ';
+                        <td class="text-center">'.$rows['grade'].'</td> ';
                     
                     }
     
@@ -12752,8 +11917,8 @@ if($phase5_subject_id == 5 ){
             $rows['remarks'] = " ";
            }
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -12785,8 +11950,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td class="Ap">Araling Panlipunan</td>
-                        <td> '.$rows['grade'].'</td>
+                        <td class="subject">Araling Panlipunan</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>
                         ';
                     
                     }
@@ -12815,7 +11980,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             
     
                         $html.='
-                        <td> '.$rows['grade'].'</td> ';
+                        <td class="text-center"> '.$rows['grade'].'</td> ';
                     
                     }
     
@@ -12842,7 +12007,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                         }
     
                     $html.='
-                    <td> '.$rows['grade'].'</td> ';
+                    <td class="text-center"> '.$rows['grade'].'</td> ';
                 
                 }
     
@@ -12870,7 +12035,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
 
             $html.='
-            <td> '.$rows['grade'].'</td> ';
+            <td class="text-center"> '.$rows['grade'].'</td> ';
         
         }
 
@@ -12895,8 +12060,8 @@ if($phase5_subject_id == 6 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -12926,8 +12091,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="epp">EPP/TLE</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">EPP/TLE</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                  ';
                 
                 }
@@ -12982,7 +12147,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 }
 
             $html.='
-            <td> '.$rows['grade'].'</td> ';
+            <td class="text-center"> '.$rows['grade'].'</td> ';
         
         }
 
@@ -13011,7 +12176,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
 
             $html.='
-            <td> '.$rows['grade'].'</td> ';
+            <td class="text-center"> '.$rows['grade'].'</td> ';
         
         }
 
@@ -13037,8 +12202,8 @@ if($phase5_subject_id == 7 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -13073,7 +12238,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $html.='
                     <tr>
                     <td class="mapeh">MAPEH</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                      ';
                 
                 }
@@ -13103,7 +12268,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -13130,7 +12295,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -13160,7 +12325,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -13188,8 +12353,8 @@ if($phase5_subject_id == 8 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -13223,8 +12388,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td class="music">Music</td>
-                        <td> '.$rows['grade'].'</td>
+                        <td class="small-pad-left italic">Music</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>
                        ';
                     
                     }
@@ -13254,7 +12419,7 @@ if($phase5_subject_id == 9 ){
 
 
         $html.='
-        <td> '.$rows['grade'].'</td>';
+        <td class="text-center"> '.$rows['grade'].'</td>';
     
     }
 
@@ -13279,7 +12444,7 @@ if($phase5_subject_id == 9 ){
             }
 
         $html.='
-        <td> '.$rows['grade'].'</td>';
+        <td class="text-center" > '.$rows['grade'].'</td>';
     
     }
 
@@ -13308,7 +12473,7 @@ if($phase5_subject_id == 9 ){
 
 
         $html.='
-        <td> '.$rows['grade'].'</td>';
+        <td class="text-center"> '.$rows['grade'].'</td>';
     
     }
 
@@ -13335,8 +12500,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                }
     
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td class="insert-remarks"> '.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
             </tr>
            ';
         
@@ -13367,8 +12532,8 @@ if(mysqli_num_rows($run_phase5_arts) > 0){
 
     $html.='
     <tr>
-    <td class="arts">Arts</td>
-    <td>'.$rows['grade'].'</td>
+    <td class="small-pad-left italic">Arts</td>
+    <td class="text-center">'.$rows['grade'].'</td>
     ';
 
 }
@@ -13397,7 +12562,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -13422,7 +12587,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                             }
         
                         $html.='
-                        <td>'.$rows['grade'].'</td> ';
+                        <td class="text-center">'.$rows['grade'].'</td> ';
                     
                     }
         
@@ -13452,7 +12617,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
             
         
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
         
@@ -13479,8 +12644,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows['remarks'] = " ";
                    }
         
-                $html.='<td>'.$rows['final_rating'].' </td>
-                <td>'.$rows['remarks'].'</td>
+                $html.='<td class="text-center">'.$rows['final_rating'].' </td>
+                <td class="text-center">'.$rows['remarks'].'</td>
                 </tr>
                 ';
             
@@ -13513,8 +12678,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="pe">Physical Education</td>
-                    <td>'.$rows['grade'].' </td>
+                    <td class="small-pad-left italic">Physical Education</td>
+                    <td class="text-center">'.$rows['grade'].' </td>
                     ';
                 
                 }
@@ -13542,7 +12707,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
 
             $html.='
-            <td>'.$rows['grade'].' </td> ';
+            <td class="text-center">'.$rows['grade'].' </td> ';
         
         }
 
@@ -13567,7 +12732,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].' </td>  ';
+            <td class="text-center">'.$rows['grade'].' </td>  ';
         
         }
 
@@ -13596,7 +12761,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows['grade'].' </td>  ';
+                <td class="text-center">'.$rows['grade'].' </td>  ';
             
             }
 
@@ -13622,8 +12787,8 @@ if($phase5_subject_id == 11 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -13653,8 +12818,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
             $html.='
             <tr>
-            <td class="health">Health</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="small-pad-left italic">Health</td>
+            <td class="text-center">'.$rows['grade'].'</td>
                 ';
         
         }
@@ -13684,7 +12849,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -13711,7 +12876,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -13738,7 +12903,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
 
         $html.='
-        <td>'.$rows['grade'].'</td>  ';
+        <td class="text-center">'.$rows['grade'].'</td>  ';
     
     }
 
@@ -13764,8 +12929,8 @@ if($phase5_subject_id == 12 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -13798,8 +12963,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">Eduk. Sa Pagpapakatao</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                 ';
                 
                 }
@@ -13831,7 +12996,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -13857,7 +13022,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -13885,7 +13050,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -13910,8 +13075,8 @@ if($phase5_subject_id == 13 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr> ';
     
     }
@@ -13940,8 +13105,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="arabic">*Arabic language</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Arabic language</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -13971,7 +13136,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -13998,7 +13163,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -14026,7 +13191,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -14052,8 +13217,8 @@ if($phase5_subject_id == 14 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -14084,8 +13249,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="islamic">*Islamic values Education</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Islamic values Education</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                   ';
                 
                 }
@@ -14116,7 +13281,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
         
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -14143,7 +13308,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
                 
             
             }
@@ -14171,7 +13336,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
     
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -14198,8 +13363,8 @@ if($phase5_subject_id == 15 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].' </td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center"> '.$rows['remarks'].' </td>
         </tr>
        ';
     
@@ -14230,8 +13395,8 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="general">General average</td>
-                    <td> '.$rows['general_average'].'</td>
+                    <td class="subject">General average</td>
+                    <td class="text-center"> '.$rows['general_average'].'</td>
                     ';
                 
 
@@ -14261,7 +13426,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['general_average'].'</td> ';
+                    <td class="text-center"> '.$rows['general_average'].'</td> ';
                 
 
 
@@ -14288,7 +13453,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td> '.$rows['general_average'].'</td>';
+                <td class="text-center"> '.$rows['general_average'].'</td>';
             
 
 
@@ -14316,7 +13481,7 @@ for ($phase5_subject_id = 1; $phase5_subject_id <= 16 ; $phase5_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td> '.$rows['general_average'].'</td>  ';
+                <td class="text-center"> '.$rows['general_average'].'</td>  ';
             
 
 
@@ -14360,8 +13525,8 @@ if( $phase5_subject_id == 16){
               }
 
         $html.='
-        <td> '.$rows['general_average'].'</td>
-        <td>'.$output.'</td>
+        <td class="text-center"> '.$rows['general_average'].'</td>
+        <td class="text-center">'.$output.'</td>
        
         </tr>
         ';
@@ -14412,32 +13577,32 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
             }
 
             $html.='
-            <table >
-            <thead>
-            <tr>
-            <th colspan="2">Remedial Classes</th>
-            <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
-            <th colspan="1">To: '.$rows['date_to'].'</th>
-            </tr>
-            <tr class="remedial">
-            <td>Learning Areas</td>
-            <td>Final Rating</td>
-            <td>Remedial Class Mark</td>
-            <td>Remarks</th>
-            <td>Recomputed Final Grade</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
+            <table style="margin-top:4px;">
+                <thead>
+                    <tr class="remedial">
+                        <th colspan="2">Remedial Classes</th>
+                        <th colspan="2" class="text-start" style="border-right: none;"> Date Conducted: '.$rows['date_from'].'</th>
+                        <th colspan="2" class="text-start" style="border-left: none;">To: '.$rows['date_to'].'</th>
+                    </tr>
+                    <tr class="arial-header text-center">
+                        <td colspan="2">Learning Areas</td>
+                        <td>Final Rating</td>
+                        <td>Remedial Class <br> Mark</td>
+                        <td>Recomputed <br> Final Grade</td>
+                        <td>Remarks</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr >
+                    <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                </tr>
             ';
         }
-
+        //last 5
         
     }
 
@@ -14458,20 +13623,18 @@ for($phase5_remedial_term = 1; $phase5_remedial_term <=2; $phase5_remedial_term+
                 $rows['recomputed_final_grade'] = " ";
                }
             $html.='
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
-            </tbody>
-            </table>
-            </div>
-
-
-           
-        
+                    <tr >
+                        <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td style="width:.8em; border:none;">
+        </td>
            ';
         }
 
@@ -14495,55 +13658,50 @@ if(mysqli_num_rows($run_phase6_scholastic) > 0){
 
 
     $html.='
-    <div class="left-container-2">
-    
-    <div class="school1">
-    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
-    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
-    </div>
-    <div>
-    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
-    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
-    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
-    </div>
+    <td class="phase_6" style="width: 48%;  border:none;">
+    <table class="phase_head">
+        <tr>
+            <td colspan="6"><span class="main-arial-text">School: <span style="font-weight: bold;">'.$rows['school'].'</span></span></td>
+            <td colspan="6" style="text-align: right;><span class="main-arial-text">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="4"><span class="main-arial-text">District: <span style="font-weight: bold;">'.$rows['district'].'</span></span></td>
+            <td colspan="4" style="text-align: center;"><span class="main-arial-text">Division: <span style="font-weight: bold;">'.$rows['division'].'</span></span></td>
+            <td colspan="4" style="text-align: right;"><span class="main-arial-text">Region: <span style="font-weight: bold;">'.$rows['region'].'</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="3"><span class="main-arial-text">Classified as Grade: <span style="font-weight: bold;">'.$rows['classified_as_grade'].'</span></span></td>
+            <td colspan="5" style="text-align: center;"><span class="main-arial-text" >Section: <span style="font-weight: bold;">'.$rows['section'].'</span></span></td>
+            <td colspan="4" style="text-align: right;"><span class="main-arial-text">School year: <span style="font-weight: bold;">'.$rows['school_year'].'-2012</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="6"><span class="main-arial-text">Name of adviser: <span style="font-weight: bold;">'.$rows['name_of_teacher'].'</span></span></td>
+            <td colspan="6" style="text-align: right;"><span class="main-arial-text">Signature:<span style="font-weight: bold;">'.$rows['signature'].'</span></span></td>
+        </tr>
+    </table>
+';
 
-    <div>
-    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
-    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
-    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
-    </div>
-
-    <div>
-    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
-    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
-    </div>
-
-
-    </div>
-
-  
-    ';
 }
 
-$html.='
-<div class="container-phase-6">
-<table >
-<thead>
-<tr>
-<th rowspan="2">Learnering Areas</th>
-<th class="quarterly" colspan="4">Quarterly Rating</th>
-<th class="final-raiting" rowspan="2" >Final Rating</th>
-<th rowspan="2">Remarks</th>
-</tr>
-<tr class="quarter">
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>    
-<tbody>
 
+$html.='
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Learning Areas</th>
+                    <th class="quarterly" colspan="4">Quarterly Rating</th>
+                    <th colspan="1" class="final-rating" rowspan="2" >Final <br> Rating</th>
+                    <th rowspan="2">Remarks</th>
+                </tr>
+                <tr class="quarter">
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+            </thead>    
+            <tbody> 
+        
 
 
 ';
@@ -14570,8 +13728,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
             $html.=' 
             <tr>
-            <td class="mother">Mother&#8216s Tongue</td>
-            <td> '.$rows['grade'].'</td>
+            <td class="subject">Mother Tongue</td>
+            <td class="text-center"> '.$rows['grade'].'</td>
             
             ';
         
@@ -14603,7 +13761,7 @@ if(mysqli_num_rows($run_phase6_mt) > 0){
         }
 
         $html.=' 
-        <td> '.$rows['grade'].'</td> ';
+        <td class="text-center"> '.$rows['grade'].'</td> ';
     
     }
 }
@@ -14633,7 +13791,7 @@ if(mysqli_num_rows($run_phase6_mt) > 0){
         }
 
         $html.=' 
-        <td> '.$rows['grade'].'</td>  ';
+        <td class="text-center"> '.$rows['grade'].'</td>  ';
     
     }
 }
@@ -14663,7 +13821,7 @@ if(mysqli_num_rows($run_phase6_mt) > 0){
         }
 
         $html.=' 
-        <td> '.$rows['grade'].'</td>  ';
+        <td class="text-center"> '.$rows['grade'].'</td>  ';
     
     }
 }
@@ -14688,8 +13846,8 @@ if($rows['final_rating'] == 0 ){
    }
 
     $html.='
-    <td> '.$rows['final_rating'].'</td>
-    <td>'.$rows['remarks'].'</td>
+    <td class="text-center"> '.$rows['final_rating'].'</td>
+    <td class="text-center">'.$rows['remarks'].'</td>
     </tr>
       ';
 
@@ -14723,8 +13881,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="filipino">Filipino</td>
-                        <td>'.$rows['grade'].' </td>
+                        <td class="subject">Filipino</td>
+                        <td class="text-center">'.$rows['grade'].' </td>
                       ';
                     
                     }
@@ -14757,7 +13915,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                         $html.='
-                        <td>'.$rows['grade'].' </td>  ';
+                        <td class="text-center">'.$rows['grade'].' </td>  ';
                     
                     }
 
@@ -14786,7 +13944,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].' </td>  ';
+                    <td class="text-center">'.$rows['grade'].' </td>  ';
                 
                 }
 
@@ -14813,7 +13971,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].' </td>  ';
+                    <td class="text-center">'.$rows['grade'].' </td>  ';
                 
                 }
 
@@ -14839,8 +13997,8 @@ if($phase6_subject_id == 2 ){
            }
 
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].' </td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].' </td>
             </tr>
              ';
         
@@ -14875,8 +14033,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="english">English</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">English</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                  ';
                 
                 }
@@ -14909,7 +14067,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                         $html.='
-                        <td> '.$rows['grade'].'</td>  ';
+                        <td class="text-center"> '.$rows['grade'].'</td>  ';
                     
                     }
 
@@ -14938,7 +14096,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -14964,7 +14122,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -14989,8 +14147,8 @@ if($phase6_subject_id == 3 ){
             $rows['remarks'] = " ";
            }
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
               ';
         
@@ -15027,8 +14185,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="math">Mathematics</td>
-                        <td> '.$rows['grade'].'</td>
+                        <td class="subject">Mathematics</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>
                     ';
                     
                     }   
@@ -15062,7 +14220,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                         $html.='
 
-                        <td> '.$rows['grade'].'</td>  ';
+                        <td class="text-center"> '.$rows['grade'].'</td>  ';
                     
                     }   
 
@@ -15090,7 +14248,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }   
 
@@ -15119,7 +14277,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td> ';
+                    <td class="text-center"> '.$rows['grade'].'</td> ';
                 
                 }   
 
@@ -15144,8 +14302,8 @@ if($phase6_subject_id == 4 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -15181,8 +14339,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
     
                             $html.='
                             <tr>
-                            <td class="science">Science</td>
-                            <td>'.$rows['grade'].'</td>
+                            <td class="subject">Science</td>
+                            <td class="text-center">'.$rows['grade'].'</td>
                         ';
                         
                         }
@@ -15214,7 +14372,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                             }
     
                             $html.='
-                            <td> '.$rows['grade'].'</td>  ';
+                            <td class="text-center"> '.$rows['grade'].'</td>  ';
                         
                         }
     
@@ -15242,7 +14400,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
     
                         $html.='
-                        <td> '.$rows['grade'].'</td>  ';
+                        <td class="text-center"> '.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -15267,7 +14425,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -15296,8 +14454,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                }
     
                 $html.='
-                <td>'.$rows['final_rating'].'</td>
-                <td class="insert-remarks"> '.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
                 </tr>
                  ';
             
@@ -15324,8 +14482,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
             $html.='
             <tr>
-            <td class="Ap">Araling Panlipunan</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="subject">Araling Panlipunan</td>
+            <td class="text-center">'.$rows['grade'].'</td>
             ';
         
         }
@@ -15354,7 +14512,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                             }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -15382,7 +14540,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
     
                     $html.='
-                    <td>'.$rows['grade'].'</td>';
+                    <td class="text-center">'.$rows['grade'].'</td>';
                 
                 }
     
@@ -15412,7 +14570,7 @@ $term = 4;
                         }
     
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
     
@@ -15439,8 +14597,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                }
     
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
           ';
         
@@ -15480,8 +14638,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="epp">EPP/TLE</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">EPP/TLE</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                   ';
                 
                 }
@@ -15511,7 +14669,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -15536,7 +14694,7 @@ if($phase6_subject_id == 7 ){
             }
 
         $html.='
-        <td> '.$rows['grade'].'</td> ';
+        <td class="text-center"> '.$rows['grade'].'</td> ';
     
     }
 
@@ -15560,7 +14718,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>';
+                <td class="text-center"> '.$rows['grade'].'</td>';
             
             }
 
@@ -15584,8 +14742,8 @@ if($phase6_subject_id == 7 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -15621,8 +14779,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="mapeh">MAPEH</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">MAPEH</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                      ';
                 
                 }
@@ -15652,7 +14810,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
             }
 
         $html.='
-        <td> '.$rows['grade'].'</td>  ';
+        <td class="text-center"> '.$rows['grade'].'</td>  ';
     
     }
 
@@ -15678,7 +14836,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>  ';
+                <td class="text-center"> '.$rows['grade'].'</td>  ';
             
             }
 
@@ -15703,7 +14861,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>  ';
+                <td class="text-center"> '.$rows['grade'].'</td>  ';
             
             }
 
@@ -15729,8 +14887,8 @@ if($phase6_subject_id == 8 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -15763,8 +14921,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="music">Music</td>
-                <td> '.$rows['grade'].'</td>
+                <td class="small-pad-left italic">Music</td>
+                <td class="text-center"> '.$rows['grade'].'</td>
                 ';
             
             }
@@ -15796,7 +14954,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                             }
     
                         $html.='
-                        <td> '.$rows['grade'].'</td>  ';
+                        <td class="text-center"> '.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -15823,7 +14981,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
     
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
     
@@ -15848,7 +15006,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
     
                     $html.='
-                    <td> '.$rows['grade'].'</td> ';
+                    <td class="text-center"> '.$rows['grade'].'</td> ';
                 
                 }
     
@@ -15873,8 +15031,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                }
     
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -15910,8 +15068,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
         
                             $html.='
                             <tr>
-                            <td class="arts">Arts</td>
-                            <td>'.$rows['grade'].' </td>
+                            <td class="small-pad-left italic">Arts</td>
+                            <td class="text-center">'.$rows['grade'].' </td>
                             ';
                         
                         }
@@ -15942,7 +15100,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                                 }
         
                             $html.='
-                            <td>'.$rows['grade'].' </td>  ';
+                            <td class="text-center">'.$rows['grade'].' </td>  ';
                         
                         }
         
@@ -15969,7 +15127,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                             }
         
                         $html.='
-                        <td>'.$rows['grade'].' </td> ';
+                        <td class="text-center">'.$rows['grade'].' </td> ';
                     
                     }
         
@@ -15996,7 +15154,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                             }
         
                         $html.='
-                        <td>'.$rows['grade'].' </td> ';
+                        <td class="text-center">'.$rows['grade'].' </td> ';
                     
                     }
         
@@ -16021,8 +15179,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                    }
         
                 $html.='
-                <td>'.$rows['final_rating'].'</td>
-                <td>'.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="text-center">'.$rows['remarks'].'</td>
                 </tr>
                 ';
             
@@ -16058,8 +15216,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $html.='
                     <tr>
                     
-                    <td class="pe">Physical Education</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left italic">Physical Education</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                     ';
                 
                 }
@@ -16090,7 +15248,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -16116,7 +15274,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 $rows['grade'] = " ";
                 }
         $html.='
-        <td>'.$rows['grade'].'</td>  ';
+        <td class="text-center">'.$rows['grade'].'</td>  ';
     
     }
 
@@ -16144,7 +15302,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -16171,8 +15329,8 @@ if($phase6_subject_id == 11 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -16204,8 +15362,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
             $html.='
             <tr>
-            <td class="health">Health</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="small-pad-left italic">Health</td>
+            <td class="text-center">'.$rows['grade'].'</td>
             ';
         
         }
@@ -16237,7 +15395,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -16264,7 +15422,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td>  ';
+            <td class="text-center">'.$rows['grade'].'</td>  ';
         
         }
 
@@ -16289,7 +15447,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -16316,8 +15474,8 @@ if($phase6_subject_id == 12 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td> '.$rows['remarks'].' </td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center"> '.$rows['remarks'].' </td>
         </tr>
           ';
     
@@ -16352,8 +15510,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">Eduk. Sa Pagpapakatao</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -16384,7 +15542,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -16411,7 +15569,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td> ';
+                <td class="text-center"> '.$rows['grade'].'</td> ';
             
             }
 
@@ -16436,7 +15594,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td> ';
+                <td class="text-center"> '.$rows['grade'].'</td> ';
             
             }
 
@@ -16461,8 +15619,8 @@ if($phase6_subject_id == 13 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>
       ';
     
@@ -16497,8 +15655,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="arabic">*Arabic language</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Arabic language</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                     ';
                 
                 }
@@ -16530,7 +15688,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -16556,7 +15714,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -16583,7 +15741,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -16609,8 +15767,8 @@ if($phase6_subject_id == 14 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -16645,8 +15803,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="islamic">*Islamic values Education</td>
-                    <td>'.$rows['grade'].' </td>
+                    <td class="small-pad-left">*Islamic values Education</td>
+                    <td class="text-center">'.$rows['grade'].' </td>
                     ';
                 
                 }
@@ -16676,7 +15834,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].' </td>  ';
+                    <td class="text-center">'.$rows['grade'].' </td>  ';
                 
                 }
 
@@ -16702,7 +15860,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].' </td>  ';
+                <td class="text-center">'.$rows['grade'].' </td>  ';
                 
             
             }
@@ -16728,7 +15886,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].' </td>  ';
+                <td class="text-center">'.$rows['grade'].' </td>  ';
             
             }
 
@@ -16753,8 +15911,8 @@ if($phase6_subject_id == 15 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -16786,8 +15944,8 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="general">General average</td>
-                    <td> '.$rows['general_average'].'</td>
+                    <td class="subject">General average</td>
+                    <td class="text-center"> '.$rows['general_average'].'</td>
                  ';
                 
 
@@ -16824,7 +15982,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['general_average'].'</td> ';
+                    <td class="text-center"> '.$rows['general_average'].'</td> ';
                 
 
 
@@ -16854,7 +16012,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td> '.$rows['general_average'].'</td>  ';
+                <td class="text-center"> '.$rows['general_average'].'</td>  ';
             
 
 
@@ -16880,7 +16038,7 @@ for ($phase6_subject_id = 1; $phase6_subject_id <= 16 ; $phase6_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td> '.$rows['general_average'].'</td> ';
+                <td class="text-center"> '.$rows['general_average'].'</td> ';
             
 
 
@@ -16925,8 +16083,8 @@ if( $phase6_subject_id == 16){
 
 
         $html.='
-        <td> '.$rows['general_average'].'</td>  
-        <td>'.$output.'</td>
+        <td class="text-center"> '.$rows['general_average'].'</td>  
+        <td class="text-center">'.$output.'</td>
      
         </tr>
         ';
@@ -16977,29 +16135,29 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
              $rows['date_to'] = "";
             }
             $html.='
-            <table>
-            <thead>
-            <tr>
-            <th colspan="2">Remedial Classes</th>
-            <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
-            <th colspan="1">To: '.$rows['date_to'].'</th>
-            </tr>
-            <tr class="remedial">
-            <td>Learning Areas</td>
-            <td>Final Rating</td>
-            <td>Remedial Class Mark</td>
-            <td>Remarks</th>
-            <td>Recomputed Final Grade</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
+            <table style="margin-top:4px;">
+                <thead>
+                    <tr class="remedial">
+                        <th colspan="2">Remedial Classes</th>
+                        <th colspan="2" class="text-start" style="border-right: none;"> Date Conducted: '.$rows['date_from'].'</th>
+                        <th colspan="2" class="text-start" style="border-left: none;">To: '.$rows['date_to'].'</th>
+                    </tr>
+                    <tr class="arial-header text-center">
+                        <td colspan="2">Learning Areas</td>
+                        <td>Final Rating</td>
+                        <td>Remedial Class <br> Mark</td>
+                        <td>Recomputed <br> Final Grade</td>
+                        <td>Remarks</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr >
+                    <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                </tr>    
             ';
            
             
@@ -17024,26 +16182,22 @@ for($phase6_remedial_term = 1; $phase6_remedial_term <=2; $phase6_remedial_term+
                 $rows['recomputed_final_grade'] = " ";
                }
             $html.='
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
-            </tbody>
-
-            
-            
-
-            
-            </table>
-            </div>
+                    <tr >
+                        <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+    </tr>
 
         
            ';
         }
-
+        //last 6
         }
 
     
@@ -17069,57 +16223,55 @@ if(mysqli_num_rows($run_phase7_scholastic) > 0){
 
 
     $html.='
-    <div class="learners-information-7">
-    <div class="school1">
-    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
-    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
-    </div>
-    <div>
-    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
-    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
-    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
-    </div>
+    <tr style="border:none;">
+        <td style="height: 6px; border:none;"></td>
+    </tr>
+    <tr class="row_2" style="width: 100vw; height:50vh; border:none;">
+        <td class="phase_3" style="width: 48%;  border:none;">
+            <table class="phase_head">
+                <tr>
+                    <td colspan="6"><span class="main-arial-text">School: <span style="font-weight: bold;">'.$rows['school'].'</span></span></td>
+                    <td colspan="6" style="text-align: right;><span class="main-arial-text">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><span class="main-arial-text">District: <span style="font-weight: bold;">'.$rows['district'].'</span></span></td>
+                    <td colspan="4" style="text-align: center;"><span class="main-arial-text">Division: <span style="font-weight: bold;">'.$rows['division'].'</span></span></td>
+                    <td colspan="4" style="text-align: right;"><span class="main-arial-text">Region: <span style="font-weight: bold;">'.$rows['region'].'</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><span class="main-arial-text">Classified as Grade: <span style="font-weight: bold;">'.$rows['classified_as_grade'].'</span></span></td>
+                    <td colspan="5" style="text-align: center;"><span class="main-arial-text" >Section: <span style="font-weight: bold;">'.$rows['section'].'</span></span></td>
+                    <td colspan="4" style="text-align: right;"><span class="main-arial-text">School year: <span style="font-weight: bold;">'.$rows['school_year'].'-2012</span></span></td>
+                </tr>
+                <tr>
+                    <td colspan="6"><span class="main-arial-text">Name of adviser: <span style="font-weight: bold;">'.$rows['name_of_teacher'].'</span></span></td>
+                    <td colspan="6" style="text-align: right;"><span class="main-arial-text">Signature:<span style="font-weight: bold;">'.$rows['signature'].'</span></span></td>
+                </tr>
+            </table>
+    ';
+    }
 
-    <div>
-    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
-    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
-    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
-    </div>
 
-    <div>
-    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
-    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
-    </div>
+    $html.='
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Learning Areas</th>
+                        <th class="quarterly" colspan="4">Quarterly Rating</th>
+                        <th colspan="1" class="final-rating" rowspan="2" >Final <br> Rating</th>
+                        <th rowspan="2">Remarks</th>
+                    </tr>
+                    <tr class="quarter">
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                    </tr>
+                </thead>    
+                <tbody> 
 
-
-
-    </div>
-
-
-   
     
     ';
-}
-
-$html.='
-<div class="container-phase-7">
-<table >
-<thead>
-<tr>
-<th rowspan="2">Learnering Areas</th>
-<th class="quarterly" colspan="4">Quarterly Rating</th>
-<th class="final-raiting" rowspan="2" >Final Rating</th>
-<th rowspan="2">Remarks</th>
-</tr>
-<tr class="quarter">
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>    
-<tbody>
-';
 
 //phase 7 term 1 
 
@@ -17144,8 +16296,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                         $html.=' 
                         <tr>
-                        <td class="mother">Mother&#8216s Tongue</td>
-                        <td> '.$rows['grade'].'</td>                        
+                        <td class="subject">Mother Tongue</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>                        
                        ';
                     
                     }
@@ -17174,7 +16326,7 @@ if($rows['grade'] == 0 ){
     $rows['grade'] = " ";
     }
 
-    $html.='    <td> '.$rows['grade'].'</td>   ';
+    $html.='    <td class="text-center"> '.$rows['grade'].'</td>   ';
 
 }
 }
@@ -17199,7 +16351,7 @@ if($rows['grade'] == 0 ){
             $rows['grade'] = " ";
             }
 
-            $html.='    <td> '.$rows['grade'].'</td>    ';
+            $html.='    <td class="text-center"> '.$rows['grade'].'</td>    ';
         
         }
     }
@@ -17226,7 +16378,7 @@ if($rows['grade'] == 0 ){
             $rows['grade'] = " ";
             }
 
-            $html.='   <td> '.$rows['grade'].'</td>   ';
+            $html.='   <td class="text-center"> '.$rows['grade'].'</td>   ';
         
         }
     }
@@ -17253,8 +16405,8 @@ if($rows['final_rating'] == 0 ){
    }
 
     $html.=' 
-    <td>'.$rows['final_rating'].'</td>
-    <td class="insert-remarks"> '.$rows['remarks'].'</td>
+    <td class="text-center">'.$rows['final_rating'].'</td>
+    <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
     </tr>
     ';
 
@@ -17287,8 +16439,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="filipino">Filipino</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="subject">Filipino</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                       ';
                     
                     }
@@ -17316,7 +16468,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                         $html.='
-                        <td>'.$rows['grade'].'</td> ';
+                        <td class="text-center">'.$rows['grade'].'</td> ';
                     
                     }
 
@@ -17345,7 +16497,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -17376,7 +16528,7 @@ $term = 4;
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -17405,8 +16557,8 @@ if($phase7_subject_id == 2 ){
            }
 
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td class="insert-remarks"> '.$rows['remarks'].'</td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -17440,8 +16592,8 @@ if($phase7_subject_id == 3 ){
 
             $html.='
             <tr>
-            <td class="english">English</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="subject">English</td>
+            <td class="text-center">'.$rows['grade'].'</td>
             ';
         
         }
@@ -17471,7 +16623,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
 
@@ -17499,7 +16651,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -17529,7 +16681,7 @@ $term = 4;
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -17557,8 +16709,8 @@ if($phase7_subject_id == 3 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].' </td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center"> '.$rows['remarks'].' </td>
             </tr>
              ';
         
@@ -17594,8 +16746,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="math">Mathematics</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="subject">Mathematics</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                       ';
                     
                     }   
@@ -17623,7 +16775,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }   
 
@@ -17651,7 +16803,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }   
 
@@ -17681,7 +16833,7 @@ $term = 4;
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }   
 
@@ -17709,8 +16861,8 @@ if($phase7_subject_id == 4 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
              ';
         
@@ -17748,8 +16900,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
     
                             $html.='
                             <tr>
-                            <td class="science">Science</td>
-                            <td>'.$rows['grade'].'</td>
+                            <td class="subject">Science</td>
+                            <td class="text-center">'.$rows['grade'].'</td>
                               ';
                         
                         }
@@ -17777,7 +16929,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                             }
     
                             $html.='
-                            <td>'.$rows['grade'].'</td> ';
+                            <td class="text-center">'.$rows['grade'].'</td> ';
                         
                         }
     
@@ -17807,7 +16959,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -17840,7 +16992,7 @@ $term = 4;
                         }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -17869,8 +17021,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                }
     
                 $html.='
-                <td>'.$rows['final_rating'].'</td>
-                <td>'.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="text-center">'.$rows['remarks'].'</td>
                 </tr>
                   ';
             
@@ -17904,8 +17056,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
             $html.='
             <tr>
-            <td class="Ap">Araling Panlipunan</td>
-            <td>'.$rows['grade'].'</td>
+            <td class="subject">Araling Panlipunan</td>
+            <td class="text-center">'.$rows['grade'].'</td>
             ';
         
         }
@@ -17934,7 +17086,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                             }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -17962,7 +17114,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
     
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
     
@@ -17992,7 +17144,7 @@ $term = 4;
                         }
     
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
     
@@ -18019,8 +17171,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                }
     
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
           ';
         
@@ -18054,8 +17206,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="epp">EPP/TLE</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">EPP/TLE</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                       ';
                 
                 }
@@ -18082,7 +17234,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -18109,7 +17261,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -18141,7 +17293,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -18168,8 +17320,8 @@ if($phase7_subject_id == 7 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -18204,8 +17356,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="mapeh">MAPEH</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">MAPEH</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                      ';
                 
                 }
@@ -18234,7 +17386,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
 
@@ -18262,7 +17414,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -18291,7 +17443,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -18319,8 +17471,8 @@ if($phase7_subject_id == 8 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].' </td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].' </td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
           ';
     
@@ -18356,8 +17508,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td class="music">Music</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="small-pad-left italic">Music</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                      ';
                     
                     }
@@ -18385,7 +17537,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                             }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -18413,7 +17565,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
     
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }
     
@@ -18443,7 +17595,7 @@ $term = 4;
                         }
     
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
     
@@ -18471,8 +17623,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                }
     
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].' </td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].' </td>
             </tr>
               ';
         
@@ -18506,8 +17658,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
         
                             $html.='
                             <tr>
-                            <td class="arts">Arts</td>
-                            <td> '.$rows['grade'].' </td>
+                            <td class="small-pad-left italic">Arts</td>
+                            <td class="text-center"> '.$rows['grade'].' </td>
                             ';
                         
                         }
@@ -18535,7 +17687,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                                 }
         
                             $html.='
-                            <td> '.$rows['grade'].' </td>  ';
+                            <td class="text-center"> '.$rows['grade'].' </td>  ';
                         
                         }
         
@@ -18562,7 +17714,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                             }
         
                         $html.='
-                        <td> '.$rows['grade'].' </td>  ';
+                        <td class="text-center"> '.$rows['grade'].' </td>  ';
                     
                     }
         
@@ -18592,7 +17744,7 @@ $term = 4;
                             }
         
                         $html.='
-                        <td> '.$rows['grade'].' </td>  ';
+                        <td class="text-center"> '.$rows['grade'].' </td>  ';
                     
                     }
         
@@ -18618,8 +17770,8 @@ if($phase7_subject_id == 10 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -18658,8 +17810,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="pe">Physical Education</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left italic">Physical Education</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                      ';
                 
                 }
@@ -18686,7 +17838,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -18716,7 +17868,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -18745,7 +17897,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -18771,8 +17923,8 @@ if($phase7_subject_id == 11 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -18807,8 +17959,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="health">Health</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left italic">Health</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                       ';
                 
                 }
@@ -18835,7 +17987,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
             }
 
         $html.='
-        <td>'.$rows['grade'].'</td>  ';
+        <td class="text-center">'.$rows['grade'].'</td>  ';
     
     }
 
@@ -18861,7 +18013,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td>  ';
+            <td class="text-center">'.$rows['grade'].'</td>  ';
         
         }
 
@@ -18892,7 +18044,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -18919,8 +18071,8 @@ if($phase7_subject_id == 12 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -18958,8 +18110,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">Eduk. Sa Pagpapakatao</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -18986,7 +18138,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -19013,7 +18165,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -19043,7 +18195,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -19072,8 +18224,8 @@ if($phase7_subject_id == 13 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -19083,22 +18235,6 @@ if($phase7_subject_id == 13 ){
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
@@ -19120,8 +18256,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="arabic">*Arabic language</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Arabic language</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                      ';
                 
                 }
@@ -19148,7 +18284,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -19177,7 +18313,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>  ';
+                <td class="text-center"> '.$rows['grade'].'</td>  ';
             
             }
 
@@ -19205,7 +18341,7 @@ $term = 4;
             }
 
         $html.='
-        <td> '.$rows['grade'].'</td>  ';
+        <td class="text-center"> '.$rows['grade'].'</td>  ';
     
     }
 
@@ -19233,8 +18369,8 @@ if($phase7_subject_id == 14 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         < ';
     
@@ -19268,8 +18404,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="islamic">*Islamic values Education</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Islamic values Education</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -19296,7 +18432,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -19326,7 +18462,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>  ';
+                <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
             
             }
@@ -19356,7 +18492,7 @@ $term = 4;
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>  ';
+                <td class="text-center"> '.$rows['grade'].'</td>  ';
             
             }
 
@@ -19384,8 +18520,8 @@ if($phase7_subject_id == 15 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -19420,8 +18556,8 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="general">General average</td>
-                    <td class="insert-gen-av">'.$rows['general_average'].'</td>
+                    <td class="subject">General average</td>
+                    <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
                      ';
                 
 
@@ -19449,7 +18585,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                 $rows['general_average'] = " ";
                 }
             $html.='
-            <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
+            <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>  ';
         
 
 
@@ -19478,7 +18614,7 @@ for ($phase7_subject_id = 1; $phase7_subject_id <= 16 ; $phase7_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
+                <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>  ';
             
 
 
@@ -19511,7 +18647,7 @@ $term = 4;
                     }
 
                 $html.='
-                  <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
+                  <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>  ';
             
 
 
@@ -19560,18 +18696,14 @@ if( $phase7_subject_id == 16){
               }
 
         $html.='
-        <td class="insert-gen-av">'.$rows['general_average'].'</td> 
-        <td>'.$output.'</td>
+        <td class="insert-gen-av text-center">'.$rows['general_average'].'</td> 
+        <td class="text-center">'.$output.'</td>
        
         </tbody>
         </tr>
         ';
 
         //count
-
-        
-    
-
 
     }
     
@@ -19618,29 +18750,29 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
              $rows['date_to'] = "";
             }
             $html.='
-            <table >
-            <thead>
-            <tr>
-            <th colspan="2">Remedial Classes</th>
-            <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
-            <th colspan="1">To: '.$rows['date_to'].'</th>
-            </tr>
-            <tr class="remedial">
-            <td>Learning Areas</td>
-            <td>Final Rating</td>
-            <td>Remedial Class Mark</td>
-            <td>Remarks</td>
-            <td>Recomputed Final Grade</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
+            <table style="margin-top:4px;">
+                <thead>
+                    <tr class="remedial">
+                        <th colspan="2">Remedial Classes</th>
+                        <th colspan="2" class="text-start" style="border-right: none;"> Date Conducted: '.$rows['date_from'].'</th>
+                        <th colspan="2" class="text-start" style="border-left: none;">To: '.$rows['date_to'].'</th>
+                    </tr>
+                    <tr class="arial-header text-center">
+                        <td colspan="2">Learning Areas</td>
+                        <td>Final Rating</td>
+                        <td>Remedial Class <br> Mark</td>
+                        <td>Recomputed <br> Final Grade</td>
+                        <td>Remarks</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr >
+                    <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                    <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                </tr>
             ';
            
             
@@ -19670,28 +18802,21 @@ for($phase7_remedial_term = 1; $phase7_remedial_term <=2; $phase7_remedial_term+
                 $rows['recomputed_final_grade'] = " ";
                }
             $html.='
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
+            <tr >
+                <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
             </tr>
-            </tbody>
-
-            
-            
-
-            
-            </table>
-            </div>
-            </div>
-
-           
-        
+        </tbody>
+    </table>   
+    </td>
+    <td style="width:.8em; border:none;">
+    </td>
            ';
         }
-
+//last 7
         }
 
     
@@ -19712,56 +18837,49 @@ if(mysqli_num_rows($run_phase8_scholastic) > 0){
 
    
     $html.='
-    <div class="left-container-3">
-    <div class="school1">
-    <label class="school" for="">School:<span class="school_underline">'.$rows['school'].'</span>  </label> 
-    <label class="school_id" for="">School ID: <span class="school_id_underline">'.$rows['school_id'].'</span>  </label> 
-    </div>
-    <div>
-    <label class="district" for="">District: <span class="district_underline">'.$rows['district'].'</span>  </label>
-    <label class="division" for="">Division: <span class="division_underline">'.$rows['division'].'</span>  </label>
-    <label class="region" for="">Region: <span class="region_underline">'.$rows['region'].'</span>  </label>
-    </div>
+    <td class="phase_8" style="width: 48%;  border:none;">
+    <table class="phase_head">
+        <tr>
+            <td colspan="6"><span class="main-arial-text">School: <span style="font-weight: bold;">'.$rows['school'].'</span></span></td>
+            <td colspan="6" style="text-align: right;><span class="main-arial-text">School ID: <span style="font-weight: bold;">'.$rows['school_id'].'</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="4"><span class="main-arial-text">District: <span style="font-weight: bold;">'.$rows['district'].'</span></span></td>
+            <td colspan="4" style="text-align: center;"><span class="main-arial-text">Division: <span style="font-weight: bold;">'.$rows['division'].'</span></span></td>
+            <td colspan="4" style="text-align: right;"><span class="main-arial-text">Region: <span style="font-weight: bold;">'.$rows['region'].'</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="3"><span class="main-arial-text">Classified as Grade: <span style="font-weight: bold;">'.$rows['classified_as_grade'].'</span></span></td>
+            <td colspan="5" style="text-align: center;"><span class="main-arial-text" >Section: <span style="font-weight: bold;">'.$rows['section'].'</span></span></td>
+            <td colspan="4" style="text-align: right;"><span class="main-arial-text">School year: <span style="font-weight: bold;">'.$rows['school_year'].'-2012</span></span></td>
+        </tr>
+        <tr>
+            <td colspan="6"><span class="main-arial-text">Name of adviser: <span style="font-weight: bold;">'.$rows['name_of_teacher'].'</span></span></td>
+            <td colspan="6" style="text-align: right;"><span class="main-arial-text">Signature:<span style="font-weight: bold;">'.$rows['signature'].'</span></span></td>
+        </tr>
+    </table>
+';
 
-    <div>
-    <label for="">Classified as Grade: <span class="classified_underline">'.$rows['classified_as_grade'].'</span> </label>
-    <label for="">Section: <span class="section_underline">'.$rows['section'].'</span> </label>
-    <label for="">School year:<span class="school_year_underline">'.$rows['school_year'].'</span>  </label>
-    </div>
-
-    <div>
-    <label for="">Name of adviser:<span class="name_of_teacher_underline">'.$rows['name_of_teacher'].'</span>  </label>
-    <label for="">Signature:<span class="signature_underline">'.$rows['signature'].'</span>  </label>
-    </div>
-
-
-
-    </div>
-
-
-   
-    
-    ';
 }
 
+
 $html.='
-<div class="container-phase-8">
-<table>
-<thead>
-<tr>
-<th rowspan="2">Learnering Areas</th>
-<th class="quarterly" colspan="4">Quarterly Rating</th>
-<th class="final-raiting" rowspan="2" >Final Rating</th>
-<th rowspan="2">Remarks</th>
-</tr>
-<tr class="quarter">
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>    
-<tbody>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Learning Areas</th>
+                    <th class="quarterly" colspan="4">Quarterly Rating</th>
+                    <th colspan="1" class="final-rating" rowspan="2" >Final <br> Rating</th>
+                    <th rowspan="2">Remarks</th>
+                </tr>
+                <tr class="quarter">
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+            </thead>    
+            <tbody> 
 ';
 
 //phase 8 term 1 
@@ -19787,8 +18905,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                         $html.=' 
                         <tr>
-                        <td class="mother">Mother&#8216s Tongue</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="subject">Mother&#8216s Tongue</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                         ';
                     
                     }
@@ -19816,7 +18934,7 @@ if(mysqli_num_rows($run_phase8_mt) > 0){
         $rows['grade'] = " ";
         }
 
-        $html.='   <td>'.$rows['grade'].'</td>  ';
+        $html.='   <td class="text-center">'.$rows['grade'].'</td>  ';
     
     }
 }
@@ -19842,7 +18960,7 @@ if(mysqli_num_rows($run_phase8_mt) > 0){
         $rows['grade'] = " ";
         }
 
-        $html.='  <td>'.$rows['grade'].'</td> ';
+        $html.='  <td class="text-center">'.$rows['grade'].'</td> ';
     
     }
 }
@@ -19872,7 +18990,7 @@ if($rows['grade'] == 0 ){
     $rows['grade'] = " ";
     }
 
-    $html.='  <td>'.$rows['grade'].'</td>  ';
+    $html.='  <td class="text-center">'.$rows['grade'].'</td>  ';
 
 }
 }
@@ -19899,8 +19017,8 @@ if(mysqli_num_rows($run_phase8_mt) > 0){
        }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>
         ';
     
@@ -19931,8 +19049,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="filipino">Filipino</td>
-                        <td> '.$rows['grade'].'</td>
+                        <td class="subject">Filipino</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>
                         ';
                     
                     }
@@ -19962,7 +19080,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                         $html.='
-                        <td> '.$rows['grade'].'</td>  ';
+                        <td class="text-center"> '.$rows['grade'].'</td>  ';
                     
                     }
 
@@ -19991,7 +19109,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -20022,7 +19140,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td> ';
+                    <td class="text-center"> '.$rows['grade'].'</td> ';
                 
                 }
 
@@ -20050,8 +19168,8 @@ if($phase8_subject_id == 2 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
             ';
         
@@ -20081,8 +19199,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="english">English</td>
-                <td> '.$rows['grade'].'</td>
+                <td class="subject">English</td>
+                <td class="text-center"> '.$rows['grade'].'</td>
                ';
             
             }
@@ -20112,7 +19230,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                         $html.='
-                        <td> '.$rows['grade'].'</td> ';
+                        <td class="text-center"> '.$rows['grade'].'</td> ';
                     
                     }
 
@@ -20140,7 +19258,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td> ';
+                    <td class="text-center"> '.$rows['grade'].'</td> ';
                 
                 }
 
@@ -20169,7 +19287,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -20197,8 +19315,8 @@ if($phase8_subject_id == 3 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].' </td>
-            <td class="insert-remarks"> '.$rows['remarks'].'</td>
+            <td class="text-center">'.$rows['final_rating'].' </td>
+            <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
             </tr>
              ';
         
@@ -20229,8 +19347,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                         $html.='
                         <tr>
-                        <td class="math">Mathematics</td>
-                        <td>'.$rows['grade'].'</td>
+                        <td class="subject">Mathematics</td>
+                        <td class="text-center">'.$rows['grade'].'</td>
                         ';
                     
                     }   
@@ -20263,7 +19381,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                         $html.='
-                        <td>'.$rows['grade'].'</td> ';
+                        <td class="text-center">'.$rows['grade'].'</td> ';
                     
                     }   
 
@@ -20291,7 +19409,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td> ';
+                    <td class="text-center">'.$rows['grade'].'</td> ';
                 
                 }   
 
@@ -20321,7 +19439,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }   
 
@@ -20349,8 +19467,8 @@ if($phase8_subject_id == 4 ){
            }
 
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].' </td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].' </td>
             </tr>
             ';
         
@@ -20381,8 +19499,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
     
                             $html.='
                             <tr>
-                            <td class="science">Science</td>
-                            <td>'.$rows['grade'].'</td>
+                            <td class="subject">Science</td>
+                            <td class="text-center">'.$rows['grade'].'</td>
                           ';
                         
                         }
@@ -20414,7 +19532,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                             }
     
                             $html.='
-                            <td>'.$rows['grade'].'</td>  ';
+                            <td class="text-center">'.$rows['grade'].'</td>  ';
                         
                         }
     
@@ -20444,7 +19562,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -20474,7 +19592,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -20502,8 +19620,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                }
     
                 $html.='
-                <td>'.$rows['final_rating'].'</td>
-                <td class="insert-remarks"> '.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
                 </tr>
                  ';
             
@@ -20534,8 +19652,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
     
                         $html.='
                         <tr>
-                        <td class="Ap">Araling Panlipunan</td>
-                        <td> '.$rows['grade'].'</td>
+                        <td class="subject">Araling Panlipunan</td>
+                        <td class="text-center"> '.$rows['grade'].'</td>
                      ';
                     
                     }
@@ -20564,7 +19682,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                             }
     
                         $html.='
-                        <td> '.$rows['grade'].'</td>  ';
+                        <td class="text-center"> '.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -20591,7 +19709,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
     
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
     
@@ -20619,7 +19737,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                  <td> '.$rows['grade'].'</td> ';
+                  <td class="text-center"> '.$rows['grade'].'</td> ';
             
             }
 
@@ -20646,8 +19764,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                }
     
             $html.='
-            <td>'.$rows['final_rating'].'</td>
-            <td> '.$rows['remarks'].' </td>
+            <td class="text-center">'.$rows['final_rating'].'</td>
+            <td class="text-center"> '.$rows['remarks'].' </td>
             </tr>
              ';
         
@@ -20679,8 +19797,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="epp">EPP/TLE</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">EPP/TLE</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                   ';
                 
                 }
@@ -20710,7 +19828,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -20738,7 +19856,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -20766,7 +19884,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td> ';
+                <td class="text-center">'.$rows['grade'].'</td> ';
             
             }
 
@@ -20795,8 +19913,8 @@ if($phase8_subject_id == 7 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
        ';
     
@@ -20828,8 +19946,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="mapeh">MAPEH</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="subject">MAPEH</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                      ';
                 
                 }
@@ -20861,7 +19979,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -20888,7 +20006,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>  ';
+                <td class="text-center"> '.$rows['grade'].'</td>  ';
             
             }
 
@@ -20917,7 +20035,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 }
 
             $html.='
-            <td> '.$rows['grade'].'</td>  ';
+            <td class="text-center"> '.$rows['grade'].'</td>  ';
         
         }
 
@@ -20944,8 +20062,8 @@ if($phase8_subject_id == 8 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td class="insert-remarks"> '.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="insert-remarks text-center"> '.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -20975,8 +20093,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                 $html.='
                 <tr>
-                <td class="music">Music</td>
-                <td>'.$rows['grade'].'</td>
+                <td class="small-pad-left italic">Music</td>
+                <td class="text-center">'.$rows['grade'].'</td>
                   ';
             
             }
@@ -21005,7 +20123,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                             }
     
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
     
@@ -21031,7 +20149,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                 }
 
             $html.='
-            <td>'.$rows['grade'].'</td>  ';
+            <td class="text-center">'.$rows['grade'].'</td>  ';
         
         }
 
@@ -21059,7 +20177,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             }
 
         $html.='
-        <td>'.$rows['grade'].'</td> ';
+        <td class="text-center">'.$rows['grade'].'</td> ';
     
     }
 
@@ -21085,8 +20203,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                }
     
             $html.='
-            <td> '.$rows['final_rating'].'</td>
-            <td>'.$rows['remarks'].'</td>
+            <td class="text-center"> '.$rows['final_rating'].'</td>
+            <td class="text-center">'.$rows['remarks'].'</td>
             </tr>
               ';
         
@@ -21116,8 +20234,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="arts">Arts</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left italic">Arts</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -21147,7 +20265,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                                 }
         
                             $html.='
-                            <td>'.$rows['grade'].'</td>  ';
+                            <td class="text-center">'.$rows['grade'].'</td>  ';
                         
                         }
         
@@ -21176,7 +20294,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                             }
         
                         $html.='
-                        <td>'.$rows['grade'].'</td> ';
+                        <td class="text-center">'.$rows['grade'].'</td> ';
                     
                     }
         
@@ -21205,7 +20323,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                             }
         
                         $html.='
-                        <td>'.$rows['grade'].'</td>  ';
+                        <td class="text-center">'.$rows['grade'].'</td>  ';
                     
                     }
         
@@ -21234,8 +20352,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                    }
         
                 $html.='
-                <td>'.$rows['final_rating'].'</td>
-                <td>'.$rows['remarks'].'</td>
+                <td class="text-center">'.$rows['final_rating'].'</td>
+                <td class="text-center">'.$rows['remarks'].'</td>
                 </tr>
                 ';
             
@@ -21266,8 +20384,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="pe">Physical Education</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left italic">Physical Education</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -21296,7 +20414,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -21325,7 +20443,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -21352,7 +20470,7 @@ if($phase8_subject_id == 11 ){
             }
 
         $html.='
-        <td>'.$rows['grade'].'</td>  ';
+        <td class="text-center">'.$rows['grade'].'</td>  ';
     
     }
 
@@ -21378,8 +20496,8 @@ if($phase8_subject_id == 11 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21411,8 +20529,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="health">Health</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="small-pad-left italic">Health</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                 ';
                 
                 }
@@ -21442,7 +20560,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td> ';
+                    <td class="text-center"> '.$rows['grade'].'</td> ';
                 
                 }
 
@@ -21471,7 +20589,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td> ';
+                <td class="text-center"> '.$rows['grade'].'</td> ';
             
             }
 
@@ -21501,7 +20619,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td> ';
+                <td class="text-center"> '.$rows['grade'].'</td> ';
             
             }
 
@@ -21528,8 +20646,8 @@ if($phase8_subject_id == 12 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21560,8 +20678,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="eduk">Eduk. Sa Pagpapakatao</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="subject">Eduk. Sa Pagpapakatao</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -21592,7 +20710,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -21618,7 +20736,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
             }
 
         $html.='
-        <td>'.$rows['grade'].'</td>  ';
+        <td class="text-center">'.$rows['grade'].'</td>  ';
     
     }
 
@@ -21647,7 +20765,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -21673,8 +20791,8 @@ if($phase8_subject_id == 13 ){
            }
 
         $html.='
-        <td> '.$rows['final_rating'].'</td>
-        <td>'.$rows['remarks'].'</td>
+        <td class="text-center"> '.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21706,8 +20824,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="arabic">*Arabic language</td>
-                    <td> '.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Arabic language</td>
+                    <td class="text-center"> '.$rows['grade'].'</td>
                     ';
                 
                 }
@@ -21737,7 +20855,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                     $html.='
-                    <td> '.$rows['grade'].'</td>  ';
+                    <td class="text-center"> '.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -21766,7 +20884,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>  ';
+                <td class="text-center"> '.$rows['grade'].'</td>  ';
             
             }
 
@@ -21796,7 +20914,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td> '.$rows['grade'].'</td>  ';
+                <td class="text-center"> '.$rows['grade'].'</td>  ';
             
             }
 
@@ -21824,8 +20942,8 @@ if($phase8_subject_id == 14 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -21856,8 +20974,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="islamic">*Islamic values Education</td>
-                    <td>'.$rows['grade'].'</td>
+                    <td class="small-pad-left">*Islamic values Education</td>
+                    <td class="text-center">'.$rows['grade'].'</td>
                    ';
                 
                 }
@@ -21888,7 +21006,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                         }
 
                     $html.='
-                    <td>'.$rows['grade'].'</td>  ';
+                    <td class="text-center">'.$rows['grade'].'</td>  ';
                 
                 }
 
@@ -21915,7 +21033,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
                 
             
             }
@@ -21945,7 +21063,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td>'.$rows['grade'].'</td>  ';
+                <td class="text-center">'.$rows['grade'].'</td>  ';
             
             }
 
@@ -21973,8 +21091,8 @@ if($phase8_subject_id == 15 ){
            }
 
         $html.='
-        <td>'.$rows['final_rating'].'</td>
-        <td class=z>'.$rows['remarks'].'</td>
+        <td class="text-center">'.$rows['final_rating'].'</td>
+        <td class="text-center">'.$rows['remarks'].'</td>
         </tr>
          ';
     
@@ -22005,8 +21123,8 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
 
                     $html.='
                     <tr>
-                    <td class="general">General average</td>
-                    <td class="insert-gen-av">'.$rows['general_average'].'</td>
+                    <td class="subject">General average</td>
+                    <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
                    ';
                 
 
@@ -22036,7 +21154,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
+                <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>  ';
             
 
 
@@ -22067,7 +21185,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     }
 
                 $html.='
-                <td class="insert-gen-av">'.$rows['general_average'].'</td>  ';
+                <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>  ';
             
 
 
@@ -22096,7 +21214,7 @@ for ($phase8_subject_id = 1; $phase8_subject_id <= 16 ; $phase8_subject_id++) {
                     $rows['general_average'] = " ";
                     }
                 $html.='
-                <td class="insert-gen-av">'.$rows['general_average'].'</td> ';
+                <td class="insert-gen-av text-center">'.$rows['general_average'].'</td> ';
             
 
 
@@ -22142,8 +21260,8 @@ if( $phase8_subject_id == 16){
               }
 
         $html.='
-        <td class="insert-gen-av">'.$rows['general_average'].'</td>
-        <td>'.$output.'</td>
+        <td class="insert-gen-av text-center">'.$rows['general_average'].'</td>
+        <td class="text-center">'.$output.'</td>
        
         </tr>
         </tbody>
@@ -22193,30 +21311,29 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
 
 
             $html.='
-            <table>
-            <thead>
-            <tr>
-            <th colspan="2">Remedial Classes</th>
-            <th colspan="2"> Date Conducted: '.$rows['date_from'].'</th>
-            <th colspan="1">To: '.$rows['date_to'].'</th>
-            </tr>
-            <tr class="remedial">
-            <td>Learning Areas</td>
-            <td>Final Rating</td>
-            <td>Remedial Class Mark</td>
-            <td>Remarks</th>
-            <td>Recomputed Final Grade</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-
-           
+                <table style="margin-top:4px;">
+                    <thead>
+                        <tr class="remedial">
+                            <th colspan="2">Remedial Classes</th>
+                            <th colspan="2" class="text-start" style="border-right: none;"> Date Conducted: '.$rows['date_from'].'</th>
+                            <th colspan="2" class="text-start" style="border-left: none;">To: '.$rows['date_to'].'</th>
+                        </tr>
+                        <tr class="arial-header text-center">
+                            <td colspan="2">Learning Areas</td>
+                            <td>Final Rating</td>
+                            <td>Remedial Class <br> Mark</td>
+                            <td>Recomputed <br> Final Grade</td>
+                            <td>Remarks</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr >
+                        <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                        <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                    </tr>    
            
            ';
             
@@ -22241,27 +21358,22 @@ for($phase8_remedial_term = 1; $phase8_remedial_term <=2; $phase8_remedial_term+
                 $rows['recomputed_final_grade'] = " ";
                }
             $html.='
-            <tr>
-            <td class="remedial-2">'.$rows['learning_areas'].'</td>
-            <td class="remedial-2">'.$rows['final_rating'].'</td>
-            <td class="remedial-2">'.$rows['remarks'].'</td>
-            <td class="remedial-2">'.$rows['remedial_class_mark'].'</td>
-            <td class="remedial-2">'.$rows['recomputed_final_grade'].'</td>
-            </tr>
-            </tbody>
-
-            
-            
-
-            
-            </table>
-            </div>
-
-           
-        
+                        <tr >
+                            <td colspan="2" class="remedial-2 text-center">'.$rows['learning_areas'].'</td>
+                            <td class="remedial-2 text-center">'.$rows['final_rating'].'</td>
+                            <td class="remedial-2 text-center">'.$rows['remarks'].'</td>
+                            <td class="remedial-2 text-center">'.$rows['remedial_class_mark'].'</td>
+                            <td class="remedial-2 text-center">'.$rows['recomputed_final_grade'].'</td>
+                        </tr>
+                    </tbody>
+                </table>   
+            </td>
+        </tr>
+    </table>
+</div>
            ';
         }
-
+//last 8
         }
 
     
